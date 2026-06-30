@@ -1,0 +1,127 @@
+<!doctype html>
+<!-- @dsCard group="Colors" name="Color as surface — bold pairings" subtitle="Every brand color as a background, with WCAG-validated text colors and their safe roles" viewport="700x1080" -->
+<html><head><meta charset="utf-8"><title>Color as surface</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  html, body { overflow: auto; height: 100%; width: 700px; }
+  body { width: 700px; }
+  .card { width: 700px; min-height: 100%; }
+  .lbl { font: 700 11px/1 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; color: var(--tha-lime-600); }
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .legend .it { display: flex; align-items: center; gap: 7px; font: 500 12px/1 var(--font-sans); color: var(--fg-2); }
+  .legend .tag { font: 700 9px/1 var(--font-mono); letter-spacing: .05em; text-transform: uppercase; padding: 3px 6px; color: #fff; }
+  .surf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+  .tile { border: 1px solid var(--border-2); overflow: hidden; display: flex; flex-direction: column; }
+  .tile .band { padding: 18px; min-height: 132px; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+  .tile .hl { font: 700 22px/1.04 var(--font-sans); letter-spacing: -.02em; }
+  .tile .hl em { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
+  .tile .sub { font: 500 12px/1.3 var(--font-sans); opacity: .85; }
+  .tile .meta { background: var(--bg-2); padding: 12px 14px; display: flex; flex-direction: column; gap: 9px; border-top: 1px solid var(--border-2); }
+  .tile .nm { display: flex; align-items: baseline; gap: 8px; }
+  .tile .nm b { font: 700 11px/1 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--fg-1); }
+  .tile .nm span { font: 500 10px/1 var(--font-mono); color: var(--fg-3); }
+  .roles { display: flex; flex-direction: column; gap: 5px; }
+  .role { display: flex; align-items: center; gap: 7px; font: 500 11px/1.2 var(--font-sans); color: var(--fg-2); }
+  .role .sw2 { width: 13px; height: 13px; border: 1px solid var(--border-2); flex: none; }
+  .role .tag { margin-left: auto; font: 700 8px/1 var(--font-mono); letter-spacing: .04em; text-transform: uppercase; padding: 3px 6px; color: #fff; }
+</style>
+</head>
+<body>
+<div class="card" style="gap:18px">
+
+  <div>
+    <div class="lbl">Color as surface · bold pairings</div>
+    <h3 style="font:700 24px/1.05 var(--font-sans);letter-spacing:-.02em;margin:10px 0 6px;color:var(--fg-1)">Any color can be the <em style="font-family:var(--font-serif);font-style:italic;font-weight:400">surface</em>.</h3>
+    <p style="font:400 13px/1.5 var(--font-sans);color:var(--fg-2);max-width:72ch;margin:0">Decks lean on paper + navy, but the whole palette can carry a section as a bold color block. Each surface below lists the brand colors that pass WCAG as type on it — including <strong>cross-pair</strong> combinations (e.g. lavender on teal), now allowed wherever contrast clears.</p>
+  </div>
+
+  <div id="legend" class="legend"></div>
+  <div id="surfaces" class="surf-grid"></div>
+
+  <div style="font:400 12px/1.55 var(--font-sans);color:var(--fg-3);max-width:74ch;border-top:1px solid var(--border-2);padding-top:14px">
+    <strong style="color:var(--fg-1)">Roles:</strong> <b style="color:var(--fg-1)">Body</b> = ratio ≥ 4.5, safe at any size. <b style="color:var(--fg-1)">Large + Bold</b> = ratio 3.0–4.5, for headlines (≥ 24px) / bold (≥ 19px) and UI/borders only — never body copy. Below 3.0 the pair is decorative-adjacent only (block beside block), never type on type. Raw ratios: see the Contrast matrix card.
+  </div>
+</div>
+
+<script>
+  var NAVY='#182D43', NAVY9='#0E1C2B', TEAL='#145F7B', PURPLE='#6103B9',
+      LAV='#CB65FF', CYAN='#86FFF1', LIME='#D2EB00', LIME6='#A7BC00',
+      WHITE='#FFFFFF', PAPER='#FAFAF7';
+
+  // candidate TEXT colors (what can sit on a surface)
+  var TEXT = [
+    { nm:'Navy', hex:NAVY }, { nm:'Teal', hex:TEAL }, { nm:'Purple', hex:PURPLE },
+    { nm:'Lavender', hex:LAV }, { nm:'Cyan', hex:CYAN }, { nm:'Lime', hex:LIME },
+    { nm:'Lime 600', hex:LIME6 }, { nm:'White', hex:WHITE }, { nm:'Paper', hex:PAPER }
+  ];
+  // SURFACES (background blocks), with a short brand-voice line
+  var SURFACES = [
+    { nm:'Navy',     hex:NAVY,   hl:'We <em>speak</em> tech.' },
+    { nm:'Teal',     hex:TEAL,   hl:'Clarity at <em>scale</em>.' },
+    { nm:'Purple',   hex:PURPLE, hl:'Real <em>opinions</em>.' },
+    { nm:'Lavender', hex:LAV,    hl:'Bold by <em>default</em>.' },
+    { nm:'Cyan',     hex:CYAN,   hl:'Sharper <em>signal</em>.' },
+    { nm:'Lime',     hex:LIME,   hl:'The story is <em>always</em> there.' },
+    { nm:'Paper',    hex:PAPER,  hl:'Counsel with <em>conviction</em>.' },
+    { nm:'White',    hex:WHITE,  hl:'Less noise. <em>More</em> signal.' }
+  ];
+  var COLORFUL = { Teal:1, Purple:1, Lavender:1, Cyan:1, Lime:1, 'Lime 600':1 };
+  var TAGCOLOR = { body:'#147A4B', large:'#E08A00' };
+
+  function lum(hex){
+    var c=hex.replace('#',''); var r=parseInt(c.substr(0,2),16)/255,g=parseInt(c.substr(2,2),16)/255,b=parseInt(c.substr(4,2),16)/255;
+    var f=function(x){return x<=0.03928?x/12.92:Math.pow((x+0.055)/1.055,2.4);};
+    return 0.2126*f(r)+0.7152*f(g)+0.0722*f(b);
+  }
+  function ratio(a,b){ var L1=lum(a),L2=lum(b),hi=Math.max(L1,L2),lo=Math.min(L1,L2); return (hi+0.05)/(lo+0.05); }
+  function sameish(a,b){ return a.toUpperCase()===b.toUpperCase(); }
+
+  // legend
+  var leg=document.getElementById('legend');
+  [['Body','#147A4B','Body · ≥ 4.5'],['Large','#E08A00','Large + Bold · 3–4.5']].forEach(function(p){
+    var d=document.createElement('div'); d.className='it';
+    d.innerHTML='<span class="tag" style="background:'+p[1]+'">'+(p[0]==='Body'?'Body':'Lg+Bold')+'</span>'+p[2];
+    leg.appendChild(d);
+  });
+
+  var wrap=document.getElementById('surfaces');
+  SURFACES.forEach(function(s){
+    // compute viable text colors with role
+    var roles=[];
+    TEXT.forEach(function(t){
+      if(sameish(t.hex,s.hex)) return;
+      var r=ratio(s.hex,t.hex);
+      if(r>=4.5) roles.push({nm:t.nm,hex:t.hex,r:r,role:'body'});
+      else if(r>=3) roles.push({nm:t.nm,hex:t.hex,r:r,role:'large'});
+    });
+    roles.sort(function(a,b){ return b.r-a.r; });
+
+    // headline color = most legible neutral-ish, else top
+    var best=roles[0];
+    // accent = a colorful passing color, prefer body, highest ratio, different from best
+    var accent=roles.filter(function(x){ return COLORFUL[x.nm] && x.hex!==best.hex; })[0];
+
+    var hlHtml=s.hl;
+    var hlColor=best ? best.hex : '#000';
+    var emColor=accent ? accent.hex : hlColor;
+
+    var tile=document.createElement('div'); tile.className='tile';
+    var rolesHtml=roles.map(function(x){
+      return '<div class="role"><span class="sw2" style="background:'+x.hex+'"></span><span>'+x.nm+'</span>'+
+             '<span class="tag" style="background:'+TAGCOLOR[x.role]+'">'+(x.role==='body'?'Body':'Lg+Bold')+'</span></div>';
+    }).join('');
+
+    tile.innerHTML =
+      '<div class="band" style="background:'+s.hex+'">' +
+        '<div class="hl" style="color:'+hlColor+'">'+hlHtml.replace('<em>','<em style="color:'+emColor+'">')+'</div>' +
+        '<div class="sub" style="color:'+hlColor+'">'+roles.length+' colors pass as type</div>' +
+      '</div>' +
+      '<div class="meta">' +
+        '<div class="nm"><b>'+s.nm+'</b><span>'+s.hex.toUpperCase()+'</span></div>' +
+        '<div class="roles">'+rolesHtml+'</div>' +
+      '</div>';
+    wrap.appendChild(tile);
+  });
+</script>
+</body></html>
+

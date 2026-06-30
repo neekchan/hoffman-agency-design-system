@@ -1,0 +1,87 @@
+<!doctype html>
+<!-- @dsCard group="Colors" name="Surfaces — page vs. card" subtitle="Two light models: paper page + white cards, or white page + sand cards" viewport="760x660" -->
+<html><head><meta charset="utf-8"><title>Surfaces</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  html, body { overflow: auto; height: 100%; }
+  body { width: auto; }
+  .card { width: 100%; min-height: 100%; padding: 0; gap: 0; }
+  .demo { padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+  .demo-eyebrow { font: 700 11px/1 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+  .demo h3 { font: 700 22px/1.05 var(--font-sans); letter-spacing: -.02em; margin: 0; color: var(--fg-1); }
+  .panel { background: var(--bg-2); border: 1px solid var(--border-2); padding: 16px; }
+  .panel .k { font: 700 11px/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--fg-3); }
+  .panel .v { font: 700 26px/1 var(--font-sans); letter-spacing: -.02em; color: var(--fg-1); margin-top: 8px; }
+  .trow { display: flex; justify-content: space-between; padding: 9px 0; border-top: 1px solid var(--border-2); font: 500 13px/1.3 var(--font-sans); color: var(--fg-1); }
+  .trow:first-child { border-top: 0; }
+  .trow span:last-child { color: var(--fg-2); }
+  .swatchline { display: flex; align-items: center; gap: 10px; font: 500 12px/1.3 var(--font-mono); color: var(--fg-2); }
+  .chip { width: 26px; height: 26px; border: 1px solid var(--border-2); flex: none; }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <!-- header -->
+  <div style="padding:22px 22px 0;background:var(--tha-paper)">
+    <div class="demo-eyebrow" style="color:var(--tha-lime-600)">Surfaces</div>
+    <h3 style="font:700 24px/1.05 var(--font-sans);letter-spacing:-.02em;margin:10px 0 6px;color:var(--fg-1)">Pick a page, then step the cards <em style="font-family:var(--font-serif);font-style:italic;font-weight:400">one</em> notch.</h3>
+    <p style="font:400 13px/1.5 var(--font-sans);color:var(--fg-2);max-width:64ch;margin:0 0 18px">Two valid light models. In each, the page and the card sit one clear step apart — never the same warm tone on itself.</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--border-2)">
+
+    <!-- THEME A: paper page, white cards (default) -->
+    <div class="demo" style="background:var(--bg-1);border-right:1px solid var(--border-2)">
+      <div>
+        <div class="demo-eyebrow" style="color:var(--tha-lime-600)">Default theme</div>
+        <h3 style="margin-top:6px">Paper page · white cards</h3>
+      </div>
+      <div class="panel">
+        <div class="k">Reach</div>
+        <div class="v">38.2M</div>
+        <div style="margin-top:12px">
+          <div class="trow"><span>Earned</span><span>21.4M</span></div>
+          <div class="trow"><span>Owned</span><span>11.0M</span></div>
+          <div class="trow"><span>Social</span><span>5.8M</span></div>
+        </div>
+      </div>
+      <div class="swatchline"><span class="chip" style="background:var(--tha-paper)"></span> page · <code>--bg-1</code> paper #FAFAF7</div>
+      <div class="swatchline"><span class="chip" style="background:var(--tha-white)"></span> card · <code>--bg-2</code> white #FFFFFF</div>
+    </div>
+
+    <!-- THEME B: white page, sand cards (.tha-theme-white) -->
+    <div class="demo tha-theme-white" style="background:var(--bg-1)">
+      <div>
+        <div class="demo-eyebrow" style="color:var(--tha-lime-600)">White theme</div>
+        <h3 style="margin-top:6px">White page · sand cards</h3>
+      </div>
+      <div class="panel">
+        <div class="k">Reach</div>
+        <div class="v">38.2M</div>
+        <div style="margin-top:12px">
+          <div class="trow"><span>Earned</span><span>21.4M</span></div>
+          <div class="trow"><span>Owned</span><span>11.0M</span></div>
+          <div class="trow"><span>Social</span><span>5.8M</span></div>
+        </div>
+      </div>
+      <div class="swatchline"><span class="chip" style="background:var(--tha-white)"></span> page · <code>--bg-1</code> white #FFFFFF</div>
+      <div class="swatchline"><span class="chip" style="background:var(--tha-sand)"></span> card · <code>--bg-2</code> sand #F1EFE7</div>
+    </div>
+  </div>
+
+  <!-- rule footer -->
+  <div style="padding:16px 22px;border-top:1px solid var(--border-2);background:var(--tha-paper);display:flex;flex-direction:column;gap:10px">
+    <div style="font:600 13px/1.3 var(--font-sans);color:var(--fg-1)">The rule</div>
+    <div style="display:flex;gap:18px;flex-wrap:wrap">
+      <div style="flex:1;min-width:230px;font:400 12px/1.55 var(--font-sans);color:var(--fg-2)">
+        <strong style="color:var(--fg-1)">Do</strong> — add <code>class="tha-theme-white"</code> to a section to flip it to the white model. Cards inside automatically become sand. Both models keep a hairline <code>--border-2</code> so panels read even at low contrast.
+      </div>
+      <div style="flex:1;min-width:230px;font:400 12px/1.55 var(--font-sans);color:var(--fg-2)">
+        <strong style="color:var(--tha-purple)">Don't</strong> — put a paper card on a paper page, or a white card on a white page. The ~1.5% delta is too faint to read as elevation — the washed, flat look to avoid.
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>
+

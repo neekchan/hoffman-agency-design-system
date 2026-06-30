@@ -1,0 +1,116 @@
+<!doctype html>
+<!-- @dsCard group="Colors" name="Contrast matrix (WCAG)" subtitle="Every brand pair, scored — which text-on-background combinations are legible" viewport="900x720" -->
+<html><head><meta charset="utf-8"><title>Contrast matrix</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  html, body { overflow: auto; height: 100%; }
+  body { width: auto; }
+  .card { width: max-content; min-width: 100%; }
+  .lbl { font: 700 11px/1 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; color: var(--tha-lime-600); }
+  .grid { display: grid; gap: 4px; }
+  .hcol { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 4px 2px; }
+  .hcol .chip { width: 26px; height: 26px; border: 1px solid var(--border-2); }
+  .hcol .nm { font: 600 10px/1.1 var(--font-sans); color: var(--fg-2); text-align: center; max-width: 76px; }
+  .rowh { display: flex; align-items: center; gap: 8px; justify-content: flex-end; padding-right: 8px; }
+  .rowh .chip { width: 22px; height: 22px; border: 1px solid var(--border-2); flex: none; }
+  .rowh .nm { font: 600 11px/1.1 var(--font-sans); color: var(--fg-2); text-align: right; }
+  .cell { position: relative; border: 1px solid var(--border-3); overflow: hidden; }
+  .cell .sw { height: 40px; display: flex; align-items: center; justify-content: center; font: 700 17px/1 var(--font-sans); }
+  .cell .meta { display: flex; align-items: center; justify-content: center; gap: 5px; padding: 4px 2px; background: var(--bg-2); }
+  .cell .ratio { font: 700 11px/1 var(--font-mono); color: var(--fg-1); }
+  .cell .dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+  .cell.diag .sw { opacity: .25; }
+  .legend { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
+  .legend .it { display: flex; align-items: center; gap: 7px; font: 500 12px/1 var(--font-sans); color: var(--fg-2); }
+  .legend .dot { width: 9px; height: 9px; border-radius: 50%; }
+</style>
+</head>
+<body>
+<div class="card" style="gap:18px">
+
+  <div>
+    <div class="lbl">Contrast matrix · WCAG 2.1</div>
+    <h3 style="font:700 24px/1.05 var(--font-sans);letter-spacing:-.02em;margin:10px 0 6px;color:var(--fg-1)">Which pairs you can <em style="font-family:var(--font-serif);font-style:italic;font-weight:400">actually</em> read.</h3>
+    <p style="font:400 13px/1.5 var(--font-sans);color:var(--fg-2);max-width:70ch;margin:0">Row = background, column = text color. Each cell shows the contrast ratio and its highest WCAG pass. Use this to unlock more brand combinations safely — and to see why lime-on-white never works as text.</p>
+  </div>
+
+  <div id="legend" class="legend"></div>
+  <div id="matrix" class="grid"></div>
+
+  <div style="font:400 12px/1.55 var(--font-sans);color:var(--fg-3);max-width:74ch;border-top:1px solid var(--border-2);padding-top:14px">
+    <strong style="color:var(--fg-1)">Thresholds:</strong> AAA ≥ 7.0 · AA (body text) ≥ 4.5 · AA Large (≥ 24px or 19px bold, and UI/graphics) ≥ 3.0 · below 3.0 fails. Ratios are symmetric, so the table is mirrored across the diagonal.
+  </div>
+</div>
+
+<script>
+  var COLORS = [
+    { nm: 'Navy',     hex: '#182D43' },
+    { nm: 'Navy 900', hex: '#0E1C2B' },
+    { nm: 'Teal',     hex: '#145F7B' },
+    { nm: 'Purple',   hex: '#6103B9' },
+    { nm: 'Lavender', hex: '#CB65FF' },
+    { nm: 'Cyan',     hex: '#86FFF1' },
+    { nm: 'Lime',     hex: '#D2EB00' },
+    { nm: 'Paper',    hex: '#FAFAF7' },
+    { nm: 'White',    hex: '#FFFFFF' }
+  ];
+  var LEVELS = {
+    AAA:     { label: 'AAA',  color: '#147A4B' },
+    AA:      { label: 'AA',   color: '#2E9E5B' },
+    AALarge: { label: 'AA▲',  color: '#E08A00' },
+    Fail:    { label: '✕',    color: '#C43D3D' }
+  };
+  function lum(hex){
+    var c = hex.replace('#','');
+    var r = parseInt(c.substr(0,2),16)/255, g = parseInt(c.substr(2,2),16)/255, b = parseInt(c.substr(4,2),16)/255;
+    var f = function(x){ return x <= 0.03928 ? x/12.92 : Math.pow((x+0.055)/1.055, 2.4); };
+    return 0.2126*f(r) + 0.7152*f(g) + 0.0722*f(b);
+  }
+  function ratio(a,b){ var L1 = lum(a), L2 = lum(b); var hi = Math.max(L1,L2), lo = Math.min(L1,L2); return (hi+0.05)/(lo+0.05); }
+  function levelOf(r){ return r >= 7 ? 'AAA' : r >= 4.5 ? 'AA' : r >= 3 ? 'AALarge' : 'Fail'; }
+
+  // legend
+  var leg = document.getElementById('legend');
+  [['AAA','≥ 7 · AAA'],['AA','≥ 4.5 · AA body'],['AALarge','≥ 3 · AA large/UI'],['Fail','< 3 · fail']].forEach(function(p){
+    var d = document.createElement('div'); d.className = 'it';
+    d.innerHTML = '<span class="dot" style="background:'+LEVELS[p[0]].color+'"></span>'+p[1];
+    leg.appendChild(d);
+  });
+
+  // grid
+  var n = COLORS.length;
+  var grid = document.getElementById('matrix');
+  grid.style.gridTemplateColumns = '120px repeat(' + n + ', 80px)';
+
+  // header row (corner + column headers = text colors)
+  var corner = document.createElement('div');
+  corner.style.cssText = 'display:flex;align-items:flex-end;justify-content:flex-end;padding:4px 8px;font:600 10px/1.2 var(--font-mono);color:var(--fg-3);text-align:right';
+  corner.textContent = 'text →  /  bg ↓';
+  grid.appendChild(corner);
+  COLORS.forEach(function(c){
+    var h = document.createElement('div'); h.className = 'hcol';
+    h.innerHTML = '<span class="chip" style="background:'+c.hex+'"></span><span class="nm">'+c.nm+'</span>';
+    grid.appendChild(h);
+  });
+
+  // body rows: bg color = row
+  COLORS.forEach(function(bg){
+    var rh = document.createElement('div'); rh.className = 'rowh';
+    rh.innerHTML = '<span class="nm">'+bg.nm+'</span><span class="chip" style="background:'+bg.hex+'"></span>';
+    grid.appendChild(rh);
+    COLORS.forEach(function(fg){
+      var r = ratio(bg.hex, fg.hex);
+      var lvl = levelOf(r);
+      var same = bg.hex === fg.hex;
+      var cell = document.createElement('div');
+      cell.className = 'cell' + (same ? ' diag' : '');
+      cell.innerHTML =
+        '<div class="sw" style="background:'+bg.hex+';color:'+fg.hex+'">Aa</div>' +
+        '<div class="meta"><span class="dot" style="background:'+LEVELS[lvl].color+'"></span>' +
+        '<span class="ratio">'+(same ? '—' : r.toFixed(1))+'</span></div>';
+      grid.appendChild(cell);
+    });
+  });
+</script>
+</body></html>
+

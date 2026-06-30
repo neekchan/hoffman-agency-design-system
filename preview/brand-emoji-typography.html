@@ -1,0 +1,64 @@
+<!doctype html>
+<!-- @dsCard group="Type" name="Emoji typographic storytelling" subtitle="An emoji standing in for a word inside a Poppins line — sparingly, on the baseline" viewport="760x680" -->
+<html><head><meta charset="utf-8"><title>Emoji typographic storytelling</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  html, body { overflow: auto; height: 100%; }
+  body { width: auto; }
+  .card { width: 100%; min-height: 100%; }
+  .lbl { font: 700 11px/1 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; color: var(--tha-lime-600); }
+  .ex { font: 700 clamp(26px,3.4vw,38px)/1.1 var(--font-sans); letter-spacing: -.02em; color: var(--fg-1); margin: 0; }
+  .ex em { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
+  .specimen { padding: 20px; background: var(--bg-2); border: 1px solid var(--border-2); display: flex; flex-direction: column; gap: 6px; }
+  .codeline { font: 500 11px/1.5 var(--font-mono); color: var(--fg-3); }
+</style>
+</head>
+<body>
+<div class="card" style="gap:20px">
+
+  <div>
+    <div class="lbl">Emoji typography</div>
+    <h3 style="font:700 24px/1.05 var(--font-sans);letter-spacing:-.02em;margin:10px 0 6px;color:var(--fg-1)">Let an emoji <span class="tha-emoji" role="img" aria-label="speak">🗣️</span> a word.</h3>
+    <p style="font:400 13px/1.5 var(--font-sans);color:var(--fg-2);max-width:66ch;margin:0">A signature voice move: swap one charged word for an emoji that carries it. It reads as wit, not decoration. Keep it to the few words that earn it.</p>
+  </div>
+
+  <!-- specimens -->
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div class="specimen">
+      <p class="ex">We turn opinion into <span class="tha-emoji" role="img" aria-label="upward trend">📈</span> influence.</p>
+      <div class="codeline">📈 stands in for <em style="font-style:italic">rising</em> &mdash; the word the reader pictures anyway.</div>
+    </div>
+    <div class="specimen">
+      <p class="ex">Counsel without conviction is just <span class="tha-emoji" role="img" aria-label="shrug">🤷</span>.</p>
+      <div class="codeline">🤷 carries <em style="font-style:italic">indecision</em> &mdash; the line still reads if you swap the word back in.</div>
+    </div>
+    <div class="specimen" style="background:var(--bg-dark);border-color:transparent">
+      <p class="ex" style="color:var(--tha-paper)">Clarity <span class="tha-emoji" role="img" aria-label="in">⬇️</span> · complexity <span class="tha-emoji" role="img" aria-label="out">⬆️</span></p>
+      <div class="codeline" style="color:var(--tha-navy-300)">Works on navy too — the glyph keeps its own color, the type stays brand.</div>
+    </div>
+  </div>
+
+  <!-- rules -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-top:16px;border-top:1px solid var(--border-2)">
+    <div>
+      <div style="font:600 13px/1.3 var(--font-sans);color:var(--fg-1);margin-bottom:8px">Do</div>
+      <ul style="font:400 12px/1.6 var(--font-sans);color:var(--fg-2);margin:0;padding-left:18px">
+        <li>Replace <strong>one charged noun or verb</strong> — the word a reader pictures anyway.</li>
+        <li>Wrap it in <code style="font:500 11px/1 var(--font-mono);background:var(--bg-3);padding:1px 5px">.tha-emoji</code> so it rides the baseline, not above the line.</li>
+        <li>Always add <code style="font:500 11px/1 var(--font-mono);background:var(--bg-3);padding:1px 5px">role="img" aria-label="…"</code> with the word it replaces.</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font:600 13px/1.3 var(--font-sans);color:var(--tha-purple);margin-bottom:8px">Don't</div>
+      <ul style="font:400 12px/1.6 var(--font-sans);color:var(--fg-2);margin:0;padding-left:18px">
+        <li>More than <strong>3 per surface</strong> (voice rule) — past that it's clip-art.</li>
+        <li>Emoji as bullets, icons, or decoration. This is <em style="font-style:italic">in place of a word</em> only.</li>
+        <li>Skin-tone or brand-logo emoji; keep them neutral and evergreen.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="font:500 11px/1.5 var(--font-mono);color:var(--tha-purple)">REMEMBER · the sentence must still read perfectly if the emoji were the word it replaces</div>
+</div>
+</body></html>
+
