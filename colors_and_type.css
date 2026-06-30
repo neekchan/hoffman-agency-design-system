@@ -1,0 +1,393 @@
+/* ==========================================================================
+   The Hoffman Agency — Colors & Type tokens
+   ========================================================================== */
+
+/* JetBrains Mono is loaded from Google Fonts (utility face, not brand-critical).
+   M Plus 2 (Japanese) and Noto Sans (CJK + other languages) ride alongside Poppins as
+   the multilingual workhorses — see fonts/README.md for the full rule. */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=M+PLUS+2:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap');
+
+/* ---------- Poppins — self-hosted from fonts/Poppins-*.ttf ----------
+   Brand workhorse. Loading locally so the brand renders correctly offline,
+   behind corporate firewalls, and without external dependencies.
+   Full family: 9 weights (100–900) × 2 styles (normal + italic).
+   See fonts/README.md for source and how to refresh these files.
+   Google Fonts fallback (if you ever need it):
+     https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100..900;1,100..900
+*/
+@font-face { font-family:'Poppins'; font-style:normal; font-weight:100; font-display:swap; src:url('fonts/Poppins-Thin.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-style:normal; font-weight:200; font-display:swap; src:url('fonts/Poppins-ExtraLight.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-style:normal; font-weight:300; font-display:swap; src:url('fonts/Poppins-Light.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-style:normal; font-weight:400; font-display:swap; src:url('fonts/Poppins-Regular.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-style:normal; font-weight:500; font-display:swap; src:url('fonts/Poppins-Medium.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-style:normal; font-weight:600; font-display:swap; src:url('fonts/Poppins-SemiBold.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-style:normal; font-weight:700; font-display:swap; src:url('fonts/Poppins-Bold.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-style:normal; font-weight:800; font-display:swap; src:url('fonts/Poppins-ExtraBold.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-style:normal; font-weight:900; font-display:swap; src:url('fonts/Poppins-Black.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-style:italic; font-weight:100; font-display:swap; src:url('fonts/Poppins-ThinItalic.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-style:italic; font-weight:200; font-display:swap; src:url('fonts/Poppins-ExtraLightItalic.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-style:italic; font-weight:300; font-display:swap; src:url('fonts/Poppins-LightItalic.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-style:italic; font-weight:400; font-display:swap; src:url('fonts/Poppins-Italic.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-style:italic; font-weight:500; font-display:swap; src:url('fonts/Poppins-MediumItalic.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-style:italic; font-weight:600; font-display:swap; src:url('fonts/Poppins-SemiBoldItalic.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-style:italic; font-weight:700; font-display:swap; src:url('fonts/Poppins-BoldItalic.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-style:italic; font-weight:800; font-display:swap; src:url('fonts/Poppins-ExtraBoldItalic.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-style:italic; font-weight:900; font-display:swap; src:url('fonts/Poppins-BlackItalic.ttf') format('truetype'); }
+
+/* Libre Baskerville — self-hosted variable fonts (weight axis 400–700).
+   Use the italic variant only in practice; upright is registered for completeness. */
+@font-face {
+  font-family: 'Libre Baskerville';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('fonts/LibreBaskerville-VariableFont_wght.ttf') format('truetype-variations');
+}
+@font-face {
+  font-family: 'Libre Baskerville';
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('fonts/LibreBaskerville-Italic-VariableFont_wght.ttf') format('truetype-variations');
+}
+
+:root {
+  /* ---------- Brand palette (from guidelines) ---------- */
+  --tha-navy:        #182D43;  /* Primary */
+  --tha-lime:        #D2EB00;  /* Primary accent */
+  --tha-violet:      #CB65FF;  /* Secondary */
+  --tha-purple:      #6103B9;  /* Secondary */
+  --tha-aqua:        #86FFF1;  /* Secondary */
+  --tha-teal:        #145F7B;  /* Secondary */
+
+  /* ---------- Extended palette (derived) ---------- */
+  --tha-navy-900:    #0E1C2B;
+  --tha-navy-800:    #12253A;
+  --tha-navy-700:    #182D43;  /* = navy */
+  --tha-navy-600:    #233E58;
+  --tha-navy-500:    #35526F;
+  --tha-navy-400:    #5A7591;
+  --tha-navy-300:    #95A8BD;
+  --tha-navy-200:    #C8D2DD;
+  --tha-navy-100:    #E4E9EF;
+  --tha-navy-050:    #F3F5F8;
+
+  --tha-lime-600:    #A7BC00;
+  --tha-lime-500:    #D2EB00;  /* = lime */
+  --tha-lime-400:    #DFEF4B;
+  --tha-lime-200:    #EEF7A2;
+  --tha-lime-050:    #FAFCE0;
+
+  /* ---------- Neutrals ---------- */
+  --tha-white:       #FFFFFF;
+  --tha-paper:       #FAFAF7;   /* warm off-white — default page background */
+  --tha-sand:        #F1EFE7;   /* warm surface panel that reads cleanly ON pure white */
+  --tha-ink:         #0E1C2B;   /* body text on light */
+  --tha-stone-100:   #F3F2ED;
+  --tha-stone-200:   #E6E4DB;
+  --tha-stone-300:   #C9C6B9;
+  --tha-stone-500:   #8B8878;
+  --tha-stone-700:   #3E3C33;
+
+  /* ---------- Semantic foreground / background ---------- */
+  --fg-1:            var(--tha-navy);        /* primary text */
+  --fg-2:            var(--tha-navy-500);    /* secondary text */
+  --fg-3:            var(--tha-navy-400);    /* tertiary / meta */
+  --fg-on-dark:      var(--tha-paper);
+  --fg-on-dark-2:    var(--tha-navy-200);
+  --fg-accent:       var(--tha-lime-600);    /* accessible on light */
+  --fg-link:         var(--tha-purple);
+
+  --bg-1:            var(--tha-paper);       /* PAGE — default theme: warm paper */
+  --bg-2:            var(--tha-white);       /* RAISED surface (cards, tables) on paper page */
+  --bg-3:            var(--tha-stone-100);   /* muted surface */
+  --bg-dark:         var(--tha-navy);        /* hero dark */
+  --bg-dark-2:       var(--tha-navy-900);
+  --bg-accent:       var(--tha-lime);        /* lime hero block */
+
+  --border-1:        var(--tha-navy);        /* solid rule */
+  --border-2:        var(--tha-navy-200);    /* soft divider */
+  --border-3:        var(--tha-stone-200);
+
+  /* ---------- Status (kept minimal, navy-leaning) ---------- */
+  --success:         #147A4B;
+  --warning:         #E08A00;
+  --danger:          #C43D3D;
+  --info:            var(--tha-teal);
+
+  /* ---------- Type families ---------- */
+  --font-sans:       'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-serif:      'Libre Baskerville', 'Times New Roman', Georgia, serif;
+  --font-mono:       'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  /* Multilingual workhorses — use these for non-English copy. */
+  --font-jp:         'M PLUS 2', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  --font-cjk:        'Noto Sans', 'Noto Sans KR', 'Noto Sans SC', 'Noto Sans TC', 'Apple SD Gothic Neo', 'Microsoft YaHei', sans-serif;
+
+  /* ---------- Display type — Poppins for structure, Libre Baskerville ITALIC for emphasis.
+     Libre Baskerville is used in its italic variant only — inline inside sans
+     headlines, and for pull-quotes. Never set as upright serif body. */
+  --display-1: 700 clamp(52px, 8.5vw, 120px)/0.98 var(--font-sans);
+  --display-2: 700 clamp(40px, 6vw, 80px)/1.02  var(--font-sans);
+  --display-3: 600 clamp(32px, 4.5vw, 56px)/1.08 var(--font-sans);
+  --emphasis-italic: 400 italic 1em/1 var(--font-serif); /* drop-in inside a sans headline */
+
+  /* ---------- Headings (sans, bold, tight) ---------- */
+  --h1: 700 clamp(40px, 5vw, 72px)/1.02 var(--font-sans);
+  --h2: 700 clamp(32px, 3.6vw, 52px)/1.04 var(--font-sans);
+  --h3: 600 clamp(24px, 2.4vw, 34px)/1.15 var(--font-sans);
+  --h4: 600 20px/1.25 var(--font-sans);
+  --h5: 600 16px/1.35 var(--font-sans);
+
+  /* ---------- Body ---------- */
+  --body-lg: 400 20px/1.5 var(--font-sans);
+  --body:    400 16px/1.55 var(--font-sans);
+  --body-sm: 400 14px/1.5 var(--font-sans);
+
+  /* ---------- Utility type ---------- */
+  --eyebrow:   700 12px/1 var(--font-sans);        /* + tracking: 0.14em, uppercase */
+  --caption:   500 13px/1.4 var(--font-sans);
+  --label:     600 14px/1.2 var(--font-sans);
+  --code:      400 14px/1.5 var(--font-mono);
+  --quote:     400 italic clamp(28px, 3.2vw, 44px)/1.15 var(--font-serif);
+
+  /* ---------- Letter-spacing ---------- */
+  --track-tight:   -0.02em;
+  --track-snug:    -0.01em;
+  --track-normal:  0; /* @kind other */
+  --track-wide:    0.08em;
+  --track-eyebrow: 0.14em;
+
+  /* ---------- Spacing scale (4px base) ---------- */
+  --s-1: 4px;   --s-2: 8px;   --s-3: 12px;  --s-4: 16px;
+  --s-5: 20px;  --s-6: 24px;  --s-8: 32px;  --s-10: 40px;
+  --s-12: 48px; --s-16: 64px; --s-20: 80px; --s-24: 96px;
+  --s-32: 128px;
+
+  /* ---------- Radii — restrained, often square ---------- */
+  --radius-0: 0px;
+  --radius-1: 2px;
+  --radius-2: 6px;
+  --radius-3: 10px;
+  --radius-pill: 999px;
+
+  /* ---------- Shadows — minimal, cast with navy tint ---------- */
+  --shadow-1: 0 1px 0 rgba(24, 45, 67, 0.08);
+  --shadow-2: 0 4px 14px -4px rgba(24, 45, 67, 0.12), 0 1px 0 rgba(24, 45, 67, 0.06);
+  --shadow-3: 0 18px 40px -18px rgba(24, 45, 67, 0.28), 0 2px 0 rgba(24, 45, 67, 0.06);
+  --shadow-press: inset 0 2px 0 rgba(14, 28, 43, 0.18);
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1); /* @kind other */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */
+  --dur-fast: 140ms; /* @kind other */
+  --dur: 220ms; /* @kind other */
+  --dur-slow: 420ms; /* @kind other */
+
+  /* ---------- Layout ---------- */
+  --container: 1240px;
+  --gutter: clamp(20px, 4vw, 48px); /* @kind spacing */
+}
+
+/* ==========================================================================
+   Base element styles (use with .tha-scope or on body)
+   ========================================================================== */
+.tha-scope, body.tha {
+  font: var(--body);
+  color: var(--fg-1);
+  background: var(--bg-1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.tha-scope h1 { font: var(--h1); letter-spacing: var(--track-tight); margin: 0 0 var(--s-4); }
+.tha-scope h2 { font: var(--h2); letter-spacing: var(--track-tight); margin: 0 0 var(--s-4); }
+.tha-scope h3 { font: var(--h3); letter-spacing: var(--track-snug); margin: 0 0 var(--s-3); }
+.tha-scope h4 { font: var(--h4); margin: 0 0 var(--s-2); }
+.tha-scope p  { font: var(--body); margin: 0 0 var(--s-4); max-width: 68ch; }
+.tha-scope a  { color: var(--fg-link); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+.tha-scope a:hover { color: var(--tha-violet); }
+.tha-scope code { font: var(--code); background: var(--bg-3); padding: 2px 6px; border-radius: var(--radius-1); }
+.tha-scope blockquote { font: var(--quote); color: var(--fg-1); margin: var(--s-8) 0; border: 0; }
+/* Inline emphasis: <em> inside any heading/body becomes Baskerville italic. */
+.tha-scope em, .tha-scope .tha-em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ---------- Utility classes ---------- */
+.tha-eyebrow {
+  font: var(--eyebrow);
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-2);
+}
+.tha-display-1 { font: var(--display-1); letter-spacing: var(--track-tight); }
+.tha-display-2 { font: var(--display-2); letter-spacing: var(--track-tight); }
+.tha-display-3 { font: var(--display-3); letter-spacing: var(--track-snug); }
+/* Italic emphasis: one word in Baskerville italic inside a Poppins line. */
+.tha-em-serif  { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
+
+/* ---------- Hand-drawn annotation SVG stroke (reusable) ---------- */
+.tha-scribble { stroke: var(--tha-lime); stroke-width: 4; fill: none; stroke-linecap: round; }
+
+/* ==========================================================================
+   Surface themes — two ways to do "light"
+   --------------------------------------------------------------------------
+   Default (.tha-scope / body.tha): PAGE is warm paper, RAISED cards are white.
+   .tha-theme-white: PAGE is pure white, RAISED cards are warm SAND (--tha-sand).
+   Pick one model per surface and stay in it — don't put a paper page next to a
+   paper card (the ~1.5% delta is too subtle to read as elevation).
+   ========================================================================== */
+.tha-theme-white,
+.tha-scope.tha-theme-white,
+body.tha.tha-theme-white {
+  --bg-1: var(--tha-white);      /* page: pure white */
+  --bg-2: var(--tha-sand);       /* raised: warm sand panel (cards, tables, wells) */
+  --bg-3: var(--tha-stone-100);  /* deeper muted fill */
+  --border-2: var(--tha-stone-200);
+  --border-3: var(--tha-stone-300);
+}
+.tha-theme-white { background: var(--bg-1); }
+
+/* Surface helpers — set background to the right token without remembering which */
+.tha-surface      { background: var(--bg-2); }   /* a raised card/table on the page */
+.tha-surface-muted{ background: var(--bg-3); }   /* a recessed well */
+
+/* ==========================================================================
+   Media placeholders — reserve space for a photo/illustration/icon a human
+   fills in later. Always LABEL what goes inside (art direction, not "image").
+   ========================================================================== */
+.tha-placeholder {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  min-width: 0;
+  text-align: center;
+  padding: var(--s-6);
+  background: var(--bg-3);
+  border: 1.5px dashed var(--tha-navy-300);
+  border-radius: var(--radius-0);
+  color: var(--fg-2);
+  background-size: cover;
+  background-position: center;
+}
+.tha-placeholder__icon { width: 38px; height: 38px; flex: none; color: var(--fg-3); opacity: .85; }
+.tha-placeholder__label { font: var(--label); color: var(--fg-1); letter-spacing: var(--track-snug); }
+.tha-placeholder__hint  { font: var(--caption); color: var(--fg-3); max-width: 34ch; }
+/* Aspect ratios */
+.tha-placeholder--16x9 { aspect-ratio: 16 / 9; }
+.tha-placeholder--4x3  { aspect-ratio: 4 / 3; }
+.tha-placeholder--1x1  { aspect-ratio: 1 / 1; }
+.tha-placeholder--4x5  { aspect-ratio: 4 / 5; }
+.tha-placeholder--3x1  { aspect-ratio: 3 / 1; }
+/* Icon slot — small square for an icon, not a photo */
+.tha-placeholder--icon {
+  width: 56px; height: 56px; padding: 0; aspect-ratio: 1 / 1;
+  border-radius: var(--radius-2);
+}
+.tha-placeholder--icon .tha-placeholder__icon { width: 24px; height: 24px; }
+/* On a dark/navy surface */
+.tha-placeholder.on-dark {
+  background: rgba(255,255,255,.04);
+  border-color: var(--tha-navy-400);
+  color: var(--tha-navy-200);
+}
+.tha-placeholder.on-dark .tha-placeholder__label { color: var(--tha-paper); }
+.tha-placeholder.on-dark .tha-placeholder__hint  { color: var(--tha-navy-300); }
+.tha-placeholder.on-dark .tha-placeholder__icon  { color: var(--tha-navy-300); }
+/* Accent the frame in lime when the placeholder is the hero of a slide */
+.tha-placeholder--accent { border-color: var(--tha-lime-600); border-style: solid; }
+/* Full-panel / edge image placeholder — fills a half or whole slide but ALWAYS keeps
+   the dotted frame, inset from the panel edges, so a viewer instantly recognises it as
+   a reserved image slot (not a solid colour block). Parent must be position:relative.
+   When a real image is dropped (.is-filled) the frame goes solid and the image fills. */
+.tha-placeholder--bleed {
+  position: absolute;
+  inset: 22px;
+  aspect-ratio: auto;
+  border-style: dashed;
+}
+
+/* --- Generation prompt — the third element of placeholder anatomy.
+   __label says WHAT it is, __hint art-directs the HUMAN, __prompt is the
+   copy-paste seed for an IMAGE GENERATOR. Click-to-copy is wired up by the
+   host page (see slides/Hoffman Brand Guidelines.html). Keep it one or two
+   sentences; bake in the imagery direction (candid, natural light, warm
+   grade, business-casual).
+
+   RULE for __label — format it 'Type · Aspect · generate W×Hpx'. The
+   recommended pixel RESOLUTION is REQUIRED on every image placeholder across
+   the whole system, never the aspect alone, so whoever generates the asset
+   knows the exact size. Resolutions by aspect:
+     16:9 → 1920×1080 · 4:3 → 1440×1080 · 3:4 → 1080×1440 · 4:5 → 1080×1350
+     1:1 → 1280×1280 · 3:1 → 1800×600 · 2:1 → 1600×800 · 9:16 → 1080×1920
+   (Tiny avatar/icon drop-slots that carry no label are exempt.) --- */
+.tha-placeholder__prompt {
+  display: flex; align-items: flex-start; gap: 8px;
+  max-width: 58ch;
+  margin-top: var(--s-2);
+  padding: 7px 10px;
+  text-align: left;
+  font: 400 11px/1.55 var(--font-mono);
+  color: var(--tha-navy-500);
+  background: var(--tha-navy-050);
+  border: 1px solid var(--border-2);
+  cursor: copy;
+}
+.tha-placeholder__prompt::before {
+  content: 'PROMPT';
+  flex: none;
+  margin-top: 2px;
+  padding: 3px 5px;
+  font: 700 8px/1 var(--font-mono);
+  letter-spacing: .1em;
+  color: var(--tha-paper);
+  background: var(--tha-navy-400);
+}
+.tha-placeholder__prompt.is-copied::before { content: 'COPIED'; background: var(--tha-lime-600); }
+.tha-placeholder.on-dark .tha-placeholder__prompt {
+  background: rgba(255,255,255,.05);
+  border-color: var(--tha-navy-500);
+  color: var(--tha-navy-200);
+}
+
+/* --- Drop-to-fill states. A host script makes any .tha-placeholder[data-slot]
+   accept a dragged image (stored locally, restored on reload). When filled,
+   the art direction hides and the image takes over the frame. --- */
+.tha-placeholder.is-over { border-color: var(--tha-lime-600); background-color: var(--tha-lime-050); }
+.tha-placeholder.is-filled { border-style: solid; border-color: var(--tha-navy-200); }
+.tha-placeholder.is-filled > :not(.tha-placeholder__clear) { visibility: hidden; }
+.tha-placeholder__clear {
+  position: absolute; top: 8px; right: 8px; z-index: 2;
+  width: 30px; height: 30px; padding: 0;
+  border: 0; border-radius: var(--radius-0);
+  background: rgba(14, 28, 43, .78); color: #fff;
+  font: 700 14px/1 var(--font-sans);
+  cursor: pointer; opacity: 0; transition: opacity var(--dur-fast);
+}
+.tha-placeholder.is-filled:hover .tha-placeholder__clear { opacity: 1; }
+
+/* ==========================================================================
+   Emoji typographic storytelling — an emoji standing in for a word inside a
+   Poppins line. Sizing/baseline tuned so it sits ON the type, not above it.
+   Keep ≤ 3 per surface (voice rule). Always keep the replaced word available
+   to screen readers: <span class="tha-emoji" role="img" aria-label="growth">📈</span>
+   ========================================================================== */
+.tha-emoji {
+  font-style: normal;
+  font-size: 0.92em;        /* ride just under cap height of the surrounding type */
+  line-height: 1;
+  vertical-align: -0.08em;
+  margin: 0 0.06em;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+/* In big display headlines, nudge a touch larger and re-center on the cap line */
+.tha-display-1 .tha-emoji,
+.tha-display-2 .tha-emoji,
+.tha-display-3 .tha-emoji { font-size: 0.86em; vertical-align: -0.04em; }
