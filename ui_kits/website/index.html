@@ -1,0 +1,57 @@
+<!doctype html>
+<!-- @dsCard group="UI Kit — Website" name="Website UI Kit — homepage" subtitle="Nav, hero, services, case studies, quote, footer" viewport="1440x900" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Hoffman Agency — UI Kit</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<link rel="icon" href="../../assets/mark-square-lime.png">
+<style>
+  html, body { margin: 0; padding: 0; background: var(--bg-1); }
+  body { font-family: var(--font-sans); color: var(--fg-1); }
+  * { box-sizing: border-box; }
+  button:hover { filter: brightness(1.08); }
+  a:hover { opacity: .78; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body class="tha">
+<div id="root"></div>
+
+<script src="../../_ds_bundle.js"></script>
+
+<script type="text/babel">
+const { useState } = React;
+// Components come from the compiled design-system bundle namespace; fall back to
+// window globals so the page still renders before the bundle recompiles.
+const __NS = window.HoffmanAgencyDesignSystem_d10f7f || {};
+const __pick = (n) => __NS[n] || window[n];
+const Nav = __pick('Nav'), Hero = __pick('Hero'), Services = __pick('Services'),
+      StatsStrip = __pick('StatsStrip'), PaletteStrip = __pick('PaletteStrip'),
+      CaseStudyGrid = __pick('CaseStudyGrid'), QuoteBlock = __pick('QuoteBlock'),
+      CTABand = __pick('CTABand'), Footer = __pick('Footer');
+
+function App() {
+  const [active, setActive] = useState('home');
+  return (
+    <div>
+      <Nav active={active} onNavigate={setActive} />
+      <Hero />
+      <PaletteStrip />
+      <Services />
+      <StatsStrip />
+      <CaseStudyGrid />
+      <QuoteBlock />
+      <CTABand />
+      <Footer />
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
+
