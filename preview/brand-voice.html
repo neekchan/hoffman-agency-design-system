@@ -1,0 +1,200 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Voice — do / don't" subtitle="Tone, italic emphasis, emojis, pictograms, voice patterns, casing, CTAs" viewport="700x1400" --><html><head><meta charset="utf-8"><title>Voice — do / don't</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  html, body { overflow: auto; height: 100%; }
+  body { width: auto; }
+  .card { width: 100%; min-height: 100%; gap: 18px; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .panel-do, .panel-dont {
+    padding: 14px 16px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .panel-do  { border-left: 4px solid var(--tha-lime); }
+  .panel-dont { border-left: 4px solid var(--tha-violet); }
+  .panel-label {
+    font: 700 10px/1 var(--font-sans);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+  .ex-do   { font: 500 14px/1.4 var(--font-sans); color: var(--fg-1); margin: 0; }
+  .ex-dont { font: 500 13px/1.4 var(--font-sans); color: var(--fg-2); margin: 0; text-decoration: line-through; text-decoration-color: var(--tha-violet); }
+  .sect h3 { font: 700 13px/1 var(--font-sans); letter-spacing:.02em; color: var(--fg-1); margin: 0 0 4px; }
+  .sect .sub { font: 400 11px/1.4 var(--font-sans); color: var(--fg-2); margin: 0 0 8px; max-width: 60ch; }
+  .em-serif { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
+  .strike-pair { color: var(--fg-3); text-decoration: line-through; text-decoration-color: var(--tha-purple); }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <!-- Header -->
+  <div>
+    <div class="meta">Voice — how we sound</div>
+    <div style="font:700 22px/1.15 var(--font-sans);letter-spacing:-.015em;color:var(--fg-1);margin-top:6px">
+      Smart. Human. Energetic. Distilled. Bold. <span class="em-serif" style="color:var(--tha-purple)">Creative.</span> Authentic.
+    </div>
+    <p style="font:400 12px/1.5 var(--font-sans);color:var(--fg-2);margin:6px 0 0;max-width:62ch">
+      Counsel without conviction is just consulting. Short sentences. Real opinions. We <span class="em-serif">speak</span> tech. <strong>Clarity in. Complexity out.</strong>
+    </p>
+  </div>
+
+  <!-- 1. Core do / don't -->
+  <div class="sect">
+    <h3>1 · Headlines &amp; signature lines</h3>
+    <p class="sub">Bold Poppins with one Libre Baskerville italic word. Contrast does the work.</p>
+    <div class="row2">
+      <div class="panel-do">
+        <span class="panel-label" style="color:var(--fg-accent)">DO</span>
+        <p class="ex-do"><span class="em-serif" style="color:var(--tha-purple)">Clarity</span> in. Complexity out.</p>
+        <p class="ex-do">Built for <span class="em-serif" style="color:var(--tha-purple)">tech.</span> Human at heart.</p>
+        <p class="ex-do">Less noise. <span class="em-serif" style="color:var(--tha-purple)">Sharper</span> signal.</p>
+        <p class="ex-do">For companies with something to prove.</p>
+      </div>
+      <div class="panel-dont">
+        <span class="panel-label" style="color:var(--tha-purple)">DON'T</span>
+        <p class="ex-dont">Unlocking next-gen comms.</p>
+        <p class="ex-dont">End-to-end storytelling solutions.</p>
+        <p class="ex-dont">Let's synergize your narrative.</p>
+        <p class="ex-dont">At the intersection of revolutionary AI.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Italic emphasis -->
+  <div class="sect">
+    <h3>2 · The italic word (Libre Baskerville)</h3>
+    <p class="sub">One word per headline. Pick for sound and weight — not grammar. Italic <em>only</em>; never upright.</p>
+    <div class="row2">
+      <div class="panel-do">
+        <span class="panel-label" style="color:var(--fg-accent)">DO</span>
+        <p class="ex-do">We turn opinion into <span class="em-serif" style="color:var(--tha-purple)">Techfluence.</span></p>
+        <p class="ex-do">Words to italicize: <span class="em-serif">Trust, Influence, Strategic, Judgment, Clarity</span>.</p>
+      </div>
+      <div class="panel-dont">
+        <span class="panel-label" style="color:var(--tha-purple)">DON'T</span>
+        <p class="ex-dont" style="font-family:var(--font-serif);font-style:normal;text-decoration:line-through">Body copy set in upright Baskerville.</p>
+        <p class="ex-dont"><span class="em-serif">Italicize</span> <span class="em-serif">every</span> <span class="em-serif">other</span> <span class="em-serif">word.</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Emojis -->
+  <div class="sect">
+    <h3>3 · Fluent emoji — a storytelling default</h3>
+    <p class="sub"><strong>Microsoft Fluent emoji</strong> (static + animated) are our house device for visual storytelling — reach for one at the emotional/narrative beat, not as decoration. On decks especially, a human point with no graphic is usually <em>missing its emoji</em>. Inject via <code>&lt;fluent-emoji name="rocket"&gt;</code> (browse the <strong>Fluent emoji picker</strong> card); <code>variant="animated"</code> for the one peak moment. Guardrail: pair with copy/a clear subject, <strong>max ~3 per slide</strong>, never emoji <em>stacks</em>. Cross-platform variance is fine.</p>
+    <div class="row2">
+      <div class="panel-do">
+        <span class="panel-label" style="color:var(--fg-accent)">DO</span>
+        <p class="ex-do">Goodbye client rosters. Hello ecosystems&nbsp;🪐</p>
+        <p class="ex-do">📂 Available to download here.</p>
+        <p class="ex-do">We're tripling down on video&nbsp;📽️</p>
+        <p class="ex-do">A section motif or hero stat, set large &amp; deliberate.</p>
+      </div>
+      <div class="panel-dont">
+        <span class="panel-label" style="color:var(--tha-purple)">DON'T</span>
+        <p class="ex-dont">🚀 Revolutionary disruption 🚀</p>
+        <p class="ex-dont">Click here 👇 to learn more 👇</p>
+        <p class="ex-dont">🎯 💡 🔥 💪 🚀 — emoji stacks as decoration.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Unicode pictograms -->
+  <div class="sect">
+    <h3>4 · Pictograms vs. emojis</h3>
+    <p class="sub">Pictograms (→ ✓ ★ · —) are <em>text glyphs</em> that inherit text color and weight. Distinct from emojis. Use both, differently.</p>
+    <div class="row2">
+      <div class="panel-do">
+        <span class="panel-label" style="color:var(--fg-accent)">DO</span>
+        <p class="ex-do">See the work →</p>
+        <p class="ex-do">Built for tech · human at heart.</p>
+        <p class="ex-do">A — B — C, em-dash for rhythm.</p>
+      </div>
+      <div class="panel-dont">
+        <span class="panel-label" style="color:var(--tha-purple)">DON'T</span>
+        <p class="ex-dont">Use ✓ as a standalone icon outside copy.</p>
+        <p class="ex-dont">Mix pictograms and emojis for the same job.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Signature voice patterns -->
+  <div class="sect">
+    <h3>5 · Signature voice patterns</h3>
+    <p class="sub">Three moves that keep copy distinctively Hoffman. Use intentionally — never accidentally.</p>
+    <div class="row2">
+      <div class="panel-do">
+        <span class="panel-label" style="color:var(--fg-accent)">DO · STRETCHED LETTERS</span>
+        <p style="font:800 28px/.95 var(--font-sans);letter-spacing:-.02em;color:var(--fg-1);margin:0">hellllllo 2026</p>
+        <p style="font:800 22px/.95 var(--font-sans);letter-spacing:-.02em;color:var(--fg-1);margin:0">HAvvvvve you met HAcademy?</p>
+        <p style="font:400 11px/1.4 var(--font-sans);color:var(--fg-2);margin:0">Cover &amp; section slides only. Never body copy.</p>
+      </div>
+      <div class="panel-do">
+        <span class="panel-label" style="color:var(--fg-accent)">DO · THE LADDER</span>
+        <p style="font:700 14px/1.1 var(--font-sans);color:var(--fg-1);margin:0">In 2026 we're leaning in</p>
+        <p class="em-serif" style="font-size:14px;color:var(--tha-purple);margin:0">more</p>
+        <p class="em-serif" style="font-size:18px;color:var(--tha-purple);margin:0">more</p>
+        <p class="em-serif" style="font-size:24px;color:var(--tha-purple);margin:0">more</p>
+        <p style="font:700 14px/1.1 var(--font-sans);color:var(--fg-1);margin:0">into our influence in tech.</p>
+      </div>
+    </div>
+    <div class="row2" style="margin-top:10px">
+      <div class="panel-do">
+        <span class="panel-label" style="color:var(--fg-accent)">DO · STRIKETHROUGH HUMOR</span>
+        <p style="font:700 18px/1.1 var(--font-sans);color:var(--fg-1);margin:0">We're <span class="strike-pair">doubling</span> tripling down on video.</p>
+        <p style="font:700 16px/1.1 var(--font-sans);color:var(--fg-1);margin:0"><span class="strike-pair">Goodbye</span> Hello, ecosystems 🪐</p>
+        <p style="font:400 11px/1.4 var(--font-sans);color:var(--fg-2);margin:0">Once per deck. Treats the slide like a live draft.</p>
+      </div>
+      <div class="panel-dont">
+        <span class="panel-label" style="color:var(--tha-purple)">DON'T overuse</span>
+        <p class="ex-dont">heeeeello on body copy paragraphs.</p>
+        <p class="ex-dont">The ladder pattern more than once per deck.</p>
+        <p class="ex-dont">Strikethrough on every other slide.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Casing & multilingual -->
+  <div class="sect">
+    <h3>6 · Casing &amp; multilingual</h3>
+    <p class="sub">Sentence case for headings and UI. UPPERCASE only on eyebrows. Lowercase first words OK as a casual signal — used intentionally. Multilingual copy: Japanese in <strong>M PLUS 2</strong>, CJK in <strong>Noto Sans</strong> family. English emphasis (Baskerville italic) is reserved for English only.</p>
+    <div class="row2">
+      <div class="panel-do">
+        <span class="panel-label" style="color:var(--fg-accent)">DO</span>
+        <p class="ex-do">hoffman has always been a challenger brand.</p>
+        <p class="ex-do" style="font-family:'M PLUS 2',sans-serif;font-weight:700">ホフマンエージェンシー</p>
+        <p class="ex-do" style="font-family:'Noto Sans KR',sans-serif;font-weight:700">호프만 에이전시</p>
+      </div>
+      <div class="panel-dont">
+        <span class="panel-label" style="color:var(--tha-purple)">DON'T</span>
+        <p class="ex-dont">Title Case Every Word In A Headline.</p>
+        <p class="ex-dont">SHOUTING IN ALL-CAPS PARAGRAPHS.</p>
+        <p class="ex-dont">Italicize Japanese or Korean text.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. CTAs -->
+  <div class="sect">
+    <h3>7 · CTAs &amp; punctuation</h3>
+    <p class="sub">CTAs are direct verb + object. Em-dashes for rhythm. Oxford comma on. Ellipses sparingly.</p>
+    <div class="row2">
+      <div class="panel-do">
+        <span class="panel-label" style="color:var(--fg-accent)">DO</span>
+        <p class="ex-do">See the work →</p>
+        <p class="ex-do">Tell us your story.</p>
+        <p class="ex-do">Start a conversation.</p>
+      </div>
+      <div class="panel-dont">
+        <span class="panel-label" style="color:var(--tha-purple)">DON'T</span>
+        <p class="ex-dont">Learn more.</p>
+        <p class="ex-dont">Click here for more info...</p>
+        <p class="ex-dont">Discover the magic!</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body></html>
+
