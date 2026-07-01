@@ -23,8 +23,13 @@
    API:  window.FluentEmoji = { map, resolve, url(name,variant), names() }
    ========================================================================== */
 (function () {
-  var CDN_STATIC = 'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets';
-  var CDN_ANIM   = 'https://cdn.jsdelivr.net/gh/Tarikul-Islam-Anik/Animated-Fluent-Emojis@master/Emojis';
+  // CDN refs are PINNED to specific commits for reproducibility — @main / @master
+  // move under you, which can silently change or break rendering. The locally
+  // vendored curated set in this folder was pulled from these exact commits, so
+  // local (offline) and CDN (fallback) always agree. To refresh: bump both SHAs
+  // and re-pull the curated files.
+  var CDN_STATIC = 'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@62ecdc0d7ca5c6df32148c169556bc8d3782fca4/assets';
+  var CDN_ANIM   = 'https://cdn.jsdelivr.net/gh/Tarikul-Islam-Anik/Animated-Fluent-Emojis@55e1dceff489121c3f7c7a7ec4f4d401d2cbd53e/Emojis';
   var thisScript = document.currentScript;
   var LOCAL = thisScript && thisScript.dataset ? (thisScript.dataset.base || null) : null;
 
@@ -42,21 +47,21 @@
     'chart-increasing':  { n: 'Chart increasing', c: 'Objects', g: '📈' },
     'chart-decreasing':  { n: 'Chart decreasing', c: 'Objects', g: '📉' },
     'bar-chart':         { n: 'Bar chart', c: 'Objects', g: '📊' },
-    'direct-hit':        { n: 'Direct hit', c: 'Activities', g: '🎯' },
+    'direct-hit':        { n: 'Bullseye', c: 'Activities', g: '🎯' },
     'trophy':            { n: 'Trophy', c: 'Activities', g: '🏆' },
     'party-popper':      { n: 'Party popper', c: 'Activities', g: '🎉' },
     'hundred-points':    { n: 'Hundred points', c: 'Smilies', g: '💯' },
     'handshake':         { n: 'Handshake', c: 'Hand gestures', g: '🤝' },
     'thumbs-up':         { n: 'Thumbs up', c: 'Hand gestures', g: '👍' },
     'clapping-hands':    { n: 'Clapping hands', c: 'Hand gestures', g: '👏' },
-    'raising-hands':     { n: 'Raising hands', c: 'People', g: '🙌' },
+    'raising-hands':     { n: 'Raising hands', c: 'Hand gestures', g: '🙌' },
     'person-raising-hand': { n: 'Person raising hand', c: 'People', ca: 'People with activities', g: '🙋', t: 1 },
     'man-raising-hand':   { n: 'Man raising hand', c: 'People', ca: 'People with activities', g: '🙋‍♂️', t: 1 },
     'woman-raising-hand': { n: 'Woman raising hand', c: 'People', ca: 'People with activities', g: '🙋‍♀️', t: 1 },
     'folded-hands':      { n: 'Folded hands', c: 'Hand gestures', g: '🙏' },
-    'flexed-biceps':     { n: 'Flexed biceps', c: 'People', g: '💪' },
-    'brain':             { n: 'Brain', c: 'People', g: '🧠' },
-    'eyes':              { n: 'Eyes', c: 'Smilies', g: '👀' },
+    'flexed-biceps':     { n: 'Flexed biceps', c: 'Hand gestures', g: '💪' },
+    'brain':             { n: 'Brain', c: 'Hand gestures', g: '🧠' },
+    'eyes':              { n: 'Eyes', c: 'Hand gestures', g: '👀' },
     'robot':             { n: 'Robot', c: 'Smilies', g: '🤖' },
     'money-bag':         { n: 'Money bag', c: 'Objects', g: '💰' },
     'money-with-wings':  { n: 'Money with wings', c: 'Objects', g: '💸' },
@@ -89,7 +94,7 @@
     'package':           { n: 'Package', c: 'Objects', g: '📦' },
     'envelope':          { n: 'Envelope', c: 'Objects', g: '✉️' },
     'file-folder':       { n: 'File folder', c: 'Objects', g: '📁' },
-    'clapper-board':     { n: 'Clapper board', c: 'Activities', g: '🎬' },
+    'clapper-board':     { n: 'Clapper board', c: 'Objects', g: '🎬' },
     'mobile-phone':      { n: 'Mobile phone', c: 'Objects', g: '📱' },
     'laptop':            { n: 'Laptop', c: 'Objects', g: '💻' },
     'seedling':          { n: 'Seedling', c: 'Animals', g: '🌱' },
