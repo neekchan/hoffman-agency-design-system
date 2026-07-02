@@ -7,7 +7,7 @@ The brand voice is **smart, human and energetic** — professional without feeli
 > ### ⚠ Two media, two rule sets — read before building
 > This system serves **web** and **slides/office docs**, which have different layout physics. Most of this README (type scale, spacing, "generous whitespace," "more air," 1240px max-width, sparse imagery) describes the **WEB / social** posture.
 >
-> **When you build a PowerPoint/Keynote deck or any fixed 1920×1080 slide, the slide rules in `CLAUDE.md` + `LAYOUTS.md` OVERRIDE the web rules here** — specifically: use the **slide type scale** (20px min · 24–32px body · 64–150px display, never 16px), **"fill the frame"** (no dead whitespace — the opposite of "more air"), **imagery by default on every slide**, and the **full edge-to-edge canvas** (no 1240px / 68ch caps). What stays shared across both media: **color, fonts, the italic-word move, the Storyline motif, annotations, emoji rules, and voice.** See `CLAUDE.md §0` for the precise precedence.
+> **When you build a PowerPoint/Keynote deck or any fixed 1920×1080 slide, the slide rules in `CLAUDE.md` + `LAYOUTS.md` OVERRIDE the web rules here** — specifically: use the **slide type scale as FLOORS, biased high** (20–24px labels · 30–36px body / default 32 · 40–52px subhead · 64–80px title · 120–132px statement & divider · 176px+ cover · ~240px closing word — never 16px, never the old 28px "safe" body), **"fill the frame"** (no dead whitespace — the opposite of "more air"), **imagery by default on every slide**, and the **full edge-to-edge canvas** (no 1240px / 68ch caps). What stays shared across both media: **color, fonts, the italic-word move, the Storyline motif, annotations, emoji rules, and voice.** See `CLAUDE.md §0` for the precise precedence.
 
 ---
 
@@ -24,6 +24,7 @@ README.md               · this file (the human read of the brand: content, visu
 SKILL.md                · agent-skill manifest
 CHECKLIST.md            · pre-ship visual consistency checklist
 PROMPTS.md              · AI generation prompt templates
+POWER-DESIGN-PRINCIPLES.md · portable craft-rules layer (reference, try, don't stick) + the Presenter/Document deck-mode rule
 colors_and_type.css     · all color + type tokens as CSS variables (the compiled token source)
 _ds_bundle.js · _ds_manifest.json · _adherence.oxlintrc.json   · COMPILER-GENERATED — never hand-edit
 
@@ -76,8 +77,9 @@ slides/                 · the CI/VI demonstration deck (not a template)
 ui_kits/website/        · marketing-site UI kit — index.html + JSX components
   Hero · Nav · Services · CaseStudyGrid · QuoteBlock · StatsStrip · CTABand · Footer
   Button · Em · Eyebrow · Circle · PaletteStrip · Scribble · README.md
+  (15 components exposed — StorylineDivider ships from QuoteBlock.jsx, so there are 14 files.)
 
-references/             · raw source material (read-only inputs)
+references/             · 🔒 CONFIDENTIAL — owner's private source material. NEVER export, bundle, download, publish, or copy into any deliverable. Read-for-context only
   agency-profile.md      · the agency's positioning, services & voice brief (source for DESIGN/README)
   2026-strategy-deck.pdf · deck-layout-and-visual-storytelling.pdf
   deck-layout-preferences.md · deck-layout-recipes-portable.md   · the porting briefs (now baked into CLAUDE/LAYOUTS)

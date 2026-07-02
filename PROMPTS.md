@@ -2,6 +2,8 @@
 
 Copy-paste templates for generating brand-consistent imagery with AI tools (Midjourney, DALL·E, Stable Diffusion, etc.). Use these as your starting prompt and fill in the bracketed values.
 
+> **Sizes are given in both px and pt** (1pt = 2px on a 1920×1080 slide). Use whichever unit your tool expects — pixel-based generators (Midjourney / DALL·E / SD, browsers) take px; point-based tools (PowerPoint, Keynote, print layouts) take pt. When you add a size to any prompt, write both.
+
 ---
 
 ## Social tile (LinkedIn / IG carousel)
@@ -10,10 +12,10 @@ Copy-paste templates for generating brand-consistent imagery with AI tools (Midj
 A [SOCIAL TILE / CAROUSEL TILE] for The Hoffman Agency with [BACKGROUND COLOR — Deep Navy #182d43, Lime Green #D2EB00, Purple #6103b9, or Teal #145f7b] background.
 
 Typography (CRITICAL — follow exactly):
-* Series number "[#]" in [white on dark / navy on lime], Poppins Bold, 48pt, top-left corner, 80px from top edge and 80px from left edge.
+* Series number "[#]" in [white on dark / navy on lime], Poppins Bold, 96px / 48pt, top-left corner, 80px from top edge and 80px from left edge.
 * Main headline, centered: "[FULL HEADLINE TEXT]"
-  * "[word/phrase]" in Libre Baskerville italic, [Lime Green / Purple / Navy depending on bg], [80–120pt for emphasis words]
-  * "[connecting words]" in Poppins Bold, [White / Deep Navy depending on bg], [60–80pt]
+  * "[word/phrase]" in Libre Baskerville italic, [Lime Green / Purple / Navy depending on bg], [160–240px / 80–120pt for emphasis words]
+  * "[connecting words]" in Poppins Bold, [White / Deep Navy depending on bg], [120–160px / 60–80pt]
   * Continue alternating pattern for the full headline.
 
 Hand-drawn annotation: [ONE OF: lime underline / purple double underline / lime circle / purple cross-out / lime arrow / purple bracket] beneath/around the word "[KEYWORD]".
@@ -29,11 +31,11 @@ Constraints: NO other wavy lines, NO squiggly arrows beyond the approved annotat
 A LinkedIn carousel tile for The Hoffman Agency with deep navy (#182d43) background.
 
 Typography:
-* Series number "1" in white, Poppins Bold, 48pt, top-left corner, 80px from top and 80px from left.
+* Series number "1" in white, Poppins Bold, 96px / 48pt, top-left corner, 80px from top and 80px from left.
 * Main headline, centered: "Trust matters more than attention."
-  * "Trust" in Libre Baskerville italic, vibrant lime green (#D2EB00), 120pt
-  * "matters more than" in Poppins Bold, white, 70pt
-  * "attention" in Libre Baskerville italic, lavender (#CB65FF), 90pt
+  * "Trust" in Libre Baskerville italic, vibrant lime green (#D2EB00), 240px / 120pt
+  * "matters more than" in Poppins Bold, white, 140px / 70pt
+  * "attention" in Libre Baskerville italic, lavender (#CB65FF), 180px / 90pt
 
 Hand-drawn annotation: a lime green hand-drawn underline beneath "Trust" for emphasis.
 
@@ -48,15 +50,15 @@ Constraints: NO other wavy lines, NO squiggly arrows. NO gradients. NO drop shad
 A presentation slide for The Hoffman Agency, 1920×1080 px, with [BACKGROUND COLOR] background.
 
 Typography:
-* Eyebrow label, top-left, Poppins Bold 22pt, letter-spacing 0.14em, UPPERCASE, color [Lime Green on dark / Navy 500 on light].
-* Hero headline, left-aligned, Poppins Bold or Black, 96–120pt, with one or two words in Libre Baskerville italic for emphasis.
-* Body subhead, Poppins Regular 28–32pt, max-width 28em.
+* Eyebrow label, top-left, Poppins Bold 22px / 11pt, letter-spacing 0.14em, UPPERCASE, color [Lime Green on dark / Navy 500 on light].
+* Hero headline, left-aligned, Poppins Bold or Black — 64–80px / 32–40pt for a content title, up to 120–176px / 60–88pt for a statement or cover — with one or two words in Libre Baskerville italic for emphasis.
+* Body subhead, Poppins Regular 30–36px / 15–18pt (default 32px / 16pt), max-width 28em.
 
 Layout: asymmetric, content biased to the left 60% of the canvas, negative space on the right.
 
 Chrome:
-* Horizontal logo, bottom-left, 36px tall, 120px from left/bottom edges. Variant matches background (2-color on paper, white on navy or secondary, navy on lime).
-* Slide number + label, bottom-right, JetBrains Mono 16pt, letter-spacing 0.12em, UPPERCASE.
+* Horizontal logo, bottom-left, ~32px tall, 72px from the left/bottom edges (inside the 0.5″ safe margin). Variant matches background (2-color on paper, white on navy or secondary, navy on lime).
+* Slide number + label, bottom-right, JetBrains Mono 22px / 11pt, letter-spacing 0.12em, UPPERCASE.
 
 Optional: one hand-drawn annotation (underline / circle / arrow / bracket / cross-out / double underline) in lime or purple.
 
@@ -72,9 +74,9 @@ A hero block for The Hoffman Agency, with the Storyline squiggle as the backgrou
 
 Composition:
 * Background: solid Deep Navy (#182d43) covering the full canvas.
-* Storyline squiggle (the boxed lime-on-navy monogram from brand assets), positioned right-aligned, with 0 margin on top, right, and bottom edges (full-bleed on three sides). The square is sized to canvas height (1:1 aspect ratio).
-* Navy extends from the left edge of the squiggle to the left edge of the canvas — width variable, holds the content.
-* On the navy-extension area: headline in Poppins Bold, 80–120pt, white, with one word in Libre Baskerville italic, lime green.
+* Storyline squiggle — the LINE variant (`storyline-line-lime.svg`), because the field is navy. It sits as a background layer directly above the navy fill and behind the content, edge-locked to the top, right and bottom edges at full canvas height (no bleed; the sharp diagonal ends are absorbed by the frame). Lime. (The boxed monogram is only for light / non-navy grounds — never floated on a navy field.)
+* The navy fill holds the content to the left of the waveform — width variable.
+* On the navy-extension area: headline in Poppins Bold, 176–240px / 88–120pt, white, with one word in Libre Baskerville italic, lime green.
 
 Constraints: NO other graphics. NO additional wavy lines, NO arrows. The squiggle is the only motif on the canvas.
 ```

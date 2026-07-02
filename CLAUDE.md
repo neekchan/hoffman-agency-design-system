@@ -6,9 +6,10 @@ You are looking at **The Hoffman Agency design system**: brand tokens, fonts, lo
 1. **This file (`CLAUDE.md`)** — the slide/office-doc authority. **§0 is the most important thing in the system:** this brand serves *two media with different physics* (web vs. slides), and §0 tells you which rule set wins. Read §0 before anything else.
 2. **`README.md`** — the human read of the brand (voice, content fundamentals, the full annotated file map). Start at its "File structure" block to see where everything lives.
 3. **`DESIGN.md`** — the machine-readable single source of truth: every color, type, spacing, radius, shadow token + voice/imagery rules. When a value must be exact, trust `DESIGN.md` over prose.
+4. **`POWER-DESIGN-PRINCIPLES.md`** — the portable craft layer (one-idea, chunks, grid, contrast, data-ink, **mode purity**…). It is a **reference layer: try to honor it, don't rigidly stick.** Where a rule collides with a house SOP, the precedence block at the top of that file (and §0 below) decides — universal craft wins; the whitespace / palette / margin calls follow the Hoffman house style.
 
 **Then read by task — what you're being asked to make:**
-- **A deck / presentation / any fixed 1920×1080 slide** → `LAYOUTS.md` (the 48-layout library, L01–L51 — pick a named layout, don't free-style) + `CLAUDE.md §§1–8` (slide type scale, "fill the frame," imagery, color, Fluent emoji). Build from `templates/deck/Deck.dc.html`.
+- **A deck / presentation / any fixed 1920×1080 slide** → `LAYOUTS.md` (the 48-layout library, L01–L51 — pick a named layout, don't free-style) + `CLAUDE.md §§1–12` (slide type scale, "fill the frame," imagery, declutter, editorial headlines, structure, color, Fluent emoji, **Presenter-vs-Document mode**). Build from `templates/deck/Deck.dc.html`. **Decide the deck's mode first (§12).**
 - **A web page / marketing site / app UI** → `README.md` web sections + `ui_kits/website/` (real components) + `DESIGN.md` web type scale. Web posture: generous whitespace, sparse imagery, 1240px measure.
 - **A social tile / one-pager / keynote** → the matching folder in `templates/` (`social-tile/`, `one-pager/`, `keynote/`).
 - **Generating imagery with an AI image model** → `PROMPTS.md` (copy-paste prompt templates that bake in the Hoffman grade/mood).
@@ -21,6 +22,8 @@ You are looking at **The Hoffman Agency design system**: brand tokens, fonts, lo
 **Assets live in `assets/`:** logos (10 colorways), the Storyline monogram, 76 hand-drawn annotations, and Fluent-emoji (`assets/emoji/`). Use these — don't redraw them.
 
 **Do NOT hand-edit** `_ds_bundle.js`, `_ds_manifest.json`, or `_adherence.oxlintrc.json` — they are compiler-generated. Edit the sources (`*.jsx`/`*.tsx`, `colors_and_type.css`) and let them regenerate.
+
+**🔒 `references/` is CONFIDENTIAL — never export it.** The `references/` (a.k.a. "reference") folder is the owner's private source material. It must **never** be included in any download, zip, bundle, standalone/inline build, published URL, PPTX/PDF/handoff package, or deliverable, and must never be copied into output. Read it for context only; exclude it from everything that leaves the project.
 
 **Golden rule:** when in doubt, match the existing system — pull real hex values, font stacks, and components from the files above rather than approximating. Less is more; one point per surface; let the brand's own assets carry the emotion.
 
@@ -45,17 +48,22 @@ This design system serves **two media with different physics**, and their rules 
 DESIGN.md still governs **color, fonts, the italic-word move, the Storyline motif, annotations, and voice** — those are brand-wide and apply to both media. It's only the *web layout/scale/density/imagery* posture that slides override.
 
 ## 1. Slides use a SLIDE type scale, not a web type scale
-Canvas is 1920×1080 → **1pt = 2px**. Translate PowerPoint point sizes accordingly.
-- **≤ 3 distinct type sizes per slide.** (A stat's giant number can be a deliberate 4th.)
-- **Minimum size on any slide: 20px (10pt).** Captions, eyebrows, mono labels, chips all sit here — never smaller.
-- **Body copy: 24–32px (12–16pt).** Default 28px. NEVER the 14–18px web sizes.
-- **Subhead: 40px (20pt).**
-- **Title: 64–88px (32–44pt).**
-- **Hero/display: 96–150px (48–75pt)** — covers & section dividers only.
-- Pick ~3 of these per slide (e.g. eyebrow 20 + body 28 + title 72). Don't ladder through five sizes.
+Canvas is 1920×1080 → **1pt = 2px** (a 13.33″-widescreen point doubles into px). Translate PowerPoint point sizes accordingly. **Every size in this system is quoted in BOTH units — px first, pt in parens — so pixel-based tools (browsers, image generators) and point-based tools (PowerPoint, Keynote, print) can each read the spec directly; when you write a new size anywhere, give both.** **These are FLOORS — bias to the top of every range; the display tiers are "size-to-fit," not caps: cover and closing words should grow until they fill the frame on 1–2 lines.**
+- **≤ 3 distinct type sizes per slide.** (A stat's or a hero word's giant number can be a deliberate 4th.)
+- **Eyebrow / mono label / caption / chip: 20–24px (10–12pt).** The floor — never smaller. Keep these small even as everything else grows.
+- **Body copy: 30–36px (15–18pt), default 32px.** Never the old 28px (14pt) "safe" body, and never a 14–18px web size. Dense reference artefacts (plan-on-a-page L10, scope table L24) may drop body toward 24–28px *only* when the table itself is the point.
+- **Subhead / lead-in: 40–52px (20–26pt), default 44px.**
+- **Content / slide title · case-study headline: 64–80px (32–40pt).** Bias to 72–80.
+- **Statement & section-divider title: 120–132px (60–66pt).** The "about us / big claim / section name" tier — display, NOT the 64–80 content-title tier.
+- **Cover / hero title: 176px+ (88pt+), as large as fits on 1–2 lines** — covers only. Stretched-letter treatments welcome.
+- **Closing giant word: ~240px (~120pt)** — the deck's loudest single word.
+- Pick ~3 tiers per slide (e.g. eyebrow 22 + body 32 + title 76). Don't ladder through five sizes.
 
-## 2. Fill the frame — no dead whitespace
+## 2. Fill the frame — tight margins, allow bleed
 AI slides look uniform but hollow. Big type + imagery fills the canvas. Content should occupy the full frame top-to-bottom, not float in a sea of white. Generous padding is fine; vast empty regions are not. If a slide feels empty, the type is too small or it's missing its image.
+- **Default safe margin ~0.5″ (72px), not 0.9″.** Pack the frame — a uniform fat margin with small centred content is the #1 tell of an AI deck. Page chrome (page number, logo) lives inside that 72px margin.
+- **Full-bleed is the DEFAULT for image-led layouts, not an exception.** On covers, section dividers, statements, big-idea splits, persona photo panels, full-bleed, split 50/50, story-idea images and case-study image panels, let the **image/graphic touch one or more edges** (`padding:0` or a negative margin). The **type half still keeps the 72px safe margin** — only the imagery bleeds. Stop insetting every photo by 0.8–0.9″.
+- **Fill the lower third.** The bottom band is where AI decks leave dead space — scale the type up or let the image bleed down so the whole canvas is working.
 
 ## 3. Imagery is the DEFAULT, not optional
 Almost every page in a Hoffman deck carries a graphic/image alongside the text. Do not strip images to make a layout "clean." When a real image isn't available, reserve a standardized placeholder (below). Type-only slides are the exception (big statement, pull quote, section divider can be type-led — but even sections often carry a small graphic).
@@ -94,6 +102,34 @@ Hoffman decks use **Microsoft Fluent emoji** (static + animated) as a core visua
 - **Animated** (`variant="animated"`): reserve for the *one* emotional peak — the cover's idea, the hero stat, the closing line. One animated emoji per few slides, never a wall of motion. Static color is the default form.
 - **Still true (the guardrails, unchanged):** pair with copy or a clear subject, never emoji *stacks* as decoration (`🎯💡🔥💪`), never two competing heroes, respect the "one graphic earns the emotion" rule — a Fluent emoji **is** that one graphic on many slides. Keep contrast in mind on color surfaces (the emoji art is full-color; give it breathing room on busy grounds).
 - **Sizing scale on slides:** inline-in-text ≈ rides font size (1em); list-row bullet 32–44px; stat pairing 64–96px; section/hero motif 120–200px.
+
+## 9. Delete micro-text — no clutter on the slide
+Every element must earn its place at a LARGE size. If a text element can't be read from the back of the room, it probably shouldn't be on the slide.
+- **Cut anything ≤10pt (20px) that isn't a functional eyebrow / mono label.** No on-slide source citations, no footnotes, no asides, no repeated sub-labels under diagram nodes.
+- **Sources & citations go to speaker notes, never on the slide.** Same for "SOURCE:" lines, methodology notes and legal fine print.
+- **No placeholder captions once a real image is in** (the "▢ IMAGE" / caption stubs). The teaching-gallery template keeps its labelled placeholders on purpose; a *real* deck does not.
+- **Target 3–5 elements per slide, each large.** A connected-model or map slide is a title + one line + the graphic — not a title, eyebrow, central node, four node labels, four sub-labels, a benefits line, an aside and a footnote. When a slide creeps past ~5 text shapes, you're narrating on the slide instead of in the room.
+
+## 10. Headlines are editorial, not descriptive
+Descriptive / summary headlines ("Korea: a widening mandate", "Our work across Asia") read as AI-default. Rewrite them into the house voice.
+- **≤ 8 words, one line where possible, with a point of view.** Prefer a question, a two-beat ("Tech. We're it."), the one Baskerville-italic word, a strikethrough swap, or a giant single word.
+- **Contrast, questions, wordplay** over labels: "Who we are" → "But first, a bit about us." · "Tech's most decorated agency" → "Tech. We're it." · "China: local storytelling" → "Fluency in China's complexity."
+- One voice move per headline — don't stack a question + italic + strikethrough on one line.
+
+## 11. Structure — breadth up front, a real close (don't over-compress)
+"Lean / one-point" governs the CONTENT section — it does NOT mean a one-slide deck.
+- **For a new-relationship deck, the creds/about section earns real room** — a multi-slide run (about, brand film, "we thrive on hard problems," awards, footprint, services, tech-stack, employer branding). For a first meeting the agency's breadth *is* the argument; don't collapse it to one slide.
+- **Every deck ends on a dedicated closing** — a giant single word (~240px) + contact, not a compressed sign-off.
+- **Keep the layout library varied — a HARD guardrail.** These SOPs tune *size, density, decluttering and voice*; they must NEVER homogenise the deck into one big-type template. The 48 layouts (L01–L51) stay distinct so the library can build ANY kind of deck — pick the layout that fits the job, then apply the sizing/voice rules to it. Variety of composition is the point; the rules are how each composition is executed, never a reason to flatten them.
+## 12. Presenter vs Document mode — every deck is exactly ONE (Power Design rule 20)
+A deck is built for the eyes in the room **or** to be read alone — never both. Declare one mode per deck and hold it; a sparse hero slide sitting beside a six-bullet wall is what makes audiences distrust slides. This is `POWER-DESIGN-PRINCIPLES.md` rule 20, elevated to a **hard rule** here.
+
+- **Presenter mode** (Reynolds sparsity) — for a deck that will be *presented live*. ≤1 idea and ≤15 words per slide, image-led, the headline carries the point. **The detail lives in speaker notes**, not on the slide (`<script type="application/json" id="speaker-notes">` — the deck/keynote templates read it). The room watches the slide; the notes prompt the speaker.
+- **Document mode** (Tufte density) — the "leave-behind" / "send-ahead" / reading deck that must stand alone with no presenter. Denser and hierarchical: short bullets are allowed and each slide can carry a fuller argument (headline + subhead + a tight bullet set or a small table), because the reader has no narrator. Still **capped** — short bullets and phrases, never paragraphs (rule 10).
+- **XOR, never mixed.** Word-count and bullet-density stay consistent across the deck. Some slides ≤15-word image slides while others are bulleted walls = fail.
+- **What does NOT change between modes:** the Hoffman visual system. Both modes still **fill the frame** (§2), use the **slide type scale** (§1) and the **whole palette** (§7), keep the **72px margin**, and carry **imagery by default** (§3). Document mode is *denser content* — never smaller type or an airier, web-density page.
+- **Determining the mode:** **infer it from context and state your assumption; ask only if genuinely ambiguous.** Signals — "I'll present this / for the stage / town hall / live pitch" → Presenter; "leave-behind / send it over / read-ahead / board pre-read / they can't make the meeting" → Document. A first-meeting pitch delivered live is Presenter; a proposal emailed cold is Document. When you truly can't tell, quiz the user.
+- **Templates:** `templates/keynote/` ships both modes behind a **Mode** tweak (Presenter reflows to sparse + speaker notes; Document reveals the depth on-slide) — use it as the reference for what each mode looks like. The 48-layout `templates/deck/` library can be authored in either mode; pick one and hold it.
 
 ---
 **Status:** the slide-design SOPs in this file are established across all **48 layouts** in `templates/deck/Deck.dc.html` (codes L01–L51, catalogued in `LAYOUTS.md`). As the user uploads further layouts, copy them against these SOPs and keep `LAYOUTS.md` + the deck count (README, SKILL.md) in sync.

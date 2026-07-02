@@ -336,6 +336,18 @@ Three commitments override every other rule:
 2. **The italic word.** A single Libre Baskerville italic emphasis inside a Poppins headline is the brand's signature type move.
 3. **Hand-drawn over decorative.** A scribbled underline beats five icons.
 
+## Principles layer & deck modes
+
+Two decision rules sit **above** the tokens:
+
+**1 · The Power Design principles (`POWER-DESIGN-PRINCIPLES.md`) are a reference layer.** Twenty brand-agnostic craft rules (one-idea, chunks, 8pt grid, one grid, proximity, type-scale rhythm, contrast, one accent, no hue-only encoding, data-ink, F-pattern, mode purity). **Reference them and try to honor them — don't rigidly stick.** Precedence is *hybrid*: universal craft (contrast, grid, one-idea, proximity, data-ink, mode purity) **wins as written**; the density / whitespace / palette-breadth / margin calls follow the **Hoffman house SOPs** for the medium (on slides: "fill the frame" over ≥40% whitespace, the whole palette over 60-30-10, 72px over 96px margins, the higher slide type scale over ≥24px body — see `CLAUDE.md §0, §1, §2, §7`). Full mapping lives in that file's precedence block.
+
+**2 · Every deck is exactly ONE mode — Presenter XOR Document** (principles rule 20, a hard rule here):
+- **Presenter** — presented live. ≤1 idea, ≤15 words/slide, image-led; **the detail lives in speaker notes.**
+- **Document** — a stand-alone leave-behind / read-ahead. Denser, hierarchical, short bullets allowed, a fuller argument per slide; still no paragraphs.
+- Never mix the two in one deck. Both modes keep the full Hoffman visual system (fill-the-frame, slide type scale, whole palette, 72px, imagery) — **mode changes *depth*, not appearance.**
+- **The agent infers the mode from context, states its assumption, and asks only if genuinely ambiguous.** `templates/keynote/` ships both modes behind a **Mode** tweak as the reference example. See `CLAUDE.md §12`. (One-pagers and social tiles are inherently Document-mode.)
+
 ## Colors
 
 The palette has **two primaries doing structural work** and **four secondaries used as layout "moods."**
@@ -356,7 +368,7 @@ The palette has **two primaries doing structural work** and **four secondaries u
 
 ## Typography
 
-> **Type SCALE below (the `fontSize` px values) is the WEB scale.** On slides / office docs use the slide type scale in `CLAUDE.md §1` (20px min · 24–32px body · 40px subhead · 64–88px title · 96–150px display) — never the 16px web body. The *families, weights, italic-word move, and letter-spacing* here apply to both media.
+> **Type SCALE below (the `fontSize` px values) is the WEB scale.** On slides / office docs use the slide type scale in `CLAUDE.md §1` — enforced as FLOORS, biased high (1pt = 2px on 1080p): **20–24px** labels · **30–36px** body (default 32) · **40–52px** subhead · **64–80px** title · **120–132px** statement/divider · **176px+** cover (size-to-fit) · **~240px** closing word — never the 16px web body. The *families, weights, italic-word move, and letter-spacing* here apply to both media.
 
 The system uses **two families.**
 
@@ -513,4 +525,3 @@ The following areas are **acknowledged but not yet defined**. Placeholders are k
 ---
 
 When any of these get defined, move the item out of this list and into the appropriate canonical section (or a new top-level section if it's broad enough — e.g. `## Motion`, `## Accessibility`).
-

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Procedural Animation — proof of concept</title>
+<style>
+  @font-face { font-family:'Poppins'; src:url('../../fonts/Poppins-Regular.ttf');  font-weight:400; font-display:swap; }
+  @font-face { font-family:'Poppins'; src:url('../../fonts/Poppins-Medium.ttf');   font-weight:500; font-display:swap; }
+  @font-face { font-family:'Poppins'; src:url('../../fonts/Poppins-SemiBold.ttf'); font-weight:600; font-display:swap; }
+  @font-face { font-family:'Poppins'; src:url('../../fonts/Poppins-Bold.ttf');     font-weight:700; font-display:swap; }
+  @font-face { font-family:'Poppins'; src:url('../../fonts/Poppins-ExtraBold.ttf');font-weight:800; font-display:swap; }
+  @font-face { font-family:'Poppins'; src:url('../../fonts/Poppins-Black.ttf');    font-weight:900; font-display:swap; }
+  @font-face { font-family:'Libre Baskerville'; src:url('../../fonts/LibreBaskerville-Italic-VariableFont_wght.ttf'); font-style:italic; font-weight:400 700; font-display:swap; }
+
+  :root{
+    --navy:#0E1C2B; --navy-700:#1B3047; --navy-400:#5C7488; --navy-300:#7C93A8; --navy-200:#A9BBC9;
+    --paper:#F7F5EF; --lime:#D2EB00; --aqua:#86FFF1; --teal:#145F7B; --purple:#7A2FD4; --violet:#B05FE6;
+    --mono:'Poppins',sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;background:#05101a;font-family:'Poppins',sans-serif;}
+  em{font-family:'Libre Baskerville',serif;font-style:italic;font-weight:400;}
+
+  /* ---- stage: fixed 1920x1080 canvas, scaled to fit ---- */
+  #stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  #canvas{width:1920px;height:1080px;position:relative;transform-origin:center;flex:none;}
+  .slide{position:absolute;inset:0;display:none;flex-direction:column;overflow:hidden;}
+  .slide.active{display:flex;}
+
+  /* ---- nav (outside scaled canvas) ---- */
+  .nav{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);display:flex;gap:10px;align-items:center;z-index:50;
+    background:rgba(8,20,30,.7);backdrop-filter:blur(8px);padding:9px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.12);}
+  .nav button{appearance:none;border:0;background:transparent;color:#fff;font:600 14px/1 'Poppins';cursor:pointer;padding:7px 12px;border-radius:999px;}
+  .nav button:hover{background:rgba(255,255,255,.12);}
+  .nav .dot{width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.3);padding:0;}
+  .nav .dot.on{background:var(--lime);}
+  .tag{position:absolute;top:54px;left:64px;font:600 22px/1 'Poppins';letter-spacing:.04em;text-transform:uppercase;z-index:5;}
+  .tag .n{font-family:'Poppins';opacity:.5;}
+  .cap{position:absolute;bottom:54px;left:64px;right:64px;font:400 26px/1.4 'Poppins';z-index:5;max-width:60ch;}
+  .cap b{font-weight:700;}
+
+  /* ===== Slide 1 — staggered entrance choreography ===== */
+  #s1{background:var(--navy);justify-content:center;padding:0 130px;}
+  #s1 .tag,#s1 .cap{color:var(--navy-200);}
+  #s1 h1{font:800 150px/0.94 'Poppins';letter-spacing:-.03em;color:var(--paper);margin:0;max-width:16ch;}
+  #s1 .w{display:inline-block;}
+  @keyframes rise{from{opacity:0;transform:translateY(40px) rotate(3deg);}to{opacity:1;transform:none;}}
+
+  /* ===== Slide 2 — generative particle field (canvas, code-driven) ===== */
+  #s2{background:radial-gradient(120% 120% at 70% 30%,#15324a,#06121d);}
+  #s2 canvas{position:absolute;inset:0;width:100%;height:100%;}
+  #s2 .mid{position:relative;z-index:2;margin:auto;text-align:center;}
+  #s2 h2{font:800 96px/1 'Poppins';letter-spacing:-.02em;color:var(--paper);margin:0;}
+  #s2 .tag,#s2 .cap{color:var(--aqua);}
+
+  /* ===== Slide 3 — data-driven: bars grow + numbers count up ===== */
+  #s3{background:var(--paper);padding:120px 130px 0;}
+  #s3 .tag{color:var(--teal);} #s3 .cap{color:var(--navy-700);}
+  #s3 h2{font:700 72px/1.02 'Poppins';letter-spacing:-.025em;color:var(--navy);margin:0 0 60px;max-width:18ch;}
+  #s3 .bars{display:flex;gap:54px;align-items:flex-end;height:440px;}
+  #s3 .bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;}
+  #s3 .col{width:100%;border-radius:14px 14px 0 0;height:0;transition:height 1.4s cubic-bezier(.2,.8,.2,1);}
+  #s3 .num{font:800 76px/1 'Poppins';color:var(--navy);letter-spacing:-.02em;margin-bottom:18px;}
+  #s3 .lbl{font:600 24px/1.3 'Poppins';color:var(--navy-700);margin-top:22px;text-align:center;}
+
+  /* ===== Slide 4 — the Storyline draws itself (SVG path animation) ===== */
+  #s4{background:var(--navy);align-items:center;justify-content:center;}
+  #s4 .tag,#s4 .cap{color:var(--navy-200);}
+  #s4 svg{width:78%;height:auto;overflow:visible;}
+  #s4 .ln{fill:none;stroke:var(--lime);stroke-width:11;stroke-linecap:round;stroke-linejoin:round;
+    stroke-dasharray:2600;stroke-dashoffset:0;}
+  @keyframes draw{from{stroke-dashoffset:2600;}to{stroke-dashoffset:0;}}
+  #s4 h2{position:absolute;font:800 110px/0.96 'Poppins';color:var(--paper);letter-spacing:-.03em;margin:0;text-align:center;}
+
+  /* ===== Slide 5 — ambient looping motion (orbiting brand marks) ===== */
+  #s5{background:radial-gradient(130% 130% at 30% 80%,#1a2f12,#0a160a);align-items:center;justify-content:center;}
+  #s5 .tag,#s5 .cap{color:var(--lime);}
+  #s5 .orbit{position:absolute;left:50%;top:50%;width:0;height:0;}
+  #s5 .chip{position:absolute;font:700 30px/1 'Poppins';padding:18px 30px;border-radius:999px;white-space:nowrap;
+    transform:translate(-50%,-50%);}
+  #s5 .core{position:relative;z-index:3;font:800 84px/0.98 'Poppins';color:var(--paper);text-align:center;letter-spacing:-.02em;}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
+</style>
+</head>
+<body>
+  <div id="stage">
+    <div id="canvas">
+
+      <!-- 1 -->
+      <section class="slide" id="s1" data-screen-label="01 Entrance choreography">
+        <div class="tag"><span class="n">01 / </span>Entrance choreography</div>
+        <h1 id="s1h"></h1>
+        <div class="cap"><b>CSS keyframes, staggered by code.</b> Each word animates in on its own delay — re-runs every time the slide opens. No video file.</div>
+      </section>
+
+      <!-- 2 -->
+      <section class="slide" id="s2" data-screen-label="02 Generative particle field">
+        <canvas id="s2c"></canvas>
+        <div class="tag"><span class="n">02 / </span>Generative field</div>
+        <div class="mid"><h2>Procedurally <em>drawn.</em></h2></div>
+        <div class="cap"><b>A live canvas loop.</b> Hundreds of points generated and connected by code at 60fps — a different pattern every render. Impossible as a static image.</div>
+      </section>
+
+      <!-- 3 -->
+      <section class="slide" id="s3" data-screen-label="03 Data-driven motion">
+        <div class="tag"><span class="n">03 / </span>Data-driven</div>
+        <h2>The numbers <em>animate</em> from the data.</h2>
+        <div class="bars" id="s3bars"></div>
+        <div class="cap"><b>Bars + counters built from an array.</b> Change the data, the chart re-animates. The motion is a function of the values, not hand-drawn.</div>
+      </section>
+
+      <!-- 4 -->
+      <section class="slide" id="s4" data-screen-label="04 Self-drawing Storyline">
+        <div class="tag"><span class="n">04 / </span>Self-drawing line</div>
+        <svg viewBox="0 0 1400 360"><path class="ln" d="M20 300 C 240 300, 300 80, 520 120 S 880 320, 1080 180 S 1320 60, 1380 90"/></svg>
+        <h2>The story is <em>always</em> there.</h2>
+        <div class="cap"><b>SVG path, drawn by code.</b> The Storyline motif strokes itself on, then the line lands. Pure math — scales to any size, crisp forever.</div>
+      </section>
+
+      <!-- 5 -->
+      <section class="slide" id="s5" data-screen-label="05 Ambient loop">
+        <div class="tag"><span class="n">05 / </span>Ambient loop</div>
+        <div class="orbit" id="s5orbit"></div>
+        <div class="core">Always <em>moving.</em></div>
+        <div class="cap"><b>A continuous JS animation loop.</b> Brand chips orbit forever — ambient life on a section divider, generated and positioned by code.</div>
+      </section>
+
+    </div>
+  </div>
+
+  <div class="nav" id="nav">
+    <button id="prev">‹ Prev</button>
+    <span id="dots" style="display:flex;gap:8px;align-items:center;"></span>
+    <button id="next">Next ›</button>
+  </div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let i=0, raf1=null, raf5=null;
+
+// scale fixed canvas to viewport
+function fit(){
+  const c=document.getElementById('canvas');
+  const s=Math.min(innerWidth/1920, innerHeight/1080);
+  c.style.transform='scale('+s+')';
+}
+addEventListener('resize',fit); fit();
+
+// build slide-1 words
+document.getElementById('s1h').innerHTML='Slides are just <em>code.</em>'
+  .split(' ').map((w,k)=>'<span class="w" style="animation-delay:'+(k*0.12)+'s">'+w+'</span>').join(' ');
+
+// dots
+const dots=document.getElementById('dots');
+slides.forEach((_,k)=>{const d=document.createElement('span');d.className='nav-dot dot';if(!k)d.classList.add('on');d.style.cssText='width:8px;height:8px;border-radius:999px;background:'+(k?'rgba(255,255,255,.3)':'#D2EB00');d.onclick=()=>go(k);dots.appendChild(d);});
+
+function go(n){
+  if(n<0)n=slides.length-1; if(n>=slides.length)n=0;
+  slides[i].classList.remove('active'); i=n; slides[i].classList.add('active');
+  [...dots.children].forEach((d,k)=>d.style.background=k===i?'#D2EB00':'rgba(255,255,255,.3)');
+  // restart CSS animations by reflow
+  void slides[i].offsetWidth;
+  onEnter(i);
+  location.hash=i;
+}
+document.getElementById('next').onclick=()=>go(i+1);
+document.getElementById('prev').onclick=()=>go(i-1);
+addEventListener('keydown',e=>{ if(e.key==='ArrowRight'||e.key===' ')go(i+1); if(e.key==='ArrowLeft')go(i-1); });
+
+// ---- per-slide procedural behaviours ----
+const MOTION=()=>document.body.classList.contains('anim') && matchMedia('(prefers-reduced-motion: no-preference)').matches;
+function onEnter(n){
+  cancelAnimationFrame(raf1); cancelAnimationFrame(raf5);
+  if(n===0) animateWords();
+  if(n===1) startField();
+  if(n===2) startBars();
+  if(n===3) drawLine();
+  if(n===4) startOrbit();
+}
+
+// Slide 1: staggered word entrance (with guaranteed-visible fallback)
+function animateWords(){
+  const ws=[...document.querySelectorAll('#s1 .w')];
+  if(!MOTION()){ ws.forEach(w=>{w.style.opacity='1';w.style.transform='none';}); return; }
+  ws.forEach((w,k)=>{ w.style.opacity='0'; w.style.animation='rise .8s cubic-bezier(.2,.7,.2,1) '+(k*0.12)+'s forwards'; });
+  setTimeout(()=>ws.forEach(w=>{ w.style.animation='none'; w.style.opacity='1'; w.style.transform='none'; }), 800+ws.length*120+200);
+}
+
+// Slide 4: self-drawing line + headline (with guaranteed-visible fallback)
+function drawLine(){
+  const ln=document.querySelector('#s4 .ln'), h2=document.querySelector('#s4 h2');
+  if(!MOTION()){ ln.style.strokeDashoffset='0'; h2.style.opacity='1'; h2.style.transform='none'; return; }
+  ln.style.strokeDashoffset='2600'; ln.style.animation='draw 2.4s cubic-bezier(.5,0,.2,1) forwards';
+  h2.style.opacity='0'; h2.style.animation='rise .9s ease 1.5s forwards';
+  setTimeout(()=>{ ln.style.animation='none'; ln.style.strokeDashoffset='0'; h2.style.animation='none'; h2.style.opacity='1'; h2.style.transform='none'; }, 2600);
+}
+
+// Slide 2: generative connected-particle field
+function startField(){
+  const cv=document.getElementById('s2c'), ctx=cv.getContext('2d');
+  cv.width=1920; cv.height=1080;
+  const N=90, pts=Array.from({length:N},()=>({x:Math.random()*1920,y:Math.random()*1080,vx:(Math.random()-.5)*0.9,vy:(Math.random()-.5)*0.9}));
+  const cols=['#86FFF1','#D2EB00','#B05FE6'];
+  function frame(){
+    ctx.clearRect(0,0,1920,1080);
+    for(const p of pts){ p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>1920)p.vx*=-1; if(p.y<0||p.y>1080)p.vy*=-1; }
+    for(let a=0;a<N;a++){ for(let b=a+1;b<N;b++){
+      const dx=pts[a].x-pts[b].x, dy=pts[a].y-pts[b].y, d=Math.hypot(dx,dy);
+      if(d<190){ ctx.strokeStyle='rgba(134,255,241,'+(1-d/190)*0.5+')'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(pts[a].x,pts[a].y); ctx.lineTo(pts[b].x,pts[b].y); ctx.stroke(); } } }
+    for(let k=0;k<N;k++){ ctx.fillStyle=cols[k%3]; ctx.beginPath(); ctx.arc(pts[k].x,pts[k].y,3.5,0,7); ctx.fill(); }
+    raf1=requestAnimationFrame(frame);
+  }
+  frame();
+}
+
+// Slide 3: data-driven bars + count-up
+const DATA=[{v:23,suffix:'M',lbl:'Earned reach',c:'#7A2FD4'},{v:2.3,suffix:'×',lbl:'Tier-1 pickup',c:'#145F7B'},{v:92,suffix:'%',lbl:'Message pull-through',c:'#D2EB00'},{v:480,suffix:'',lbl:'Stories placed',c:'#B05FE6'}];
+let barsBuilt=false;
+function startBars(){
+  const wrap=document.getElementById('s3bars');
+  const max=Math.max(...DATA.map(d=>d.v));
+  const finalH=k=>(28+ DATA[k].v/max*72)+'%';
+  const finalN=k=>(DATA[k].v<10?DATA[k].v.toFixed(1):Math.round(DATA[k].v))+DATA[k].suffix;
+  if(!barsBuilt){ wrap.innerHTML=DATA.map((d,k)=>'<div class="bar"><div class="num">'+finalN(k)+'</div><div class="col" style="background:'+d.c+';height:'+finalH(k)+'"></div><div class="lbl">'+d.lbl+'</div></div>').join(''); barsBuilt=true; }
+  // base state already shows final bars + numbers; animate only as enhancement
+  if(!MOTION()) return;
+  wrap.querySelectorAll('.bar').forEach((bar,k)=>{
+    const col=bar.querySelector('.col'), num=bar.querySelector('.num');
+    col.style.height='0'; num.textContent='0';
+    requestAnimationFrame(()=>{ col.style.height=finalH(k); });
+    const target=DATA[k].v, t0=performance.now(), dur=1400;
+    (function tick(t){ const p=Math.min(1,(t-t0)/dur); const val=target*(1-Math.pow(1-p,3));
+      num.textContent=(target<10?val.toFixed(1):Math.round(val))+DATA[k].suffix;
+      if(p<1)requestAnimationFrame(tick); })(t0);
+  });
+  // guaranteed-visible fallback if rAF / transitions never run
+  setTimeout(()=>{ wrap.querySelectorAll('.bar').forEach((bar,k)=>{ bar.querySelector('.col').style.height=finalH(k); bar.querySelector('.num').textContent=finalN(k); }); }, 1700);
+}
+
+// Slide 5: orbiting brand chips (continuous loop)
+const CHIPS=[{t:'Earned media',bg:'#7A2FD4',fg:'#fff'},{t:'Story Studio',bg:'#86FFF1',fg:'#0E1C2B'},{t:'Corporate',bg:'#D2EB00',fg:'#0E1C2B'},{t:'Crisis',bg:'#B05FE6',fg:'#fff'},{t:'Content',bg:'#145F7B',fg:'#fff'}];
+let orbitBuilt=false;
+function startOrbit(){
+  const o=document.getElementById('s5orbit');
+  if(!orbitBuilt){ o.innerHTML=CHIPS.map(c=>'<span class="chip" style="background:'+c.bg+';color:'+c.fg+'">'+c.t+'</span>').join(''); orbitBuilt=true; }
+  const chips=[...o.children], R=360, t0=performance.now();
+  // lay out synchronously first, so chips are arranged even if rAF never ticks
+  chips.forEach((ch,k)=>{ const ang=k*(Math.PI*2/chips.length);
+    ch.style.left=(Math.cos(ang)*R)+'px'; ch.style.top=(Math.sin(ang)*R*0.62)+'px'; });
+  if(!MOTION()) return;
+  (function spin(t){
+    const a=(t-t0)/4200;
+    chips.forEach((ch,k)=>{ const ang=a + k*(Math.PI*2/chips.length);
+      ch.style.left=(Math.cos(ang)*R)+'px'; ch.style.top=(Math.sin(ang)*R*0.62)+'px';
+      ch.style.zIndex=Math.sin(ang)>0?4:1; ch.style.opacity=0.55+0.45*((Math.sin(ang)+1)/2); });
+    raf5=requestAnimationFrame(spin);
+  })(performance.now());
+}
+
+// init
+document.body.classList.add('anim');   // enables 'from hidden' entrance animations (JS present)
+const start=parseInt(location.hash.slice(1)); if(start>=0&&start<slides.length)i=start;
+slides[i].classList.add('active'); onEnter(i);
+[...dots.children].forEach((d,k)=>d.style.background=k===i?'#D2EB00':'rgba(255,255,255,.3)');
+</script>
+</body>
+</html>

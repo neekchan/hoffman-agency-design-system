@@ -4,13 +4,25 @@ A short list to run through before shipping any branded surface — slide, socia
 
 ---
 
+## Deck mode (slides)
+
+- [ ] Deck declares **one mode — Presenter XOR Document** (`CLAUDE.md §12`); word-count / bullet-density stays consistent across all slides
+- [ ] **Presenter**: ≤1 idea, ≤15 words/slide, image-led; detail is in **speaker notes**, not on the slide
+- [ ] **Document**: denser + hierarchical, short bullets allowed, each slide stands alone — still no paragraphs
+- [ ] No sparse hero slide sitting beside a six-bullet wall (the "schizophrenic deck" tell)
+
+## Confidentiality & export
+
+- [ ] **`references/` is NEVER included** in any download, zip, bundle, standalone/inline build, published URL, PPTX/PDF, or handoff — it is the owner's confidential source material (read-for-context only)
+
 ## Type
 
 - [ ] Headline is **Poppins** (700 or 800) with exactly **one word** in `<em>` → Libre Baskerville italic
 - [ ] No upright Libre Baskerville used as body or display
 - [ ] Sentence case on headings; UPPERCASE only on eyebrows (tracked at 0.14em)
 - [ ] One hero idea per surface — everything else shrinks hard
-- [ ] **Slides only:** uses the **slide type scale** (20px min · 24–32px body · 40px subhead · 64–88px title · 96–150px display) — NOT the 16px web body; **≤ 3 distinct sizes** per slide (see `CLAUDE.md §1`)
+- [ ] **Slides only:** uses the **slide type scale as FLOORS, biased high** (20–24px labels · 30–36px body / def 32 · 40–52px subhead · 64–80px title · 120–132px statement/divider · 176px+ cover · ~240px closing) — NOT the 28px "safe" or 16px web body; **≤ 3 distinct sizes** per slide (see `CLAUDE.md §1`)
+- [ ] **Slides only:** no micro-text — nothing ≤10pt except a functional eyebrow / mono label; on-slide sources, footnotes, placeholder captions & repeated sub-labels are cut (sources → speaker notes); **3–5 large elements** per slide (see `CLAUDE.md §9`)
 
 ## Color
 
@@ -69,6 +81,7 @@ A short list to run through before shipping any branded surface — slide, socia
 - [ ] Square corners (0–2px) by default; 6px only on form inputs; pill on tags only
 - [ ] No frosted glass, no parallax, no scroll-jacking
 - [ ] **Slides only:** content **fills the frame** edge-to-edge — no dead whitespace, no 1240px/68ch web caps; imagery present by default; "restraint" = few elements scaled large, never small elements floating (see `CLAUDE.md §0, §2`)
+- [ ] **Slides only:** default safe margin **~0.5″ (72px)**, not 0.9″; image-led layouts (cover, divider, statement, split, persona, case panel) **full-bleed** the image to ≥1 edge while the type half keeps the margin (see `CLAUDE.md §2`, `LAYOUTS.md Part 6`)
 
 ## Series numbering (for carousels & multi-part decks)
 
@@ -97,6 +110,7 @@ Safe zone on social tiles: keep critical content **≥ 80px from all four edges*
 - [ ] CTA is a direct verb + object — never "Learn more"
 - [ ] **Emojis** allowed *with* copy, max 3 per page — expect cross-platform variance.
 - [ ] **Voice patterns** used intentionally, not by accident — stretched letters (cover/section only), the ladder (once per deck), strikethrough humor (once per deck). Lowercase first words are okay as a casual signal.
+- [ ] **Slides only:** headline is **editorial, not descriptive** — ≤8 words with a point of view (question, two-beat, italic word, giant word), not a label like "X: an overview" (see `CLAUDE.md §10`)
 
 ---
 
