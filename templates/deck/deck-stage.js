@@ -1730,4 +1730,3 @@
     customElements.define('deck-stage', DeckStage);
   }
 })();
-

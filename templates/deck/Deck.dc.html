@@ -8,22 +8,26 @@
 <body>
 <x-dc>
 <!-- @template name="Presentation deck" description="Hoffman layout library — a gallery of named, reusable 16:9 slide layouts (cover, dividers, statements, columns, personas, data, capability, image, quote, closing). Each slide is directly editable and carries inline @layout guidance: when to use it and the one point it must make. Build a deck by keeping the layouts you need and deleting the rest. See LAYOUTS.md for the full selection guide." -->
+<!-- MODE: decide Presenter vs Document FIRST (CLAUDE.md §12), then author every kept layout in that one mode — Presenter = ≤15 words/slide + detail in speaker notes; Document = denser, hierarchical, short bullets, stands alone. Never mix modes in one deck. This template CARRIES the Mode tweak (Presenter/Document) — toggle it in Tweaks. The full worked demonstration of the whole design system is slides/Hoffman Brand Guidelines.html. -->
 <helmet>
 <script src="./ds-base.js"></script>
 <script src="./deck-stage.js"></script>
 <script src="../../assets/emoji/fluent-emoji.js" data-base="../../assets/emoji"></script>
+<script type="application/json" id="speaker-notes">["This deck template carries the Presenter/Document mode system (Mode tweak). In Presenter mode the on-slide detail hides and lives here in the speaker notes — one entry per slide, in order. COVER: state the deck's single idea in a sentence.","Section divider — name the part you're entering; the audience just needs the signpost.","Agenda — walk the shape of the journey; don't read every line aloud.","Fill in one note per slide as you build the real deck — this is where the presenter-mode detail belongs."]</script>
 <style>
   html, body { margin:0; padding:0; background:#0E1C2B; }
   deck-stage:not(:defined) { visibility:hidden; }
   /* Slide chrome + base type — the only non-inline rules (they repeat per slide). */
-  .slide { position:relative; width:100%; height:100%; box-sizing:border-box; padding:96px 120px; display:flex; flex-direction:column; overflow:hidden; font-family:var(--font-sans); }
+  .slide { position:relative; width:100%; height:100%; box-sizing:border-box; padding:72px 72px; display:flex; flex-direction:column; overflow:hidden; font-family:var(--font-sans); }
   .eyebrow { font:700 22px/1 var(--font-sans); letter-spacing:.14em; text-transform:uppercase; color:var(--tha-navy-500); display:inline-flex; align-items:center; gap:14px; }
   .eyebrow.on-dark { color:var(--tha-navy-200); }
   .eyebrow .dot { width:14px; height:14px; background:var(--accent, var(--tha-lime)); border-radius:50%; flex:none; }
   .stretch { flex:1 1 auto; min-height:0; }
   .em { font-family:var(--font-serif); font-style:italic; font-weight:400; }
-  .chrome-logo { position:absolute; left:120px; bottom:56px; height:28px; width:auto; }
-  .chrome-page { position:absolute; right:120px; bottom:56px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-400); }
+  .chrome-logo { position:absolute; left:72px; bottom:40px; height:28px; width:auto; }
+  .chrome-page { position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-400); }
+  /* Cover flip-clock tile — top-hinged flap swings down as each month lands. */
+  @keyframes kn-flip { from { transform:rotateX(-88deg); opacity:.15; } 60% { opacity:1; } to { transform:rotateX(0deg); opacity:1; } }
   .chip { font:700 20px/1 var(--font-mono); letter-spacing:.04em; padding:7px 12px 6px; border-radius:999px; display:inline-flex; gap:7px; align-items:baseline; }
   .colnum { font:500 20px/1 var(--font-mono); }
   /* Layout-guidance overlay — hidden until the Tweaks "Layout notes" toggle adds [data-guide]. */
@@ -243,10 +247,11 @@
   <section class="slide" data-label="L01 Cover" data-screen-label="L01 Cover" style="background:var(--tha-navy);">
     <img src="../../assets/storyline-line-lime.svg" alt="" style="position:absolute; inset:0; width:100%; height:100%; display:block; pointer-events:none;"/>
     <div class="lay-note"><b>L01 · Cover</b><span><i>Use:</i> open the deck</span><span><i>Point:</i> one idea, huge. No bullets.</span></div>
-    <span class="eyebrow on-dark" style="position:relative;"><span class="dot"></span>Client &middot; engagement &middot; 2026</span>
+    <span class="eyebrow on-dark" style="position:relative;"><span class="dot"></span>Client &middot; engagement &middot; {{ flipDate }}</span>
     <div class="stretch" style="position:relative; display:flex; flex-direction:column; justify-content:center;">
-      <h1 style="font:800 150px/0.98 var(--font-sans); letter-spacing:-.03em; color:var(--tha-paper); margin:0; max-width:16ch;">Complexity in.<br><em class="em" style="color:var(--tha-lime); display:inline-block;">Clarity</em> out.</h1>
-      <p style="font:400 30px/1.45 var(--font-sans); color:var(--tha-navy-200); margin:36px 0 0; max-width:34em;">A short, confident subtitle that frames the single idea of this deck.</p>
+      <h1 style="font:800 176px/0.98 var(--font-sans); letter-spacing:-.03em; color:var(--tha-paper); margin:0; max-width:16ch;">Complexity in.<br><em class="em" data-balloon="1" style="color:var(--tha-lime); display:inline-block; transform-origin:50% 55%; will-change:transform;">Clarity</em> out.</h1>
+      <p data-mode-only="doc" style="font:400 32px/1.45 var(--font-sans); color:var(--tha-navy-200); margin:36px 0 0; max-width:34em;">A short, confident subtitle that frames the single idea of this deck.</p>
+      <div data-balloon-hint style="margin-top:30px; display:inline-flex; align-items:center; gap:14px; font:600 17px/1 var(--font-mono); letter-spacing:.14em; text-transform:uppercase; color:var(--tha-navy-300); transition:opacity .5s;">Hold <span style="display:inline-flex; align-items:center; justify-content:center; min-width:80px; height:36px; padding:0 14px; border:1.5px solid var(--tha-navy-500); border-radius:9px; color:var(--tha-navy-200); font-size:15px; box-shadow:0 2px 0 var(--tha-navy-500);">Space</span> to inflate</div>
     </div>
     <img src="../../assets/logo-horizontal-white-lime.svg" class="chrome-logo" alt="The Hoffman Agency"/>
     <div class="chrome-page" style="color:var(--tha-navy-200);">01</div>
@@ -259,8 +264,8 @@
     <span style="align-self:flex-start; font:700 20px/1 var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--tha-navy-200); border:1.5px solid var(--tha-navy-500); border-radius:999px; padding:11px 20px;">Client &middot; Engagement &middot; 2026</span>
     <fluent-emoji name="sparkles" variant="animated" size="150" style="position:absolute; top:120px; right:120px;"></fluent-emoji>
     <div class="stretch" style="display:flex; flex-direction:column; justify-content:flex-end; padding-bottom:8px;">
-      <h1 style="font:800 140px/0.98 var(--font-sans); letter-spacing:-.03em; color:var(--tha-paper); margin:0; max-width:15ch;">Make the complex <em class="em" style="color:var(--tha-lime); display:inline-block;">unmissable.</em></h1>
-      <p style="font:400 30px/1.45 var(--font-sans); color:var(--tha-navy-200); margin:34px 0 0; max-width:36ch;">A confident one-line subtitle that frames the single idea of this deck.</p>
+      <h1 style="font:800 168px/0.98 var(--font-sans); letter-spacing:-.03em; color:var(--tha-paper); margin:0; max-width:15ch;">Make the complex <em class="em" style="color:var(--tha-lime); display:inline-block;">unmissable.</em></h1>
+      <p style="font:400 32px/1.45 var(--font-sans); color:var(--tha-navy-200); margin:34px 0 0; max-width:36ch;">A confident one-line subtitle that frames the single idea of this deck.</p>
     </div>
     <img src="../../assets/logo-horizontal-white-lime.svg" class="chrome-logo" alt="The Hoffman Agency" style="left:160px;"/>
     <div class="chrome-page" style="color:var(--tha-navy-200);">02</div>
@@ -308,10 +313,10 @@
   <!-- @layout code="L08" name="Statement + support" use="Land one point of view." point="One claim, set 80–96px, one italic word; the image carries the feeling the words leave unsaid." slots="Eyebrow: 2–4 words UPPERCASE. Title: ≤8 words, one italic word, 88px. Subtitle: punchy, accentuates the claim, ≤14 words, 32px. Image: one emotive supporting shot." surfaces="Paper/navy/colour on the type half; image on the other." -->
   <section class="slide" data-label="L08 Statement" data-screen-label="L08 Statement" style="padding:0; background:var(--tha-paper); flex-direction:row;">
     <div class="lay-note"><b>L08 · Statement</b><span><i>Use:</i> land one POV</span><span><i>Point:</i> one claim + ≤14-word subtitle + image.</span></div>
-    <div style="flex:1 1 56%; padding:104px 72px 104px 120px; display:flex; flex-direction:column; justify-content:center;">
+    <div style="flex:1 1 56%; padding:96px 72px 96px 72px; display:flex; flex-direction:column; justify-content:center;">
       <span class="eyebrow"><span class="dot"></span>Point of view</span>
-      <h2 style="font:700 92px/1.04 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy); margin:30px 0 0; max-width:13ch;">Trust matters more than <em class="em" style="color:var(--tha-purple);">attention.</em></h2>
-      <p style="font:400 32px/1.45 var(--font-sans); color:var(--tha-navy-500); margin:36px 0 0; max-width:22ch;">Anyone can be loud. We make you worth listening to.</p>
+      <h2 style="font:700 100px/1.04 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy); margin:30px 0 0; max-width:13ch;">Trust matters more than <em class="em" style="color:var(--tha-purple);">attention.</em></h2>
+      <p data-mode-only="doc" style="font:400 32px/1.45 var(--font-sans); color:var(--tha-navy-500); margin:36px 0 0; max-width:22ch;">Anyone can be loud. We make you worth listening to.</p>
     </div>
     <div style="flex:1 1 44%; position:relative;">
       <div class="tha-placeholder tha-placeholder--bleed" data-slot="deck-l08-img">
@@ -326,7 +331,7 @@
   <!-- @layout code="L09" name="Big-idea split" use="A campaign idea or strategic 'what if' that needs a feeling beside it." point="A provocative question/claim (left) + an emotive image (right). The role box is ONE line." surfaces="Paper/sand left; the image carries the colour." -->
   <section class="slide" data-label="L09 Big-idea split" data-screen-label="L09 Big-idea split" style="padding:0; background:var(--tha-paper); flex-direction:row;">
     <div class="lay-note"><b>L09 · Big-idea split</b><span><i>Use:</i> a campaign idea + a feeling</span><span><i>Point:</i> a 'what if' headline; role box = 1 line.</span></div>
-    <div style="flex:1 1 52%; padding:96px 64px 96px 120px; display:flex; flex-direction:column; justify-content:center;">
+    <div style="flex:1 1 52%; padding:96px 64px 96px 72px; display:flex; flex-direction:column; justify-content:center;">
       <span class="eyebrow" style="color:var(--tha-purple);"><span class="dot" style="background:var(--tha-purple);"></span>Builders</span>
       <h2 style="font:700 78px/1.04 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy); margin:26px 0 0; max-width:15ch;">What if the category’s hardest idea became the one people <em class="em" style="color:var(--tha-purple);">repeat</em>?</h2>
       <p style="font:400 24px/1.5 var(--font-sans); color:var(--tha-navy-500); margin:28px 0 0; max-width:34em;">The category talks in specs and acronyms, so the audience tunes out — and the better story sits unspoken, quietly losing value.</p>
@@ -351,10 +356,10 @@
     <div style="flex:1 1 50%; position:relative;">
       <div class="tha-placeholder on-dark tha-placeholder--bleed" data-slot="deck-l28-img"><div class="tha-placeholder__label" style="color:var(--tha-paper);">Image half &middot; 1:1 &middot; generate 1280&times;1280px</div><div class="tha-placeholder__hint">One candid, human image.</div><div class="tha-placeholder__prompt">Candid documentary photo, comms team mid-conversation, warm window light, business-casual. Square.</div></div>
     </div>
-    <div style="flex:1 1 50%; padding:96px 110px; display:flex; flex-direction:column; justify-content:center;">
+    <div style="flex:1 1 50%; padding:96px 72px; display:flex; flex-direction:column; justify-content:center;">
       <span class="eyebrow on-dark"><span class="dot"></span>The approach</span>
       <h2 style="font:700 72px/1.04 var(--font-sans); letter-spacing:-.025em; color:var(--tha-paper); margin:22px 0 0; max-width:13ch;">From complex to <em class="em" style="color:var(--tha-lime);">compelling.</em></h2>
-      <p style="font:400 24px/1.5 var(--font-sans); color:var(--tha-navy-200); margin:26px 0 0; max-width:34ch;">We make sense of complexity — turning the technical and the nuanced into stories that earn attention.</p>
+      <p style="font:400 32px/1.5 var(--font-sans); color:var(--tha-navy-200); margin:26px 0 0; max-width:34ch;">We make sense of complexity — turning the technical and the nuanced into stories that earn attention.</p>
     </div>
     <div class="chrome-page" style="color:var(--tha-navy-200);">08</div>
   </section>
@@ -370,7 +375,7 @@
       </div>
     </div>
     <div style="position:absolute; inset:0; background:rgba(24,45,67,.66); pointer-events:none;"></div>
-    <div style="position:absolute; left:120px; top:96px; right:120px; bottom:96px; display:flex; flex-direction:column; pointer-events:none;">
+    <div style="position:absolute; left:72px; top:80px; right:72px; bottom:80px; display:flex; flex-direction:column; pointer-events:none;">
       <span class="eyebrow on-dark"><span class="dot"></span>The approach</span>
       <div class="stretch" style="display:flex; flex-direction:column; justify-content:center;">
         <p style="font:700 110px/1.02 var(--font-sans); letter-spacing:-.03em; color:var(--tha-paper); margin:0; max-width:13ch;">Put the story <em class="em" style="color:var(--tha-lime);">in</em> the room.</p>
@@ -594,11 +599,11 @@
         <div style="width:118px; height:7px; background:var(--tha-lime); margin:22px 0 26px;"></div>
         <div style="font:700 34px/1.1 var(--font-sans); color:var(--tha-navy);">The hands-on lead</div>
         <div style="font:500 24px/1.35 var(--font-sans); color:var(--tha-navy-600); margin-top:12px;">Full Name &middot; 32, Market A</div>
-        <ul style="margin:24px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:14px;">
+        <ul data-mode-only="doc" style="margin:24px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:14px;">
           <li style="font:400 24px/1.4 var(--font-sans); color:var(--tha-navy-600); padding-left:28px; position:relative;"><span style="position:absolute; left:0; top:9px; width:12px; height:12px; border-radius:999px; background:var(--tha-lime);"></span>Team lead who evaluates and rolls out tools across the org — and lives with the results.</li>
           <li style="font:400 24px/1.4 var(--font-sans); color:var(--tha-navy-600); padding-left:28px; position:relative;"><span style="position:absolute; left:0; top:9px; width:12px; height:12px; border-radius:999px; background:var(--tha-lime);"></span>Tries the product early, but defaults back to the incumbent when the story doesn’t stick.</li>
         </ul>
-        <div style="display:flex; flex-direction:column; gap:16px; margin-top:26px;">
+        <div data-mode-only="doc" style="display:flex; flex-direction:column; gap:16px; margin-top:26px;">
           <div style="background:var(--tha-lime); border-radius:18px; padding:20px 30px; text-align:center; font:italic 600 24px/1.36 var(--font-sans); color:var(--tha-navy);">&ldquo;I’ve tried most of the options. Is there a real reason to switch — one I can defend to my team?&rdquo;</div>
           <div style="background:var(--tha-lime); border-radius:18px; padding:20px 30px; text-align:center; font:italic 600 24px/1.36 var(--font-sans); color:var(--tha-navy);">&ldquo;I don’t need more features. I need to know this will still be the right call a year from now.&rdquo;</div>
           <div style="background:var(--tha-navy); border-radius:18px; padding:22px 30px; text-align:center;"><span style="font:italic 700 21px/1 var(--font-sans); color:var(--tha-paper);">We want them to…</span><p style="font:italic 600 24px/1.34 var(--font-sans); color:var(--tha-lime); margin:11px 0 0;">See it as the standard they build on — and the choice they’d recommend without hesitating.</p></div>
@@ -655,7 +660,6 @@
       </div>
 
     </div>
-    <div style="margin-top:22px; font:400 italic 24px/1 var(--font-serif); color:var(--tha-navy-500);">*Detailed bios are in the appendix.</div>
     <div class="chrome-page">16</div>
   </section>
 
@@ -696,7 +700,7 @@
     <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
       <span class="eyebrow" style="color:var(--tha-purple);"><span class="dot" style="background:var(--tha-purple);"></span>Builders &middot; Hero idea</span>
       <h2 style="font:700 60px/1.04 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy); margin:20px 0 0; max-width:16ch;">The Build <em class="em" style="color:var(--tha-purple);">Story.</em></h2>
-      <p style="font:400 24px/1.55 var(--font-sans); color:var(--tha-navy-500); margin:24px 0 0; max-width:42ch;">Take the unsexy work behind the product and turn it into a story the market actually wants to read.</p>
+      <p style="font:400 30px/1.55 var(--font-sans); color:var(--tha-navy-500); margin:24px 0 0; max-width:42ch;">Take the unsexy work behind the product and turn it into a story the market actually wants to read.</p>
       <div style="margin-top:28px;">
         <div style="font:700 20px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-navy); text-transform:uppercase;">Content &amp; engagements</div>
         <div style="display:flex; flex-direction:column; gap:10px; margin-top:16px;">
@@ -1053,7 +1057,7 @@
     <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
       <span class="eyebrow on-dark" style="color:var(--tha-lime);"><span class="dot"></span>Our footprint</span>
       <h2 style="font:700 46px/1.08 var(--font-sans); letter-spacing:-.02em; color:var(--tha-paper); margin:18px 0 0; max-width:16ch;">You don't need the biggest network. Just the <em class="em" style="color:var(--tha-lime);">right</em> one.</h2>
-      <p style="font:400 24px/1.5 var(--font-sans); color:var(--tha-navy-200); margin:22px 0 0; max-width:38ch;">Every office is staffed by locals who live the market — connected by one regional team. Global consistency, local precision.</p>
+      <p style="font:400 30px/1.5 var(--font-sans); color:var(--tha-navy-200); margin:22px 0 0; max-width:38ch;">Every office is staffed by locals who live the market — connected by one regional team. Global consistency, local precision.</p>
       <div style="margin-top:24px; font:500 20px/1.9 var(--font-mono); color:var(--tha-navy-300);">SAN JOSE &middot; LONDON &middot; SINGAPORE &middot; KL &middot; BANGKOK &middot; TAIPEI &middot; TOKYO &middot; SEOUL &middot; BEIJING</div>
     </div>
     <div class="chrome-page" style="color:var(--tha-navy-200);">33</div>
@@ -1136,17 +1140,18 @@
     <h2 style="font:700 56px/1.04 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy); margin:14px 0 0;">The <em class="em" style="color:var(--tha-purple);">pulse</em> check.</h2>
     <div class="stretch" style="margin-top:34px; display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; min-height:0;">
       <!-- DONUT -->
-      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; background:var(--tha-white); border:1px solid var(--tha-stone-200); border-radius:20px; padding:40px;">
-        <div style="position:relative; width:300px; height:300px;">
-          <svg viewBox="0 0 320 320" style="width:300px; height:300px; transform:rotate(-90deg);">
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:40px; background:var(--tha-white); border:1px solid var(--tha-stone-200); border-radius:20px; padding:48px 40px;">
+        <div style="position:relative; width:440px; height:440px;">
+          <svg viewBox="0 0 320 320" style="width:440px; height:440px; transform:rotate(-90deg);">
             <circle cx="160" cy="160" r="120" fill="none" stroke="var(--tha-stone-200)" stroke-width="34"/>
             <circle class="amb-draw" style="--dash:753.98;" cx="160" cy="160" r="120" fill="none" stroke="var(--tha-purple)" stroke-width="34" stroke-linecap="round" stroke-dasharray="671 753.98"/>
           </svg>
           <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; pointer-events:none;">
-            <div data-count="89" data-suffix="%" style="font:800 84px/0.9 var(--font-sans); letter-spacing:-.03em; color:var(--tha-navy);">89%</div>
-            <div style="font:600 20px/1.3 var(--font-mono); color:var(--tha-teal); margin-top:8px;">ON THE AI<br>SUPERHIGHWAY</div>
+            <div data-count="89" data-suffix="%" style="font:800 128px/0.9 var(--font-sans); letter-spacing:-.03em; color:var(--tha-navy);">89%</div>
+            <div style="font:600 24px/1.3 var(--font-mono); color:var(--tha-teal); margin-top:10px;">ON THE AI<br>SUPERHIGHWAY</div>
           </div>
         </div>
+        <div style="font:500 28px/1.4 var(--font-sans); color:var(--tha-navy-500); text-align:center; max-width:20ch;">Nearly everyone is already reaching for AI, day to day.</div>
       </div>
       <!-- BARS + CALLOUTS -->
       <div style="display:flex; flex-direction:column; justify-content:center; gap:34px;">
@@ -1281,7 +1286,7 @@
 
 
   <!-- @layout code="L45" name="Punchline (giant word)" use="An internal/culture beat or a single hinge word — the deck's loudest moment. One small setup line, one enormous word." point="The one word, set ENORMOUS; the setup is a whisper before the shout. A footnote/emoji can wink." slots="Setup: ≤5 words, small. Hero word: 1 word, ~3-letter sweet spot. Footnote: optional aside. Emoji: one Fluent face." surfaces="Navy or a colour; hero word in lime; emoji bottom-right." -->
-  <section class="slide" data-label="L45 Punchline" data-screen-label="L45 Punchline (giant word)" style="background:var(--tha-navy); padding:64px 88px; justify-content:center;">
+  <section class="slide" data-label="L45 Punchline" data-screen-label="L45 Punchline (giant word)" style="background:var(--tha-navy); padding:64px 88px; justify-content:center;" data-comment-anchor="9c506de93d-section">
     <div class="lay-note"><b>L45 · Punchline</b><span><i>Use:</i> culture beat / hinge word</span><span><i>Point:</i> one giant word; setup is a whisper.</span></div>
     <span style="align-self:flex-start; font:600 40px/1.1 var(--font-sans); color:var(--tha-paper);">Yes. There's always a</span>
     <div style="font:800 360px/0.86 var(--font-sans); letter-spacing:-.04em; color:var(--tha-lime); margin:4px 0 0;">BUT</div>
@@ -1397,21 +1402,39 @@
   
 
 </deck-stage>
+<div id="deck-mode-badge" title="Switch Presenter / Document" style="position:fixed; top:18px; right:18px; z-index:2147483050; font:700 13px/1 var(--font-mono); letter-spacing:.12em; text-transform:uppercase; padding:11px 16px; border-radius:999px; background:var(--tha-purple); color:var(--tha-paper); box-shadow:0 4px 14px rgba(0,0,0,.32); pointer-events:auto; cursor:pointer; user-select:none;">Document mode &middot; tap to switch</div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{
+  &quot;mode&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;presenter&quot;, &quot;document&quot;], &quot;default&quot;: &quot;document&quot;, &quot;tsType&quot;: &quot;\&quot;presenter\&quot; | \&quot;document\&quot;&quot;, &quot;section&quot;: &quot;Deck mode&quot; },
   &quot;showNotes&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot; },
   &quot;cleanImages&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot; },
   &quot;accent&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;Lime&quot;, &quot;Lavender&quot;, &quot;Purple&quot;, &quot;Cyan&quot;, &quot;Teal&quot;], &quot;default&quot;: &quot;Lime&quot;, &quot;tsType&quot;: &quot;string&quot; },
   &quot;cascadeStyle&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;Rainbow&quot;, &quot;Navy&quot;], &quot;default&quot;: &quot;Rainbow&quot;, &quot;tsType&quot;: &quot;string&quot; }
 }">
 class Component extends DCLogic {
+  // Flip-clock (L01 cover eyebrow): spins JAN → the current month, re-spins on cover activation.
+  MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+  YEAR = String(new Date().getFullYear());
+  SEQ = this.MONTHS.slice(0, new Date().getMonth() + 1);
+  state = { flipIdx: 0 };
+
   renderVals() {
     return {
       stageRef: (el) => { this._stage = el; this._apply(); },
+      flipDate: this._flipDate(),
+      mode: this._mode(),
     };
   }
-  componentDidMount() { this._apply(); }
+  componentDidMount() { this._apply(); this._installBalloon(); }
   componentDidUpdate() { this._apply(); }
+  componentWillUnmount() {
+    (this._flipTimers || []).forEach(clearTimeout);
+    if (this._obs) this._obs.disconnect();
+    if (this._countObs) this._countObs.disconnect();
+    this._stopTick();
+    window.removeEventListener('keydown', this._onKeyDown, true);
+    window.removeEventListener('keyup', this._onKeyUp, true);
+  }
   _apply() {
     const el = this._stage;
     if (!el) return;
@@ -1424,6 +1447,195 @@ class Component extends DCLogic {
     el.classList.toggle('clean-images', !!this.props.cleanImages);
     el.classList.toggle('cascade-navy', this.props.cascadeStyle === 'Navy');
     el.style.setProperty('--accent', accents[this.props.accent] || accents.Lime);
+    this._applyMode();
+  }
+
+  // ---- Presenter XOR Document mode ----
+  // Presenter = sparse (headline + one visual); the detail lives in speaker notes.
+  // Document  = the fuller, stand-alone deck. [data-mode-only="doc"|"pres"] blocks show only in their mode.
+  _mode() {
+    // A Tweaks prop change wins and clears any badge-click override; otherwise the click override wins.
+    const prop = this.props.mode === 'presenter' ? 'presenter' : 'document';
+    if (prop !== this._lastPropMode) { this._lastPropMode = prop; this._modeOverride = null; }
+    return this._modeOverride || prop;
+  }
+  _applyMode() {
+    const key = this._mode() === 'presenter' ? 'pres' : 'doc';
+    document.querySelectorAll('[data-mode-only]').forEach((el) => {
+      if (el.dataset.disp === undefined) el.dataset.disp = el.style.display || '';
+      el.style.display = (el.getAttribute('data-mode-only') === key) ? el.dataset.disp : 'none';
+    });
+    const badge = document.getElementById('deck-mode-badge');
+    if (badge) {
+      if (!badge._wired) {
+        badge._wired = true;
+        badge.addEventListener('click', (e) => {
+          e.preventDefault(); e.stopPropagation();
+          this._modeOverride = this._mode() === 'presenter' ? 'document' : 'presenter';
+          this._applyMode();
+        });
+      }
+      const doc = this._mode() === 'document';
+      badge.textContent = (doc ? 'Document' : 'Presenter') + ' mode \u00b7 tap to switch';
+      badge.style.background = doc ? 'var(--tha-purple)' : 'var(--tha-lime)';
+      badge.style.color = doc ? 'var(--tha-paper)' : 'var(--tha-navy)';
+    }
+  }
+
+  // ---- Cover balloon: hold Space to inflate the word through 3 breaths, then pop ----
+  // Driven by a 16ms interval (not rAF) so it animates in throttled/embedded frames.
+  _installBalloon() {
+    this._breathKF = [[0,0],[0.46,0.30],[0.70,0.18],[1.16,0.56],[1.40,0.42],[1.86,0.80],[2.12,0.64],[2.64,1.0]];
+    this._popT = 2.64;
+    const isSpace = (e) => e.code === 'Space' || e.key === ' ';
+    const coverActive = () => {
+      const c = document.querySelector('section[data-screen-label="L01 Cover"]');
+      return c && c.hasAttribute('data-deck-active');
+    };
+    this._onKeyDown = (e) => {
+      if (!isSpace(e) || !coverActive()) return;
+      e.preventDefault(); e.stopImmediatePropagation();
+      if (this._popping || this._spaceDown) return;
+      this._spaceDown = true; this._inflating = true; this._holdStart = Date.now(); this._startTick();
+    };
+    this._onKeyUp = (e) => {
+      if (!isSpace(e)) return;
+      if (coverActive()) { e.preventDefault(); e.stopImmediatePropagation(); }
+      if (!this._spaceDown) return;
+      this._spaceDown = false; this._inflating = false; this._releaseStart = Date.now(); this._releaseFromP = this._curP || 0; this._startTick();
+    };
+    window.addEventListener('keydown', this._onKeyDown, true);
+    window.addEventListener('keyup', this._onKeyUp, true);
+  }
+  _balloonEl() { if (!this._bEl || !this._bEl.isConnected) this._bEl = document.querySelector('[data-balloon]'); return this._bEl; }
+  _startTick() { if (!this._tick) this._tick = setInterval(() => this._step(), 16); }
+  _stopTick() { if (this._tick) { clearInterval(this._tick); this._tick = null; } }
+  _smooth(k) { k = Math.max(0, Math.min(1, k)); return k * k * (3 - 2 * k); }
+  _pAtTime(t) {
+    const kf = this._breathKF;
+    if (t <= 0) return 0;
+    for (let i = 1; i < kf.length; i++) {
+      if (t <= kf[i][0]) { const a = kf[i-1], b = kf[i]; return a[1] + (b[1]-a[1]) * this._smooth((t-a[0])/(b[0]-a[0])); }
+    }
+    return 1;
+  }
+  _applyScale(el, p) {
+    this._curP = p;
+    const scale = 1 + p * 1.35;
+    const now = Date.now();
+    const wob = Math.sin(now/1000*22) * 0.018 * p + Math.sin(now/1000*47) * 0.02 * Math.max(0, p - 0.7);
+    el.style.display = 'inline-block';
+    el.style.transformOrigin = '50% 55%';
+    el.style.transform = `scale(${(scale*(1-p*0.05)+wob).toFixed(3)}, ${(scale*(1+p*0.05)-wob).toFixed(3)})`;
+  }
+  _step() {
+    const el = this._balloonEl();
+    if (!el) { this._stopTick(); return; }
+    if (this._inflating) {
+      const t = (Date.now() - this._holdStart) / 1000;
+      if (t >= this._popT) { this._applyScale(el, 1); this._stopTick(); this._pop(); return; }
+      this._applyScale(el, this._pAtTime(t));
+    } else {
+      const k = (Date.now() - this._releaseStart) / 1000 / 0.4;
+      const p = (this._releaseFromP || 0) * (1 - this._smooth(k));
+      if (k >= 1 || p <= 0.002) { el.style.transform = ''; this._stopTick(); return; }
+      this._applyScale(el, p);
+    }
+  }
+  _pop() {
+    this._popping = true;
+    const el = this._balloonEl();
+    const cover = document.querySelector('section[data-screen-label="L01 Cover"]');
+    if (!el || !cover) { this._popping = false; return; }
+    const r = el.getBoundingClientRect(), cr = cover.getBoundingClientRect();
+    const cx = ((r.left + r.width/2) - cr.left) / cr.width * 1920;
+    const cy = ((r.top + r.height/2) - cr.top) / cr.height * 1080;
+    this._burst(cover, cx, cy);
+    const hint = document.querySelector('[data-balloon-hint]'); if (hint) hint.style.opacity = '0';
+    el.style.transition = 'transform .07s ease-out, opacity .07s';
+    el.style.transform = 'scale(1.6, 0.15)';
+    el.style.opacity = '0';
+    setTimeout(() => {
+      el.style.transition = 'none'; el.style.transform = 'scale(1.2)'; el.style.opacity = '1';
+      void el.offsetWidth;
+      el.style.transition = 'transform .5s cubic-bezier(.2,1.5,.4,1)';
+      el.style.transform = '';
+      setTimeout(() => { el.style.transition = ''; this._popping = false; }, 520);
+    }, 440);
+  }
+  _burst(cover, cx, cy) {
+    const colors = ['var(--tha-lime)','#86FFF1','#6103B9','#CB65FF','#145F7B','var(--tha-paper)','#FF7A3C','#FFC24B'];
+    [['var(--tha-lime)',8,0],['#CB65FF',5.5,90]].forEach(([col, sc, delay]) => {
+      const ring = document.createElement('div');
+      Object.assign(ring.style, { position:'absolute', left:cx+'px', top:cy+'px', width:'60px', height:'60px', marginLeft:'-30px', marginTop:'-30px', border:'6px solid '+col, borderRadius:'50%', pointerEvents:'none', zIndex:'6', opacity:'.9' });
+      cover.appendChild(ring); void ring.offsetWidth;
+      setTimeout(() => { ring.style.transition = 'transform .6s ease-out, opacity .6s ease-out'; ring.style.transform = 'scale('+sc+')'; ring.style.opacity = '0'; setTimeout(() => ring.remove(), 640); }, delay);
+    });
+    for (let i = 0; i < 74; i++) {
+      const d = document.createElement('div');
+      const rr = Math.random(); let w, h, br;
+      if (rr < 0.34) { w = h = 9 + Math.random()*18; br = '50%'; }
+      else if (rr < 0.67) { w = h = 9 + Math.random()*18; br = '3px'; }
+      else { w = 5 + Math.random()*7; h = 18 + Math.random()*28; br = '2px'; }
+      Object.assign(d.style, { position:'absolute', left:cx+'px', top:cy+'px', width:w+'px', height:h+'px', background:colors[i%colors.length], borderRadius:br, transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:'6' });
+      cover.appendChild(d); void d.offsetWidth;
+      const ang = Math.random()*Math.PI*2, dist = 240 + Math.random()*660;
+      const tx = Math.cos(ang)*dist, ty = Math.sin(ang)*dist + 260 + Math.random()*220;
+      const rot = Math.random()*1440 - 720, dur = 0.9 + Math.random()*0.95;
+      d.style.transition = `transform ${dur}s cubic-bezier(.12,.66,.24,1), opacity ${dur}s ease-in`;
+      d.style.transform = `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) rotate(${rot}deg) scale(${0.4 + Math.random()})`;
+      d.style.opacity = '0';
+      setTimeout(() => d.remove(), dur*1000 + 80);
+    }
+    ['party-popper','confetti-ball','balloon','partying-face'].forEach((name, k) => {
+      const e = document.createElement('fluent-emoji');
+      e.setAttribute('name', name); e.setAttribute('size', '104');
+      Object.assign(e.style, { position:'absolute', left:cx+'px', top:cy+'px', pointerEvents:'none', zIndex:'7', transform:'translate(-50%,-50%)' });
+      cover.appendChild(e); void e.offsetWidth;
+      const ang = (k/4)*Math.PI*2 + Math.random(), dist = 320 + Math.random()*280;
+      const tx = Math.cos(ang)*dist, ty = Math.sin(ang)*dist + 170, rot = Math.random()*300 - 150;
+      e.style.transition = 'transform 1.15s cubic-bezier(.14,.7,.24,1), opacity 1.15s ease-in';
+      e.style.transform = `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) rotate(${rot}deg) scale(1.15)`;
+      e.style.opacity = '0';
+      setTimeout(() => e.remove(), 1250);
+    });
+  }
+
+  // ---- Flip-clock (cover eyebrow) ----
+  _bindSpin = (node) => {
+    if (!node || this._flipBound) return;
+    this._flipBound = true;
+    this._reduceFlip = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const section = node.closest('section');
+    if (section && typeof MutationObserver !== 'undefined') {
+      this._obs = new MutationObserver(() => { if (section.hasAttribute('data-deck-active') && !this._spinning) this.startSpin(); });
+      this._obs.observe(section, { attributes: true, attributeFilter: ['data-deck-active'] });
+    }
+    this.startSpin();
+  };
+  startSpin() {
+    (this._flipTimers || []).forEach(clearTimeout);
+    this._flipTimers = [];
+    if (this._reduceFlip) { this.setState({ flipIdx: this.SEQ.length - 1 }); return; }
+    this._spinning = true;
+    this.setState({ flipIdx: 0 });
+    const n = this.SEQ.length - 1;
+    let acc = 320;
+    for (let i = 1; i <= n; i++) {
+      const t = n > 1 ? (i - 1) / (n - 1) : 1;
+      acc += Math.round(85 + Math.pow(t, 2.2) * 520);
+      this._flipTimers.push(setTimeout(() => this.setState({ flipIdx: i }), acc));
+    }
+    this._flipTimers.push(setTimeout(() => { this._spinning = false; }, acc + 60));
+  }
+  _flipDate() {
+    const h = React.createElement;
+    const idx = this.state.flipIdx;
+    const card = h('span', {
+      key: idx,
+      style: { position:'relative', display:'inline-block', overflow:'hidden', padding:'5px 12px 6px', background:'#0A1622', color:'var(--tha-lime)', borderRadius:'7px', font:'800 21px/1 var(--font-mono)', letterSpacing:'.04em', boxShadow:'inset 0 1px 0 rgba(255,255,255,.06), 0 3px 9px rgba(0,0,0,.4)', transformOrigin:'50% 0%', animation:'kn-flip .34s cubic-bezier(.34,.82,.36,1) both' },
+    }, this.SEQ[idx], h('span', { style: { position:'absolute', left:0, right:0, top:'50%', height:'2px', background:'rgba(0,0,0,.55)', transform:'translateY(-1px)', pointerEvents:'none' } }));
+    return h('span', { ref: this._bindSpin, style: { display:'inline-flex', alignItems:'center', gap:'9px', perspective:'340px', verticalAlign:'middle' } }, card, h('span', { style: { font:'inherit', color:'inherit', letterSpacing:'.05em' } }, this.YEAR));
   }
 
   /* --- Procedural count-up on stat moments. Base text is always the real
@@ -1465,4 +1677,3 @@ class Component extends DCLogic {
 </script>
 </body>
 </html>
-
