@@ -22,7 +22,7 @@ Hand-drawn annotation: [ONE OF: lime underline / purple double underline / lime 
 
 Storyline squiggle: [OPTIONAL — if used as hero background, anchored top-right, full-bleed on top, right and bottom edges, navy extends left holding the content].
 
-Constraints: NO other wavy lines, NO squiggly arrows beyond the approved annotation set. NO gradients. NO drop shadows. NO stock photography. NO emoji. Clean, premium tech aesthetic. High contrast. Square format 2160×2160 px.
+Constraints: NO other wavy lines, NO squiggly arrows beyond the approved annotation set. NO gradients. NO drop shadows. NO stock photography. NO raw emoji or decorative emoji stacks. Clean, premium tech aesthetic. High contrast. Square format 2160×2160 px.
 ```
 
 ### Example (filled)
@@ -61,8 +61,9 @@ Chrome:
 * Slide number + label, bottom-right, JetBrains Mono 22px / 11pt, letter-spacing 0.12em, UPPERCASE.
 
 Optional: one hand-drawn annotation (underline / circle / arrow / bracket / cross-out / double underline) in lime or purple.
+Optional: one Microsoft Fluent emoji as the slide's single storytelling graphic, following `CLAUDE.md §8`. In code, use `<fluent-emoji name="[NAME]" size="[96-160]"></fluent-emoji>`. In raster image prompts, request a Fluent-style emoji illustration only when the emoji is the intended hero graphic.
 
-Constraints: NO wavy lines outside the Storyline squiggle motif. NO gradients. NO frosted glass. Square corners (0–2px). NO emoji.
+Constraints: NO wavy lines outside the Storyline squiggle motif. NO gradients. NO frosted glass. Square corners (0–2px). NO raw unicode emoji, emoji stacks, or decorative emoji. Fluent emoji are allowed only as the deliberate single graphic/story beat.
 ```
 
 ---
@@ -98,7 +99,7 @@ When asking an AI to add a hand-drawn mark, use these exact terms:
 
 **Banned visual elements** — explicitly exclude these in your prompt:
 
-> "NO wavy decorative lines outside the Storyline squiggle motif. NO squiggly arrows. NO geometric shapes with hard edges as decoration. NO gradients, drop shadows, or glows. NO stock photography. NO emoji or unicode pictograms. NO logos on the body of carousel tiles (cover/closing only)."
+> "NO wavy decorative lines outside the Storyline squiggle motif. NO squiggly arrows. NO geometric shapes with hard edges as decoration. NO gradients, drop shadows, or glows. NO stock photography. NO raw/decorative emoji or unicode pictograms unless a named Fluent emoji is the intentional storytelling device. NO logos on the body of carousel tiles (cover/closing only)."
 
 ---
 

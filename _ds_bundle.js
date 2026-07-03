@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":3,"namespace":"HoffmanAgencyDesignSystem_d10f7f","components":[{"name":"Button","sourcePath":"ui_kits/website/Button.jsx"},{"name":"CTABand","sourcePath":"ui_kits/website/CTABand.jsx"},{"name":"CaseStudyGrid","sourcePath":"ui_kits/website/CaseStudyGrid.jsx"},{"name":"Circle","sourcePath":"ui_kits/website/Circle.jsx"},{"name":"Em","sourcePath":"ui_kits/website/Em.jsx"},{"name":"Eyebrow","sourcePath":"ui_kits/website/Eyebrow.jsx"},{"name":"Footer","sourcePath":"ui_kits/website/Footer.jsx"},{"name":"Hero","sourcePath":"ui_kits/website/Hero.jsx"},{"name":"Nav","sourcePath":"ui_kits/website/Nav.jsx"},{"name":"PaletteStrip","sourcePath":"ui_kits/website/PaletteStrip.jsx"},{"name":"QuoteBlock","sourcePath":"ui_kits/website/QuoteBlock.jsx"},{"name":"StorylineDivider","sourcePath":"ui_kits/website/QuoteBlock.jsx"},{"name":"Scribble","sourcePath":"ui_kits/website/Scribble.jsx"},{"name":"Services","sourcePath":"ui_kits/website/Services.jsx"},{"name":"StatsStrip","sourcePath":"ui_kits/website/StatsStrip.jsx"}],"sourceHashes":{"assets/emoji/fluent-emoji.js":"e93b51fce241","slides/deck-stage.js":"5e65f78ba7d6","slides/image-slot.js":"5ade9426e255","ui_kits/website/Button.jsx":"d0e05ad73963","ui_kits/website/CTABand.jsx":"37d094cd2b12","ui_kits/website/CaseStudyGrid.jsx":"0610c724c175","ui_kits/website/Circle.jsx":"cf46c2d44771","ui_kits/website/Em.jsx":"a798a33ed17f","ui_kits/website/Eyebrow.jsx":"8a151c0a2a9e","ui_kits/website/Footer.jsx":"5ed309cdd46f","ui_kits/website/Hero.jsx":"050345df977c","ui_kits/website/Nav.jsx":"34a2c34132da","ui_kits/website/PaletteStrip.jsx":"40d65da498ff","ui_kits/website/QuoteBlock.jsx":"b5af429814eb","ui_kits/website/Scribble.jsx":"e9ea6673e5d5","ui_kits/website/Services.jsx":"09503389d06e","ui_kits/website/StatsStrip.jsx":"26c5fc7c4cb6"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":3,"namespace":"HoffmanAgencyDesignSystem_d10f7f","components":[{"name":"Button","sourcePath":"ui_kits/website/Button.jsx"},{"name":"CTABand","sourcePath":"ui_kits/website/CTABand.jsx"},{"name":"CaseStudyGrid","sourcePath":"ui_kits/website/CaseStudyGrid.jsx"},{"name":"Circle","sourcePath":"ui_kits/website/Circle.jsx"},{"name":"Em","sourcePath":"ui_kits/website/Em.jsx"},{"name":"Eyebrow","sourcePath":"ui_kits/website/Eyebrow.jsx"},{"name":"Footer","sourcePath":"ui_kits/website/Footer.jsx"},{"name":"Hero","sourcePath":"ui_kits/website/Hero.jsx"},{"name":"Nav","sourcePath":"ui_kits/website/Nav.jsx"},{"name":"PaletteStrip","sourcePath":"ui_kits/website/PaletteStrip.jsx"},{"name":"QuoteBlock","sourcePath":"ui_kits/website/QuoteBlock.jsx"},{"name":"StorylineDivider","sourcePath":"ui_kits/website/QuoteBlock.jsx"},{"name":"Scribble","sourcePath":"ui_kits/website/Scribble.jsx"},{"name":"Services","sourcePath":"ui_kits/website/Services.jsx"},{"name":"StatsStrip","sourcePath":"ui_kits/website/StatsStrip.jsx"},{"name":"AppButton","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"TextField","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"TextareaField","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"SelectField","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"DateField","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"FileField","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"SliderField","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"Checkbox","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"RadioGroup","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"Toggle","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"Tabs","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"Breadcrumbs","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"Pagination","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"Sidebar","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"MobileMenu","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"AlertBanner","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"Toast","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"Modal","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"Tooltip","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"Popover","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"DataTable","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"DataList","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"Avatar","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"Badge","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"Divider","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"Accordion","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"Drawer","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"Menu","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"ProgressBar","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"Spinner","sourcePath":"ui_kits/app/AppUI.jsx"},{"name":"Skeleton","sourcePath":"ui_kits/app/AppUI.jsx"}],"sourceHashes":{"assets/emoji/fluent-emoji.js":"e93b51fce241","slides/deck-stage.js":"5e65f78ba7d6","slides/image-slot.js":"5ade9426e255","ui_kits/website/Button.jsx":"d0e05ad73963","ui_kits/website/CTABand.jsx":"37d094cd2b12","ui_kits/website/CaseStudyGrid.jsx":"0610c724c175","ui_kits/website/Circle.jsx":"cf46c2d44771","ui_kits/website/Em.jsx":"a798a33ed17f","ui_kits/website/Eyebrow.jsx":"8a151c0a2a9e","ui_kits/website/Footer.jsx":"5ed309cdd46f","ui_kits/website/Hero.jsx":"050345df977c","ui_kits/website/Nav.jsx":"34a2c34132da","ui_kits/website/PaletteStrip.jsx":"40d65da498ff","ui_kits/website/QuoteBlock.jsx":"b5af429814eb","ui_kits/website/Scribble.jsx":"e9ea6673e5d5","ui_kits/website/Services.jsx":"09503389d06e","ui_kits/website/StatsStrip.jsx":"26c5fc7c4cb6","ui_kits/app/AppUI.jsx":"eaa67466086c"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -3990,6 +3990,760 @@ function StatsStrip() {
 Object.assign(__ds_scope, { StatsStrip });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/website/StatsStrip.jsx", error: String((e && e.message) || e) }); }
 
+// ui_kits/app/AppUI.jsx
+try { (() => {
+const h = React.createElement;
+const Fragment = React.Fragment;
+const mergeStyle = (...styles) => Object.assign({}, ...styles.filter(Boolean));
+const fieldId = (label, id) => id || String(label || 'field').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const metaText = ({ helper, error }) => !helper && !error ? null : h("div", {
+  style: {
+    font: '400 12px/1.45 var(--font-sans)',
+    color: error ? 'var(--danger)' : 'var(--fg-3)',
+    marginTop: 6
+  }
+}, error || helper);
+const controlBase = {
+  width: '100%',
+  minHeight: 42,
+  padding: '10px 12px',
+  border: '1px solid var(--border-2)',
+  borderRadius: 'var(--radius-2)',
+  background: 'var(--tha-white)',
+  color: 'var(--fg-1)',
+  font: '400 14px/1.3 var(--font-sans)',
+  outlineColor: 'var(--tha-navy)'
+};
+function AppButton({
+  variant = 'primary',
+  size = 'md',
+  children,
+  style,
+  disabled,
+  loading,
+  ...props
+}) {
+  const variants = {
+    primary: { background: 'var(--tha-navy)', color: 'var(--tha-lime)', borderColor: 'var(--tha-navy)' },
+    secondary: { background: 'var(--tha-lime)', color: 'var(--tha-navy)', borderColor: 'var(--tha-lime)' },
+    neutral: { background: 'var(--tha-white)', color: 'var(--tha-navy)', borderColor: 'var(--border-2)' },
+    danger: { background: 'var(--danger)', color: 'var(--tha-white)', borderColor: 'var(--danger)' },
+    ghost: { background: 'transparent', color: 'var(--tha-navy)', borderColor: 'var(--tha-navy)' }
+  };
+  const sizes = {
+    sm: { minHeight: 34, padding: '8px 12px', fontSize: 12 },
+    md: { minHeight: 40, padding: '10px 14px', fontSize: 14 },
+    lg: { minHeight: 46, padding: '12px 18px', fontSize: 15 }
+  };
+  return h("button", {
+    type: "button",
+    disabled: disabled || loading,
+    "aria-busy": loading || undefined,
+    style: mergeStyle({
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 8,
+      border: '1.5px solid',
+      borderRadius: 'var(--radius-0)',
+      cursor: disabled || loading ? 'not-allowed' : 'pointer',
+      font: '700 14px/1 var(--font-sans)',
+      letterSpacing: 'var(--track-normal)',
+      opacity: disabled ? .48 : 1,
+      transition: 'background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out)'
+    }, sizes[size], variants[variant], style),
+    ...props
+  }, loading ? 'Working...' : children);
+}
+function TextField({
+  label,
+  helper,
+  error,
+  id,
+  prefix,
+  suffix,
+  style,
+  inputStyle,
+  ...props
+}) {
+  const inputId = fieldId(label, id);
+  return h("label", {
+    style: mergeStyle({ display: 'block', font: '600 13px/1.25 var(--font-sans)', color: 'var(--fg-1)' }, style),
+    htmlFor: inputId
+  }, h("span", null, label), h("span", {
+    style: { display: 'flex', alignItems: 'center', gap: 8, marginTop: 7 }
+  }, prefix ? h("span", { style: { font: '500 13px/1 var(--font-mono)', color: 'var(--fg-3)' } }, prefix) : null, h("input", {
+    id: inputId,
+    "aria-invalid": !!error,
+    style: mergeStyle(controlBase, error && { borderColor: 'var(--danger)' }, inputStyle),
+    ...props
+  }), suffix ? h("span", { style: { font: '500 13px/1 var(--font-mono)', color: 'var(--fg-3)' } }, suffix) : null), metaText({ helper, error }));
+}
+function TextareaField({
+  label,
+  helper,
+  error,
+  id,
+  style,
+  inputStyle,
+  rows = 4,
+  ...props
+}) {
+  const inputId = fieldId(label, id);
+  return h("label", {
+    style: mergeStyle({ display: 'block', font: '600 13px/1.25 var(--font-sans)', color: 'var(--fg-1)' }, style),
+    htmlFor: inputId
+  }, h("span", null, label), h("textarea", {
+    id: inputId,
+    rows,
+    "aria-invalid": !!error,
+    style: mergeStyle(controlBase, { minHeight: 104, resize: 'vertical', marginTop: 7, lineHeight: 1.45 }, error && { borderColor: 'var(--danger)' }, inputStyle),
+    ...props
+  }), metaText({ helper, error }));
+}
+function SelectField({
+  label,
+  helper,
+  error,
+  id,
+  options = [],
+  style,
+  inputStyle,
+  ...props
+}) {
+  const inputId = fieldId(label, id);
+  return h("label", {
+    style: mergeStyle({ display: 'block', font: '600 13px/1.25 var(--font-sans)', color: 'var(--fg-1)' }, style),
+    htmlFor: inputId
+  }, h("span", null, label), h("select", {
+    id: inputId,
+    "aria-invalid": !!error,
+    style: mergeStyle(controlBase, { marginTop: 7 }, error && { borderColor: 'var(--danger)' }, inputStyle),
+    ...props
+  }, options.map(option => h("option", {
+    key: option.value || option,
+    value: option.value || option
+  }, option.label || option))), metaText({ helper, error }));
+}
+function DateField(props) {
+  return h(TextField, { type: "date", ...props });
+}
+function FileField({
+  label,
+  helper,
+  error,
+  id,
+  style,
+  inputStyle,
+  ...props
+}) {
+  const inputId = fieldId(label, id);
+  return h("label", {
+    style: mergeStyle({ display: 'block', font: '600 13px/1.25 var(--font-sans)', color: 'var(--fg-1)' }, style),
+    htmlFor: inputId
+  }, h("span", null, label), h("input", {
+    id: inputId,
+    type: "file",
+    "aria-invalid": !!error,
+    style: mergeStyle(controlBase, { marginTop: 7, paddingTop: 9 }, error && { borderColor: 'var(--danger)' }, inputStyle),
+    ...props
+  }), metaText({ helper, error }));
+}
+function SliderField({
+  label,
+  helper,
+  error,
+  value = 50,
+  min = 0,
+  max = 100,
+  id,
+  style,
+  ...props
+}) {
+  const inputId = fieldId(label, id);
+  return h("label", {
+    style: mergeStyle({ display: 'block', font: '600 13px/1.25 var(--font-sans)', color: 'var(--fg-1)' }, style),
+    htmlFor: inputId
+  }, h("span", {
+    style: { display: 'flex', justifyContent: 'space-between', gap: 16 }
+  }, h("span", null, label), h("span", {
+    style: { font: '500 12px/1 var(--font-mono)', color: 'var(--fg-3)' }
+  }, value)), h("input", {
+    id: inputId,
+    type: "range",
+    value,
+    min,
+    max,
+    style: { width: '100%', accentColor: 'var(--tha-navy)', marginTop: 12 },
+    ...props
+  }), metaText({ helper, error }));
+}
+function Checkbox({
+  label,
+  helper,
+  style,
+  ...props
+}) {
+  return h("label", {
+    style: mergeStyle({ display: 'flex', gap: 10, alignItems: 'flex-start', font: '500 14px/1.35 var(--font-sans)', color: 'var(--fg-1)', cursor: 'pointer' }, style)
+  }, h("input", {
+    type: "checkbox",
+    style: { width: 17, height: 17, accentColor: 'var(--tha-navy)', marginTop: 1 },
+    ...props
+  }), h("span", null, label, helper ? h("span", {
+    style: { display: 'block', marginTop: 3, font: '400 12px/1.4 var(--font-sans)', color: 'var(--fg-3)' }
+  }, helper) : null));
+}
+function RadioGroup({
+  label,
+  name,
+  options = [],
+  value,
+  style,
+  onChange
+}) {
+  return h("fieldset", {
+    style: mergeStyle({ border: 0, padding: 0, margin: 0 }, style)
+  }, h("legend", {
+    style: { font: '600 13px/1.25 var(--font-sans)', color: 'var(--fg-1)', marginBottom: 10 }
+  }, label), h("div", {
+    style: { display: 'grid', gap: 9 }
+  }, options.map(option => h("label", {
+    key: option.value || option,
+    style: { display: 'flex', gap: 10, alignItems: 'center', font: '500 14px/1.3 var(--font-sans)', color: 'var(--fg-1)', cursor: 'pointer' }
+  }, h("input", {
+    type: "radio",
+    name,
+    value: option.value || option,
+    checked: value === (option.value || option),
+    onChange,
+    style: { width: 17, height: 17, accentColor: 'var(--tha-navy)' }
+  }), option.label || option))));
+}
+function Toggle({
+  label,
+  checked,
+  defaultChecked = false,
+  onChange,
+  style
+}) {
+  const [local, setLocal] = React.useState(defaultChecked);
+  const isOn = checked !== undefined ? checked : local;
+  return h("label", {
+    style: mergeStyle({ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 14, font: '600 14px/1.25 var(--font-sans)', color: 'var(--fg-1)', cursor: 'pointer' }, style)
+  }, h("span", null, label), h("span", {
+    style: { position: 'relative', width: 42, height: 24, display: 'inline-flex', alignItems: 'center' }
+  }, h("input", {
+    type: "checkbox",
+    role: "switch",
+    checked: isOn,
+    onChange: event => {
+      if (checked === undefined) setLocal(event.target.checked);
+      if (onChange) onChange(event);
+    },
+    style: { position: 'absolute', inset: 0, opacity: 0, cursor: 'pointer' }
+  }), h("span", {
+    "aria-hidden": "true",
+    style: { width: 42, height: 24, borderRadius: 'var(--radius-pill)', background: isOn ? 'var(--tha-navy)' : 'var(--tha-navy-200)', transition: 'background var(--dur-fast) var(--ease-out)' }
+  }), h("span", {
+    "aria-hidden": "true",
+    style: { position: 'absolute', top: 3, left: isOn ? 21 : 3, width: 18, height: 18, borderRadius: 'var(--radius-pill)', background: isOn ? 'var(--tha-lime)' : 'var(--tha-white)', transition: 'left var(--dur-fast) var(--ease-out)' }
+  })));
+}
+function Tabs({
+  tabs = [],
+  activeKey,
+  defaultKey,
+  onChange,
+  style
+}) {
+  const [local, setLocal] = React.useState(defaultKey || (tabs[0] && tabs[0].key));
+  const active = activeKey || local;
+  return h("div", {
+    style: mergeStyle({ display: 'flex', gap: 2, borderBottom: '1px solid var(--border-2)' }, style),
+    role: "tablist"
+  }, tabs.map(tab => h("button", {
+    key: tab.key,
+    type: "button",
+    role: "tab",
+    "aria-selected": active === tab.key,
+    onClick: () => {
+      setLocal(tab.key);
+      if (onChange) onChange(tab.key);
+    },
+    style: { padding: '11px 14px', border: 0, borderBottom: active === tab.key ? '3px solid var(--tha-lime)' : '3px solid transparent', background: active === tab.key ? 'var(--tha-navy-050)' : 'transparent', color: active === tab.key ? 'var(--tha-navy)' : 'var(--fg-2)', font: '700 13px/1 var(--font-sans)', cursor: 'pointer' }
+  }, tab.label)));
+}
+function Breadcrumbs({
+  items = [],
+  style
+}) {
+  return h("nav", {
+    "aria-label": "Breadcrumb",
+    style: mergeStyle({ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', font: '500 12px/1 var(--font-sans)' }, style)
+  }, items.map((item, index) => h(Fragment, {
+    key: item.href || item.label
+  }, index > 0 ? h("span", { style: { color: 'var(--fg-3)' } }, "/") : null, h("a", {
+    href: item.href || '#',
+    "aria-current": index === items.length - 1 ? 'page' : undefined,
+    style: { color: index === items.length - 1 ? 'var(--fg-1)' : 'var(--fg-link)', textDecoration: 'none' }
+  }, item.label))));
+}
+function Pagination({
+  page = 1,
+  total = 5,
+  onPageChange,
+  style
+}) {
+  return h("nav", {
+    "aria-label": "Pagination",
+    style: mergeStyle({ display: 'flex', alignItems: 'center', gap: 6 }, style)
+  }, Array.from({ length: total }, (_, index) => index + 1).map(item => h("button", {
+    key: item,
+    type: "button",
+    "aria-current": item === page ? 'page' : undefined,
+    onClick: () => onPageChange && onPageChange(item),
+    style: { minWidth: 34, height: 34, border: '1px solid var(--border-2)', background: item === page ? 'var(--tha-navy)' : 'var(--tha-white)', color: item === page ? 'var(--tha-lime)' : 'var(--fg-1)', font: '700 12px/1 var(--font-sans)', cursor: 'pointer' }
+  }, item)));
+}
+function Sidebar({
+  items = [],
+  activeKey,
+  onNavigate,
+  style
+}) {
+  return h("aside", {
+    style: mergeStyle({ width: 232, background: 'var(--tha-navy)', color: 'var(--fg-on-dark)', padding: 18, display: 'grid', gap: 20, alignContent: 'start' }, style)
+  }, h("img", {
+    src: "../../assets/logo-horizontal-white-lime.svg",
+    alt: "The Hoffman Agency",
+    style: { height: 30, width: 'auto' }
+  }), h("nav", {
+    style: { display: 'grid', gap: 4 }
+  }, items.map(item => h("button", {
+    key: item.key,
+    type: "button",
+    onClick: () => onNavigate && onNavigate(item.key),
+    style: { width: '100%', textAlign: 'left', padding: '11px 12px', border: 0, borderLeft: activeKey === item.key ? '4px solid var(--tha-lime)' : '4px solid transparent', background: activeKey === item.key ? 'rgba(255,255,255,.08)' : 'transparent', color: activeKey === item.key ? 'var(--tha-lime)' : 'var(--tha-navy-100)', font: '700 13px/1 var(--font-sans)', cursor: 'pointer' }
+  }, item.label))));
+}
+function MobileMenu({
+  label = 'Menu',
+  items = [],
+  style
+}) {
+  const [open, setOpen] = React.useState(false);
+  return h("div", {
+    style: mergeStyle({ position: 'relative', display: 'inline-block' }, style)
+  }, h(AppButton, {
+    variant: "ghost",
+    size: "sm",
+    onClick: () => setOpen(!open),
+    "aria-expanded": open
+  }, label), open ? h("div", {
+    style: { position: 'absolute', right: 0, top: 'calc(100% + 8px)', minWidth: 220, background: 'var(--tha-white)', border: '1px solid var(--border-2)', boxShadow: 'var(--shadow-2)', zIndex: 5 }
+  }, items.map(item => h("a", {
+    key: item.label,
+    href: item.href || '#',
+    style: { display: 'block', padding: '12px 14px', color: 'var(--fg-1)', font: '600 13px/1 var(--font-sans)', textDecoration: 'none', borderBottom: '1px solid var(--border-3)' }
+  }, item.label))) : null);
+}
+function AlertBanner({
+  tone = 'info',
+  title,
+  children,
+  style
+}) {
+  const tones = {
+    info: { color: 'var(--tha-teal)', bg: 'var(--tha-navy-050)' },
+    success: { color: 'var(--success)', bg: 'var(--tha-lime-050)' },
+    warning: { color: 'var(--warning)', bg: 'var(--tha-lime-050)' },
+    danger: { color: 'var(--danger)', bg: 'var(--tha-navy-050)' }
+  };
+  const toneStyle = tones[tone] || tones.info;
+  return h("div", {
+    role: "status",
+    style: mergeStyle({ borderLeft: `4px solid ${toneStyle.color}`, background: toneStyle.bg, padding: '13px 14px', color: 'var(--fg-1)' }, style)
+  }, h("div", {
+    style: { font: '700 14px/1.25 var(--font-sans)', color: toneStyle.color }
+  }, title), children ? h("div", {
+    style: { marginTop: 4, font: '400 13px/1.45 var(--font-sans)', color: 'var(--fg-2)' }
+  }, children) : null);
+}
+function Toast({
+  tone = 'info',
+  title,
+  children,
+  action,
+  style
+}) {
+  return h("div", {
+    role: "status",
+    style: mergeStyle({ width: 320, background: 'var(--tha-white)', border: '1px solid var(--border-2)', boxShadow: 'var(--shadow-3)', padding: 14, display: 'grid', gap: 8 }, style)
+  }, h(Badge, { tone }, tone), h("div", {
+    style: { font: '700 15px/1.2 var(--font-sans)', color: 'var(--fg-1)' }
+  }, title), children ? h("div", {
+    style: { font: '400 13px/1.45 var(--font-sans)', color: 'var(--fg-2)' }
+  }, children) : null, action ? h("div", null, action) : null);
+}
+function Modal({
+  open,
+  title,
+  children,
+  footer,
+  onClose,
+  style
+}) {
+  if (!open) return null;
+  return h("div", {
+    role: "presentation",
+    style: { position: 'fixed', inset: 0, background: 'rgba(14,28,43,.46)', display: 'grid', placeItems: 'center', padding: 24, zIndex: 50 }
+  }, h("section", {
+    role: "dialog",
+    "aria-modal": "true",
+    "aria-label": title,
+    style: mergeStyle({ width: 'min(560px, 100%)', background: 'var(--tha-white)', border: '1px solid var(--border-2)', boxShadow: 'var(--shadow-3)' }, style)
+  }, h("header", {
+    style: { display: 'flex', justifyContent: 'space-between', gap: 16, padding: '18px 20px', borderBottom: '1px solid var(--border-2)' }
+  }, h("h2", {
+    style: { margin: 0, font: '700 20px/1.2 var(--font-sans)', color: 'var(--fg-1)' }
+  }, title), h("button", {
+    type: "button",
+    onClick: onClose,
+    "aria-label": "Close",
+    style: { width: 32, height: 32, border: 0, background: 'var(--tha-navy-050)', cursor: 'pointer', font: '700 18px/1 var(--font-sans)' }
+  }, "x")), h("div", {
+    style: { padding: 20 }
+  }, children), footer ? h("footer", {
+    style: { display: 'flex', justifyContent: 'flex-end', gap: 10, padding: '14px 20px', borderTop: '1px solid var(--border-2)' }
+  }, footer) : null));
+}
+function Tooltip({
+  label,
+  children,
+  style
+}) {
+  const [open, setOpen] = React.useState(false);
+  return h("span", {
+    style: mergeStyle({ position: 'relative', display: 'inline-flex' }, style),
+    onMouseEnter: () => setOpen(true),
+    onMouseLeave: () => setOpen(false),
+    onFocus: () => setOpen(true),
+    onBlur: () => setOpen(false)
+  }, children, open ? h("span", {
+    role: "tooltip",
+    style: { position: 'absolute', left: '50%', bottom: 'calc(100% + 8px)', transform: 'translateX(-50%)', background: 'var(--tha-navy)', color: 'var(--tha-white)', padding: '7px 9px', font: '600 12px/1 var(--font-sans)', whiteSpace: 'nowrap', zIndex: 10 }
+  }, label) : null);
+}
+function Popover({
+  trigger,
+  title,
+  children,
+  style
+}) {
+  const [open, setOpen] = React.useState(false);
+  return h("span", {
+    style: mergeStyle({ position: 'relative', display: 'inline-flex' }, style)
+  }, h("span", {
+    onClick: () => setOpen(!open)
+  }, trigger), open ? h("section", {
+    style: { position: 'absolute', top: 'calc(100% + 8px)', right: 0, width: 260, background: 'var(--tha-white)', border: '1px solid var(--border-2)', boxShadow: 'var(--shadow-2)', padding: 14, zIndex: 10 }
+  }, title ? h("div", {
+    style: { font: '700 14px/1.2 var(--font-sans)', marginBottom: 8 }
+  }, title) : null, h("div", {
+    style: { font: '400 13px/1.45 var(--font-sans)', color: 'var(--fg-2)' }
+  }, children)) : null);
+}
+function DataTable({
+  columns = [],
+  rows = [],
+  style
+}) {
+  return h("div", {
+    style: mergeStyle({ overflowX: 'auto', border: '1px solid var(--border-2)', background: 'var(--tha-white)' }, style)
+  }, h("table", {
+    style: { width: '100%', borderCollapse: 'collapse', minWidth: 560 }
+  }, h("thead", null, h("tr", null, columns.map(column => h("th", {
+    key: column.key,
+    scope: "col",
+    style: { textAlign: 'left', padding: '11px 12px', borderBottom: '1px solid var(--border-2)', background: 'var(--tha-navy-050)', font: '700 11px/1 var(--font-sans)', letterSpacing: 'var(--track-eyebrow)', textTransform: 'uppercase', color: 'var(--fg-2)' }
+  }, column.label)))), h("tbody", null, rows.map((row, index) => h("tr", {
+    key: row.id || index
+  }, columns.map(column => h("td", {
+    key: column.key,
+    style: { padding: '12px', borderBottom: index < rows.length - 1 ? '1px solid var(--border-3)' : 0, font: '400 13px/1.35 var(--font-sans)', color: 'var(--fg-1)' }
+  }, row[column.key])))))));
+}
+function DataList({
+  items = [],
+  style
+}) {
+  return h("dl", {
+    style: mergeStyle({ display: 'grid', gridTemplateColumns: 'minmax(120px, .7fr) 1fr', gap: 0, margin: 0, border: '1px solid var(--border-2)', background: 'var(--tha-white)' }, style)
+  }, items.map(item => h(Fragment, {
+    key: item.label
+  }, h("dt", {
+    style: { padding: '11px 12px', borderBottom: '1px solid var(--border-3)', font: '700 12px/1.25 var(--font-sans)', color: 'var(--fg-2)' }
+  }, item.label), h("dd", {
+    style: { margin: 0, padding: '11px 12px', borderBottom: '1px solid var(--border-3)', font: '500 13px/1.35 var(--font-sans)', color: 'var(--fg-1)' }
+  }, item.value))));
+}
+function Avatar({
+  name,
+  src,
+  size = 36,
+  style
+}) {
+  const initials = String(name || '').split(' ').filter(Boolean).slice(0, 2).map(part => part[0]).join('').toUpperCase();
+  return src ? h("img", {
+    src,
+    alt: name || '',
+    style: mergeStyle({ width: size, height: size, borderRadius: 'var(--radius-pill)', objectFit: 'cover', border: '1px solid var(--border-2)' }, style)
+  }) : h("span", {
+    "aria-label": name,
+    style: mergeStyle({ width: size, height: size, borderRadius: 'var(--radius-pill)', display: 'inline-grid', placeItems: 'center', background: 'var(--tha-navy)', color: 'var(--tha-lime)', font: '700 12px/1 var(--font-sans)' }, style)
+  }, initials);
+}
+function Badge({
+  tone = 'neutral',
+  children,
+  style
+}) {
+  const tones = {
+    neutral: { color: 'var(--tha-navy)', bg: 'var(--tha-navy-050)', border: 'var(--border-2)' },
+    info: { color: 'var(--tha-teal)', bg: 'var(--tha-navy-050)', border: 'var(--tha-teal)' },
+    success: { color: 'var(--success)', bg: 'var(--tha-lime-050)', border: 'var(--success)' },
+    warning: { color: 'var(--warning)', bg: 'var(--tha-lime-050)', border: 'var(--warning)' },
+    danger: { color: 'var(--danger)', bg: 'var(--tha-navy-050)', border: 'var(--danger)' },
+    accent: { color: 'var(--tha-navy)', bg: 'var(--tha-lime)', border: 'var(--tha-lime)' }
+  };
+  const toneStyle = tones[tone] || tones.neutral;
+  return h("span", {
+    style: mergeStyle({ display: 'inline-flex', alignItems: 'center', minHeight: 24, padding: '5px 8px', border: `1px solid ${toneStyle.border}`, borderRadius: 'var(--radius-pill)', background: toneStyle.bg, color: toneStyle.color, font: '700 11px/1 var(--font-sans)', textTransform: 'uppercase', letterSpacing: 'var(--track-wide)' }, style)
+  }, children);
+}
+function Divider({
+  label,
+  style
+}) {
+  return h("div", {
+    style: mergeStyle({ display: 'flex', alignItems: 'center', gap: 10, color: 'var(--fg-3)', font: '700 11px/1 var(--font-sans)', letterSpacing: 'var(--track-eyebrow)', textTransform: 'uppercase' }, style)
+  }, h("span", { style: { flex: 1, height: 1, background: 'var(--border-2)' } }), label ? h("span", null, label) : null, h("span", { style: { flex: 1, height: 1, background: 'var(--border-2)' } }));
+}
+function Accordion({
+  items = [],
+  defaultOpen = 0,
+  style
+}) {
+  const [open, setOpen] = React.useState(defaultOpen);
+  return h("div", {
+    style: mergeStyle({ border: '1px solid var(--border-2)', background: 'var(--tha-white)' }, style)
+  }, items.map((item, index) => h("section", {
+    key: item.title,
+    style: { borderBottom: index < items.length - 1 ? '1px solid var(--border-3)' : 0 }
+  }, h("button", {
+    type: "button",
+    "aria-expanded": open === index,
+    onClick: () => setOpen(open === index ? -1 : index),
+    style: { width: '100%', padding: '14px 16px', border: 0, background: 'transparent', display: 'flex', justifyContent: 'space-between', alignItems: 'center', font: '700 14px/1.2 var(--font-sans)', color: 'var(--fg-1)', cursor: 'pointer' }
+  }, item.title, h("span", null, open === index ? '-' : '+')), open === index ? h("div", {
+    style: { padding: '0 16px 16px', font: '400 13px/1.5 var(--font-sans)', color: 'var(--fg-2)' }
+  }, item.content) : null)));
+}
+function Drawer({
+  open,
+  title,
+  children,
+  onClose,
+  side = 'right',
+  style
+}) {
+  if (!open) return null;
+  return h("div", {
+    role: "presentation",
+    style: { position: 'fixed', inset: 0, background: 'rgba(14,28,43,.32)', zIndex: 45 }
+  }, h("aside", {
+    role: "dialog",
+    "aria-label": title,
+    style: mergeStyle({ position: 'absolute', top: 0, bottom: 0, [side]: 0, width: 'min(380px, 92vw)', background: 'var(--tha-white)', borderLeft: side === 'right' ? '1px solid var(--border-2)' : 0, borderRight: side === 'left' ? '1px solid var(--border-2)' : 0, boxShadow: 'var(--shadow-3)', padding: 20 }, style)
+  }, h("header", {
+    style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, marginBottom: 18 }
+  }, h("h2", {
+    style: { margin: 0, font: '700 20px/1.2 var(--font-sans)' }
+  }, title), h("button", {
+    type: "button",
+    onClick: onClose,
+    "aria-label": "Close",
+    style: { width: 32, height: 32, border: 0, background: 'var(--tha-navy-050)', cursor: 'pointer' }
+  }, "x")), children));
+}
+function Menu({
+  label = 'Actions',
+  items = [],
+  style
+}) {
+  const [open, setOpen] = React.useState(false);
+  return h("div", {
+    style: mergeStyle({ position: 'relative', display: 'inline-block' }, style)
+  }, h(AppButton, {
+    variant: "neutral",
+    size: "sm",
+    onClick: () => setOpen(!open),
+    "aria-expanded": open
+  }, label), open ? h("div", {
+    role: "menu",
+    style: { position: 'absolute', right: 0, top: 'calc(100% + 6px)', minWidth: 180, background: 'var(--tha-white)', border: '1px solid var(--border-2)', boxShadow: 'var(--shadow-2)', zIndex: 10 }
+  }, items.map(item => h("button", {
+    key: item.label,
+    type: "button",
+    role: "menuitem",
+    onClick: item.onSelect,
+    style: { width: '100%', padding: '11px 12px', border: 0, borderBottom: '1px solid var(--border-3)', background: 'transparent', textAlign: 'left', color: item.danger ? 'var(--danger)' : 'var(--fg-1)', font: '600 13px/1 var(--font-sans)', cursor: 'pointer' }
+  }, item.label))) : null);
+}
+function ProgressBar({
+  value = 0,
+  max = 100,
+  label,
+  style
+}) {
+  const pct = Math.max(0, Math.min(100, Math.round(value / max * 100)));
+  return h("div", {
+    style: mergeStyle({ display: 'grid', gap: 8 }, style)
+  }, label ? h("div", {
+    style: { display: 'flex', justifyContent: 'space-between', font: '600 12px/1 var(--font-sans)', color: 'var(--fg-2)' }
+  }, h("span", null, label), h("span", null, pct, "%")) : null, h("div", {
+    role: "progressbar",
+    "aria-valuenow": value,
+    "aria-valuemin": 0,
+    "aria-valuemax": max,
+    style: { height: 8, background: 'var(--tha-navy-100)', overflow: 'hidden' }
+  }, h("div", {
+    style: { width: `${pct}%`, height: '100%', background: 'var(--tha-lime)' }
+  })));
+}
+function Spinner({
+  label = 'Loading',
+  size = 24,
+  style
+}) {
+  return h("span", {
+    role: "status",
+    "aria-label": label,
+    style: mergeStyle({ display: 'inline-grid', placeItems: 'center', width: size, height: size }, style)
+  }, h("span", {
+    style: { width: size, height: size, border: '3px solid var(--tha-navy-100)', borderTopColor: 'var(--tha-navy)', borderRadius: 'var(--radius-pill)', animation: 'tha-spin 900ms linear infinite' }
+  }));
+}
+function Skeleton({
+  lines = 3,
+  style
+}) {
+  return h("div", {
+    "aria-hidden": "true",
+    style: mergeStyle({ display: 'grid', gap: 8 }, style)
+  }, Array.from({ length: lines }, (_, index) => h("span", {
+    key: index,
+    style: { height: 12, width: index === lines - 1 ? '64%' : '100%', background: 'var(--tha-navy-100)', display: 'block' }
+  })));
+}
+Object.assign(__ds_scope, {
+  AppButton,
+  TextField,
+  TextareaField,
+  SelectField,
+  DateField,
+  FileField,
+  SliderField,
+  Checkbox,
+  RadioGroup,
+  Toggle,
+  Tabs,
+  Breadcrumbs,
+  Pagination,
+  Sidebar,
+  MobileMenu,
+  AlertBanner,
+  Toast,
+  Modal,
+  Tooltip,
+  Popover,
+  DataTable,
+  DataList,
+  Avatar,
+  Badge,
+  Divider,
+  Accordion,
+  Drawer,
+  Menu,
+  ProgressBar,
+  Spinner,
+  Skeleton
+});
+})(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/app/AppUI.jsx", error: String((e && e.message) || e) }); }
+
+__ds_ns.AppButton = __ds_scope.AppButton;
+
+__ds_ns.TextField = __ds_scope.TextField;
+
+__ds_ns.TextareaField = __ds_scope.TextareaField;
+
+__ds_ns.SelectField = __ds_scope.SelectField;
+
+__ds_ns.DateField = __ds_scope.DateField;
+
+__ds_ns.FileField = __ds_scope.FileField;
+
+__ds_ns.SliderField = __ds_scope.SliderField;
+
+__ds_ns.Checkbox = __ds_scope.Checkbox;
+
+__ds_ns.RadioGroup = __ds_scope.RadioGroup;
+
+__ds_ns.Toggle = __ds_scope.Toggle;
+
+__ds_ns.Tabs = __ds_scope.Tabs;
+
+__ds_ns.Breadcrumbs = __ds_scope.Breadcrumbs;
+
+__ds_ns.Pagination = __ds_scope.Pagination;
+
+__ds_ns.Sidebar = __ds_scope.Sidebar;
+
+__ds_ns.MobileMenu = __ds_scope.MobileMenu;
+
+__ds_ns.AlertBanner = __ds_scope.AlertBanner;
+
+__ds_ns.Toast = __ds_scope.Toast;
+
+__ds_ns.Modal = __ds_scope.Modal;
+
+__ds_ns.Tooltip = __ds_scope.Tooltip;
+
+__ds_ns.Popover = __ds_scope.Popover;
+
+__ds_ns.DataTable = __ds_scope.DataTable;
+
+__ds_ns.DataList = __ds_scope.DataList;
+
+__ds_ns.Avatar = __ds_scope.Avatar;
+
+__ds_ns.Badge = __ds_scope.Badge;
+
+__ds_ns.Divider = __ds_scope.Divider;
+
+__ds_ns.Accordion = __ds_scope.Accordion;
+
+__ds_ns.Drawer = __ds_scope.Drawer;
+
+__ds_ns.Menu = __ds_scope.Menu;
+
+__ds_ns.ProgressBar = __ds_scope.ProgressBar;
+
+__ds_ns.Spinner = __ds_scope.Spinner;
+
+__ds_ns.Skeleton = __ds_scope.Skeleton;
+
 __ds_ns.Button = __ds_scope.Button;
 
 __ds_ns.CTABand = __ds_scope.CTABand;
@@ -4021,4 +4775,3 @@ __ds_ns.Services = __ds_scope.Services;
 __ds_ns.StatsStrip = __ds_scope.StatsStrip;
 
 })();
-

@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "validate": "node tools/validate-design-system.js",
-    "test": "npm run validate"
+    "smoke": "node tools/smoke-html-catalog.js",
+    "test": "npm run validate && npm run smoke"
   }
 }

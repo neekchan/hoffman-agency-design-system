@@ -10,7 +10,8 @@ You are looking at **The Hoffman Agency design system**: brand tokens, fonts, lo
 
 **Then read by task — what you're being asked to make:**
 - **A deck / presentation / any fixed 1920×1080 slide** → `LAYOUTS.md` (the 48-layout library, L01–L51 — pick a named layout, don't free-style) + `CLAUDE.md §§1–12` (slide type scale, "fill the frame," imagery, declutter, editorial headlines, structure, color, Fluent emoji, **Presenter-vs-Document mode**). Build from `templates/deck/Deck.dc.html`. **Decide the deck's mode first (§12).**
-- **A web page / marketing site / app UI** → `README.md` web sections + `ui_kits/website/` (real components) + `DESIGN.md` web type scale. Web posture: generous whitespace, sparse imagery, 1240px measure.
+- **A web page / marketing site** → `README.md` web sections + `ui_kits/website/` (real components) + `DESIGN.md` web type scale. Web posture: generous whitespace, sparse imagery, 1240px measure.
+- **A product app / dashboard / workflow UI** → `README.md` app sections + `ui_kits/app/` (product primitives) + `DESIGN.md` component guidance. App posture: dense but calm, scannable, native controls, compact panels, no marketing hero composition.
 - **A social tile / one-pager** → the matching folder in `templates/` (`social-tile/`, `one-pager/`).
 - **Generating imagery with an AI image model** → `PROMPTS.md` (copy-paste prompt templates that bake in the Hoffman grade/mood).
 - **Before shipping anything** → run `CHECKLIST.md` (pre-ship visual-consistency checklist).
@@ -21,7 +22,7 @@ You are looking at **The Hoffman Agency design system**: brand tokens, fonts, lo
 
 **Assets live in `assets/`:** logos (10 colorways), the Storyline monogram, 76 hand-drawn annotations, and Fluent-emoji (`assets/emoji/`). Use these — don't redraw them.
 
-**Do NOT hand-edit** `_ds_bundle.js`, `_ds_manifest.json`, or `_adherence.oxlintrc.json` — they are compiler-generated. Edit the sources (`*.jsx`/`*.tsx`, `colors_and_type.css`) and let them regenerate.
+**Do NOT hand-edit** `_ds_bundle.js`, `_ds_manifest.json`, or `_adherence.oxlintrc.json` during normal work — they are compiler-generated. Edit the sources (`*.jsx`/`*.tsx`, `colors_and_type.css`) and let them regenerate. If the compiler is unavailable and a portable export must be repaired, a mechanical metadata/export sync is allowed; document it and run `npm run validate`.
 
 **🔒 `references/` is CONFIDENTIAL — never export it.** The `references/` (a.k.a. "reference") folder is the owner's private source material. It must **never** be included in any download, zip, bundle, standalone/inline build, published URL, PPTX/PDF/handoff package, or deliverable, and must never be copied into output. Read it for context only; exclude it from everything that leaves the project.
 

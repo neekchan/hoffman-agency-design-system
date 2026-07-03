@@ -11,6 +11,18 @@ The brand voice is **smart, human and energetic** — professional without feeli
 
 ---
 
+## LLM usage
+
+If this repo is being handed to Claude, ChatGPT, or another design agent, start
+with `LLM_ENTRYPOINT.md`. It routes by deliverable type so the model chooses the
+right rules before designing: decks use `CLAUDE.md` + `LAYOUTS.md`, marketing
+web uses `ui_kits/website/`, product apps use `ui_kits/app/`, and image
+generation uses `PROMPTS.md`.
+
+Use `ANTI_PATTERNS.md` as a final failure-mode check. It lists common LLM design
+mistakes such as web spacing on slides, wrong Storyline usage, bare image boxes,
+raw emoji decoration, and marketing heroes inside app UI.
+
 ## File structure
 
 The design system is organized so every file name corresponds to how it's used. Drop any of these into a project and the names tell you what they are.
@@ -18,11 +30,13 @@ The design system is organized so every file name corresponds to how it's used. 
 ```
 ─ Docs (root) ─────────────────────────────────────────────
 CLAUDE.md               · slide/deck SOPs — the authority for slides & office docs (precedence: see §0)
+LLM_ENTRYPOINT.md       · shortest task router for Claude, ChatGPT and other design agents
 LAYOUTS.md              · deck layout library (48 layouts, L01–L51) + slide best-practice guide
 DESIGN.md               · Google design.md spec — machine-readable single source of truth
 README.md               · this file (the human read of the brand: content, visual, iconography)
 SKILL.md                · agent-skill manifest
 CHECKLIST.md            · pre-ship visual consistency checklist
+ANTI_PATTERNS.md        · common LLM design failure modes + the correct Hoffman replacement
 PROMPTS.md              · AI generation prompt templates
 POWER-DESIGN-PRINCIPLES.md · portable craft-rules layer (reference, try, don't stick) + the Presenter/Document deck-mode rule
 CONTRIBUTING.md         · repo maintenance rules: what to edit, how to validate, and how to add cards/templates
@@ -31,6 +45,7 @@ package.json            · dependency-free validation entrypoint (`npm run valid
 colors_and_type.css     · all color + type tokens as CSS variables (the compiled token source)
 _ds_bundle.js · _ds_manifest.json · _adherence.oxlintrc.json   · COMPILER-GENERATED — do not hand-edit unless mechanically syncing an export when the compiler is unavailable
 tools/validate-design-system.js · static catalog + manifest consistency checks
+tools/smoke-html-catalog.js · local HTML asset + bundle export smoke checks
 
 docs/                   · portable exports + demos — self-contained, NOT part of the compiled system
   portable-brand-brief-social.md      · paste-into-Lovart brand brief for social tiles
@@ -78,10 +93,14 @@ slides/                 · the CI/VI demonstration deck (not a template)
   Hoffman Brand Guidelines v1 (archive).html · previous version, kept for reference
   deck-stage.js · image-slot.js              · deck shell + drag-to-fill placeholder component
 
-ui_kits/website/        · marketing-site UI kit — index.html + JSX components
-  Hero · Nav · Services · CaseStudyGrid · QuoteBlock · StatsStrip · CTABand · Footer
-  Button · Em · Eyebrow · Circle · PaletteStrip · Scribble · README.md
-  (15 components exposed — StorylineDivider ships from QuoteBlock.jsx, so there are 14 files.)
+ui_kits/
+  website/              · marketing-site UI kit — index.html + JSX components
+    Hero · Nav · Services · CaseStudyGrid · QuoteBlock · StatsStrip · CTABand · Footer
+    Button · Em · Eyebrow · Circle · PaletteStrip · Scribble · README.md
+    (15 components exposed — StorylineDivider ships from QuoteBlock.jsx, so there are 14 files.)
+  app/                  · product/app UI kit — dashboard demo + React primitive catalog
+    AppUI.jsx · index.html · COMPONENTS.md · README.md
+    Forms · navigation · feedback · data display · disclosure · progress primitives
 
 references/             · 🔒 CONFIDENTIAL — owner's private source material, optional in distributable clones. NEVER export, bundle, download, publish, or copy into any deliverable. Read-for-context only
   agency-profile.md      · the agency's positioning, services & voice brief (source for DESIGN/README)
@@ -100,7 +119,18 @@ Run the dependency-free catalog check before shipping repo changes:
 npm run validate
 ```
 
-It verifies component source paths, manifest card/template paths, `@dsCard` and `@template` metadata, website-kit README file references, the deck layout count, and the live guidelines deck slide count. The generated files should normally come from the design-system compiler; if the compiler is unavailable and a generated export must be synced manually, keep the change mechanical and run validation afterwards.
+It verifies component source paths, manifest card/template paths, `@dsCard` and `@template` metadata, UI-kit README file references, the deck layout count, and the live guidelines deck slide count. The generated files should normally come from the design-system compiler; if the compiler is unavailable and a generated export must be synced manually, keep the change mechanical and run validation afterwards.
+
+Run the smoke check when changing catalog HTML, demos, or generated component
+exports:
+
+```bash
+npm run smoke
+```
+
+It checks local HTML asset references, required LLM guidance files, UI kit demo
+roots, and namespace assignments in `_ds_bundle.js`. `npm test` runs both
+validation and smoke checks.
 
 ---
 

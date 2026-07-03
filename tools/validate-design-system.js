@@ -203,14 +203,14 @@ function validateTemplates(manifest) {
   }
 }
 
-function validateWebsiteReadme() {
-  const filePath = 'ui_kits/website/README.md';
+function validateUiKitReadme(folder) {
+  const filePath = `${folder}/README.md`;
   const source = read(filePath);
   const codePattern = /`([^`]+\.(?:jsx|html))`/g;
   let match;
 
   while ((match = codePattern.exec(source))) {
-    const referenced = `ui_kits/website/${match[1]}`;
+    const referenced = `${folder}/${match[1]}`;
     if (!exists(referenced)) fail(`${filePath}: referenced file does not exist: ${match[1]}`);
   }
 }
@@ -261,7 +261,8 @@ function main() {
   validateManifest(manifest);
   validateCards(manifest);
   validateTemplates(manifest);
-  validateWebsiteReadme();
+  validateUiKitReadme('ui_kits/website');
+  validateUiKitReadme('ui_kits/app');
   validateDeckTemplate();
   validateGuidelinesDeck();
 

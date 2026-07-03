@@ -4,7 +4,7 @@ description: Use this skill to generate well-branded interfaces and assets for T
 user-invocable: true
 ---
 
-Read the README.md file within this skill, and explore the other available files.
+Read `LLM_ENTRYPOINT.md` first, then `README.md`, and explore the other available files needed for the task.
 
 If creating visual artifacts (slides, mocks, throwaway prototypes, etc), copy assets out and create static HTML files for the user to view. If working on production code, you can copy assets and read the rules here to become an expert in designing with this brand.
 
@@ -22,12 +22,15 @@ If the user invokes this skill without any other guidance, ask them what they wa
 - **Contrast & color pairing (WCAG)**: `preview/brand-contrast-matrix.html` scores every pair; `preview/brand-color-pairings.html` shows each color **as a surface** with the type colors that pass on it and their role (Body ≥ 4.5 / Large+Bold ≥ 3). **Cross-pollination is allowed** — any two brand colors may combine, across the warm/cool pairs included (lavender on teal, cyan on purple…), wherever WCAG clears; contrast is the gate, not pairing. **Every color is a viable surface**, not just navy/paper — lime & cyan surfaces take navy/dark type (never white); navy/purple/teal surfaces take white or a light accent.
 - **Voice patterns**: stretched letters (`hellllllo 2026`), the ladder (word-scale steps across lines), strikethrough humor (`~~doubling~~ tripling down`), and lowercase first words as casual signal. Smart, Human, Energetic, Distilled, Bold, Creative, Authentic. Short lines, no jargon, no "leverage". Emojis allowed sparingly with copy (max 3 per page). See CONTENT FUNDAMENTALS in README.
 - **Layout posture (web)**: asymmetric, square-cornered, bold type as hero, sparse decorative imagery, generous negative space.
+- **Component routing**: use `ui_kits/website/` for marketing pages and editorial web surfaces. Use `ui_kits/app/` for product apps, dashboards, forms, tables, client portals, and workflow tools.
 - **⚠ MEDIUM SPLIT — web vs. slides**: This system serves two media with different layout physics. **Web / social** (webpages, UI kit, tiles) follows `DESIGN.md` + `colors_and_type.css` — web type scale (16px body), generous whitespace, sparse imagery. **Slides / office docs** (1920×1080 decks) follow `CLAUDE.md` + `LAYOUTS.md` and **OVERRIDE the web rules**: a dedicated slide type scale as FLOORS, biased high (20–24px labels · 30–36px body / default 32 · 40–52px subhead · 64–80px title · 120–132px statement/divider · 176px+ cover · ~240px closing word — never the old 28px "safe" body), "fill the frame" (no dead whitespace), and **imagery by default on every slide**. Color, fonts, the italic-word move, the Storyline motif, annotations, and voice are brand-wide and apply to both. When building a deck, never inherit web body sizes, web max-widths, or "sparse imagery."
 - **⚡ DECK MODE — Presenter XOR Document**: every deck is exactly one mode. **Presenter** (live) = ≤1 idea, ≤15 words/slide, image-led, detail in **speaker notes**; **Document** (leave-behind, stands alone) = denser, hierarchical, short bullets allowed. Never mix the two. Infer the mode from context, state the assumption, ask only if genuinely ambiguous. Both modes keep the full Hoffman visual system (fill-the-frame, slide scale, whole palette) — mode changes *depth*, not appearance. The `templates/deck/` library carries the **Mode** tweak; the full worked demo of the system is `slides/Hoffman Brand Guidelines.html`. See `CLAUDE.md §12`.
 
 ## Files
 
 - `README.md` — full design system (content, visual, iconography) + the file-structure map
+- `LLM_ENTRYPOINT.md` — shortest routing guide for Claude/ChatGPT and other LLM agents
+- `ANTI_PATTERNS.md` — common LLM design failures and the correct Hoffman replacement
 - `CLAUDE.md` — **slide/deck SOPs**; the authority when building decks or fixed-canvas office docs (§0 precedence, §8 Fluent emoji)
 - `LAYOUTS.md` — deck layout library (48 layouts, L01–L51) + slide best-practice guide
 - `DESIGN.md` — portable AI context file (google-labs-code/design.md format)
@@ -37,5 +40,6 @@ If the user invokes this skill without any other guidance, ask them what they wa
 - `preview/` — design-system cards (for reference)
 - `templates/` — reusable DC starting points (`deck`, `one-pager`, `social-tile`)
 - `ui_kits/website/` — website UI kit (`index.html` + JSX components)
+- `ui_kits/app/` — product/app UI kit (`index.html`, `AppUI.jsx`, `COMPONENTS.md`)
 
 > **🔒 `references/` is confidential** — the owner's private source material. **Never** export, bundle, download, publish, or copy it into any deliverable (downloads, zips, standalone/inline builds, PPTX/PDF, handoffs, public URLs). Read it for context only.

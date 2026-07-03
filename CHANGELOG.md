@@ -34,3 +34,6 @@ small catalog mistakes before they reach users again.
 - Added `CONTRIBUTING.md` so maintainers know what to edit, what is generated, and how to check their work.
 - Added `npm run validate` and `npm test`.
 - Added a dependency-free validator that checks common sources of repo drift: missing files, stale catalog entries, wrong slide counts, and README links that point nowhere.
+- Added `ui_kits/app/`, a product/app UI kit with React primitives for forms, navigation, feedback, data display, disclosure, and progress states, plus a dashboard demo card.
+- Added `LLM_ENTRYPOINT.md`, `ANTI_PATTERNS.md`, and `ui_kits/app/COMPONENTS.md` so Claude, ChatGPT, and similar agents can route tasks, avoid common design failures, and use the product UI primitives correctly.
+- Added `npm run smoke` for dependency-free catalog HTML and bundle export smoke checks.

@@ -10,7 +10,8 @@ catalog.
   `PROMPTS.md` for rules and guidance.
 - `colors_and_type.css` for design tokens, base styles, font registration, and
   shared utilities.
-- `ui_kits/website/*.jsx` for website-kit component source.
+- `ui_kits/website/*.jsx` for marketing website-kit component source.
+- `ui_kits/app/*.jsx` for product/app UI component source.
 - `preview/*.html`, `slides/*.html`, and `templates/**/*.dc.html` for visible
   catalog cards and reusable artifacts.
 - `assets/` and `fonts/` when the brand assets themselves change.
@@ -34,8 +35,17 @@ npm run validate
 ```
 
 The validator is dependency-free. It checks manifest paths, component exports,
-`@dsCard` metadata, `@template` entries, website-kit README file references, the
+`@dsCard` metadata, `@template` entries, UI-kit README file references, the
 48-layout deck template, and the live guidelines deck slide count.
+
+When changing catalog HTML, UI kit demos, or generated component exports, also
+run:
+
+```bash
+npm run smoke
+```
+
+`npm test` runs both validation and smoke checks.
 
 ## Adding A Preview Card
 

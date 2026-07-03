@@ -458,7 +458,9 @@ Still banned: **raw unicode emoji** as icons/bullets (platform-inconsistent — 
 
 `DESIGN.md` defines the tokens and rules; two collections *apply* them, and both are indexed here so nothing built is invisible to this file.
 
-**Website UI kit** (`ui_kits/website/`) — 15 production React components, compiled into `_ds_bundle.js` and exposed on `window.HoffmanAgencyDesignSystem_d10f7f`: `Button`, `Nav`, `Hero`, `Services`, `StatsStrip`, `CaseStudyGrid`, `QuoteBlock`, `CTABand`, `Footer`, `Eyebrow`, `Em`, `Circle`, `Scribble`, `PaletteStrip`, `StorylineDivider`. These are **marketing-site** components; the app-UI primitive catalog (form controls, feedback, data-display) is still backlog — see Reserved · Tier 1.
+**Website UI kit** (`ui_kits/website/`) — 15 production React components, compiled into `_ds_bundle.js` and exposed on `window.HoffmanAgencyDesignSystem_d10f7f`: `Button`, `Nav`, `Hero`, `Services`, `StatsStrip`, `CaseStudyGrid`, `QuoteBlock`, `CTABand`, `Footer`, `Eyebrow`, `Em`, `Circle`, `Scribble`, `PaletteStrip`, `StorylineDivider`. These are **marketing-site** components.
+
+**App UI kit** (`ui_kits/app/`) — product-interface primitives for dashboards, admin tools, workflow surfaces, client portals, and campaign trackers. The app kit is compiled into `_ds_bundle.js` and exposed on `window.HoffmanAgencyDesignSystem_d10f7f`: `AppButton`, `TextField`, `TextareaField`, `SelectField`, `DateField`, `FileField`, `SliderField`, `Checkbox`, `RadioGroup`, `Toggle`, `Tabs`, `Breadcrumbs`, `Pagination`, `Sidebar`, `MobileMenu`, `AlertBanner`, `Toast`, `Modal`, `Tooltip`, `Popover`, `DataTable`, `DataList`, `Avatar`, `Badge`, `Divider`, `Accordion`, `Drawer`, `Menu`, `ProgressBar`, `Spinner`, `Skeleton`. These are **product/app** components: quiet, dense, scannable, token-driven, and built around native controls wherever possible. Use them for operational UI; use the website kit for editorial marketing pages.
 
 **Templates** (`templates/`) — starting points a consuming project copies:
 - `deck/` — the **48-layout** presentation library (codes L01–L51) — the ONE deck template; carries the Presenter/Document **Mode** toggle + the balloon cover. Slide medium — governed by `CLAUDE.md` + `LAYOUTS.md`, not the web rules above.
@@ -497,7 +499,6 @@ The following areas are **acknowledged but not yet defined**. Placeholders are k
 
 ### Tier 1 · Product / UI extensions
 
-- [ ] **App-UI component library** *(the marketing/website kit in `ui_kits/website/` already ships — see "Component library & templates"; still missing is the product-UI catalog below)* — form controls (checkbox, radio, toggle, select, textarea, date picker, file upload, slider), navigation (tabs, breadcrumbs, pagination, sidebar, mobile menu), feedback (toast, alert banner, modal, tooltip, popover), data display (table, list, avatar, badge, divider), disclosure (accordion, drawer, menu), progress (bar, spinner, skeleton).
 - [ ] **Interaction states catalog** — formal spec for `default · hover · focus · active · selected · disabled · loading · error · success` across every interactive component.
 - [ ] **Accessibility (WCAG) commitments** — focus indicators, keyboard navigation, screen reader support, `prefers-reduced-motion`, color contrast minimums codified per token pair, touch target minimum (44 × 44 px).
 - [ ] **Responsive breakpoints** — `sm / md / lg / xl / 2xl` named breakpoints with px values.
