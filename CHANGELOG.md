@@ -38,3 +38,4 @@ small catalog mistakes before they reach users again.
 - Added `LLM_ENTRYPOINT.md`, `ANTI_PATTERNS.md`, and `ui_kits/app/COMPONENTS.md` so Claude, ChatGPT, and similar agents can route tasks, avoid common design failures, and use the product UI primitives correctly.
 - Added `npm run smoke` for dependency-free catalog HTML and bundle export smoke checks.
 - Clarified the README's LLM usage section so it works when the README is the only file pasted or attached to Claude/ChatGPT.
+- Added a README comparison section that explains how this fork differs from Neekchan's original version.
