@@ -1,6 +1,51 @@
 # Changelog
 
-## 2026-07-03
+All notable changes to the Hoffman Agency design system. Newest first. The
+canonical source of the system is the Claude Design project (claude.ai/design,
+`d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
+
+## 2026-07-03 — Fork extension merged back + integrated into the master (neekchan)
+
+Reviewed Takeo Apitzsch's fork (`takeoap/hoffman-agency-design-system-extension`,
+"Extended version of The Hoffman Agency design system"), confirmed it was purely
+additive (4 commits ahead, 0 behind — no brand redesign, nothing removed), and
+merged it back into the canonical repo with his commit history preserved.
+
+### Merged from the fork → `github.com/neekchan/hoffman-agency-design-system`
+- **App/product UI kit — `ui_kits/app/`.** `AppUI.jsx` with ~30 React primitives:
+  forms (TextField, Select, Toggle, RadioGroup, Slider…), navigation (Tabs,
+  Breadcrumbs, Pagination, Sidebar, MobileMenu), feedback (Alert, Toast, Modal,
+  Tooltip, Popover), data display (DataTable, DataList, Avatar, Badge, Divider),
+  disclosure (Accordion, Drawer, Menu), progress (ProgressBar, Spinner, Skeleton),
+  plus `index.html` dashboard demo, `COMPONENTS.md`, `README.md`. Fills the
+  "component library beyond the basics" item DESIGN.md had reserved for future.
+- **LLM-consumption guidance** — `LLM_ENTRYPOINT.md` (task-routing table),
+  `ANTI_PATTERNS.md`, README LLM-usage + fork-comparison sections.
+- **Repo tooling** — `package.json` + `tools/validate-design-system.js` +
+  `tools/smoke-html-catalog.js` (`npm run validate` / `test` / `smoke`),
+  `CONTRIBUTING.md`.
+- **Catalog fixes** — `_ds_manifest.json` matched to real files; stale
+  `templates/keynote` entry removed; brand-guidelines deck corrected 52 → 58
+  slides; website UI-kit README fixed; font-hosting + `references/` privacy
+  clarified. (Detail in the fork entry below.)
+
+### Integrated into the Claude Design master (source of truth)
+Pushed the **design substance only** — `ui_kits/app/AppUI.jsx`,
+`ui_kits/app/index.html`, `ui_kits/app/COMPONENTS.md`, `ui_kits/app/README.md`,
+`LLM_ENTRYPOINT.md`, `ANTI_PATTERNS.md`. Deliberately **not** pushed:
+compiler-generated `_ds_manifest.json` / `_ds_bundle.js` (the Claude Design build
+regenerates these from source), repo dev-tooling, and edited existing docs (the
+master already had newer versions — avoided regressions). Opening the master
+project once lets its compiler register the app components + the App UI Kit
+preview card.
+
+_Note:_ repo and master are intentionally not in full parity — the master carries
+an `app-deck` template + `Hoffman App Deck.html` the repo lacks; the repo carries
+the validator/tooling the master lacks.
+
+## 2026-07-03 — Fork "extension" by Takeo Apitzsch (`takeoap`)
+
+_Preserved verbatim from the fork's own CHANGELOG._
 
 ### What these changes improve
 
@@ -39,3 +84,16 @@ small catalog mistakes before they reach users again.
 - Added `npm run smoke` for dependency-free catalog HTML and bundle export smoke checks.
 - Clarified the README's LLM usage section so it works when the README is the only file pasted or attached to Claude/ChatGPT.
 - Added a README comparison section that explains how this fork differs from Neekchan's original version.
+
+## 2026-06-30 — Public repo created + full sync from Claude Design (neekchan)
+
+- Created the public repo `github.com/neekchan/hoffman-agency-design-system` and
+  synced the full Hoffman Agency design system down from the Claude Design master.
+- **Excluded internal source material** (`references/`, `uploads/` — all-hands and
+  strategy decks) from the public mirror.
+- Fonts: 18 Poppins weights self-hosted (from Google Fonts); Libre Baskerville
+  variable fonts (upright + italic) added.
+- Full curated Fluent emoji set vendored offline (color + animated), CDN pinned to
+  commit SHAs. Logos (10 colorways), storyline marks, 76 hand-drawn annotations,
+  deck/one-pager/social-tile templates, the 58-slide brand-guidelines deck, and
+  the website UI kit all included.
