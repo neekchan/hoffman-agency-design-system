@@ -13,15 +13,42 @@ The brand voice is **smart, human and energetic** — professional without feeli
 
 ## LLM usage
 
-If this repo is being handed to Claude, ChatGPT, or another design agent, start
-with `LLM_ENTRYPOINT.md`. It routes by deliverable type so the model chooses the
-right rules before designing: decks use `CLAUDE.md` + `LAYOUTS.md`, marketing
-web uses `ui_kits/website/`, product apps use `ui_kits/app/`, and image
-generation uses `PROMPTS.md`.
+This repo is often used by pointing Claude, ChatGPT, or another design agent at
+the files and asking it to build slides, pages, or prototypes. Treat this README
+as the first prompt. If the model can read the repo, open `LLM_ENTRYPOINT.md`
+next; it is the shortest task router. If this README is the only file visible,
+use the routing rules below.
 
-Use `ANTI_PATTERNS.md` as a final failure-mode check. It lists common LLM design
-mistakes such as web spacing on slides, wrong Storyline usage, bare image boxes,
-raw emoji decoration, and marketing heroes inside app UI.
+| If the user asks for | Use these rules first | Do not do this |
+|---|---|---|
+| Slides, decks, PowerPoint, Keynote | `CLAUDE.md` + `LAYOUTS.md`; if unavailable, use the slide quick rules below | Do not apply web whitespace/type scale |
+| Marketing site or landing page | `DESIGN.md`, `colors_and_type.css`, `ui_kits/website/` | Do not use dashboard density |
+| Product app, dashboard, portal, workflow UI | `DESIGN.md`, `ui_kits/app/`, `ui_kits/app/COMPONENTS.md` | Do not start with a marketing hero |
+| Social tile or carousel | `templates/social-tile/`, `PROMPTS.md` | Do not use tiny type or decorative clutter |
+| Image generation prompt | `PROMPTS.md` | Do not ignore placeholder size/mood rules |
+
+**If building slides and only this README is visible:**
+
+- Build a 1920x1080 deck, not a webpage.
+- Decide one mode first: Presenter = live, sparse, <=15 words/slide; Document =
+  leave-behind, denser, still no paragraphs. Never mix modes.
+- Use the slide type scale as floors: labels 20-24px, body 30-36px, titles
+  64-80px, statement slides 120px+, cover titles 176px+.
+- Fill the frame. Use ~72px safe margins, image bleed where useful, and avoid
+  small elements floating in empty space.
+- Use imagery by default. If no real image is available, use a labelled
+  `.tha-placeholder` with type, aspect, exact generate size, human hint, and
+  image prompt.
+- Use one Microsoft Fluent emoji as the slide's storytelling graphic when it is
+  the emotional beat. Avoid raw emoji, emoji stacks, or decorative emoji.
+- Use the full palette across a deck, but one dominant color per slide and WCAG
+  contrast for all type.
+- Keep the Storyline motif correct: boxed mark on light/non-navy; line variant
+  edge-locked behind content on navy/dark fields.
+
+Use `ANTI_PATTERNS.md` as a final failure-mode check when available. It lists
+common LLM design mistakes such as web spacing on slides, wrong Storyline usage,
+bare image boxes, raw emoji decoration, and marketing heroes inside app UI.
 
 ## File structure
 
