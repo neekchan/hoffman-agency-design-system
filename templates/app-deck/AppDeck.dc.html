@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<template id="__bundler_thumbnail" data-bg-color="#0E1C2B">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0E1C2B"/>
+    <text x="600" y="440" font-family="Georgia, serif" font-style="italic" font-size="220" fill="#D2EB00" text-anchor="middle">h.</text>
+  </svg>
+</template>
+<meta name="ext-resource-dependency" content="../../assets/logo-horizontal-navy-lime.svg" data-resource-id="logo_horizontal_navy-lime" />
+<meta name="ext-resource-dependency" content="../../assets/logo-horizontal-navy.svg" data-resource-id="logo_horizontal_navy" />
+<meta name="ext-resource-dependency" content="../../assets/logo-horizontal-white.svg" data-resource-id="logo_horizontal_white" />
+<meta name="ext-resource-dependency" content="../../assets/logo-stacked-navy-lime.svg" data-resource-id="logo_stacked_navy-lime" />
+<meta name="ext-resource-dependency" content="../../assets/logo-stacked-navy.svg" data-resource-id="logo_stacked_navy" />
+<meta name="ext-resource-dependency" content="../../assets/logo-stacked-white.svg" data-resource-id="logo_stacked_white" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/underline-01.svg" data-resource-id="ann_underline-01" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/underline-03.svg" data-resource-id="ann_underline-03" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/underline-07.svg" data-resource-id="ann_underline-07" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/underline-10.svg" data-resource-id="ann_underline-10" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/circle-03.svg" data-resource-id="ann_circle-03" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/circle-05.svg" data-resource-id="ann_circle-05" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/circle-09.svg" data-resource-id="ann_circle-09" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/circle-13.svg" data-resource-id="ann_circle-13" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/arrow-02.svg" data-resource-id="ann_arrow-02" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/arrow-05.svg" data-resource-id="ann_arrow-05" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/arrow-09.svg" data-resource-id="ann_arrow-09" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/arrow-12.svg" data-resource-id="ann_arrow-12" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/tick-02.svg" data-resource-id="ann_tick-02" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/tick-05.svg" data-resource-id="ann_tick-05" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/tick-08.svg" data-resource-id="ann_tick-08" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/cross-03.svg" data-resource-id="ann_cross-03" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/cross-06.svg" data-resource-id="ann_cross-06" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/cross-09.svg" data-resource-id="ann_cross-09" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/accent-01.svg" data-resource-id="ann_accent-01" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/accent-04.svg" data-resource-id="ann_accent-04" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/accent-08.svg" data-resource-id="ann_accent-08" />
+<meta name="ext-resource-dependency" content="../../assets/annotations/accent-11.svg" data-resource-id="ann_accent-11" />
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="App deck (interactive explorer)" description="Hoffman OS — the slides-as-software experiment. Twenty 16:9 screens designed as app UI, not slides: a state-machine shell with dock/rail navigation, and every brand rule demonstrated as a working interaction (voice toggle, logo configurator, misuse playground, contrast lab, type you can drive, prompt builder, ship-it checklist). Self-driven explorer by nature — send the link; no PDF fallback intended. Tweaks: Explorer/Presenter, nav chrome, hints, motion." -->
+<!-- CANVAS: fixed 1920×1080 logical px (scales to any display incl. 4K). Screens live on a horizontal filmstrip; the camera glides between them. Each <section data-idx="N"> sits at left = N × 1920px. All slide-scale SOPs apply (CLAUDE.md §§1–12): 72px margins, ≥20px labels, 30px+ body, editorial headlines. -->
+<helmet>
+<script src="./ds-base.js"></script>
+<script src="../../assets/emoji/fluent-emoji.js" data-base="../../assets/emoji"></script>
+<style>
+  html, body { margin:0; padding:0; background:#0E1C2B; overflow:hidden; }
+  @keyframes appEnt { from { opacity:0; transform:translateY(26px); } to { opacity:1; transform:none; } }
+  @keyframes helloWave { 0% { color:var(--tha-lime); } 16.6% { color:var(--tha-violet); } 33.3% { color:var(--tha-purple); text-shadow:0 0 0 rgba(0,0,0,0); } 50% { color:var(--tha-aqua); } 66.6% { color:var(--tha-navy-100); text-shadow:0 0 14px rgba(255,255,255,.25); } 83.3% { color:var(--tha-paper); } 100% { color:var(--tha-lime); } }
+  .hello-letter { display:inline-block; animation:helloWave 2.4s linear infinite; }
+  @keyframes appPop { 0% { transform:translate(-50%,0) scale(.7); opacity:0; } 70% { transform:translate(-50%,0) scale(1.05); } 100% { transform:translate(-50%,0) scale(1); opacity:1; } }
+  section[data-app-on] [data-ent] { animation:appEnt .6s cubic-bezier(.2,.8,.2,1) both; animation-delay:.15s; }
+  section[data-app-on] [data-ent="2"] { animation-delay:.27s; }
+  section[data-app-on] [data-ent="3"] { animation-delay:.39s; }
+  section[data-app-on] [data-ent="4"] { animation-delay:.51s; }
+  section[data-app-on] [data-ent="5"] { animation-delay:.63s; }
+  section[data-app-on] [data-ent="6"] { animation-delay:.75s; }
+  @media (prefers-reduced-motion: reduce) { [data-ent] { animation:none !important; } * { transition-duration:0s !important; } }
+  [data-motion-off] * { animation:none !important; transition:none !important; }
+  .dock-i { position:relative; transition:transform .18s cubic-bezier(.2,.8,.2,1); }
+  .dock-i:hover { transform:translateY(-10px) scale(1.14); }
+  .dock-t { position:absolute; bottom:66px; left:50%; transform:translateX(-50%); white-space:nowrap; font:600 20px/1 var(--font-mono); letter-spacing:.08em; color:#FAFAF7; background:#0E1C2B; border:1px solid #35526F; padding:10px 14px; opacity:0; pointer-events:none; transition:opacity .15s; }
+  .dock-i:hover .dock-t { opacity:1; }
+  input[type="range"] { accent-color:#D2EB00; cursor:pointer; }
+  fluent-emoji:not(:defined) { display:inline-block; width:1em; }
+  ::selection { background:#D2EB00; color:#182D43; }
+</style>
+</helmet>
+
+<div style="position:fixed; inset:0; background:#0E1C2B; display:flex; align-items:center; justify-content:center; overflow:hidden; font-family:var(--font-sans);">
+<div ref="{{ stageRef }}" data-appdeck-stage="1" style="{{ scaleStyle }}">
+<div style="{{ cameraStyle }}">
+
+<!-- ============ 00 · BOOT ============ -->
+<section data-idx="0" data-screen-label="00 Boot" style="position:absolute; left:0px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:var(--tha-navy); overflow:hidden; padding:72px;">
+  <img src="../../assets/storyline-line-lime.svg" alt="" style="position:absolute; inset:0; width:100%; height:100%; display:block; pointer-events:none;">
+  <div data-ent="1" style="position:relative; z-index:1; display:inline-flex; align-items:center; gap:14px; font:700 22px/1 var(--font-mono); letter-spacing:.14em; color:var(--tha-lime);"><span style="width:14px; height:14px; background:var(--tha-lime); border-radius:50%;"></span>HOFFMAN OS · V2.0 · 2026</div>
+  <div style="position:relative; z-index:1; height:calc(100% - 60px); display:flex; flex-direction:column; justify-content:center; gap:44px; max-width:1300px;">
+    <h1 data-ent="2" style="margin:0; font:800 212px/0.92 var(--font-sans); letter-spacing:-.035em;"><span class="hello-letter" style="animation-delay:0.00s;">h</span><span class="hello-letter" style="animation-delay:0.15s;">e</span><span class="hello-letter" style="animation-delay:0.30s;">l</span><span class="hello-letter" style="animation-delay:0.45s;">l</span><span class="hello-letter" style="animation-delay:0.60s;">l</span><span class="hello-letter" style="animation-delay:0.75s;">l</span><span class="hello-letter" style="animation-delay:0.90s;">l</span><span class="hello-letter" style="animation-delay:1.05s;">o</span><span class="hello-letter" style="animation-delay:1.20s;">.</span></h1>
+    <p data-ent="3" style="margin:0; font:400 34px/1.45 var(--font-sans); color:var(--tha-navy-200); max-width:32em;">The brand guidelines — but <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-aqua);">running.</em> Not a PDF. Not a deck. Twenty screens you can press, drag, break, and un-break.</p>
+    <div data-ent="4" style="display:flex; align-items:center; gap:32px;">
+      <button onClick="{{ go1 }}" style="font:600 26px/1 var(--font-sans); padding:26px 46px; border:0; border-radius:0; background:var(--tha-lime); color:var(--tha-navy); cursor:pointer; display:inline-flex; align-items:center; gap:16px; transition:transform .15s, box-shadow .15s;" style-hover="transform:translateY(-3px); box-shadow:0 16px 36px -12px rgba(210,235,0,.5);" style-active="transform:translateY(1px); box-shadow:none;">Boot the brand <span style="font-size:28px;">→</span></button>
+      <span style="font:500 22px/1 var(--font-mono); color:var(--tha-navy-300);">or press → to page through</span>
+    </div>
+  </div>
+  <img src="../../assets/logo-horizontal-white.svg" alt="The Hoffman Agency" style="position:absolute; left:72px; bottom:40px; height:30px; z-index:1;">
+  <div style="position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-300); z-index:1;">00 · BOOT</div>
+</section>
+
+<!-- ============ 01 · HOME / LAUNCHER ============ -->
+<section data-idx="1" data-screen-label="01 Home" style="position:absolute; left:1920px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:var(--tha-paper); overflow:hidden; padding:72px; display:flex; flex-direction:column;">
+  <div data-ent="1" style="display:flex; align-items:center; gap:22px;">
+    <img src="../../assets/storyline-navy-lime.svg" alt="" style="width:48px; height:48px; cursor:pointer;" onClick="{{ go0 }}">
+    <span style="font:700 28px/1 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy);">Hoffman OS</span>
+    <span style="font:500 20px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-navy-400);">THE BRAND, RUNNING</span>
+    <span style="flex:1;"></span>
+    <span style="font:600 24px/1 var(--font-mono); color:var(--tha-navy);">{{ clock }}</span>
+    <span style="font:600 20px/1 var(--font-mono); letter-spacing:.08em; color:var(--tha-navy-500); border:1.5px solid var(--tha-navy-200); border-radius:999px; padding:11px 18px;">6 SECTIONS · 20 SCREENS</span>
+  </div>
+  <h2 data-ent="2" style="margin:40px 0 0; font:700 76px/1.02 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy);">Everything we are. <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-purple);">Tap</em> in.</h2>
+  <div data-ent="3" style="flex:1; margin-top:44px; display:grid; grid-template-columns:repeat(3, 1fr); grid-template-rows:1fr 1fr; gap:24px; min-height:0;">
+    <div onClick="{{ act }}" data-go="2" style="background:var(--tha-violet); color:var(--tha-navy); padding:34px 36px; display:flex; flex-direction:column; cursor:pointer; transition:transform .2s, box-shadow .2s;" style-hover="transform:translateY(-8px); box-shadow:0 18px 40px -18px rgba(24,45,67,.4);">
+      <div style="display:flex; justify-content:space-between; align-items:baseline;"><span style="font:700 22px/1 var(--font-mono);">01</span><span style="font:700 34px/1;">→</span></div>
+      <h3 style="margin:auto 0 8px; font:700 46px/1.04 var(--font-sans); letter-spacing:-.02em;">Foundations</h3>
+      <p style="margin:0; font:500 23px/1.35 var(--font-sans);">Why we exist · the voice switch · signature moves</p>
+      <span style="margin-top:18px; font:600 20px/1 var(--font-mono); letter-spacing:.08em; opacity:.7;">3 SCREENS</span>
+    </div>
+    <div onClick="{{ act }}" data-go="5" style="background:var(--tha-purple); color:#FFFFFF; padding:34px 36px; display:flex; flex-direction:column; cursor:pointer; transition:transform .2s, box-shadow .2s;" style-hover="transform:translateY(-8px); box-shadow:0 18px 40px -18px rgba(24,45,67,.4);">
+      <div style="display:flex; justify-content:space-between; align-items:baseline;"><span style="font:700 22px/1 var(--font-mono); color:var(--tha-violet);">02</span><span style="font:700 34px/1;">→</span></div>
+      <h3 style="margin:auto 0 8px; font:700 46px/1.04 var(--font-sans); letter-spacing:-.02em;">Logo &amp; motif</h3>
+      <p style="margin:0; font:500 23px/1.35 var(--font-sans);">A configurator · the misuse lab · the Storyline</p>
+      <span style="margin-top:18px; font:600 20px/1 var(--font-mono); letter-spacing:.08em; opacity:.7;">3 SCREENS</span>
+    </div>
+    <div onClick="{{ act }}" data-go="8" style="background:var(--tha-lime); color:var(--tha-navy); padding:34px 36px; display:flex; flex-direction:column; cursor:pointer; transition:transform .2s, box-shadow .2s;" style-hover="transform:translateY(-8px); box-shadow:0 18px 40px -18px rgba(24,45,67,.4);">
+      <div style="display:flex; justify-content:space-between; align-items:baseline;"><span style="font:700 22px/1 var(--font-mono);">03</span><span style="font:700 34px/1;">→</span></div>
+      <h3 style="margin:auto 0 8px; font:700 46px/1.04 var(--font-sans); letter-spacing:-.02em;">Color</h3>
+      <p style="margin:0; font:500 23px/1.35 var(--font-sans);">Surfaces you can press · a live contrast lab</p>
+      <span style="margin-top:18px; font:600 20px/1 var(--font-mono); letter-spacing:.08em; opacity:.7;">2 SCREENS</span>
+    </div>
+    <div onClick="{{ act }}" data-go="10" style="background:var(--tha-teal); color:#FFFFFF; padding:34px 36px; display:flex; flex-direction:column; cursor:pointer; transition:transform .2s, box-shadow .2s;" style-hover="transform:translateY(-8px); box-shadow:0 18px 40px -18px rgba(24,45,67,.4);">
+      <div style="display:flex; justify-content:space-between; align-items:baseline;"><span style="font:700 22px/1 var(--font-mono); color:var(--tha-aqua);">04</span><span style="font:700 34px/1;">→</span></div>
+      <h3 style="margin:auto 0 8px; font:700 46px/1.04 var(--font-sans); letter-spacing:-.02em;">Type</h3>
+      <p style="margin:0; font:500 23px/1.35 var(--font-sans);">A specimen you can drive · the whole scale</p>
+      <span style="margin-top:18px; font:600 20px/1 var(--font-mono); letter-spacing:.08em; opacity:.7;">2 SCREENS</span>
+    </div>
+    <div onClick="{{ act }}" data-go="12" style="background:var(--tha-aqua); color:var(--tha-navy); padding:34px 36px; display:flex; flex-direction:column; cursor:pointer; transition:transform .2s, box-shadow .2s;" style-hover="transform:translateY(-8px); box-shadow:0 18px 40px -18px rgba(24,45,67,.4);">
+      <div style="display:flex; justify-content:space-between; align-items:baseline;"><span style="font:700 22px/1 var(--font-mono); color:var(--tha-teal);">05</span><span style="font:700 34px/1;">→</span></div>
+      <h3 style="margin:auto 0 8px; font:700 46px/1.04 var(--font-sans); letter-spacing:-.02em;">The system</h3>
+      <p style="margin:0; font:500 23px/1.35 var(--font-sans);">Annotations · emoji · UI · air · a prompt builder</p>
+      <span style="margin-top:18px; font:600 20px/1 var(--font-mono); letter-spacing:.08em; opacity:.7;">5 SCREENS</span>
+    </div>
+    <div onClick="{{ act }}" data-go="17" style="background:var(--tha-navy); color:var(--tha-paper); padding:34px 36px; display:flex; flex-direction:column; cursor:pointer; transition:transform .2s, box-shadow .2s;" style-hover="transform:translateY(-8px); box-shadow:0 18px 40px -18px rgba(24,45,67,.4);">
+      <div style="display:flex; justify-content:space-between; align-items:baseline;"><span style="font:700 22px/1 var(--font-mono); color:var(--tha-lime);">06</span><span style="font:700 34px/1; color:var(--tha-lime);">→</span></div>
+      <h3 style="margin:auto 0 8px; font:700 46px/1.04 var(--font-sans); letter-spacing:-.02em;">In practice</h3>
+      <p style="margin:0; font:500 23px/1.35 var(--font-sans); color:var(--tha-navy-200);">Finished work · the ship checklist · onward</p>
+      <span style="margin-top:18px; font:600 20px/1 var(--font-mono); letter-spacing:.08em; color:var(--tha-navy-300);">3 SCREENS</span>
+    </div>
+  </div>
+  <sc-if value="{{ hintsOn }}" hint-placeholder-val="{{ true }}"><span style="position:absolute; top:150px; right:72px; font:600 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-navy-500); border:1.5px dashed var(--tha-navy-300); padding:13px 18px;"><span style="color:var(--fg-accent);">TRY</span> · everything is clickable</span></sc-if>
+</section>
+
+<!-- ============ 02 · WHY (accordion) ============ -->
+<section data-idx="2" data-screen-label="02 Why" style="position:absolute; left:3840px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:var(--tha-paper); overflow:hidden; padding:72px; display:flex; flex-direction:column;">
+  <span data-ent="1" style="font:700 22px/1 var(--font-mono); letter-spacing:.14em; color:#A34ED1;">FOUNDATIONS · 02 · OUR WHY</span>
+  <h2 data-ent="2" style="margin:44px 0 0; font:800 124px/1.0 var(--font-sans); letter-spacing:-.03em; color:var(--tha-navy); max-width:14ch;">We turn opinion into
+    <span style="position:relative; display:inline-block;"><em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-purple);">momentum.</em>
+      <svg style="position:absolute; left:0; right:0; bottom:-24px; width:100%; height:30px;" viewBox="0 0 400 30" preserveAspectRatio="none"><path d="M 8 22 Q 100 4, 200 16 T 392 12" stroke="#D2EB00" stroke-width="9" fill="none" stroke-linecap="round"></path></svg>
+    </span>
+  </h2>
+  <div data-ent="3" style="margin-top:auto; border-top:1.5px solid var(--tha-navy);">
+    <div onClick="{{ act }}" data-why="0" style="padding:26px 0; border-bottom:1px solid var(--tha-navy-200); cursor:pointer;">
+      <div style="display:grid; grid-template-columns:300px 1fr 60px; gap:32px; align-items:baseline;">
+        <span style="font:700 21px/1 var(--font-mono); letter-spacing:.1em; color:#A34ED1;">PURPOSE · WHY</span>
+        <span style="font:600 38px/1.1 var(--font-sans); letter-spacing:-.015em; color:var(--tha-navy);">We help leaders turn opinion into influence.</span>
+        <span style="font:400 40px/1 var(--font-sans); color:var(--tha-navy-400); text-align:right;">{{ whyI0 }}</span>
+      </div>
+      <div style="{{ whyB0 }}"><p style="margin:20px 0 6px; font:400 30px/1.5 var(--font-sans); color:var(--tha-navy-500); max-width:52em; padding-left:332px;">Influence is the real currency of business. It moves markets, not just products — and clients pay premium for it.</p></div>
+    </div>
+    <div onClick="{{ act }}" data-why="1" style="padding:26px 0; border-bottom:1px solid var(--tha-navy-200); cursor:pointer;">
+      <div style="display:grid; grid-template-columns:300px 1fr 60px; gap:32px; align-items:baseline;">
+        <span style="font:700 21px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-purple);">POSITIONING · HOW</span>
+        <span style="font:600 38px/1.1 var(--font-sans); letter-spacing:-.015em; color:var(--tha-navy);">Fluent in tech. That is the edge.</span>
+        <span style="font:400 40px/1 var(--font-sans); color:var(--tha-navy-400); text-align:right;">{{ whyI1 }}</span>
+      </div>
+      <div style="{{ whyB1 }}"><p style="margin:20px 0 6px; font:400 30px/1.5 var(--font-sans); color:var(--tha-navy-500); max-width:52em; padding-left:332px;">Being fluent in tech is how we turn complex ideas into opinions that shape markets.</p></div>
+    </div>
+    <div onClick="{{ act }}" data-why="2" style="padding:26px 0; cursor:pointer;">
+      <div style="display:grid; grid-template-columns:300px 1fr 60px; gap:32px; align-items:baseline;">
+        <span style="font:700 21px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-teal);">PRODUCT · WHAT</span>
+        <span style="font:600 38px/1.1 var(--font-sans); letter-spacing:-.015em; color:var(--tha-navy);">The integrated comms agency of momentum.</span>
+        <span style="font:400 40px/1 var(--font-sans); color:var(--tha-navy-400); text-align:right;">{{ whyI2 }}</span>
+      </div>
+      <div style="{{ whyB2 }}"><p style="margin:20px 0 6px; font:400 30px/1.5 var(--font-sans); color:var(--tha-navy-500); max-width:52em; padding-left:332px;">Earned, digital, AI — one integrated team, built for hard problems.</p></div>
+    </div>
+  </div>
+  <sc-if value="{{ hintsOn }}" hint-placeholder-val="{{ true }}"><span style="position:absolute; top:64px; right:72px; font:600 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-navy-500); border:1.5px dashed var(--tha-navy-300); padding:13px 18px;"><span style="color:var(--fg-accent);">TRY</span> · open the three layers</span></sc-if>
+  <div style="position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-400);">02 · WHY</div>
+</section>
+
+<!-- ============ 03 · VOICE (the switch) ============ -->
+<section data-idx="3" data-screen-label="03 Voice" style="position:absolute; left:5760px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:var(--tha-navy); overflow:hidden; padding:72px; display:flex; flex-direction:column;">
+  <span data-ent="1" style="font:700 22px/1 var(--font-mono); letter-spacing:.14em; color:var(--tha-violet);">FOUNDATIONS · 03 · OUR VOICE</span>
+  <div data-ent="2" style="margin-top:40px; display:flex; align-items:center; gap:48px; flex-wrap:wrap;">
+    <h2 style="margin:0; font:700 72px/1.02 var(--font-sans); letter-spacing:-.025em; color:var(--tha-paper);">How we <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-lime);">sound.</em></h2>
+    <div onClick="{{ act }}" data-vtoggle="1" style="position:relative; width:560px; height:92px; border:2px solid var(--tha-navy-400); border-radius:999px; display:flex; cursor:pointer; user-select:none;">
+      <div style="{{ vKnob }}"></div>
+      <span style="{{ vLab0 }}">CORPORATE</span>
+      <span style="{{ vLab1 }}">HOFFMAN</span>
+    </div>
+  </div>
+  <div data-ent="3" style="flex:1; margin-top:24px; display:grid; align-items:center;">
+    <div style="{{ vCorp }}">
+      <p style="margin:0 0 30px; font:600 58px/1.12 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy-300);">Unlocking next-gen comms solutions.</p>
+      <p style="margin:0 0 30px; font:600 58px/1.12 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy-300);">End-to-end storytelling, at scale.</p>
+      <p style="margin:0; font:600 58px/1.12 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy-300);">Let&rsquo;s synergize your narrative.</p>
+    </div>
+    <div style="{{ vHoff }}">
+      <p style="margin:0 0 30px; font:700 66px/1.08 var(--font-sans); letter-spacing:-.025em; color:var(--tha-paper);"><em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-lime);">Clarity</em> in. Complexity out.</p>
+      <p style="margin:0 0 30px; font:700 66px/1.08 var(--font-sans); letter-spacing:-.025em; color:var(--tha-paper);">Built for tech. <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-lime);">Human</em> at heart.</p>
+      <p style="margin:0; font:700 66px/1.08 var(--font-sans); letter-spacing:-.025em; color:var(--tha-paper);">Less noise. <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-lime);">Sharper</em> signal.</p>
+    </div>
+  </div>
+  <div data-ent="4" style="display:flex; align-items:center; gap:24px; padding-top:28px; border-top:1px solid rgba(255,255,255,.14); flex-wrap:wrap;">
+    <span style="font:700 20px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-aqua);">CLICHÉ FIRING RANGE · {{ banCount }}</span>
+    <sc-for list="{{ bans }}" as="b" hint-placeholder-count="6">
+      <span onClick="{{ act }}" data-ban="{{ $index }}" style="{{ b.st }}">{{ b.t }}</span>
+    </sc-for>
+  </div>
+  <sc-if value="{{ hintsOn }}" hint-placeholder-val="{{ true }}"><span style="position:absolute; top:64px; right:72px; font:600 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-navy-200); border:1.5px dashed var(--tha-navy-500); padding:13px 18px;"><span style="color:var(--tha-lime);">TRY</span> · flip the switch, shoot a cliché</span></sc-if>
+  <div style="position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-300);">03 · VOICE</div>
+</section>
+
+<!-- ============ 04 · SIGNATURE MOVES (tabs + slider) ============ -->
+<section data-idx="4" data-screen-label="04 Signature moves" style="position:absolute; left:7680px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:var(--tha-paper); overflow:hidden; padding:72px; display:flex; flex-direction:column;">
+  <span data-ent="1" style="font:700 22px/1 var(--font-mono); letter-spacing:.14em; color:#A34ED1;">FOUNDATIONS · 04 · SIGNATURE MOVES</span>
+  <div data-ent="2" style="margin-top:36px; display:flex; align-items:center; gap:48px; flex-wrap:wrap;">
+    <h2 style="margin:0; font:700 72px/1.02 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy);">Three moves. Use each <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-purple);">once.</em></h2>
+    <div style="display:flex; border:2px solid var(--tha-navy);">
+      <button onClick="{{ act }}" data-set="patTab:0" data-num="1" style="{{ pt0 }}">STRETCHED</button>
+      <button onClick="{{ act }}" data-set="patTab:1" data-num="1" style="{{ pt1 }}">THE LADDER</button>
+      <button onClick="{{ act }}" data-set="patTab:2" data-num="1" style="{{ pt2 }}">STRIKETHROUGH</button>
+    </div>
+  </div>
+  <div style="flex:1; margin-top:20px; min-height:0; position:relative;">
+    <sc-if value="{{ pat0 }}" hint-placeholder-val="{{ true }}">
+      <div style="height:100%; display:flex; flex-direction:column; justify-content:center; gap:48px;">
+        <div data-ent="1" style="font:800 176px/0.95 var(--font-sans); letter-spacing:-.035em; color:var(--tha-navy); overflow:hidden; white-space:nowrap;">{{ stretched }}</div>
+        <div data-ent="2" style="display:flex; align-items:center; gap:28px;">
+          <span style="font:700 21px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-purple);">DRAG THE HELLO</span>
+          <input type="range" min="2" max="14" value="{{ stretch }}" onInput="{{ setNum }}" data-key="stretch" style="width:520px; height:44px;">
+          <span style="font:600 24px/1 var(--font-mono); color:var(--tha-navy);">{{ stretch }} L&rsquo;S</span>
+        </div>
+        <p data-ent="3" style="margin:0; font:400 30px/1.5 var(--font-sans); color:var(--tha-navy-500); max-width:44em;">Stretch a letter for hello, goodbye, surprise. Covers and section screens only — never in body copy.</p>
+      </div>
+    </sc-if>
+    <sc-if value="{{ pat1 }}">
+      <div style="height:100%; display:flex; align-items:center; gap:120px;">
+        <div style="flex:none;">
+          <div data-ent="1" style="font:700 54px/1.1 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy);">In 2026 we&rsquo;re<br>leaning in</div>
+          <div data-ent="2" style="font:400 italic 44px/1.05 var(--font-serif); color:var(--tha-purple); margin-top:14px;">more</div>
+          <div data-ent="3" style="font:400 italic 64px/1.05 var(--font-serif); color:var(--tha-purple);">more</div>
+          <div data-ent="4" style="font:400 italic 92px/1.05 var(--font-serif); color:var(--tha-purple);">more</div>
+          <div data-ent="5" style="font:700 44px/1.1 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy); margin-top:14px;">into our influence in tech.</div>
+        </div>
+        <p data-ent="6" style="margin:0; font:400 30px/1.5 var(--font-sans); color:var(--tha-navy-500); max-width:20em;">Step one word up in scale until the commitment is visible. The repetition <em style="font-family:var(--font-serif); font-style:italic; font-weight:400;">is</em> the point. Once per deck.</p>
+      </div>
+    </sc-if>
+    <sc-if value="{{ pat2 }}">
+      <div style="height:100%; display:flex; flex-direction:column; justify-content:center; gap:52px;">
+        <div data-ent="1" style="font:700 76px/1.1 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy);">We&rsquo;re <span style="text-decoration:line-through; text-decoration-color:var(--tha-purple); text-decoration-thickness:6px; color:var(--tha-navy-300);">doubling</span> tripling down on video.</div>
+        <div data-ent="2" style="font:700 76px/1.1 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy);"><span style="text-decoration:line-through; text-decoration-color:var(--tha-purple); text-decoration-thickness:6px; color:var(--tha-navy-300);">Goodbye</span> Hello, ecosystems.</div>
+        <p data-ent="3" style="margin:0; font:400 30px/1.5 var(--font-sans); color:var(--tha-navy-500); max-width:44em;">Cross out the safer word. Replace it with the bolder one. The slide reads like a draft mid-edit — honest, energetic. Once per deck, or it loses its punch.</p>
+      </div>
+    </sc-if>
+  </div>
+  <sc-if value="{{ hintsOn }}" hint-placeholder-val="{{ true }}"><span style="position:absolute; top:64px; right:72px; font:600 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-navy-500); border:1.5px dashed var(--tha-navy-300); padding:13px 18px;"><span style="color:var(--fg-accent);">TRY</span> · switch tabs, drag the slider</span></sc-if>
+  <div style="position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-400);">04 · MOVES</div>
+</section>
+
+<!-- ============ 05 · LOGO LAB (configurator) ============ -->
+<section data-idx="5" data-screen-label="05 Logo lab" style="position:absolute; left:9600px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:var(--tha-paper); overflow:hidden; padding:72px; display:flex; flex-direction:column;">
+  <span data-ent="1" style="font:700 22px/1 var(--font-mono); letter-spacing:.14em; color:var(--tha-purple);">LOGO &amp; MOTIF · 05 · THE CONFIGURATOR</span>
+  <h2 data-ent="2" style="margin:36px 0 0; font:700 72px/1.02 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy);">Pick a surface. The logo <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-purple);">obeys.</em></h2>
+  <div style="flex:1; margin-top:40px; display:grid; grid-template-columns:520px 1fr; gap:48px; min-height:0;">
+    <div data-ent="3" style="display:flex; flex-direction:column; gap:28px; min-height:0;">
+      <div style="display:flex; border:2px solid var(--tha-navy); align-self:flex-start;">
+        <button onClick="{{ act }}" data-set="logoKind:horizontal" style="{{ lk0 }}">HORIZONTAL</button>
+        <button onClick="{{ act }}" data-set="logoKind:stacked" style="{{ lk1 }}">STACKED</button>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <sc-for list="{{ logoChips }}" as="c" hint-placeholder-count="6">
+          <div onClick="{{ c.pick }}" style="{{ c.st }}"><span style="{{ c.sw }}"></span>{{ c.name }}</div>
+        </sc-for>
+      </div>
+      <button onClick="{{ act }}" data-toggle="clear" style="{{ clearBtn }}">CLEARSPACE OVERLAY</button>
+      <p style="margin:auto 0 0; font:500 28px/1.45 var(--font-sans); color:var(--tha-navy); border-top:1.5px solid var(--tha-navy); padding-top:24px;">{{ logoRule }}</p>
+    </div>
+    <div data-ent="4" style="{{ logoPanel }}">
+      <img src="{{ logoSrc }}" alt="The Hoffman Agency logo" style="{{ logoImg }}">
+      <div style="{{ clearBox }}"></div>
+      <span style="{{ clearLbl }}">CLEARSPACE ≥ CAP-HEIGHT OF “H”, ALL SIDES · MIN 24PX TALL</span>
+    </div>
+  </div>
+  <sc-if value="{{ hintsOn }}" hint-placeholder-val="{{ true }}"><span style="position:absolute; top:64px; right:72px; font:600 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-navy-500); border:1.5px dashed var(--tha-navy-300); padding:13px 18px;"><span style="color:var(--fg-accent);">TRY</span> · change the ground</span></sc-if>
+  <div style="position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-400);">05 · LOGO</div>
+</section>
+
+<!-- ============ 06 · MISUSE LAB ============ -->
+<section data-idx="6" data-screen-label="06 Misuse lab" style="position:absolute; left:11520px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:var(--tha-paper); overflow:hidden; padding:72px; display:flex; flex-direction:column;">
+  <span data-ent="1" style="font:700 22px/1 var(--font-mono); letter-spacing:.14em; color:var(--tha-purple);">LOGO &amp; MOTIF · 06 · THE MISUSE LAB</span>
+  <div data-ent="2" style="margin-top:36px; display:flex; align-items:baseline; justify-content:space-between; gap:40px;">
+    <h2 style="margin:0; font:700 72px/1.02 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy);">Break it. See why we <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-purple);">don&rsquo;t.</em></h2>
+    <span style="font:700 22px/1 var(--font-mono); letter-spacing:.1em; color:#C43D3D;">{{ crimeCount }}</span>
+  </div>
+  <div style="flex:1; margin-top:40px; display:grid; grid-template-columns:520px 1fr; gap:48px; min-height:0;">
+    <div data-ent="3" style="display:flex; flex-direction:column; gap:14px; min-height:0;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <sc-for list="{{ crimeBtns }}" as="c" hint-placeholder-count="6">
+          <button onClick="{{ act }}" data-crime="{{ c.k }}" style="{{ c.st }}">{{ c.label }}</button>
+        </sc-for>
+      </div>
+      <button onClick="{{ act }}" data-restore="1" style="font:700 22px/1 var(--font-mono); letter-spacing:.08em; padding:20px; border:0; background:var(--tha-navy); color:var(--tha-lime); cursor:pointer; margin-top:10px;">RESTORE THE BRAND</button>
+      <p style="margin:auto 0 0; font:400 26px/1.5 var(--font-sans); color:var(--tha-navy-500);">Six crimes, one law: the wordmark ships exactly as drawn. Rotated, stretched, recolored, glowing or squinting — it stops being ours.</p>
+    </div>
+    <div data-ent="4" style="display:flex; flex-direction:column; gap:20px; min-height:0;">
+      <div style="{{ crimePanel }}">
+        <img src="{{ crimeSrc }}" alt="Logo specimen" style="{{ crimeImg }}">
+        <svg style="{{ crimeCross }}" viewBox="0 0 24 24"><path d="M 4 4 L 20 20 M 20 4 L 4 20" stroke="#CB65FF" stroke-width="2.5" stroke-linecap="round"></path></svg>
+      </div>
+      <p style="{{ crimeVerdictSt }}">{{ crimeVerdict }}</p>
+    </div>
+  </div>
+  <sc-if value="{{ hintsOn }}" hint-placeholder-val="{{ true }}"><span style="position:absolute; top:64px; right:72px; font:600 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-navy-500); border:1.5px dashed var(--tha-navy-300); padding:13px 18px;"><span style="color:var(--fg-accent);">TRY</span> · commit a crime</span></sc-if>
+  <div style="position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-400);">06 · MISUSE</div>
+</section>
+
+<!-- ============ 07 · STORYLINE (state-machine surface) ============ -->
+<section data-idx="7" data-screen-label="07 Storyline" style="position:absolute; left:13440px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:var(--tha-navy); overflow:hidden; padding:72px; display:flex; flex-direction:column;">
+  <div style="{{ storyStage }}">
+    <img src="../../assets/storyline-line-lime.svg" alt="" style="{{ storyLineSt }}">
+    <img src="../../assets/storyline-navy-lime.svg" alt="" style="{{ storyBoxSt }}">
+  </div>
+  <span data-ent="1" style="position:relative; font:700 22px/1 var(--font-mono); letter-spacing:.14em; color:var(--tha-violet);">LOGO &amp; MOTIF · 07 · THE STORYLINE</span>
+  <div data-ent="2" style="position:relative; margin-top:36px; display:flex; align-items:center; gap:48px; flex-wrap:wrap;">
+    <h2 style="{{ story7H2 }}">One squiggle. Two <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-violet);">bodies.</em></h2>
+    <div style="display:flex; border:2px solid var(--tha-navy-400);">
+      <button onClick="{{ act }}" data-set="story:paper" style="{{ storyTgl0 }}">LIGHT GROUND</button>
+      <button onClick="{{ act }}" data-set="story:navy" style="{{ storyTgl1 }}">NAVY FIELD</button>
+    </div>
+  </div>
+  <div style="position:relative; flex:1; display:flex; flex-direction:column; justify-content:flex-end; gap:20px; max-width:1100px;">
+    <span data-ent="3" style="font:600 22px/1 var(--font-mono); letter-spacing:.08em; color:var(--fg-accent);">{{ storyFile }}</span>
+    <p data-ent="4" style="{{ story7Rule }}">{{ storyRule }}</p>
+    <div data-ent="5" style="display:flex; gap:20px; align-items:flex-start; border-top:1px solid rgba(128,140,155,.35); padding-top:18px;">
+      <span style="font:700 20px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-violet); padding-top:4px;">NEVER</span>
+      <p style="{{ story7Never }}">Floating adrift · cut-ends showing · shrunk into a corner · on a lime ground · recolored · inline with text · tiled · rotated · animated on a loop.</p>
+    </div>
+  </div>
+  <sc-if value="{{ hintsOn }}" hint-placeholder-val="{{ true }}"><span style="position:absolute; top:64px; right:72px; font:600 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-navy-400); border:1.5px dashed var(--tha-navy-400); padding:13px 18px; z-index:2;"><span style="color:var(--fg-accent);">TRY</span> · flip the ground</span></sc-if>
+  <div style="position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-400); z-index:2;">07 · STORYLINE</div>
+</section>
+
+<!-- ============ 08 · COLOR AS SURFACE (press a color) ============ -->
+<section data-idx="8" data-screen-label="08 Surfaces" style="position:absolute; left:15360px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:var(--tha-paper); overflow:hidden; padding:72px; display:flex; flex-direction:column;">
+  <div style="{{ surfBg }}"></div>
+  <span data-ent="1" style="{{ surf8Eyebrow }}">COLOR · 08 · SURFACES</span>
+  <div style="position:relative; flex:1; display:flex; flex-direction:column; justify-content:center; gap:30px;">
+    <h2 data-ent="2" style="{{ surf8H2 }}">Every color is a <em style="{{ surfEm }}">surface.</em></h2>
+    <div data-ent="3" style="display:flex; align-items:baseline; gap:36px;">
+      <span style="{{ surf8Hex }}">{{ surfHex }}</span>
+      <span style="{{ surf8Name }}">{{ surfName }}</span>
+    </div>
+    <p data-ent="4" style="{{ surf8Rule }}">{{ surfRule }}</p>
+  </div>
+  <div data-ent="5" style="position:relative; height:200px; display:flex; gap:14px;">
+    <sc-for list="{{ swatches }}" as="sw" hint-placeholder-count="7">
+      <div onClick="{{ sw.pick }}" style="{{ sw.st }}">
+        <span style="{{ sw.lb }}">{{ sw.name }}<br>{{ sw.hex }}</span>
+      </div>
+    </sc-for>
+  </div>
+  <sc-if value="{{ hintsOn }}" hint-placeholder-val="{{ true }}"><span style="position:absolute; top:64px; right:72px; font:600 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-navy-400); border:1.5px dashed var(--tha-navy-400); padding:13px 18px; z-index:2;"><span style="color:var(--fg-accent);">TRY</span> · press a color</span></sc-if>
+  <div style="position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-400); z-index:2;">08 · SURFACES</div>
+</section>
+
+<!-- ============ 09 · CONTRAST LAB ============ -->
+<section data-idx="9" data-screen-label="09 Contrast lab" style="position:absolute; left:17280px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:#0E1C2B; overflow:hidden; padding:72px; display:flex; flex-direction:column;">
+  <span data-ent="1" style="font:700 22px/1 var(--font-mono); letter-spacing:.14em; color:var(--tha-lime);">COLOR · 09 · THE CONTRAST GATE</span>
+  <h2 data-ent="2" style="margin:36px 0 0; font:700 72px/1.02 var(--font-sans); letter-spacing:-.025em; color:var(--tha-paper);">Contrast is the <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-lime);">gate.</em> Compute it.</h2>
+  <div style="flex:1; margin-top:44px; display:grid; grid-template-columns:1fr 620px; gap:56px; min-height:0;">
+    <div data-ent="3" style="{{ cSample }} display:flex; flex-direction:column; justify-content:center; padding:0 64px; gap:8px; border:1px solid rgba(255,255,255,.18); min-height:0;">
+      <span style="font:800 250px/1 var(--font-sans); letter-spacing:-.03em;">Aa</span>
+      <span style="font:400 32px/1.4 var(--font-sans);">Turn opinion into momentum.</span>
+      <span style="font:600 22px/1 var(--font-mono); letter-spacing:.06em; margin-top:22px; opacity:.75;">{{ cFgHex }} ON {{ cBgHex }}</span>
+    </div>
+    <div data-ent="4" style="display:flex; flex-direction:column; gap:26px; min-height:0;">
+      <div>
+        <span style="font:700 20px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-navy-300);">SURFACE</span>
+        <div style="display:flex; gap:10px; margin-top:12px;">
+          <sc-for list="{{ cBgRow }}" as="c" hint-placeholder-count="7"><div onClick="{{ c.pick }}" style="{{ c.st }}"></div></sc-for>
+        </div>
+      </div>
+      <div>
+        <span style="font:700 20px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-navy-300);">TYPE</span>
+        <div style="display:flex; gap:10px; margin-top:12px;">
+          <sc-for list="{{ cFgRow }}" as="c" hint-placeholder-count="7"><div onClick="{{ c.pick }}" style="{{ c.st }}"></div></sc-for>
+        </div>
+      </div>
+      <div style="display:flex; align-items:baseline; gap:16px; margin-top:8px;">
+        <span style="font:800 128px/1 var(--font-mono); letter-spacing:-.02em; color:var(--tha-paper);">{{ ratioText }}</span>
+        <span style="font:600 34px/1 var(--font-mono); color:var(--tha-navy-300);">: 1</span>
+      </div>
+      <div style="display:flex; gap:14px;">
+        <span style="{{ bBody.st }}">{{ bBody.label }}</span>
+        <span style="{{ bLarge.st }}">{{ bLarge.label }}</span>
+      </div>
+      <p style="margin:0; font:500 28px/1.4 var(--font-sans); color:var(--tha-navy-200);">{{ cVerdict }}</p>
+    </div>
+  </div>
+  <sc-if value="{{ hintsOn }}" hint-placeholder-val="{{ true }}"><span style="position:absolute; top:64px; right:72px; font:600 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-navy-200); border:1.5px dashed var(--tha-navy-500); padding:13px 18px;"><span style="color:var(--tha-lime);">TRY</span> · collide any two colors</span></sc-if>
+  <div style="position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-300);">09 · CONTRAST</div>
+</section>
+<!-- ============ 10 · TYPE SPECIMEN (drive it) ============ -->
+<section data-idx="10" data-screen-label="10 Specimen" style="position:absolute; left:19200px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:var(--tha-paper); overflow:hidden; padding:72px; display:flex; flex-direction:column;">
+  <span data-ent="1" style="font:700 22px/1 var(--font-mono); letter-spacing:.14em; color:var(--tha-teal);">TYPE · 10 · THE SPECIMEN</span>
+  <div style="flex:1; margin-top:36px; display:grid; grid-template-columns:1fr 560px; gap:56px; min-height:0;">
+    <div data-ent="2" style="display:flex; align-items:center; min-height:0;">
+      <p style="{{ specSt }}">
+        <sc-for list="{{ wordList }}" as="w" hint-placeholder-count="6"><span onClick="{{ act }}" data-ital="{{ w.i }}" style="{{ w.st }}">{{ w.t }}</span></sc-for>
+      </p>
+    </div>
+    <div data-ent="3" style="display:flex; flex-direction:column; gap:28px; justify-content:center;">
+      <div>
+        <label style="font:700 20px/1 var(--font-mono); letter-spacing:.08em; color:var(--tha-navy-500);">WEIGHT · {{ wName }} ({{ w }})</label>
+        <input type="range" min="100" max="900" step="100" value="{{ w }}" onInput="{{ setNum }}" data-key="w" style="width:100%; height:44px; margin-top:12px;">
+      </div>
+      <div>
+        <label style="font:700 20px/1 var(--font-mono); letter-spacing:.08em; color:var(--tha-navy-500);">YOUR LINE · ≤ 8 WORDS</label>
+        <input value="{{ custom }}" onInput="{{ setTxt }}" data-key="custom" placeholder="Type a headline…" style="width:100%; margin-top:12px; padding:18px 20px; border:1.5px solid var(--tha-navy-300); font:400 24px/1.2 var(--font-sans); background:#fff; box-sizing:border-box;">
+      </div>
+      <p style="margin:0; font:400 26px/1.5 var(--font-sans); color:var(--tha-navy-500);">Poppins carries the structure. Tap a word to move the <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-purple);">one</em> Baskerville italic — the system holds you to exactly one.</p>
+    </div>
+  </div>
+  <sc-if value="{{ hintsOn }}" hint-placeholder-val="{{ true }}"><span style="position:absolute; top:64px; right:72px; font:600 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-navy-500); border:1.5px dashed var(--tha-navy-300); padding:13px 18px;"><span style="color:var(--fg-accent);">TRY</span> · type your own line</span></sc-if>
+  <div style="position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-400);">10 · SPECIMEN</div>
+</section>
+
+<!-- ============ 11 · TYPE SCALE (pick a tier) ============ -->
+<section data-idx="11" data-screen-label="11 Type scale" style="position:absolute; left:21120px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:var(--tha-navy); overflow:hidden; padding:72px; display:flex; flex-direction:column;">
+  <span data-ent="1" style="font:700 22px/1 var(--font-mono); letter-spacing:.14em; color:var(--tha-aqua);">TYPE · 11 · THE SCALE, IN PX AND PT</span>
+  <div style="flex:1; margin-top:36px; display:grid; grid-template-columns:600px 1fr; gap:56px; min-height:0;">
+    <div data-ent="2" style="display:flex; flex-direction:column; min-height:0; overflow:hidden; border-top:1px solid rgba(255,255,255,.15);">
+      <sc-for list="{{ tierRows }}" as="t" hint-placeholder-count="7">
+        <div onClick="{{ t.pick }}" style="{{ t.st }} border-bottom:1px solid rgba(255,255,255,.12);">
+          <span style="font:700 21px/1.15 var(--font-mono); letter-spacing:.04em; color:var(--tha-paper);">{{ t.n }}</span>
+          <span style="font:600 20px/1 var(--font-mono); color:var(--tha-lime); text-align:right;">{{ t.px }}</span>
+          <span style="font:600 20px/1 var(--font-mono); color:var(--tha-navy-300); text-align:right;">{{ t.pt }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <div data-ent="3" style="display:flex; flex-direction:column; justify-content:center; gap:24px; min-width:0;">
+      <span style="font:700 20px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-navy-300);">{{ tierName }} · {{ tierPx }} / {{ tierPt }}</span>
+      <div style="overflow:hidden;"><span style="{{ tierSt }}">{{ tierDemo }}</span></div>
+      <p style="margin:0; font:400 28px/1.5 var(--font-sans); color:var(--tha-navy-200); max-width:34ch;">Sizes are floors — bias high. A 13.33″ widescreen point doubles into pixels: 1pt = 2px.</p>
+    </div>
+  </div>
+  <sc-if value="{{ hintsOn }}" hint-placeholder-val="{{ true }}"><span style="position:absolute; top:64px; right:72px; font:600 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-navy-200); border:1.5px dashed var(--tha-navy-500); padding:13px 18px;"><span style="color:var(--tha-lime);">TRY</span> · step through every tier</span></sc-if>
+  <div style="position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-300);">11 · SCALE</div>
+</section>
+
+<!-- ============ 12 · ANNOTATIONS (stamp the headline) ============ -->
+<section data-idx="12" data-screen-label="12 Annotations" style="position:absolute; left:23040px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:var(--tha-paper); overflow:hidden; padding:72px; display:flex; flex-direction:column;">
+  <span data-ent="1" style="font:700 22px/1 var(--font-mono); letter-spacing:.14em; color:var(--tha-aqua);">THE SYSTEM · 12 · ANNOTATIONS</span>
+  <h2 data-ent="2" style="margin:32px 0 0; font:700 68px/1.05 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy);">Editorial <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-purple);">punctuation.</em> Stamp it on.</h2>
+  <div style="flex:1; margin-top:32px; display:grid; grid-template-columns:1fr 460px; gap:48px; min-height:0;">
+    <div data-ent="3" style="display:flex; align-items:center; justify-content:center; min-height:0; position:relative;">
+      <span style="position:relative; font:800 104px/1.15 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy); text-align:center; display:inline-block;">Big ideas, <span style="position:relative; display:inline-block;">bigger<sc-for list="{{ stampsR }}" as="st" hint-placeholder-count="0"><img src="{{ st.src }}" alt="" style="{{ st.st }}"></sc-for></span> proof.</span>
+    </div>
+    <div data-ent="4" style="display:flex; flex-direction:column; gap:16px; min-height:0;">
+      <div style="display:flex; flex-wrap:wrap; border:2px solid var(--tha-navy);">
+        <sc-for list="{{ annTabs }}" as="t" hint-placeholder-count="6"><button onClick="{{ t.pick }}" style="{{ t.st }}">{{ t.k }}</button></sc-for>
+      </div>
+      <div style="flex:1; display:flex; gap:10px; min-height:0;">
+        <sc-for list="{{ annList }}" as="a" hint-placeholder-count="4"><div onClick="{{ a.pick }}" style="{{ a.st }}"><img src="{{ a.src }}" alt="" style="width:70%; height:70%; object-fit:contain;"></div></sc-for>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:space-between;">
+        <span style="font:700 20px/1 var(--font-mono); letter-spacing:.08em; color:var(--tha-navy-500);">{{ stampCount }}</span>
+        <button onClick="{{ act }}" data-clearstamps="1" style="font:600 18px/1 var(--font-mono); letter-spacing:.06em; padding:12px 16px; border:1.5px solid var(--tha-navy-300); background:transparent; color:var(--tha-navy); cursor:pointer;">CLEAR</button>
+      </div>
+      <p style="margin:0; font:400 24px/1.4 var(--font-sans); color:var(--tha-navy-500);">1–2 marks per surface, max. The 76-SVG set only — no wavy lines outside it.</p>
+    </div>
+  </div>
+  <sc-if value="{{ hintsOn }}" hint-placeholder-val="{{ true }}"><span style="position:absolute; top:64px; right:72px; font:600 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-navy-500); border:1.5px dashed var(--tha-navy-300); padding:13px 18px;"><span style="color:var(--fg-accent);">TRY</span> · stamp a mark onto the word</span></sc-if>
+  <div style="position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-400);">12 · ANNOTATIONS</div>
+</section>
+
+<!-- ============ 13 · EMOJI CAST ============ -->
+<section data-idx="13" data-screen-label="13 Emoji cast" style="position:absolute; left:24960px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:#0E1C2B; overflow:hidden; padding:72px; display:flex; flex-direction:column;">
+  <span data-ent="1" style="font:700 22px/1 var(--font-mono); letter-spacing:.14em; color:var(--tha-lime);">THE SYSTEM · 13 · THE FLUENT CAST</span>
+  <div style="flex:1; margin-top:36px; display:grid; grid-template-columns:460px 1fr; gap:56px; min-height:0;">
+    <div data-ent="2" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px;">
+      <fluent-emoji name="{{ hero }}" variant="{{ heroVariant }}" size="230"></fluent-emoji>
+      <span style="font:700 24px/1 var(--font-mono); letter-spacing:.08em; color:var(--tha-paper); text-transform:uppercase;">{{ heroLabel }}</span>
+      <p style="margin:0; font:400 26px/1.5 var(--font-sans); color:var(--tha-navy-300); text-align:center; max-width:26ch;">One emoji per moment, riding the baseline — never a stack, never decoration.</p>
+    </div>
+    <div data-ent="3" style="display:grid; grid-template-columns:repeat(10, 1fr); gap:10px; align-content:center; min-height:0;">
+      <sc-for list="{{ emojiCells }}" as="e" hint-placeholder-count="20">
+        <div onClick="{{ act }}" data-hero="{{ e.n }}" style="{{ e.st }}">
+          <fluent-emoji name="{{ e.n }}" size="46"></fluent-emoji>
+          <span style="font:500 13px/1.1 var(--font-mono); color:var(--tha-navy-300); text-align:center;">{{ e.label }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  <sc-if value="{{ hintsOn }}" hint-placeholder-val="{{ true }}"><span style="position:absolute; top:64px; right:72px; font:600 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-navy-200); border:1.5px dashed var(--tha-navy-500); padding:13px 18px;"><span style="color:var(--tha-lime);">TRY</span> · pick a character</span></sc-if>
+  <div style="position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-300);">13 · EMOJI</div>
+</section>
+
+<!-- ============ 14 · BUTTONS & UI ============ -->
+<section data-idx="14" data-screen-label="14 Buttons" style="position:absolute; left:26880px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:var(--tha-paper); overflow:hidden; padding:72px; display:flex; flex-direction:column;">
+  <span data-ent="1" style="font:700 22px/1 var(--font-mono); letter-spacing:.14em; color:var(--tha-aqua);">THE SYSTEM · 14 · BUTTONS &amp; UI</span>
+  <h2 data-ent="2" style="margin:32px 0 0; font:700 72px/1.02 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy);">Square corners. <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-purple);">Direct</em> verbs.</h2>
+  <div data-ent="3" style="flex:1; margin-top:48px; display:flex; flex-direction:column; justify-content:center; gap:48px;">
+    <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+      <button onClick="{{ act }}" data-press="1" style="font:600 24px/1 var(--font-sans); padding:24px 38px; border:0; background:var(--tha-navy); color:var(--tha-lime); border-radius:0; cursor:pointer; display:inline-flex; align-items:center; gap:14px; transition:transform .15s;" style-hover="transform:translateY(-3px);" style-active="transform:translateY(1px);">Press me <span style="font-size:26px;">→</span></button>
+      <button style="font:600 24px/1 var(--font-sans); padding:24px 38px; border:0; background:var(--tha-lime); color:var(--tha-navy); border-radius:0; cursor:pointer; transition:transform .15s;" style-hover="transform:translateY(-3px);" style-active="transform:translateY(1px);">Tell us your story</button>
+      <button style="font:600 24px/1 var(--font-sans); padding:24px 38px; background:transparent; color:var(--tha-navy); border:2px solid var(--tha-navy); border-radius:0; cursor:pointer; transition:background .15s;" style-hover="background:rgba(24,45,67,.06);">Read the case study</button>
+      <span style="font:600 24px/1 var(--font-sans); color:var(--tha-purple); border-bottom:2px solid var(--tha-purple); padding-bottom:6px;">Full narrative →</span>
+      <span style="margin-left:auto; font:700 21px/1 var(--font-mono); letter-spacing:.08em; color:var(--tha-navy-500); border:1.5px solid var(--tha-navy-200); border-radius:999px; padding:11px 18px;">{{ pressCount }}</span>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:end;">
+      <div>
+        <label style="font:600 20px/1 var(--font-sans); display:block; margin-bottom:12px; color:var(--tha-navy);">Work email</label>
+        <input placeholder="jane@company.com" style="width:100%; box-sizing:border-box; padding:20px 24px; border:1.5px solid var(--tha-navy-200); border-radius:6px; font:400 24px/1.2 var(--font-sans); background:#fff; outline:0; transition:border-color .15s;" style-focus="border-color:var(--tha-navy); border-width:2px;">
+      </div>
+      <div style="display:flex; gap:14px; flex-wrap:wrap;">
+        <span style="font:600 20px/1 var(--font-sans); padding:14px 22px; border-radius:999px; background:var(--tha-navy); color:var(--tha-lime);">Earned</span>
+        <span style="font:600 20px/1 var(--font-sans); padding:14px 22px; border-radius:999px; border:1.5px solid var(--tha-navy-300); color:var(--tha-navy);">Digital</span>
+        <span style="font:600 20px/1 var(--font-sans); padding:14px 22px; border-radius:999px; border:1.5px solid var(--tha-navy-300); color:var(--tha-navy);">AI</span>
+      </div>
+    </div>
+    <p style="margin:0; font:400 26px/1.4 var(--font-sans); color:var(--tha-navy-500);">CTA is a verb + object. Never <em style="text-decoration:line-through; text-decoration-color:var(--tha-violet);">Learn more.</em></p>
+  </div>
+  <sc-if value="{{ hintsOn }}" hint-placeholder-val="{{ true }}"><span style="position:absolute; top:64px; right:72px; font:600 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-navy-500); border:1.5px dashed var(--tha-navy-300); padding:13px 18px;"><span style="color:var(--fg-accent);">TRY</span> · hover, press, focus everything</span></sc-if>
+  <div style="position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-400);">14 · UI</div>
+</section>
+
+<!-- ============ 15 · SPACING & AIR ============ -->
+<section data-idx="15" data-screen-label="15 Spacing" style="position:absolute; left:28800px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:#FFFFFF; overflow:hidden; padding:72px; display:flex; flex-direction:column;">
+  <span data-ent="1" style="font:700 22px/1 var(--font-mono); letter-spacing:.14em; color:var(--tha-teal);">THE SYSTEM · 15 · MORE AIR, ALWAYS</span>
+  <h2 data-ent="2" style="margin:32px 0 0; font:700 72px/1.02 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy);">Squeeze it. <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-purple);">Feel</em> it fail.</h2>
+  <div style="flex:1; margin-top:40px; display:grid; grid-template-columns:1fr 520px; gap:56px; min-height:0; position:relative;">
+    <div data-ent="3" style="display:flex; align-items:center; justify-content:center; min-height:0; position:relative;">
+      <div style="{{ airPad }} background:var(--tha-sand); border:2px solid var(--tha-navy); max-width:100%; box-sizing:border-box;">
+        <div style="border:1.5px dashed var(--tha-purple); padding:24px 28px;">
+          <div style="font:700 20px/1 var(--font-mono); letter-spacing:.08em; color:var(--tha-purple);">CARD TITLE</div>
+          <p style="margin:12px 0 0; font:400 24px/1.4 var(--font-sans); color:var(--tha-navy);">Content breathes when the frame does.</p>
+        </div>
+      </div>
+      <div style="{{ gridOverlay }}"><sc-for list="{{ gridCells }}" as="g" hint-placeholder-count="12"><div style="{{ g.st }}"></div></sc-for></div>
+    </div>
+    <div data-ent="4" style="display:flex; flex-direction:column; gap:26px; justify-content:center;">
+      <div>
+        <label style="font:700 20px/1 var(--font-mono); letter-spacing:.08em; color:var(--tha-navy-500);">SPACING TOKEN · {{ airToken }}</label>
+        <input type="range" min="0" max="7" step="1" value="{{ air }}" onInput="{{ setNum }}" data-key="air" style="width:100%; height:44px; margin-top:12px;">
+      </div>
+      <p style="{{ airMsgSt }}">{{ airMsg }}</p>
+      <button onClick="{{ act }}" data-toggle="grid" style="{{ gridBtn }}">SHOW 12-COL GRID</button>
+      <p style="margin:0; font:400 24px/1.4 var(--font-sans); color:var(--tha-navy-500);">Asymmetric, biased to 7–8 of 12 columns. Section padding ≥80px; hero blocks 128px.</p>
+    </div>
+  </div>
+  <sc-if value="{{ hintsOn }}" hint-placeholder-val="{{ true }}"><span style="position:absolute; top:64px; right:72px; font:600 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-navy-500); border:1.5px dashed var(--tha-navy-300); padding:13px 18px; z-index:6;"><span style="color:var(--fg-accent);">TRY</span> · drag the slider to zero</span></sc-if>
+  <div style="position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-400);">15 · SPACING</div>
+</section>
+
+<!-- ============ 16 · PROMPT BUILDER ============ -->
+<section data-idx="16" data-screen-label="16 Prompt builder" style="position:absolute; left:30720px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:var(--tha-teal); overflow:hidden; padding:72px; display:flex; flex-direction:column;">
+  <span data-ent="1" style="font:700 22px/1 var(--font-mono); letter-spacing:.14em; color:var(--tha-aqua);">THE SYSTEM · 16 · THE PROMPT BUILDER</span>
+  <h2 data-ent="2" style="margin:32px 0 0; font:700 72px/1.02 var(--font-sans); letter-spacing:-.025em; color:#FFFFFF;">Never a bare <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-lime);">grey box.</em></h2>
+  <div style="flex:1; margin-top:36px; display:flex; flex-direction:column; justify-content:center; gap:26px; max-width:1500px;">
+    <div data-ent="3">
+      <span style="font:700 20px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-aqua);">SUBJECT</span>
+      <div style="display:flex; gap:12px; margin-top:12px; flex-wrap:wrap;"><sc-for list="{{ subjChips }}" as="c" hint-placeholder-count="4"><button onClick="{{ c.pick }}" style="{{ c.st }}">{{ c.k }}</button></sc-for></div>
+    </div>
+    <div data-ent="4">
+      <span style="font:700 20px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-aqua);">ASPECT &amp; RESOLUTION</span>
+      <div style="display:flex; gap:12px; margin-top:12px; flex-wrap:wrap;"><sc-for list="{{ aspChips }}" as="c" hint-placeholder-count="5"><button onClick="{{ c.pick }}" style="{{ c.st }}">{{ c.k }}</button></sc-for></div>
+    </div>
+    <div data-ent="5" style="display:flex; align-items:flex-start; gap:24px; background:rgba(255,255,255,.09); border-left:4px solid var(--tha-lime); padding:26px 30px; margin-top:6px;">
+      <p style="margin:0; font:400 22px/1.55 var(--font-mono); color:#FFFFFF; flex:1;">{{ builtPrompt }}</p>
+      <button onClick="{{ copyPrompt }}" style="{{ copyBtn }} flex:none;">{{ copyLabel }}</button>
+    </div>
+    <p data-ent="6" style="margin:0; font:400 24px/1.4 var(--font-sans); color:var(--tha-navy-200);">Candid, natural light, warm grade, business-casual — the Hoffman imagery direction, baked into every prompt.</p>
+  </div>
+  <sc-if value="{{ hintsOn }}" hint-placeholder-val="{{ true }}"><span style="position:absolute; top:64px; right:72px; font:600 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-navy-200); border:1.5px dashed var(--tha-aqua); padding:13px 18px;"><span style="color:var(--tha-lime);">TRY</span> · copy a real prompt</span></sc-if>
+  <div style="position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-200);">16 · PROMPTS</div>
+</section>
+
+<!-- ============ 17 · IN-PRACTICE CAROUSEL ============ -->
+<section data-idx="17" data-screen-label="17 In practice" style="position:absolute; left:32640px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:#0E1C2B; overflow:hidden; padding:72px; display:flex; flex-direction:column;">
+  <div data-ent="1" style="display:flex; align-items:baseline; justify-content:space-between;">
+    <span style="font:700 22px/1 var(--font-mono); letter-spacing:.14em; color:var(--tha-lime);">IN PRACTICE · 17 · REAL WORK</span>
+    <span style="font:700 22px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-navy-300);">{{ carLabel }}</span>
+  </div>
+  <div data-ent="2" style="flex:1; margin-top:36px; display:flex; align-items:center; gap:24px; min-height:0;">
+    <button onClick="{{ act }}" data-car="-1" style="width:64px; height:64px; flex:none; border:1.5px solid var(--tha-navy-500); background:transparent; color:var(--tha-paper); font:600 26px/1 var(--font-mono); cursor:pointer;">←</button>
+    <div style="flex:1; overflow:hidden; height:100%;">
+      <div style="{{ carTrack }}">
+        <div style="width:880px; height:100%; flex:none; background:var(--tha-paper); padding:64px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center;">
+          <span style="font:700 20px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-purple);">STATEMENT</span>
+          <p style="margin:28px 0 0; font:700 68px/1.1 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy);">To be the agency that helps tech brands solve <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-purple);">hard</em> business problems.</p>
+        </div>
+        <div style="width:880px; height:100%; flex:none; background:var(--tha-teal); padding:64px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center;">
+          <span style="font:700 20px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-aqua);">PULL QUOTE</span>
+          <p style="margin:28px 0 0; font:600 52px/1.2 var(--font-sans); letter-spacing:-.02em; color:#FFFFFF;">&ldquo;<em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-lime);">Influence</em> is the real currency of business.&rdquo;</p>
+        </div>
+        <div style="width:880px; height:100%; flex:none; background:var(--tha-navy); padding:64px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; gap:36px;">
+          <span style="font:700 20px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-lime);">STATS STRIP</span>
+          <div style="display:flex; gap:44px;">
+            <div><div style="font:800 76px/1 var(--font-mono); color:var(--tha-lime);">38</div><div style="font:500 20px/1.3 var(--font-sans); color:var(--tha-navy-200); margin-top:8px;">Tier-1 placements</div></div>
+            <div><div style="font:800 76px/1 var(--font-mono); color:var(--tha-aqua);">6wk</div><div style="font:500 20px/1.3 var(--font-sans); color:var(--tha-navy-200); margin-top:8px;">Stealth to front page</div></div>
+            <div><div style="font:800 76px/1 var(--font-mono); color:var(--tha-violet);">3x</div><div style="font:500 20px/1.3 var(--font-sans); color:var(--tha-navy-200); margin-top:8px;">Share of voice</div></div>
+          </div>
+        </div>
+        <div style="width:880px; height:100%; flex:none; background:#FFFFFF; padding:64px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; border:1px solid var(--tha-navy-200);">
+          <span style="font:700 20px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-teal);">CASE STUDY</span>
+          <p style="margin:28px 0 0; font:700 52px/1.15 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy);">From stealth to <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-purple);">front page</em> in six weeks.</p>
+          <p style="margin:20px 0 0; font:500 26px/1.4 var(--font-sans); color:var(--tha-navy-500);">Enterprise AI · 38 tier-1 placements</p>
+        </div>
+      </div>
+    </div>
+    <button onClick="{{ act }}" data-car="1" style="width:64px; height:64px; flex:none; border:1.5px solid var(--tha-navy-500); background:transparent; color:var(--tha-paper); font:600 26px/1 var(--font-mono); cursor:pointer;">→</button>
+  </div>
+  <div data-ent="3" style="display:flex; justify-content:center; gap:10px; padding-top:24px;"><sc-for list="{{ carDots }}" as="d" hint-placeholder-count="4"><div onClick="{{ d.pick }}" style="{{ d.st }}"></div></sc-for></div>
+  <sc-if value="{{ hintsOn }}" hint-placeholder-val="{{ true }}"><span style="position:absolute; top:64px; right:72px; font:600 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-navy-200); border:1.5px dashed var(--tha-navy-500); padding:13px 18px;"><span style="color:var(--tha-lime);">TRY</span> · flip through four finished slides</span></sc-if>
+  <div style="position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-300);">17 · IN PRACTICE</div>
+</section>
+
+<!-- ============ 18 · SHIP-IT CHECKLIST ============ -->
+<section data-idx="18" data-screen-label="18 Checklist" style="position:absolute; left:34560px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:var(--tha-paper); overflow:hidden; padding:72px; display:flex; flex-direction:column;">
+  <div data-ent="1" style="display:flex; align-items:baseline; justify-content:space-between;">
+    <span style="font:700 22px/1 var(--font-mono); letter-spacing:.14em; color:var(--tha-purple);">IN PRACTICE · 18 · SHIP-IT CHECKLIST</span>
+    <span style="font:700 22px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-navy-500);">{{ checkCount }}</span>
+  </div>
+  <h2 data-ent="2" style="margin:28px 0 0; font:700 68px/1.05 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy);">Before it goes out the <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-purple);">door.</em></h2>
+  <div data-ent="3" style="height:14px; background:var(--tha-navy-100); margin-top:28px;"><div style="{{ checkBar }}"></div></div>
+  <div data-ent="4" style="flex:1; margin-top:24px; display:grid; grid-template-columns:1fr 1fr; gap:16px; align-content:center; min-height:0; position:relative;">
+    <sc-for list="{{ checkRows }}" as="c" hint-placeholder-count="8">
+      <div onClick="{{ act }}" data-check="{{ c.i }}" style="{{ c.st }}">
+        <div style="{{ c.box }}">{{ c.mark }}</div>
+        <p style="{{ c.txt }}">{{ c.t }}</p>
+      </div>
+    </sc-for>
+    <div style="{{ shipSt }}">
+      <fluent-emoji name="party-popper" size="140"></fluent-emoji>
+      <span style="font:800 100px/1 var(--font-sans); letter-spacing:-.03em; color:var(--tha-navy);">Ship it.</span>
+    </div>
+  </div>
+  <sc-if value="{{ hintsOn }}" hint-placeholder-val="{{ true }}"><span style="position:absolute; top:64px; right:72px; font:600 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-navy-500); border:1.5px dashed var(--tha-navy-300); padding:13px 18px; z-index:7;"><span style="color:var(--fg-accent);">TRY</span> · check all eight</span></sc-if>
+  <div style="position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-400);">18 · CHECKLIST</div>
+</section>
+
+<!-- ============ 19 · CLOSING ============ -->
+<section data-idx="19" data-screen-label="19 Onward" style="position:absolute; left:36480px; top:0; width:1920px; height:1080px; box-sizing:border-box; background:var(--tha-navy); overflow:hidden; padding:72px; display:flex; flex-direction:column;">
+  <img src="../../assets/storyline-line-lime.svg" alt="" style="position:absolute; inset:0; width:100%; height:100%; display:block; pointer-events:none;">
+  <span data-ent="1" style="position:relative; font:700 22px/1 var(--font-mono); letter-spacing:.14em; color:var(--tha-navy-200);">IN PRACTICE · 19 · ONWARD</span>
+  <div style="position:relative; flex:1; display:flex; flex-direction:column; justify-content:center; gap:36px; max-width:1400px;">
+    <h1 data-ent="2" style="margin:0; font:800 224px/0.92 var(--font-sans); letter-spacing:-.035em; color:var(--tha-paper);">Onward<span onClick="{{ act }}" data-close="1" style="{{ periodSt }}">.</span></h1>
+    <div style="{{ closeSt }}">
+      <p style="margin:0 0 26px; font:400 40px/1.4 var(--font-sans); color:var(--tha-navy-200); max-width:26ch;">Twenty screens. Every rule pressed, dragged, or broken at least once. Now go make something.</p>
+      <div style="display:flex; align-items:center; gap:28px; flex-wrap:wrap;">
+        <a href="mailto:hello@hoffman.com" style="font:600 26px/1 var(--font-sans); padding:24px 38px; border:0; background:var(--tha-lime); color:var(--tha-navy); text-decoration:none; display:inline-flex;">Tell us your story</a>
+        <button onClick="{{ go0 }}" style="font:600 26px/1 var(--font-sans); padding:24px 38px; background:transparent; color:var(--tha-paper); border:2px solid var(--tha-navy-400); cursor:pointer;">Run it again</button>
+      </div>
+    </div>
+  </div>
+  <sc-if value="{{ hintsOn }}" hint-placeholder-val="{{ true }}"><span style="position:relative; align-self:flex-end; font:600 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-navy-300); border:1.5px dashed var(--tha-navy-500); padding:13px 18px;"><span style="color:var(--tha-lime);">EGG</span> · type p-a-r-t-y anywhere</span></sc-if>
+  <img src="../../assets/logo-horizontal-white.svg" alt="The Hoffman Agency" style="position:absolute; left:72px; bottom:40px; height:30px;">
+  <div style="position:absolute; right:72px; bottom:40px; font:500 20px/1 var(--font-mono); color:var(--tha-navy-300);">19 · ONWARD</div>
+</section>
+
+</div>
+
+<!-- ============ GLOBAL CHROME ============ -->
+<sc-if value="{{ navDock }}" hint-placeholder-val="{{ true }}">
+  <div data-appdeck-chrome="1" style="position:absolute; left:50%; bottom:24px; transform:translateX(-50%); z-index:40; display:flex; align-items:center; gap:12px; background:#0E1C2B; border:1px solid var(--tha-navy-600); padding:12px 14px; box-shadow:0 18px 40px -14px rgba(0,0,0,.55);">
+    <button onClick="{{ goPrev }}" style="width:50px; height:50px; border:1px solid var(--tha-navy-500); background:transparent; color:var(--tha-paper); font:600 24px/1 var(--font-mono); cursor:pointer;">←</button>
+    <sc-for list="{{ dockItems }}" as="d" hint-placeholder-count="7">
+      <div class="dock-i" onClick="{{ d.go }}" style="{{ d.st }}"><span class="dock-t">{{ d.label }}</span></div>
+    </sc-for>
+    <button onClick="{{ goNext }}" style="width:50px; height:50px; border:1px solid var(--tha-navy-500); background:transparent; color:var(--tha-paper); font:600 24px/1 var(--font-mono); cursor:pointer;">→</button>
+  </div>
+</sc-if>
+<sc-if value="{{ navRail }}">
+  <div data-appdeck-chrome="1" style="position:absolute; left:0; top:0; bottom:0; width:68px; z-index:40; background:rgba(14,28,43,.95); display:flex; flex-direction:column; align-items:center; padding:22px 0; box-sizing:border-box;">
+    <img src="../../assets/storyline-navy-lime.svg" alt="Home" onClick="{{ go1 }}" style="width:36px; height:36px; cursor:pointer;">
+    <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:9px;">
+      <sc-for list="{{ railDots }}" as="r" hint-placeholder-count="20">
+        <div onClick="{{ r.go }}" style="{{ r.st }}"></div>
+      </sc-for>
+    </div>
+    <span style="font:600 20px/1 var(--font-mono); color:var(--tha-navy-300); writing-mode:vertical-rl;">{{ pageNum }} / 20</span>
+  </div>
+</sc-if>
+<sc-if value="{{ pagerOn }}">
+  <div data-appdeck-chrome="1" style="position:absolute; right:24px; bottom:24px; z-index:41; display:flex; align-items:center; gap:10px;">
+    <button onClick="{{ goPrev }}" style="width:56px; height:56px; border:1px solid var(--tha-navy-500); background:#0E1C2B; color:var(--tha-paper); font:600 24px/1 var(--font-mono); cursor:pointer;">←</button>
+    <span style="height:56px; display:inline-flex; align-items:center; padding:0 20px; background:#0E1C2B; border:1px solid var(--tha-navy-500); color:var(--tha-paper); font:600 22px/1 var(--font-mono); letter-spacing:.08em;">{{ pageNum }} / 20</span>
+    <button onClick="{{ goNext }}" style="width:56px; height:56px; border:1px solid var(--tha-navy-500); background:#0E1C2B; color:var(--tha-paper); font:600 24px/1 var(--font-mono); cursor:pointer;">→</button>
+  </div>
+</sc-if>
+<div data-appdeck-chrome="1" style="{{ progSt }}"></div>
+<sc-if value="{{ toastOn }}">
+  <div data-appdeck-chrome="1" style="position:absolute; left:50%; bottom:118px; z-index:50; background:var(--tha-lime); color:var(--tha-navy); font:600 24px/1.35 var(--font-sans); padding:20px 30px; box-shadow:0 18px 40px -14px rgba(0,0,0,.5); max-width:1000px; animation:appPop .3s both;">{{ toastText }}</div>
+</sc-if>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;mode&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;explorer&quot;, &quot;presenter&quot;], &quot;default&quot;: &quot;explorer&quot;, &quot;tsType&quot;: &quot;\&quot;explorer\&quot; | \&quot;presenter\&quot;&quot;, &quot;section&quot;: &quot;App deck&quot; },
+  &quot;nav&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;Dock&quot;, &quot;Rail&quot;, &quot;Minimal&quot;], &quot;default&quot;: &quot;Dock&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;App deck&quot; },
+  &quot;hints&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;App deck&quot; },
+  &quot;motion&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;App deck&quot; }
+}">
+class Component extends DCLogic {
+  // ---------- Brand data ----------
+  PAL = [
+    { name: 'Navy',     hex: '#182D43' },
+    { name: 'Lime',     hex: '#D2EB00' },
+    { name: 'Lavender', hex: '#CB65FF' },
+    { name: 'Purple',   hex: '#6103B9' },
+    { name: 'Cyan',     hex: '#86FFF1' },
+    { name: 'Teal',     hex: '#145F7B' },
+    { name: 'Paper',    hex: '#FAFAF7' },
+  ];
+  SECTIONS = [
+    { label: 'HOME', color: '#FAFAF7', at: 1, end: 2 },
+    { label: 'FOUNDATIONS', color: '#CB65FF', at: 2, end: 5 },
+    { label: 'LOGO & MOTIF', color: '#6103B9', at: 5, end: 8 },
+    { label: 'COLOR', color: '#D2EB00', at: 8, end: 10 },
+    { label: 'TYPE', color: '#145F7B', at: 10, end: 12 },
+    { label: 'THE SYSTEM', color: '#86FFF1', at: 12, end: 17 },
+    { label: 'IN PRACTICE', color: '#182D43', at: 17, end: 20 },
+  ];
+  BANS = ['leverage', 'best-in-class', 'end-to-end', 'revolutionary', 'synergize', 'at the intersection of'];
+  CRIMES = {
+    rotate:  { label: 'ROTATE IT',      st: { transform: 'rotate(-9deg)' },                       quip: 'It’s a wordmark, not a sticker.' },
+    stretch: { label: 'STRETCH IT',     st: { transform: 'scaleX(1.7)' },                         quip: 'It’s a logo, not taffy.' },
+    recolor: { label: 'RECOLOR IT',     st: { filter: 'hue-rotate(130deg) saturate(2.4)' },       quip: 'We have two colors. Neither is that.' },
+    busy:    { label: 'BUSY BACKGROUND', st: {},                                                  quip: 'The logo can’t breathe in there.' },
+    effects: { label: 'ADD EFFECTS',    st: { filter: 'drop-shadow(0 16px 18px rgba(0,0,0,.5))' }, quip: 'No glows. No shadows. No 2009.' },
+    tiny:    { label: 'SHRINK IT',      st: { transform: 'scale(.2)' },                           quip: 'Below minimum size. Squint harder.' },
+  };
+  LOGO_BGS = [
+    { name: 'Paper', hex: '#FAFAF7', file: 'navy-lime', rule: 'Light ground → the two-color logo. Full brand.' },
+    { name: 'Lime',  hex: '#D2EB00', file: 'navy',      rule: 'Lime ground → one-color navy. Lime-on-lime vanishes.' },
+    { name: 'Navy',  hex: '#182D43', file: 'white',     rule: 'Navy ground → pure white. Never the 2-color on dark.' },
+    { name: 'Teal',  hex: '#145F7B', file: 'white',     rule: 'Any secondary → pure white, always.' },
+    { name: 'Lavender', hex: '#CB65FF', file: 'white',  rule: 'Any secondary → pure white, always.' },
+    { name: 'Purple', hex: '#6103B9', file: 'white',    rule: 'Any secondary → pure white, always.' },
+  ];
+  TIERS = [
+    { n: 'Eyebrow / label', px: 22,  w: 700, demo: 'CATEGORY LABEL', ls: '.14em', up: true },
+    { n: 'Body copy',       px: 32,  w: 400, demo: 'Short sentences. Then longer ones to breathe.', ls: '0' },
+    { n: 'Subhead',         px: 44,  w: 600, demo: 'Lead with the punchline.', ls: '-.01em' },
+    { n: 'Content title',   px: 72,  w: 700, demo: 'Built for tech.', ls: '-.02em' },
+    { n: 'Statement',       px: 126, w: 700, demo: 'Momentum.', ls: '-.03em' },
+    { n: 'Cover',           px: 176, w: 800, demo: 'helllllo.', ls: '-.035em' },
+    { n: 'Closing word',    px: 240, w: 800, demo: 'Onward.', ls: '-.04em' },
+  ];
+  ANN = {
+    underline: ['01', '03', '07', '10'],
+    circle: ['03', '05', '09', '13'],
+    arrow: ['02', '05', '09', '12'],
+    tick: ['02', '05', '08'],
+    cross: ['03', '06', '09'],
+    accent: ['01', '04', '08', '11'],
+  };
+  EMOJI = ['rocket','light-bulb','fire','sparkles','trophy','handshake','brain','eyes','chart-increasing','megaphone','crystal-ball','puzzle-piece','high-voltage','party-popper','globe-asia','telescope','money-bag','speech-balloon','check-mark','hundred-points'];
+  AIR = [ { t: 's-2', v: 8 }, { t: 's-4', v: 16 }, { t: 's-6', v: 24 }, { t: 's-8', v: 32 }, { t: 's-12', v: 48 }, { t: 's-16', v: 64 }, { t: 's-20', v: 80 }, { t: 's-24', v: 96 } ];
+  SUBJ = [
+    { k: 'PORTRAIT', d: 'A candid portrait of a communications strategist mid-conversation in a bright modern office' },
+    { k: 'TEAM', d: 'A small team gathered around one laptop in a glass meeting room, caught mid-laugh' },
+    { k: 'WORKSPACE', d: 'An honest desk scene — notebook, phone, cold coffee — in a tech office at golden hour' },
+    { k: 'STAGE', d: 'A speaker on a minimal conference stage, audience softly out of focus' },
+  ];
+  ASP = [ { k: '16:9', r: '1920×1080' }, { k: '4:3', r: '1440×1080' }, { k: '4:5', r: '1080×1350' }, { k: '1:1', r: '1280×1280' }, { k: '3:1', r: '1800×600' } ];
+  CHECKS = [
+    'One italic word per headline — exactly one',
+    'Type at slide scale — nothing under 20px',
+    'Every pairing clears WCAG — 4.5 body, 3 large',
+    'Logo variant matches its background',
+    'Squiggle version matches the surface',
+    'No more than 2 hand-drawn marks in view',
+    'Emoji ≤ 3, always doing a job',
+    'Zero clichés. Zero “Learn more.”',
+  ];
+
+  state = {
+    scale: 0.5, screen: 0, clock: '',
+    whyOpen: -1,
+    voice: 'corporate', bansDead: [false, false, false, false, false, false],
+    stretch: 7, patTab: 0,
+    logoKind: 'horizontal', logoBg: 0, clear: false,
+    crime: null, crimesDone: [],
+    surf: 6,
+    cBg: 0, cFg: 6,
+    story: 'navy', storyCrime: false,
+    w: 800, ital: 3, custom: '',
+    tier: 4,
+    annCat: 'underline', stamps: [],
+    hero: 'rocket',
+    presses: 0, air: 3, grid: false,
+    subj: 0, asp: 0, copied: false,
+    car: 0,
+    checks: [false, false, false, false, false, false, false, false], shipped: false,
+    toastText: '', toastK: 0,
+    closeOpen: false,
+  };
+
+  // ---------- Lifecycle ----------
+  componentDidMount() {
+    this._onResize = () => this.setState({ scale: Math.min(window.innerWidth / 1920, window.innerHeight / 1080) });
+    this._onResize();
+    window.__appDeckGo = (i) => this.go(i);
+    window.addEventListener('resize', this._onResize);
+    this._onKey = (e) => this._key(e);
+    window.addEventListener('keydown', this._onKey);
+    const tick = () => { const d = new Date(); this.setState({ clock: String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0') }); };
+    tick();
+    this._clock = setInterval(tick, 15000);
+    const m = (location.hash || '').match(/s(\d+)/);
+    if (m) this.setState({ screen: Math.max(0, Math.min(19, +m[1])) });
+    this._sync();
+  }
+  componentDidUpdate() { this._sync(); }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onResize);
+    window.removeEventListener('keydown', this._onKey);
+    clearInterval(this._clock);
+    clearTimeout(this._tt);
+  }
+  _sync() {
+    const st = this._stage;
+    if (!st) return;
+    st.toggleAttribute('data-motion-off', this.props.motion === false);
+    st.querySelectorAll('section[data-idx]').forEach((el) => {
+      el.toggleAttribute('data-app-on', +el.dataset.idx === this.state.screen);
+    });
+  }
+  go(i) {
+    i = Math.max(0, Math.min(19, i));
+    if (i === this.state.screen) return;
+    this.setState({ screen: i });
+    try { history.replaceState(null, '', '#s' + i); } catch (e) { /* sandboxed */ }
+  }
+  _key(e) {
+    const t = e.target;
+    if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+    // “party” egg
+    this._buf = ((this._buf || '') + (e.key.length === 1 ? e.key.toLowerCase() : '')).slice(-5);
+    if (this._buf === 'party') { this._buf = ''; this.rain(); this.toast('You found the party. Max three emoji per surface — rules are rules, except now.'); }
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); this.go(this.state.screen + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); this.go(this.state.screen - 1); }
+    else if (e.key === 'Home' || e.key === 'h') { this.go(1); }
+  }
+  toast(t) {
+    clearTimeout(this._tt);
+    this.setState({ toastText: t, toastK: this.state.toastK + 1 });
+    this._tt = setTimeout(() => this.setState({ toastText: '' }), 3000);
+  }
+  rain() {
+    if (this._raining || !this._stage) return;
+    this._raining = true;
+    const names = ['party-popper', 'sparkles', 'fire', 'rocket', 'trophy', 'confetti-ball', 'balloon', 'partying-face', 'star', 'light-bulb'];
+    for (let i = 0; i < 34; i++) {
+      const el = document.createElement('fluent-emoji');
+      el.setAttribute('name', names[i % names.length]);
+      el.setAttribute('size', String(56 + Math.round(Math.random() * 64)));
+      Object.assign(el.style, { position: 'absolute', left: Math.round(Math.random() * 1860) + 'px', top: '-140px', zIndex: '60', pointerEvents: 'none' });
+      this._stage.appendChild(el);
+      const dur = 1.9 + Math.random() * 1.6, rot = Math.random() * 520 - 260;
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        el.style.transition = 'transform ' + dur + 's cubic-bezier(.3,.1,.6,1), opacity .4s ' + (dur - 0.4) + 's';
+        el.style.transform = 'translateY(1360px) rotate(' + rot + 'deg)';
+        el.style.opacity = '0';
+      }));
+      setTimeout(() => el.remove(), dur * 1000 + 200);
+    }
+    setTimeout(() => { this._raining = false; }, 2400);
+  }
+
+  // ---------- Dispatch ----------
+  act = (e) => {
+    const d = e.currentTarget.dataset;
+    if (d.go !== undefined) { this.go(+d.go); return; }
+    if (d.vtoggle !== undefined) {
+      const v = this.state.voice === 'hoffman' ? 'corporate' : 'hoffman';
+      this.setState({ voice: v });
+      if (v === 'hoffman') this.toast('Better. Short sentences. No hedging.');
+      return;
+    }
+    if (d.why !== undefined) { this.setState((s) => ({ whyOpen: s.whyOpen === +d.why ? -1 : +d.why })); return; }
+    if (d.ban !== undefined) {
+      const i = +d.ban;
+      if (this.state.bansDead[i]) return;
+      const b = this.state.bansDead.slice(); b[i] = true;
+      this.setState({ bansDead: b });
+      const n = b.filter(Boolean).length;
+      this.toast(n === 6 ? 'All six destroyed. Cleaner already.' : '“' + this.BANS[i] + '” — gone. ' + (6 - n) + ' to go.');
+      return;
+    }
+    if (d.crime) {
+      const k = d.crime;
+      const done = this.state.crimesDone.includes(k) ? this.state.crimesDone : this.state.crimesDone.concat(k);
+      this.setState({ crime: k, crimesDone: done });
+      this.toast(done.length === 6 && !this._allCrimed ? 'Six of six. You’re on a list now.' : this.CRIMES[k].quip);
+      if (done.length === 6) this._allCrimed = true;
+      return;
+    }
+    if (d.restore !== undefined) { this.setState({ crime: null }); return; }
+    if (d.stamp) { this._stamp(d.stamp); return; }
+    if (d.clearstamps !== undefined) { this.setState({ stamps: [] }); return; }
+    if (d.check !== undefined) { this._check(+d.check); return; }
+    if (d.car) { this.setState((s) => ({ car: (s.car + +d.car + 4) % 4 })); return; }
+    if (d.press !== undefined) {
+      const n = this.state.presses + 1;
+      this.setState({ presses: n });
+      if (n === 10) this.toast('That’s enough seeing. Go make something.');
+      return;
+    }
+    if (d.ital !== undefined) {
+      const i = +d.ital;
+      if (i === this.state.ital) { this.toast('It stays. One word has to carry the line.'); return; }
+      this.setState({ ital: i });
+      this.toast('Moved. One italic word per headline — never two.');
+      return;
+    }
+    if (d.hero) { this.setState({ hero: d.hero }); return; }
+    if (d.close !== undefined) { this.setState({ closeOpen: true }); this.rain(); return; }
+    if (d.set) {
+      const i = d.set.indexOf(':');
+      const k = d.set.slice(0, i);
+      let v = d.set.slice(i + 1);
+      if (d.num !== undefined) v = +v;
+      this.setState({ [k]: v });
+      return;
+    }
+    if (d.toggle) { this.setState((s) => ({ [d.toggle]: !s[d.toggle] })); return; }
+    if (d.toast) this.toast(d.toast);
+  };
+  setNum = (e) => { this.setState({ [e.currentTarget.dataset.key]: +e.target.value }); };
+  setTxt = (e) => { this.setState({ [e.currentTarget.dataset.key]: e.target.value }); };
+  _stamp(f) {
+    const s = this.state.stamps;
+    if (s.includes(f)) { this.setState({ stamps: s.filter((x) => x !== f) }); return; }
+    if (s.length >= 2) { this.toast('1–2 marks per surface. This isn’t a sticker book.'); return; }
+    this.setState({ stamps: s.concat(f) });
+  }
+  _check(i) {
+    const c = this.state.checks.slice(); c[i] = !c[i];
+    const all = c.every(Boolean);
+    this.setState({ checks: c, shipped: all });
+    if (all) { this.toast('All eight. Ship it.'); this.rain(); }
+  }
+  copyPrompt = () => {
+    try { navigator.clipboard.writeText(this._promptText()); } catch (e) { /* no clipboard */ }
+    this.setState({ copied: true });
+    clearTimeout(this._ct);
+    this._ct = setTimeout(() => this.setState({ copied: false }), 1600);
+  };
+  _promptText() {
+    const s = this.state;
+    return this.SUBJ[s.subj].d + '. Natural window light, warm colour grade, business-casual wardrobe, honest imperfect framing — candid, not posed. No stock-photo gloss, no gradients, no logos. Generate ' + this.ASP[s.asp].r + 'px (' + this.ASP[s.asp].k + ').';
+  }
+
+  // ---------- Color math ----------
+  _lum(hex) {
+    const c = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255)
+      .map((v) => (v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4)));
+    return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+  }
+  _ratio(a, b) {
+    const l1 = this._lum(a), l2 = this._lum(b);
+    const hi = Math.max(l1, l2), lo = Math.min(l1, l2);
+    return (hi + 0.05) / (lo + 0.05);
+  }
+
+  // ---------- Render values ----------
+  renderVals() {
+    const s = this.state, p = this.props;
+    const motion = p.motion !== false;
+    const presenter = p.mode === 'presenter';
+    const nav = presenter ? 'Minimal' : (p.nav || 'Dock');
+    const ease = 'cubic-bezier(.65,0,.35,1)';
+    const serif = { fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 400 };
+    const out = {
+      stageRef: (el) => { this._stage = el; this._sync(); },
+      scaleStyle: { width: '1920px', height: '1080px', position: 'relative', overflow: 'hidden', flex: 'none', background: '#0E1C2B', transform: 'scale(' + s.scale + ')' },
+      cameraStyle: { position: 'absolute', left: 0, top: 0, width: '38400px', height: '1080px', transform: 'translateX(' + (-s.screen * 1920) + 'px)', transition: motion ? 'transform .65s ' + ease : 'none' },
+      hintsOn: p.hints !== false && !presenter,
+      navDock: nav === 'Dock', navRail: nav === 'Rail', pagerOn: nav !== 'Dock',
+      pageNum: String(s.screen).padStart(2, '0'),
+      progSt: { position: 'absolute', left: 0, bottom: 0, height: '6px', background: '#D2EB00', zIndex: 45, width: (((s.screen + 1) / 20) * 100) + '%', transition: motion ? 'width .65s ' + ease : 'none' },
+      toastOn: !!s.toastText, toastText: s.toastText,
+      clock: s.clock,
+      goPrev: () => this.go(this.state.screen - 1),
+      goNext: () => this.go(this.state.screen + 1),
+      act: this.act, setNum: this.setNum, setTxt: this.setTxt, copyPrompt: this.copyPrompt,
+    };
+    for (let i = 0; i < 20; i++) out['go' + i] = () => this.go(i);
+
+    // Chrome
+    out.dockItems = this.SECTIONS.map((sec) => {
+      const active = s.screen >= sec.at && s.screen < sec.end;
+      return {
+        label: sec.label,
+        go: () => this.go(sec.at),
+        st: { width: '50px', height: '50px', background: sec.color, border: '1px solid rgba(255,255,255,.3)', cursor: 'pointer', boxShadow: active ? '0 0 0 3px #D2EB00' : 'none' },
+      };
+    });
+    out.railDots = Array.from({ length: 20 }, (_, i) => {
+      const sec = this.SECTIONS.find((x) => i >= x.at && i < x.end) || this.SECTIONS[0];
+      const active = i === s.screen;
+      return {
+        go: () => this.go(i),
+        st: { width: active ? '14px' : '10px', height: active ? '30px' : '10px', borderRadius: '999px', background: i === 0 ? '#5A7591' : sec.color, opacity: active ? 1 : 0.55, border: '1px solid rgba(255,255,255,.2)', cursor: 'pointer', transition: 'all .25s' },
+      };
+    });
+
+    // 02 Why accordion
+    for (let i = 0; i < 3; i++) {
+      const open = s.whyOpen === i;
+      out['whyI' + i] = open ? '–' : '+';
+      out['whyB' + i] = { maxHeight: open ? '200px' : '0px', opacity: open ? 1 : 0, overflow: 'hidden', transition: 'max-height .45s ' + ease + ', opacity .35s' };
+    }
+
+    // 03 Voice
+    const hv = s.voice === 'hoffman';
+    out.vKnob = { position: 'absolute', top: '6px', bottom: '6px', width: 'calc(50% - 10px)', left: hv ? 'calc(50% + 4px)' : '6px', background: '#D2EB00', borderRadius: '999px', transition: motion ? 'left .35s cubic-bezier(.2,.8,.2,1)' : 'none' };
+    const vLab = (on) => ({ position: 'relative', zIndex: 1, flex: 1, textAlign: 'center', alignSelf: 'center', font: '700 25px/1 var(--font-mono)', letterSpacing: '.1em', color: on ? '#182D43' : '#95A8BD', transition: 'color .35s' });
+    out.vLab0 = vLab(!hv); out.vLab1 = vLab(hv);
+    out.vCorp = { gridArea: '1 / 1', opacity: hv ? 0 : 1, transform: hv ? 'translateY(-20px)' : 'none', transition: 'opacity .4s, transform .4s', pointerEvents: 'none' };
+    out.vHoff = { gridArea: '1 / 1', opacity: hv ? 1 : 0, transform: hv ? 'none' : 'translateY(20px)', transition: 'opacity .4s, transform .4s', pointerEvents: 'none' };
+    out.bans = this.BANS.map((t, i) => ({
+      t,
+      st: s.bansDead[i]
+        ? { font: '600 22px/1 var(--font-mono)', padding: '13px 20px', border: '1.5px solid transparent', color: '#5A7591', textDecoration: 'line-through', textDecorationColor: '#CB65FF', textDecorationThickness: '3px', transform: 'rotate(-4deg)', opacity: 0.55, cursor: 'default', transition: 'all .3s' }
+        : { font: '600 22px/1 var(--font-mono)', padding: '13px 20px', border: '1.5px solid #35526F', color: '#FAFAF7', cursor: 'crosshair', transition: 'all .3s' },
+    }));
+    out.banCount = s.bansDead.filter(Boolean).length + ' / 6';
+
+    // 04 Patterns
+    out.stretched = 'he' + 'l'.repeat(s.stretch) + 'o 2026';
+    out.stretch = s.stretch;
+    out.pat0 = s.patTab === 0; out.pat1 = s.patTab === 1; out.pat2 = s.patTab === 2;
+    const tab = (on) => ({ font: '700 21px/1 var(--font-mono)', letterSpacing: '.08em', padding: '18px 26px', border: 0, cursor: 'pointer', background: on ? '#182D43' : 'transparent', color: on ? '#FAFAF7' : '#182D43', transition: 'background .2s, color .2s' });
+    out.pt0 = tab(s.patTab === 0); out.pt1 = tab(s.patTab === 1); out.pt2 = tab(s.patTab === 2);
+
+    // 05 Logo lab
+    const lb = this.LOGO_BGS[s.logoBg];
+    const resId = (id, fallback) => (window.__resources && window.__resources[id]) || fallback;
+    out.logoSrc = resId('logo_' + s.logoKind + '_' + lb.file, '../../assets/logo-' + s.logoKind + '-' + lb.file + '.svg');
+    out.logoRule = lb.rule;
+    out.logoPanel = { flex: 1, background: lb.hex, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', transition: 'background .35s', border: '1px solid var(--tha-navy-200)', minHeight: 0 };
+    out.logoImg = { height: s.logoKind === 'horizontal' ? '110px' : '230px', width: 'auto', transition: 'height .3s' };
+    out.clearBox = { position: 'absolute', inset: '50%', width: s.logoKind === 'horizontal' ? '820px' : '560px', height: s.logoKind === 'horizontal' ? '330px' : '460px', transform: 'translate(-50%,-50%)', border: '2px dashed ' + (lb.file === 'white' ? 'rgba(255,255,255,.6)' : 'rgba(24,45,67,.5)'), opacity: s.clear ? 1 : 0, transition: 'opacity .3s', pointerEvents: 'none' };
+    out.clearLbl = { position: 'absolute', top: '12px', left: '16px', font: '600 20px/1 var(--font-mono)', letterSpacing: '.08em', color: lb.file === 'white' ? 'rgba(255,255,255,.85)' : 'rgba(24,45,67,.7)', opacity: s.clear ? 1 : 0, transition: 'opacity .3s', pointerEvents: 'none' };
+    const seg = (on) => ({ font: '700 21px/1 var(--font-mono)', letterSpacing: '.08em', padding: '16px 24px', border: 0, cursor: 'pointer', background: on ? '#182D43' : 'transparent', color: on ? '#FAFAF7' : '#182D43', transition: 'background .2s, color .2s' });
+    out.lk0 = seg(s.logoKind === 'horizontal'); out.lk1 = seg(s.logoKind === 'stacked');
+    out.clearBtn = seg(s.clear);
+    out.logoChips = this.LOGO_BGS.map((b, i) => ({
+      name: b.name.toUpperCase(),
+      pick: () => this.setState({ logoBg: i }),
+      st: { display: 'flex', alignItems: 'center', gap: '12px', font: '600 20px/1 var(--font-mono)', letterSpacing: '.06em', color: '#182D43', padding: '12px 16px', border: s.logoBg === i ? '2px solid #182D43' : '1.5px solid #C8D2DD', cursor: 'pointer', background: '#FFFFFF', transition: 'border .2s' }, // width was here
+      sw: { width: '26px', height: '26px', background: b.hex, border: '1px solid rgba(24,45,67,.25)', flex: 'none' },
+    }));
+
+    // 06 Misuse
+    const cr = s.crime ? this.CRIMES[s.crime] : null;
+    out.crimeImg = Object.assign({ height: '120px', width: 'auto', transition: 'transform .35s, filter .35s' }, cr ? cr.st : {});
+    out.crimePanel = {
+      flex: 1, position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 0, border: '1px solid var(--tha-navy-200)', transition: 'background .35s',
+      background: s.crime === 'busy'
+        ? 'radial-gradient(circle at 22% 28%, #CB65FF 0%, transparent 42%), radial-gradient(circle at 72% 62%, #86FFF1 0%, transparent 40%), radial-gradient(circle at 55% 86%, #D2EB00 0%, transparent 38%), radial-gradient(circle at 84% 20%, #6103B9 0%, transparent 48%), #2A4258'
+        : '#FFFFFF',
+    };
+    out.crimeSrc = s.crime === 'busy' ? resId('logo_horizontal_white', '../../assets/logo-horizontal-white.svg') : resId('logo_horizontal_navy-lime', '../../assets/logo-horizontal-navy-lime.svg');
+    out.crimeCross = { position: 'absolute', top: '20px', right: '24px', width: '64px', height: '64px', opacity: s.crime ? 1 : 0, transition: 'opacity .25s', pointerEvents: 'none' };
+    out.crimeVerdict = cr ? cr.quip : 'Pristine. As it should be.';
+    out.crimeVerdictSt = { font: '600 26px/1.3 var(--font-sans)', color: s.crime ? '#C43D3D' : '#147A4B', transition: 'color .3s', margin: 0 };
+    out.crimeCount = s.crimesDone.length + ' / 6 CRIMES COMMITTED';
+    out.crimeBtns = Object.keys(this.CRIMES).map((k) => ({
+      label: this.CRIMES[k].label, k,
+      st: { font: '600 20px/1 var(--font-mono)', letterSpacing: '.05em', padding: '15px 18px', border: s.crime === k ? '2px solid #C43D3D' : '1.5px solid #C8D2DD', background: s.crime === k ? '#FDF0F0' : '#FFFFFF', color: s.crime === k ? '#C43D3D' : '#182D43', cursor: 'pointer', textAlign: 'left', transition: 'all .2s' },
+    }));
+
+    // 07 Storyline
+    const dark = s.story === 'navy';
+    out.storyDark = dark;
+    out.storyStage = { position: 'absolute', inset: 0, background: dark ? '#182D43' : '#FAFAF7', transition: 'background .4s' };
+    out.storyTgl0 = { font: '700 21px/1 var(--font-mono)', letterSpacing: '.08em', padding: '16px 24px', border: 0, cursor: 'pointer', background: !dark ? '#182D43' : 'transparent', color: !dark ? '#FAFAF7' : '#95A8BD', transition: 'all .2s' };
+    out.storyTgl1 = { font: '700 21px/1 var(--font-mono)', letterSpacing: '.08em', padding: '16px 24px', border: 0, cursor: 'pointer', background: dark ? '#D2EB00' : 'transparent', color: dark ? '#182D43' : '#95A8BD', transition: 'all .2s' };
+    const sInk = dark ? '#FAFAF7' : '#182D43', sMut = dark ? '#95A8BD' : '#5A7591';
+    out.story7H2 = { margin: 0, font: '700 84px/1.0 var(--font-sans)', letterSpacing: '-.025em', color: sInk, transition: 'color .4s' };
+    out.story7Rule = { margin: 0, font: '500 32px/1.45 var(--font-sans)', color: sMut, transition: 'color .4s' };
+    out.story7Never = { margin: 0, font: '500 23px/1.45 var(--font-sans)', maxWidth: '52em', color: sMut, transition: 'color .4s' };
+    out.storyLineSt = { position: 'absolute', top: 0, right: 0, bottom: 0, height: '100%', width: 'auto', maxWidth: 'none', opacity: dark ? 1 : 0, transition: 'opacity .4s', pointerEvents: 'none' };
+    out.storyBoxSt = { position: 'absolute', top: '104px', right: '104px', width: '120px', height: '120px', opacity: dark ? 0 : 1, transition: 'opacity .4s', pointerEvents: 'none' };
+    out.storyRule = dark
+      ? 'Dark field → the LINE, edge-locked: full height, flush to top, right & bottom. Part of the field, never a floating object.'
+      : 'Light ground → the BOXED monogram, locked to a corner like a logo. The version you reach for when the field isn’t navy.';
+    out.storyFile = dark ? 'storyline-line-lime.svg' : 'storyline-navy-lime.svg';
+
+    // 08 Surfaces
+    const sf = this.PAL[s.surf];
+    const sfDark = ['Navy', 'Purple', 'Teal'].includes(sf.name);
+    out.surfBg = { position: 'absolute', inset: 0, background: sf.hex, transition: 'background .45s' };
+    const fInk = sfDark ? '#FAFAF7' : '#182D43', fMut = sfDark ? 'rgba(250,250,247,.78)' : 'rgba(24,45,67,.72)';
+    out.surf8Eyebrow = { position: 'relative', font: '700 22px/1 var(--font-mono)', letterSpacing: '.14em', color: fMut, transition: 'color .45s' };
+    out.surf8H2 = { margin: 0, font: '800 116px/0.98 var(--font-sans)', letterSpacing: '-.03em', maxWidth: '13ch', color: fInk, transition: 'color .45s' };
+    out.surf8Hex = { font: '700 44px/1 var(--font-mono)', letterSpacing: '.02em', color: fInk, transition: 'color .45s' };
+    out.surf8Name = { font: '700 24px/1 var(--font-mono)', letterSpacing: '.12em', color: fMut, transition: 'color .45s' };
+    out.surf8Rule = { margin: 0, font: '500 32px/1.45 var(--font-sans)', maxWidth: '34em', color: fMut, transition: 'color .45s' };
+    out.surfName = sf.name.toUpperCase();
+    out.surfHex = sf.hex.toUpperCase();
+    out.surfRule = sfDark ? 'Dark surface → white or light type. The white logo. Lime accents welcome.' : (sf.name === 'Lime' || sf.name === 'Cyan' ? 'Loud surface → navy type only. Lime and cyan are backgrounds, never text.' : 'Light surface → navy type. The two-color logo lives here.');
+    out.surfEm = { fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 400, color: sfDark ? '#D2EB00' : '#6103B9', transition: 'color .45s' };
+    out.swatches = this.PAL.map((c, i) => ({
+      name: c.name.toUpperCase(), hex: c.hex.toUpperCase(),
+      pick: () => this.setState({ surf: i }),
+      st: { flex: s.surf === i ? '1.6' : '1', background: c.hex, border: '1px solid rgba(24,45,67,.28)', cursor: 'pointer', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '14px', transition: 'flex .35s ' + ease, boxShadow: s.surf === i ? 'inset 0 0 0 4px rgba(255,255,255,.55)' : 'none' },
+      lb: { font: '700 18px/1.3 var(--font-mono)', letterSpacing: '.04em', color: ['Navy', 'Purple', 'Teal'].includes(c.name) ? '#FAFAF7' : '#182D43' },
+    }));
+
+    // 09 Contrast lab
+    const bg = this.PAL[s.cBg], fg = this.PAL[s.cFg];
+    const r = this._ratio(bg.hex, fg.hex);
+    out.ratioText = r.toFixed(2);
+    out.cSample = { background: bg.hex, color: fg.hex, transition: 'background .3s, color .3s' };
+    out.cBgHex = bg.hex.toUpperCase(); out.cFgHex = fg.hex.toUpperCase();
+    const badge = (pass, label) => ({
+      label: label + (pass ? ' · PASS' : ' · FAIL'),
+      st: { font: '700 22px/1 var(--font-mono)', letterSpacing: '.06em', padding: '16px 22px', background: pass ? '#D2EB00' : '#C43D3D', color: pass ? '#182D43' : '#FFFFFF', transition: 'background .3s' },
+    });
+    out.bBody = badge(r >= 4.5, 'BODY ≥ 4.5');
+    out.bLarge = badge(r >= 3, 'LARGE ≥ 3.0');
+    out.cVerdict = r >= 4.5 ? 'Body-safe. Set paragraphs in it.' : r >= 3 ? 'Large & bold only — 64px+ headlines, nothing smaller.' : 'Not even big. Pick again.';
+    const swRow = (key) => this.PAL.map((c, i) => ({
+      pick: () => this.setState({ [key]: i }),
+      st: { width: '64px', height: '64px', background: c.hex, cursor: 'pointer', border: '1px solid rgba(255,255,255,.25)', boxShadow: s[key] === i ? '0 0 0 4px #D2EB00' : 'none', transition: 'box-shadow .2s' },
+    }));
+    out.cBgRow = swRow('cBg'); out.cFgRow = swRow('cFg');
+
+    // 10 Specimen
+    const words = (s.custom.trim() ? s.custom.trim() : 'Turn opinion into momentum.').split(/\s+/).slice(0, 8);
+    const ital = Math.min(s.ital, words.length - 1);
+    out.wordList = words.map((t, i) => ({
+      t, i,
+      st: i === ital
+        ? Object.assign({ color: '#6103B9', cursor: 'pointer', transition: 'color .2s' }, serif)
+        : { cursor: 'pointer', transition: 'color .2s' },
+    }));
+    out.w = s.w;
+    out.wName = { 100: 'Thin', 200: 'ExtraLight', 300: 'Light', 400: 'Regular', 500: 'Medium', 600: 'SemiBold', 700: 'Bold', 800: 'ExtraBold', 900: 'Black' }[s.w];
+    out.specSt = { font: s.w + ' 118px/1.04 var(--font-sans)', letterSpacing: '-.03em', color: '#182D43', margin: 0, display: 'flex', flexWrap: 'wrap', columnGap: '0.28em', maxWidth: '17ch' };
+    out.custom = s.custom;
+
+    // 11 Type scale
+    const t = this.TIERS[s.tier];
+    out.tier = s.tier;
+    out.tierName = t.n; out.tierPx = t.px + 'px'; out.tierPt = (t.px / 2) + 'pt';
+    out.tierSt = {
+      font: t.w + ' ' + t.px + 'px/1.02 var(--font-sans)', letterSpacing: t.ls, color: '#FAFAF7', margin: 0,
+      textTransform: t.up ? 'uppercase' : 'none', transition: 'font-size .35s ' + ease, whiteSpace: 'nowrap',
+    };
+    out.tierDemo = t.demo;
+    out.tierRows = this.TIERS.map((x, i) => ({
+      n: x.n.toUpperCase(), px: x.px + ' PX', pt: (x.px / 2) + ' PT',
+      pick: () => this.setState({ tier: i }),
+      st: { display: 'grid', gridTemplateColumns: '1fr 110px 90px', gap: '18px', alignItems: 'center', padding: '15px 18px', cursor: 'pointer', borderLeft: s.tier === i ? '6px solid #D2EB00' : '6px solid transparent', background: s.tier === i ? 'rgba(255,255,255,.08)' : 'transparent', transition: 'all .2s' },
+    }));
+
+    // 12 Annotations
+    out.annTabs = Object.keys(this.ANN).map((k) => ({
+      k: k.toUpperCase(),
+      pick: () => this.setState({ annCat: k }),
+      st: { font: '700 20px/1 var(--font-mono)', letterSpacing: '.06em', padding: '15px 20px', border: 0, cursor: 'pointer', background: s.annCat === k ? '#182D43' : 'transparent', color: s.annCat === k ? '#FAFAF7' : '#182D43', transition: 'all .2s' },
+    }));
+    out.annList = this.ANN[s.annCat].map((nn) => {
+      const f = s.annCat + '-' + nn;
+      return {
+        src: resId('ann_' + f, '../../assets/annotations/' + f + '.svg'),
+        pick: () => this._stamp(f),
+        st: { flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '18px', background: '#FFFFFF', border: s.stamps.includes(f) ? '2.5px solid #A7BC00' : '1.5px solid #C8D2DD', cursor: 'pointer', minHeight: 0, transition: 'border .2s' },
+      };
+    });
+    const stampPos = {
+      underline: { left: '-4%', right: '-4%', bottom: '-30px', height: '34px', width: '108%' },
+      circle: { left: '-9%', top: '-22%', width: '118%', height: '144%' },
+      arrow: { right: '-170px', top: '-70px', width: '140px', height: '110px' },
+      tick: { right: '-120px', top: '-58px', width: '90px', height: '80px' },
+      cross: { left: '-6%', top: '4%', width: '112%', height: '92%' },
+      accent: { left: '-130px', top: '-64px', width: '100px', height: '90px' },
+    };
+    out.stampsR = s.stamps.map((f) => ({
+      src: resId('ann_' + f, '../../assets/annotations/' + f + '.svg'),
+      st: Object.assign({ position: 'absolute', pointerEvents: 'none' }, stampPos[f.split('-')[0]]),
+    }));
+    out.stampCount = s.stamps.length + ' / 2 MARKS';
+
+    // 13 Emoji
+    out.hero = s.hero;
+    out.heroLabel = s.hero.replace(/-/g, ' ');
+    out.heroVariant = motion ? 'animated' : 'color';
+    out.emojiCells = this.EMOJI.map((n) => ({
+      n, label: n.replace(/-/g, ' '),
+      st: { display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '10px', background: s.hero === n ? 'rgba(210,235,0,.14)' : 'rgba(255,255,255,.05)', border: s.hero === n ? '2px solid #D2EB00' : '1px solid rgba(255,255,255,.12)', cursor: 'pointer', padding: '12px 4px', minHeight: 0, transition: 'all .2s' },
+    }));
+
+    // 14 Buttons
+    out.pressCount = s.presses === 0 ? 'UNTOUCHED' : s.presses + (s.presses === 1 ? ' PRESS' : ' PRESSES');
+
+    // 15 Air
+    const air = this.AIR[s.air];
+    out.air = s.air;
+    out.airToken = air.t + ' · ' + air.v + 'px';
+    out.airPad = { padding: air.v + 'px', transition: 'padding .3s ' + ease };
+    out.airMsg = air.v < 24 ? 'Cramped. The system says no.' : air.v < 48 ? 'Breathing. Getting there.' : 'That’s the stuff. More air, always.';
+    out.airMsgSt = { font: '600 26px/1.3 var(--font-sans)', color: air.v < 24 ? '#C43D3D' : air.v < 48 ? '#E08A00' : '#147A4B', margin: 0, transition: 'color .3s' };
+    out.gridBtn = { font: '700 21px/1 var(--font-mono)', letterSpacing: '.08em', padding: '16px 24px', border: '2px solid #182D43', cursor: 'pointer', background: s.grid ? '#182D43' : 'transparent', color: s.grid ? '#FAFAF7' : '#182D43', transition: 'all .2s' };
+    out.gridOverlay = { position: 'absolute', left: '72px', right: '72px', top: '72px', bottom: '72px', display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '24px', pointerEvents: 'none', zIndex: 5, opacity: s.grid ? 1 : 0, transition: 'opacity .3s' };
+    out.gridCells = Array.from({ length: 12 }, () => ({ st: { background: 'rgba(203,101,255,.13)', border: '1px solid rgba(203,101,255,.4)' } }));
+
+    // 16 Prompt builder
+    out.subjChips = this.SUBJ.map((x, i) => ({
+      k: x.k, pick: () => this.setState({ subj: i }),
+      st: { font: '600 21px/1 var(--font-mono)', letterSpacing: '.05em', padding: '15px 20px', border: s.subj === i ? '2px solid #86FFF1' : '1.5px solid rgba(134,255,241,.35)', background: s.subj === i ? 'rgba(134,255,241,.14)' : 'transparent', color: '#FAFAF7', cursor: 'pointer', transition: 'all .2s' },
+    }));
+    out.aspChips = this.ASP.map((x, i) => ({
+      k: x.k + ' · ' + x.r, pick: () => this.setState({ asp: i }),
+      st: { font: '600 21px/1 var(--font-mono)', letterSpacing: '.05em', padding: '15px 20px', border: s.asp === i ? '2px solid #86FFF1' : '1.5px solid rgba(134,255,241,.35)', background: s.asp === i ? 'rgba(134,255,241,.14)' : 'transparent', color: '#FAFAF7', cursor: 'pointer', transition: 'all .2s' },
+    }));
+    out.builtPrompt = this._promptText();
+    out.copyLabel = s.copied ? 'COPIED ✓' : 'COPY PROMPT';
+    out.copyBtn = { font: '700 22px/1 var(--font-mono)', letterSpacing: '.08em', padding: '20px 30px', border: 0, background: s.copied ? '#86FFF1' : '#D2EB00', color: '#182D43', cursor: 'pointer', transition: 'background .2s' };
+
+    // 17 Carousel
+    out.carTrack = { display: 'flex', gap: '40px', transform: 'translateX(' + (-s.car * 920) + 'px)', transition: motion ? 'transform .5s ' + ease : 'none', height: '100%' };
+    out.carDots = Array.from({ length: 4 }, (_, i) => ({
+      pick: () => this.setState({ car: i }),
+      st: { width: s.car === i ? '46px' : '14px', height: '14px', borderRadius: '999px', background: s.car === i ? '#D2EB00' : '#35526F', cursor: 'pointer', transition: 'all .3s' },
+    }));
+    out.carLabel = ['STATEMENT', 'PULL QUOTE', 'STATS STRIP', 'CASE CARD'][s.car];
+
+    // 18 Checklist
+    out.checkRows = this.CHECKS.map((t2, i) => ({
+      t: t2, i,
+      st: { display: 'flex', alignItems: 'center', gap: '22px', padding: '19px 22px', background: s.checks[i] ? 'rgba(210,235,0,.16)' : '#FFFFFF', border: '1.5px solid ' + (s.checks[i] ? '#A7BC00' : '#C8D2DD'), cursor: 'pointer', transition: 'all .2s' },
+      box: { width: '34px', height: '34px', flex: 'none', border: '2.5px solid #182D43', background: s.checks[i] ? '#D2EB00' : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', font: '800 22px/1 var(--font-sans)', color: '#182D43', transition: 'background .2s' },
+      mark: s.checks[i] ? '✓' : '',
+      txt: { font: '500 26px/1.25 var(--font-sans)', color: '#182D43', textDecoration: s.checks[i] ? 'line-through' : 'none', textDecorationColor: '#A7BC00', textDecorationThickness: '3px', margin: 0 },
+    }));
+    const done = s.checks.filter(Boolean).length;
+    out.checkCount = done + ' / 8';
+    out.checkBar = { height: '100%', width: (done / 8 * 100) + '%', background: '#D2EB00', transition: 'width .35s ' + ease };
+    out.shipped = s.shipped;
+    out.shipSt = { position: 'absolute', inset: 0, background: '#D2EB00', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '10px', opacity: s.shipped ? 1 : 0, pointerEvents: s.shipped ? 'auto' : 'none', transition: 'opacity .5s', zIndex: 6 };
+
+    // 19 Closing
+    out.closeSt = { maxHeight: s.closeOpen ? '400px' : '0px', opacity: s.closeOpen ? 1 : 0, overflow: 'hidden', transition: 'max-height .6s ' + ease + ', opacity .5s' };
+    out.periodSt = { color: '#D2EB00', cursor: 'pointer', display: 'inline-block', transition: 'transform .2s' };
+
+    return out;
+  }
+}
+</script>
+</body>
+</html>
+
