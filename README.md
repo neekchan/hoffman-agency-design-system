@@ -14,7 +14,7 @@ The difference is operational readiness. This version is tuned for the way the s
 |---|---|---|
 | Brand foundation | Original Hoffman visual and verbal system | Preserved, not redesigned |
 | LLM guidance | Full design rules, but agents had to infer which file mattered | Adds `LLM_ENTRYPOINT.md`, stronger README routing, and `ANTI_PATTERNS.md` for common LLM failures |
-| Slide generation | Slide rules existed in `CLAUDE.md` + `LAYOUTS.md` | README now includes fallback slide rules for the common case where only the README is pasted into Claude/ChatGPT |
+| Slide generation | Slide rules existed in `AGENTS.md` + `LAYOUTS.md` | README now includes fallback slide rules for the common case where only the README is pasted into Claude/ChatGPT |
 | Product/app UI | Listed as future product/UI extension work | Adds `ui_kits/app/` with product UI primitives, dashboard demo, and `COMPONENTS.md` examples |
 | Catalog accuracy | Some generated metadata and docs could drift from included files | Syncs `_ds_manifest.json`, README file map, deck count, and UI kit file references to the actual repo |
 | Validation | No dependency-free repo check | Adds `npm run validate`, `npm run smoke`, and `npm test` |
@@ -25,7 +25,7 @@ In short: Neekchan's version is the source brand system. This fork is the LLM-re
 > ### ⚠ Two media, two rule sets — read before building
 > This system serves **web** and **slides/office docs**, which have different layout physics. Most of this README (type scale, spacing, "generous whitespace," "more air," 1240px max-width, sparse imagery) describes the **WEB / social** posture.
 >
-> **When you build a PowerPoint/Keynote deck or any fixed 1920×1080 slide, the slide rules in `CLAUDE.md` + `LAYOUTS.md` OVERRIDE the web rules here** — specifically: use the **slide type scale as FLOORS, biased high** (20–24px labels · 30–36px body / default 32 · 40–52px subhead · 64–80px title · 120–132px statement & divider · 176px+ cover · ~240px closing word — never 16px, never the old 28px "safe" body), **"fill the frame"** (no dead whitespace — the opposite of "more air"), **imagery by default on every slide**, and the **full edge-to-edge canvas** (no 1240px / 68ch caps). What stays shared across both media: **color, fonts, the italic-word move, the Storyline motif, annotations, emoji rules, and voice.** See `CLAUDE.md §0` for the precise precedence.
+> **When you build a PowerPoint/Keynote deck or any fixed 1920×1080 slide, the slide rules in `AGENTS.md` + `LAYOUTS.md` OVERRIDE the web rules here** — specifically: use the **slide type scale as FLOORS, biased high** (20–24px labels · 30–36px body / default 32 · 40–52px subhead · 64–80px title · 120–132px statement & divider · 176px+ cover · ~240px closing word — never 16px, never the old 28px "safe" body), **"fill the frame"** (no dead whitespace — the opposite of "more air"), **imagery by default on every slide**, and the **full edge-to-edge canvas** (no 1240px / 68ch caps). What stays shared across both media: **color, fonts, the italic-word move, the Storyline motif, annotations, emoji rules, and voice.** See `AGENTS.md §0` for the precise precedence.
 
 ---
 
@@ -39,7 +39,7 @@ use the routing rules below.
 
 | If the user asks for | Use these rules first | Do not do this |
 |---|---|---|
-| Slides, decks, PowerPoint, Keynote | `CLAUDE.md` + `LAYOUTS.md`; if unavailable, use the slide quick rules below | Do not apply web whitespace/type scale |
+| Slides, decks, PowerPoint, Keynote | `AGENTS.md` + `LAYOUTS.md`; if unavailable, use the slide quick rules below | Do not apply web whitespace/type scale |
 | Marketing site or landing page | `DESIGN.md`, `colors_and_type.css`, `ui_kits/website/` | Do not use dashboard density |
 | Product app, dashboard, portal, workflow UI | `DESIGN.md`, `ui_kits/app/`, `ui_kits/app/COMPONENTS.md` | Do not start with a marketing hero |
 | Social tile or carousel | `templates/social-tile/`, `PROMPTS.md` | Do not use tiny type or decorative clutter |
@@ -74,7 +74,7 @@ The design system is organized so every file name corresponds to how it's used. 
 
 ```
 ─ Docs (root) ─────────────────────────────────────────────
-CLAUDE.md               · slide/deck SOPs — the authority for slides & office docs (precedence: see §0)
+AGENTS.md               · slide/deck SOPs — the authority for slides & office docs (precedence: see §0)
 LLM_ENTRYPOINT.md       · shortest task router for Claude, ChatGPT and other design agents
 LAYOUTS.md              · deck layout library (48 layouts, L01–L51) + slide best-practice guide
 DESIGN.md               · Google design.md spec — machine-readable single source of truth
@@ -106,7 +106,7 @@ assets/
   storyline-navy-lime.svg           · Storyline — boxed corner monogram, on light/non-navy bg (Use 1)
   storyline-line-lime.svg           · Storyline — line as background layer on navy/dark fields (Use 2)
   storyline-navy-white.svg          · mono storyline variant
-  emoji/                            · Fluent-emoji injector (visual storytelling — see CLAUDE.md §8)
+  emoji/                            · Fluent-emoji injector (visual storytelling — see AGENTS.md §8)
     fluent-emoji.js                 · <fluent-emoji> web component; local-first, CDN fallback
     color/                          · localized static color SVGs (offline hero set)
     animated/                       · localized animated APNGs (offline hero set)
@@ -274,7 +274,7 @@ The brand has three distinct copy moves used to keep slides feeling distinctivel
 ### Spacing
 - 4px base scale (`--s-1` through `--s-32`).
 - Preferred rhythm on layouts: `24 / 48 / 96` — content gutters, block padding, section padding.
-- Generous whitespace is non-negotiable on **web**. When in doubt, more air. **(Slides are the opposite — see CLAUDE.md §2 "fill the frame": scale type and imagery to occupy the full canvas, no empty regions.)**
+- Generous whitespace is non-negotiable on **web**. When in doubt, more air. **(Slides are the opposite — see AGENTS.md §2 "fill the frame": scale type and imagery to occupy the full canvas, no empty regions.)**
 
 ### Backgrounds
 - **Two light models:** (1) warm **paper page** with **white cards** (default), or (2) **white page** with **warm sand cards** (`.tha-theme-white`). Pick one per surface and stay in it. See `preview/brand-surfaces.html`.

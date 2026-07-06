@@ -4,7 +4,7 @@ Use this as a quick failure-mode check before shipping an LLM-generated design.
 
 | Anti-pattern | Why it fails | Do instead |
 |---|---|---|
-| Applying web spacing to slides | Fixed 1920x1080 slides look empty when web whitespace rules are used. | Use `CLAUDE.md` slide scale, 72px safe margins, and fill the frame. |
+| Applying web spacing to slides | Fixed 1920x1080 slides look empty when web whitespace rules are used. | Use `AGENTS.md` slide scale, 72px safe margins, and fill the frame. |
 | 16px or 18px slide body text | It is web type, not readable presentation type. | Use 30-36px body, 64-80px titles, 120px+ statement slides. |
 | One generic big-type slide repeated across a deck | The deck loses rhythm and looks AI-made. | Pick named layouts from `LAYOUTS.md` and keep composition varied. |
 | Mixing Presenter and Document modes | A sparse live slide beside a dense reading slide breaks trust. | Declare one mode and keep word count/bullet density consistent. |

@@ -1,6 +1,6 @@
 # Deck Layout Library — selection & best-practice guide
 
-> **MEDIUM:** This guide governs **slides / office documents** (fixed 1920×1080 canvas), NOT web. On slides, the **slide type scale and "fill the frame" rules in `CLAUDE.md` override** DESIGN.md's web type scale, "generous negative space," "sparse imagery," and reading-measure caps. DESIGN.md still owns color, fonts, the italic-word move, the Storyline motif, annotations, and voice (brand-wide). See `CLAUDE.md §0` for the full precedence rule.
+> **MEDIUM:** This guide governs **slides / office documents** (fixed 1920×1080 canvas), NOT web. On slides, the **slide type scale and "fill the frame" rules in `AGENTS.md` override** DESIGN.md's web type scale, "generous negative space," "sparse imagery," and reading-measure caps. DESIGN.md still owns color, fonts, the italic-word move, the Storyline motif, annotations, and voice (brand-wide). See `AGENTS.md §0` for the full precedence rule.
 
 This is the **brain** behind Hoffman decks. It does two jobs:
 
@@ -23,9 +23,9 @@ The visual, directly-editable gallery of every layout lives in **`templates/deck
 
 3. **Hierarchy is visible, not implied.** A viewer should know in <2 seconds what to read first. One dominant headline (the point), then punchy subheads / props in a clearly smaller, quieter tier. Never two things competing to be the hero.
 
-4. **Earn emotion with one graphic.** The headline states the point; **one** image, annotation, or **Fluent emoji** injects the feeling the words leave unsaid. One. Not a grid of stock icons. **Fluent emoji are a default storytelling device on Hoffman slides, not a garnish** — actively find the emotional/storytelling beat on each slide and place one there via `<fluent-emoji name="…">` (inline next to a charged word, or `size="120"+` as the slide's hero motif; `variant="animated"` for the one emotional peak). A slide making a human point with no graphic is usually *missing its emoji*. See CLAUDE.md §8 and the **Brand → Fluent emoji picker** card.
+4. **Earn emotion with one graphic.** The headline states the point; **one** image, annotation, or **Fluent emoji** injects the feeling the words leave unsaid. One. Not a grid of stock icons. **Fluent emoji are a default storytelling device on Hoffman slides, not a garnish** — actively find the emotional/storytelling beat on each slide and place one there via `<fluent-emoji name="…">` (inline next to a charged word, or `size="120"+` as the slide's hero motif; `variant="animated"` for the one emotional peak). A slide making a human point with no graphic is usually *missing its emoji*. See AGENTS.md §8 and the **Brand → Fluent emoji picker** card.
 
-5. **Cut before you add — then scale up to fill the frame.** One thousand no's for every yes: remove a stat, a sentence, a colour, a logo before adding one. But restraint means **few ELEMENTS, not small or floating ones.** Once you've cut to the one idea, *scale what remains until it owns the canvas* — big type, a large image, edge-to-edge. A slide with one idea and a sea of empty white has failed both rules. (Slides ≠ web: ignore DESIGN.md's "generous negative space" here — see CLAUDE.md §2, "fill the frame.")
+5. **Cut before you add — then scale up to fill the frame.** One thousand no's for every yes: remove a stat, a sentence, a colour, a logo before adding one. But restraint means **few ELEMENTS, not small or floating ones.** Once you've cut to the one idea, *scale what remains until it owns the canvas* — big type, a large image, edge-to-edge. A slide with one idea and a sea of empty white has failed both rules. (Slides ≠ web: ignore DESIGN.md's "generous negative space" here — see AGENTS.md §2, "fill the frame.")
 
 ### What "key points as prompts" looks like
 
@@ -49,18 +49,18 @@ The visual, directly-editable gallery of every layout lives in **`templates/deck
 - Supporting body: **≤ 30 words** total on the slide.
 - Bullet / prop: **≤ 6 words**. Max **3** per group.
 - Stat: a number + a ≤4-word label. Max **3** across a slide.
-- **No micro-text.** Nothing ≤10pt (20px) except a functional eyebrow / mono label. On-slide sources, footnotes, placeholder captions and repeated sub-labels are cut — sources go to speaker notes. Aim for **3–5 large elements** per slide (see `CLAUDE.md §9`).
+- **No micro-text.** Nothing ≤10pt (20px) except a functional eyebrow / mono label. On-slide sources, footnotes, placeholder captions and repeated sub-labels are cut — sources go to speaker notes. Aim for **3–5 large elements** per slide (see `AGENTS.md §9`).
 
 ### Headline voice — editorial, not descriptive
 
 The headline is the slide's one job — make it a line with a point of view, not a label.
 
 - **≤ 8 words with an angle** — a question, a two-beat ("Tech. We're it."), the one Baskerville-italic word, a strikethrough swap, or a single giant word. Descriptive / summary titles ("Korea: a widening mandate", "Q3 overview") are the AI-default tell — rewrite them.
-- One voice move per headline. Land it, don't decorate it. (See `CLAUDE.md §10`.)
+- One voice move per headline. Land it, don't decorate it. (See `AGENTS.md §10`.)
 
 ### Presenter vs Document mode (choose before layouts)
 
-Choose the deck's **mode** first — it sets how much goes on every slide. **Presenter** (presented live) = ≤1 idea, ≤15 words/slide, image-led, the detail in **speaker notes**; **Document** (leave-behind that stands alone) = denser, hierarchical, short bullets allowed, a fuller argument per slide. **XOR — never mix the two in one deck.** Both still fill the frame and use the Hoffman scale/palette; mode changes *depth*, not appearance. Infer the mode from context and state the assumption; ask only if genuinely ambiguous. Full rule: `CLAUDE.md §12` (Power Design rule 20); the deck library (`templates/deck/`) carries the **Mode** tweak, and the full worked demonstration is the brand-guidelines deck (`slides/Hoffman Brand Guidelines.html`).
+Choose the deck's **mode** first — it sets how much goes on every slide. **Presenter** (presented live) = ≤1 idea, ≤15 words/slide, image-led, the detail in **speaker notes**; **Document** (leave-behind that stands alone) = denser, hierarchical, short bullets allowed, a fuller argument per slide. **XOR — never mix the two in one deck.** Both still fill the frame and use the Hoffman scale/palette; mode changes *depth*, not appearance. Infer the mode from context and state the assumption; ask only if genuinely ambiguous. Full rule: `AGENTS.md §12` (Power Design rule 20); the deck library (`templates/deck/`) carries the **Mode** tweak, and the full worked demonstration is the brand-guidelines deck (`slides/Hoffman Brand Guidelines.html`).
 
 ### The Hoffman signatures (use, don't overuse)
 
@@ -463,7 +463,7 @@ Lead each section with one dominant colour and **change it between sections.** A
 
 Within a section, keep content slides mostly on **paper** (white/sand cards) so the coloured dividers and the occasional colour-block statement do the punctuating. Lime and cyan are *light* surfaces — navy type only. Navy, purple, teal, lavender are *dark* surfaces — white or light-accent type. Every pair must clear WCAG (see `preview/brand-color-pairings.html`).
 
-**Deck shape (new-relationship decks).** Don't apply "lean / one-point" to the *whole* deck: the **creds/about** section earns a real multi-slide run (breadth is the argument for a first meeting), the **content** section stays lean, and the deck **ends on a dedicated giant-word close** (L45 / L30), never a compressed sign-off. See `CLAUDE.md §11`.
+**Deck shape (new-relationship decks).** Don't apply "lean / one-point" to the *whole* deck: the **creds/about** section earns a real multi-slide run (breadth is the argument for a first meeting), the **content** section stays lean, and the deck **ends on a dedicated giant-word close** (L45 / L30), never a compressed sign-off. See `AGENTS.md §11`.
 
 ---
 
@@ -479,4 +479,4 @@ The layouts here are reverse-engineered from a real Hoffman new-business deck (t
 - **Standard slides keep a ~0.5″ safe margin** — the slide's `padding` (**≈72px all round**; the base `.slide` in the deck template sets this). **All text and all non-bleed images stay inside it; nothing eats to the edge.** Page chrome (page number, logo) lives in that margin. (This replaces the old ≈88px side inset — pack the frame tighter.)
 - **Full-bleed is the DEFAULT for the image-led layouts** — covers (L01/L31), section dividers with the spectrum bar (L32), Statement (L08), Big-idea split (L09), Persona photo panel (L14), Full-bleed (L27), Split 50/50 (L28), Story-idea image (L40), Photo + numbered lists (L48). These use `padding:0` (or a flush edge device — the spectrum bar) and let an **image** touch one or more edges; the **type half still respects the safe area**. Bento collages (L42–L44) bleed images *into rounded cells* but keep the cell grid inside the safe margin — framed, not edge-bled. Don't inset a hero image by 0.8–0.9″ "to be safe" — bleed it. If a layout isn't on this list, its imagery is framed, not bled.
 
-**Font floor (the slide type scale, enforced as FLOORS — bias to the top).** Per `CLAUDE.md §1` (1pt = 2px): eyebrow / label / caption **20–24**; body **30–36** (default 32, never 28); subhead **40–52**; content title / case headline **64–80**; statement & divider title **120–132**; cover / hero **176+ (size-to-fit)**; closing giant word **~240**. Captions, eyebrows, mono labels and chips sit at the **20px** floor and stay small as everything else grows. Don't reintroduce 14–28px "web" body on a slide — it reads as broken at 1920×1080. Placeholder labels run at **22px** on slides (the slots are large), hints at 17px.
+**Font floor (the slide type scale, enforced as FLOORS — bias to the top).** Per `AGENTS.md §1` (1pt = 2px): eyebrow / label / caption **20–24**; body **30–36** (default 32, never 28); subhead **40–52**; content title / case headline **64–80**; statement & divider title **120–132**; cover / hero **176+ (size-to-fit)**; closing giant word **~240**. Captions, eyebrows, mono labels and chips sit at the **20px** floor and stay small as everything else grows. Don't reintroduce 14–28px "web" body on a slide — it reads as broken at 1920×1080. Placeholder labels run at **22px** on slides (the slots are large), hints at 17px.

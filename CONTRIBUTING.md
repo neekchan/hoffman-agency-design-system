@@ -6,7 +6,7 @@ catalog.
 
 ## Edit These
 
-- `README.md`, `CLAUDE.md`, `DESIGN.md`, `LAYOUTS.md`, `CHECKLIST.md`, and
+- `README.md`, `AGENTS.md`, `DESIGN.md`, `LAYOUTS.md`, `CHECKLIST.md`, and
   `PROMPTS.md` for rules and guidance.
 - `colors_and_type.css` for design tokens, base styles, font registration, and
   shared utilities.

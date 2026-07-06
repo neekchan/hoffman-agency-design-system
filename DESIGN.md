@@ -340,13 +340,13 @@ Three commitments override every other rule:
 
 Two decision rules sit **above** the tokens:
 
-**1 · The Power Design principles (`POWER-DESIGN-PRINCIPLES.md`) are a reference layer.** Twenty brand-agnostic craft rules (one-idea, chunks, 8pt grid, one grid, proximity, type-scale rhythm, contrast, one accent, no hue-only encoding, data-ink, F-pattern, mode purity). **Reference them and try to honor them — don't rigidly stick.** Precedence is *hybrid*: universal craft (contrast, grid, one-idea, proximity, data-ink, mode purity) **wins as written**; the density / whitespace / palette-breadth / margin calls follow the **Hoffman house SOPs** for the medium (on slides: "fill the frame" over ≥40% whitespace, the whole palette over 60-30-10, 72px over 96px margins, the higher slide type scale over ≥24px body — see `CLAUDE.md §0, §1, §2, §7`). Full mapping lives in that file's precedence block.
+**1 · The Power Design principles (`POWER-DESIGN-PRINCIPLES.md`) are a reference layer.** Twenty brand-agnostic craft rules (one-idea, chunks, 8pt grid, one grid, proximity, type-scale rhythm, contrast, one accent, no hue-only encoding, data-ink, F-pattern, mode purity). **Reference them and try to honor them — don't rigidly stick.** Precedence is *hybrid*: universal craft (contrast, grid, one-idea, proximity, data-ink, mode purity) **wins as written**; the density / whitespace / palette-breadth / margin calls follow the **Hoffman house SOPs** for the medium (on slides: "fill the frame" over ≥40% whitespace, the whole palette over 60-30-10, 72px over 96px margins, the higher slide type scale over ≥24px body — see `AGENTS.md §0, §1, §2, §7`). Full mapping lives in that file's precedence block.
 
 **2 · Every deck is exactly ONE mode — Presenter XOR Document** (principles rule 20, a hard rule here):
 - **Presenter** — presented live. ≤1 idea, ≤15 words/slide, image-led; **the detail lives in speaker notes.**
 - **Document** — a stand-alone leave-behind / read-ahead. Denser, hierarchical, short bullets allowed, a fuller argument per slide; still no paragraphs.
 - Never mix the two in one deck. Both modes keep the full Hoffman visual system (fill-the-frame, slide type scale, whole palette, 72px, imagery) — **mode changes *depth*, not appearance.**
-- **The agent infers the mode from context, states its assumption, and asks only if genuinely ambiguous.** The 48-layout `templates/deck/` library carries the **Mode** tweak (Presenter/Document) as the reference mechanism, and the worked full-deck demonstration of the whole system is `slides/Hoffman Brand Guidelines.html`. See `CLAUDE.md §12`. (One-pagers and social tiles are inherently Document-mode.)
+- **The agent infers the mode from context, states its assumption, and asks only if genuinely ambiguous.** The 48-layout `templates/deck/` library carries the **Mode** tweak (Presenter/Document) as the reference mechanism, and the worked full-deck demonstration of the whole system is `slides/Hoffman Brand Guidelines.html`. See `AGENTS.md §12`. (One-pagers and social tiles are inherently Document-mode.)
 
 ## Colors
 
@@ -354,7 +354,7 @@ The palette has **two primaries doing structural work** and **four secondaries u
 
 **Color proportions are MEDIUM-DEPENDENT:**
 - **Web / social** — keep it disciplined so pages read as one voice: intended page-level proportions are **Navy 30% · Lime 30% · Lavender · Purple · Cyan · Teal at ~10% each.** Lead with one dominant secondary mood; don't scatter all six across one page.
-- **Slides / office docs** — **the 30/30/10… ratio does NOT apply.** A deck moves through the *whole* palette deliberately: each section/divider, audience, or theme can own its own full-color surface (teal section, purple section, lime section, violet section…), so color carries structure and the deck never looks navy-paper-uniform. The only color rules that still bind on slides are **WCAG contrast** and **one dominant color per individual slide** (so each slide still has a clear mood — variety lives *across* slides, not within one). See `CLAUDE.md §0`.
+- **Slides / office docs** — **the 30/30/10… ratio does NOT apply.** A deck moves through the *whole* palette deliberately: each section/divider, audience, or theme can own its own full-color surface (teal section, purple section, lime section, violet section…), so color carries structure and the deck never looks navy-paper-uniform. The only color rules that still bind on slides are **WCAG contrast** and **one dominant color per individual slide** (so each slide still has a clear mood — variety lives *across* slides, not within one). See `AGENTS.md §0`.
 
 - **Primary (`{colors.primary}` — Navy)** is the structural color: section backgrounds, body type, hairline rules. Pair with `{colors.on-primary}` for type.
 - **Primary accent (`{colors.accent}` — Lime)** is the hero accent. Used in short bursts: underlines, highlights, the storyline squiggle, a single CTA button, the eyebrow dot. **Lime fails WCAG as text on white** — for lime-toned text on light backgrounds, use `{colors.accent-strong}` (#A7BC00).
@@ -368,7 +368,7 @@ The palette has **two primaries doing structural work** and **four secondaries u
 
 ## Typography
 
-> **Type SCALE below (the `fontSize` px values) is the WEB scale.** On slides / office docs use the slide type scale in `CLAUDE.md §1` — enforced as FLOORS, biased high (1pt = 2px on 1080p): **20–24px** labels · **30–36px** body (default 32) · **40–52px** subhead · **64–80px** title · **120–132px** statement/divider · **176px+** cover (size-to-fit) · **~240px** closing word — never the 16px web body. The *families, weights, italic-word move, and letter-spacing* here apply to both media.
+> **Type SCALE below (the `fontSize` px values) is the WEB scale.** On slides / office docs use the slide type scale in `AGENTS.md §1` — enforced as FLOORS, biased high (1pt = 2px on 1080p): **20–24px** labels · **30–36px** body (default 32) · **40–52px** subhead · **64–80px** title · **120–132px** statement/divider · **176px+** cover (size-to-fit) · **~240px** closing word — never the 16px web body. The *families, weights, italic-word move, and letter-spacing* here apply to both media.
 
 The system uses **two families.**
 
@@ -396,7 +396,7 @@ Lowercase first words are an accepted casual signal (*"hoffman has always been a
 
 ## Layout
 
-> **MEDIUM: web / screen / social only.** This section's scale and density (1240px max-width, 68ch measure, "generous negative space," web type sizes) govern webpages, the UI kit, and social tiles. **For slides / office documents (1920×1080 decks), these are overridden** by `CLAUDE.md` + `LAYOUTS.md` — slide type scale, "fill the frame," imagery by default, edge-to-edge canvas. Brand fundamentals (color, fonts, italic-word, Storyline, annotations, voice) below apply to both media.
+> **MEDIUM: web / screen / social only.** This section's scale and density (1240px max-width, 68ch measure, "generous negative space," web type sizes) govern webpages, the UI kit, and social tiles. **For slides / office documents (1920×1080 decks), these are overridden** by `AGENTS.md` + `LAYOUTS.md` — slide type scale, "fill the frame," imagery by default, edge-to-edge canvas. Brand fundamentals (color, fonts, italic-word, Storyline, annotations, voice) below apply to both media.
 
 The layout system is **asymmetric, generous, and square-cornered.**
 
@@ -463,7 +463,7 @@ Still banned: **raw unicode emoji** as icons/bullets (platform-inconsistent — 
 **App UI kit** (`ui_kits/app/`) — product-interface primitives for dashboards, admin tools, workflow surfaces, client portals, and campaign trackers. The app kit is compiled into `_ds_bundle.js` and exposed on `window.HoffmanAgencyDesignSystem_d10f7f`: `AppButton`, `TextField`, `TextareaField`, `SelectField`, `DateField`, `FileField`, `SliderField`, `Checkbox`, `RadioGroup`, `Toggle`, `Tabs`, `Breadcrumbs`, `Pagination`, `Sidebar`, `MobileMenu`, `AlertBanner`, `Toast`, `Modal`, `Tooltip`, `Popover`, `DataTable`, `DataList`, `Avatar`, `Badge`, `Divider`, `Accordion`, `Drawer`, `Menu`, `ProgressBar`, `Spinner`, `Skeleton`. These are **product/app** components: quiet, dense, scannable, token-driven, and built around native controls wherever possible. Use them for operational UI; use the website kit for editorial marketing pages.
 
 **Templates** (`templates/`) — starting points a consuming project copies:
-- `deck/` — the **48-layout** presentation library (codes L01–L51) — the ONE deck template; carries the Presenter/Document **Mode** toggle + the balloon cover. Slide medium — governed by `CLAUDE.md` + `LAYOUTS.md`, not the web rules above.
+- `deck/` — the **48-layout** presentation library (codes L01–L51) — the ONE deck template; carries the Presenter/Document **Mode** toggle + the balloon cover. Slide medium — governed by `AGENTS.md` + `LAYOUTS.md`, not the web rules above.
 - `one-pager/` — print, US Letter.
 - `social-tile/` — square social post.
 

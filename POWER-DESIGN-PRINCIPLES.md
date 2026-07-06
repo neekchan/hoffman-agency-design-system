@@ -25,16 +25,16 @@ Source lineage: the 20 rules of Power Design (Tufte · Reynolds · Duarte · NN/
 **Precedence when a rule collides with a house SOP — resolve by category:**
 
 - **Universal craft WINS (apply as written) —** one idea (01), glanceable (02), chunks (03), F-pattern anchor (19), type-scale rhythm (06), size count (07), line-height (09), line length (10), contrast (11, WCAG AA floor / AAA 7:1 target), one accent per surface (13), no hue-only encoding (14), 8pt grid (15), one grid (16), proximity (17), data-ink (18), and **mode purity (20)**. This is brand-agnostic craft; honor it everywhere.
-- **The brand's house SOPs WIN (they override the rule for their medium) —** the density, whitespace, palette-breadth, and margin calls are the brand's to make. In *this* system (The Hoffman Agency) those overrides live in `CLAUDE.md` and apply **on slides**:
-  - **04 Whitespace (≥40% / ≥60%)** → overridden by **"fill the frame"** (`CLAUDE.md §2`) on Hoffman *slides*: restraint = few *large* elements, not empty space. (On *web*, the whitespace rule stands — Hoffman web is generous-whitespace.)
-  - **05 Safe-zone (≥96px)** → Hoffman slides use a **~72px (0.5″)** margin (`CLAUDE.md §2`).
-  - **08 Body ≥24px / ≥28pt** → superseded by the **higher** Hoffman slide type scale (body 30–36px / 15–18pt; `CLAUDE.md §1`). Hoffman is stricter, so honor the Hoffman scale.
-  - **12 60-30-10 color** → does **not** apply to Hoffman *decks*, which move through the **whole palette** deliberately (`CLAUDE.md §7`). It *does* still apply to Hoffman *web / social*.
-- **No conflict → both hold.** If a rule and an SOP don't collide, obey both. If they collide and it isn't listed above, the **medium precedence in `CLAUDE.md §0`** decides (slide rules win on slides, web rules on web).
+- **The brand's house SOPs WIN (they override the rule for their medium) —** the density, whitespace, palette-breadth, and margin calls are the brand's to make. In *this* system (The Hoffman Agency) those overrides live in `AGENTS.md` and apply **on slides**:
+  - **04 Whitespace (≥40% / ≥60%)** → overridden by **"fill the frame"** (`AGENTS.md §2`) on Hoffman *slides*: restraint = few *large* elements, not empty space. (On *web*, the whitespace rule stands — Hoffman web is generous-whitespace.)
+  - **05 Safe-zone (≥96px)** → Hoffman slides use a **~72px (0.5″)** margin (`AGENTS.md §2`).
+  - **08 Body ≥24px / ≥28pt** → superseded by the **higher** Hoffman slide type scale (body 30–36px / 15–18pt; `AGENTS.md §1`). Hoffman is stricter, so honor the Hoffman scale.
+  - **12 60-30-10 color** → does **not** apply to Hoffman *decks*, which move through the **whole palette** deliberately (`AGENTS.md §7`). It *does* still apply to Hoffman *web / social*.
+- **No conflict → both hold.** If a rule and an SOP don't collide, obey both. If they collide and it isn't listed above, the **medium precedence in `AGENTS.md §0`** decides (slide rules win on slides, web rules on web).
 
 **In short:** universal craft (contrast, grid, one-idea, mode purity) is non-negotiable; the density / whitespace / palette / margin calls follow the house style for the medium. Reference the rest, try to honor it, don't be a slave to it.
 
-> **Rule 20 (Mode purity) is elevated to a hard rule in this system.** Every deck is Presenter **XOR** Document — see `CLAUDE.md §12` for what each mode means in Hoffman terms, how the detail moves to speaker notes in Presenter mode, and how the agent decides the mode (infer from context, state the assumption, ask only if genuinely ambiguous).
+> **Rule 20 (Mode purity) is elevated to a hard rule in this system.** Every deck is Presenter **XOR** Document — see `AGENTS.md §12` for what each mode means in Hoffman terms, how the detail moves to speaker notes in Presenter mode, and how the agent decides the mode (infer from context, state the assumption, ask only if genuinely ambiguous).
 
 ---
 
@@ -71,14 +71,14 @@ Source lineage: the 20 rules of Power Design (Tufte · Reynolds · Duarte · NN/
 - **Test:** Estimate the empty-pixel ratio. Below threshold → remove or shrink.
 - **Fails when:** a cramped, anxious wall of content.
 - **Why:** Refactoring UI; Presentation Zen.
-- **Hoffman override:** on *slides* this yields to **"fill the frame"** (`CLAUDE.md §2`) — see precedence above. Holds on *web*.
+- **Hoffman override:** on *slides* this yields to **"fill the frame"** (`AGENTS.md §2`) — see precedence above. Holds on *web*.
 
 ### 05 · Safe-zone
 - **Rule:** 5% clear margin on every side (≥96px on 1920×1080). No text/logo/focal element inside it.
 - **Test:** Check the outer 5% band is empty of focal content.
 - **Fails when:** text kisses the edge; projector overscan clips it.
 - **Why:** SMPTE/EBU title-safe; Apple HIG margins.
-- **Hoffman override:** Hoffman slides use **~72px (0.5″)**, packing the frame tighter (`CLAUDE.md §2`).
+- **Hoffman override:** Hoffman slides use **~72px (0.5″)**, packing the frame tighter (`AGENTS.md §2`).
 
 ### 15 · 8pt grid
 - **Rule:** Every margin/padding/gap ∈ {8, 16, 24, 32, 48, 64, 96, 128} (4 allowed for tight icon work). Never 13, never 27.
@@ -111,14 +111,14 @@ Source lineage: the 20 rules of Power Design (Tufte · Reynolds · Duarte · NN/
 - **Test:** Count unique font-sizes per slide and deck-wide.
 - **Fails when:** a fifth size signals an unmade decision.
 - **Why:** Refactoring UI; Müller-Brockmann.
-- **Hoffman note:** Hoffman is stricter still — **≤3 sizes per slide** (`CLAUDE.md §1`). Honor the stricter cap.
+- **Hoffman note:** Hoffman is stricter still — **≤3 sizes per slide** (`AGENTS.md §1`). Honor the stricter cap.
 
 ### 08 · Body ≥24px
 - **Rule:** Body ≥24px on screen (≥28pt projected). Title ≥48px. Caption ≥18px floor.
 - **Test:** Check the smallest body and caption sizes.
 - **Fails when:** row 10 can't read it.
 - **Why:** Reynolds; Duarte; AAP guidelines.
-- **Hoffman override:** the Hoffman slide scale is *higher* (body 30–36px, floors quoted px + pt; `CLAUDE.md §1`) — use it.
+- **Hoffman override:** the Hoffman slide scale is *higher* (body 30–36px, floors quoted px + pt; `AGENTS.md §1`) — use it.
 
 ### 09 · Line-height
 - **Rule:** Body line-height 1.4–1.6; display 1.05–1.2. (Tighter for big type.)
@@ -145,7 +145,7 @@ Source lineage: the 20 rules of Power Design (Tufte · Reynolds · Duarte · NN/
 - **Test:** Estimate area share per color role.
 - **Fails when:** the accent covers half the slide and screams.
 - **Why:** Itten (interior tradition); codified by Refactoring UI.
-- **Hoffman override:** does **not** apply to Hoffman *decks* — a deck moves through the whole palette, one dominant color per slide (`CLAUDE.md §7`). Applies on *web / social*.
+- **Hoffman override:** does **not** apply to Hoffman *decks* — a deck moves through the whole palette, one dominant color per slide (`AGENTS.md §7`). Applies on *web / social*.
 
 ### 13 · One accent
 - **Rule:** One accent color per slide for emphasis. Everything else neutral.
@@ -172,7 +172,7 @@ Source lineage: the 20 rules of Power Design (Tufte · Reynolds · Duarte · NN/
 - **Test:** Sample slides; if some are ≤15-word image slides and others are six-bullet walls, word-count variance spikes → fail.
 - **Fails when:** a sparse hero slide sits beside a bulleted wall; the deck feels schizophrenic.
 - **Why:** Tufte (document density) vs Reynolds (presenter sparsity) — both valid, mutually exclusive; mixing is what makes audiences distrust slides.
-- **Hoffman note:** elevated to a **hard rule** here, and detail in Presenter mode moves to **speaker notes**. See `CLAUDE.md §12` for the Hoffman implementation (both modes still fill the frame, use the slide scale, and use the whole palette — mode changes *depth*, not the visual system) and the infer-state-ask determination behavior.
+- **Hoffman note:** elevated to a **hard rule** here, and detail in Presenter mode moves to **speaker notes**. See `AGENTS.md §12` for the Hoffman implementation (both modes still fill the frame, use the slide scale, and use the whole palette — mode changes *depth*, not the visual system) and the infer-state-ask determination behavior.
 
 ---
 

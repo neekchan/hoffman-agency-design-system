@@ -8,7 +8,7 @@ route.
 
 | User asks for | Read | Start from | Key rule |
 |---|---|---|---|
-| Presentation, pitch, deck, slide, PowerPoint, Keynote | `CLAUDE.md`, then `LAYOUTS.md` | `templates/deck/Deck.dc.html` | Slides override web spacing/type. Fill the 1920x1080 frame. |
+| Presentation, pitch, deck, slide, PowerPoint, Keynote | `AGENTS.md`, then `LAYOUTS.md` | `templates/deck/Deck.dc.html` | Slides override web spacing/type. Fill the 1920x1080 frame. |
 | Marketing website, landing page, brand page | `README.md`, `DESIGN.md` | `ui_kits/website/index.html` | Web can breathe. Use website components and real imagery/placeholders. |
 | Product app, dashboard, admin, portal, workflow tool | `DESIGN.md`, `ui_kits/app/COMPONENTS.md` | `ui_kits/app/index.html` | Dense, calm, scannable UI. Use app primitives, not marketing heroes. |
 | Social tile or carousel | `README.md`, `PROMPTS.md` | `templates/social-tile/SocialTile.dc.html` | One idea per tile, big type, fixed safe zone. |
@@ -31,7 +31,7 @@ route.
 **Slides**
 
 - Decide Presenter or Document mode before writing slides.
-- Use slide type floors from `CLAUDE.md`: body 30-36px, content titles 64-80px, statements 120px+.
+- Use slide type floors from `AGENTS.md`: body 30-36px, content titles 64-80px, statements 120px+.
 - Use imagery by default.
 - Use one Microsoft Fluent emoji as a storytelling device when it is the slide's graphic beat.
 - Never use web max widths or 16px body type.
