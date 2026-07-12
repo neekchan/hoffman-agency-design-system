@@ -6,15 +6,11 @@ export function StatsStrip() {
     { num: '4.2B',unit: 'reach', label: 'Earned impressions in 2025.', color: 'var(--tha-teal)' },
   ];
   return (
-    <section style={{ background: 'var(--bg-1)', padding: '80px 48px', borderTop: '1.5px solid var(--tha-navy)' }}>
-      <div style={{
-        maxWidth: 1240, margin: '0 auto',
-        display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0,
-      }}>
-        {stats.map((s, i) => (
-          <div key={s.unit} style={{
+    <section className="tha-statsstrip__section" style={{ background: 'var(--bg-1)', borderTop: '1.5px solid var(--tha-navy)' }}>
+      <div className="tha-statsstrip" style={{ maxWidth: 1240, margin: '0 auto' }}>
+        {stats.map((s) => (
+          <div key={s.unit} className="tha-statsstrip__item" style={{
             padding: '0 28px',
-            borderRight: i < 3 ? '1px solid var(--border-2)' : 'none',
             display: 'flex', flexDirection: 'column', gap: 12,
           }}>
             <div style={{

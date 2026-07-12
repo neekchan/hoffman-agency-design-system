@@ -72,7 +72,7 @@
   --tha-navy-100:    #E4E9EF;
   --tha-navy-050:    #F3F5F8;
 
-  --tha-lime-600:    #A7BC00;
+  --tha-lime-600:    #687600;  /* darkened from #A7BC00 (2.1:1) to clear 4.5:1 AA as text on paper/white */
   --tha-lime-500:    #D2EB00;  /* = lime */
   --tha-lime-400:    #DFEF4B;
   --tha-lime-200:    #EEF7A2;
@@ -391,3 +391,66 @@ body.tha.tha-theme-white {
 .tha-display-1 .tha-emoji,
 .tha-display-2 .tha-emoji,
 .tha-display-3 .tha-emoji { font-size: 0.86em; vertical-align: -0.04em; }
+
+/* ==========================================================================
+   Website UI Kit — responsive (Nav, Hero, CaseStudyGrid, StatsStrip).
+   The deck/one-pager/social-tile templates are intentionally fixed-canvas
+   and are NOT part of this section — see AGENTS.md §0.
+   ========================================================================== */
+.tha-section { padding: 120px 48px; }
+.tha-statsstrip__section { padding: 80px 48px; }
+.tha-hero { padding: 120px 48px 100px; }
+
+.tha-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: 56px;
+}
+.tha-hero__title { white-space: nowrap; }
+
+.tha-casegrid { grid-template-columns: repeat(2, 1fr); }
+.tha-casegrid__head { align-items: flex-end; }
+
+.tha-statsstrip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.tha-statsstrip__item { border-right: 1px solid var(--border-2); }
+.tha-statsstrip__item:last-child { border-right: none; }
+
+.tha-nav__toggle { display: none; }
+.tha-nav__links { display: flex; }
+
+/* Toggle's real <input> is opacity:0 to hide native chrome behind the custom
+   track; restore a visible keyboard-focus indicator on the track it hides. */
+.tha-toggle-input:focus-visible + .tha-toggle-track {
+  outline: 2px solid var(--tha-navy);
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .tha-nav__toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .tha-nav__links {
+    display: none;
+  }
+  .tha-nav__links.is-open {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 20px;
+    position: absolute; top: 100%; left: 0; right: 0;
+    padding: 24px; background: var(--bg-1);
+    border-bottom: 1px solid var(--border-2); box-shadow: var(--shadow-3);
+  }
+}
+
+@media (max-width: 720px) {
+  .tha-section { padding: 72px 24px; }
+  .tha-statsstrip__section { padding: 56px 24px; }
+  .tha-hero { padding: 72px 24px 56px; }
+  .tha-hero__grid { grid-template-columns: 1fr; gap: 40px; }
+  .tha-hero__title { white-space: normal; }
+  .tha-casegrid { grid-template-columns: 1fr; }
+  .tha-casegrid__head { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .tha-statsstrip { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; }
+  .tha-statsstrip__item { border-right: none; border-bottom: 1px solid var(--border-2); padding-bottom: 24px; }
+  .tha-statsstrip__item:last-child { border-bottom: none; }
+}
+
+@media (max-width: 480px) {
+  .tha-statsstrip { grid-template-columns: 1fr; }
+}

@@ -20,7 +20,7 @@ colors:
   # Lime as a discipline
   accent:       "#D2EB00"
   on-accent:    "#182D43"
-  accent-strong: "#A7BC00"  # WCAG-safe lime for text on light bg
+  accent-strong: "#687600"  # WCAG-safe lime for text on light bg (5.0:1 on white, 4.8:1 on paper)
 
   # Secondaries — each gets ~10% of any WEB layout (ratio does NOT apply to slides/decks — see Colors section)
   secondary:    "#CB65FF"   # Lavender
@@ -357,7 +357,7 @@ The palette has **two primaries doing structural work** and **four secondaries u
 - **Slides / office docs** — **the 30/30/10… ratio does NOT apply.** A deck moves through the *whole* palette deliberately: each section/divider, audience, or theme can own its own full-color surface (teal section, purple section, lime section, violet section…), so color carries structure and the deck never looks navy-paper-uniform. The only color rules that still bind on slides are **WCAG contrast** and **one dominant color per individual slide** (so each slide still has a clear mood — variety lives *across* slides, not within one). See `AGENTS.md §0`.
 
 - **Primary (`{colors.primary}` — Navy)** is the structural color: section backgrounds, body type, hairline rules. Pair with `{colors.on-primary}` for type.
-- **Primary accent (`{colors.accent}` — Lime)** is the hero accent. Used in short bursts: underlines, highlights, the storyline squiggle, a single CTA button, the eyebrow dot. **Lime fails WCAG as text on white** — for lime-toned text on light backgrounds, use `{colors.accent-strong}` (#A7BC00).
+- **Primary accent (`{colors.accent}` — Lime)** is the hero accent. Used in short bursts: underlines, highlights, the storyline squiggle, a single CTA button, the eyebrow dot. **Lime fails WCAG as text on white** — for lime-toned text on light backgrounds, use `{colors.accent-strong}` (#687600).
 - **Secondary (`{colors.secondary}` — Lavender)** and **tertiary (`{colors.tertiary}` — Purple)** are the warm accent pair. Lavender on navy is high-energy; purple as a full-bleed section is a confident editorial pause. They may sit on each other — and, now, on the cool pair too (see Rules).
 - **Quaternary (`{colors.quaternary}` — Cyan)** and **quinary (`{colors.quinary}` — Teal)** are the cool accent pair. Teal makes a credible alternate section background; cyan reads well on teal and vice versa. Every secondary is a viable **surface**, not just an accent — see `preview/brand-color-pairings.html`.
 - **Neutral (`{colors.neutral}` — Paper)** is the default surface — a warm off-white, never `#FFFFFF`. Pure white reads clinical against this palette.

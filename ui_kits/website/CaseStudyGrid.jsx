@@ -39,9 +39,9 @@ export function CaseStudyGrid() {
     },
   ];
   return (
-    <section style={{ background: 'var(--bg-1)', padding: '120px 48px' }}>
+    <section className="tha-section" style={{ background: 'var(--bg-1)' }}>
       <div style={{ maxWidth: 1240, margin: '0 auto' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 64 }}>
+        <div className="tha-casegrid__head" style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 64 }}>
           <div>
             <Eyebrow>Selected work</Eyebrow>
             <h2 style={{
@@ -56,7 +56,7 @@ export function CaseStudyGrid() {
           <Button variant="ghost">All case studies →</Button>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 48 }}>
+        <div className="tha-casegrid" style={{ display: 'grid', gap: 48 }}>
           {cases.map(c => (
             <a key={c.client} href="#" style={{
               display: 'block', textDecoration: 'none', color: 'inherit',

@@ -25,7 +25,7 @@ const controlBase = {
   width: '100%',
   minHeight: 42,
   padding: '10px 12px',
-  border: '1px solid var(--border-2)',
+  border: '1px solid var(--tha-navy-400)',  /* --border-2 (1.53:1) fails the 3:1 UI-boundary minimum at rest */
   borderRadius: 'var(--radius-2)',
   background: 'var(--tha-white)',
   color: 'var(--fg-1)',
@@ -194,6 +194,7 @@ export function Toggle({ label, checked, defaultChecked = false, onChange, style
         <input
           type="checkbox"
           role="switch"
+          className="tha-toggle-input"
           checked={isOn}
           onChange={event => {
             if (checked === undefined) setLocal(event.target.checked);
@@ -201,7 +202,7 @@ export function Toggle({ label, checked, defaultChecked = false, onChange, style
           }}
           style={{ position: 'absolute', inset: 0, opacity: 0, cursor: 'pointer' }}
         />
-        <span aria-hidden="true" style={{
+        <span aria-hidden="true" className="tha-toggle-track" style={{
           width: 42,
           height: 24,
           borderRadius: 'var(--radius-pill)',
@@ -307,6 +308,7 @@ export function Sidebar({ items = [], activeKey, onNavigate, style }) {
             key={item.key}
             type="button"
             onClick={() => onNavigate && onNavigate(item.key)}
+            aria-current={activeKey === item.key ? 'page' : undefined}
             style={{
               width: '100%',
               textAlign: 'left',
@@ -333,8 +335,16 @@ export function MobileMenu({ label = 'Menu', items = [], style }) {
     <div style={mergeStyle({ position: 'relative', display: 'inline-block' }, style)}>
       <AppButton variant="ghost" size="sm" onClick={() => setOpen(!open)} aria-expanded={open}>{label}</AppButton>
       {open ? (
-        <div style={{ position: 'absolute', right: 0, top: 'calc(100% + 8px)', minWidth: 220, background: 'var(--tha-white)', border: '1px solid var(--border-2)', boxShadow: 'var(--shadow-2)', zIndex: 5 }}>
-          {items.map(item => <a key={item.label} href={item.href || '#'} style={{ display: 'block', padding: '12px 14px', color: 'var(--fg-1)', font: '600 13px/1 var(--font-sans)', textDecoration: 'none', borderBottom: '1px solid var(--border-3)' }}>{item.label}</a>)}
+        <div role="menu" style={{ position: 'absolute', right: 0, top: 'calc(100% + 8px)', minWidth: 220, background: 'var(--tha-white)', border: '1px solid var(--border-2)', boxShadow: 'var(--shadow-2)', zIndex: 5 }}>
+          {items.map(item => (
+            <button
+              key={item.label}
+              type="button"
+              role="menuitem"
+              onClick={() => { setOpen(false); item.onSelect && item.onSelect(); }}
+              style={{ display: 'block', width: '100%', textAlign: 'left', padding: '12px 14px', border: 0, borderBottom: '1px solid var(--border-3)', background: 'transparent', color: 'var(--fg-1)', font: '600 13px/1 var(--font-sans)', cursor: 'pointer' }}
+            >{item.label}</button>
+          ))}
         </div>
       ) : null}
     </div>
@@ -345,13 +355,13 @@ export function AlertBanner({ tone = 'info', title, children, style }) {
   const tones = {
     info: { color: 'var(--tha-teal)', bg: 'var(--tha-navy-050)' },
     success: { color: 'var(--success)', bg: 'var(--tha-lime-050)' },
-    warning: { color: 'var(--warning)', bg: 'var(--tha-lime-050)' },
+    warning: { color: 'var(--warning)', bg: 'var(--tha-lime-050)', labelColor: '#A06300' /* darkened from --warning #E08A00 (2.6:1) to clear 4.5:1 as title text on lime-050 */ },
     danger: { color: 'var(--danger)', bg: 'var(--tha-navy-050)' },
   };
   const toneStyle = tones[tone] || tones.info;
   return (
-    <div role="status" style={mergeStyle({ borderLeft: `4px solid ${toneStyle.color}`, background: toneStyle.bg, padding: '13px 14px', color: 'var(--fg-1)' }, style)}>
-      <div style={{ font: '700 14px/1.25 var(--font-sans)', color: toneStyle.color }}>{title}</div>
+    <div role="status" style={mergeStyle({ background: toneStyle.bg, borderRadius: 6, padding: '13px 14px', color: 'var(--fg-1)' }, style)}>
+      <div style={{ font: '700 14px/1.25 var(--font-sans)', color: toneStyle.labelColor || toneStyle.color }}>{title}</div>
       {children ? <div style={{ marginTop: 4, font: '400 13px/1.45 var(--font-sans)', color: 'var(--fg-2)' }}>{children}</div> : null}
     </div>
   );
@@ -368,11 +378,42 @@ export function Toast({ tone = 'info', title, children, action, style }) {
   );
 }
 
+function useFocusTrap(open, onClose) {
+  const containerRef = ReactRef.useRef(null);
+  ReactRef.useEffect(() => {
+    if (!open) return undefined;
+    const previouslyFocused = document.activeElement;
+    const node = containerRef.current;
+    const getFocusable = () => Array.from(
+      node ? node.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])') : []
+    );
+    const focusable = getFocusable();
+    (focusable[0] || node).focus();
+
+    function onKeyDown(e) {
+      if (e.key === 'Escape') { onClose && onClose(); return; }
+      if (e.key !== 'Tab') return;
+      const items = getFocusable();
+      if (!items.length) return;
+      const first = items[0], last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      if (previouslyFocused && previouslyFocused.focus) previouslyFocused.focus();
+    };
+  }, [open, onClose]);
+  return containerRef;
+}
+
 export function Modal({ open, title, children, footer, onClose, style }) {
+  const dialogRef = useFocusTrap(open, onClose);
   if (!open) return null;
   return (
     <div role="presentation" style={{ position: 'fixed', inset: 0, background: 'rgba(14,28,43,.46)', display: 'grid', placeItems: 'center', padding: 24, zIndex: 50 }}>
-      <section role="dialog" aria-modal="true" aria-label={title} style={mergeStyle({ width: 'min(560px, 100%)', background: 'var(--tha-white)', border: '1px solid var(--border-2)', boxShadow: 'var(--shadow-3)' }, style)}>
+      <section ref={dialogRef} tabIndex={-1} role="dialog" aria-modal="true" aria-label={title} style={mergeStyle({ width: 'min(560px, 100%)', background: 'var(--tha-white)', border: '1px solid var(--border-2)', boxShadow: 'var(--shadow-3)' }, style)}>
         <header style={{ display: 'flex', justifyContent: 'space-between', gap: 16, padding: '18px 20px', borderBottom: '1px solid var(--border-2)' }}>
           <h2 style={{ margin: 0, font: '700 20px/1.2 var(--font-sans)', color: 'var(--fg-1)' }}>{title}</h2>
           <button type="button" onClick={onClose} aria-label="Close" style={{ width: 32, height: 32, border: 0, background: 'var(--tha-navy-050)', cursor: 'pointer', font: '700 18px/1 var(--font-sans)' }}>x</button>
@@ -457,7 +498,7 @@ export function Badge({ tone = 'neutral', children, style }) {
     neutral: { color: 'var(--tha-navy)', bg: 'var(--tha-navy-050)', border: 'var(--border-2)' },
     info: { color: 'var(--tha-teal)', bg: 'var(--tha-navy-050)', border: 'var(--tha-teal)' },
     success: { color: 'var(--success)', bg: 'var(--tha-lime-050)', border: 'var(--success)' },
-    warning: { color: 'var(--warning)', bg: 'var(--tha-lime-050)', border: 'var(--warning)' },
+    warning: { color: 'var(--tha-navy)', bg: 'var(--warning)', border: 'var(--warning)' },
     danger: { color: 'var(--danger)', bg: 'var(--tha-navy-050)', border: 'var(--danger)' },
     accent: { color: 'var(--tha-navy)', bg: 'var(--tha-lime)', border: 'var(--tha-lime)' },
   };
@@ -497,10 +538,11 @@ export function Accordion({ items = [], defaultOpen = 0, style }) {
 }
 
 export function Drawer({ open, title, children, onClose, side = 'right', style }) {
+  const drawerRef = useFocusTrap(open, onClose);
   if (!open) return null;
   return (
     <div role="presentation" style={{ position: 'fixed', inset: 0, background: 'rgba(14,28,43,.32)', zIndex: 45 }}>
-      <aside role="dialog" aria-label={title} style={mergeStyle({ position: 'absolute', top: 0, bottom: 0, [side]: 0, width: 'min(380px, 92vw)', background: 'var(--tha-white)', borderLeft: side === 'right' ? '1px solid var(--border-2)' : 0, borderRight: side === 'left' ? '1px solid var(--border-2)' : 0, boxShadow: 'var(--shadow-3)', padding: 20 }, style)}>
+      <aside ref={drawerRef} tabIndex={-1} role="dialog" aria-modal="true" aria-label={title} style={mergeStyle({ position: 'absolute', top: 0, bottom: 0, [side]: 0, width: 'min(380px, 92vw)', background: 'var(--tha-white)', borderLeft: side === 'right' ? '1px solid var(--border-2)' : 0, borderRight: side === 'left' ? '1px solid var(--border-2)' : 0, boxShadow: 'var(--shadow-3)', padding: 20 }, style)}>
         <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, marginBottom: 18 }}>
           <h2 style={{ margin: 0, font: '700 20px/1.2 var(--font-sans)' }}>{title}</h2>
           <button type="button" onClick={onClose} aria-label="Close" style={{ width: 32, height: 32, border: 0, background: 'var(--tha-navy-050)', cursor: 'pointer' }}>x</button>

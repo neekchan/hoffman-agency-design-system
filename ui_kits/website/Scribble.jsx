@@ -6,7 +6,8 @@ export function Scribble({ children, color = 'var(--tha-lime)', strokeWidth = 5 
       <svg
         viewBox="0 0 200 30"
         preserveAspectRatio="none"
-        style={{ position: 'absolute', left: '-2%', bottom: '-0.15em', width: '104%', height: '0.35em', overflow: 'visible' }}
+        aria-hidden="true"
+        style={{ position: 'absolute', left: '-2%', bottom: '-0.15em', width: '104%', height: '0.35em', overflow: 'visible', pointerEvents: 'none' }}
       >
         <path d="M 4 20 Q 50 4, 100 18 T 196 12" stroke={color} strokeWidth={strokeWidth} fill="none" strokeLinecap="round" />
       </svg>

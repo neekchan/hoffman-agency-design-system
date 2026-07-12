@@ -169,7 +169,6 @@
   .casc { position:relative; }
   .casc-box { position:absolute; width:60%; min-height:188px; padding:30px 32px; border-radius:16px;
     display:flex; flex-direction:column; color:var(--tha-paper);
-    border:1px solid rgba(255,255,255,.22);
     box-shadow:0 28px 64px -30px rgba(14,28,43,.75); }
   .casc-box .casc-num { font:800 60px/0.95 var(--font-sans); letter-spacing:-.02em; }
   .casc-box .casc-label { font:500 21px/1.3 var(--font-mono); margin-top:8px; opacity:.92; }
@@ -228,9 +227,9 @@
     .slide[data-deck-active] .amb-float   { animation:tha-float 7s ease-in-out infinite; }
     .slide[data-deck-active] .amb-glow    { animation:tha-glow 4.5s ease-in-out infinite; }
     .slide[data-deck-active] .amb-spin    { animation:tha-spin 48s linear infinite; }
-    .slide[data-deck-active] .amb-aurora .b1 { animation:tha-driftA 18s ease-in-out infinite; }
-    .slide[data-deck-active] .amb-aurora .b2 { animation:tha-driftB 22s ease-in-out infinite; }
-    .slide[data-deck-active] .amb-aurora .b3 { animation:tha-driftA 26s ease-in-out infinite reverse; }
+    .slide[data-deck-active] .amb-aurora .b1 { animation:tha-driftA 18s ease-in-out infinite; will-change:transform; }
+    .slide[data-deck-active] .amb-aurora .b2 { animation:tha-driftB 22s ease-in-out infinite; will-change:transform; }
+    .slide[data-deck-active] .amb-aurora .b3 { animation:tha-driftA 26s ease-in-out infinite reverse; will-change:transform; }
     /* spectrum-bar travelling sheen */
     .edgebar.amb-flow { overflow:hidden; }
     .edgebar.amb-flow::after { content:''; position:absolute; inset:0;

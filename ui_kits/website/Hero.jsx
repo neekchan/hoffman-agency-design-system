@@ -4,16 +4,14 @@ import { Em } from './Em.jsx';
 
 export function Hero() {
   return (
-    <section style={{
+    <section className="tha-hero" style={{
       background: 'var(--bg-1)',
-      padding: '120px 48px 100px',
       position: 'relative',
       overflow: 'hidden',
     }}>
-      <div style={{
+      <div className="tha-hero__grid" style={{
         maxWidth: 1240, margin: '0 auto', position: 'relative',
-        display: 'grid', gridTemplateColumns: 'minmax(0, 1.45fr) minmax(0, 1fr)',
-        gap: 56, alignItems: 'center',
+        alignItems: 'center',
       }}>
         <div style={{ minWidth: 0 }}>
           <Eyebrow style={{ marginBottom: 32, display: 'block' }}>
@@ -24,12 +22,11 @@ export function Hero() {
             Integrated communications for tech
           </Eyebrow>
 
-          <h1 style={{
+          <h1 className="tha-hero__title" style={{
             font: '800 clamp(44px, 5.6vw, 84px)/1.02 var(--font-sans)',
             letterSpacing: '-.03em',
             color: 'var(--tha-navy)',
             margin: 0,
-            whiteSpace: 'nowrap',
           }}>
             Complexity in.<br />
             <Em color="var(--tha-purple)">Clarity</Em> out.
