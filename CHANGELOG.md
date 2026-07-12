@@ -4,6 +4,31 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-07-12 — Impeccable audit fixes (v1.1 → v2.0)
+
+Ran a full `$impeccable audit` (12/20, tagged `v1.1`) and fixed all 23 findings
+on a candidate branch, verified live in-browser at each breakpoint and via
+keyboard interaction, then merged to `main` as `v2.0`.
+
+- **Contrast (P0)** — the documented "WCAG-safe" lime text color and the
+  warning badge/banner both actually failed contrast (2.1:1 and 2.6:1);
+  darkened both to clear 4.5:1 AA.
+- **Responsive (P0)** — `ui_kits/website/` had zero `@media` breakpoints and
+  was missing the viewport meta tag entirely, so nothing about it could ever
+  work on a real phone. Added breakpoints to Nav (real hamburger menu now),
+  Hero, CaseStudyGrid, and StatsStrip, plus the viewport tag.
+- **Keyboard/focus (P1)** — Modal/Drawer now trap focus and close on Escape;
+  fixed an unreachable link-styled button in the docs; darkened form input
+  borders that were nearly invisible at rest.
+- **Cleanup (P2/P3)** — `aria-current` on nav/sidebar, a visible focus ring on
+  Toggle, `role="menu"` semantics on MobileMenu, 44px touch targets, font
+  preconnect hints, `will-change` on an ambient deck animation, one
+  ghost-card border/shadow combo removed, `aria-hidden` on decorative SVGs,
+  a few hardcoded colors replaced with tokens.
+
+Full diff pushed to `neekchan/hoffman-agency-design-system` `main` and synced
+back into the Claude Design master project.
+
 ## 2026-07-03 — Fork extension merged back + integrated into the master (neekchan)
 
 Reviewed Takeo Apitzsch's fork (`takeoap/hoffman-agency-design-system-extension`,
