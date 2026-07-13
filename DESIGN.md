@@ -5,8 +5,8 @@ description: >
   Integrated communications agency for tech, built on the idea that counsel
   without conviction is just consulting. We help leaders and brands turn
   opinion into Techfluence — the influence that moves markets, not just
-  products. Bold Poppins headlines with one Libre Baskerville italic word
-  for emphasis. Navy + lime as structural pair, with four secondary moods
+  products. Bold Poppins headlines with the emphasis — the key word or
+  phrase — set in Libre Baskerville italic. Navy + lime as structural pair, with four secondary moods
   (lavender, purple, cyan, teal). A hand-drawn Storyline squiggle as the
   signature mark. Marker-pen annotations chosen by contrast to whatever
   they sit on. Short sentences. Real opinions. We speak tech.
@@ -326,14 +326,14 @@ components:
 
 The Hoffman Agency is an integrated communications agency for tech — founded on a simple idea: counsel without conviction is just consulting. We help leaders and brands turn opinion into **Techfluence** — the kind of influence that moves markets, not just products.
 
-The brand reads as **Smart · Human · Energetic · Distilled · Bold · Creative · Authentic**. Our typography is bold Poppins headlines with one word italicized in Libre Baskerville — the contrast does the work. Our color is navy and lime doing the structural work, with four secondary moods (lavender, purple, cyan, teal) used one at a time. Our signature mark is the Storyline squiggle — a hand-drawn waveform that's a story arc, not a chart. We mark up our slides the way an editor marks up a draft: underlines, circles, ticks, crosses, accents, and highlights, all chosen by *contrast* to whatever they sit on.
+The brand reads as **Smart · Human · Energetic · Distilled · Bold · Creative · Authentic**. Our typography is bold Poppins headlines with the emphasis italicized in Libre Baskerville — usually one word, sometimes a short phrase, always the part that carries the line. The contrast does the work. Our color is navy and lime doing the structural work, with four secondary moods (lavender, purple, cyan, teal) used one at a time. Our signature mark is the Storyline squiggle — a hand-drawn waveform that's a story arc, not a chart. We mark up our slides the way an editor marks up a draft: underlines, circles, ticks, crosses, accents, and highlights, all chosen by *contrast* to whatever they sit on.
 
 Short sentences. Real opinions. We *speak* tech. *Clarity in. Complexity out.*
 
 Three commitments override every other rule:
 
 1. **Restraint.** One hero idea per screen. Remove a color or a heading before adding one.
-2. **The italic word.** A single Libre Baskerville italic emphasis inside a Poppins headline is the brand's signature type move.
+2. **The italic emphasis.** Setting the line's emphasis — its key word or phrase — in Libre Baskerville italic inside a Poppins headline is the brand's signature type move. One emphasis per line, chosen by meaning, not a fixed word count.
 3. **Hand-drawn over decorative.** A scribbled underline beats five icons.
 
 ## Principles layer & deck modes
@@ -375,13 +375,14 @@ The system uses **two families.**
 - **Poppins** is the workhorse — every headline, every line of body, every UI label. Weight range 300–800. Tight letter-spacing at display sizes (`-0.02em` to `-0.03em`).
 - **Libre Baskerville — italic only.** Used strictly as inline emphasis inside a Poppins headline, and for pull-quotes. Never set Baskerville upright. The token `{typography.emphasis}` is sized at `1em` so it inherits from its parent and drops cleanly inside any heading.
 
-The **signature type move** is a bold Poppins headline with **one Baskerville italic word**:
+The **signature type move** is a bold Poppins headline with its **emphasis set in Baskerville italic**. The emphasis is the keyword(s) that carry the line — **usually one word, but a two-word phrase or a short run of words when *that* is the real emphasis**. It's about meaning, not a mechanical count. The one hard limit is **one emphasis per line** — don't scatter italics across several unrelated words, and don't force a single word if the point lives in a phrase.
 
 ```html
 <h1>Clarity in. <em>Complexity</em> out.</h1>
+<h1>We don't chase reach. We earn <em>the room</em>.</h1>
 ```
 
-The `<em>` tag is wired to render `{typography.emphasis}` automatically. Choose the italicized word for sound, not for grammar — pick the word with the most consonant texture or the one that carries the emotional weight of the line.
+The `<em>` tag is wired to render `{typography.emphasis}` automatically. Choose the emphasis for sound and sense, not for grammar — pick the word (or phrase) with the most consonant texture, or the one that carries the emotional weight of the line.
 
 **Hierarchy.** One hero idea per screen, set huge (`{typography.display-1}`, up to 120 px). Everything else shrinks hard. Sentence case for headings and UI; **UPPERCASE only on eyebrows** (`{typography.eyebrow}`) with `0.14em` tracking. JetBrains Mono is reserved for stat units, metadata, and case-study run-time numbers — never for body.
 

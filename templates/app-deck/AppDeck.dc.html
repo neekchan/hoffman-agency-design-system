@@ -770,7 +770,7 @@ class Component extends DCLogic {
   ];
   ASP = [ { k: '16:9', r: '1920×1080' }, { k: '4:3', r: '1440×1080' }, { k: '4:5', r: '1080×1350' }, { k: '1:1', r: '1280×1280' }, { k: '3:1', r: '1800×600' } ];
   CHECKS = [
-    'One italic word per headline — exactly one',
+    'Italic marks the emphasis — a key word or phrase',
     'Type at slide scale — nothing under 20px',
     'Every pairing clears WCAG — 4.5 body, 3 large',
     'Logo variant matches its background',
@@ -915,9 +915,9 @@ class Component extends DCLogic {
     }
     if (d.ital !== undefined) {
       const i = +d.ital;
-      if (i === this.state.ital) { this.toast('It stays. One word has to carry the line.'); return; }
+      if (i === this.state.ital) { this.toast('It stays. The emphasis has to carry the line.'); return; }
       this.setState({ ital: i });
-      this.toast('Moved. One italic word per headline — never two.');
+      this.toast('Moved. The italic marks the emphasis — a key word or short phrase, once per line.');
       return;
     }
     if (d.hero) { this.setState({ hero: d.hero }); return; }

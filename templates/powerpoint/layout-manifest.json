@@ -1,0 +1,403 @@
+{
+  "$schema": "internal://hoffman/layout-manifest.v1",
+  "description": "Machine-readable contracts for the 48 Hoffman deck layouts (L01–L51). A layout code is a CONTRACT, not a descriptive tag: if a slide is labelled L03/L20/L35/L37, it must preserve that layout's element relationships, hierarchy, slot roles and defining visual behaviour. If the content doesn't fit, pick a different layout — never invent a new composition under an existing code. The directly-editable visual source of truth is `templates/deck/Deck.dc.html`; this JSON is for tools that can't consume that DC (e.g. python-pptx generators). Read alongside `LAYOUTS.md` (prose) and `assets/asset-manifest.json` (logo geometry).",
+
+  "canvas": { "width": 1920, "height": 1080, "unit": "px", "note": "1pt = 2px" },
+  "safeArea": { "margin": 72, "box": [72, 72, 1776, 936], "note": "All text + non-bleed imagery stays inside. Page chrome (page number, logo) lives inside this margin." },
+
+  "typeTiers": {
+    "eyebrow":   { "pxRange": [20, 24],   "ptRange": [10, 12],  "font": "Poppins", "case": "UPPERCASE", "track": "0.14em" },
+    "body":      { "pxRange": [30, 36],   "ptRange": [15, 18],  "font": "Poppins", "default": 32 },
+    "subhead":   { "pxRange": [40, 52],   "ptRange": [20, 26],  "font": "Poppins", "default": 44 },
+    "title":     { "pxRange": [64, 80],   "ptRange": [32, 40],  "font": "Poppins", "note": "bias 72–80; emphasis (key word or phrase) in Libre Baskerville italic" },
+    "statement": { "pxRange": [120, 132], "ptRange": [60, 66],  "font": "Poppins", "note": "section / big-claim display" },
+    "cover":     { "pxMin": 176,          "ptMin": 88,          "font": "Poppins", "note": "size-to-fit; grow to fill on 1–2 lines" },
+    "giant":     { "pxAbout": 240,        "ptAbout": 120,       "font": "Poppins", "note": "closing / punchline hero word" }
+  },
+
+  "rules": {
+    "maxDistinctTypeSizes": 3,
+    "targetElements": [3, 5],
+    "headline": "≤ 8 words, editorial not descriptive, italic emphasis on the key word or phrase (one emphasis per line, chosen by meaning not count)",
+    "connectors": "Every arrow connects two NAMED elements edge-to-edge or edge-to-centreline; never terminates in open space; never an oversized arrow glyph floating between text boxes. Build arrows in the same layout pass as their nodes; endpoints track the visible node/text, not an oversized textbox bounding box.",
+    "logo": "Choose variant from surface via assets/asset-manifest.json > surfaceToLogo. Lock aspect ratio; derive one dimension from the other.",
+    "protectedZones": "Keep all content out of the wordmark + boxed-monogram bounding box + clearspace (asset-manifest.json > protectedZones). The full-frame storyline line is a background layer, not a protected zone."
+  },
+
+  "modeLegend": { "presenter": "live, ≤15 words/slide, detail in speaker notes", "document": "leave-behind, denser, short bullets allowed", "both": "works in either mode at its own density" },
+
+  "layouts": [
+    { "code": "L01", "name": "Cover", "family": "covers", "modes": ["both"], "onePoint": "The deck's single idea as a huge headline.", "surfaces": ["navy", "lime"], "fullBleed": true, "bleedEdges": ["optional image band"], "logo": "stacked, variant by surface", "maxElements": 4,
+      "slots": [
+        { "name": "eyebrow", "role": "client · engagement · date", "tier": "eyebrow", "wordCap": 6, "region": "top-left" },
+        { "name": "title", "role": "giant headline, italic emphasis (key word or phrase)", "tier": "cover", "wordCap": 8, "region": "center-left" },
+        { "name": "subtitle", "role": "one line", "tier": "subhead", "wordCap": 14, "region": "below-title" },
+        { "name": "logo", "role": "brand lockup", "tier": null, "region": "corner or center", "asset": "logo-stacked or storyline-line on navy" }
+      ], "keepHonest": "No agenda, no body copy." },
+
+    { "code": "L31", "name": "Cover (spectrum bar)", "family": "covers", "modes": ["both"], "onePoint": "One idea, huge; a full-height spectrum bar flush left carries brand energy.", "surfaces": ["navy"], "fullBleed": true, "bleedEdges": ["left bar"], "logo": "white-lime", "maxElements": 4,
+      "slots": [
+        { "name": "spectrumBar", "role": "multicolor edge device", "region": "full-height flush left", "box": [0, 0, 96, 1080] },
+        { "name": "eyebrow", "role": "client · engagement · year pill", "tier": "eyebrow", "wordCap": 6 },
+        { "name": "title", "role": "≤8 words, italic emphasis (key word or phrase), 130px+", "tier": "cover", "wordCap": 8 },
+        { "name": "subtitle", "role": "one line", "tier": "subhead", "wordCap": 14 }
+      ], "keepHonest": "The bar is the only ornament. No body copy." },
+
+    { "code": "L02", "name": "Section divider", "family": "dividers", "modes": ["both"], "onePoint": "The section name set huge; the number is the second voice.", "surfaces": ["lime", "purple", "teal", "lavender", "aqua"], "fullBleed": false, "logo": "variant by surface", "maxElements": 3,
+      "slots": [
+        { "name": "partNumber", "role": "01", "tier": "subhead", "region": "above title" },
+        { "name": "title", "role": "big section title, italic emphasis (key word or phrase)", "tier": "statement", "wordCap": 3 },
+        { "name": "motif", "role": "optional small graphic / one Fluent emoji", "region": "corner", "optional": true }
+      ], "keepHonest": "One or two words. Never a sentence, never bullets. NOT a holding slide for workflow content — that is L35." },
+
+    { "code": "L32", "name": "Section divider (spectrum bar)", "family": "dividers", "modes": ["both"], "onePoint": "Section name huge; mono number the second voice; edge bar instead of colour flood.", "surfaces": ["navy", "rotating"], "fullBleed": true, "bleedEdges": ["left bar"], "logo": "white-lime", "maxElements": 3,
+      "slots": [
+        { "name": "spectrumBar", "region": "full-height flush left", "box": [0, 0, 96, 1080] },
+        { "name": "number", "role": "01", "tier": "subhead" },
+        { "name": "title", "role": "1–2 words w/ italic emphasis", "tier": "statement", "wordCap": 2 }
+      ], "keepHonest": "One or two words, never a sentence." },
+
+    { "code": "L03", "name": "Agenda", "family": "structure", "modes": ["both"], "onePoint": "The shape of the journey — 3–5 numbered items.", "surfaces": ["paper", "colorBlock"], "fullBleed": false, "logo": "variant by surface", "maxElements": 6,
+      "slots": [
+        { "name": "eyebrow", "role": "AGENDA / label", "tier": "eyebrow", "wordCap": 3, "region": "top-left" },
+        { "name": "items", "role": "numbered list: number + ≤4-word label", "tier": "title", "count": [3, 5], "wordCapEach": 4, "region": "left or center column", "box": [72, 260, 1300, 680] },
+        { "name": "wordmark", "role": "optional big 'AGENDA' wordmark", "optional": true }
+      ],
+      "protectedZones": ["boxed-monogram bottom-right if present"],
+      "keepHonest": "Titles only, no descriptions. 3–5 items. CRITICAL: the numbered item rows must NOT overlap the boxed Storyline monogram in the corner — compute the monogram's protected rect and keep rows clear of it (this is the exact failure from the diagnostic deck)." },
+
+    { "code": "L08", "name": "Statement + support", "family": "statements", "modes": ["both"], "onePoint": "The claim, italic emphasis (key word or phrase).", "surfaces": ["paper", "navy", "colorBlock"], "fullBleed": true, "bleedEdges": ["optional"], "logo": "variant by surface", "maxElements": 4,
+      "slots": [
+        { "name": "eyebrow", "tier": "eyebrow", "wordCap": 4 },
+        { "name": "headline", "role": "the claim", "tier": "statement", "wordCap": 8 },
+        { "name": "support", "role": "extends, never restates", "tier": "body", "wordCap": 30 },
+        { "name": "annotation", "role": "optional one mark", "optional": true }
+      ], "keepHonest": "Support extends the headline. No second paragraph." },
+
+    { "code": "L09", "name": "Big-idea split", "family": "statements", "signature": true, "modes": ["both"], "onePoint": "A provocative claim (left) with an emotive image (right).", "surfaces": ["paper", "sand"], "fullBleed": true, "bleedEdges": ["right image full-height"], "logo": "variant by surface", "maxElements": 5,
+      "slots": [
+        { "name": "audienceTag", "tier": "eyebrow", "wordCap": 3 },
+        { "name": "headline", "role": "italic emphasis (key word or phrase)", "tier": "title", "wordCap": 8, "region": "left half", "box": [72, 200, 840, 400] },
+        { "name": "setup", "tier": "body", "wordCap": 30 },
+        { "name": "roleBox", "role": "ONE highlighted line: 'our role: …'", "tier": "body", "wordCap": 14, "surface": "lime or secondary" },
+        { "name": "image", "role": "full-height right", "region": "right half", "box": [960, 0, 960, 1080], "aspect": "portrait" }
+      ], "keepHonest": "Role box is ONE line. One setup paragraph only." },
+
+    { "code": "L45", "name": "Punchline (giant word)", "family": "statements", "signature": true, "modes": ["presenter"], "onePoint": "One word ENORMOUS; setup is a whisper before the shout.", "surfaces": ["navy", "colorBlock"], "fullBleed": false, "logo": "white", "maxElements": 4,
+      "slots": [
+        { "name": "setup", "tier": "body", "wordCap": 5 },
+        { "name": "heroWord", "role": "1 word, ~3-letter sweet spot, lime", "tier": "giant", "wordCap": 1 },
+        { "name": "footnote", "optional": true },
+        { "name": "emoji", "role": "one Fluent emoji bottom-right", "optional": true }
+      ], "keepHonest": "One word is the whole slide." },
+
+    { "code": "L46", "name": "Two-beat statement", "family": "statements", "modes": ["presenter"], "onePoint": "Setup → turn: two short phrases; the hinge word is the point.", "surfaces": ["purple", "teal"], "fullBleed": false, "logo": "white", "maxElements": 4,
+      "slots": [
+        { "name": "beat1", "role": "≤6 words top-left", "tier": "statement", "wordCap": 6, "region": "top-left" },
+        { "name": "beat2", "role": "≤6 words lower-right", "tier": "statement", "wordCap": 6, "region": "lower-right" },
+        { "name": "emoji", "count": [0, 2], "optional": true }
+      ], "keepHonest": "Two short beats, nothing between. Hinge word in white; rest lime/aqua. NOT two rounded panels — it is two beats of type on ONE surface." },
+
+    { "code": "L47", "name": "Centered motif opener", "family": "statements", "modes": ["both"], "onePoint": "One Fluent emoji sets the mood; the headline lands the line.", "surfaces": ["navy", "colorBlock"], "fullBleed": false, "logo": "white", "maxElements": 3,
+      "slots": [
+        { "name": "setup", "tier": "body", "wordCap": 6, "optional": true },
+        { "name": "motif", "role": "1 Fluent emoji size 120–200 (or a short row)", "region": "center" },
+        { "name": "headline", "role": "≤4 words, huge, lime", "tier": "statement", "wordCap": 4 }
+      ], "keepHonest": "One emoji or one tight row — never a wall." },
+
+    { "code": "L50", "name": "Script + acronym opener", "family": "statements", "modes": ["both"], "onePoint": "A big acronym IS the slide; a small multicolor script word adds warmth.", "surfaces": ["lime", "navy"], "fullBleed": false, "logo": "variant by surface", "maxElements": 3,
+      "slots": [
+        { "name": "scriptWord", "role": "≤9 letters, middle letters multicolor", "tier": "title" },
+        { "name": "acronym", "role": "3–5 letters, huge, navy on lime", "tier": "cover" },
+        { "name": "expansion", "role": "one word/phrase per letter-group", "tier": "body", "surface": "purple type" }
+      ], "keepHonest": "The script move is the house voice — use once. The acronym carries everything." },
+
+    { "code": "L10", "name": "Plan-on-a-page matrix", "family": "diagram", "signature": true, "dense": true, "modes": ["document"], "onePoint": "The strategy line in the banner; the grid proves it's coherent.", "surfaces": ["paper"], "fullBleed": false, "logo": "navy-lime", "maxElements": 12,
+      "slots": [
+        { "name": "banner", "role": "strategy line", "tier": "subhead", "surface": "lime or navy banner" },
+        { "name": "columnHeaders", "role": "audiences", "tier": "body" },
+        { "name": "rowLabels", "role": "workstreams", "tier": "body" },
+        { "name": "cells", "role": "terse cells ≤8 words", "tier": "body", "wordCapEach": 8 },
+        { "name": "footer", "role": "full-width strategy row" }
+      ], "keepHonest": "Cells are labels, not sentences. Reference artefact — exactly one per deck. Body may drop to 24–28px because the table is the point." },
+
+    { "code": "L34", "name": "Orbit / ring overview", "family": "diagram", "modes": ["both"], "onePoint": "One centre, six equal parts, each an icon above a label.", "surfaces": ["paper"], "fullBleed": false, "logo": "navy-lime", "maxElements": 8,
+      "slots": [
+        { "name": "centre", "role": "core mark/word", "region": "center", "box": [810, 390, 300, 300] },
+        { "name": "items", "role": "6 items: icon + ≤3-word label, colour-coded", "count": 6, "wordCapEach": 3, "layout": "ring around centre" }
+      ], "keepHonest": "Six parts, equal weight. Labels ≤3 words." },
+
+    { "code": "L35", "name": "Highlight box + arrows (before → after)", "family": "diagram", "modes": ["both"], "onePoint": "Flow reads left-to-right; the highlighted middle box is the idea. ALSO the default source → tool → output workflow layout.", "surfaces": ["paper"], "fullBleed": false, "logo": "navy-lime", "maxElements": 5,
+      "slots": [
+        { "name": "eyebrow", "tier": "eyebrow", "wordCap": 4 },
+        { "name": "title", "tier": "title", "wordCap": 8 },
+        { "name": "boxStart", "role": "plain start node: icon + ≤4-word title + one line", "tier": "body", "region": "left", "box": [140, 420, 420, 300] },
+        { "name": "boxHighlight", "role": "THE key concept, accent border + lime tint", "tier": "body", "region": "center", "box": [750, 420, 420, 300] },
+        { "name": "boxEnd", "role": "plain end node", "tier": "body", "region": "right", "box": [1360, 420, 420, 300] },
+        { "name": "arrows", "role": "connectors between node EDGES", "connect": [["boxStart.right", "boxHighlight.left"], ["boxHighlight.right", "boxEnd.left"]], "note": "Arrows are horizontal, anchored edge-to-edge between the three nodes. For a source → AI tool → output workflow, this is the canonical layout: source left, tool highlighted center, output right, arrows between node edges, one consistent geometry reused across all demo/holding slides. Arrows MUST NOT float in open space." }
+      ], "keepHonest": "Exactly one box highlighted. Three boxes, one line each — not a flowchart. NOT three rounded cards with a floating down-arrow." },
+
+    { "code": "L11", "name": "Three-column image cards", "family": "columns", "signature": true, "modes": ["both"], "onePoint": "The pattern across the columns; each column is one beat.", "surfaces": ["paper"], "fullBleed": false, "logo": "navy-lime", "maxElements": 4,
+      "slots": [
+        { "name": "title", "role": "italic emphasis (key word or phrase)", "tier": "title", "wordCap": 8 },
+        { "name": "columns", "count": 3, "each": [
+          { "name": "image", "aspect": "portrait" },
+          { "name": "lead", "tier": "subhead", "wordCap": 6 },
+          { "name": "body", "tier": "body", "wordCap": 24 },
+          { "name": "chips", "count": [0, 2] }
+        ], "columnBoxes": [[72, 280, 540, 660], [690, 280, 540, 660], [1308, 280, 540, 660]] }
+      ], "keepHonest": "3 columns max, equal weight." },
+
+    { "code": "L12", "name": "Three-column textured icon cards", "family": "columns", "signature": true, "modes": ["document"], "onePoint": "The pattern across three verticals; two market bullets prove each.", "surfaces": ["paper"], "fullBleed": false, "logo": "navy-lime", "maxElements": 4,
+      "slots": [
+        { "name": "title", "tier": "title", "wordCap": 10 },
+        { "name": "subtitle", "tier": "body", "wordCap": 30 },
+        { "name": "columns", "count": 3, "each": [
+          { "name": "iconCard", "surface": "tex-a / -b / -c" },
+          { "name": "heading", "tier": "subhead", "wordCap": 7 },
+          { "name": "bullets", "count": 2, "wordCapEach": 22 }
+        ] }
+      ], "keepHonest": "Two market bullets per column, not three." },
+
+    { "code": "L13", "name": "Three audiences ('we want them to…')", "family": "columns", "modes": ["both"], "onePoint": "The set of audiences and the behaviour change per audience.", "surfaces": ["paper", "colorBlock"], "fullBleed": false, "logo": "variant by surface", "maxElements": 4,
+      "slots": [
+        { "name": "title", "tier": "title", "wordCap": 8 },
+        { "name": "columns", "count": 3, "each": [
+          { "name": "segmentName", "tier": "subhead" },
+          { "name": "description", "tier": "body", "wordCap": 24 },
+          { "name": "wantCard", "role": "highlighted desired shift, ONE sentence", "surface": "lime/secondary" }
+        ] }
+      ], "keepHonest": "The 'want' card is the payload — one sentence." },
+
+    { "code": "L37", "name": "Numbered points (vertical rules)", "family": "columns", "modes": ["both"], "onePoint": "The set read across; the big mono number paces it, one line each.", "surfaces": ["paper", "colorBlock", "navy"], "fullBleed": false, "logo": "variant by surface", "maxElements": 5,
+      "slots": [
+        { "name": "eyebrow", "tier": "eyebrow", "wordCap": 4 },
+        { "name": "title", "tier": "title", "wordCap": 8 },
+        { "name": "points", "count": [3, 4], "separator": "thin vertical RULE (not a box/card)", "each": [
+          { "name": "number", "tier": "statement", "role": "big mono number" },
+          { "name": "title", "tier": "subhead", "wordCap": 4 },
+          { "name": "line", "tier": "body", "wordCap": 14 }
+        ], "columnBoxes": [[72, 320, 420, 560], [520, 320, 420, 560], [968, 320, 420, 560], [1416, 320, 420, 560]] }
+      ], "keepHonest": "RULES, not boxes — keep it light. One line per point. NOT rounded cards." },
+
+    { "code": "L14", "name": "Persona profile", "family": "people", "signature": true, "modes": ["both"], "onePoint": "Who they are and the one job they need done.", "surfaces": ["paper"], "fullBleed": true, "bleedEdges": ["portrait panel"], "logo": "navy-lime", "maxElements": 6,
+      "slots": [
+        { "name": "segmentTag", "tier": "eyebrow" },
+        { "name": "portrait", "aspect": "4:5" },
+        { "name": "identity", "role": "name, age, location", "tier": "subhead" },
+        { "name": "context", "role": "2 short bullets", "count": 2 },
+        { "name": "quotes", "role": "1–2 verbatim cards", "count": [1, 2] },
+        { "name": "wantFooter", "role": "highlighted 'we want her to…'" }
+      ], "keepHonest": "Two quotes max, in their voice." },
+
+    { "code": "L15", "name": "Team roster", "family": "people", "modes": ["document"], "onePoint": "The shape and seniority of the team.", "surfaces": ["paper"], "fullBleed": false, "logo": "navy-lime", "maxElements": 12,
+      "slots": [
+        { "name": "title", "tier": "title" },
+        { "name": "groups", "role": "grouped columns; each: portrait + name + role + ≤6-word remit", "wordCapEach": 6 }
+      ], "keepHonest": "Name + role + one remit line. No bios (that's L16)." },
+
+    { "code": "L16", "name": "Single bio", "family": "people", "modes": ["document"], "onePoint": "Why this person earns the room's trust.", "surfaces": ["paper", "sand"], "fullBleed": false, "logo": "navy-lime", "maxElements": 4,
+      "slots": [
+        { "name": "eyebrow", "role": "Your team · role", "tier": "eyebrow" },
+        { "name": "portrait" },
+        { "name": "identity", "role": "name + title", "tier": "subhead" },
+        { "name": "paragraphs", "count": [2, 3], "tier": "body" }
+      ], "keepHonest": "Lead with the most credible fact." },
+
+    { "code": "L17", "name": "Idea detail", "family": "ideas", "modes": ["both"], "onePoint": "The idea name + its single mechanic.", "surfaces": ["paper", "colorBlock"], "fullBleed": false, "logo": "variant by surface", "maxElements": 5,
+      "slots": [
+        { "name": "ideaTitle", "tier": "title" },
+        { "name": "image" },
+        { "name": "setup", "tier": "body", "wordCap": 30 },
+        { "name": "list", "role": "content/engagements ≤3 items", "count": [1, 3], "wordCapEach": 6 },
+        { "name": "lockup", "optional": true }
+      ], "keepHonest": "Lists ≤3 items, ≤6 words each." },
+
+    { "code": "L18", "name": "Two-story side-by-side", "family": "ideas", "modes": ["both"], "onePoint": "Two distinct angles serving one theme.", "surfaces": ["colorBlock", "paper"], "fullBleed": false, "logo": "variant by surface", "maxElements": 5,
+      "slots": [
+        { "name": "sectionLabel", "optional": true },
+        { "name": "cards", "count": 2, "each": [
+          { "name": "storyTitle", "tier": "subhead" },
+          { "name": "premise", "tier": "body", "wordCap": 30 },
+          { "name": "targetMedia", "tier": "body" }
+        ] }
+      ], "keepHonest": "Two stories, equal weight." },
+
+    { "code": "L39", "name": "Ongoing story engagement", "family": "ideas", "modes": ["document"], "onePoint": "Two parallel story pitches, equal weight, for one audience.", "surfaces": ["lime"], "fullBleed": false, "logo": "navy", "maxElements": 5,
+      "slots": [
+        { "name": "segment", "tier": "eyebrow", "wordCap": 1 },
+        { "name": "sectionTitle", "tier": "statement" },
+        { "name": "cards", "count": 2, "note": "one white card + one navy card + illustration on rail", "each": [
+          { "name": "storyPill" },
+          { "name": "headline", "tier": "subhead", "wordCap": 10 },
+          { "name": "premise", "tier": "body", "wordCap": 55 },
+          { "name": "targets", "tier": "body" }
+        ] }
+      ], "keepHonest": "Two cards, equal weight; each names its target media." },
+
+    { "code": "L40", "name": "Story idea + role + image", "family": "ideas", "signature": true, "modes": ["both"], "onePoint": "The angle headline + one-line role; the image names the idea.", "surfaces": ["paper"], "fullBleed": true, "bleedEdges": ["image"], "logo": "navy-lime", "maxElements": 5,
+      "slots": [
+        { "name": "segment", "tier": "eyebrow", "wordCap": 1 },
+        { "name": "headline", "role": "italic emphasis (key word or phrase)", "tier": "title", "wordCap": 12 },
+        { "name": "body", "tier": "body", "wordCap": 45 },
+        { "name": "roleBox", "role": "navy, ≤30 words, ONE line of role", "wordCap": 30 },
+        { "name": "imageCaption", "role": "the idea name only, ≤4 words, lime caption bar", "wordCap": 4 }
+      ], "keepHonest": "Role box is one line. Caption is the idea's name only." },
+
+    { "code": "L19", "name": "Stat strip", "family": "data", "modes": ["both"], "onePoint": "The result. The biggest number matters most.", "surfaces": ["paper", "navy"], "fullBleed": false, "logo": "variant by surface", "maxElements": 5,
+      "slots": [
+        { "name": "eyebrow", "tier": "eyebrow" },
+        { "name": "headline", "tier": "title", "wordCap": 8 },
+        { "name": "stats", "count": [1, 3], "separator": "hairline", "each": [
+          { "name": "number", "tier": "giant" },
+          { "name": "label", "tier": "eyebrow", "role": "mono, ≤4 words", "wordCap": 4 }
+        ] }
+      ], "keepHonest": "Max 3 stats. Prefer one hero + two context." },
+
+    { "code": "L33", "name": "Cascade stat boxes", "family": "data", "modes": ["both"], "onePoint": "Three results stacked as one cascading form.", "surfaces": ["paper"], "fullBleed": false, "logo": "navy-lime", "maxElements": 5,
+      "slots": [
+        { "name": "eyebrow", "tier": "eyebrow" },
+        { "name": "title", "role": "italic emphasis (key word or phrase)", "tier": "title", "wordCap": 8 },
+        { "name": "intro", "tier": "body", "wordCap": 24 },
+        { "name": "bullets", "count": [0, 3], "wordCapEach": 6 },
+        { "name": "boxes", "count": 3, "each": [ { "name": "number", "tier": "statement" }, { "name": "label", "wordCap": 4 } ] }
+      ], "keepHonest": "Three boxes, three numbers. Don't add a fourth." },
+
+    { "code": "L38", "name": "Stat grid (light slide)", "family": "data", "modes": ["document"], "onePoint": "The spread of evidence; the grid reads as a rhythm.", "surfaces": ["paper"], "fullBleed": false, "logo": "navy-lime", "maxElements": 8,
+      "slots": [
+        { "name": "eyebrow", "tier": "eyebrow" },
+        { "name": "title", "tier": "title", "optional": true },
+        { "name": "cards", "count": [6, 8], "each": [ { "name": "iconCircle" }, { "name": "number", "tier": "statement", "role": "mono" }, { "name": "label", "wordCap": 4 } ] }
+      ], "keepHonest": "Equal weight across cells — no hero here (that's L19)." },
+
+    { "code": "L41", "name": "Data dashboard", "family": "data", "dense": true, "modes": ["document"], "onePoint": "The headline finding big; the breakdown supports it.", "surfaces": ["paper"], "fullBleed": false, "logo": "navy-lime", "maxElements": 8,
+      "slots": [
+        { "name": "eyebrow", "tier": "eyebrow" },
+        { "name": "title", "tier": "title" },
+        { "name": "donut", "role": "one headline % + label" },
+        { "name": "bars", "count": [3, 5], "each": [ { "name": "value" }, { "name": "label", "wordCap": 3 } ] },
+        { "name": "callouts", "count": 3, "each": [ { "name": "figure" }, { "name": "label", "wordCap": 4 } ] }
+      ], "keepHonest": "One headline finding leads. No chart junk, no legend essays." },
+
+    { "code": "L20", "name": "Timeline / measurement arc", "family": "process", "modes": ["both"], "onePoint": "The progression or the set of dimensions.", "surfaces": ["paper", "navy"], "fullBleed": false, "logo": "variant by surface", "maxElements": 8,
+      "slots": [
+        { "name": "title", "tier": "title" },
+        { "name": "arc", "role": "the storyline rising squiggle" },
+        { "name": "nodes", "count": [4, 6], "each": [ { "name": "icon" }, { "name": "label", "tier": "body" }, { "name": "note", "wordCap": 15 } ] }
+      ], "keepHonest": "4–6 nodes ALONG the arc (not three circles with generic arrows). Notes are captions, not paragraphs." },
+
+    { "code": "L21", "name": "Process / journey diagram", "family": "process", "modes": ["both"], "onePoint": "The model's name and its cyclical/holistic shape.", "surfaces": ["lime", "paper"], "fullBleed": false, "logo": "variant by surface", "maxElements": 8,
+      "slots": [
+        { "name": "title", "tier": "title" },
+        { "name": "framing", "tier": "body", "wordCap": 25 },
+        { "name": "stages", "role": "ring/row: stage name + ≤4-word line", "wordCapEach": 4 },
+        { "name": "centre", "role": "central label" }
+      ], "keepHonest": "Name each stage; don't explain it on the slide." },
+
+    { "code": "L24", "name": "Scope / deliverables table", "family": "process", "dense": true, "modes": ["document"], "onePoint": "The breadth and cadence of what's committed.", "surfaces": ["paper"], "fullBleed": false, "logo": "navy-lime", "maxElements": 12,
+      "slots": [
+        { "name": "title", "tier": "title" },
+        { "name": "table", "role": "deliverable rows × market columns, counts/ticks, navy header row, hairline grid" }
+      ], "keepHonest": "A true reference table — the one place dense text is correct. Body may drop to 24–28px." },
+
+    { "code": "L22", "name": "Icon benefit grid", "family": "capability", "modes": ["document"], "onePoint": "The sum — 'here's why us.'", "surfaces": ["navy", "paper"], "fullBleed": false, "logo": "variant by surface", "maxElements": 8,
+      "slots": [
+        { "name": "cards", "count": [6, 8], "each": [ { "name": "icon" }, { "name": "title", "tier": "subhead", "wordCap": 4 }, { "name": "line", "tier": "body", "wordCap": 18 } ], "note": "rotate 2 surface colours across cards" }
+      ], "keepHonest": "Titles ≤4 words. Long copy kills the rhythm." },
+
+    { "code": "L23", "name": "Capability grid", "family": "capability", "modes": ["document"], "onePoint": "The breadth of proprietary tools.", "surfaces": ["navy", "colorBlock"], "fullBleed": false, "logo": "variant by surface", "maxElements": 8,
+      "slots": [
+        { "name": "title", "tier": "title" },
+        { "name": "intro", "tier": "body", "wordCap": 25 },
+        { "name": "capabilities", "each": [ { "name": "name", "tier": "subhead" }, { "name": "descriptor", "tier": "body", "wordCap": 12 } ] }
+      ], "keepHonest": "Names are the stars; descriptors one line." },
+
+    { "code": "L36", "name": "Pill rows + icon-circles", "family": "capability", "modes": ["both"], "onePoint": "The set of moves; each row is one.", "surfaces": ["paper"], "fullBleed": false, "logo": "navy-lime", "maxElements": 6,
+      "slots": [
+        { "name": "eyebrow", "tier": "eyebrow" },
+        { "name": "title", "tier": "title" },
+        { "name": "rows", "count": [3, 5], "each": [ { "name": "iconCircle" }, { "name": "title", "tier": "subhead", "wordCap": 5 }, { "name": "line", "tier": "body", "wordCap": 16 } ], "note": "highlight exactly ONE row" }
+      ], "keepHonest": "One line per row. Highlight one row, not all." },
+
+    { "code": "L48", "name": "Photo + numbered lists", "family": "capability", "dense": true, "modes": ["document"], "onePoint": "The themes (numbered) and their proof (bullets).", "surfaces": ["paper"], "fullBleed": true, "bleedEdges": ["photo"], "logo": "navy-lime", "maxElements": 8,
+      "slots": [
+        { "name": "title", "role": "overlaid on photo, ≤6 words", "tier": "title", "wordCap": 6 },
+        { "name": "sections", "count": [2, 3], "each": [ { "name": "heading", "tier": "subhead" }, { "name": "bullets", "count": [1, 3], "wordCapEach": 7 } ] },
+        { "name": "highlightBox", "role": "one ≤14-word line, lime", "wordCap": 14 }
+      ], "keepHonest": "Photo is half the slide. ≤3 bullets/section, ≤7 words each." },
+
+    { "code": "L49", "name": "Three photo + bullets", "family": "capability", "modes": ["document"], "onePoint": "Three efforts, equal weight; photo makes each real.", "surfaces": ["paper"], "fullBleed": false, "logo": "navy-lime", "maxElements": 6,
+      "slots": [
+        { "name": "title", "tier": "title" },
+        { "name": "columns", "count": 3, "each": [ { "name": "photo", "aspect": "4:3" }, { "name": "heading", "role": "Fluent emoji ok", "tier": "subhead" }, { "name": "bullets", "count": [1, 4], "wordCapEach": 8 } ] }
+      ], "keepHonest": "Three columns, equal weight. Bullets ≤8 words." },
+
+    { "code": "L24b", "name": "Pain ↔ Solutions", "family": "capability", "modes": ["both"], "onePoint": "Every pain has a matching answer.", "surfaces": ["navy"], "fullBleed": false, "logo": "white", "maxElements": 6,
+      "slots": [
+        { "name": "painColumn", "role": "left: italic pain quotes ≤10 words", "wordCapEach": 10 },
+        { "name": "solutionColumn", "role": "right: solution labels/chips (lime/secondary)" },
+        { "name": "footer", "role": "reassurance line" }
+      ], "keepHonest": "Pair 1:1. Pains in the client's voice, short." },
+
+    { "code": "L25", "name": "Map + narrative", "family": "capability", "modes": ["both"], "onePoint": "'The right network, not the biggest.'", "surfaces": ["navy"], "fullBleed": false, "logo": "white", "maxElements": 5,
+      "slots": [
+        { "name": "map", "role": "dotted map, lime dots" },
+        { "name": "officeList", "role": "regional columns (texture, not a reading task)" },
+        { "name": "narrative", "tier": "body", "wordCap": 40 }
+      ], "keepHonest": "The narrative carries the argument; the city list is texture." },
+
+    { "code": "L26", "name": "Values statement", "family": "capability", "modes": ["both"], "onePoint": "The relationship you're promising.", "surfaces": ["colorBlock", "paper"], "fullBleed": false, "logo": "variant by surface", "maxElements": 5,
+      "slots": [
+        { "name": "title", "role": "stacked, left", "tier": "statement" },
+        { "name": "values", "count": [3, 4], "role": "right, each one line", "wordCapEach": 12 }
+      ], "keepHonest": "3–4 values, one line each. No nested bullets." },
+
+    { "code": "L27", "name": "Full-bleed image + overlay", "family": "image", "modes": ["presenter"], "onePoint": "The headline over the image; the image is the emotion.", "surfaces": ["image+navy overlay"], "fullBleed": true, "bleedEdges": ["all"], "logo": "white", "maxElements": 3,
+      "slots": [
+        { "name": "image", "role": "full-bleed", "box": [0, 0, 1920, 1080] },
+        { "name": "overlay", "role": "60–75% navy" },
+        { "name": "eyebrow", "tier": "eyebrow" },
+        { "name": "headline", "role": "italic emphasis (key word or phrase)", "tier": "title", "wordCap": 8 }
+      ], "keepHonest": "One line of type. Needs a paragraph? It's not a full-bleed." },
+
+    { "code": "L28", "name": "Split 50/50", "family": "image", "modes": ["both"], "onePoint": "The claim (one half); the image (other half).", "surfaces": ["paper", "navy"], "fullBleed": true, "bleedEdges": ["image half"], "logo": "variant by surface", "maxElements": 4,
+      "slots": [
+        { "name": "image", "role": "half", "box": [960, 0, 960, 1080] },
+        { "name": "eyebrow", "tier": "eyebrow" },
+        { "name": "headline", "tier": "title", "wordCap": 8 },
+        { "name": "body", "tier": "body", "wordCap": 30 }
+      ], "keepHonest": "Don't fill the type half to the edges — keep air." },
+
+    { "code": "L29", "name": "Pull quote", "family": "image", "modes": ["both"], "onePoint": "The quote; one phrase highlighted.", "surfaces": ["teal", "purple", "navy"], "fullBleed": false, "logo": "white", "maxElements": 3,
+      "slots": [
+        { "name": "eyebrow", "tier": "eyebrow" },
+        { "name": "quote", "role": "Baskerville-italic, one highlighted phrase, ≤20 words", "tier": "statement", "wordCap": 20 },
+        { "name": "attribution", "role": "name + role", "tier": "body" }
+      ], "keepHonest": "One quote, ≤20 words. Highlight one phrase." },
+
+    { "code": "L42", "name": "Bento collage (4)", "family": "image", "modes": ["both"], "onePoint": "The set as one textured collage; the largest cell carries the hero.", "surfaces": ["paper", "navy"], "fullBleed": false, "logo": "variant by surface", "maxElements": 6,
+      "slots": [ { "name": "eyebrow", "tier": "eyebrow" }, { "name": "title", "tier": "title" }, { "name": "cells", "count": 4, "note": "mixed aspects into rounded cells, tight gaps, fill biggest first" } ], "keepHonest": "One cell leads, the rest support. Not all equal." },
+
+    { "code": "L43", "name": "Bento collage (5)", "family": "image", "modes": ["both"], "onePoint": "Five images as one composed object.", "surfaces": ["paper", "navy"], "fullBleed": false, "logo": "variant by surface", "maxElements": 7,
+      "slots": [ { "name": "eyebrow", "tier": "eyebrow" }, { "name": "title", "tier": "title" }, { "name": "cells", "count": 5, "note": "mixed aspects, one hero cell" } ], "keepHonest": "Mixed cell sizes give the rhythm." },
+
+    { "code": "L44", "name": "Bento collage (7)", "family": "image", "modes": ["both"], "onePoint": "Seven images as one composed object.", "surfaces": ["paper", "navy"], "fullBleed": false, "logo": "variant by surface", "maxElements": 9,
+      "slots": [ { "name": "eyebrow", "tier": "eyebrow" }, { "name": "title", "tier": "title" }, { "name": "cells", "count": 7, "note": "mixed aspects, one hero cell" } ], "keepHonest": "Don't make every cell equal." },
+
+    { "code": "L30", "name": "Closing", "family": "closing", "modes": ["both"], "onePoint": "The invitation — a short imperative.", "surfaces": ["navy", "lime"], "fullBleed": true, "bleedEdges": ["storyline line on navy"], "logo": "variant by surface", "maxElements": 4,
+      "slots": [
+        { "name": "headline", "role": "italic emphasis (key word or phrase)", "tier": "statement", "wordCap": 6 },
+        { "name": "contact", "role": "contact line", "tier": "body" },
+        { "name": "logo", "asset": "logo-stacked; storyline line on navy" }
+      ], "keepHonest": "A verb + a way to reach you. No recap, no bullets." },
+
+    { "code": "L51", "name": "Q&A / hands closer", "family": "closing", "modes": ["both"], "onePoint": "An invitation to talk; the emoji carry the energy.", "surfaces": ["colorBlock"], "fullBleed": false, "logo": "variant by surface", "maxElements": 3,
+      "slots": [
+        { "name": "label", "role": "Q&A / Discussion / Over to you", "tier": "statement", "wordCap": 3 },
+        { "name": "emojiRow", "role": "raised hands or faces along the base" }
+      ], "keepHonest": "One short label + a row of emoji. No agenda recap." }
+  ],
+
+  "coreForKnowledgeWorkers": ["L01", "L03", "L02", "L08", "L47", "L28", "L46", "L37", "L35", "L19", "L30"],
+  "note_on_coverage": "All 48 catalogued layouts are represented. `coreForKnowledgeWorkers` lists the 11 the brief flagged as most-used (cover, agenda, section divider, insight/statement, north-star/motif opener, image+text split, two-beat comparison, three numbered points, source→tool→output workflow, key takeaways/stat strip, closing). Coordinate boxes are provided for the geometrically-defined layouts; for the rest, slot roles + type tiers + word caps ARE the contract. Bounding boxes are guides in the 1920×1080 space, inside the 72px safe area unless the slot is explicitly full-bleed."
+}

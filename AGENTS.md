@@ -10,6 +10,7 @@ You are looking at **The Hoffman Agency design system**: brand tokens, fonts, lo
 
 **Then read by task — what you're being asked to make:**
 - **A deck / presentation / any fixed 1920×1080 slide** → `LAYOUTS.md` (the 48-layout library, L01–L51 — pick a named layout, don't free-style) + `AGENTS.md §§1–12` (slide type scale, "fill the frame," imagery, declutter, editorial headlines, structure, color, Fluent emoji, **Presenter-vs-Document mode**). Build from `templates/deck/Deck.dc.html`. **Decide the deck's mode first (§12).**
+- **A native PowerPoint / `.pptx` / `.potx` file** → **`POWERPOINT.md` first** (+ `AGENTS.md §13`), then `LAYOUTS.md`. Prefer exporting the deck to editable PPTX; place logos via `assets/asset-manifest.json`, layouts via `templates/powerpoint/layout-manifest.json`; set the theme fonts to Poppins; validate the finished file.
 - **A web page / marketing site** → `README.md` web sections + `ui_kits/website/` (real components) + `DESIGN.md` web type scale. Web posture: generous whitespace, sparse imagery, 1240px measure.
 - **A product app / dashboard / workflow UI** → `README.md` app sections + `ui_kits/app/` (product primitives) + `DESIGN.md` component guidance. App posture: dense but calm, scannable, native controls, compact panels, no marketing hero composition.
 - **A social tile / one-pager** → the matching folder in `templates/` (`social-tile/`, `one-pager/`).
@@ -46,7 +47,7 @@ This design system serves **two media with different physics**, and their rules 
 - ❌ "**Sparse imagery**" → imagery is the **DEFAULT** on slides (§3).
 - ❌ Web **max-width / reading-measure** caps (1240px, 68ch) → slides are edge-to-edge 1920×1080; use the full frame.
 
-DESIGN.md still governs **color, fonts, the italic-word move, the Storyline motif, annotations, and voice** — those are brand-wide and apply to both media. It's only the *web layout/scale/density/imagery* posture that slides override.
+DESIGN.md still governs **color, fonts, the italic-emphasis move, the Storyline motif, annotations, and voice** — those are brand-wide and apply to both media. It's only the *web layout/scale/density/imagery* posture that slides override.
 
 ## 1. Slides use a SLIDE type scale, not a web type scale
 Canvas is 1920×1080 → **1pt = 2px** (a 13.33″-widescreen point doubles into px). Translate PowerPoint point sizes accordingly. **Every size in this system is quoted in BOTH units — px first, pt in parens — so pixel-based tools (browsers, image generators) and point-based tools (PowerPoint, Keynote, print) can each read the spec directly; when you write a new size anywhere, give both.** **These are FLOORS — bias to the top of every range; the display tiers are "size-to-fit," not caps: cover and closing words should grow until they fill the frame on 1–2 lines.**
@@ -79,7 +80,7 @@ Keep the **dotted border** + **aspect-ratio label** (the user likes both). Three
 
 ## 5. Text slots are typed prompts (role + style + word cap)
 Label each text region by what it is and how to write it, not a vague description. Examples:
-- Title: *one line, ≤8 words, one Baskerville-italic word.*
+- Title: *one line, ≤8 words, the key word or phrase set in Baskerville italic.*
 - Punchy subtitle: *accentuates the slide, ≤14 words.*
 - Body: *leads with the punchline, ≤30 words.*
 - Bullet/prop: *a trigger not a sentence, ≤6 words, max 3.*
@@ -113,9 +114,9 @@ Every element must earn its place at a LARGE size. If a text element can't be re
 
 ## 10. Headlines are editorial, not descriptive
 Descriptive / summary headlines ("Korea: a widening mandate", "Our work across Asia") read as AI-default. Rewrite them into the house voice.
-- **≤ 8 words, one line where possible, with a point of view.** Prefer a question, a two-beat ("Tech. We're it."), the one Baskerville-italic word, a strikethrough swap, or a giant single word.
+- **≤ 8 words, one line where possible, with a point of view.** Prefer a question, a two-beat ("Tech. We're it."), the Baskerville-italic emphasis (its key word *or* short phrase), a strikethrough swap, or a giant single word.
 - **Contrast, questions, wordplay** over labels: "Who we are" → "But first, a bit about us." · "Tech's most decorated agency" → "Tech. We're it." · "China: local storytelling" → "Fluency in China's complexity."
-- One voice move per headline — don't stack a question + italic + strikethrough on one line.
+- One voice move per headline — don't stack a question + italic + strikethrough on one line. The italic marks the line's **emphasis by meaning** — usually one word, sometimes a short phrase; never scatter italics across several words, and never force a single word when the point lives in a phrase.
 
 ## 11. Structure — breadth up front, a real close (don't over-compress)
 "Lean / one-point" governs the CONTENT section — it does NOT mean a one-slide deck.
@@ -131,6 +132,17 @@ A deck is built for the eyes in the room **or** to be read alone — never both.
 - **What does NOT change between modes:** the Hoffman visual system. Both modes still **fill the frame** (§2), use the **slide type scale** (§1) and the **whole palette** (§7), keep the **72px margin**, and carry **imagery by default** (§3). Document mode is *denser content* — never smaller type or an airier, web-density page.
 - **Determining the mode:** **infer it from context and state your assumption; ask only if genuinely ambiguous.** Signals — "I'll present this / for the stage / town hall / live pitch" → Presenter; "leave-behind / send it over / read-ahead / board pre-read / they can't make the meeting" → Document. A first-meeting pitch delivered live is Presenter; a proposal emailed cold is Document. When you truly can't tell, quiz the user.
 - **Templates:** the 48-layout `templates/deck/` library is the **single deck template** and **carries the Mode tweak** (Presenter reflows to sparse + speaker notes; Document reveals the depth on-slide) — set it in Tweaks, then author every kept layout in that one chosen mode. The full worked demonstration of the whole system is `slides/Hoffman Brand Guidelines.html`.
+
+## 13. Native PowerPoint — when the output is `.pptx`
+When the requested output is `.pptx` / `.potx` / PowerPoint, **read `POWERPOINT.md` first.** The visual system is unchanged; what changes is that a `.pptx` has no CSS/grid/`@font-face`, so relationships are placed by hand and **verified in the finished file**. The reliability layer:
+
+- **Prefer exporting the HTML deck** (`templates/deck/Deck.dc.html`) to editable PPTX. Hand-build (python-pptx etc.) only when a tool can't export, using `POWERPOINT.md` + `assets/asset-manifest.json` (logo geometry, protected zones, surface→variant) + `templates/powerpoint/layout-manifest.json` (the 48 layout contracts) as the implementation source — not from memory.
+- **Fonts: presence ≠ use.** Confirm Poppins + Libre Baskerville Italic are available to the creation environment (files in this repo aren't enough), and set the PowerPoint **theme** fonts to Poppins. Detect Calibri/Aptos/Arial fallbacks in the finished file; never silently substitute.
+- **Build the theme, don't just paint shapes** — set theme colours + fonts so new text boxes default on-brand (`POWERPOINT.md §2`).
+- **Logos are geometry contracts.** Set one dimension, derive the other from the manifest ratio, lock aspect ratio; >1% off fails. Variant by surface (lime → **navy** logo, never the 2-colour). Keep content out of the wordmark/boxed-monogram protected zone; the full-frame line is a background layer.
+- **Layout codes are contracts** — preserve the structure or pick another layout. **Every arrow connects two named elements** edge-to-edge, never floating in open space; source→tool→output workflows use L35.
+- **Images:** never stretch; preserve source ratio; use the Hoffman placeholder rather than a weak image.
+- **Validate + render the finished `.pptx`** at full size (`POWERPOINT.md §§8–9`). Don't deliver with fallback fonts, distorted logos, wrong logo variant, protected-area collisions, stretched images or disconnected arrows.
 
 ---
 **Status:** the slide-design SOPs in this file are established across all **48 layouts** in `templates/deck/Deck.dc.html` (codes L01–L51, catalogued in `LAYOUTS.md`). As the user uploads further layouts, copy them against these SOPs and keep `LAYOUTS.md` + the deck count (README, SKILL.md) in sync.

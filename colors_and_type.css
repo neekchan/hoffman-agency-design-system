@@ -226,7 +226,7 @@
 .tha-display-1 { font: var(--display-1); letter-spacing: var(--track-tight); }
 .tha-display-2 { font: var(--display-2); letter-spacing: var(--track-tight); }
 .tha-display-3 { font: var(--display-3); letter-spacing: var(--track-snug); }
-/* Italic emphasis: one word in Baskerville italic inside a Poppins line. */
+/* Italic emphasis: the key word or short phrase in Baskerville italic inside a Poppins line. */
 .tha-em-serif  { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
 
 /* ---------- Hand-drawn annotation SVG stroke (reusable) ---------- */

@@ -4,6 +4,39 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-07-13 — Master → repo full-parity sync (native PowerPoint route + italic-emphasis refinement)
+
+Pulled the latest Claude Design master down to the repo and reconciled every
+differing file. Two threads:
+
+- **Native PowerPoint route (new).** Added `POWERPOINT.md` (the `.pptx`/`.potx`
+  reliability layer — build-the-theme spec, font presence-≠-use rules, logo
+  geometry contracts, protected zones, connector rules, layout-as-contract, and
+  a finished-file validation checklist), `assets/asset-manifest.json` (machine-
+  readable logo/Storyline geometry, ratios, clearspace, protected zones, and the
+  surface→logo-variant map), and `templates/powerpoint/layout-manifest.json` (the
+  48 layout contracts for python-pptx-style tools that can't consume
+  `Deck.dc.html`). Threaded the route into the existing docs: a new **§13 Native
+  PowerPoint** in `AGENTS.md`, a **"Finished PowerPoint file"** section in
+  `CHECKLIST.md`, native-`.pptx` routing rows/subsections in `LLM_ENTRYPOINT.md`,
+  `README.md` (routing table + file map: POWERPOINT.md, asset-manifest.json,
+  templates/powerpoint/) and `SKILL.md`, and a full **PowerPoint & Office —
+  presence is not use** per-platform font workflow in `fonts/README.md`.
+- **Italic-emphasis refinement.** The signature type move is now "the **emphasis**
+  — a key word *or* short phrase, chosen by meaning, one per line" (was "one
+  italic word"). Synced across `AGENTS.md` (§0/§5/§10), `CHECKLIST.md`,
+  `DESIGN.md`, `LAYOUTS.md` (14 slot descriptions + signatures), `SKILL.md`,
+  `colors_and_type.css` (`.tha-em-serif` comment), `preview/brand-voice.html`
+  (section 2), `templates/deck/Deck.dc.html` (L08 `@layout`) and
+  `templates/app-deck/AppDeck.dc.html` (interactive-demo copy).
+
+Deliberately **not** changed: the repo's `CLAUDE.md` stays a "pointer, not canon"
+redirect to `AGENTS.md` (the master's `CLAUDE.md` is a full duplicate of the
+canon — mirroring it here would break the repo's intentional structure); the
+compiler-generated `_ds_bundle.js` / `_ds_manifest.json` are unchanged (no
+component source, card metadata, or DC template changed); `references/` and
+`uploads/` remain excluded from the public mirror.
+
 ## 2026-07-12 — Impeccable audit fixes (v1.1 → v2.0)
 
 Ran a full `$impeccable audit` (12/20, tagged `v1.1`) and fixed all 23 findings

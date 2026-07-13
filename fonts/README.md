@@ -41,6 +41,36 @@ In practice, Libre Baskerville is used **italic only**, as one-word emphasis ins
 
 ---
 
+## Web / HTML
+
+This is the only case the `@font-face` blocks in `colors_and_type.css` solve on their own. Link `colors_and_type.css`; the browser loads the `.ttf` files from this folder. Poppins is the workhorse for structure + body; `<em>` maps to Libre Baskerville Italic for the one-word emphasis move. Nothing else to do.
+
+---
+
+## PowerPoint & Office — presence is not use
+
+> **Font files merely being present in the design-system folder does not make PowerPoint use them. Before creating or exporting a `.pptx`, the required fonts must be installed, registered in the generation environment, or embedded in the finished file.** CSS `@font-face` only solves the HTML case.
+
+The fix is per-environment:
+
+**PowerPoint on macOS** — install the families first: Font Book → File → Add Fonts → select the Poppins `.ttf` files and both Libre Baskerville variable fonts. Restart PowerPoint. Set the theme fonts to Poppins (see `POWERPOINT.md §2`). macOS PowerPoint does **not** embed fonts on save — a Mac-authored `.pptx` opened on a machine without Poppins falls back to Calibri, so treat embedding as a Windows step or self-host into HTML for portability.
+
+**PowerPoint on Windows** — install via right-click → *Install for all users* (all Poppins weights + both Libre Baskerville variable fonts). Set the theme fonts to Poppins. Then **embed**: File → Options → Save → *Embed fonts in the file* → *Embed all characters* (safest for downstream editing). Verify the saved package actually contains the embedded font parts.
+
+**AI / automated PowerPoint generation** (python-pptx, Apps Script, conversion tools) — the theme fonts and every text run must declare `Poppins` explicitly; setting a bold flag is not the same as `Poppins SemiBold`. Libre Baskerville Italic only on the emphasis word / pull-quote. The generation host must have the fonts available, or the tool must embed them, or it must **disclose** that it cannot preserve them — never silently substitute. Run the preflight + finished-file test below.
+
+**Embedding & handoff** — a `.pptx` handed to a client who may lack the fonts should have fonts embedded (Windows, above) or be delivered as a PDF / flat-image export. Confirm embedding by inspecting the package for the font parts; don't assume. **Never include `references/` in a handoff.**
+
+**Fallback policy** — an approved fallback is for emergency compatibility only. It must be **disclosed**, not silently substituted. If no fallback has been authorised and the tool cannot preserve Poppins + Libre Baskerville Italic, **stop** rather than ship a Calibri deck.
+
+### Font preflight & finished-file test
+
+**Before generating:** confirm Poppins + Libre Baskerville Italic are available to the authoring tool; render a short specimen if unsure; stop if neither preserved nor an approved fallback.
+
+**After export:** inspect the theme fonts; inspect explicit `typeface` declarations in text runs; detect Calibri / Aptos / Arial fallbacks; confirm embedding when portability requires it; open or render the **actual `.pptx`**, not the source HTML. Full checklist in `POWERPOINT.md §9`.
+
+---
+
 ## These are also available on Google Fonts
 
 If you don't want to ship the binary font files — for example, in a public-facing web project where CDN caching across the web is preferred — both families are free and hosted on Google Fonts:
@@ -58,7 +88,7 @@ To switch to Google Fonts: replace the `@font-face` blocks at the top of `colors
 
 We default to local files because:
 
-1. **Offline support** — decks and documents render correctly with no internet.
+1. **Offline support (HTML only)** — HTML decks and documents render correctly with no internet. Note: this holds for the *web/HTML* case. A PowerPoint or other Office file only renders offline with the brand fonts if those fonts are **installed on the opening machine or embedded in the file** — self-hosting the `.ttf`s in this folder does nothing for a `.pptx` on its own (see the PowerPoint section above).
 2. **Corporate firewalls** — some client/internal networks block `fonts.googleapis.com`.
 3. **Single source of truth** — everything brand-related lives in this project, no external dependency.
 4. **Editorial consistency** — no risk of the CDN serving a slightly-updated metric.

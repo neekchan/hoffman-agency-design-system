@@ -28,6 +28,7 @@ use the routing rules below.
 | If the user asks for | Use these rules first | Do not do this |
 |---|---|---|
 | Slides, decks, PowerPoint, Keynote | `AGENTS.md` + `LAYOUTS.md`; if unavailable, use the slide quick rules below | Do not apply web whitespace/type scale |
+| Native PowerPoint / `.pptx` / `.potx` (the file itself) | `POWERPOINT.md` first, then `AGENTS.md` + `LAYOUTS.md`; place logos via `assets/asset-manifest.json`, layouts via `templates/powerpoint/layout-manifest.json` | Do not paint shapes on a generic Office theme, stretch logos, or invent layouts under a named code |
 | Marketing site or landing page | `DESIGN.md`, `colors_and_type.css`, `ui_kits/website/` | Do not use dashboard density |
 | Product app, dashboard, portal, workflow UI | `DESIGN.md`, `ui_kits/app/`, `ui_kits/app/COMPONENTS.md` | Do not start with a marketing hero |
 | Social tile or carousel | `templates/social-tile/`, `PROMPTS.md` | Do not use tiny type or decorative clutter |
@@ -65,6 +66,7 @@ The design system is organized so every file name corresponds to how it's used. 
 AGENTS.md               · slide/deck SOPs — the authority for slides & office docs (precedence: see §0)
 LLM_ENTRYPOINT.md       · shortest task router for Claude, ChatGPT and other design agents
 LAYOUTS.md              · deck layout library (48 layouts, L01–L51) + slide best-practice guide
+POWERPOINT.md           · native `.pptx` route — theme spec, font reliability, logo geometry, protected zones, connectors, layout-as-contract, finished-file validation (read when the output is PowerPoint)
 DESIGN.md               · Google design.md spec — machine-readable single source of truth
 README.md               · this file (the human read of the brand: content, visual, iconography)
 SKILL.md                · agent-skill manifest
@@ -88,6 +90,7 @@ docs/                   · portable exports + demos — self-contained, NOT part
     Character Animation Demo.html     · rigged, code-drawn character (no video)
 
 assets/
+  asset-manifest.json               · machine-readable logo/Storyline geometry, ratios, clearspace, protected zones, surface→variant map — read before placing any logo (esp. in PowerPoint)
   logo-horizontal-{navy-lime,navy,white,white-lime,black}.svg   · 5 horizontal colorways
   logo-stacked-{navy-lime,navy,white,white-lime,black}.svg      · 5 stacked equivalents
   mark-square-lime.png · mark-square-lime-alt.png   · favicon / app icon / social avatar
@@ -117,6 +120,7 @@ preview/                · Design System tab — one @dsCard per token/brand gro
 
 templates/              · reusable DC starting points consuming projects copy (each <slug>/<Slug>.dc.html + ds-base.js)
   deck/                 · Deck.dc.html — the 48-layout presentation library (L01–L51); the ONE deck template — carries the Presenter/Document Mode toggle + the balloon cover (+ deck-stage.js, ds-base.js, support.js)
+  powerpoint/           · layout-manifest.json — machine-readable contracts for all 48 layouts (slots, tiers, coords, surface/logo) for native-`.pptx` tools that can't consume Deck.dc.html. No binary `.potx`/`.pptx` ship here — build them from `POWERPOINT.md §2` + the manifests
   one-pager/            · OnePager.dc.html — print, Letter
   social-tile/          · SocialTile.dc.html — square social
 

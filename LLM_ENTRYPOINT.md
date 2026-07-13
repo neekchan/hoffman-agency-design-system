@@ -8,7 +8,8 @@ route.
 
 | User asks for | Read | Start from | Key rule |
 |---|---|---|---|
-| Presentation, pitch, deck, slide, PowerPoint, Keynote | `AGENTS.md`, then `LAYOUTS.md` | `templates/deck/Deck.dc.html` | Slides override web spacing/type. Fill the 1920x1080 frame. |
+| Presentation, pitch, deck, slide (HTML) | `AGENTS.md`, then `LAYOUTS.md` | `templates/deck/Deck.dc.html` | Slides override web spacing/type. Fill the 1920x1080 frame. |
+| **Native PowerPoint / `.pptx` / `.potx` / Keynote-for-Office** | **`POWERPOINT.md`** first, then `AGENTS.md` + `LAYOUTS.md` | Prefer exporting `templates/deck/Deck.dc.html` to editable PPTX; else the two manifests | **If output is `.pptx`, read `POWERPOINT.md`.** Set the theme fonts to Poppins, place logos via `assets/asset-manifest.json`, treat layout codes as contracts, validate the finished file. |
 | Marketing website, landing page, brand page | `README.md`, `DESIGN.md` | `ui_kits/website/index.html` | Web can breathe. Use website components and real imagery/placeholders. |
 | Product app, dashboard, admin, portal, workflow tool | `DESIGN.md`, `ui_kits/app/COMPONENTS.md` | `ui_kits/app/index.html` | Dense, calm, scannable UI. Use app primitives, not marketing heroes. |
 | Social tile or carousel | `README.md`, `PROMPTS.md` | `templates/social-tile/SocialTile.dc.html` | One idea per tile, big type, fixed safe zone. |
@@ -35,6 +36,13 @@ route.
 - Use imagery by default.
 - Use one Microsoft Fluent emoji as a storytelling device when it is the slide's graphic beat.
 - Never use web max widths or 16px body type.
+
+**Native PowerPoint (`.pptx` / `.potx`)** — read `POWERPOINT.md` before authoring.
+
+- Prefer exporting the HTML deck to editable PPTX; hand-build only when the tool can't, using `assets/asset-manifest.json` + `templates/powerpoint/layout-manifest.json`.
+- Confirm Poppins + Libre Baskerville Italic are available to the creation tool; set the PowerPoint **theme** fonts to Poppins (files present ≠ used).
+- Place logos via the asset manifest: lock the ratio, derive one dimension from the other, pick the variant the surface requires (lime → navy logo), keep content out of protected zones.
+- Layout codes are contracts; every arrow must connect two named elements; validate and render the finished `.pptx`.
 
 **Marketing Web**
 

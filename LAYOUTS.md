@@ -55,7 +55,7 @@ The visual, directly-editable gallery of every layout lives in **`templates/deck
 
 The headline is the slide's one job — make it a line with a point of view, not a label.
 
-- **≤ 8 words with an angle** — a question, a two-beat ("Tech. We're it."), the one Baskerville-italic word, a strikethrough swap, or a single giant word. Descriptive / summary titles ("Korea: a widening mandate", "Q3 overview") are the AI-default tell — rewrite them.
+- **≤ 8 words with an angle** — a question, a two-beat ("Tech. We're it."), the Baskerville-italic emphasis (its key word or short phrase), a strikethrough swap, or a single giant word. Descriptive / summary titles ("Korea: a widening mandate", "Q3 overview") are the AI-default tell — rewrite them.
 - One voice move per headline. Land it, don't decorate it. (See `AGENTS.md §10`.)
 
 ### Presenter vs Document mode (choose before layouts)
@@ -64,7 +64,7 @@ Choose the deck's **mode** first — it sets how much goes on every slide. **Pre
 
 ### The Hoffman signatures (use, don't overuse)
 
-- **The italic word** — one Baskerville-italic word inside a Poppins headline. Once per slide, on the word that carries the weight.
+- **The italic emphasis** — the line's key word *or* short phrase, set in Baskerville italic inside a Poppins headline. Once per slide, on the emphasis that carries the weight — usually one word, sometimes a phrase; chosen by meaning, never scattered.
 - **Stretched letters** (`helllllo 2026`) — cover & section dividers only, never body.
 - **Strikethrough swap** (`~~doubling~~ tripling`) — once per *deck*.
 - **One annotation** — an underline, circle, arrow, tick or cross from `assets/annotations/`, coloured by contrast. 1–2 marks per surface, counting the highlight.
@@ -120,28 +120,28 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 **L01 · Cover**
 - BEST FOR: opening any deck.
 - THE ONE POINT: the deck's single idea, as a huge headline (stretched-letter treatment welcome).
-- SLOTS: eyebrow (client · engagement · date) → giant headline w/ one italic word → one-line subtitle → logo. Optional full-bleed image band or storyline line on navy.
+- SLOTS: eyebrow (client · engagement · date) → giant headline w/ the italic emphasis → one-line subtitle → logo. Optional full-bleed image band or storyline line on navy.
 - SURFACES: navy + storyline line (default), or lime with navy type.
 - KEEP IT HONEST: no agenda, no body copy. A cover is a title and a feeling.
 
 **L31 · Cover (spectrum bar)**
 - BEST FOR: an alternative cover when you want the multicolor edge device instead of the storyline line.
 - THE ONE POINT: one idea, huge. The spectrum bar carries the brand energy; the type carries the idea.
-- SLOTS: eyebrow pill (client · engagement · year) → title (≤8 words, one italic word, 130px+) → subtitle (≤14 words).
+- SLOTS: eyebrow pill (client · engagement · year) → title (≤8 words, the italic emphasis, 130px+) → subtitle (≤14 words).
 - SURFACES: navy ground; full-height spectrum bar flush left; white+lime logo.
 - KEEP IT HONEST: the bar is the only ornament. No body copy.
 
 **L02 · Section divider**
 - BEST FOR: entering a numbered part of the deck.
 - THE ONE POINT: the section name, set huge; the number is the second voice.
-- SLOTS: part number (`01`) → big section title w/ italic word → optional small graphic. Page chrome.
+- SLOTS: part number (`01`) → big section title w/ the italic emphasis → optional small graphic. Page chrome.
 - SURFACES: rotate the colour per section (lime, purple, teal, lavender, cyan) so each act feels distinct.
 - KEEP IT HONEST: one or two words. Never a sentence, never bullets.
 
 **L32 · Section divider (spectrum bar)**
 - BEST FOR: entering a numbered part with the edge-bar device instead of a colour flood.
 - THE ONE POINT: the section name, huge; the mono number is the second voice.
-- SLOTS: number (`01`) → title (1–2 words w/ italic word).
+- SLOTS: number (`01`) → title (1–2 words w/ the italic emphasis).
 - SURFACES: navy ground + spectrum bar; or rotate the ground colour per section.
 - KEEP IT HONEST: same as L02 — one or two words, never a sentence.
 
@@ -156,7 +156,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 
 **L08 · Statement + support**
 - BEST FOR: landing one point of view.
-- THE ONE POINT: the claim, set 72–96px, one italic word.
+- THE ONE POINT: the claim, set 72–96px, the italic emphasis.
 - SLOTS: eyebrow → headline → ≤30-word support → optional one annotation.
 - SURFACES: paper, navy, or a colour block.
 - KEEP IT HONEST: the support extends the headline, never restates it. Resist a second paragraph.
@@ -164,7 +164,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 **L09 · Big-idea split** *(signature)*
 - BEST FOR: a campaign idea or strategic "what if" that needs a feeling beside it.
 - THE ONE POINT: a provocative question or claim headline (left), an emotive image (right).
-- SLOTS: eyebrow/audience tag → big headline w/ italic word → ≤30-word setup → a **role box** (one highlighted line: "Wise's role / our role: …"). Right: full-height image. Bottom: idea name strip.
+- SLOTS: eyebrow/audience tag → big headline w/ the italic emphasis → ≤30-word setup → a **role box** (one highlighted line: "Wise's role / our role: …"). Right: full-height image. Bottom: idea name strip.
 - SURFACES: paper or sand left panel; the image carries the colour. Role box in lime or a secondary.
 - KEEP IT HONEST: the role box is ONE line. The setup paragraph is the only body — don't stack three.
 
@@ -222,14 +222,14 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 **L11 · Three-column image cards** *(signature)*
 - BEST FOR: 2–3 parallel insights, each with a face/photo and a couple of contrast chips.
 - THE ONE POINT: the pattern across the columns (stated in the eyebrow/title); each column is one beat.
-- SLOTS: title w/ italic word → 3 columns: image → bold lead (≤6 words) → ≤24-word body → up to 2 chips (e.g. SG / MY).
+- SLOTS: title w/ the italic emphasis → 3 columns: image → bold lead (≤6 words) → ≤24-word body → up to 2 chips (e.g. SG / MY).
 - SURFACES: paper; chips in two contrasting secondaries.
 - KEEP IT HONEST: 3 columns max. Each column says ONE thing. Equal weight — no column is the hero.
 
 **L12 · Three-column textured icon cards** *(signature)*
 - BEST FOR: three parallel insights, each with its own painterly icon card and a market-split read (e.g. SG / MY).
 - THE ONE POINT: the pattern across the three verticals; each column is one insight, proven with two market bullets.
-- SLOTS: title (≤10 words, one italic word) → ≤30-word subtitle → per column: textured icon card → heading (≤7 words) → 2 bullets with a bold market lead-in (≤22 words each).
+- SLOTS: title (≤10 words, the italic emphasis) → ≤30-word subtitle → per column: textured icon card → heading (≤7 words) → 2 bullets with a bold market lead-in (≤22 words each).
 - SURFACES: paper; cards carry the colour (tex-a / -b / -c); icons navy on white.
 - KEEP IT HONEST: three columns, equal weight. Two market bullets per column — not three. The card colour rotates; the insight doesn't compete.
 
@@ -296,7 +296,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 **L40 · Story idea + role + image** *(signature)*
 - BEST FOR: unpacking one hero story idea — the angle, the brand's role, and a captioned image carrying the name.
 - THE ONE POINT: the angle headline + the one-line role; the image names the idea.
-- SLOTS: segment (1 word UPPERCASE) → headline (≤12 words, one italic word) → body (≤45 words) → role box (≤30 words) → image caption (the idea name, ≤4 words).
+- SLOTS: segment (1 word UPPERCASE) → headline (≤12 words, the italic emphasis) → body (≤45 words) → role box (≤30 words) → image caption (the idea name, ≤4 words).
 - SURFACES: paper; navy role box; image with a lime caption bar.
 - KEEP IT HONEST: the role box is one line of role, not a second paragraph. The caption is the idea's name only.
 
@@ -312,7 +312,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 **L33 · Cascade stat boxes**
 - BEST FOR: proof points or product detail where 3 numbers need to feel like a confident, designed object.
 - THE ONE POINT: three results, stacked as one cascading form. Stat top-left, icon bottom-left of each box.
-- SLOTS: eyebrow → title (≤8 words, one italic word) → ≤24-word intro → ≤3 bullets (≤6 words) → each box: big number + ≤4-word label.
+- SLOTS: eyebrow → title (≤8 words, the italic emphasis) → ≤24-word intro → ≤3 bullets (≤6 words) → each box: big number + ≤4-word label.
 - SURFACES: paper left; cascade RAINBOW by default (toggle to solid navy via Tweaks).
 - KEEP IT HONEST: three boxes, three numbers. The cascade is the design — don't add a fourth.
 
@@ -414,7 +414,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 **L27 · Full-bleed image + overlay**
 - BEST FOR: a single emotive beat carried by one photo.
 - THE ONE POINT: the headline over the image; the image is the emotion.
-- SLOTS: full-bleed image → 60–75% navy overlay → eyebrow + short headline w/ italic word.
+- SLOTS: full-bleed image → 60–75% navy overlay → eyebrow + short headline w/ the italic emphasis.
 - SURFACES: image + navy overlay; white logo.
 - KEEP IT HONEST: one line of type. If it needs a paragraph, it's not a full-bleed.
 
@@ -442,7 +442,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 **L30 · Closing**
 - BEST FOR: the sign-off / hand to conversation.
 - THE ONE POINT: the invitation — a short imperative ("Let's tell your story.").
-- SLOTS: big headline w/ italic word → contact line → logo. Storyline line on navy.
+- SLOTS: big headline w/ the italic emphasis → contact line → logo. Storyline line on navy.
 - SURFACES: navy + storyline line, or lime.
 - KEEP IT HONEST: a verb + a way to reach you. No recap, no bullets.
 

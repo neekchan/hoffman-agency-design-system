@@ -1,0 +1,148 @@
+{
+  "$schema": "internal://hoffman/asset-manifest.v1",
+  "description": "Machine-readable geometry and placement rules for Hoffman brand furniture (logos + Storyline marks). Read this before placing any logo in a deck, document, or PowerPoint. Every ratio here is measured from the actual SVG viewBox. NEVER set a logo's width and height independently — set ONE dimension and derive the other from `ratioWtoH`.",
+  "canvas": { "slide": { "width": 1920, "height": 1080, "note": "16:9. 1pt = 2px." } },
+  "tolerance": {
+    "aspectRatioPct": 1.0,
+    "note": "A placed logo whose width/height ratio differs from the manifest ratio by more than 1% FAILS review. Small viewBox rounding in variant SVGs (e.g. 417.2 vs 417.21) is within tolerance."
+  },
+
+  "colorTokens": {
+    "navy": "#182D43",
+    "lime": "#D2EB00",
+    "white": "#FFFFFF",
+    "paper": "#FAFAF7",
+    "violet": "#CB65FF",
+    "purple": "#6103B9",
+    "aqua": "#86FFF1",
+    "teal": "#145F7B",
+    "black": "#0E1C2B"
+  },
+
+  "surfaceToLogo": {
+    "_rule": "Pick the logo VARIANT from the slide's background surface. Never collapse to a generic light/dark binary — lime has its own dedicated rule.",
+    "paper":  { "variant": "navy-lime", "reason": "2-color logo (navy wordmark + lime accent) on warm off-white / white" },
+    "white":  { "variant": "navy-lime", "reason": "2-color logo on pure white" },
+    "sand":   { "variant": "navy-lime", "reason": "2-color logo on warm sand panel" },
+    "lime":   { "variant": "navy", "reason": "ONE-COLOR NAVY logo on lime. The navy-lime 2-color logo is FORBIDDEN on lime (lime accent vanishes into the lime ground). This is the single most-missed logo rule." },
+    "navy":   { "variant": "white", "reason": "1-color pure-white logo on navy (white-lime 2-color also allowed if the lime accent clears contrast)", "alsoAllowed": ["white-lime"] },
+    "purple": { "variant": "white", "reason": "1-color pure-white logo on any dark secondary surface" },
+    "violet": { "variant": "white", "reason": "1-color pure-white logo; violet is light-leaning — verify WCAG before trusting white" },
+    "teal":   { "variant": "white", "reason": "1-color pure-white logo on teal" },
+    "aqua":   { "variant": "navy", "reason": "aqua/cyan is a LIGHT surface — navy logo, not white" },
+    "lavender": { "variant": "white", "reason": "1-color white on lavender if it clears WCAG; else navy" },
+    "image-dark-overlay": { "variant": "white", "reason": "full-bleed photo with navy overlay → white logo" }
+  },
+
+  "assets": [
+    {
+      "id": "logo-horizontal",
+      "type": "wordmark",
+      "role": "page-furniture",
+      "orientation": "horizontal",
+      "intrinsic": { "width": 417.21, "height": 89.8 },
+      "ratioWtoH": 4.645991,
+      "variants": {
+        "navy-lime": "logo-horizontal-navy-lime.svg",
+        "white-lime": "logo-horizontal-white-lime.svg",
+        "navy": "logo-horizontal-navy.svg",
+        "white": "logo-horizontal-white.svg",
+        "black": "logo-horizontal-black.svg"
+      },
+      "minDisplay": { "width": 24, "unit": "px", "note": "24px wide floor" },
+      "clearspace": { "allSides": "0.25 * displayHeight", "note": "≥ cap-height of the 'H' on all four sides" },
+      "crop": false,
+      "stretch": false,
+      "recolor": false,
+      "rotate": false,
+      "placement": {
+        "corners": ["bottom-left", "bottom-right", "top-left"],
+        "note": "Page-chrome logo lives INSIDE the 72px safe margin. Use one fixed size + position per layout family — do not let each slide re-decide it.",
+        "recommendedChromeWidth": { "value": 240, "unit": "px", "derivedHeight": 51.66, "note": "240 / 4.645991 = 51.66px. If you want a different width, recompute height = width / 4.645991." }
+      },
+      "placementMath": "height = width / 4.645991   (or width = height * 4.645991). Set ONE, compute the other. In PowerPoint, enable 'Lock aspect ratio'."
+    },
+    {
+      "id": "logo-stacked",
+      "type": "wordmark",
+      "role": "content-or-furniture",
+      "orientation": "stacked",
+      "intrinsic": { "width": 311.39, "height": 162.49 },
+      "ratioWtoH": 1.916364,
+      "variants": {
+        "navy-lime": "logo-stacked-navy-lime.svg",
+        "white-lime": "logo-stacked-white-lime.svg",
+        "navy": "logo-stacked-navy.svg",
+        "white": "logo-stacked-white.svg",
+        "black": "logo-stacked-black.svg"
+      },
+      "minDisplay": { "width": 32, "unit": "px", "note": "32px wide floor" },
+      "clearspace": { "allSides": "0.25 * displayWidth" },
+      "crop": false,
+      "stretch": false,
+      "recolor": false,
+      "rotate": false,
+      "placement": {
+        "corners": ["cover-center", "closing-center", "bottom-left"],
+        "note": "Preferred on covers/closers where a centered lockup reads best."
+      },
+      "placementMath": "height = width / 1.916364   (or width = height * 1.916364). Set ONE, compute the other. Lock aspect ratio in PowerPoint."
+    },
+    {
+      "id": "storyline-boxed",
+      "type": "monogram",
+      "role": "page-furniture",
+      "orientation": "square",
+      "intrinsic": { "width": 99.72, "height": 99.72 },
+      "ratioWtoH": 1.0,
+      "variants": {
+        "navy-lime": "storyline-navy-lime.svg",
+        "navy-white": "storyline-navy-white.svg"
+      },
+      "minDisplay": { "width": 48, "unit": "px" },
+      "clearspace": { "allSides": "0.2 * displaySize" },
+      "crop": false,
+      "stretch": false,
+      "rotate": false,
+      "surfaces": "light / non-navy surfaces (behaves like a corner lockup)",
+      "placement": {
+        "corners": ["bottom-right", "top-right"],
+        "note": "PROTECTED corner lockup. Treat exactly like a wordmark: no text, panel, bar, image, card, diagram, or agenda row may enter its bounding box + clearspace. This is the element the failed agenda deck covered."
+      },
+      "placementMath": "square — width === height always."
+    },
+    {
+      "id": "storyline-line",
+      "type": "background-device",
+      "role": "background-layer",
+      "orientation": "full-frame",
+      "intrinsic": { "width": 1920, "height": 1080 },
+      "ratioWtoH": 1.777778,
+      "variants": { "lime": "storyline-line-lime.svg" },
+      "crop": false,
+      "stretch": false,
+      "surfaces": "navy / dark full-frame only",
+      "placement": {
+        "note": "This is a BACKGROUND LAYER, not a corner lockup. It sits above the navy fill and BEHIND content — content MAY overlap it. Edge-locked: full frame, flush to top/right/bottom edges, no bleed, sharp ends absorbed by the frame. Different overlap rule from the boxed monogram."
+      },
+      "placementMath": "always full 1920×1080 — never resized or floated as an object."
+    },
+    {
+      "id": "mark-square-lime",
+      "type": "monogram-raster",
+      "role": "content",
+      "orientation": "square",
+      "variants": { "lime": "mark-square-lime.png", "lime-alt": "mark-square-lime-alt.png" },
+      "ratioWtoH": 1.0,
+      "note": "Raster square mark for surfaces where an SVG can't be used. Prefer the SVG storyline-boxed where possible."
+    }
+  ],
+
+  "protectedZones": {
+    "_rule": "Wordmarks and the boxed Storyline monogram are PROTECTED page elements. No text, panel, image, card, chip, bar, diagram, arrow, or decorative element may enter the asset's bounding box PLUS its clearspace. Compute the protected rect as the placed asset rect grown by its clearspace on all sides, then keep every other element out of it. On slide masters, LOCK these elements where the format allows.",
+    "exceptions": {
+      "storyline-line": "The full-frame line device is a background layer — content is EXPECTED to sit over it. It is NOT a protected zone. Only the BOXED monogram and the wordmarks are protected."
+    },
+    "review": "Protected zones should be visible as guides during layout, hidden in final output."
+  }
+}

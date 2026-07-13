@@ -11,13 +11,28 @@ A short list to run through before shipping any branded surface — slide, socia
 - [ ] **Document**: denser + hierarchical, short bullets allowed, each slide stands alone — still no paragraphs
 - [ ] No sparse hero slide sitting beside a six-bullet wall (the "schizophrenic deck" tell)
 
+## Finished PowerPoint file (`.pptx` / `.potx`)
+
+Run against the **exported file**, not the source that made it (`POWERPOINT.md §9`). Render every slide at full size — a passing screenshot is not proof.
+
+- [ ] File opens; slide count as expected; slide size **16:9** (13.333in × 7.5in / 1920×1080)
+- [ ] **Theme fonts are Poppins** (major + minor) — not Calibri/Aptos/Arial; theme colours match the Hoffman palette (`POWERPOINT.md §2`)
+- [ ] No unintended **fallback font** in any text run; fonts embedded when portability requires it
+- [ ] Only approved logo files used; every logo's **aspect ratio within 1%** of `assets/asset-manifest.json` (set one dimension, derive the other, lock ratio)
+- [ ] **Logo variant matches surface** — paper → 2-colour, **lime → 1-colour navy**, navy/secondary → 1-colour white
+- [ ] No content overlaps a **protected** logo / boxed-Storyline zone (the full-frame line is a background layer, exempt)
+- [ ] No element spills off-canvas; no image **stretched** (displayed ratio ≈ source); no low-res image over-enlarged
+- [ ] Every diagram **arrow connects a visible source and target** — not open space, not an oversized textbox edge; workflows use L35
+- [ ] No unresolved image placeholder / production note; speaker notes present when Presenter mode requires them
+- [ ] Advisory: ≤3 type sizes/slide, ≤15 words/slide (Presenter), square corners default, headline carries its italic emphasis (word or phrase), layout code matches its manifest structure
+
 ## Confidentiality & export
 
 - [ ] **`references/` is NEVER included** in any download, zip, bundle, standalone/inline build, published URL, PPTX/PDF, or handoff — it is the owner's confidential source material (read-for-context only)
 
 ## Type
 
-- [ ] Headline is **Poppins** (700 or 800) with exactly **one word** in `<em>` → Libre Baskerville italic
+- [ ] Headline is **Poppins** (700 or 800) with its **emphasis** — a key word *or* short phrase — in `<em>` → Libre Baskerville italic (chosen by meaning, not a fixed count; one emphasis per line, never scattered)
 - [ ] No upright Libre Baskerville used as body or display
 - [ ] Sentence case on headings; UPPERCASE only on eyebrows (tracked at 0.14em)
 - [ ] One hero idea per surface — everything else shrinks hard
@@ -111,7 +126,7 @@ Safe zone on social tiles: keep critical content **≥ 80px from all four edges*
 - [ ] CTA is a direct verb + object — never "Learn more"
 - [ ] **Emojis** allowed *with* copy, max 3 per page — expect cross-platform variance.
 - [ ] **Voice patterns** used intentionally, not by accident — stretched letters (cover/section only), the ladder (once per deck), strikethrough humor (once per deck). Lowercase first words are okay as a casual signal.
-- [ ] **Slides only:** headline is **editorial, not descriptive** — ≤8 words with a point of view (question, two-beat, italic word, giant word), not a label like "X: an overview" (see `AGENTS.md §10`)
+- [ ] **Slides only:** headline is **editorial, not descriptive** — ≤8 words with a point of view (question, two-beat, italic emphasis, giant word), not a label like "X: an overview" (see `AGENTS.md §10`)
 
 ---
 
