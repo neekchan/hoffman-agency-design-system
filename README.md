@@ -4,23 +4,11 @@ An integrated communications agency for tech brands. Hoffman helps companies tur
 
 The brand voice is **smart, human and energetic** — professional without feeling stiff, bold without becoming noisy.
 
-## About this fork
+## Built for LLM-driven builds
 
-This fork builds on [Neekchan's original Hoffman Agency design system](https://github.com/neekchan/hoffman-agency-design-system). It keeps the same brand foundation: colors, typography, logo assets, Storyline motif, annotation library, deck rules, templates, and voice.
+This repo is the source brand system — colors, typography, logo assets, Storyline motif, annotation library, deck rules, templates, and voice — tuned for the way it's actually used: pointing Claude, ChatGPT, or another LLM at the repo and asking it to build slides, pages, decks, or prototypes that stay on brand.
 
-The difference is operational readiness. This version is tuned for the way the system is now used: pointing Claude, ChatGPT, or another LLM at the repo and asking it to build slides, pages, decks, or prototypes that stay on brand.
-
-| Area | Neekchan original | This fork |
-|---|---|---|
-| Brand foundation | Original Hoffman visual and verbal system | Preserved, not redesigned |
-| LLM guidance | Full design rules, but agents had to infer which file mattered | Adds `LLM_ENTRYPOINT.md`, stronger README routing, and `ANTI_PATTERNS.md` for common LLM failures |
-| Slide generation | Slide rules existed in `AGENTS.md` + `LAYOUTS.md` | README now includes fallback slide rules for the common case where only the README is pasted into Claude/ChatGPT |
-| Product/app UI | Listed as future product/UI extension work | Adds `ui_kits/app/` with product UI primitives, dashboard demo, and `COMPONENTS.md` examples |
-| Catalog accuracy | Some generated metadata and docs could drift from included files | Syncs `_ds_manifest.json`, README file map, deck count, and UI kit file references to the actual repo |
-| Validation | No dependency-free repo check | Adds `npm run validate`, `npm run smoke`, and `npm test` |
-| Maintenance | Informal generated-file rules | Adds `CONTRIBUTING.md` and `CHANGELOG.md` so future changes are easier to review |
-
-In short: Neekchan's version is the source brand system. This fork is the LLM-ready, validated working copy for generating Hoffman-branded artifacts more reliably.
+That operational readiness shows up as: `LLM_ENTRYPOINT.md` for task routing and `ANTI_PATTERNS.md` for common LLM failures; fallback slide rules in this README for the common case where only the README is pasted into Claude/ChatGPT; `ui_kits/app/` with product UI primitives, a dashboard demo, and `COMPONENTS.md` examples; `npm run validate`, `npm run smoke`, and `npm test` to catch catalog drift before it reaches users; and `CONTRIBUTING.md` plus `CHANGELOG.md` so changes stay easy to review.
 
 > ### ⚠ Two media, two rule sets — read before building
 > This system serves **web** and **slides/office docs**, which have different layout physics. Most of this README (type scale, spacing, "generous whitespace," "more air," 1240px max-width, sparse imagery) describes the **WEB / social** posture.
