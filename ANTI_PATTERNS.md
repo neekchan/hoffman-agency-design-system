@@ -13,6 +13,7 @@ Use this as a quick failure-mode check before shipping an LLM-generated design.
 | "NO emoji" in slide guidance | It contradicts the slide SOP. | Ban raw/decorative emoji, but allow Fluent emoji when it carries the story beat. |
 | Wrong Storyline version | The motif reads as pasted-on decoration. | Use boxed monogram on light/non-navy; use line variant edge-locked behind content on navy/dark. |
 | Floating the Storyline line as a small object | The line variant is a field/background device, not an icon. | Edge-lock it to top/right/bottom at full frame height. |
+| Storyline line on many/most slides | The signature bookend becomes wallpaper — every slide reads like a cover and the deck flattens. | Use the full-frame navy line on the cover and closing only (≤2/deck). Content slides use plain surfaces; a navy content slide has no line. |
 | Lime text on white | It fails contrast. | Use navy or `--fg-accent` / `#A7BC00` on light surfaces. |
 | White text on lime or cyan | It fails contrast. | Use navy/dark text on lime and cyan surfaces. |
 | Bare grey image boxes | They give no art direction and look unfinished. | Use `.tha-placeholder` with label, hint, prompt, and exact generate size. |

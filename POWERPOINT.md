@@ -112,7 +112,7 @@ Wordmarks and the **boxed Storyline monogram** are protected page elements. **No
 Two Storyline treatments, two different rules:
 
 - **Boxed monogram** on a light/non-navy surface behaves like a **corner lockup → protected**. (The diagnostic agenda deck put a third agenda bar over it — a 54×150px collision. Don't.)
-- **Full-frame line** on a dark slide is a **background layer** — it sits above the fill and **behind content, which may overlap it**. It is not a protected zone.
+- **Full-frame line** on a dark slide is a **background layer** — it sits above the fill and **behind content, which may overlap it**. It is not a protected zone. **Bookend only:** use it on the cover and closing (≤2 slides per deck), never as a content-slide background — a navy content slide is a plain field with no line.
 
 Protected zones should be visible as guides during layout and hidden in final output.
 

@@ -77,6 +77,7 @@ Run against the **exported file**, not the source that made it (`POWERPOINT.md �
 ## Storyline squiggle
 
 - [ ] Version matches the background: **light / non-navy → boxed corner monogram**; **navy / dark field → line as background layer**
+- [ ] **Line frequency (slides):** the full-frame line on navy is a **bookend** — cover & closing only (**≤2 per deck**), never a content-slide background; navy content slides use a plain field, no line
 - [ ] Line sits as the **bottom layer above the fill, behind content** — and is **edge-locked**: full frame height, flush to the top, right & bottom edges, no bleed, sharp ends absorbed by the frame
 - [ ] Boxed monogram is **never floating adrift on a navy field**; line is **never floated as an object** or shrunk into a corner with the cut-ends showing
 - [ ] Not used as inline divider, tiled pattern, replacement for the wordmark, or animated loop

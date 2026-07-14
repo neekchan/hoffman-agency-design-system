@@ -4,6 +4,26 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-07-14 — Storyline-line frequency rule (bookends only)
+
+Added a missing guardrail after an external agent (ChatGPT/Codex) built a deck
+that used the navy + full-frame storyline-line treatment on ~6 of 26 slides. The
+system defined *how* to use the line but never *how often*, so it read as a
+general navy surface instead of a signature moment.
+
+New rule, threaded through `AGENTS.md §7`, `DESIGN.md`, `LAYOUTS.md` (Hoffman
+signatures), `CHECKLIST.md`, `ANTI_PATTERNS.md`, and
+`assets/asset-manifest.json`:
+
+- The full-frame storyline line on navy is a **signature bookend** — the **cover
+  and closing only** (≤2 slides per deck), **never a content-slide background**
+  (statements, agendas, columns, personas, data, tables, quotes). A navy content
+  slide uses a plain field with no line. The boxed corner monogram on light
+  surfaces is a separate device, unaffected.
+
+Mirrored into the Claude Design master so both Claude and repo-consuming agents
+(ChatGPT/Codex) pick it up.
+
 ## 2026-07-13 — Master → repo full-parity sync (native PowerPoint route + italic-emphasis refinement)
 
 Pulled the latest Claude Design master down to the repo and reconciled every
