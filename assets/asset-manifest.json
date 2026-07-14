@@ -124,7 +124,7 @@
       "surfaces": "navy / dark full-frame only",
       "placement": {
         "note": "This is a BACKGROUND LAYER, not a corner lockup. It sits above the navy fill and BEHIND content — content MAY overlap it. Edge-locked: full frame, flush to top/right/bottom edges, no bleed, sharp ends absorbed by the frame. Different overlap rule from the boxed monogram.",
-        "frequency": "BOOKENDS ONLY — the cover and closing slides (≤2 per deck). NEVER a content-slide background (statements, agendas, columns, personas, data, tables, quotes); a navy content slide uses a plain field with no line. Overusing it makes every slide read like a cover and flattens the deck."
+        "frequency": "ONE FULL-STRENGTH USE PER DECK — the bold lime line goes at full strength on the cover OR the closing, never both. On any other slide it may appear ONLY as a faded, low-opacity background texture (approx 8-15% opacity, receding behind content), never the solid line. A navy content slide with no line is always fine. Overusing the solid line makes every slide read like a cover and flattens the deck."
       },
       "placementMath": "always full 1920×1080 — never resized or floated as an object."
     },

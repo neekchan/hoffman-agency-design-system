@@ -68,7 +68,7 @@ Choose the deck's **mode** first — it sets how much goes on every slide. **Pre
 - **Stretched letters** (`helllllo 2026`) — cover & section dividers only, never body.
 - **Strikethrough swap** (`~~doubling~~ tripling`) — once per *deck*.
 - **One annotation** — an underline, circle, arrow, tick or cross from `assets/annotations/`, coloured by contrast. 1–2 marks per surface, counting the highlight.
-- **Storyline line on navy** — a signature **bookend**: the **cover and closing only** (≤2 slides per deck), never a content-slide background. A navy content slide uses a plain field, no line. Splashing it across slides makes every page read like a cover and flattens the deck. (The boxed corner monogram on light surfaces is separate — 1 per slide.)
+- **Storyline line on navy** — the bold lime line is a **once-per-deck signature**: full strength on the **cover OR the closing, never both.** On any other slide it may appear only **faded to a low-opacity background texture** (≈8–15%, so it recedes behind content) — never the solid full-strength line. A plain navy field (no line) is always fine. (The boxed corner monogram on light surfaces is separate — 1 per slide.)
 - **Surface as mood** — lead a section with one dominant brand colour; rotate the colour across sections so consecutive slides never look identical.
 
 ---

@@ -4,7 +4,7 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
-## 2026-07-14 — Storyline-line frequency rule (bookends only)
+## 2026-07-14 — Storyline-line frequency rule (one full-strength use per deck)
 
 Added a missing guardrail after an external agent (ChatGPT/Codex) built a deck
 that used the navy + full-frame storyline-line treatment on ~6 of 26 slides. The
@@ -15,10 +15,11 @@ New rule, threaded through `AGENTS.md §7`, `DESIGN.md`, `LAYOUTS.md` (Hoffman
 signatures), `CHECKLIST.md`, `ANTI_PATTERNS.md`, and
 `assets/asset-manifest.json`:
 
-- The full-frame storyline line on navy is a **signature bookend** — the **cover
-  and closing only** (≤2 slides per deck), **never a content-slide background**
-  (statements, agendas, columns, personas, data, tables, quotes). A navy content
-  slide uses a plain field with no line. The boxed corner monogram on light
+- The bold, full-strength storyline line on navy is a **once-per-deck
+  signature** — use it on the **cover OR the closing, never both.** It may still
+  appear on other slides, but only **faded to a low-opacity background texture**
+  (≈8–15%, receding behind content), never the solid full-strength line. A plain
+  navy field with no line is always fine. The boxed corner monogram on light
   surfaces is a separate device, unaffected.
 
 Mirrored into the Claude Design master so both Claude and repo-consuming agents
