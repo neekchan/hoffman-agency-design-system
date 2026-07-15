@@ -4,6 +4,27 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-07-15 — Hero-line fix + finish the italic-emphasis reframe (v2.2.0 → v2.2.1)
+
+Post-sync cleanup. Two copy defects that survived the v2.2.0 sync, caught in a
+review pass:
+
+- **Fixed the reversed hero line.** `README.md` listed *"Complexity in. Clarity
+  out."* as a good example, and `DESIGN.md` carried a third ordering — both
+  contradicted the live hero (`ui_kits/website/Hero.jsx`) and, read literally,
+  said the wrong thing (keep the complexity, lose the clarity). Aligned all three
+  surfaces to the one canonical, meaning-correct line: **"Complexity out. Clarity
+  in."**
+- **Actually finished the italic-emphasis reframe.** The v2.2.0 entry claimed the
+  reframe was fully propagated, but 8 `@layout` slot specs in
+  `templates/deck/Deck.dc.html` still read "one italic word" / "w/ italic word"
+  (drifting from `LAYOUTS.md`, which had already moved to "the italic emphasis"),
+  and `docs/portable-brand-brief-social.md` still said "the italic word in lime."
+  Reframed all of them to **"the italic emphasis"** so the deck template and its
+  companion doc agree.
+
+No new surface area — wording only. Both fixes mirrored to the Claude Design master.
+
 ## 2026-07-15 — Brand Tour template + standalone fix, SemVer policy, italic-rule cleanup (v2.1.0 → v2.2.0)
 
 Follow-through on the v2.1.0 work: made the interactive demo a first-class,

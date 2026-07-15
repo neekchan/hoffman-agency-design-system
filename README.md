@@ -1,6 +1,6 @@
 # The Hoffman Agency — Design System
 
-**Version 2.2.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: the interactive demo is now a consumer-pickable **"Interactive brand tour"** template with a fixed, self-contained standalone export; SemVer versioning formalized; native-PowerPoint reliability layer (`POWERPOINT.md` + manifests); Libre Baskerville **italic-emphasis** rule (italicize the key word *or* phrase that carries the line). Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.2.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — corrected the hero line to *Complexity out. Clarity in.* (the README and DESIGN examples had it reversed) and finished the **italic-emphasis** reframe in the last stale spots (deck-template layout specs + social brief). Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -216,7 +216,7 @@ Seven attributes, applied together. Smart leads with substance, Human keeps it g
 ### Examples
 
 **Good (brand-true):**
-- *Complexity in. Clarity out.*
+- *Complexity out. Clarity in.*
 - *Hello, ecosystems 🪐* / *Goodbye, client rosters.*
 - *We turn hard business problems into stories people actually remember.*
 - *Built for tech. Human at heart.*

@@ -328,7 +328,7 @@ The Hoffman Agency is an integrated communications agency for tech — founded o
 
 The brand reads as **Smart · Human · Energetic · Distilled · Bold · Creative · Authentic**. Our typography is bold Poppins headlines with the emphasis italicized in Libre Baskerville — usually one word, sometimes a short phrase, always the part that carries the line. The contrast does the work. Our color is navy and lime doing the structural work, with four secondary moods (lavender, purple, cyan, teal) used one at a time. Our signature mark is the Storyline squiggle — a hand-drawn waveform that's a story arc, not a chart. We mark up our slides the way an editor marks up a draft: underlines, circles, ticks, crosses, accents, and highlights, all chosen by *contrast* to whatever they sit on.
 
-Short sentences. Real opinions. We *speak* tech. *Clarity in. Complexity out.*
+Short sentences. Real opinions. We *speak* tech. *Complexity out. Clarity in.*
 
 Three commitments override every other rule:
 
@@ -378,7 +378,7 @@ The system uses **two families.**
 The **signature type move** is a bold Poppins headline with its **emphasis set in Baskerville italic**. The emphasis is the keyword(s) that carry the line — **usually one word, but a two-word phrase or a short run of words when *that* is the real emphasis**. It's about meaning, not a mechanical count. The one hard limit is **one emphasis per line** — don't scatter italics across several unrelated words, and don't force a single word if the point lives in a phrase.
 
 ```html
-<h1>Clarity in. <em>Complexity</em> out.</h1>
+<h1>Complexity out. <em>Clarity</em> in.</h1>
 <h1>We don't chase reach. We earn <em>the room</em>.</h1>
 ```
 

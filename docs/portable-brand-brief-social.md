@@ -37,7 +37,7 @@ What type may sit on each surface (pre-validated, follow exactly):
 - On Lime: Navy only (body and display), Purple (large/bold). NEVER white on lime.
 - On Paper/White: Navy (body), Purple (any size), Teal (any size), dark lime #A7BC00 for lime-toned accents. NEVER bright lime #D2EB00 as text on white.
 
-Combination rules: one dominant surface color per tile, plus at most one accent color in the type (e.g. navy surface, white headline, the italic word in lime). Cross-pollinating warm and cool (cyan on purple, lime on teal) is encouraged — the pairs above already pass contrast. Never let three or more colors compete on one tile.
+Combination rules: one dominant surface color per tile, plus at most one accent color in the type (e.g. navy surface, white headline, the italic emphasis in lime). Cross-pollinating warm and cool (cyan on purple, lime on teal) is encouraged — the pairs above already pass contrast. Never let three or more colors compete on one tile.
 
 ## 4 · Typography
 - Workhorse: Poppins (geometric sans). Headlines in Bold/ExtraBold (700–800) with tight letter-spacing (about -2%). Body in Regular.
