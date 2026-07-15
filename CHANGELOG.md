@@ -4,17 +4,22 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
-## 2026-07-15 — Hero-line fix + finish the italic-emphasis reframe (v2.2.0 → v2.2.1)
+## 2026-07-15 — Fix reversed-meaning tagline + finish the italic-emphasis reframe (v2.2.0 → v2.2.1)
 
 Post-sync cleanup. Two copy defects that survived the v2.2.0 sync, caught in a
 review pass:
 
-- **Fixed the reversed hero line.** `README.md` listed *"Complexity in. Clarity
-  out."* as a good example, and `DESIGN.md` carried a third ordering — both
-  contradicted the live hero (`ui_kits/website/Hero.jsx`) and, read literally,
-  said the wrong thing (keep the complexity, lose the clarity). Aligned all three
-  surfaces to the one canonical, meaning-correct line: **"Complexity out. Clarity
-  in."**
+- **Corrected the reversed "complexity / clarity" tagline.** The line had crept in
+  backwards — *"Complexity in. Clarity out."* (i.e. keep the complexity, lose the
+  clarity) — in four places: `README.md`'s examples, the sample lines in
+  `docs/portable-brand-brief-social.md`, a cover slide in
+  `templates/deck/Deck.dc.html`, and the type specimen (`preview/type-display.html`).
+  Fixed all four to say the right thing: **complexity out, clarity in.** The line is
+  playful fodder, *not* a fixed hero — either word order is fine as long as the
+  meaning holds — so the deck's meaning-correct *"Clarity in. Complexity out."*
+  variants were deliberately left alone. (`DESIGN.md` and `preview/brand-voice.html`
+  were also nudged to the complexity-first order for local consistency; either order
+  is acceptable.)
 - **Actually finished the italic-emphasis reframe.** The v2.2.0 entry claimed the
   reframe was fully propagated, but 8 `@layout` slot specs in
   `templates/deck/Deck.dc.html` still read "one italic word" / "w/ italic word"

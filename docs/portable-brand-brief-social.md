@@ -55,7 +55,7 @@ Signature voice-as-type moves (use one per carousel, not per tile):
 ## 5 · Voice & copy
 Short sentences. Then a longer one to breathe. Lead with the punchline. Active voice, "we" for the agency, "you" for the reader. Confident claims over clever puns. CTAs are direct verb + object: "See the work", "Tell us your story" — never "Learn more".
 Banned words: synergies, leverage, end-to-end, at the intersection of, best-in-class, revolutionary, game-changing, disruptive, storytelling solutions, unlock.
-Brand-true sample lines: "Complexity in. Clarity out." · "Less noise. Sharper signal." · "Built for tech. Human at heart." · "We turn opinion into influence." · "Counsel without conviction is just consulting."
+Brand-true sample lines: "Complexity out. Clarity in." · "Less noise. Sharper signal." · "Built for tech. Human at heart." · "We turn opinion into influence." · "Counsel without conviction is just consulting."
 
 ## 6 · Signature graphics
 THE STORYLINE SQUIGGLE — the brand's only "wavy" element. A single hand-drawn waveform line that rises left-to-right with small bumps building to one tall peak near the right, then dropping off. It is a story arc, not a chart. Two legal uses:
