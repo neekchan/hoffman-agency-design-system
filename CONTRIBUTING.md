@@ -69,6 +69,29 @@ npm run smoke
    design system.
 5. Regenerate or mechanically sync the manifest, then run validation.
 
+## Versioning
+
+This system uses [Semantic Versioning](https://semver.org) — `MAJOR.MINOR.PATCH`.
+
+- **MAJOR** — a breaking brand change: a token/color/font is removed or redefined, a
+  component's API changes, or a rule reverses such that existing on-brand work would
+  now read as off-brand.
+- **MINOR** — additive, backward-compatible: new components, templates, layouts,
+  assets, or new/clarified rules that don't invalidate existing work.
+- **PATCH** — fixes and copy edits: wording, typos, contrast fixes, stale paths,
+  metadata sync — no new surface area.
+
+The canonical number lives in **`package.json`** (`"version"`). On every change:
+
+1. Bump `package.json` to the new SemVer number.
+2. Prepend a dated, newest-first entry to `CHANGELOG.md` that says **what changed**
+   (not just that the version moved) and the `old → new` version in its heading.
+3. Update the **Version** line at the top of `README.md` so the current number and a
+   one-line "what's new" are the first thing a reader (or agent) sees.
+
+Keep these three in sync — `package.json`, `CHANGELOG.md`, and the README version line
+are the version's single source of truth, history, and shopfront respectively.
+
 ## Confidential Material
 
 `references/` is private source material. It may be absent from distributable

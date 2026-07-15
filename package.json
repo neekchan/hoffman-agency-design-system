@@ -1,4 +1,6 @@
 {
+  "name": "hoffman-agency-design-system",
+  "version": "2.2.0",
   "private": true,
   "scripts": {
     "validate": "node tools/validate-design-system.js",

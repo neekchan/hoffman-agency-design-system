@@ -1,5 +1,7 @@
 # The Hoffman Agency — Design System
 
+**Version 2.2.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: the interactive demo is now a consumer-pickable **"Interactive brand tour"** template with a fixed, self-contained standalone export; SemVer versioning formalized; native-PowerPoint reliability layer (`POWERPOINT.md` + manifests); Libre Baskerville **italic-emphasis** rule (italicize the key word *or* phrase that carries the line). Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
 The brand voice is **smart, human and energetic** — professional without feeling stiff, bold without becoming noisy.
@@ -13,7 +15,7 @@ That operational readiness shows up as: `LLM_ENTRYPOINT.md` for task routing and
 > ### ⚠ Two media, two rule sets — read before building
 > This system serves **web** and **slides/office docs**, which have different layout physics. Most of this README (type scale, spacing, "generous whitespace," "more air," 1240px max-width, sparse imagery) describes the **WEB / social** posture.
 >
-> **When you build a PowerPoint/Keynote deck or any fixed 1920×1080 slide, the slide rules in `AGENTS.md` + `LAYOUTS.md` OVERRIDE the web rules here** — specifically: use the **slide type scale as FLOORS, biased high** (20–24px labels · 30–36px body / default 32 · 40–52px subhead · 64–80px title · 120–132px statement & divider · 176px+ cover · ~240px closing word — never 16px, never the old 28px "safe" body), **"fill the frame"** (no dead whitespace — the opposite of "more air"), **imagery by default on every slide**, and the **full edge-to-edge canvas** (no 1240px / 68ch caps). What stays shared across both media: **color, fonts, the italic-word move, the Storyline motif, annotations, emoji rules, and voice.** See `AGENTS.md §0` for the precise precedence.
+> **When you build a PowerPoint/Keynote deck or any fixed 1920×1080 slide, the slide rules in `AGENTS.md` + `LAYOUTS.md` OVERRIDE the web rules here** — specifically: use the **slide type scale as FLOORS, biased high** (20–24px labels · 30–36px body / default 32 · 40–52px subhead · 64–80px title · 120–132px statement & divider · 176px+ cover · ~240px closing word — never 16px, never the old 28px "safe" body), **"fill the frame"** (no dead whitespace — the opposite of "more air"), **imagery by default on every slide**, and the **full edge-to-edge canvas** (no 1240px / 68ch caps). What stays shared across both media: **color, fonts, the italic-emphasis move (key word *or* phrase, not a fixed single word), the Storyline motif, annotations, emoji rules, and voice.** See `AGENTS.md §0` for the precise precedence.
 
 ---
 
@@ -123,6 +125,7 @@ templates/              · reusable DC starting points consuming projects copy (
   powerpoint/           · layout-manifest.json — machine-readable contracts for all 48 layouts (slots, tiers, coords, surface/logo) for native-`.pptx` tools that can't consume Deck.dc.html. No binary `.potx`/`.pptx` ship here — build them from `POWERPOINT.md §2` + the manifests
   one-pager/            · OnePager.dc.html — print, Letter
   social-tile/          · SocialTile.dc.html — square social
+  brand-tour/           · BrandTour.dc.html — the "Interactive brand tour": a self-contained, clickable app-style walkthrough of the whole system (20 screens; explorer/presenter, nav, hints, motion tweaks). Self-contained (inlined tokens + slim font set) so it also exports to one standalone file — see `Hoffman Brand Tour.html` at the repo root
 
 slides/                 · the CI/VI demonstration deck (not a template)
   Hoffman Brand Guidelines.html              · the live brand guidelines deck
@@ -254,12 +257,12 @@ The brand has three distinct copy moves used to keep slides feeling distinctivel
 
 ### Type
 - **Sans:** **Poppins** — the brand workhorse. Used for headlines, body, UI. Geometric, friendly, wide weight range (300–800). Set display sizes in 700/800 with tight letter-spacing (-0.02em).
-- **Serif:** **Libre Baskerville — italic only.** Never set upright. Used strictly as italic emphasis: one word or phrase inside an otherwise Poppins headline, and for pull-quotes. This is where Hoffman gets expressive. In CSS, use `<em>` or the `.tha-em-serif` utility — both resolve to Baskerville italic.
+- **Serif:** **Libre Baskerville — italic only.** Never set upright. Used strictly to mark the **emphasis** inside an otherwise Poppins headline — the key word *or* the short phrase that carries the meaning, chosen by sense and sound rather than a fixed count (one emphasis per line, never scattered) — and for pull-quotes. This is where Hoffman gets expressive. In CSS, use `<em>` or the `.tha-em-serif` utility — both resolve to Baskerville italic.
 - **Japanese:** **M PLUS 2** — ホフマンジャパン. Same weight range as Poppins.
 - **Other CJK / multilingual:** **Noto Sans** family (Noto Sans KR for Korean, Noto Sans SC for Simplified Chinese, Noto Sans TC for Traditional Chinese). Use the CSS vars `--font-jp` and `--font-cjk` so the stack falls back gracefully.
 - **Mono:** JetBrains Mono — captions, tiny metadata, case-study stats.
 - **Hierarchy rule:** one hero idea per screen, set huge (up to 120px Poppins). Everything else shrinks hard. Generous vertical space between blocks (80–128px section padding on desktop).
-- **Signature move:** `Bold Poppins headline with one <em>italic</em> word` → the `<em>` renders in Baskerville italic. Contrast does the heavy lifting. Do NOT use Baskerville upright as a text serif.
+- **Signature move:** `Bold Poppins headline with the <em>emphasis</em> in italic` → the `<em>` wraps the key word *or* short phrase (whatever carries the point) and renders in Baskerville italic. One emphasis per line, chosen by meaning not count — never italicize word after word. Contrast does the heavy lifting. Do NOT use Baskerville upright as a text serif.
 - **Playful flourishes:** Repeated-letter emphasis on headers ("hellllllo 2025", "goooodbye APAC") is *part* of the brand voice — used on cover/section slides, never in body copy. Strikethrough as humor ("doubling ~~doubling~~ tripling down") is also a recognised pattern — see the cross-out annotation.
 - **Emoji typographic storytelling:** an emoji can stand in for one charged word inside a Poppins line — `We turn opinion into 📈 influence`, `counsel without conviction is just 🤷`. Wrap the glyph in `.tha-emoji` so it rides the baseline (not above the line), and always add `role="img" aria-label="<the word it replaces>"` for screen readers. **In place of a word only** — never as bullets, icons, or decoration — and ≤ 3 per surface (the voice rule). The sentence must still read perfectly if you swapped the word back in. See `preview/brand-emoji-typography.html`.
 
@@ -337,7 +340,7 @@ A seventh annotation technique — not an SVG asset, but a CSS overlay applied *
 ```
 
 ### Italic emphasis vocabulary
-When choosing which word to italicize in a Poppins headline, prefer words that carry weight: *Trust, Influence, Adaptability, AI, judgment, strategic, intelligence, leadership, geopolitics, culture, society, relationships, people, clarity, complexity, attention, visibility, proximity, uncertainty.* Pick for sound and meaning, not grammar.
+Italicize the line's emphasis — the key word *or* the short phrase that carries the meaning, not a fixed "one word" every time. When it's a single word, prefer words that carry weight: *Trust, Influence, Adaptability, AI, judgment, strategic, intelligence, leadership, geopolitics, culture, society, relationships, people, clarity, complexity, attention, visibility, proximity, uncertainty.* When the point lives in a phrase (*a bit about us*, *We're it*), italicize the whole phrase. Pick for sound and meaning, not grammar; one emphasis per line.
 
 **No other decorative line work.** Wavy lines, squiggly arrows, decorative flourishes outside the 5-category annotation library are banned. The Storyline squiggle is the only "wavy" element — and it has its own two strict uses (see above).
 

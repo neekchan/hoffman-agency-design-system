@@ -4,6 +4,43 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-07-15 — Brand Tour template + standalone fix, SemVer policy, italic-rule cleanup (v2.1.0 → v2.2.0)
+
+Follow-through on the v2.1.0 work: made the interactive demo a first-class,
+consumer-pickable template, hardened its standalone export, formalized versioning,
+and finished propagating the italic-emphasis reframe into the last stale surfaces.
+
+- **Renamed the demo to "Interactive brand tour."** `templates/app-deck/` →
+  `templates/brand-tour/`, `AppDeck.dc.html` → `BrandTour.dc.html`, root
+  `Hoffman App Deck.html` → `Hoffman Brand Tour.html`; `@template` label
+  "App deck (interactive explorer)" → "Interactive brand tour"; Tweaks section
+  "App deck" → "Brand tour". Added it to the README templates file-map.
+- **Fixed it not registering as a template.** The compiler was tripping on the
+  bundler-only `<head>` payload (the `ext-resource-dependency` metas). Moved those
+  metas into `<helmet>` and kept only `__bundler_thumbnail` in `<head>` — the tour
+  now registers (4 templates: brand-tour, deck, one-pager, social-tile).
+- **Fixed + hardened the standalone `Hoffman Brand Tour.html`.** It had loaded
+  `colors_and_type.css` only via `ds-base.js`'s runtime injection, which a static
+  offline bundle can't execute — so every `var(--tha-*)` collapsed to transparent
+  (colorless section cards) and the bundle logged repeating `[bundle] error`s.
+  Inlined a compact brand-token block + a slim self-hosted font set into the DC and
+  dropped the runtime loader from the tour → correct colors, real Poppins +
+  Baskerville italic, and zero console errors offline.
+- **Formalized SemVer.** Added `name` + `"version"` to `package.json` (canonical
+  number), a Version line at the top of `README.md`, and a Versioning policy to
+  `CONTRIBUTING.md` (MAJOR/MINOR/PATCH + the package.json → CHANGELOG → README bump ritual).
+- **Italic-emphasis cleanup.** Synced the active print variant
+  (`Hoffman Brand Guidelines-print.html`) to the live deck's reframed rule text,
+  fixed the "italic word" → "italic emphasis" phrasing in both decks, and softened the
+  last bare "one word" instruction in `PROMPTS.md`.
+- **Web hero copy.** `ui_kits/website/Hero.jsx`: "Complexity in. / *Clarity* out."
+  → "Complexity out. / *Clarity* in."
+
+> **Repo-mirror note:** the regenerated standalone `Hoffman Brand Tour.html` (the
+> `BrandTour.dc.html` source IS synced) exceeds the DesignSync 256 KB fetch cap, so it
+> could not be mirrored via API this sync — the repo keeps the prior standalone.
+> Re-export it from Claude Design to bring the fixed offline build into the repo.
+
 ## 2026-07-14 — Storyline-line frequency rule (one full-strength use per deck)
 
 Added a missing guardrail after an external agent (ChatGPT/Codex) built a deck

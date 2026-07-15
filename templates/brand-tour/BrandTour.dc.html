@@ -9,6 +9,61 @@
     <text x="600" y="440" font-family="Georgia, serif" font-style="italic" font-size="220" fill="#D2EB00" text-anchor="middle">h.</text>
   </svg>
 </template>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Interactive brand tour" description="Hoffman OS — the slides-as-software experiment. Twenty 16:9 screens designed as app UI, not slides: a state-machine shell with dock/rail navigation, and every brand rule demonstrated as a working interaction (voice toggle, logo configurator, misuse playground, contrast lab, type you can drive, prompt builder, ship-it checklist). Self-driven explorer by nature — send the link; no PDF fallback intended. Tweaks: Explorer/Presenter, nav chrome, hints, motion." -->
+<!-- CANVAS: fixed 1920×1080 logical px (scales to any display incl. 4K). Screens live on a horizontal filmstrip; the camera glides between them. Each <section data-idx="N"> sits at left = N × 1920px. All slide-scale SOPs apply (AGENTS.md §§1–12): 72px margins, ≥20px labels, 30px+ body, editorial headlines. -->
+<helmet>
+<script src="../../assets/emoji/fluent-emoji.js" data-base="../../assets/emoji"></script>
+<style>
+  /* Compact brand-token fallback so the standalone bundle renders correct colors offline
+     even when ds-base.js's runtime colors_and_type.css load is unavailable. Full tokens
+     still load via ds-base.js in the design environment. */
+  :root {
+    --tha-navy:#182D43; --tha-lime:#D2EB00; --tha-violet:#CB65FF; --tha-purple:#6103B9; --tha-aqua:#86FFF1; --tha-teal:#145F7B;
+    --tha-navy-900:#0E1C2B; --tha-navy-800:#12253A; --tha-navy-700:#182D43; --tha-navy-600:#233E58; --tha-navy-500:#35526F; --tha-navy-400:#5A7591; --tha-navy-300:#95A8BD; --tha-navy-200:#C8D2DD; --tha-navy-100:#E4E9EF; --tha-navy-050:#F3F5F8;
+    --tha-lime-600:#687600; --tha-lime-500:#D2EB00; --tha-lime-400:#DFEF4B; --tha-lime-200:#EEF7A2; --tha-lime-050:#FAFCE0;
+    --tha-white:#FFFFFF; --tha-paper:#FAFAF7; --tha-sand:#F1EFE7; --tha-ink:#0E1C2B; --tha-stone-100:#F3F2ED; --tha-stone-200:#E6E4DB; --tha-stone-300:#C9C6B9; --tha-stone-500:#8B8878; --tha-stone-700:#3E3C33;
+    --fg-1:var(--tha-navy); --fg-2:var(--tha-navy-500); --fg-3:var(--tha-navy-400); --fg-accent:var(--tha-lime-600); --fg-link:var(--tha-purple);
+    --bg-1:var(--tha-paper); --bg-2:var(--tha-white); --bg-3:var(--tha-stone-100);
+    --border-1:var(--tha-navy); --border-2:var(--tha-navy-200); --border-3:var(--tha-stone-200);
+    --danger:#C43D3D; --success:#147A4B; --warning:#E08A00; --info:var(--tha-teal);
+    --font-sans:'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+    --font-serif:'Libre Baskerville','Times New Roman',Georgia,serif;
+    --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  /* Self-hosted brand fonts (slim set of weights the tour uses) so the standalone
+     renders in real Poppins + Baskerville italic offline, with no runtime loader. */
+  @font-face { font-family:'Poppins'; font-style:normal; font-weight:400; font-display:swap; src:url('../../fonts/Poppins-Regular.ttf') format('truetype'); }
+  @font-face { font-family:'Poppins'; font-style:normal; font-weight:500; font-display:swap; src:url('../../fonts/Poppins-Medium.ttf') format('truetype'); }
+  @font-face { font-family:'Poppins'; font-style:normal; font-weight:600; font-display:swap; src:url('../../fonts/Poppins-SemiBold.ttf') format('truetype'); }
+  @font-face { font-family:'Poppins'; font-style:normal; font-weight:700; font-display:swap; src:url('../../fonts/Poppins-Bold.ttf') format('truetype'); }
+  @font-face { font-family:'Poppins'; font-style:normal; font-weight:800; font-display:swap; src:url('../../fonts/Poppins-ExtraBold.ttf') format('truetype'); }
+  @font-face { font-family:'Poppins'; font-style:normal; font-weight:900; font-display:swap; src:url('../../fonts/Poppins-Black.ttf') format('truetype'); }
+  @font-face { font-family:'Libre Baskerville'; font-style:italic; font-weight:400 700; font-display:swap; src:url('../../fonts/LibreBaskerville-Italic-VariableFont_wght.ttf') format('truetype'); }
+  html, body { margin:0; padding:0; background:#0E1C2B; overflow:hidden; }
+  @keyframes appEnt { from { opacity:0; transform:translateY(26px); } to { opacity:1; transform:none; } }
+  @keyframes helloWave { 0% { color:var(--tha-lime); } 16.6% { color:var(--tha-violet); } 33.3% { color:var(--tha-purple); text-shadow:0 0 0 rgba(0,0,0,0); } 50% { color:var(--tha-aqua); } 66.6% { color:var(--tha-navy-100); text-shadow:0 0 14px rgba(255,255,255,.25); } 83.3% { color:var(--tha-paper); } 100% { color:var(--tha-lime); } }
+  .hello-letter { display:inline-block; animation:helloWave 2.4s linear infinite; }
+  @keyframes appPop { 0% { transform:translate(-50%,0) scale(.7); opacity:0; } 70% { transform:translate(-50%,0) scale(1.05); } 100% { transform:translate(-50%,0) scale(1); opacity:1; } }
+  section[data-app-on] [data-ent] { animation:appEnt .6s cubic-bezier(.2,.8,.2,1) both; animation-delay:.15s; }
+  section[data-app-on] [data-ent="2"] { animation-delay:.27s; }
+  section[data-app-on] [data-ent="3"] { animation-delay:.39s; }
+  section[data-app-on] [data-ent="4"] { animation-delay:.51s; }
+  section[data-app-on] [data-ent="5"] { animation-delay:.63s; }
+  section[data-app-on] [data-ent="6"] { animation-delay:.75s; }
+  @media (prefers-reduced-motion: reduce) { [data-ent] { animation:none !important; } * { transition-duration:0s !important; } }
+  [data-motion-off] * { animation:none !important; transition:none !important; }
+  .dock-i { position:relative; transition:transform .18s cubic-bezier(.2,.8,.2,1); }
+  .dock-i:hover { transform:translateY(-10px) scale(1.14); }
+  .dock-t { position:absolute; bottom:66px; left:50%; transform:translateX(-50%); white-space:nowrap; font:600 20px/1 var(--font-mono); letter-spacing:.08em; color:#FAFAF7; background:#0E1C2B; border:1px solid #35526F; padding:10px 14px; opacity:0; pointer-events:none; transition:opacity .15s; }
+  .dock-i:hover .dock-t { opacity:1; }
+  input[type="range"] { accent-color:#D2EB00; cursor:pointer; }
+  fluent-emoji:not(:defined) { display:inline-block; width:1em; }
+  ::selection { background:#D2EB00; color:#182D43; }
+</style>
 <meta name="ext-resource-dependency" content="../../assets/logo-horizontal-navy-lime.svg" data-resource-id="logo_horizontal_navy-lime" />
 <meta name="ext-resource-dependency" content="../../assets/logo-horizontal-navy.svg" data-resource-id="logo_horizontal_navy" />
 <meta name="ext-resource-dependency" content="../../assets/logo-horizontal-white.svg" data-resource-id="logo_horizontal_white" />
@@ -37,37 +92,6 @@
 <meta name="ext-resource-dependency" content="../../assets/annotations/accent-04.svg" data-resource-id="ann_accent-04" />
 <meta name="ext-resource-dependency" content="../../assets/annotations/accent-08.svg" data-resource-id="ann_accent-08" />
 <meta name="ext-resource-dependency" content="../../assets/annotations/accent-11.svg" data-resource-id="ann_accent-11" />
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<!-- @template name="App deck (interactive explorer)" description="Hoffman OS — the slides-as-software experiment. Twenty 16:9 screens designed as app UI, not slides: a state-machine shell with dock/rail navigation, and every brand rule demonstrated as a working interaction (voice toggle, logo configurator, misuse playground, contrast lab, type you can drive, prompt builder, ship-it checklist). Self-driven explorer by nature — send the link; no PDF fallback intended. Tweaks: Explorer/Presenter, nav chrome, hints, motion." -->
-<!-- CANVAS: fixed 1920×1080 logical px (scales to any display incl. 4K). Screens live on a horizontal filmstrip; the camera glides between them. Each <section data-idx="N"> sits at left = N × 1920px. All slide-scale SOPs apply (AGENTS.md §§1–12): 72px margins, ≥20px labels, 30px+ body, editorial headlines. -->
-<helmet>
-<script src="./ds-base.js"></script>
-<script src="../../assets/emoji/fluent-emoji.js" data-base="../../assets/emoji"></script>
-<style>
-  html, body { margin:0; padding:0; background:#0E1C2B; overflow:hidden; }
-  @keyframes appEnt { from { opacity:0; transform:translateY(26px); } to { opacity:1; transform:none; } }
-  @keyframes helloWave { 0% { color:var(--tha-lime); } 16.6% { color:var(--tha-violet); } 33.3% { color:var(--tha-purple); text-shadow:0 0 0 rgba(0,0,0,0); } 50% { color:var(--tha-aqua); } 66.6% { color:var(--tha-navy-100); text-shadow:0 0 14px rgba(255,255,255,.25); } 83.3% { color:var(--tha-paper); } 100% { color:var(--tha-lime); } }
-  .hello-letter { display:inline-block; animation:helloWave 2.4s linear infinite; }
-  @keyframes appPop { 0% { transform:translate(-50%,0) scale(.7); opacity:0; } 70% { transform:translate(-50%,0) scale(1.05); } 100% { transform:translate(-50%,0) scale(1); opacity:1; } }
-  section[data-app-on] [data-ent] { animation:appEnt .6s cubic-bezier(.2,.8,.2,1) both; animation-delay:.15s; }
-  section[data-app-on] [data-ent="2"] { animation-delay:.27s; }
-  section[data-app-on] [data-ent="3"] { animation-delay:.39s; }
-  section[data-app-on] [data-ent="4"] { animation-delay:.51s; }
-  section[data-app-on] [data-ent="5"] { animation-delay:.63s; }
-  section[data-app-on] [data-ent="6"] { animation-delay:.75s; }
-  @media (prefers-reduced-motion: reduce) { [data-ent] { animation:none !important; } * { transition-duration:0s !important; } }
-  [data-motion-off] * { animation:none !important; transition:none !important; }
-  .dock-i { position:relative; transition:transform .18s cubic-bezier(.2,.8,.2,1); }
-  .dock-i:hover { transform:translateY(-10px) scale(1.14); }
-  .dock-t { position:absolute; bottom:66px; left:50%; transform:translateX(-50%); white-space:nowrap; font:600 20px/1 var(--font-mono); letter-spacing:.08em; color:#FAFAF7; background:#0E1C2B; border:1px solid #35526F; padding:10px 14px; opacity:0; pointer-events:none; transition:opacity .15s; }
-  .dock-i:hover .dock-t { opacity:1; }
-  input[type="range"] { accent-color:#D2EB00; cursor:pointer; }
-  fluent-emoji:not(:defined) { display:inline-block; width:1em; }
-  ::selection { background:#D2EB00; color:#182D43; }
-</style>
 </helmet>
 
 <div style="position:fixed; inset:0; background:#0E1C2B; display:flex; align-items:center; justify-content:center; overflow:hidden; font-family:var(--font-sans);">
@@ -703,8 +727,8 @@
 <script type="text/x-dc" data-dc-script data-props="{
   &quot;mode&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;explorer&quot;, &quot;presenter&quot;], &quot;default&quot;: &quot;explorer&quot;, &quot;tsType&quot;: &quot;\&quot;explorer\&quot; | \&quot;presenter\&quot;&quot;, &quot;section&quot;: &quot;App deck&quot; },
   &quot;nav&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;Dock&quot;, &quot;Rail&quot;, &quot;Minimal&quot;], &quot;default&quot;: &quot;Dock&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;App deck&quot; },
-  &quot;hints&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;App deck&quot; },
-  &quot;motion&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;App deck&quot; }
+  &quot;hints&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Brand tour&quot; },
+  &quot;motion&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Brand tour&quot; }
 }">
 class Component extends DCLogic {
   // ---------- Brand data ----------

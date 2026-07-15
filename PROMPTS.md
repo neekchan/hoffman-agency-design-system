@@ -77,7 +77,7 @@ Composition:
 * Background: solid Deep Navy (#182d43) covering the full canvas.
 * Storyline squiggle — the LINE variant (`storyline-line-lime.svg`), because the field is navy. It sits as a background layer directly above the navy fill and behind the content, edge-locked to the top, right and bottom edges at full canvas height (no bleed; the sharp diagonal ends are absorbed by the frame). Lime. (The boxed monogram is only for light / non-navy grounds — never floated on a navy field.)
 * The navy fill holds the content to the left of the waveform — width variable.
-* On the navy-extension area: headline in Poppins Bold, 176–240px / 88–120pt, white, with one word in Libre Baskerville italic, lime green.
+* On the navy-extension area: headline in Poppins Bold, 176–240px / 88–120pt, white, with the emphasis — the key word or short phrase — in Libre Baskerville italic, lime green.
 
 Constraints: NO other graphics. NO additional wavy lines, NO arrows. The squiggle is the only motif on the canvas.
 ```

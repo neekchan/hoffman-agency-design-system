@@ -28,8 +28,8 @@ export function Hero() {
             color: 'var(--tha-navy)',
             margin: 0,
           }}>
-            Complexity in.<br />
-            <Em color="var(--tha-purple)">Clarity</Em> out.
+            Complexity out.<br />
+            <Em color="var(--tha-purple)">Clarity</Em> in.
           </h1>
 
           <p style={{
