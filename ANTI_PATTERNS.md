@@ -23,3 +23,9 @@ Use this as a quick failure-mode check before shipping an LLM-generated design.
 | Upright Libre Baskerville | The brand uses the serif as an italic accent only. | Keep Poppins as the workhorse and set Baskerville italic for emphasis. |
 | Vague placeholders like "image here" | The next agent or designer cannot finish the asset. | Write subject, composition, mood, aspect, and exact generation size. |
 | Agency jargon in headlines | It sounds generic and off-brand. | Use short, active, opinionated lines with one clear point. |
+| Hand-authoring bespoke slide chrome / not loading the bundle | The output drifts off-system — the #1 "it doesn't look like the design system" failure. | Load `colors_and_type.css` + `_ds_bundle.js`, start from a `templates/` file, use named `LAYOUTS.md` layouts; heed the adherence linter. |
+| Skipping intake, then rebuilding | Guessing medium/mode/audience/imagery wastes a whole build when it's wrong. | Run `INTAKE.md` first; restate the one-line brief; then build. |
+| Truncated or half-width title with dead space on the right | Reads as unfinished; the empty strip is the classic "AI whitespace" tell. | Never clip a title; break at sense boundaries; grow the type or fill the right with a graphic/emoji (`AGENTS.md §2.5`). |
+| Text-only slide with empty margins | Hoffman slides carry a graphic by default; a bare text slide looks hollow. | Add an image/placeholder/icon/Fluent emoji/annotation, or scale the type to fill the frame (`§2`, `§3`). |
+| Dumping a paragraph or six-line bullet stack | A wall of text can't be read from the room and flattens the slide. | Chunk into 2–4 short labelled beats — stat row, captioned cards, step strip (`§5`). |
+| Two competing image styles in one piece | Photo beside flat-illustration beside 3D render reads as three brands. | One image language per artifact; decide it in `IMAGERY.md` and hold it. |

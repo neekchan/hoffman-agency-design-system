@@ -4,12 +4,22 @@ A short list to run through before shipping any branded surface — slide, socia
 
 ---
 
+## Before you build (intake)
+
+- [ ] **Intake run** (`INTAKE.md`): medium, Presenter/Document mode, audience/tone/language, colour direction and imagery choice confirmed; the one-line brief was restated back
+- [ ] **Imagery decided** (`IMAGERY.md`): generate / user-supplies / labelled placeholder chosen up front — not left to chance mid-build
+- [ ] **Built inside the system**: `colors_and_type.css` + `_ds_bundle.js` loaded, started from the medium's template, named layouts from `LAYOUTS.md` — no hand-authored bespoke chrome
+- [ ] Repeated figures (prices, counts, dates) are **single-sourced** — the same number reads identically on every slide it appears
+
 ## Deck mode (slides)
 
 - [ ] Deck declares **one mode — Presenter XOR Document** (`AGENTS.md §12`); word-count / bullet-density stays consistent across all slides
 - [ ] **Presenter**: ≤1 idea, ≤15 words/slide, image-led; detail is in **speaker notes**, not on the slide
 - [ ] **Document**: denser + hierarchical, short bullets allowed, each slide stands alone — still no paragraphs
 - [ ] No sparse hero slide sitting beside a six-bullet wall (the "schizophrenic deck" tell)
+- [ ] **Titles fill the width and break clean** — no truncation/ellipsis, no mid-phrase wrap, no title running half-width with a dead strip of white on the right (`AGENTS.md §2.5`)
+- [ ] **Every content slide carries a visual** — image, placeholder, icon, Fluent emoji or annotation; no bare text slide with empty margins (`AGENTS.md §3`)
+- [ ] **Chunked, not dumped** — dense points broken into 2–4 short labelled beats, never a paragraph or a six-line bullet stack (`AGENTS.md §5`)
 
 ## Finished PowerPoint file (`.pptx` / `.potx`)
 
@@ -33,6 +43,7 @@ Run against the **exported file**, not the source that made it (`POWERPOINT.md �
 ## Type
 
 - [ ] Headline is **Poppins** (700 or 800) with its **emphasis** — a key word *or* short phrase — in `<em>` → Libre Baskerville italic (chosen by meaning, not a fixed count; one emphasis per line, never scattered)
+- [ ] **The italic emphasis also carries a brand colour** where it helps it read (lime on navy, purple/teal on paper, navy on lime) — a WCAG-passing accent, not a monochrome serif; one coloured emphasis per headline (`AGENTS.md §10`)
 - [ ] No upright Libre Baskerville used as body or display
 - [ ] Sentence case on headings; UPPERCASE only on eyebrows (tracked at 0.14em)
 - [ ] One hero idea per surface — everything else shrinks hard
@@ -58,6 +69,7 @@ Run against the **exported file**, not the source that made it (`POWERPOINT.md �
 
 ## Imagery & placeholders
 
+- [ ] **Image workflow followed** (`IMAGERY.md`): capability checked → user asked (generate / supply / placeholder) → if generating, a reusable style prompt or the Hoffman house style was used; one image language across the piece
 - [ ] Imagery the AI can't place is a **labelled** `.tha-placeholder` (icon + `__label` + art-direction `__hint` + generator-ready `__prompt`) — never a bare grey box
 - [ ] Photo placeholder labels use the required format: `Type · Aspect · generate W×Hpx` (for example, `Portrait · 4:5 · generate 1080×1350px`)
 - [ ] Placeholder ratio matches the real asset (`--16x9` / `--1x1` / `--4x5` / `--icon`, etc.); `.on-dark` on navy

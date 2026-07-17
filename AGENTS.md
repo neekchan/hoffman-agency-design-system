@@ -2,6 +2,11 @@
 
 You are looking at **The Hoffman Agency design system**: brand tokens, fonts, logo/illustration assets, a component bundle, reusable templates, and the written rules that govern all of it. Your job is to produce **on-brand** output (decks, web pages, social tiles, documents) — not to invent a new look. Read the files below **in this order** before building anything.
 
+> ## ⏱️ Step 0 — before you build (do this first, every time)
+> 1. **Run [`INTAKE.md`](./INTAKE.md).** Confirm the brief in a handful of questions (medium · Presenter/Document mode · audience, tone & language · colour direction · imagery choice), then restate it in one line. Guessing the brief and rebuilding is the #1 cause of off-brand output. *(Voice and wording are the user's own call — never impose a house writing style.)*
+> 2. **Settle imagery up front** with **[`IMAGERY.md`](./IMAGERY.md)** — can you generate images in this session? generate / user-supplies / labelled placeholders? It is the most-skipped decision; make it before you lay anything out, not after.
+> 3. **Build inside the system, never around it.** Load `colors_and_type.css` + `_ds_bundle.js`, start from the medium's template in `templates/`, and pick **named layouts** from `LAYOUTS.md`. **Never hand-author bespoke slide chrome.** Hand-rolled CSS that ignores the bundle is the root cause of every "it doesn't look like the system" failure. If the adherence linter (`_adherence.oxlintrc.json`) reports the bundle isn't loaded, stop and fix that before continuing.
+
 **Read first — orientation & rules (always):**
 1. **This file (`AGENTS.md`)** — the slide/office-doc authority. **§0 is the most important thing in the system:** this brand serves *two media with different physics* (web vs. slides), and §0 tells you which rule set wins. Read §0 before anything else.
 2. **`README.md`** — the human read of the brand (voice, content fundamentals, the full annotated file map). Start at its "File structure" block to see where everything lives.
@@ -14,7 +19,7 @@ You are looking at **The Hoffman Agency design system**: brand tokens, fonts, lo
 - **A web page / marketing site** → `README.md` web sections + `ui_kits/website/` (real components) + `DESIGN.md` web type scale. Web posture: generous whitespace, sparse imagery, 1240px measure.
 - **A product app / dashboard / workflow UI** → `README.md` app sections + `ui_kits/app/` (product primitives) + `DESIGN.md` component guidance. App posture: dense but calm, scannable, native controls, compact panels, no marketing hero composition.
 - **A social tile / one-pager** → the matching folder in `templates/` (`social-tile/`, `one-pager/`).
-- **Generating imagery with an AI image model** → `PROMPTS.md` (copy-paste prompt templates that bake in the Hoffman grade/mood).
+- **Any imagery decision (generate / supply / placeholder), or generating with an AI model** → **`IMAGERY.md`** first (the workflow: capability check → ask the user → learn-a-style or the Hoffman house illustration style → else a labelled placeholder), then **`PROMPTS.md`** for the copy-paste prompt templates that bake in the Hoffman grade/mood.
 - **Before shipping anything** → run `CHECKLIST.md` (pre-ship visual-consistency checklist).
 
 **The two runtime files you actually load in code:**
@@ -66,9 +71,17 @@ AI slides look uniform but hollow. Big type + imagery fills the canvas. Content 
 - **Default safe margin ~0.5″ (72px), not 0.9″.** Pack the frame — a uniform fat margin with small centred content is the #1 tell of an AI deck. Page chrome (page number, logo) lives inside that 72px margin.
 - **Full-bleed is the DEFAULT for image-led layouts, not an exception.** On covers, section dividers, statements, big-idea splits, persona photo panels, full-bleed, split 50/50, story-idea images and case-study image panels, let the **image/graphic touch one or more edges** (`padding:0` or a negative margin). The **type half still keeps the 72px safe margin** — only the imagery bleeds. Stop insetting every photo by 0.8–0.9″.
 - **Fill the lower third.** The bottom band is where AI decks leave dead space — scale the type up or let the image bleed down so the whole canvas is working.
+- **Dead space is a bug, not breathing room.** A bare margin with nothing in it is the tell. If a region is empty it wants something: scale the type, bleed the image, or drop in an icon / Fluent emoji / annotation. Never leave a blank half-slide.
+
+## 2.5 Titles & headings — fill the width, break clean, never truncate
+The most common Hoffman-deck failure after tiny type is a **mishandled title**: it truncates, it wraps mid-phrase, or it runs half the width and leaves a dead strip of white on the right. Fix the typesetting, not just the words.
+- **Never truncate or clip a title.** No ellipsis, no cut-off word, no title hidden behind an `overflow:hidden`. If it doesn't fit, the type is too big or the copy is too long — shrink within the §1 floor or tighten the line, don't crop it.
+- **Break lines at sense boundaries.** If a title wraps, break it at the end of a clause or phrase so each line reads as a unit (`Tech.` / `We're it.`), never mid-phrase (`Tech. We're` / `it.`). Insert a manual `<br>` where the meaning breaks rather than letting the box wrap at a random word.
+- **Fill the width or size up.** A title that fills only the left ~45% of the frame and leaves the right half empty reads as unfinished. Either **grow the type until the line spans a comfortable measure** (bias to the top of the §1 range — that is what the floors are for), **let it run onto two full lines**, or **place a graphic / image / Fluent emoji in the space to its right** so the row is composed, not half-empty. A short title beside a big empty right margin is the single most common "AI whitespace" complaint — treat the empty side as a slot, not a margin.
+- **One title measure per deck.** Keep titles landing on a consistent horizontal band (same left edge, similar width) so the deck feels set, not ragged.
 
 ## 3. Imagery is the DEFAULT, not optional
-Almost every page in a Hoffman deck carries a graphic/image alongside the text. Do not strip images to make a layout "clean." When a real image isn't available, reserve a standardized placeholder (below). Type-only slides are the exception (big statement, pull quote, section divider can be type-led — but even sections often carry a small graphic).
+Almost every page in a Hoffman deck carries a graphic/image alongside the text. Do not strip images to make a layout "clean." When a real image isn't available, reserve a standardized placeholder (below). **How to decide whether to generate, ask for, or placeholder an image — and the Hoffman house illustration style — is `IMAGERY.md`; settle it during intake.** Type-only slides are the exception (big statement, pull quote, section divider can be type-led — but even sections often carry a small graphic).
 
 ## 4. Standardized image placeholder
 Keep the **dotted border** + **aspect-ratio label** (the user likes both). Three lines, in this exact spirit:
@@ -86,6 +99,7 @@ Label each text region by what it is and how to write it, not a vague descriptio
 - Bullet/prop: *a trigger not a sentence, ≤6 words, max 3.*
 - Stat: *number + ≤4-word label, max 3.*
 Put these specs in the `@layout` comment's `slots=` and/or the on-canvas Layout-notes overlay so the writer is prompted, not guessing.
+- **Chunk, don't dump.** Break a dense point into 2–4 short labelled beats (a small stat row, three captioned cards, a step strip) instead of one paragraph or a six-line bullet stack. Chunking is what makes a Document-mode slide readable without shrinking the type.
 
 ## 6. Restraint (unchanged, still core)
 One point per slide; minimum on the page, rest narrated by the speaker; visible hierarchy (one dominant element); one graphic earns the emotion; cut before you add. See `LAYOUTS.md` Part 1.
@@ -118,6 +132,7 @@ Descriptive / summary headlines ("Korea: a widening mandate", "Our work across A
 - **≤ 8 words, one line where possible, with a point of view.** Prefer a question, a two-beat ("Tech. We're it."), the Baskerville-italic emphasis (its key word *or* short phrase), a strikethrough swap, or a giant single word.
 - **Contrast, questions, wordplay** over labels: "Who we are" → "But first, a bit about us." · "Tech's most decorated agency" → "Tech. We're it." · "China: local storytelling" → "Fluency in China's complexity."
 - One voice move per headline — don't stack a question + italic + strikethrough on one line. The italic marks the line's **emphasis by meaning** — usually one word, sometimes a short phrase; never scatter italics across several words, and never force a single word when the point lives in a phrase.
+- **Colour the emphasis, don't just italicise it.** The Baskerville-italic word can also carry a brand colour (lime on navy, purple/teal on paper, navy on lime) so the emphasis reads at a glance — the serif *and* a WCAG-passing accent, not a monochrome line. One coloured emphasis per headline; contrast is still the gate (§7).
 
 ## 11. Structure — breadth up front, a real close (don't over-compress)
 "Lean / one-point" governs the CONTENT section — it does NOT mean a one-slide deck.

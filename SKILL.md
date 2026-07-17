@@ -4,11 +4,11 @@ description: Use this skill to generate well-branded interfaces and assets for T
 user-invocable: true
 ---
 
-Read `LLM_ENTRYPOINT.md` first, then `README.md`, and explore the other available files needed for the task.
+Run `INTAKE.md` first (a few quick questions to lock the brief — medium, mode, audience/tone/language, colour, imagery), then read `LLM_ENTRYPOINT.md`, then `README.md`, and explore the other files needed for the task.
 
 If creating visual artifacts (slides, mocks, throwaway prototypes, etc), copy assets out and create static HTML files for the user to view. If working on production code, you can copy assets and read the rules here to become an expert in designing with this brand.
 
-If the user invokes this skill without any other guidance, ask them what they want to build or design, ask some questions, and act as an expert designer who outputs HTML artifacts _or_ production code, depending on the need.
+If the user invokes this skill without any other guidance, run the `INTAKE.md` questions (what are we making, mode, audience/tone/language, colour, imagery), restate the brief in one line, then act as an expert designer who outputs HTML artifacts _or_ production code, depending on the need.
 
 ## Quick reference
 
@@ -30,6 +30,8 @@ If the user invokes this skill without any other guidance, ask them what they wa
 ## Files
 
 - `README.md` — full design system (content, visual, iconography) + the file-structure map
+- `INTAKE.md` — **run first**: the pre-build questions that lock the brief (medium · mode · audience · colour · imagery)
+- `IMAGERY.md` — the imagery workflow (generate / supply / placeholder), the capability check, and the Hoffman house illustration style; pair with `PROMPTS.md` for the prompt templates
 - `LLM_ENTRYPOINT.md` — shortest routing guide for Claude/ChatGPT and other LLM agents
 - `ANTI_PATTERNS.md` — common LLM design failures and the correct Hoffman replacement
 - `AGENTS.md` — **slide/deck SOPs**; the authority when building decks or fixed-canvas office docs (§0 precedence, §8 Fluent emoji)

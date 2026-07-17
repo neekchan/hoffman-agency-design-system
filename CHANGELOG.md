@@ -4,6 +4,18 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-07-17 — Intake gate, imagery workflow, title rule + rendered-deck linter (v2.2.1 → v2.3.0)
+
+New surface area, all additive — closes the gaps behind the recurring "it doesn't look like the system" failures (tiny type, truncated/half-width titles, dead whitespace, missing imagery, agents skipping the imagery decision). The owner's *writing* voice was deliberately left out — that's personal preference, not a system rule.
+
+- **`INTAKE.md` (new) — a pre-build gate.** A short question set (medium · Presenter/Document mode · audience, tone & language · colour direction · imagery) with a one-line brief restated back, run before any surface or layout. Wired as step 0 from `AGENTS.md`, `LLM_ENTRYPOINT.md` (new §0), `CLAUDE.md`, and `SKILL.md`, so no entry path can skip it.
+- **`IMAGERY.md` (new) — the image decision workflow.** Capability check (can this agent generate images at all?) → ask the user (generate / supply / labelled placeholder) → if generating, learn a reusable style from 2–4 samples or fall back to the documented **Hoffman house illustration style** → else a labelled `.tha-placeholder`, never a bare box. Distinguishes illustration from photograph and cross-wires with `PROMPTS.md` (workflow here, prompt templates there). Ships 3 reference samples in `assets/house-style/`.
+- **`AGENTS.md §2.5` (new) — titles & headings.** Never truncate/clip a title; break lines at sense boundaries (manual `<br>`, not mid-phrase); fill the width or size up, and treat an empty right margin as a slot for a graphic, not dead space. Plus a "dead space is a bug" note in §2, "chunk, don't dump" in §5, and "colour the emphasis" in §10.
+- **`tools/lint-deck.js` (new) — rendered-output linter (`npm run lint:deck`).** Renders a deck in headless Chromium at 1920×1080 and flags type below the slide floor, titles that truncate or under-fill, right-side / lower-band dead space, content slides with no visual, real white-on-white (measured from the actual rendered pixel behind each text run, so layered colour surfaces read correctly), frame overflow, and tokens/bundle not loaded. Degrades gracefully where Playwright/Chromium is absent; not added to `npm test` (needs a browser + a target file).
+- **Routing reoriented + checklists updated.** `CHECKLIST.md` gains an intake block and title/visual/chunk/emphasis/image-workflow lines; `ANTI_PATTERNS.md` gains rows for hand-authored chrome, skipped intake, truncated half-width titles, text-only slides, wall-of-text dumps, and mixed image styles.
+
+Mirrored to the Claude Design master (`d10f7f7f-…`).
+
 ## 2026-07-15 — Fix reversed-meaning tagline + finish the italic-emphasis reframe (v2.2.0 → v2.2.1)
 
 Post-sync cleanup. Two copy defects that survived the v2.2.0 sync, caught in a

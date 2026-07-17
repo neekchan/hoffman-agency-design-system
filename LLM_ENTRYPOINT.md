@@ -4,6 +4,10 @@ Use this file when Claude, ChatGPT, or another agent is handed the repo as
 design guidance. Route the task first, then read only the files needed for that
 route.
 
+## 0. Run Intake First
+
+Before routing or building anything, run **`INTAKE.md`** — a handful of questions (medium · Presenter/Document mode · audience, tone & language · colour direction · **imagery: generate / supply / placeholder**), then restate the brief in one line. Infer what you safely can; ask only what you can't. Guessing the brief and rebuilding is the top cause of off-brand output. Voice and wording stay the user's call — don't impose a house writing style. Settle the imagery question here with **`IMAGERY.md`**.
+
 ## 1. Pick The Medium
 
 | User asks for | Read | Start from | Key rule |
@@ -14,7 +18,7 @@ route.
 | Product app, dashboard, admin, portal, workflow tool | `DESIGN.md`, `ui_kits/app/COMPONENTS.md` | `ui_kits/app/index.html` | Dense, calm, scannable UI. Use app primitives, not marketing heroes. |
 | Social tile or carousel | `README.md`, `PROMPTS.md` | `templates/social-tile/SocialTile.dc.html` | One idea per tile, big type, fixed safe zone. |
 | One-pager or print leave-behind | `README.md`, `CHECKLIST.md` | `templates/one-pager/OnePager.dc.html` | Print has its own size constraints; keep hierarchy clear. |
-| Image generation prompt | `PROMPTS.md` | The matching prompt block | Keep the Hoffman photo grade and placeholder resolution rules. |
+| Any image (generate / supply / placeholder) | `IMAGERY.md`, then `PROMPTS.md` | The workflow in `IMAGERY.md`, then the matching prompt block | Decide *whether/how* in `IMAGERY.md` (capability check → ask → house style → else placeholder); keep the Hoffman photo grade + placeholder resolution rules. |
 
 ## 2. Universal Brand Rules
 
@@ -24,7 +28,7 @@ route.
 - Lavender, purple, cyan, and teal are allowed as full surfaces when contrast passes.
 - Never use lime text on white; use `--fg-accent` / `#A7BC00` or navy.
 - Use the Storyline mark correctly: boxed monogram on light/non-navy, line variant as a background layer on navy/dark.
-- Use real imagery first. If unavailable, use labelled `.tha-placeholder` blocks with exact generate dimensions.
+- Use real imagery first. Decide generate-vs-supply-vs-placeholder with `IMAGERY.md`; if unavailable, use labelled `.tha-placeholder` blocks with exact generate dimensions — never a bare grey box.
 - Keep copy smart, human, energetic, distilled, bold, creative, and authentic. No agency jargon.
 
 ## 3. Medium-Specific Rules

@@ -9,6 +9,7 @@ Everything below is a summary. If it ever conflicts with `AGENTS.md`, **`AGENTS.
 ## Fast orientation (see `AGENTS.md` for the authoritative version)
 
 Read in this order before building anything:
+0. **`INTAKE.md`** — run this first: a few questions (medium · mode · audience/tone/language · colour · imagery) to confirm the brief before you build. Pair it with **`IMAGERY.md`** to settle the image question. (Voice/wording stay the user's own — no house writing style imposed.)
 1. **`AGENTS.md`** — the authority. §0 (medium precedence: web vs. slides) is the most important thing in the system.
 2. **`README.md`** — the human read of the brand (voice, content fundamentals, annotated file map).
 3. **`DESIGN.md`** — machine-readable single source of truth for every token (color, type, spacing, radius, shadow) + voice/imagery rules.
@@ -18,7 +19,7 @@ Then read by task:
 - **Deck / slides (1920×1080)** → `LAYOUTS.md` + `AGENTS.md §§1–12`; build from `templates/deck/Deck.dc.html`.
 - **Web page / app UI** → `README.md` web sections + `ui_kits/website/` + `DESIGN.md` web type scale.
 - **Social tile / one-pager** → the matching folder in `templates/`.
-- **AI imagery** → `PROMPTS.md`.
+- **AI imagery** → `IMAGERY.md` (the decide-and-source workflow + house illustration style), then `PROMPTS.md` (copy-paste prompt templates).
 - **Before shipping** → `CHECKLIST.md`.
 
 ## Runtime files you load in code

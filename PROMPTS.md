@@ -2,6 +2,8 @@
 
 Copy-paste templates for generating brand-consistent imagery with AI tools (Midjourney, DALL·E, Stable Diffusion, etc.). Use these as your starting prompt and fill in the bracketed values.
 
+> **Deciding *whether and how* to source an image — generate vs. ask the user vs. labelled placeholder, the capability check, and the Hoffman house *illustration* style — is [`IMAGERY.md`](./IMAGERY.md). This file is the prompt library you reach for once you've decided to generate.**
+
 > **Sizes are given in both px and pt** (1pt = 2px on a 1920×1080 slide). Use whichever unit your tool expects — pixel-based generators (Midjourney / DALL·E / SD, browsers) take px; point-based tools (PowerPoint, Keynote, print layouts) take pt. When you add a size to any prompt, write both.
 
 ---

@@ -1,6 +1,6 @@
 # The Hoffman Agency — Design System
 
-**Version 2.2.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — corrected the hero line to *Complexity out. Clarity in.* (the README and DESIGN examples had it reversed) and finished the **italic-emphasis** reframe in the last stale spots (deck-template layout specs + social brief). Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.3.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — added a **pre-build intake gate** (`INTAKE.md`) and an **imagery workflow** (`IMAGERY.md`: capability check → ask → house illustration style → else placeholder, with 3 reference samples); a new **title/heading rule** (`AGENTS.md §2.5`: fill the width, break clean, never truncate) plus dead-space / chunking / coloured-emphasis notes; a rendered-deck linter (`tools/lint-deck.js`, `npm run lint:deck`); and reoriented routing so every entrypoint runs intake first and every agent sees the imagery route. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -24,7 +24,8 @@ That operational readiness shows up as: `LLM_ENTRYPOINT.md` for task routing and
 This repo is often used by pointing Claude, ChatGPT, or another design agent at
 the files and asking it to build slides, pages, or prototypes. Treat this README
 as the first prompt. If the model can read the repo, open `LLM_ENTRYPOINT.md`
-next; it is the shortest task router. If this README is the only file visible,
+next; it is the shortest task router (and it points you at `INTAKE.md` to
+confirm the brief before building). If this README is the only file visible,
 use the routing rules below.
 
 | If the user asks for | Use these rules first | Do not do this |
@@ -34,7 +35,7 @@ use the routing rules below.
 | Marketing site or landing page | `DESIGN.md`, `colors_and_type.css`, `ui_kits/website/` | Do not use dashboard density |
 | Product app, dashboard, portal, workflow UI | `DESIGN.md`, `ui_kits/app/`, `ui_kits/app/COMPONENTS.md` | Do not start with a marketing hero |
 | Social tile or carousel | `templates/social-tile/`, `PROMPTS.md` | Do not use tiny type or decorative clutter |
-| Image generation prompt | `PROMPTS.md` | Do not ignore placeholder size/mood rules |
+| Any image (generate / supply / placeholder) | `IMAGERY.md`, then `PROMPTS.md` | Do not skip the capability check or drop a bare grey box |
 
 **If building slides and only this README is visible:**
 
@@ -65,6 +66,7 @@ The design system is organized so every file name corresponds to how it's used. 
 
 ```
 ─ Docs (root) ─────────────────────────────────────────────
+INTAKE.md               · ⏱ run FIRST — the pre-build intake questions that lock the brief (medium · mode · audience · colour · imagery)
 AGENTS.md               · slide/deck SOPs — the authority for slides & office docs (precedence: see §0)
 LLM_ENTRYPOINT.md       · shortest task router for Claude, ChatGPT and other design agents
 LAYOUTS.md              · deck layout library (48 layouts, L01–L51) + slide best-practice guide
@@ -74,6 +76,7 @@ README.md               · this file (the human read of the brand: content, visu
 SKILL.md                · agent-skill manifest
 CHECKLIST.md            · pre-ship visual consistency checklist
 ANTI_PATTERNS.md        · common LLM design failure modes + the correct Hoffman replacement
+IMAGERY.md              · imagery workflow (generate / supply / placeholder) + capability check + Hoffman house illustration style (pairs with PROMPTS.md)
 PROMPTS.md              · AI generation prompt templates
 POWER-DESIGN-PRINCIPLES.md · portable craft-rules layer (reference, try, don't stick) + the Presenter/Document deck-mode rule
 CONTRIBUTING.md         · repo maintenance rules: what to edit, how to validate, and how to add cards/templates
@@ -83,6 +86,7 @@ colors_and_type.css     · all color + type tokens as CSS variables (the compile
 _ds_bundle.js · _ds_manifest.json · _adherence.oxlintrc.json   · COMPILER-GENERATED — do not hand-edit unless mechanically syncing an export when the compiler is unavailable
 tools/validate-design-system.js · static catalog + manifest consistency checks
 tools/smoke-html-catalog.js · local HTML asset + bundle export smoke checks
+tools/lint-deck.js      · renders a deck in headless Chromium and flags tiny type, truncated/half-width titles, dead space, missing visuals, white-on-white (`npm run lint:deck`)
 
 docs/                   · portable exports + demos — self-contained, NOT part of the compiled system
   portable-brand-brief-social.md      · paste-into-Lovart brand brief for social tiles
@@ -105,6 +109,7 @@ assets/
     animated/                       · localized animated APNGs (offline hero set)
   annotations/                      · 76 hand-drawn marks across 6 categories
     underline·circle·arrow·tick·cross·accent   · 13·15·14·11·11·12
+  house-style/                      · 3 reference samples for the Hoffman house illustration style (see IMAGERY.md)
 
 fonts/                  · self-hosted brand fonts. Poppins (full 100–900 weight + italic TTFs, all @font-face-registered)
   Poppins-*.ttf                     · 18 roman+italic weight files
@@ -293,7 +298,7 @@ When you do fall back, **never leave a bare grey box** — reserve a *labelled* 
 
 - Ratio modifiers: `--16x9`, `--4x3`, `--1x1`, `--4x5`, `--3x1`, or `--icon` (a 56px square for one Lucide icon, not a photo).
 - `.on-dark` switches the dashed frame + label to the navy-tinted set for dark slides. `--accent` makes a solid lime hero frame.
-- **Three lines of anatomy.** The **`__label`** says what it is; the **`__hint`** is the art direction for the *human* sourcing the shot; the **`__prompt`** is a paste-ready seed for an *image generator* — one or two sentences that bake in the imagery direction (candid, natural light, warm grade, business-casual) plus the aspect ratio. Write all three on every photo placeholder; templates live in `PROMPTS.md`.
+- **Three lines of anatomy.** The **`__label`** says what it is; the **`__hint`** is the art direction for the *human* sourcing the shot; the **`__prompt`** is a paste-ready seed for an *image generator* — one or two sentences that bake in the imagery direction (candid, natural light, warm grade, business-casual) plus the aspect ratio. Write all three on every photo placeholder; templates live in `PROMPTS.md`. The decide-and-source workflow — generate vs. supply vs. placeholder, the capability check, and the Hoffman house *illustration* style — is `IMAGERY.md`.
 - **Drop-to-fill.** Add `data-slot="<unique-id>"` and the brand-deck script makes the frame accept a dragged (or double-click-to-browse) image; it persists locally and a hover ✕ clears it. Prompts become click-to-copy. See the script tail of `slides/Hoffman Brand Guidelines.html`.
 - **Image-forward layout templates** are demonstrated in the deck (slides 30b–30f): placeholder anatomy, full-bleed image + navy overlay, split 50/50, portrait + pull quote, and the case-study montage. Start from those instead of inventing new image layouts. See `preview/components-placeholders.html`.
 
