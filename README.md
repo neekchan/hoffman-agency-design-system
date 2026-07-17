@@ -1,6 +1,6 @@
 # The Hoffman Agency — Design System
 
-**Version 2.3.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — added a **pre-build intake gate** (`INTAKE.md`) and an **imagery workflow** (`IMAGERY.md`: capability check → ask → house illustration style → else placeholder, with 3 reference samples); a new **title/heading rule** (`AGENTS.md §2.5`: fill the width, break clean, never truncate) plus dead-space / chunking / coloured-emphasis notes; a rendered-deck linter (`tools/lint-deck.js`, `npm run lint:deck`); and reoriented routing so every entrypoint runs intake first and every agent sees the imagery route. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.3.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — a deck **delivery-format choice** at intake (HTML vs native PowerPoint, with pros/cons) and a hard **"an HTML deck is still a deck, not a web page"** guardrail (`AGENTS.md §0`) so web/UI rules stop producing 16px type on a 1920×1080 canvas; plus image-prompt fixes (don't ask Midjourney / DALL·E to typeset headlines — imagery only, set type in the deck). Prior minor (2.3.0) added the intake gate, imagery workflow, title rule, and the rendered-deck linter. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 

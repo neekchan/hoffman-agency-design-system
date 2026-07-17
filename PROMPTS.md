@@ -4,6 +4,8 @@ Copy-paste templates for generating brand-consistent imagery with AI tools (Midj
 
 > **Deciding *whether and how* to source an image — generate vs. ask the user vs. labelled placeholder, the capability check, and the Hoffman house *illustration* style — is [`IMAGERY.md`](./IMAGERY.md). This file is the prompt library you reach for once you've decided to generate.**
 
+> **⚠ Image models can't typeset.** Midjourney / DALL·E / Stable Diffusion garble real words — never ask them to render your headline, series number, or labels. Generate the **imagery / background only**, then set ALL type in the deck (HTML or PPTX). The type specs in the blocks below describe what to set in the **deck layer** — they are not instructions to bake text into the picture.
+
 > **Sizes are given in both px and pt** (1pt = 2px on a 1920×1080 slide). Use whichever unit your tool expects — pixel-based generators (Midjourney / DALL·E / SD, browsers) take px; point-based tools (PowerPoint, Keynote, print layouts) take pt. When you add a size to any prompt, write both.
 
 ---
@@ -13,7 +15,7 @@ Copy-paste templates for generating brand-consistent imagery with AI tools (Midj
 ```
 A [SOCIAL TILE / CAROUSEL TILE] for The Hoffman Agency with [BACKGROUND COLOR — Deep Navy #182d43, Lime Green #D2EB00, Purple #6103b9, or Teal #145f7b] background.
 
-Typography (CRITICAL — follow exactly):
+Type — set these IN THE DECK layer, do NOT render them in the image (CRITICAL):
 * Series number "[#]" in [white on dark / navy on lime], Poppins Bold, 96px / 48pt, top-left corner, 80px from top edge and 80px from left edge.
 * Main headline, centered: "[FULL HEADLINE TEXT]"
   * "[word/phrase]" in Libre Baskerville italic, [Lime Green / Purple / Navy depending on bg], [160–240px / 80–120pt for emphasis words]
@@ -24,7 +26,7 @@ Hand-drawn annotation: [ONE OF: lime underline / purple double underline / lime 
 
 Storyline squiggle: [OPTIONAL — if used as hero background, anchored top-right, full-bleed on top, right and bottom edges, navy extends left holding the content].
 
-Constraints: NO other wavy lines, NO squiggly arrows beyond the approved annotation set. NO gradients. NO drop shadows. NO stock photography. NO raw emoji or decorative emoji stacks. Clean, premium tech aesthetic. High contrast. Square format 2160×2160 px.
+Constraints: NO other wavy lines, NO squiggly arrows beyond the approved annotation set. NO gradients. NO drop shadows. NO stock photography. NO raw emoji or decorative emoji stacks. NO text, letters, or numbers rendered by the model — set all type in the deck. Clean, premium tech aesthetic. High contrast. Square format 2160×2160 px.
 ```
 
 ### Example (filled)
@@ -51,7 +53,7 @@ Constraints: NO other wavy lines, NO squiggly arrows. NO gradients. NO drop shad
 ```
 A presentation slide for The Hoffman Agency, 1920×1080 px, with [BACKGROUND COLOR] background.
 
-Typography:
+Type — set these IN THE DECK layer, do NOT render them in the image:
 * Eyebrow label, top-left, Poppins Bold 22px / 11pt, letter-spacing 0.14em, UPPERCASE, color [Lime Green on dark / Navy 500 on light].
 * Hero headline, left-aligned, Poppins Bold or Black — 64–80px / 32–40pt for a content title, up to 120–176px / 60–88pt for a statement or cover — with one or two words in Libre Baskerville italic for emphasis.
 * Body subhead, Poppins Regular 30–36px / 15–18pt (default 32px / 16pt), max-width 28em.
@@ -65,7 +67,7 @@ Chrome:
 Optional: one hand-drawn annotation (underline / circle / arrow / bracket / cross-out / double underline) in lime or purple.
 Optional: one Microsoft Fluent emoji as the slide's single storytelling graphic, following `AGENTS.md §8`. In code, use `<fluent-emoji name="[NAME]" size="[96-160]"></fluent-emoji>`. In raster image prompts, request a Fluent-style emoji illustration only when the emoji is the intended hero graphic.
 
-Constraints: NO wavy lines outside the Storyline squiggle motif. NO gradients. NO frosted glass. Square corners (0–2px). NO raw unicode emoji, emoji stacks, or decorative emoji. Fluent emoji are allowed only as the deliberate single graphic/story beat.
+Constraints: NO wavy lines outside the Storyline squiggle motif. NO gradients. NO frosted glass. Square corners (0–2px). NO text, letters, or numbers rendered by the model — set all type in the deck. NO raw unicode emoji, emoji stacks, or decorative emoji. Fluent emoji are allowed only as the deliberate single graphic/story beat.
 ```
 
 ---
@@ -121,6 +123,8 @@ Length: [...]
 
 ## Photography (placeholder `__prompt` seeds)
 
+> These are **photography** seeds (real people, teams, offices). For flat-editorial **illustration** — concepts and metaphors — use the **Hoffman house illustration style** in `IMAGERY.md`, not these.
+
 Every `.tha-placeholder` for a photo carries a `__prompt` — one or two sentences an image generator can run with. Build it from this template:
 
 ```
@@ -128,12 +132,12 @@ Every `.tha-placeholder` for a photo carries a `__prompt` — one or two sentenc
 [SUBJECT — who is doing what, concretely],
 [LIGHT — natural window light / soft directional light / warm ambient],
 [WARDROBE/SET — business-casual, lived-in workspace, no staging],
-warm color grade, eye-level, documentary style. [ASPECT RATIO].
+warm color grade, eye-level, documentary style. [ASPECT RATIO + pixel size from `AGENTS.md §4`, e.g. 16:9 · 1920×1080px].
 ```
 
 Always exclude: `no suits, no stock-photo posing, no motion blur, no lens flares, no 3D renders, no cool-blue grade.`
 
-### Examples (from the deck, slides 30–30f)
+### Examples
 
 - *Candid documentary photo, comms team mid-conversation around a laptop, natural window light, business-casual, warm color grade, eye-level, no staging. 16:9.*
 - *Environmental portrait, tech executive, shoulders up, direct eye contact, soft natural light, warm grade, shallow depth. 4:5.*

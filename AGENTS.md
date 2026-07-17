@@ -54,6 +54,8 @@ This design system serves **two media with different physics**, and their rules 
 
 DESIGN.md still governs **color, fonts, the italic-emphasis move, the Storyline motif, annotations, and voice** — those are brand-wide and apply to both media. It's only the *web layout/scale/density/imagery* posture that slides override.
 
+**Delivery format is not a medium.** A deck delivered as **HTML** (the deck-stage engine) and a deck delivered as **`.pptx`** are *both slides* — both use the slide rules in this file. **An HTML deck is not a web page:** HTML is only the rendering technology. Never apply the web type scale, web whitespace, or `ui_kits/` UI rules to an HTML deck — that is exactly how a 1920×1080 deck ends up with 16px body text. If you're rendering slides, you're governed by `AGENTS.md`, whatever the file extension. (Ask HTML-vs-`.pptx` at intake — `INTAKE.md` Q1 — for the delivery trade-off; the choice does not change the rule set.)
+
 ## 1. Slides use a SLIDE type scale, not a web type scale
 Canvas is 1920×1080 → **1pt = 2px** (a 13.33″-widescreen point doubles into px). Translate PowerPoint point sizes accordingly. **Every size in this system is quoted in BOTH units — px first, pt in parens — so pixel-based tools (browsers, image generators) and point-based tools (PowerPoint, Keynote, print) can each read the spec directly; when you write a new size anywhere, give both.** **These are FLOORS — bias to the top of every range; the display tiers are "size-to-fit," not caps: cover and closing words should grow until they fill the frame on 1–2 lines.**
 - **≤ 3 distinct type sizes per slide.** (A stat's or a hero word's giant number can be a deliberate 4th.)

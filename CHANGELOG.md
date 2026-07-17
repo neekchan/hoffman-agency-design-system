@@ -4,6 +4,17 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-07-17 — Deck delivery-format choice + "HTML deck ≠ web page" guardrail + image-prompt fixes (v2.3.0 → v2.3.1)
+
+Same-day follow-up to v2.3.0, tightening the two things that drive the tiny-font failure and the garbled-text-in-images failure.
+
+- **Deck delivery format is now an explicit intake choice.** `INTAKE.md` Q1 gains an HTML-vs-native-PowerPoint decision with the trade-off spelled out: HTML deck = interactive/animated, pixel-exact, best live or as a link, but not editable in PowerPoint; `.pptx` = anyone can edit and hand off, but limited interactivity and more work to hold brand fidelity. Rule of thumb: presenting live / sending a link → HTML; someone else edits it → PPTX. (PDF is an export of either.)
+- **"An HTML deck is still a deck, not a web page."** New guardrail in `AGENTS.md §0` (echoed in `SKILL.md`): delivery format is not a medium — HTML and `.pptx` are both slides and both use the slide rules. HTML is only the rendering tech; applying the web type scale / whitespace / `ui_kits/` rules to a 1920×1080 HTML deck is exactly how it ends up with 16px body text. Closes the most common tiny-font path.
+- **Stop asking image models to typeset.** `PROMPTS.md` gains a banner and per-block fixes: Midjourney / DALL·E / SD garble real words, so the social-tile and slide blocks now generate *imagery / background only* — headlines, series numbers, and labels are set in the deck (HTML or PPTX), not baked into the picture. The type specs in those blocks are labelled as the code-layer spec.
+- **Photo-seed housekeeping.** Flagged that the `__prompt` seeds are photography-only (illustration lives in `IMAGERY.md`), added pixel size alongside aspect in the seed template, and dropped the stale "slides 30–30f" reference.
+
+Synced to the Claude Design master (`d10f7f7f-…`) and the public GitHub mirror (`main`).
+
 ## 2026-07-17 — Intake gate, imagery workflow, title rule + rendered-deck linter (v2.2.1 → v2.3.0)
 
 New surface area, all additive — closes the gaps behind the recurring "it doesn't look like the system" failures (tiny type, truncated/half-width titles, dead whitespace, missing imagery, agents skipping the imagery decision). The owner's *writing* voice was deliberately left out — that's personal preference, not a system rule.
