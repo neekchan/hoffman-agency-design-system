@@ -1,6 +1,6 @@
 # The Hoffman Agency — Design System
 
-**Version 2.3.2** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — removed the Node repo scripts (`tools/lint-deck.js`, `tools/smoke-html-catalog.js`, `tools/validate-design-system.js`) and their `npm` entries, which the compiler was bundling into `_ds_bundle.js` (a `#!/usr/bin/env node` shebang broke the JSX transform). Validation is the compiler's job; docs no longer point agents at removed `npm run` commands. Prior patch (2.3.1) added a deck **delivery-format choice** at intake (HTML vs native PowerPoint) and the **"an HTML deck is still a deck, not a web page"** guardrail (`AGENTS.md §0`). Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.3.3** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — un-deprecated the **white + lime logo reverse** (icon in lime, wordmark in white) for navy grounds; the "Never" list contradicted `LAYOUTS.md` L31, which already specs it for the spectrum-bar cover. Prior patch (2.3.2) removed the Node repo scripts (`tools/lint-deck.js`, `tools/smoke-html-catalog.js`, `tools/validate-design-system.js`) that were breaking the compiled bundle. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -408,12 +408,12 @@ The brand's *real* iconographic language is the library of **76 hand-drawn annot
 - **Stacked color** — social avatars, square formats, posters.
 - **1-color black** — for light/mono print where lime is unavailable.
 - **1-color pure white** — for **navy AND any secondary-color background** (lavender, purple, cyan, teal). When the background is dark or saturated, always use white.
+- **White + lime reverse** (`logo-horizontal-white-lime.svg` / stacked equivalent) — icon in lime, wordmark in white, **navy grounds only**. The accented alternative to the pure-white lockup when the layout wants lime to read in the mark itself, not just the surface — see `LAYOUTS.md` L31 (spectrum-bar cover). On any other dark/saturated background, use pure white instead.
 - **1-color solid navy** — for lime backgrounds.
 - **Square mark (lime bg with white squiggle)** — favicon, app icon, social avatar.
 - **Never:**
   - Recolor beyond the supplied variants.
   - Stretch, skew, or rotate.
-  - Use the white+lime reverse on any background (deprecated).
   - Place on busy photography without a navy overlay.
   - Reproduce smaller than 24 px tall (horizontal) or 32 px (stacked).
 

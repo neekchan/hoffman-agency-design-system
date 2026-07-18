@@ -4,6 +4,14 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-07-18 — Un-deprecated the white + lime logo reverse (v2.3.2 → v2.3.3)
+
+`README.md`'s Logo usage "Never" list banned the white+lime reverse (icon in lime, wordmark in white) on any background, calling it deprecated — but `LAYOUTS.md` L31 (the spectrum-bar cover) already specs "white+lime logo" on a navy ground. The rule was stale, not the usage.
+
+- **Removed** the "Never... use the white+lime reverse (deprecated)" bullet.
+- **Added** a proper entry for the variant: `logo-horizontal-white-lime.svg` / stacked equivalent, **navy grounds only**, as the accented alternative to the pure-white lockup when a layout wants lime to read in the mark itself — cross-referenced to `LAYOUTS.md` L31. On any other dark/saturated background, pure white remains the rule.
+- No asset files changed — both `logo-horizontal-white-lime.svg` and `logo-stacked-white-lime.svg` already existed; only the documented rule around them changed.
+
 ## 2026-07-17 — Removed Node repo scripts that broke the compiled bundle (v2.3.1 → v2.3.2)
 
 The compiler bundles project `.js` into `_ds_bundle.js`; `tools/lint-deck.js` began with a `#!/usr/bin/env node` shebang, which is invalid mid-file and broke the bundle's JSX transform (`SyntaxError: Unexpected token`). Validation belongs to the compiler, not a parallel Node toolchain, so the scripts are gone rather than patched.
