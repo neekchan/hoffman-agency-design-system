@@ -1,6 +1,6 @@
 # The Hoffman Agency — Design System
 
-**Version 2.3.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — a deck **delivery-format choice** at intake (HTML vs native PowerPoint, with pros/cons) and a hard **"an HTML deck is still a deck, not a web page"** guardrail (`AGENTS.md §0`) so web/UI rules stop producing 16px type on a 1920×1080 canvas; plus image-prompt fixes (don't ask Midjourney / DALL·E to typeset headlines — imagery only, set type in the deck). Prior minor (2.3.0) added the intake gate, imagery workflow, title rule, and the rendered-deck linter. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.3.2** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — removed the Node repo scripts (`tools/lint-deck.js`, `tools/smoke-html-catalog.js`, `tools/validate-design-system.js`) and their `npm` entries, which the compiler was bundling into `_ds_bundle.js` (a `#!/usr/bin/env node` shebang broke the JSX transform). Validation is the compiler's job; docs no longer point agents at removed `npm run` commands. Prior patch (2.3.1) added a deck **delivery-format choice** at intake (HTML vs native PowerPoint) and the **"an HTML deck is still a deck, not a web page"** guardrail (`AGENTS.md §0`). Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -81,12 +81,9 @@ PROMPTS.md              · AI generation prompt templates
 POWER-DESIGN-PRINCIPLES.md · portable craft-rules layer (reference, try, don't stick) + the Presenter/Document deck-mode rule
 CONTRIBUTING.md         · repo maintenance rules: what to edit, how to validate, and how to add cards/templates
 CHANGELOG.md            · dated record of repo maintenance and system changes
-package.json            · dependency-free validation entrypoint (`npm run validate`)
+package.json            · package name + canonical SemVer version number
 colors_and_type.css     · all color + type tokens as CSS variables (the compiled token source)
 _ds_bundle.js · _ds_manifest.json · _adherence.oxlintrc.json   · COMPILER-GENERATED — do not hand-edit unless mechanically syncing an export when the compiler is unavailable
-tools/validate-design-system.js · static catalog + manifest consistency checks
-tools/smoke-html-catalog.js · local HTML asset + bundle export smoke checks
-tools/lint-deck.js      · renders a deck in headless Chromium and flags tiny type, truncated/half-width titles, dead space, missing visuals, white-on-white (`npm run lint:deck`)
 
 docs/                   · portable exports + demos — self-contained, NOT part of the compiled system
   portable-brand-brief-social.md      · paste-into-Lovart brand brief for social tiles
@@ -158,24 +155,7 @@ uploads/                · scratch — transient user uploads (review screenshot
 
 ## Validation
 
-Run the dependency-free catalog check before shipping repo changes:
-
-```bash
-npm run validate
-```
-
-It verifies component source paths, manifest card/template paths, `@dsCard` and `@template` metadata, UI-kit README file references, the deck layout count, and the live guidelines deck slide count. The generated files should normally come from the design-system compiler; if the compiler is unavailable and a generated export must be synced manually, keep the change mechanical and run validation afterwards.
-
-Run the smoke check when changing catalog HTML, demos, or generated component
-exports:
-
-```bash
-npm run smoke
-```
-
-It checks local HTML asset references, required LLM guidance files, UI kit demo
-roots, and namespace assignments in `_ds_bundle.js`. `npm test` runs both
-validation and smoke checks.
+This system is compiled and validated by the design-system compiler, which regenerates `_ds_bundle.js`, `_ds_manifest.json`, and `_adherence.oxlintrc.json` and reports catalog, manifest, and metadata issues on every change. Before shipping repo changes, run `CHECKLIST.md` manually for visual consistency. The generated files should always come from the compiler; if it is unavailable and a generated export must be synced manually, keep the change mechanical.
 
 ---
 

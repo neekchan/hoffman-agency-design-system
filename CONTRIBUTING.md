@@ -24,28 +24,14 @@ when it is available.
 
 If the compiler is not available and the current export must be repaired, keep
 the generated-file change mechanical: update only stale paths or metadata that
-can be derived from source files, then run validation.
+can be derived from source files.
 
 ## Validate
 
-Run:
-
-```bash
-npm run validate
-```
-
-The validator is dependency-free. It checks manifest paths, component exports,
-`@dsCard` metadata, `@template` entries, UI-kit README file references, the
-48-layout deck template, and the live guidelines deck slide count.
-
-When changing catalog HTML, UI kit demos, or generated component exports, also
-run:
-
-```bash
-npm run smoke
-```
-
-`npm test` runs both validation and smoke checks.
+The design-system compiler regenerates the compiled files and reports catalog,
+manifest, `@dsCard`/`@template` metadata, UI-kit reference, and deck/layout-count
+issues on every change. Fix what it reports until it is clean, then run
+`CHECKLIST.md` manually for visual consistency before shipping.
 
 ## Adding A Preview Card
 

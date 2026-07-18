@@ -1,11 +1,5 @@
 {
   "name": "hoffman-agency-design-system",
-  "version": "2.3.1",
-  "private": true,
-  "scripts": {
-    "validate": "node tools/validate-design-system.js",
-    "smoke": "node tools/smoke-html-catalog.js",
-    "lint:deck": "node tools/lint-deck.js",
-    "test": "npm run validate && npm run smoke"
-  }
+  "version": "2.3.2",
+  "private": true
 }

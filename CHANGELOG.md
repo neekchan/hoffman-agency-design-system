@@ -4,6 +4,15 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-07-17 — Removed Node repo scripts that broke the compiled bundle (v2.3.1 → v2.3.2)
+
+The compiler bundles project `.js` into `_ds_bundle.js`; `tools/lint-deck.js` began with a `#!/usr/bin/env node` shebang, which is invalid mid-file and broke the bundle's JSX transform (`SyntaxError: Unexpected token`). Validation belongs to the compiler, not a parallel Node toolchain, so the scripts are gone rather than patched.
+
+- **Deleted** `tools/lint-deck.js`, `tools/smoke-html-catalog.js`, and `tools/validate-design-system.js` (the whole `tools/` folder).
+- **`package.json`** — removed the `scripts` block (`validate`, `smoke`, `lint:deck`, `test`); the file now carries only name, version, and `private`.
+- **Removed dangling pointers** to those scripts / `npm run` commands: `LLM_ENTRYPOINT.md` "Before Shipping" line, the README file-tree entries + "## Validation" section, and the `CONTRIBUTING.md` "## Validate" section and step notes. Each now points to the compiler + manual `CHECKLIST.md` instead.
+- Historical CHANGELOG entries mentioning the old scripts are left as-is (accurate record of prior state).
+
 ## 2026-07-17 — Deck delivery-format choice + "HTML deck ≠ web page" guardrail + image-prompt fixes (v2.3.0 → v2.3.1)
 
 Same-day follow-up to v2.3.0, tightening the two things that drive the tiny-font failure and the garbled-text-in-images failure.

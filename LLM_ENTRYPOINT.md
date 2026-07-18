@@ -66,5 +66,4 @@ Before routing or building anything, run **`INTAKE.md`** — a handful of questi
 
 - Check `ANTI_PATTERNS.md` for common LLM design failures.
 - Run `CHECKLIST.md` manually for visual consistency.
-- Run `npm run validate` for catalog and manifest consistency.
 - Never export `references/`; it is confidential source material.
