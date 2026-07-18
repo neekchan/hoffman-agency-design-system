@@ -1,6 +1,10 @@
 # The Hoffman Agency — Design System
 
-**Version 2.3.3** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — un-deprecated the **white + lime logo reverse** (icon in lime, wordmark in white) for navy grounds; the "Never" list contradicted `LAYOUTS.md` L31, which already specs it for the spectrum-bar cover. Prior patch (2.3.2) removed the Node repo scripts (`tools/lint-deck.js`, `tools/smoke-html-catalog.js`, `tools/validate-design-system.js`) that were breaking the compiled bundle. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+<p align="center">
+  <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
+</p>
+
+**Version 2.3.4** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — added a README hero banner (`assets/readme/hero.svg`) built from this system's own tokens: the real Storyline mark, palette swatches, the Poppins/Baskerville type pairing, and the white+lime logo reverse. Prior patch (2.3.3) un-deprecated that same logo variant for navy grounds. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 

@@ -4,6 +4,17 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-07-18 — Added a README hero banner (v2.3.3 → v2.3.4)
+
+Embedded `assets/readme/hero.svg` at the top of `README.md` — a self-contained, GitHub-safe hero (system fonts only, no scripts, no external references) built entirely from the system's own material rather than generic decoration:
+
+- The real Storyline mark (line variant, edge-locked right, faded to a background texture — per the once-per-deck/faded-elsewhere rule).
+- The actual secondary palette swatches (lavender, purple, cyan, teal, lime).
+- A live Poppins/Baskerville-italic type specimen.
+- The **white + lime logo reverse** (`logo-horizontal-white-lime.svg`), un-deprecated for navy grounds in the prior patch.
+
+Headline copy is pulled from this README's own value proposition rather than invented marketing copy.
+
 ## 2026-07-18 — Un-deprecated the white + lime logo reverse (v2.3.2 → v2.3.3)
 
 `README.md`'s Logo usage "Never" list banned the white+lime reverse (icon in lime, wordmark in white) on any background, calling it deprecated — but `LAYOUTS.md` L31 (the spectrum-bar cover) already specs "white+lime logo" on a navy ground. The rule was stale, not the usage.
