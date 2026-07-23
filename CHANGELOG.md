@@ -4,6 +4,13 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-07-23 — Brand Mark Studio joins the mirror + sandbox-safe downloads (v2.3.4 → v2.4.0)
+
+- **`preview/brand-mark-studio.html` (new in the mirror).** The animated brand-hello exporter had lived only on the Claude Design master; the mirror now carries it, current with the master's typeface update: Poppins or Libre Baskerville with italic/bold toggles, gradient vs solid (per-letter travelling) colour styles, and the expanded background swatch row (violet, aqua, teal, lime). Exports APNG (transparent, anti-aliased), GIF (transparent, PowerPoint-safe), and MP4/WebM — all encoded client-side. Deliberately not a `@dsCard` (it's a utility studio, not a spec card), matching the master.
+- **Fix: exports no longer vanish in sandboxed iframes (both sides).** `save()` relied on a programmatic `a.click()`, which browsers only honour within the user-activation window (~5 s) of the button press. The native-speed APNG encoder finishes in time; the pure-JS GIF encoder does not, so in a sandboxed embed (e.g. a shared claude.ai artifact) the finished GIF silently never downloaded. `save()` now also renders a real "⬇ Download <file>" button (fresh gesture → always allowed), keeps the blob URL alive until the next export, and still auto-clicks for the fast path. Fix applied to the master first, then mirrored here.
+
+Synced from the Claude Design master (`d10f7f7f-…`) after patching the master in the same pass. (Checked with the repo's validate/smoke tooling before its upstream removal in v2.3.2; the file adds no cards, so the 29-card catalog is unchanged.)
+
 ## 2026-07-18 — Added a README hero banner (v2.3.3 → v2.3.4)
 
 Embedded `assets/readme/hero.svg` at the top of `README.md` — a self-contained, GitHub-safe hero (system fonts only, no scripts, no external references) built entirely from the system's own material rather than generic decoration:
