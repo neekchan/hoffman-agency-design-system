@@ -19,6 +19,7 @@ Before routing or building anything, run **`INTAKE.md`** — a handful of questi
 | Social tile or carousel | `README.md`, `PROMPTS.md` | `templates/social-tile/SocialTile.dc.html` | One idea per tile, big type, fixed safe zone. |
 | One-pager or print leave-behind | `README.md`, `CHECKLIST.md` | `templates/one-pager/OnePager.dc.html` | Print has its own size constraints; keep hierarchy clear. |
 | Any image (generate / supply / placeholder) | `IMAGERY.md`, then `PROMPTS.md` | The workflow in `IMAGERY.md`, then the matching prompt block | Decide *whether/how* in `IMAGERY.md` (capability check → ask → house style → else placeholder); keep the Hoffman photo grade + placeholder resolution rules. |
+| Animated brand "hello", animated wordmark / brand-mark GIF or video (deck, PowerPoint, social, email signature) | Nothing else — it's self-serve | `preview/brand-mark-studio.html` (open it in a browser) | Point the user at the **Brand Mark Studio**: they type the word, tune typeface/colour/background, and export APNG / GIF (transparent, PPT-safe) / MP4 — all client-side. Don't rebuild the animation by hand. |
 
 ## 2. Universal Brand Rules
 

@@ -4,6 +4,16 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-07-23 — Route the Brand Mark Studio from the agent docs (v2.4.3 → v2.5.0)
+
+The Brand Mark Studio existed but no router doc mentioned it — an agent asked for "the animated hello as a GIF" had no path to it. Now discoverable from every entry point (`CLAUDE.md` → `AGENTS.md`; `SKILL.md` → `LLM_ENTRYPOINT.md` + `README.md`):
+
+- **`AGENTS.md`** — new "read by task" bullet: animated brand "hello" / animated wordmark or brand-mark GIF → `preview/brand-mark-studio.html`, with the standing rule *point the user at the tool; don't hand-build the animation*.
+- **`LLM_ENTRYPOINT.md`** — new "Pick The Medium" row for the same triggers (deck, PowerPoint, social, email signature), start-from the studio, key rule: it's self-serve, client-side.
+- **`README.md`** — new LLM-usage routing row (with the "don't hand-animate / don't rebuild the exporter" anti-pattern) + a `preview/` file-map line marking it **TOOL, not a card**, and the Version line updated.
+
+Minor bump per `CONTRIBUTING.md` (additive surface). Doc changes mirrored to the Claude Design master, whose `CHANGELOG.md` also catches up on the 2.4.x series it was missing.
+
 ## 2026-07-23 — Brand Mark Studio: one scripted download per page load + on-page diagnostics (v2.4.2 → v2.4.3)
 
 Field report solved the mystery: Chromium permits **one script-initiated download per page load**; every later one is silently dropped (the "multiple automatic downloads" guard never prompts inside a sandboxed frame). That's why the first export always downloaded and every subsequent one didn't — across v3–v2.4.2 — regardless of buttons, links, or synthetic clicks.

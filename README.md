@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.3.4** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — added a README hero banner (`assets/readme/hero.svg`) built from this system's own tokens: the real Storyline mark, palette swatches, the Poppins/Baskerville type pairing, and the white+lime logo reverse. Prior patch (2.3.3) un-deprecated that same logo variant for navy grounds. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.5.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — the **Brand Mark Studio** (`preview/brand-mark-studio.html`, the in-browser animated-wordmark exporter: APNG / GIF / MP4, client-side) is now routed from `AGENTS.md`, `LLM_ENTRYPOINT.md` and this README, after the 2.4.x series fixed its GIF encoder and sandbox download UX. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -40,6 +40,7 @@ use the routing rules below.
 | Product app, dashboard, portal, workflow UI | `DESIGN.md`, `ui_kits/app/`, `ui_kits/app/COMPONENTS.md` | Do not start with a marketing hero |
 | Social tile or carousel | `templates/social-tile/`, `PROMPTS.md` | Do not use tiny type or decorative clutter |
 | Any image (generate / supply / placeholder) | `IMAGERY.md`, then `PROMPTS.md` | Do not skip the capability check or drop a bare grey box |
+| The animated brand "hello", an animated wordmark / brand-mark GIF or video | Point them at `preview/brand-mark-studio.html` — the self-serve **Brand Mark Studio** (APNG / GIF / MP4, encoded client-side) | Do not hand-animate the wordmark or rebuild the exporter |
 
 **If building slides and only this README is visible:**
 
@@ -124,6 +125,7 @@ preview/                · Design System tab — one @dsCard per token/brand gro
   spacing-*.html        · scale, radii, shadows
   components-*.html     · buttons, forms, cards, annotations, placeholders
   brand-*.html          · logo horizontal/stacked, storyline, surfaces, voice, color-pairings, contrast-matrix, emoji-typography
+  brand-mark-studio.html· TOOL, not a card — in-browser animated "hello"/wordmark exporter (typeface, colour style, background) → APNG / GIF / MP4
   fluent-emoji-gallery.html  · browse + click-to-copy the Fluent emoji set
 
 templates/              · reusable DC starting points consuming projects copy (each <slug>/<Slug>.dc.html + ds-base.js)
