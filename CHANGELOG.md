@@ -4,6 +4,14 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-07-23 — Brand Mark Studio: one scripted download per page load + on-page diagnostics (v2.4.2 → v2.4.3)
+
+Field report solved the mystery: Chromium permits **one script-initiated download per page load**; every later one is silently dropped (the "multiple automatic downloads" guard never prompts inside a sandboxed frame). That's why the first export always downloaded and every subsequent one didn't — across v3–v2.4.2 — regardless of buttons, links, or synthetic clicks.
+
+- `save()` now spends that budget deliberately: auto-download fires for the **first** export of a session only, then is skipped with an explanatory line, and the UI leads with the unlimited native paths — right-click the rendered preview → "Save image / video as…", the video player's ⋮ → Download, the green link's `showSaveFilePicker` (no download manager at all), or right-click → "Save link as…".
+- New **on-page diagnostics strip** (7-line rolling log under the panel): logs export sizes, auto-download attempted/skipped, recorder start/finish/chunks/errors, preview decode failures, and any uncaught error — so sandbox-specific failures are visible in the page instead of guessed at.
+- MP4 investigation aid: recorder events now surface in the strip (a 0-chunk recording or MediaRecorder error is reported in plain text).
+
 ## 2026-07-23 — Brand Mark Studio: render the export into the page (v2.4.1 → v2.4.2)
 
 Field report: in the claude.ai artifact sandbox even the v2.4.1 download *button* was swallowed, and turning the link into a button had removed the one path that worked (right-click → "Save link as…"). Stop fighting the host: after an export finishes, the finished APNG/GIF now renders **into the page** as a live animated preview (MP4/WebM in a `<video controls>` player), with a note pointing at the always-available saves — right-click the preview → "Save image as…", the player's ⋮ → Download, or right-click the restored green `<a download>` link → "Save link as…". Left-clicking the link now tries a real save dialog first (`showSaveFilePicker`, Chrome) before falling back to the download attribute. No host can intercept right-click saving of visible content, and the preview doubles as proof the encoded file is valid.
