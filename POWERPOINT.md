@@ -138,6 +138,7 @@ Protected zones should be visible as guides during layout and hidden in final ou
 - Preserve the original aspect ratio unless a deliberate crop is specified; **never stretch** an image to fill a frame. Use crop-to-fill or contain-with-space **explicitly**.
 - Don't upscale a low-resolution image beyond a sane threshold; inspect the exported deck for pixelation.
 - If no suitable approved image exists, use the **Hoffman placeholder** (`AGENTS.md §4`) — never insert a weak, stretched or irrelevant image to avoid a placeholder. Placeholders keep their label, aspect, generation size, art direction and prompt.
+- **Fluent emoji are embedded files, never links.** A `.pptx` must render with no network: download every Fluent emoji used from `github.com/microsoft/fluentui-emoji` and insert it as a real asset — **PNG** for static **3D** (the storytelling default) and **Flat** (utility icons), **GIF/APNG** for animated 3D (PowerPoint plays GIF natively; reserve motion for the one emotional peak). Never hotlink a CDN URL and **never type raw Unicode emoji as icons** — they re-render per OS and break brand consistency (`AGENTS.md §8`).
 - Test: compare each image's source pixel dimensions against its displayed dimensions in the exported deck.
 
 ---
@@ -166,9 +167,10 @@ Run against the **finished file**, not the source used to make it. (These are al
 10. No element extends unintentionally beyond the slide.
 11. No image is stretched (displayed ratio ≈ source ratio).
 12. No low-resolution image enlarged beyond tolerance.
-13. Every diagram arrow connects to a visible target (not open space, not an oversized textbox edge).
-14. No unresolved image placeholder or production note remains (unless intentionally requested).
-15. Speaker notes are present when Presenter mode requires them.
+13. Every Fluent emoji is an embedded PNG/GIF asset (no external/CDN link, no raw Unicode emoji glyph in a text run doing icon duty).
+14. Every diagram arrow connects to a visible target (not open space, not an oversized textbox edge).
+15. No unresolved image placeholder or production note remains (unless intentionally requested).
+16. Speaker notes are present when Presenter mode requires them.
 
 **Advisory — warn, review, don't auto-fail:**
 

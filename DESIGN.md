@@ -328,7 +328,7 @@ The Hoffman Agency is an integrated communications agency for tech — founded o
 
 The brand reads as **Smart · Human · Energetic · Distilled · Bold · Creative · Authentic**. Our typography is bold Poppins headlines with the emphasis italicized in Libre Baskerville — usually one word, sometimes a short phrase, always the part that carries the line. The contrast does the work. Our color is navy and lime doing the structural work, with four secondary moods (lavender, purple, cyan, teal) used one at a time. Our signature mark is the Storyline squiggle — a hand-drawn waveform that's a story arc, not a chart. We mark up our slides the way an editor marks up a draft: underlines, circles, ticks, crosses, accents, and highlights, all chosen by *contrast* to whatever they sit on.
 
-Short sentences. Real opinions. We *speak* tech. *Complexity out. Clarity in.*
+Short sentences. Real opinions. We *speak* tech. *Clarity in. Complexity out.*
 
 Three commitments override every other rule:
 
@@ -378,7 +378,7 @@ The system uses **two families.**
 The **signature type move** is a bold Poppins headline with its **emphasis set in Baskerville italic**. The emphasis is the keyword(s) that carry the line — **usually one word, but a two-word phrase or a short run of words when *that* is the real emphasis**. It's about meaning, not a mechanical count. The one hard limit is **one emphasis per line** — don't scatter italics across several unrelated words, and don't force a single word if the point lives in a phrase.
 
 ```html
-<h1>Complexity out. <em>Clarity</em> in.</h1>
+<h1>Clarity in. <em>Complexity</em> out.</h1>
 <h1>We don't chase reach. We earn <em>the room</em>.</h1>
 ```
 
@@ -449,11 +449,11 @@ Tokens above define the strict component values. A few application notes:
 
 **Iconography.** The system offers **two** symbol vocabularies; pick one treatment per context and stay consistent within a set.
 1. **Lucide line-icons** — the default for restrained / functional UI (outline, 1.75px stroke, square joins, 24px grid, `currentColor`). Use sparingly for wayfinding (nav, list bullets, button affixes).
-2. **Fluent emoji as symbols** — the open Microsoft Fluent set, via the `<fluent-emoji>` injector, is broad and varied enough to stand in for almost any concept, and (unlike raw unicode emoji) renders the **same image on every platform**. So it is sanctioned as a full pictorial **symbol vocabulary** — not just storytelling: use a Fluent emoji wherever a symbol clarifies — list/agenda bullets, stat markers, feature/service icons, persona markers, step numbers — as an alternative to a Lucide icon. Don't mix the two styles within one set (a row of Lucide icons OR a row of Fluent emoji, not both). Keep them purposeful, not decorative; mind contrast on busy grounds.
+2. **Fluent emoji as symbols** — the open Microsoft Fluent set, via the `<fluent-emoji>` injector, is broad and varied enough to stand in for almost any concept, and (unlike raw unicode emoji) renders the **same image on every platform**. So it is sanctioned as a full pictorial **symbol vocabulary** — not just storytelling: use a Fluent emoji wherever a symbol clarifies — list/agenda bullets, stat markers, feature/service icons, persona markers, step numbers — as an alternative to a Lucide icon. Don't mix the two styles within one set (a row of Lucide icons OR a row of Fluent emoji, not both). Keep them purposeful, not decorative; mind contrast on busy grounds. For this **icon/utility duty use the Fluent *Flat* (monochrome) style** — clean, comprehensive, and built for dense or monochrome contexts; the 3D/Color styles are the *storytelling* forms (see below).
 
 Still banned: **raw unicode emoji** as icons/bullets (platform-inconsistent — use the injector instead), and **unicode pictograms** (`✓`, `★`, `➜`) as icon substitutes — use a real SVG or a Fluent emoji. The only typographic arrow allowed in copy is `→`.
 
-**Fluent emoji (decks).** For the heavy emoji-led *visual storytelling* in decks we use the open-source **Microsoft Fluent Emoji** set (static + animated) via the `<fluent-emoji>` injector at `assets/emoji/fluent-emoji.js` — loaded automatically by the deck and keynote templates. Use it by name: `<fluent-emoji name="rocket"></fluent-emoji>` (inline, rides the baseline), `variant="animated"` for motion, or `size="120"` to use one as a graphic. It resolves a **local copy first** (curated set in `assets/emoji/`, works offline) and falls back to the jsDelivr CDN for the full library — see the **Brand → Fluent emoji picker** card (`preview/fluent-emoji-gallery.html`) to browse and copy tags. This is distinct from the `.tha-emoji` unicode-glyph-in-a-word move (still used for a single charged word in running copy); Fluent emoji cover the bigger storytelling beats, animated moments, **and double as the system's pictorial symbol/icon vocabulary** (see Iconography above). Static art © microsoft/fluentui-emoji, animated © Tarikul-Islam-Anik/Animated-Fluent-Emojis (both MIT).
+**Fluent emoji (decks).** For the heavy emoji-led *visual storytelling* in decks we use the open-source **Microsoft Fluent Emoji** set (static + animated) via the `<fluent-emoji>` injector at `assets/emoji/fluent-emoji.js` — loaded automatically by the deck and keynote templates. Use it by name: `<fluent-emoji name="rocket"></fluent-emoji>` (inline, rides the baseline), `variant="animated"` for motion, or `size="120"` to use one as a graphic. **Style priority for storytelling: 3D first (`variant="3d"`), animated 3D mixed in where it adds life, 2D Color as the fallback; Flat for utility icons.** **Sourcing:** offline/local deliverables (native PPT/Keynote, embedded PDFs) must **download from `github.com/microsoft/fluentui-emoji` and embed the file** (PNG static, GIF/APNG animated) — never hotlink; web deliverables may use the CDN. It resolves a **local copy first** (curated set in `assets/emoji/`, works offline) and falls back to the jsDelivr CDN for the full library — see the **Brand → Fluent emoji picker** card (`preview/fluent-emoji-gallery.html`) to browse and copy tags. This is distinct from the `.tha-emoji` unicode-glyph-in-a-word move (still used for a single charged word in running copy); Fluent emoji cover the bigger storytelling beats, animated moments, **and double as the system's pictorial symbol/icon vocabulary** (see Iconography above). Static art © microsoft/fluentui-emoji, animated © Tarikul-Islam-Anik/Animated-Fluent-Emojis (both MIT).
 
 ## Component library & templates
 
@@ -474,7 +474,7 @@ Live spec/preview cards for every token group and component live in `preview/*.h
 
 **Do.**
 
-- Lead with one bold Poppins headline and italicize one word in Baskerville.
+- Lead with one bold Poppins headline and italicize its emphasis in Baskerville — the key word *or* short phrase that carries the line, not a fixed single word.
 - Use one secondary color as the "mood" of a layout, or rotate secondaries across cards in a 4–6 item grid.
 - Set section padding at `{spacing.4xl}` or larger. Give the design room to breathe.
 - Square the corners. Default to `{rounded.none}`.

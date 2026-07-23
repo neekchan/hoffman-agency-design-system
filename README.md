@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.5.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — the **Brand Mark Studio** (`preview/brand-mark-studio.html`, the in-browser animated-wordmark exporter: APNG / GIF / MP4, client-side) is now routed from `AGENTS.md`, `LLM_ENTRYPOINT.md` and this README, after the 2.4.x series fixed its GIF encoder and sandbox download UX. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.6.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — Fluent Emoji doctrine: **3D first** for storytelling (animated 3D at the peak, 2D Color fallback), **Flat** for utility icons, and a sourcing SOP — offline deliverables embed downloaded assets from `microsoft/fluentui-emoji`, web may use the CDN, raw Unicode emoji never. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -55,7 +55,11 @@ use the routing rules below.
   `.tha-placeholder` with type, aspect, exact generate size, human hint, and
   image prompt.
 - Use one Microsoft Fluent emoji as the slide's storytelling graphic when it is
-  the emotional beat. Avoid raw emoji, emoji stacks, or decorative emoji.
+  the emotional beat — **3D style first**, animated 3D at the peak, 2D Color as
+  fallback; Fluent **Flat** for utility icons. Offline files (`.pptx`, Keynote,
+  PDF): download from `github.com/microsoft/fluentui-emoji` and embed the asset
+  (PNG/GIF) — never hotlink, never raw Unicode emoji as icons. Avoid emoji
+  stacks or decorative emoji.
 - Use the full palette across a deck, but one dominant color per slide and WCAG
   contrast for all type.
 - Keep the Storyline motif correct: boxed mark on light/non-navy; line variant

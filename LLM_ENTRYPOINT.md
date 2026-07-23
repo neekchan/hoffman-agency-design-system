@@ -39,7 +39,7 @@ Before routing or building anything, run **`INTAKE.md`** — a handful of questi
 - Decide Presenter or Document mode before writing slides.
 - Use slide type floors from `AGENTS.md`: body 30-36px, content titles 64-80px, statements 120px+.
 - Use imagery by default.
-- Use one Microsoft Fluent emoji as a storytelling device when it is the slide's graphic beat.
+- Use one Microsoft Fluent emoji as a storytelling device when it is the slide's graphic beat — **3D style first** (animated 3D at the emotional peak), 2D Color as fallback; **Flat** for utility icons. Offline deliverables (`.pptx`, Keynote, PDF): **download from `github.com/microsoft/fluentui-emoji` and embed the file**, never hotlink; never raw Unicode emoji as icons.
 - Never use web max widths or 16px body type.
 
 **Native PowerPoint (`.pptx` / `.potx`)** — read `POWERPOINT.md` before authoring.

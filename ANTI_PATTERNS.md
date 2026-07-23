@@ -10,6 +10,7 @@ Use this as a quick failure-mode check before shipping an LLM-generated design.
 | Mixing Presenter and Document modes | A sparse live slide beside a dense reading slide breaks trust. | Declare one mode and keep word count/bullet density consistent. |
 | Leaving out imagery on slides | Hoffman slides expect a graphic, image, or Fluent emoji on most slides. | Use real imagery first, then labelled placeholders, then Fluent emoji as the graphic beat. |
 | Raw emoji as bullets or decoration | Platform emoji vary and look casual in the wrong way. | Use Fluent emoji deliberately, usually one per slide or charged word. |
+| Hotlinked emoji in an offline deliverable, or the wrong Fluent style | A CDN link breaks the moment `.pptx`/PDF is opened offline; Color art doing icon duty looks noisy. | Offline: download from `microsoft/fluentui-emoji` and embed (PNG static, GIF animated). Storytelling: 3D first, animated 3D at the peak, 2D Color fallback. Utility icons: Flat. |
 | "NO emoji" in slide guidance | It contradicts the slide SOP. | Ban raw/decorative emoji, but allow Fluent emoji when it carries the story beat. |
 | Wrong Storyline version | The motif reads as pasted-on decoration. | Use boxed monogram on light/non-navy; use line variant edge-locked behind content on navy/dark. |
 | Floating the Storyline line as a small object | The line variant is a field/background device, not an icon. | Edge-lock it to top/right/bottom at full frame height. |

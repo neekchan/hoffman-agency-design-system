@@ -4,6 +4,18 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-07-23 — Fluent Emoji doctrine: 3D-first styles + offline embedding SOP (v2.5.0 → v2.6.0)
+
+Owner preference codified: Fluent emoji are **brand assets, not decoration**, with an explicit style hierarchy and sourcing rule. Previously the docs said "static color is the default form" and had no offline-sourcing rule at all — `POWERPOINT.md` never mentioned emoji.
+
+- **Style priority (visual storytelling — hero moments, key beats, stat/feature markers):** **3D first** (`variant="3d"`), **mix in animated 3D** where it adds life (still one animated peak per few slides), **2D Color** as the fallback. **Icon/utility duty** (wayfinding, dense layouts, monochrome contexts): **Fluent Flat** — a comprehensive clean icon set as the flat symbol vocabulary. Threaded through `AGENTS.md §8`, `DESIGN.md` (iconography + deck sections), `README.md` and `LLM_ENTRYPOINT.md` quick rules.
+- **Sourcing SOP:** local/offline deliverables (native PowerPoint/Keynote, embedded PDFs) **always download from `github.com/microsoft/fluentui-emoji` and embed the file** — PNG for static 3D/Flat, GIF/APNG for animated — never hotlink; web deliverables may use the CDN (the injector is already local-first → CDN). Raw platform Unicode emoji as icons stays banned everywhere.
+- **`POWERPOINT.md`** — new §7 image-gate bullet (emoji are embedded files, never links) and a new hard check in the §9 finished-file validation (every Fluent emoji is an embedded PNG/GIF; checks 13–15 renumbered 14–16).
+- **`ANTI_PATTERNS.md`** — new row: hotlinked emoji in an offline deliverable / wrong Fluent style for the job.
+- **Divergence repaired (master → repo):** the base-parity check found the master's `DESIGN.md` carried three undocumented wording refinements the mirror lacked — the tagline order (*"Clarity in. Complexity out."*) in the overview + typography example, and the generalized italic-emphasis rule ("the key word *or* short phrase," not a fixed single word) in the Do's list. Adopted here rather than overwritten (master is canon); both sides' `DESIGN.md` now match again.
+
+Minor bump (additive rules). Mirrored to the Claude Design master.
+
 ## 2026-07-23 — Route the Brand Mark Studio from the agent docs (v2.4.3 → v2.5.0)
 
 The Brand Mark Studio existed but no router doc mentioned it — an agent asked for "the animated hello as a GIF" had no path to it. Now discoverable from every entry point (`CLAUDE.md` → `AGENTS.md`; `SKILL.md` → `LLM_ENTRYPOINT.md` + `README.md`):
