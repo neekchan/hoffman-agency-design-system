@@ -31,10 +31,11 @@
   button:disabled{opacity:.45;cursor:default}
   .status{font:600 13px/1.5 'Poppins',sans-serif;color:#86FFF1;min-height:20px;text-align:center;max-width:64ch}
   .note{font:500 12px/1.5 'Poppins',sans-serif;color:#8f9aa9;text-align:center;max-width:60ch}
-  #dlbox{display:flex;justify-content:center}
+  #dlbox{display:flex;flex-direction:column;align-items:center;gap:12px}
   #dlbox:empty{display:none}
-  button.dllink{font:700 14px/1 'Poppins',sans-serif;text-decoration:none;border-radius:9px;background:#D2EB00;color:#182D43;border:1px solid #D2EB00;padding:13px 22px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
-  button.dllink:hover{filter:brightness(1.06)}
+  .dllink{font:700 14px/1 'Poppins',sans-serif;text-decoration:none;border-radius:9px;background:#D2EB00;color:#182D43;border:1px solid #D2EB00;padding:13px 22px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+  .dllink:hover{filter:brightness(1.06)}
+  .result{max-width:min(560px,86vw);border-radius:10px;box-shadow:0 12px 40px -14px #000}
 </style></head><body>
 <h1>Brand Mark Studio</h1>
 <p class="sub">Type your word, tune the colour speed, pick a background, then export the animated brand hello as APNG (best quality, transparent, anti-aliased), GIF (transparent, PowerPoint-safe, aliased edges) or MP4/WebM (solid background only).</p>
@@ -130,26 +131,42 @@ ready();
 // ---- shared frame stepping ----
 function slug(){return ([...document.getElementById('text').value].join('').trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'hello')+'-loop';}
 function busy(on){['apng','gif','mp4'].forEach(id=>document.getElementById(id).disabled=on);if(on)cancelAnimationFrame(raf);else{t0=performance.now();raf=requestAnimationFrame(anim);}}
-let lastURL=null,lastName=null;
+let lastURL=null,lastName=null,lastBlob=null;
 function triggerDL(){
   if(!lastURL)return;
   const a=document.createElement('a');a.href=lastURL;a.download=lastName;document.body.appendChild(a);
   try{a.click();}catch(e){}
   a.remove();
 }
+async function pickerSave(){
+  // Real save dialog (Chrome File System Access API) -- immune to download-
+  // navigation blocking. Must be called inside a user gesture.
+  const h=await window.showSaveFilePicker({suggestedName:lastName});
+  const w=await h.createWritable();await w.write(lastBlob);await w.close();
+}
 function save(blob,ext){
   if(lastURL)URL.revokeObjectURL(lastURL);
-  lastURL=URL.createObjectURL(blob);lastName=slug()+'.'+ext;
-  // Auto-attempt (succeeds for fast exports while the export button press's
-  // user activation is still alive). The visible button below re-runs the same
-  // synthetic-anchor download under a fresh gesture -- and it is a <button>,
-  // not an <a>, so host pages that intercept anchor clicks cannot swallow it.
+  lastBlob=blob;lastURL=URL.createObjectURL(blob);lastName=slug()+'.'+ext;
+  const isVideo=ext==='mp4'||ext==='webm';
+  // Auto attempt: works while the export click's user activation is alive.
   triggerDL();
+  // Guaranteed manual paths: sandboxed hosts can intercept link clicks and
+  // programmatic downloads, but they cannot stop right-click saving of
+  // visible content. So render the result INTO the page and keep a real
+  // <a download> link (right-click "Save link as" always works on it).
   const box=document.getElementById('dlbox');box.innerHTML='';
-  const btn=document.createElement('button');btn.type='button';btn.className='dllink';
-  btn.textContent='⬇  Download '+lastName;
-  btn.onclick=triggerDL;
-  box.appendChild(btn);
+  const link=document.createElement('a');link.href=lastURL;link.download=lastName;link.className='dllink';
+  link.textContent='⬇  Save '+lastName;
+  link.onclick=e=>{if(window.showSaveFilePicker){e.preventDefault();
+    pickerSave().catch(err=>{if(!err||err.name!=='AbortError')triggerDL();});}};
+  const note=document.createElement('div');note.className='note';
+  note.textContent=isVideo
+    ?'Saved? If not: click the green link, use the ⋮ menu on the player below → Download, or right-click the link → Save link as…'
+    :'Saved? If not: click the green link, right-click the preview below → Save image as…, or right-click the link → Save link as…';
+  const media=isVideo?document.createElement('video'):document.createElement('img');
+  media.src=lastURL;media.className='result';
+  if(isVideo){media.controls=true;media.loop=true;media.muted=true;media.autoplay=true;}
+  box.append(link,note,media);
 }
 
 // ---- APNG encoder (self-contained, native CompressionStream) ----

@@ -4,6 +4,10 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-07-23 — Brand Mark Studio: render the export into the page (v2.4.1 → v2.4.2)
+
+Field report: in the claude.ai artifact sandbox even the v2.4.1 download *button* was swallowed, and turning the link into a button had removed the one path that worked (right-click → "Save link as…"). Stop fighting the host: after an export finishes, the finished APNG/GIF now renders **into the page** as a live animated preview (MP4/WebM in a `<video controls>` player), with a note pointing at the always-available saves — right-click the preview → "Save image as…", the player's ⋮ → Download, or right-click the restored green `<a download>` link → "Save link as…". Left-clicking the link now tries a real save dialog first (`showSaveFilePicker`, Chrome) before falling back to the download attribute. No host can intercept right-click saving of visible content, and the preview doubles as proof the encoded file is valid.
+
 ## 2026-07-23 — Brand Mark Studio: GIF encoder was corrupt from day one + real download button (v2.4.0 → v2.4.1)
 
 Two field-reported bugs in `preview/brand-mark-studio.html`, both fixed on the master, this mirror, and the shared claude.ai artifact in the same pass.
