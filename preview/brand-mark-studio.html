@@ -33,8 +33,8 @@
   .note{font:500 12px/1.5 'Poppins',sans-serif;color:#8f9aa9;text-align:center;max-width:60ch}
   #dlbox{display:flex;justify-content:center}
   #dlbox:empty{display:none}
-  a.dllink{font:700 14px/1 'Poppins',sans-serif;text-decoration:none;border-radius:9px;background:#D2EB00;color:#182D43;border:1px solid #D2EB00;padding:13px 22px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
-  a.dllink:hover{filter:brightness(1.06)}
+  button.dllink{font:700 14px/1 'Poppins',sans-serif;text-decoration:none;border-radius:9px;background:#D2EB00;color:#182D43;border:1px solid #D2EB00;padding:13px 22px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+  button.dllink:hover{filter:brightness(1.06)}
 </style></head><body>
 <h1>Brand Mark Studio</h1>
 <p class="sub">Type your word, tune the colour speed, pick a background, then export the animated brand hello as APNG (best quality, transparent, anti-aliased), GIF (transparent, PowerPoint-safe, aliased edges) or MP4/WebM (solid background only).</p>
@@ -130,21 +130,26 @@ ready();
 // ---- shared frame stepping ----
 function slug(){return ([...document.getElementById('text').value].join('').trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'hello')+'-loop';}
 function busy(on){['apng','gif','mp4'].forEach(id=>document.getElementById(id).disabled=on);if(on)cancelAnimationFrame(raf);else{t0=performance.now();raf=requestAnimationFrame(anim);}}
-let lastURL=null;
-function save(blob,ext){
-  if(lastURL)URL.revokeObjectURL(lastURL);
-  const u=URL.createObjectURL(blob),name=slug()+'.'+ext;lastURL=u;
-  // Attempt an automatic download (works for fast exports like APNG). In sandboxed
-  // iframes a programmatic click is refused once the click's user-activation lapses,
-  // and slow GIF / large exports finish after that window -- so we also show a real
-  // button the user can click, which counts as a fresh gesture and always downloads.
-  const a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);
+let lastURL=null,lastName=null;
+function triggerDL(){
+  if(!lastURL)return;
+  const a=document.createElement('a');a.href=lastURL;a.download=lastName;document.body.appendChild(a);
   try{a.click();}catch(e){}
   a.remove();
+}
+function save(blob,ext){
+  if(lastURL)URL.revokeObjectURL(lastURL);
+  lastURL=URL.createObjectURL(blob);lastName=slug()+'.'+ext;
+  // Auto-attempt (succeeds for fast exports while the export button press's
+  // user activation is still alive). The visible button below re-runs the same
+  // synthetic-anchor download under a fresh gesture -- and it is a <button>,
+  // not an <a>, so host pages that intercept anchor clicks cannot swallow it.
+  triggerDL();
   const box=document.getElementById('dlbox');box.innerHTML='';
-  const link=document.createElement('a');link.href=u;link.download=name;link.className='dllink';
-  link.textContent='\u2B07  Download '+name;
-  box.appendChild(link);
+  const btn=document.createElement('button');btn.type='button';btn.className='dllink';
+  btn.textContent='⬇  Download '+lastName;
+  btn.onclick=triggerDL;
+  box.appendChild(btn);
 }
 
 // ---- APNG encoder (self-contained, native CompressionStream) ----
@@ -188,15 +193,31 @@ function quantize(samples,maxColors){
   return boxes.map(b=>{const s=[0,0,0];for(const c of b.c)for(let j=0;j<3;j++)s[j]+=c[j];const n=b.c.length||1;return[Math.round(s[0]/n),Math.round(s[1]/n),Math.round(s[2]/n)];});
 }
 function lzwEncode(minCode,stream){
-  const clear=1<<minCode,eoi=clear+1;let size=minCode+1,dict,next;
-  const init=()=>{dict=new Map();for(let i=0;i<clear;i++)dict.set(''+i,i);next=eoi+1;size=minCode+1;};
-  const out=[];let buf=0,bits=0;const put=c=>{buf|=c<<bits;bits+=size;while(bits>=8){out.push(buf&255);buf>>=8;bits-=8;}};
-  init();put(clear);let w=''+stream[0];
-  for(let i=1;i<stream.length;i++){const k=''+stream[i],wc=w+','+k;
-    if(dict.has(wc)){w=wc;}else{put(dict.get(w));
-      if(next<4096){dict.set(wc,next++);if(next===(1<<size)&&size<12)size++;}else{put(clear);init();}
-      w=k;}}
-  put(dict.get(w));put(eoi);if(bits>0)out.push(buf&255);return out;
+  const clear=1<<minCode,eoi=clear+1;
+  let size=minCode+1,next=eoi+1,dict=new Map();
+  const out=[];let buf=0,bits=0;
+  const emit=c=>{buf|=c<<bits;bits+=size;while(bits>=8){out.push(buf&255);buf>>=8;bits-=8;}
+    // GIF "late change": the code width grows one emission AFTER the table
+    // fills a power of two -- matching giflib/PIL/browser decoders. Bumping
+    // immediately (the old bug) desyncs the stream once 511 codes exist and
+    // every frame decodes blank.
+    if(next>(1<<size)-1&&size<12)size++;};
+  emit(clear);
+  let w=stream[0];
+  for(let i=1;i<stream.length;i++){
+    const k=stream[i],key=(w<<8)|k;
+    const hit=dict.get(key);
+    if(hit!==undefined){w=hit;}
+    else{
+      emit(w);
+      if(next<4096){dict.set(key,next++);}
+      else{emit(clear);dict=new Map();next=eoi+1;size=minCode+1;}
+      w=k;
+    }
+  }
+  emit(w);emit(eoi);
+  if(bits>0)out.push(buf&255);
+  return out;
 }
 function subBlocks(bytes){const o=[];for(let i=0;i<bytes.length;i+=255){const n=Math.min(255,bytes.length-i);o.push(n);for(let j=0;j<n;j++)o.push(bytes[i+j]);}o.push(0);return o;}
 async function exportGIF(){
@@ -234,6 +255,7 @@ const mimes=['video/mp4;codecs=avc1.640028','video/mp4;codecs=avc1.42E01E','vide
 document.getElementById('mp4').onclick=async()=>{
   const solid=bg==='transparent'?'#0E1C2B':bg,wasTr=bg==='transparent';const prev=bg;bg=solid;
   busy(true);
+  try{
   const mime=mimes.find(m=>window.MediaRecorder&&MediaRecorder.isTypeSupported(m))||'';
   const ext=mime.includes('mp4')?'mp4':'webm';
   const DUR=PERIOD*2;
@@ -246,5 +268,6 @@ document.getElementById('mp4').onclick=async()=>{
     bg=prev;busy(false);};
   rec.start();
   (function rc(now){const el=now-start;draw((el/PERIOD)%1);statusEl.textContent=`Recording… ${(el/1000).toFixed(1)}s / ${(DUR/1000).toFixed(1)}s`;if(el>=DUR)rec.stop();else requestAnimationFrame(rc);})(performance.now());
+  }catch(e){statusEl.textContent='Video failed: '+e.message;bg=prev;busy(false);}
 };
 </script></body></html>

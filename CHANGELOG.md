@@ -4,6 +4,14 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-07-23 — Brand Mark Studio: GIF encoder was corrupt from day one + real download button (v2.4.0 → v2.4.1)
+
+Two field-reported bugs in `preview/brand-mark-studio.html`, both fixed on the master, this mirror, and the shared claude.ai artifact in the same pass.
+
+- **The GIF export never worked — every GIF it ever produced was a broken stream.** The hand-rolled LZW encoder bumped the code width the moment the dictionary filled a power of two ("early change"); GIF decoders (giflib, PIL, Chrome, PowerPoint) expect the width to grow one code *later*. Any image complex enough to reach 511 dictionary codes — i.e. any real text at 2× — desynced the stream, and viewers rendered blank frames (PIL: "broken data stream"). Nobody noticed before because the sandbox download bug shipped the file to nobody. Rewritten `lzwEncode` with the correct giflib-timed late change and numeric dictionary keys (also much faster); verified pixel-exact against PIL on noise/gradient/boundary-engineered streams, a strict reference decoder, and a real-browser end-to-end export (48-frame transparent + solid runs decoded frame-by-frame).
+- **The post-export download control is now a `<button>`, not a link.** Hosts that intercept anchor clicks (e.g. the claude.ai artifact viewer, which can't resolve an iframe's `blob:` URL from the parent) swallowed left-clicks on the old visible `<a download>`, forcing right-click → "Save link as". The button re-runs the synthetic-anchor download under its own fresh user activation — the exact mechanism already proven by the fast APNG path — so a plain left click always saves.
+- Also hardened the MP4/WebM handler with a try/catch (a `captureStream`/`MediaRecorder` failure could previously leave every export button disabled).
+
 ## 2026-07-23 — Brand Mark Studio joins the mirror + sandbox-safe downloads (v2.3.4 → v2.4.0)
 
 - **`preview/brand-mark-studio.html` (new in the mirror).** The animated brand-hello exporter had lived only on the Claude Design master; the mirror now carries it, current with the master's typeface update: Poppins or Libre Baskerville with italic/bold toggles, gradient vs solid (per-letter travelling) colour styles, and the expanded background swatch row (violet, aqua, teal, lime). Exports APNG (transparent, anti-aliased), GIF (transparent, PowerPoint-safe), and MP4/WebM — all encoded client-side. Deliberately not a `@dsCard` (it's a utility studio, not a spec card), matching the master.
