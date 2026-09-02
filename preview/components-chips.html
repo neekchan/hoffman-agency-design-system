@@ -1,0 +1,71 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Chips" subtitle="Ghost on calm grounds, solid fills on saturated ones" viewport="700x420" --><html><head><meta charset="utf-8"><title>Chips</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  .lbl { font: 700 11px/1 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+  .ground { padding: 16px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .chip { display: inline-flex; align-items: center; border: 1.5px solid var(--tha-navy);
+          border-radius: 999px; padding: 7px 15px; font: 600 13px/1.2 var(--font-sans);
+          color: var(--tha-navy); background: rgba(255,255,255,.85); }
+  .chip.ghost { background: transparent; border-color: rgba(24,45,67,.45); }
+  .chip--navy   { background: var(--tha-navy);   border-color: var(--tha-navy);   color: var(--tha-paper); }
+  .chip--white  { background: var(--tha-white);  border-color: var(--tha-white);  color: var(--tha-navy);  }
+  .chip--teal   { background: var(--tha-teal);   border-color: var(--tha-teal);   color: var(--tha-paper); }
+  .chip--purple { background: var(--tha-purple); border-color: var(--tha-purple); color: var(--tha-paper); }
+  .verdict { font: 700 9px/1 var(--font-mono); letter-spacing: .06em; text-transform: uppercase;
+             padding: 4px 7px; color: #fff; }
+  .note { font: 400 12px/1.55 var(--font-sans); color: var(--fg-3); }
+</style>
+</head>
+<body>
+<div class="card" style="gap:16px">
+
+  <div>
+    <div class="lbl" style="color:var(--tha-lime-600)">Components &middot; Chips</div>
+    <h3 style="font:700 22px/1.1 var(--font-sans);letter-spacing:-.02em;margin:9px 0 5px;color:var(--fg-1)">A ghost chip <em style="font-family:var(--font-serif);font-style:italic;font-weight:400">disappears</em> on a loud ground.</h3>
+    <p class="note" style="max-width:74ch;margin:0">Ghost is correct on paper, white and sand. On lime, cyan or violet a transparent chip with a faded navy outline is a low-contrast outline on a saturated field &mdash; it stops reading. Those grounds take a solid fill.</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <div>
+      <div class="lbl" style="color:var(--fg-3);margin-bottom:7px">Don't &middot; ghost on lime</div>
+      <div class="ground" style="background:var(--tha-lime)">
+        <span class="chip ghost">Something that failed</span>
+        <span class="chip ghost">A technique</span>
+        <span class="chip ghost">A new tool</span>
+      </div>
+    </div>
+    <div>
+      <div class="lbl" style="color:var(--fg-3);margin-bottom:7px">Do &middot; solid fills on lime</div>
+      <div class="ground" style="background:var(--tha-lime)">
+        <span class="chip chip--navy">Something that failed</span>
+        <span class="chip chip--teal">A technique</span>
+        <span class="chip chip--purple">A new tool</span>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="lbl" style="color:var(--fg-3);margin-bottom:7px">The four fills, each on a ground it is for &middot; text contrast inside the chip</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div class="ground" style="background:var(--tha-lime)">
+        <span class="chip chip--navy">Navy</span><span class="verdict" style="background:#147A4B">13.4:1</span>
+        <span class="chip chip--purple">Purple</span><span class="verdict" style="background:#147A4B">9.0:1</span>
+        <span class="chip chip--teal">Teal</span><span class="verdict" style="background:#147A4B">6.8:1</span>
+      </div>
+      <div class="ground" style="background:var(--tha-navy)">
+        <span class="chip chip--white">White</span><span class="verdict" style="background:#147A4B">14.0:1</span>
+        <span style="font:400 11px/1.4 var(--font-sans);color:var(--tha-navy-200)">White is the dark-ground fill &mdash; on paper it would vanish.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="note" style="border-top:1px solid var(--border-2);padding-top:12px;max-width:76ch">
+    <strong style="color:var(--fg-1)">Picking a fill for a ground</strong> (measured, not guessed) &mdash;
+    lime / cyan / violet take <b style="color:var(--fg-1)">navy</b> (10.4:1 / 11.8:1), <b style="color:var(--fg-1)">purple</b> (7.0 / 7.9) or <b style="color:var(--fg-1)">teal</b> (5.3 / 6.0);
+    navy / navy&#8209;900 / purple / teal take <b style="color:var(--fg-1)">white</b> (14.0:1).
+    <br><br>
+    <strong style="color:var(--fg-1)">One caveat.</strong> The white fill separates from lime by only <b style="color:var(--fg-1)">1.3:1</b> in luminance and from cyan by 1.2:1 &mdash; it holds by hue, not by value, so it goes grey in a greyscale print and vanishes in high-contrast mode. On a saturated <em>light</em> ground reach for navy, purple or teal first.
+  </div>
+</div>
+</body></html>

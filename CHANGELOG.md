@@ -4,6 +4,17 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-09-02 — Preview surfaces for the new rules, and a contrast rule corrected (v2.7.1 → v2.7.2)
+
+Three v2.7.0 items shipped their *rule* without the *instrument* the rule pointed at. Building the instruments proved one of the rules wrong.
+
+- **`preview/brand-color-pairings.html` — a third tier: Display (≥ 7, AAA).** §7 said contrast-passing is the floor, while this card still presented teal-on-cyan as simply valid. It now marks every pair on three bars and shows the raw ratio, and — the point — **its own emphasis-colour picker requires the Display tier first**, so on cyan it now chooses purple (7.92) where it used to choose teal (5.96). The card enforces the rule instead of contradicting it.
+- **§7 corrected.** The rule advised picking "the widest luminance gap". That is measurably not the discriminator: teal-on-cyan and purple-on-cyan have gaps of 0.73 and 0.77 — near-identical — yet one read flat projected and one carried the slide. Their *ratios* are 5.96 and 7.92. The rule is now **hold display type to AAA (≥ 7)**, which separates the real cases cleanly and is a standard bar rather than an invented one.
+- **`preview/components-chips.html`** — ghost-vs-solid on a lime ground, the four fills each shown on a ground they are actually for, measured text contrast in each, and the caveat that the white fill separates from lime by only 1.3:1 in luminance so it holds by hue alone.
+- **`preview/components-tappable.html`** — the §15 pattern, hoverable: quiet glyph at rest, glyph moves and the accent rule extends on hover, card never lifts. Shows the banned predecessor beside it so the four rules it broke are recognisable.
+
+Patch — new preview surfaces and a corrected threshold in an existing rule; nothing new is required of existing work.
+
 ## 2026-09-02 — Motion rule: the test is what can reflow, not which property (v2.7.0 → v2.7.1)
 
 §16 shipped yesterday and failed its first contact with real code. Its "prefer transform/opacity" rule carved out one exception — a size transition inside a fixed-size container — and a design linter promptly flagged four **provably safe** animations it did not cover: a sweeping accent rule and a progress bar, both `position:absolute`/`fixed` and therefore **out of flow**, where animating width cannot move anything at all. That is a stronger case than the exception already documented, and omitting it left the tooling arguing with the canon over correct code — the exact friction §16 exists to end.

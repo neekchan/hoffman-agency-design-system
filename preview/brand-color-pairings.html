@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- @dsCard group="Colors" name="Color as surface — bold pairings" subtitle="Every brand color as a background, with WCAG-validated text colors and their safe roles" viewport="700x1080" -->
+<!-- @dsCard group="Colors" name="Color as surface — bold pairings" subtitle="Every brand color as a background, with WCAG-validated text colors, their safe roles, and the AAA display bar" viewport="700x1080" -->
 <html><head><meta charset="utf-8"><title>Color as surface</title>
 <link rel="stylesheet" href="_card.css">
 <style>
@@ -23,7 +23,8 @@
   .roles { display: flex; flex-direction: column; gap: 5px; }
   .role { display: flex; align-items: center; gap: 7px; font: 500 11px/1.2 var(--font-sans); color: var(--fg-2); }
   .role .sw2 { width: 13px; height: 13px; border: 1px solid var(--border-2); flex: none; }
-  .role .tag { margin-left: auto; font: 700 8px/1 var(--font-mono); letter-spacing: .04em; text-transform: uppercase; padding: 3px 6px; color: #fff; }
+  .role .rt { margin-left: auto; font: 500 10px/1 var(--font-mono); color: var(--fg-3); font-variant-numeric: tabular-nums; }
+  .role .tag { margin-left: 8px; font: 700 8px/1 var(--font-mono); letter-spacing: .04em; text-transform: uppercase; padding: 3px 6px; color: #fff; }
 </style>
 </head>
 <body>
@@ -39,7 +40,8 @@
   <div id="surfaces" class="surf-grid"></div>
 
   <div style="font:400 12px/1.55 var(--font-sans);color:var(--fg-3);max-width:74ch;border-top:1px solid var(--border-2);padding-top:14px">
-    <strong style="color:var(--fg-1)">Roles:</strong> <b style="color:var(--fg-1)">Body</b> = ratio ≥ 4.5, safe at any size. <b style="color:var(--fg-1)">Large + Bold</b> = ratio 3.0–4.5, for headlines (≥ 24px) / bold (≥ 19px) and UI/borders only — never body copy. Below 3.0 the pair is decorative-adjacent only (block beside block), never type on type. Raw ratios: see the Contrast matrix card.
+    <strong style="color:var(--fg-1)">Roles:</strong> <b style="color:var(--fg-1)">Display</b> = ratio ≥ 7 (AAA) — the bar for type that <em>carries</em> a slide: a display headline, a statement word, a hero stat. <b style="color:var(--fg-1)">Body</b> = ≥ 4.5, safe at any size. <b style="color:var(--fg-1)">Large + Bold</b> = 3.0–4.5, for headlines (≥ 24px) / bold (≥ 19px) and UI/borders only — never body copy. Below 3.0: decorative-adjacent only, never type on type.
+    <br><br><strong style="color:var(--fg-1)">Why a third bar.</strong> Clearing AA is the floor, not the goal. Teal on cyan scores <b style="color:var(--fg-1)">5.96</b> — a clean AA pass — and read flat projected at display size; purple on the same cyan scores <b style="color:var(--fg-1)">7.92</b> and carried the slide. Their luminance gaps are 0.73 and 0.77, near-identical, so a bigger luminance gap is <em>not</em> the test. The ratio is. See <b style="color:var(--fg-1)">AGENTS.md §7</b>.
   </div>
 </div>
 
@@ -66,7 +68,7 @@
     { nm:'White',    hex:WHITE,  hl:'Less noise. <em>More</em> signal.' }
   ];
   var COLORFUL = { Teal:1, Purple:1, Lavender:1, Cyan:1, Lime:1, 'Lime 600':1 };
-  var TAGCOLOR = { body:'#147A4B', large:'#E08A00' };
+  var TAGCOLOR = { display:'#6103B9', body:'#147A4B', large:'#E08A00' };
 
   function lum(hex){
     var c=hex.replace('#',''); var r=parseInt(c.substr(0,2),16)/255,g=parseInt(c.substr(2,2),16)/255,b=parseInt(c.substr(4,2),16)/255;
@@ -78,9 +80,9 @@
 
   // legend
   var leg=document.getElementById('legend');
-  [['Body','#147A4B','Body · ≥ 4.5'],['Large','#E08A00','Large + Bold · 3–4.5']].forEach(function(p){
+  [['Display','#6103B9','≥ 7 · AAA — type that carries a slide'],['Body','#147A4B','≥ 4.5 — safe at any size'],['Lg+Bold','#E08A00','3–4.5 — headlines & UI only']].forEach(function(p){
     var d=document.createElement('div'); d.className='it';
-    d.innerHTML='<span class="tag" style="background:'+p[1]+'">'+(p[0]==='Body'?'Body':'Lg+Bold')+'</span>'+p[2];
+    d.innerHTML='<span class="tag" style="background:'+p[1]+'">'+p[0]+'</span>'+p[2];
     leg.appendChild(d);
   });
 
@@ -91,7 +93,8 @@
     TEXT.forEach(function(t){
       if(sameish(t.hex,s.hex)) return;
       var r=ratio(s.hex,t.hex);
-      if(r>=4.5) roles.push({nm:t.nm,hex:t.hex,r:r,role:'body'});
+      if(r>=7) roles.push({nm:t.nm,hex:t.hex,r:r,role:'display'});
+      else if(r>=4.5) roles.push({nm:t.nm,hex:t.hex,r:r,role:'body'});
       else if(r>=3) roles.push({nm:t.nm,hex:t.hex,r:r,role:'large'});
     });
     roles.sort(function(a,b){ return b.r-a.r; });
@@ -99,7 +102,10 @@
     // headline color = most legible neutral-ish, else top
     var best=roles[0];
     // accent = a colorful passing color, prefer body, highest ratio, different from best
-    var accent=roles.filter(function(x){ return COLORFUL[x.nm] && x.hex!==best.hex; })[0];
+    // An emphasis word in a headline IS display type, so it must clear the display bar
+    // before a merely-AA colour is considered. This is what stops teal being chosen on cyan.
+    var accent=roles.filter(function(x){ return COLORFUL[x.nm] && x.hex!==best.hex && x.role==='display'; })[0]
+           || roles.filter(function(x){ return COLORFUL[x.nm] && x.hex!==best.hex; })[0];
 
     var hlHtml=s.hl;
     var hlColor=best ? best.hex : '#000';
@@ -107,8 +113,10 @@
 
     var tile=document.createElement('div'); tile.className='tile';
     var rolesHtml=roles.map(function(x){
+      var LABEL={display:'Display',body:'Body',large:'Lg+Bold'};
       return '<div class="role"><span class="sw2" style="background:'+x.hex+'"></span><span>'+x.nm+'</span>'+
-             '<span class="tag" style="background:'+TAGCOLOR[x.role]+'">'+(x.role==='body'?'Body':'Lg+Bold')+'</span></div>';
+             '<span class="rt">'+x.r.toFixed(2)+'</span>'+
+             '<span class="tag" style="background:'+TAGCOLOR[x.role]+'">'+LABEL[x.role]+'</span></div>';
     }).join('');
 
     tile.innerHTML =
