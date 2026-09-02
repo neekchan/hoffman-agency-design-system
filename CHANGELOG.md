@@ -4,6 +4,37 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-09-02 — Icon set, dark-field corner mark, motion + affordance vocabularies (v2.6.0 → v2.7.0)
+
+Thirteen findings from building a real interactive deck against this system, applied. The theme: **where the canon was silent, a build invented something — and where the canon and the code disagreed, the code was right.** Two rules already lived in components and in no document.
+
+**New surface**
+
+- **`assets/icons/` — 1,595 Fluent Flat icons, the system's symbol vocabulary.** The system had *no* icon library: 76 hand-drawn annotations, logos, Storyline marks and emoji, but nothing for functional symbol duty, so anything needing an icon had to invent one. Localised from `microsoft/fluentui-emoji` (MIT) so offline deliverables work. Flat is a flat-**colour** style (~7 fills), not monochrome; its colours are the artwork and must not be recoloured. Base tone only — the five skin-tone variants stay upstream. Icons carry the *functional* beat, emoji the *emotional* one.
+- **`assets/storyline-mark.svg` — the corner mark that works anywhere.** `storyline-navy-white.svg` names the mark and its box, not the field: all three paths are `#182D43`, so it is a **navy** mark for **light** grounds. On navy, purple or teal it rendered navy-on-navy and vanished — silently, across five slides of a shipped deck. The new file is `currentColor`-driven like the annotation library, so one asset serves every surface. Documented as the Storyline's **third** use; `asset-manifest.json` gains `variantNotes` + `surfaceToVariant`; the old file is untouched for compatibility.
+- **`assets/emoji/animated-manifest.json`** — which of the curated emoji genuinely move, plus provenance and licences for every asset family.
+
+**Corrected**
+
+- **The animated emoji library was 64% fake.** 43 of the 67 files in `assets/emoji/animated/` were ordinary stills that the injector loaded with no error — so a deck could ship a frozen "animated" hero. Verified by the APNG `acTL` chunk and cross-checked against Microsoft's own list; all 43 removed, 24 remain. They were never broken exports: Microsoft simply does not animate those emoji.
+- **The sourcing SOP pointed at a repo with no animated assets.** v2.6.0 said to fetch APNGs from `microsoft/fluentui-emoji`, which ships none. Microsoft's animated set is `microsoft/fluentui-emoji-animated` (MIT, 746 emoji, 256×256 APNG). The system's own injector already knew this and the docs contradicted it. Noted: that repo is Git LFS, so a CDN returns the pointer, not the image — embed from `media.githubusercontent.com` for offline, keep the optimised mirror CDN for web runtime.
+- **"Prefer animated" vs "reserve animation for one peak" — resolved.** Motion is now explicitly two decisions: the **budget** (which slots move at all — unchanged, one peak per few slides) and then the **variant** (inside a slot already chosen to animate, prefer animated if one exists). The preference picks the asset, never the number of moving slides.
+
+**New rules**
+
+- **§14 Slide identity in the markup.** Every slide carries `data-screen-label="NN Label"`. `deck-stage.js` already stamped it and no document said so, so a hand-authored deck got nothing — and since all slides occupy identical coordinates at 1920×1080, an entire review's comments came back unattributable. Plain HTML, not a vendor feature.
+- **§15 Tappable elements: quiet at rest, motion on hover.** The system covered static slides thoroughly and said nothing about interactive ones, so a deck invented an affordance that broke four existing rules at once (coloured offset block, card lift, press transform, looping pulse). The sanctioned vocabulary: one mark per card — a card that already owns a state glyph uses that one — quiet at rest, and on hover the glyph moves while the card's internal accent rule extends. The card itself never moves.
+- **§16 Motion vocabulary.** The system specified everything except motion, so every build invented its own and tooling argued with the canon five times over the same lines. Entrance stagger and durations; a single back-out overshoot sanctioned on small marks and banned on text and panels; the documented exception to prefer-transform (a size transition inside a fixed-size container reflows nothing); nothing loops except a one-time draw-on; `prefers-reduced-motion` honoured.
+- **Step 0 freshness gate.** Confirm your checkout matches `origin/main` before building. A clone three minor versions stale taught an entire deck the pre-v2.6.0 emoji rule, with no warning. Second occurrence — the first is in the activity log from July.
+- **A mark on an emphasised word takes a different brand colour from the word.** Emphasis is coloured and marks are `currentColor`; both default to lime and the mark erases itself.
+- **An emoji accompanying a headline rides that headline's baseline** — inline at ~cap height, never a flex sibling floating beside the title. Does not ban standalone motif emoji.
+- **WCAG is the floor, not the goal.** Teal on aqua clears AA and still reads flat at display size; purple on aqua is dramatically stronger. When a pair is the point of a slide, take the widest luminance gap available.
+- **Solid chip fills** (`.tha-chip--navy` / `--white` / `--teal` / `--purple`). The ghost chip disappears on a saturated ground. Measured: all four clear AA for their own text; the white fill separates from lime by only 1.3:1 in luminance, so it holds by hue alone — prefer navy, purple or teal on saturated light grounds.
+
+**Threaded through:** `AGENTS.md`, `README.md`, `LLM_ENTRYPOINT.md`, `SKILL.md`, `CHECKLIST.md` (5 new checks), `ANTI_PATTERNS.md` (7 new rows), `colors_and_type.css`, `assets/asset-manifest.json`.
+
+Minor bump — additive rules and assets; nothing existing is invalidated.
+
 ## 2026-07-23 — Fluent Emoji doctrine: 3D-first styles + offline embedding SOP (v2.5.0 → v2.6.0)
 
 Owner preference codified: Fluent emoji are **brand assets, not decoration**, with an explicit style hierarchy and sourcing rule. Previously the docs said "static color is the default form" and had no offline-sourcing rule at all — `POWERPOINT.md` never mentioned emoji.

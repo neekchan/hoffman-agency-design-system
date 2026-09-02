@@ -1,0 +1,109 @@
+{
+  "$comment": "Which curated Fluent emoji genuinely animate. Check this before using variant=\"animated\" - an APNG that is really a still ships silently, with no error.",
+  "generated": "2026-09-02",
+  "howToVerify": "An APNG carries an 'acTL' chunk before its first IDAT: head -c 200 file.png | grep -a acTL",
+  "provenance": {
+    "static": {
+      "origin": "github.com/microsoft/fluentui-emoji",
+      "styles": [
+        "Color",
+        "Flat",
+        "High Contrast",
+        "3D"
+      ],
+      "licence": "MIT"
+    },
+    "animated": {
+      "origin": "github.com/microsoft/fluentui-emoji-animated",
+      "licence": "MIT",
+      "note": "Microsoft is the canonical origin and animates 746 emoji. That repo is Git LFS, so jsDelivr cannot serve it (it returns the LFS pointer) and its APNGs run ~1.4MB each. The files carried here are the same artwork, optimised, mirrored via github.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis (MIT). Use Microsoft for offline embedding; the mirror CDN for web runtime."
+    },
+    "icons": {
+      "origin": "github.com/microsoft/fluentui-emoji",
+      "style": "Flat",
+      "licence": "MIT",
+      "localPath": "assets/icons/",
+      "count": 1595,
+      "note": "The Flat style is the Hoffman icon set: a complete, consistently drawn symbol vocabulary for icon and wayfinding duty. Flat is a flat-COLOUR style (about 7 fills per icon), not monochrome - the colours are part of the artwork and are left intact. Skin-tone variants (Dark/Light/Medium/Medium-Dark/Medium-Light) are not carried; the Default tone is. They remain available upstream if ever needed."
+    }
+  },
+  "counts": {
+    "animated": 24,
+    "color": 67,
+    "microsoftAnimatesTotal": 746
+  },
+  "animated": [
+    "alarm-clock",
+    "brain",
+    "clapping-hands",
+    "compass",
+    "crystal-ball",
+    "eyes",
+    "fire",
+    "flexed-biceps",
+    "folded-hands",
+    "glowing-star",
+    "handshake",
+    "high-voltage",
+    "hourglass",
+    "hourglass-done",
+    "hundred-points",
+    "man-raising-hand",
+    "party-popper",
+    "person-raising-hand",
+    "raising-hands",
+    "robot",
+    "rocket",
+    "star",
+    "thumbs-up",
+    "woman-raising-hand"
+  ],
+  "notAnimated": {
+    "$comment": "Curated names with NO animated version anywhere, including from Microsoft. Do not promise motion with these - change the emoji instead.",
+    "names": [
+      "bar-chart",
+      "bell",
+      "books",
+      "briefcase",
+      "calendar",
+      "chart-decreasing",
+      "chart-increasing",
+      "check-mark",
+      "clapper-board",
+      "cross-mark",
+      "direct-hit",
+      "envelope",
+      "file-folder",
+      "gear",
+      "globe-americas",
+      "globe-asia",
+      "globe-europe",
+      "hammer",
+      "key",
+      "laptop",
+      "light-bulb",
+      "link",
+      "locked",
+      "loudspeaker",
+      "magnifying-glass",
+      "megaphone",
+      "memo",
+      "mobile-phone",
+      "money-bag",
+      "money-with-wings",
+      "package",
+      "pushpin",
+      "puzzle-piece",
+      "seedling",
+      "sparkles",
+      "speech-balloon",
+      "telescope",
+      "thought-balloon",
+      "trophy",
+      "unlocked",
+      "warning",
+      "world-map",
+      "wrench"
+    ]
+  }
+}

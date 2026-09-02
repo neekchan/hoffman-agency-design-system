@@ -20,6 +20,11 @@ A short list to run through before shipping any branded surface — slide, socia
 - [ ] **Titles fill the width and break clean** — no truncation/ellipsis, no mid-phrase wrap, no title running half-width with a dead strip of white on the right (`AGENTS.md §2.5`)
 - [ ] **Every content slide carries a visual** — image, placeholder, icon, Fluent emoji or annotation; no bare text slide with empty margins (`AGENTS.md §3`)
 - [ ] **Chunked, not dumped** — dense points broken into 2–4 short labelled beats, never a paragraph or a six-line bullet stack (`AGENTS.md §5`)
+- [ ] **Every slide is identifiable in the markup** — `data-screen-label="NN Label"` authored on every slide, not left to the runtime component; a comment or diff pinned to a coordinate is otherwise unattributable (`AGENTS.md §14`)
+- [ ] **Tappable cards read as tappable, quietly** — one mark per card (never two), quiet at rest, motion on hover, the card itself never lifts (`AGENTS.md §15`)
+- [ ] **Corner mark is visible on its surface** — `storyline-navy-white.svg` is a NAVY mark for LIGHT grounds; on navy/purple/teal use `storyline-mark.svg` tinted to the contrast colour (`README` → The Storyline squiggle)
+- [ ] **Any "animated" emoji genuinely animates** — checked against `assets/emoji/animated-manifest.json`, not assumed from the folder name (`AGENTS.md §8`)
+- [ ] **Marks and the words they mark are different colours** — a lime underline under a lime word erases itself (`README` → Hand-drawn annotations)
 
 ## Finished PowerPoint file (`.pptx` / `.potx`)
 

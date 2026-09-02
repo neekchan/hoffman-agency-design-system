@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.6.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — Fluent Emoji doctrine: **3D first** for storytelling (animated 3D at the peak, 2D Color fallback), **Flat** for utility icons, and a sourcing SOP — offline deliverables embed downloaded assets from `microsoft/fluentui-emoji`, web may use the CDN, raw Unicode emoji never. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.7.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — an **icon set** (1,595 Fluent Flat icons in `assets/icons/`, closing the system's one real gap), a **corner mark that works on dark fields**, **motion** and **tappable-affordance** vocabularies, slide identity in the markup, a **freshness gate** on stale checkouts, solid chip fills, and the animated-emoji library corrected — 43 of its 67 files were stills. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -55,11 +55,20 @@ use the routing rules below.
   `.tha-placeholder` with type, aspect, exact generate size, human hint, and
   image prompt.
 - Use one Microsoft Fluent emoji as the slide's storytelling graphic when it is
-  the emotional beat — **3D style first**, animated 3D at the peak, 2D Color as
-  fallback; Fluent **Flat** for utility icons. Offline files (`.pptx`, Keynote,
-  PDF): download from `github.com/microsoft/fluentui-emoji` and embed the asset
-  (PNG/GIF) — never hotlink, never raw Unicode emoji as icons. Avoid emoji
-  stacks or decorative emoji.
+  the emotional beat — **3D style first**, 2D Color as fallback. Motion is two
+  decisions: first the budget (one emotional peak, ~one animated emoji per few
+  slides), then the variant (inside a slot you already chose to animate, prefer
+  animated if one exists). **Only 24 of the 67 curated emoji actually move** —
+  check `assets/emoji/animated-manifest.json`; `light-bulb`, `sparkles`,
+  `warning` and `direct-hit` are stills. If the peak's obvious emoji doesn't
+  animate, change the emoji, not the doctrine. Offline files (`.pptx`, Keynote,
+  PDF): embed downloaded assets — static from `github.com/microsoft/fluentui-emoji`,
+  animated from `github.com/microsoft/fluentui-emoji-animated` — never hotlink,
+  never raw Unicode emoji as icons. Avoid emoji stacks or decorative emoji.
+- **For a functional symbol, use an icon, not an emoji.** `assets/icons/` holds
+  1,595 Fluent **Flat** icons — the system's symbol vocabulary for wayfinding,
+  list markers, labels and dense layouts. Emoji carry the emotional beat; icons
+  carry the functional one. Never recolour a Flat icon; its colours are the art.
 - Use the full palette across a deck, but one dominant color per slide and WCAG
   contrast for all type.
 - Keep the Storyline motif correct: boxed mark on light/non-navy; line variant
@@ -108,11 +117,14 @@ assets/
   mark-square-lime.png · mark-square-lime-alt.png   · favicon / app icon / social avatar
   storyline-navy-lime.svg           · Storyline — boxed corner monogram, on light/non-navy bg (Use 1)
   storyline-line-lime.svg           · Storyline — line as background layer on navy/dark fields (Use 2)
-  storyline-navy-white.svg          · mono storyline variant
+  storyline-navy-white.svg          · Storyline — NAVY mark in a white box, for LIGHT bg (not a dark-field variant)
+  storyline-mark.svg                · Storyline — box-less mono mark, currentColor-driven, any surface (Use 3)
+  icons/                            · 1,595 Fluent Flat icons — THE icon set for functional symbols (see icons/README.md)
   emoji/                            · Fluent-emoji injector (visual storytelling — see AGENTS.md §8)
     fluent-emoji.js                 · <fluent-emoji> web component; local-first, CDN fallback
     color/                          · localized static color SVGs (offline hero set)
-    animated/                       · localized animated APNGs (offline hero set)
+    animated/                       · 24 genuinely-animated APNGs — 43 stills were removed; check the manifest
+    animated-manifest.json          · which names actually move, plus asset provenance and licences
   annotations/                      · 76 hand-drawn marks across 6 categories
     underline·circle·arrow·tick·cross·accent   · 13·15·14·11·11·12
   house-style/                      · 3 reference samples for the Hoffman house illustration style (see IMAGERY.md)
@@ -299,6 +311,10 @@ This is the brand's signature graphic device — a hand-drawn waveform that peak
 2. **Line as a background layer — on navy / dark fields.** `assets/storyline-line-lime.svg`: the inverted line variant only (just the squiggle, no box). The line is **part of the dark field**, not a foreground object: it sits as the **bottom layer, directly above the navy fill and behind your content** (stack order: navy fill → storyline line → headline/content). Always lime; works on any brand color except lime itself (navy, lavender, purple, cyan, teal).
    **Edge-lock it to the frame.** The line is drawn inside a 1920×1080 artboard so its two sharp terminals sit *exactly on the artboard's top and bottom edges*. Scale it to the **full height** of the panel and anchor it **flush to the top, right and bottom edges with no bleed** — the angled ends are absorbed by the frame and the line reads as continuous, the way it did when it was enclosed in the square. (Left alignment is free; the waveform lives on the right.) Implementation: `position:absolute; top:0; right:0; bottom:0; height:100%; width:auto; z-index:0` with content above it.
 
+3. **Mono mark — a small persistent corner mark on any field, light or dark.** `assets/storyline-mark.svg`: the box-less mark, painted `fill="currentColor"` exactly like the annotation library, so **one file serves every surface** — set CSS `color` and it takes any brand colour. A deck that wants the same small mark in the corner of *every* slide needs this: use 1 and it disappears on navy; use 2 and the full-frame line is not a corner device. Tint it to the surface's contrast colour — `#FAFAF7` or `#D2EB00` on navy / navy-900 / purple / teal, `#182D43` on paper / white / sand / lime / aqua / violet.
+
+> ⚠️ **`storyline-navy-white.svg` is not the dark-surface variant.** Its name describes the mark and its box, not the field it belongs on: all three of its paths are `fill="#182D43"`, so it is a **navy** mark for **light** backgrounds. Put it on navy, purple or teal and it renders navy-on-navy and vanishes silently — which is exactly what happened across five slides of a shipped deck before anyone noticed. On a dark field use `storyline-mark.svg` and colour it. The old file stays for compatibility; `assets/asset-manifest.json` now spells out the surface → variant mapping.
+
 **Never** float the boxed monogram adrift in the middle of a navy field — on a dark field the line-as-background is what belongs. **Never** float the line as an object or shrink it into a corner — that strands its two sharp diagonal cut-ends in open space (the original misuse). And never use the square as a hero, recolor the line away from lime, place the line on a lime background, use it as an inline divider, tile or rotate it, or replace the wordmark with it.
 
 ### Hand-drawn annotations
@@ -316,7 +332,7 @@ The brand uses a library of **76 hand-drawn marks across 6 categories**, living 
 
 **Use 1–2 marks per surface**, max. These are editorial punctuation on top of type, not icons.
 
-Every SVG uses `fill="currentColor"` so any mark can be tinted to any brand color via CSS. **Color is contextual** — there are no fixed per-category defaults. Pick whichever brand color (lime, lavender, purple, cyan, teal, navy, paper) contrasts best with both the text *and* the background where the mark sits, so the mark reads clearly. A cross-out should be the opposite color of the word it strikes through. Stroke 3–5px, slightly imperfect.
+Every SVG uses `fill="currentColor"` so any mark can be tinted to any brand color via CSS. **Color is contextual** — there are no fixed per-category defaults. Pick whichever brand color (lime, lavender, purple, cyan, teal, navy, paper) contrasts best with both the text *and* the background where the mark sits, so the mark reads clearly. A cross-out should be the opposite color of the word it strikes through. **And when a mark sits under or around an *emphasised* word, it must take a different brand colour from that word.** The italic emphasis is itself coloured, and both default to lime — so a lime underline beneath a lime word erases the mark. Give the word its accent and the mark the surface's other contrast colour: on navy, a lime word takes a white underline; on paper, a purple word takes a navy one. Stroke 3–5px, slightly imperfect.
 
 ### Highlights (text-overlay annotation)
 A seventh annotation technique — not an SVG asset, but a CSS overlay applied **over** body text. Use a brand color as a highlighter background behind the text you want to emphasize, the way a marker pen would.
@@ -344,12 +360,17 @@ Italicize the line's emphasis — the key word *or* the short phrase that carrie
 - Entrances: 420ms ease-out (`--dur-slow / --ease-out`), subtle 12–16px y-translate + fade. That's it.
 - The squiggle may "draw itself" once, on first view — never loops.
 - Hover transitions: 140ms, tight.
+- **Slides have a fuller motion vocabulary** — staggered entrances, where a single
+  back-out overshoot is sanctioned (small marks only, never text or panels), the
+  duration bands, and the one documented exception to "prefer transform/opacity"
+  (a size transition inside a fixed-size container reflows nothing). See `AGENTS.md §16`.
 
 ### Hover states
 - **Buttons (solid navy):** background shifts to navy-600 (lighter), lime "underline" bar animates in beneath.
 - **Buttons (lime):** background shifts to lime-400, navy text stays.
 - **Links:** color shifts from purple → lavender; underline thickens from 1.5px to 2px.
 - **Cards:** no lift, no shadow bump. Instead, the card's internal accent rule (lime or lavender) extends 8px to the right. Understated.
+- **Tappable cards (interactive decks):** the card still never lifts. Quiet at rest — one ~30px glyph at ~40% opacity, never a labelled pill on every card — and on hover the *glyph* rises and grows ~30% while the accent rule above extends along the edge. One mark per card: a card that already owns a state glyph uses that one. See `AGENTS.md §15`.
 
 ### Press states
 - Buttons darken one step and take a 1px inset shadow (`--shadow-press`).

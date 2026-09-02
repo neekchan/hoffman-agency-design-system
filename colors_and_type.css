@@ -454,3 +454,25 @@ body.tha.tha-theme-white {
 @media (max-width: 480px) {
   .tha-statsstrip { grid-template-columns: 1fr; }
 }
+
+/* ==========================================================================
+   Chips — solid fills for saturated surfaces
+   --------------------------------------------------------------------------
+   The ghost chip (transparent, faded navy outline) is correct on a calm ground
+   — paper, white, sand. On lime, aqua, violet or any saturated surface it
+   effectively disappears: a low-contrast outline on a loud field. These four
+   solid fills are the answer, and they are the DEFAULT on a saturated surface.
+   Ghost is for calm grounds only.
+   ========================================================================== */
+.tha-chip--navy   { background: var(--tha-navy);   border-color: var(--tha-navy);   color: var(--tha-paper); }
+.tha-chip--white  { background: var(--tha-white);  border-color: var(--tha-white);  color: var(--tha-navy);  }
+.tha-chip--teal   { background: var(--tha-teal);   border-color: var(--tha-teal);   color: var(--tha-paper); }
+.tha-chip--purple { background: var(--tha-purple); border-color: var(--tha-purple); color: var(--tha-paper); }
+/* Picking a fill for a ground (measured, not guessed):
+     lime / aqua / violet  -> navy (10.4:1 / 11.8:1), purple (7.0 / 7.9) or teal (5.3 / 6.0)
+     navy / navy-900 / purple / teal -> white (14.0:1)
+   Caveat: the WHITE fill separates from lime by only 1.3:1 and from aqua by 1.2:1
+   in luminance — it holds by hue, not by value, so it goes grey in a greyscale
+   print and vanishes in a high-contrast mode. On a saturated LIGHT ground reach
+   for navy, purple or teal first. Text contrast within every chip clears AA:
+   navy 13.4:1 · white 14.0:1 · teal 6.8:1 · purple 9.0:1. */
