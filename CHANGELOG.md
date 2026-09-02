@@ -4,6 +4,14 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-09-02 — Motion rule: the test is what can reflow, not which property (v2.7.0 → v2.7.1)
+
+§16 shipped yesterday and failed its first contact with real code. Its "prefer transform/opacity" rule carved out one exception — a size transition inside a fixed-size container — and a design linter promptly flagged four **provably safe** animations it did not cover: a sweeping accent rule and a progress bar, both `position:absolute`/`fixed` and therefore **out of flow**, where animating width cannot move anything at all. That is a stronger case than the exception already documented, and omitting it left the tooling arguing with the canon over correct code — the exact friction §16 exists to end.
+
+- **Two exceptions now, and the principle behind them.** Out-of-flow elements (`position:absolute` / `fixed`) may animate size freely — a sweeping rule, an underline, a progress bar. Fixed-size containers may animate `max-height` inside. **The test is not which property you animate, it is whether anything outside the element can move.**
+
+Patch — a clarification to an existing rule; nothing new and nothing invalidated.
+
 ## 2026-09-02 — Icon set, dark-field corner mark, motion + affordance vocabularies (v2.6.0 → v2.7.0)
 
 Thirteen findings from building a real interactive deck against this system, applied. The theme: **where the canon was silent, a build invented something — and where the canon and the code disagreed, the code was right.** Two rules already lived in components and in no document.

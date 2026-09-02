@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.7.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — an **icon set** (1,595 Fluent Flat icons in `assets/icons/`, closing the system's one real gap), a **corner mark that works on dark fields**, **motion** and **tappable-affordance** vocabularies, slide identity in the markup, a **freshness gate** on stale checkouts, solid chip fills, and the animated-emoji library corrected — 43 of its 67 files were stills. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.7.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — an **icon set** (1,595 Fluent Flat icons in `assets/icons/`, closing the system's one real gap), a **corner mark that works on dark fields**, **motion** and **tappable-affordance** vocabularies, slide identity in the markup, a **freshness gate** on stale checkouts, solid chip fills, and the animated-emoji library corrected — 43 of its 67 files were stills. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
