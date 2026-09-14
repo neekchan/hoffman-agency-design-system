@@ -12,8 +12,8 @@ route.
 
 | User asks for | Read | Start from | Key rule |
 |---|---|---|---|
-| Presentation, pitch, deck, slide (HTML) | `AGENTS.md`, then `LAYOUTS.md` | `templates/deck/Deck.dc.html` | Slides override web spacing/type. Fill the 1920x1080 frame. |
-| **Native PowerPoint / `.pptx` / `.potx` / Keynote-for-Office** | **`POWERPOINT.md`** first, then `AGENTS.md` + `LAYOUTS.md` | Prefer exporting `templates/deck/Deck.dc.html` to editable PPTX; else the two manifests | **If output is `.pptx`, read `POWERPOINT.md`.** Set the theme fonts to Poppins, place logos via `assets/asset-manifest.json`, treat layout codes as contracts, validate the finished file. |
+| Presentation, pitch, deck, slide (HTML) | `AGENTS.md` + `SOUNDCHECK.md`, then `LAYOUTS.md` | `templates/deck/Deck.dc.html` | Slides override web spacing/type. Fill the 1920x1080 frame. |
+| **Native PowerPoint / `.pptx` / `.potx` / Keynote-for-Office** | **`POWERPOINT.md`** first, then `AGENTS.md` + `SOUNDCHECK.md` + `LAYOUTS.md` | Prefer exporting `templates/deck/Deck.dc.html` to editable PPTX; else the two manifests | **If output is `.pptx`, read `POWERPOINT.md`.** Set the theme fonts to Poppins, place logos via `assets/asset-manifest.json`, treat layout codes as contracts, validate the finished file. |
 | Marketing website, landing page, brand page | `README.md`, `DESIGN.md` | `ui_kits/website/index.html` | Web can breathe. Use website components and real imagery/placeholders. |
 | Product app, dashboard, admin, portal, workflow tool | `DESIGN.md`, `ui_kits/app/COMPONENTS.md` | `ui_kits/app/index.html` | Dense, calm, scannable UI. Use app primitives, not marketing heroes. |
 | Social tile or carousel | `README.md`, `PROMPTS.md` | `templates/social-tile/SocialTile.dc.html` | One idea per tile, big type, fixed safe zone. |
@@ -36,6 +36,10 @@ route.
 
 **Slides**
 
+- Read `SOUNDCHECK.md` for the presentation argument and titles. Establish
+  the audience and desired outcome, build the structure, then polish the
+  lines. Use its seven principles as far as possible; title-length targets
+  are layout budgets, not a reason to lose the point.
 - Decide Presenter or Document mode before writing slides.
 - Use slide type floors from `AGENTS.md`: body 30-36px, content titles 64-80px, statements 120px+.
 - Use imagery by default.

@@ -97,7 +97,7 @@ Keep the **dotted border** + **aspect-ratio label** (the user likes both). Three
 
 ## 5. Text slots are typed prompts (role + style + word cap)
 Label each text region by what it is and how to write it, not a vague description. Examples:
-- Title: *one line, ≤8 words, the key word or phrase set in Baskerville italic.*
+- Title: *layout target: one line, ≤8 words, the key word or phrase set in Baskerville italic.* Write the point using `SOUNDCHECK.md`; handle a title/fit collision under §10.
 - Punchy subtitle: *accentuates the slide, ≤14 words.*
 - Body: *leads with the punchline, ≤30 words.*
 - Bullet/prop: *a trigger not a sentence, ≤6 words, max 3.*
@@ -106,7 +106,7 @@ Put these specs in the `@layout` comment's `slots=` and/or the on-canvas Layout-
 - **Chunk, don't dump.** Break a dense point into 2–4 short labelled beats (a small stat row, three captioned cards, a step strip) instead of one paragraph or a six-line bullet stack. Chunking is what makes a Document-mode slide readable without shrinking the type.
 
 ## 6. Restraint (unchanged, still core)
-One point per slide; minimum on the page, rest narrated by the speaker; visible hierarchy (one dominant element); one graphic earns the emotion; cut before you add. See `LAYOUTS.md` Part 1.
+Aim for one governing point per slide as far as possible (`SOUNDCHECK.md` principle 3: count takeaways, not clauses or the word “and”); minimum on the page, rest narrated by the speaker; visible hierarchy (one dominant element); one graphic earns the emotion; cut before you add. See `LAYOUTS.md` Part 1.
 
 ## 7. Color — use the WHOLE palette; the web 30/30/10… ratio does NOT apply to decks
 The web rule that caps each secondary at ~10% exists to keep *webpages* uniform. **On a deck it is the wrong instinct** — it's what makes AI decks look navy-paper-navy-paper and one-tracked. For slides:
@@ -138,10 +138,25 @@ Every element must earn its place at a LARGE size. If a text element can't be re
 - **No placeholder captions once a real image is in** (the "▢ IMAGE" / caption stubs). The teaching-gallery template keeps its labelled placeholders on purpose; a *real* deck does not.
 - **Target 3–5 elements per slide, each large.** A connected-model or map slide is a title + one line + the graphic — not a title, eyebrow, central node, four node labels, four sub-labels, a benefits line, an aside and a footnote. When a slide creeps past ~5 text shapes, you're narrating on the slide instead of in the room.
 
-## 10. Headlines are editorial, not descriptive
-Descriptive / summary headlines ("Korea: a widening mandate", "Our work across Asia") read as AI-default. Rewrite them into the house voice.
-- **≤ 8 words, one line where possible, with a point of view.** Prefer a question, a two-beat ("Tech. We're it."), the Baskerville-italic emphasis (its key word *or* short phrase), a strikethrough swap, or a giant single word.
-- **Contrast, questions, wordplay** over labels: "Who we are" → "But first, a bit about us." · "Tech's most decorated agency" → "Tech. We're it." · "China: local storytelling" → "Fluency in China's complexity."
+## 10. Soundcheck — make the title carry the point
+
+Read [SOUNDCHECK.md](SOUNDCHECK.md) in full for every presentation creation or
+title review. This self-contained seven-principle method governs the
+argument: audience and structure first, then wording. Apply the principles
+as far as possible, with the stated exemptions; review for useful
+improvements, not pass/fail scores. It preserves the requested voice.
+
+- **State the point and why it matters to this audience.** Keep one
+  governing takeaway per slide as far as possible. Knowledge, research and
+  user-provided material can supply the support; verify uncertain or
+  changing facts. A chart demonstrating the title's claim is doing its job.
+- **≤8 words and one line remain layout targets.** If the strongest
+  supported title collides with them, flag it and offer a viable shorter
+  title or layout adjustment. Preserve the point and its necessary scope.
+- **Questions, contrast, wordplay, a two-beat line or a giant word** can
+  serve the point and the requested voice. They are useful on covers,
+  dividers and deliberate rhetorical setups when that is the slide's job.
+  A style move alone does not supply a missing claim on a content slide.
 - One voice move per headline — don't stack a question + italic + strikethrough on one line. The italic marks the line's **emphasis by meaning** — usually one word, sometimes a short phrase; never scatter italics across several words, and never force a single word when the point lives in a phrase.
 - **Colour the emphasis, don't just italicise it.** The Baskerville-italic word can also carry a brand colour (lime on navy, purple/teal on paper, navy on lime) so the emphasis reads at a glance — the serif *and* a WCAG-passing accent, not a monochrome line. One coloured emphasis per headline; contrast is still the gate (§7).
 - **A mark on an emphasised word takes a *different* brand colour from the word.** The italic emphasis is coloured (above) and the 76 hand-drawn marks paint with `currentColor` — so the lazy default makes both lime, and the mark vanishes into the word it is supposed to mark. Give the word its accent and the mark the surface's *other* contrast colour: on navy, a lime word takes a **white** underline; on paper, a purple word takes a **navy** one. One coloured emphasis, one differently-coloured mark, both clearing contrast.

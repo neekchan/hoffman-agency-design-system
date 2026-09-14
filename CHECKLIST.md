@@ -140,11 +140,11 @@ Safe zone on social tiles: keep critical content **≥ 80px from all four edges*
 
 - [ ] Reads as **Smart, Human, Energetic, Distilled, Bold, Creative, Authentic**
 - [ ] No agency clichés (*leverage, end-to-end, best-in-class, at the intersection of, revolutionary, disruptive, storytelling solutions*)
-- [ ] Active voice, short sentences, no hedging
+- [ ] Active voice, short sentences, no empty hedging; retain qualifications that materially change a claim (`SOUNDCHECK.md` for slides)
 - [ ] CTA is a direct verb + object — never "Learn more"
 - [ ] **Emojis** allowed *with* copy, max 3 per page — expect cross-platform variance.
 - [ ] **Voice patterns** used intentionally, not by accident — stretched letters (cover/section only), the ladder (once per deck), strikethrough humor (once per deck). Lowercase first words are okay as a casual signal.
-- [ ] **Slides only:** headline is **editorial, not descriptive** — ≤8 words with a point of view (question, two-beat, italic emphasis, giant word), not a label like "X: an overview" (see `AGENTS.md §10`)
+- [ ] **Slides only:** reviewed the audience, title spine and individual lines with **Soundcheck**, keeping good titles and useful exemptions; resolved any collision with the ≤8-word/one-line layout target while preserving the point. The review produces improvements, not pass/fail scores for each title (see `SOUNDCHECK.md` and `AGENTS.md §10`).
 
 ---
 

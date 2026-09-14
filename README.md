@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.7.2** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — an **icon set** (1,595 Fluent Flat icons in `assets/icons/`, closing the system's one real gap), a **corner mark that works on dark fields**, **motion** and **tappable-affordance** vocabularies, slide identity in the markup, a **freshness gate** on stale checkouts, solid chip fills, and the animated-emoji library corrected — 43 of its 67 files were stills. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.8.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **`SOUNDCHECK.md`**, a seven-principle method for the *argument* under a deck: state the point rather than describe the slide, build the title spine before the lines, and treat the ≤8-word title limit as a layout budget, not the rule. §10 rewritten around it; §6's "one point per slide" now counts takeaways, not clauses. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -86,6 +86,7 @@ The design system is organized so every file name corresponds to how it's used. 
 ─ Docs (root) ─────────────────────────────────────────────
 INTAKE.md               · ⏱ run FIRST — the pre-build intake questions that lock the brief (medium · mode · audience · colour · imagery)
 AGENTS.md               · slide/deck SOPs — the authority for slides & office docs (precedence: see §0)
+SOUNDCHECK.md           · the presentation argument — seven principles for slide titles and the story they tell in sequence (read with AGENTS.md for any deck)
 LLM_ENTRYPOINT.md       · shortest task router for Claude, ChatGPT and other design agents
 LAYOUTS.md              · deck layout library (48 layouts, L01–L51) + slide best-practice guide
 POWERPOINT.md           · native `.pptx` route — theme spec, font reliability, logo geometry, protected zones, connectors, layout-as-contract, finished-file validation (read when the output is PowerPoint)

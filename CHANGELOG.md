@@ -4,6 +4,26 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-09-14 — Soundcheck: a method for the argument, not just the headline (v2.7.2 → v2.8.0)
+
+§10 told you to rewrite a descriptive headline into the house voice and handed you the moves — a question, a two-beat, an italic emphasis. It never said what a title is *for*. So the moves could be applied to a line that still carried no point, and a deck could clear every rule in this system while its titles, read in sequence, said nothing. The missing layer was the argument underneath the design.
+
+**New document**
+
+- **`SOUNDCHECK.md` — seven principles for the argument and the titles that carry it.** The one rule: don't use the title to describe what is on the slide, use it to state the point the slide is making. Then the governing thought at two scales (each slide has one; so does the deck), and a working order — establish the audience and the structure first, draft the title spine, build the slides that demonstrate each claim, and only then sharpen the lines. The principles are ordered by priority, not by sequence: hold 1 and 2, use 3–5 as strong defaults, aim for 6, reach for 7. Evidence may come from the user's material, from research, or from the AI's own world knowledge — verify what is uncertain, changing or consequential, and never present an inference as a verified result. The file is deliberately **self-contained and brand-neutral** so it can travel; it governs the argument only, while the brief, the audience, the presenter's voice and this design system still govern their own parts.
+
+**Threaded through**
+
+- **§10 rewritten — "Headlines are editorial, not descriptive" becomes "Soundcheck — make the title carry the point."** The voice moves survive, demoted from the rule to the toolkit: a question, contrast, wordplay, a two-beat or a giant word can serve the point, and they earn their place on covers, dividers and deliberate rhetorical setups. What is new is the limit on them — **a style move alone does not supply a missing claim on a content slide.** That was the gap the old rule left open.
+- **≤8 words and one line are now stated as layout targets, not the rule.** When the strongest supported title collides with the budget, flag the collision and offer a viable shorter title or a layout adjustment — preserve the point and its necessary scope rather than trimming the claim to fit the box. §5's title-slot spec now says the same.
+- **§6 counts takeaways, not clauses.** "One point per slide" stands as a strong default, but a cause and effect, a contrast, a comparison or a trade-off can need two clauses to make **one** point. The word "and" was never the test.
+- **`CHECKLIST.md`** — the Voice section's slide check becomes a Soundcheck review of audience, title spine and individual lines, producing useful improvements rather than a pass/fail verdict per title, and naming the exemption when a plain title is kept for its function. Its "no hedging" line now reads **no empty hedging**: a qualification that materially changes a claim stays.
+- **`LLM_ENTRYPOINT.md`** — `SOUNDCHECK.md` loads alongside `AGENTS.md` on both deck routes, HTML and native PowerPoint, with the working order restated in the Slides rules.
+
+Minor bump — a new document plus clarified rules. Nothing is invalidated: a deck built to the old §10 is still on-brand, because every voice move it used is still sanctioned.
+
+**Known residue, not touched here:** `LAYOUTS.md` Part 1 still carries the pre-Soundcheck "Headline voice — editorial, not descriptive" block and states ≤8 words as a rule rather than a budget. Reconcile it in a follow-up.
+
 ## 2026-09-02 — Preview surfaces for the new rules, and a contrast rule corrected (v2.7.1 → v2.7.2)
 
 Three v2.7.0 items shipped their *rule* without the *instrument* the rule pointed at. Building the instruments proved one of the rules wrong.
