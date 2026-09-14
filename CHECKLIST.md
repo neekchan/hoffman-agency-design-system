@@ -144,7 +144,7 @@ Safe zone on social tiles: keep critical content **≥ 80px from all four edges*
 - [ ] CTA is a direct verb + object — never "Learn more"
 - [ ] **Emojis** allowed *with* copy, max 3 per page — expect cross-platform variance.
 - [ ] **Voice patterns** used intentionally, not by accident — stretched letters (cover/section only), the ladder (once per deck), strikethrough humor (once per deck). Lowercase first words are okay as a casual signal.
-- [ ] **Slides only:** reviewed the audience, title spine and individual lines with **Soundcheck**, keeping good titles and useful exemptions; resolved any collision with the ≤8-word/one-line layout target while preserving the point. The review produces improvements, not pass/fail scores for each title (see `SOUNDCHECK.md` and `AGENTS.md §10`).
+- [ ] **Decks & documents:** reviewed the audience, title spine and individual lines with **Soundcheck**, keeping good titles and useful exemptions; resolved any collision with the ≤8-word/one-line layout target while preserving the point. The review produces improvements, not pass/fail scores for each title (see `SOUNDCHECK.md` and `AGENTS.md §10`).
 
 ---
 

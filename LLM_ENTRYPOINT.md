@@ -17,7 +17,7 @@ route.
 | Marketing website, landing page, brand page | `README.md`, `DESIGN.md` | `ui_kits/website/index.html` | Web can breathe. Use website components and real imagery/placeholders. |
 | Product app, dashboard, admin, portal, workflow tool | `DESIGN.md`, `ui_kits/app/COMPONENTS.md` | `ui_kits/app/index.html` | Dense, calm, scannable UI. Use app primitives, not marketing heroes. |
 | Social tile or carousel | `README.md`, `PROMPTS.md` | `templates/social-tile/SocialTile.dc.html` | One idea per tile, big type, fixed safe zone. |
-| One-pager or print leave-behind | `README.md`, `CHECKLIST.md` | `templates/one-pager/OnePager.dc.html` | Print has its own size constraints; keep hierarchy clear. |
+| One-pager or print leave-behind | `README.md` + `SOUNDCHECK.md`, then `CHECKLIST.md` | `templates/one-pager/OnePager.dc.html` | Print has its own size constraints; keep hierarchy clear. Headings state the point, not the topic. |
 | Any image (generate / supply / placeholder) | `IMAGERY.md`, then `PROMPTS.md` | The workflow in `IMAGERY.md`, then the matching prompt block | Decide *whether/how* in `IMAGERY.md` (capability check → ask → house style → else placeholder); keep the Hoffman photo grade + placeholder resolution rules. |
 | Animated brand "hello", animated wordmark / brand-mark GIF or video (deck, PowerPoint, social, email signature) | Nothing else — it's self-serve | `preview/brand-mark-studio.html` (open it in a browser) | Point the user at the **Brand Mark Studio**: they type the word, tune typeface/colour/background, and export APNG / GIF (transparent, PPT-safe) / MP4 — all client-side. Don't rebuild the animation by hand. |
 
@@ -36,7 +36,8 @@ route.
 
 **Slides**
 
-- Read `SOUNDCHECK.md` for the presentation argument and titles. Establish
+- Read `SOUNDCHECK.md` for the argument and titles — the default for decks
+  **and documents**, not slides alone. Establish
   the audience and desired outcome, build the structure, then polish the
   lines. Use its seven principles as far as possible; title-length targets
   are layout budgets, not a reason to lose the point.

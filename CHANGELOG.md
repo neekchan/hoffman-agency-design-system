@@ -4,6 +4,17 @@ All notable changes to the Hoffman Agency design system. Newest first. The
 canonical source of the system is the Claude Design project (claude.ai/design,
 `d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
 
+## 2026-09-14 — Soundcheck is the default for documents too, and LAYOUTS.md stops contradicting it (v2.8.0 → v2.8.1)
+
+v2.8.0 shipped Soundcheck and wired it into the two deck routes — and stopped there. Every other door into the system still taught the old rule. A one-pager never loaded it, the pre-ship check said "Slides only", §10 said "presentation", and `LAYOUTS.md` — which the deck route sends you to by name — still carried the block §10 had just replaced. So the method was published but not actually the default. This closes that.
+
+- **§10 now opens by saying so.** "Soundcheck is the default way titles are written here" — read it whenever you create a **deck or a document**, and for every title review. The scope is named explicitly: decks, one-pagers, print leave-behinds and any other fixed-canvas page document this file governs under §0. The router's stale "editorial headlines" label for §10 is now "Soundcheck titles", and the one-pager entry says outright that a one-pager is a document.
+- **`LLM_ENTRYPOINT.md` routes documents through it.** The one-pager / print leave-behind row reads `README.md` + `SOUNDCHECK.md` and gains its own key rule — headings state the point, not the topic. The Slides block now says the method is the default for decks **and documents**, not slides alone.
+- **`CHECKLIST.md` is no longer "Slides only".** The Soundcheck review is scoped **Decks & documents**.
+- **`LAYOUTS.md` reconciled — the residue flagged in v2.8.0.** "Headline voice — editorial, not descriptive" is now "Headline voice — Soundcheck", and it teaches the same thing §10 does: state the point, don't describe the slide; a voice move serves a claim and never substitutes for one. The word-budget line was the sharper conflict — it listed the headline under **hard caps, not targets** while §10 had just made ≤8 words a layout budget. The headline is now called a layout budget with the collision procedure attached; the other budgets (eyebrow, body, bullet, stat) stay hard caps, which they always were.
+
+Patch — a scope clarification and a documentation conflict resolved. No new surface area: `SOUNDCHECK.md` is unchanged from v2.8.0, and nothing built to it needs revisiting.
+
 ## 2026-09-14 — Soundcheck: a method for the argument, not just the headline (v2.7.2 → v2.8.0)
 
 §10 told you to rewrite a descriptive headline into the house voice and handed you the moves — a question, a two-beat, an italic emphasis. It never said what a title is *for*. So the moves could be applied to a line that still carried no point, and a deck could clear every rule in this system while its titles, read in sequence, said nothing. The missing layer was the argument underneath the design.

@@ -15,11 +15,11 @@ You are looking at **The Hoffman Agency design system**: brand tokens, fonts, lo
 4. **`POWER-DESIGN-PRINCIPLES.md`** — the portable craft layer (one-idea, chunks, grid, contrast, data-ink, **mode purity**…). It is a **reference layer: try to honor it, don't rigidly stick.** Where a rule collides with a house SOP, the precedence block at the top of that file (and §0 below) decides — universal craft wins; the whitespace / palette / margin calls follow the Hoffman house style.
 
 **Then read by task — what you're being asked to make:**
-- **A deck / presentation / any fixed 1920×1080 slide** → `LAYOUTS.md` (the 48-layout library, L01–L51 — pick a named layout, don't free-style) + `AGENTS.md §§1–12` (slide type scale, "fill the frame," imagery, declutter, editorial headlines, structure, color, Fluent emoji, **Presenter-vs-Document mode**). Build from `templates/deck/Deck.dc.html`. **Decide the deck's mode first (§12).**
+- **A deck / presentation / any fixed 1920×1080 slide** → `LAYOUTS.md` (the 48-layout library, L01–L51 — pick a named layout, don't free-style) + `AGENTS.md §§1–12` (slide type scale, "fill the frame," imagery, declutter, Soundcheck titles (§10), structure, color, Fluent emoji, **Presenter-vs-Document mode**). Build from `templates/deck/Deck.dc.html`. **Decide the deck's mode first (§12).**
 - **A native PowerPoint / `.pptx` / `.potx` file** → **`POWERPOINT.md` first** (+ `AGENTS.md §13`), then `LAYOUTS.md`. Prefer exporting the deck to editable PPTX; place logos via `assets/asset-manifest.json`, layouts via `templates/powerpoint/layout-manifest.json`; set the theme fonts to Poppins; validate the finished file.
 - **A web page / marketing site** → `README.md` web sections + `ui_kits/website/` (real components) + `DESIGN.md` web type scale. Web posture: generous whitespace, sparse imagery, 1240px measure.
 - **A product app / dashboard / workflow UI** → `README.md` app sections + `ui_kits/app/` (product primitives) + `DESIGN.md` component guidance. App posture: dense but calm, scannable, native controls, compact panels, no marketing hero composition.
-- **A social tile / one-pager** → the matching folder in `templates/` (`social-tile/`, `one-pager/`).
+- **A social tile / one-pager** → the matching folder in `templates/` (`social-tile/`, `one-pager/`). A one-pager is a **document**: write its headings with `SOUNDCHECK.md` (§10).
 - **The animated brand "hello" / an animated wordmark or brand-mark GIF** (for a deck, PowerPoint, social, or an email signature) → **`preview/brand-mark-studio.html`** — the **Brand Mark Studio**, a self-serve in-browser exporter: type any word, pick Poppins or Libre Baskerville (italic/bold), gradient or per-letter colour cycling and a background, then export APNG (transparent, best), GIF (transparent, PowerPoint-safe) or MP4/WebM — all encoded client-side. **Point the user at the tool; don't hand-build the animation.**
 - **Any imagery decision (generate / supply / placeholder), or generating with an AI model** → **`IMAGERY.md`** first (the workflow: capability check → ask the user → learn-a-style or the Hoffman house illustration style → else a labelled placeholder), then **`PROMPTS.md`** for the copy-paste prompt templates that bake in the Hoffman grade/mood.
 - **Before shipping anything** → run `CHECKLIST.md` (pre-ship visual-consistency checklist).
@@ -140,11 +140,14 @@ Every element must earn its place at a LARGE size. If a text element can't be re
 
 ## 10. Soundcheck — make the title carry the point
 
-Read [SOUNDCHECK.md](SOUNDCHECK.md) in full for every presentation creation or
-title review. This self-contained seven-principle method governs the
-argument: audience and structure first, then wording. Apply the principles
-as far as possible, with the stated exemptions; review for useful
-improvements, not pass/fail scores. It preserves the requested voice.
+**Soundcheck is the default way titles are written here.** Read
+[SOUNDCHECK.md](SOUNDCHECK.md) in full whenever you create a deck or a
+document, and for every title review — decks, one-pagers, print leave-behinds
+and any other fixed-canvas page document this file governs (§0). This
+self-contained seven-principle method governs the argument: audience and
+structure first, then wording. Apply the principles as far as possible, with
+the stated exemptions; review for useful improvements, not pass/fail scores.
+It preserves the requested voice.
 
 - **State the point and why it matters to this audience.** Keep one
   governing takeaway per slide as far as possible. Knowledge, research and

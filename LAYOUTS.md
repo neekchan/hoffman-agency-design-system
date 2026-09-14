@@ -42,20 +42,21 @@ The visual, directly-editable gallery of every layout lives in **`templates/deck
 - **Standard** — 2–3 columns, persona, idea detail. A headline + a small, parallel set of supporting blocks.
 - **Dense** — matrix, scope table, roster. *Only* when the artefact itself is the point (a plan-on-a-page, a deliverables table). Dense is a deliberate choice, never an accident. Cap at one or two per deck.
 
-### Word budgets (hard caps, not targets)
+### Word budgets (hard caps, not targets — the headline excepted)
 
-- Headline: **≤ 8 words**, one line where possible, editorial not descriptive (see "Headline voice" below).
+- Headline: **≤ 8 words**, one line where possible — a **layout budget**, not a cap on the point. Write it with `SOUNDCHECK.md`; if the strongest supported title collides with the budget, flag it and offer a shorter title or a layout change (see "Headline voice" below).
 - Eyebrow: **2–4 words**, UPPERCASE.
 - Supporting body: **≤ 30 words** total on the slide.
 - Bullet / prop: **≤ 6 words**. Max **3** per group.
 - Stat: a number + a ≤4-word label. Max **3** across a slide.
 - **No micro-text.** Nothing ≤10pt (20px) except a functional eyebrow / mono label. On-slide sources, footnotes, placeholder captions and repeated sub-labels are cut — sources go to speaker notes. Aim for **3–5 large elements** per slide (see `AGENTS.md §9`).
 
-### Headline voice — editorial, not descriptive
+### Headline voice — Soundcheck
 
-The headline is the slide's one job — make it a line with a point of view, not a label.
+The headline is the slide's one job — **state the point the slide is making, don't describe what is on it.** `SOUNDCHECK.md` is the method and the default; read it in full when you build a deck or a document, or review titles.
 
-- **≤ 8 words with an angle** — a question, a two-beat ("Tech. We're it."), the Baskerville-italic emphasis (its key word or short phrase), a strikethrough swap, or a single giant word. Descriptive / summary titles ("Korea: a widening mandate", "Q3 overview") are the AI-default tell — rewrite them.
+- **The title carries a claim and why it matters to this audience.** Descriptive / summary titles ("Korea: a widening mandate", "Q3 overview") name the subject and stop — that is the AI-default tell. Keep one governing takeaway per slide, counting ideas and relationships rather than clauses.
+- **A voice move serves the point; it does not replace one.** A question, a two-beat ("Tech. We're it."), the Baskerville-italic emphasis (its key word or short phrase), a strikethrough swap, or a single giant word all earn their place — on covers, dividers and deliberate rhetorical setups especially. On a content slide, a style move alone does not supply a missing claim.
 - One voice move per headline. Land it, don't decorate it. (See `AGENTS.md §10`.)
 
 ### Presenter vs Document mode (choose before layouts)
