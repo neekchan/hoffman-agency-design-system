@@ -4,6 +4,33 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — Brand Mark Studio: five fixes, including letters that turned invisible (v2.8.8 → v2.8.9)
+
+- **Letters can no longer vanish into the background.** Pick a lime background
+  and the rotation would cheerfully cycle a letter to lime, on lime. The palette
+  is now built *against* the chosen background: any colour too close to it is
+  dropped from both the gradient and the letter-by-letter mode, and the gradient
+  re-closes its loop around what's left. Paper drops two — itself and navy-100,
+  which is near-white and was almost as bad.
+- **CJK typefaces.** M PLUS 2 (the brand's Japanese face), plus Noto Sans JP, TC,
+  SC and KR. They already load from the shared stylesheet; the Studio just never
+  offered them. Italic is disabled for those faces rather than fake-slanted,
+  because none of them have a true italic.
+- **Libre Baskerville now selects italic and un-bolds itself.** That is how the
+  brand actually uses it — italic only, never upright as display. Both toggles
+  still work; it just starts where you were going to put it anyway.
+- **The custom-colour control stopped pretending to be a swatch.** It was an
+  eleventh square in the row, indistinguishable from a preset, so nobody knew it
+  opened a picker. It is now its own labelled control — a dashed chip reading
+  **+ Custom colour** with the current hex beside it — and it lights up when it
+  is the active background.
+- **Two background swatches were misnamed.** `#182D43` was labelled "Navy 700"
+  when it *is* the brand navy (`--tha-navy` and `--tha-navy-700` are the same
+  hex), and `#0E1C2B` was "Navy hero" when it is navy-900, the ink. Both are real
+  palette colours; only the labels were wrong.
+
+Patch. Fixes to one tool; no rules, tokens or templates changed.
+
 ## 2026-09-17 — An index of everything you can open, and the brand tour actually works offline (v2.8.7 → v2.8.8)
 
 **The README now has a front-page index of every live page**, ordered by how

@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.8.8** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — a front-page **index of every live page**, ordered by how often you need it and saying what each one is for. Plus `Hoffman Brand Tour.html` rebuilt as a genuine self-contained file (fonts subset and inlined, all 76 annotations embedded) — it had been broken in public since July. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.8.9** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — five **Brand Mark Studio** fixes: letters can no longer turn invisible against a matching background, CJK typefaces (M PLUS 2, Noto Sans JP/TC/SC/KR) added, Libre Baskerville defaults to italic, the custom-colour picker no longer masquerades as a swatch, and two mislabelled navy swatches corrected. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
