@@ -30,7 +30,7 @@ If the user invokes this skill without any other guidance, run the `INTAKE.md` q
 - **🏷 SLIDE IDENTITY**: every slide carries `data-screen-label="NN Label"` in the markup. All slides share the same coordinates at 1920×1080, so nothing else can attribute a review comment, a diff or a DOM read to a slide (`AGENTS.md Section 14`).
 - **👆 TAPPABLE CARDS**: quiet at rest (one ~30px glyph at ~40% opacity — never a labelled pill on every card), motion on hover (the glyph rises and grows; the card's accent rule extends). One mark per card. The card itself never lifts, never casts a coloured shadow, nothing loops (`AGENTS.md Section 15`).
 - **🎞 MOTION**: staggered entrances 420–600ms; hover 140ms; a single back-out overshoot is fine on small marks and banned on text or panels; nothing loops except a one-time draw-on; honour `prefers-reduced-motion` (`AGENTS.md Section 16`).
-- **🔣 ICONS ≠ EMOJI**: functional symbols come from `assets/icons/` (1,595 Fluent Flat). Emoji carry the emotional beat. Only 24 of the 67 curated emoji actually animate — check `assets/emoji/animated-manifest.json` before promising motion (`AGENTS.md Section 8`).
+- **🔣 ICONS ≠ EMOJI**: functional symbols come from `assets/icons/` (1,595 Fluent Flat). Emoji carry the emotional beat. Microsoft animates 746 emoji; this repo caches 24 locally — if yours isn't in `assets/emoji/animated/`, fetch it upstream rather than assuming it doesn't move (`AGENTS.md Section 8`).
 
 ## Files
 

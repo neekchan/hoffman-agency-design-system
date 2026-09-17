@@ -30,7 +30,7 @@ You are looking at **The Hoffman Agency design system**: brand tokens, fonts, lo
 
 **Assets live in `assets/`:** logos (10 colorways), the Storyline monogram, 76 hand-drawn annotations, and Fluent-emoji (`assets/emoji/`). Use these — don't redraw them.
 
-**Do NOT hand-edit** `_ds_bundle.js`, `_ds_manifest.json`, or `_adherence.oxlintrc.json` during normal work — they are compiler-generated. Edit the sources (`*.jsx`/`*.tsx`, `colors_and_type.css`) and let them regenerate. If the compiler is unavailable and a portable export must be repaired, a mechanical metadata/export sync is allowed; document it and run `npm run validate`.
+**Do NOT hand-edit** `_ds_bundle.js`, `_ds_manifest.json`, or `_adherence.oxlintrc.json` during normal work — they are compiler-generated. Edit the sources (`*.jsx`/`*.tsx`, `colors_and_type.css`) and let them regenerate. If the compiler is unavailable and a portable export must be repaired, a mechanical metadata/export sync is allowed; document it and re-run the compiler's validation.
 
 **🔒 `references/` is CONFIDENTIAL — never export it.** The `references/` (a.k.a. "reference") folder is the owner's private source material. It must **never** be included in any download, zip, bundle, standalone/inline build, published URL, PPTX/PDF/handoff package, or deliverable, and must never be copied into output. Read it for context only; exclude it from everything that leaves the project.
 
@@ -196,7 +196,7 @@ On a 1920×1080 canvas every slide sits at *identical* coordinates. A review com
 
 - **Every slide carries `data-screen-label="NN Label"`** — the 1-indexed number, then a short human name (`01 Cover`, `07 Action titles`). The number gives order, the name gives identity; together they survive a print, a static export, a PPTX capture and a comment thread.
 - **This is plain HTML, not a vendor feature.** A `data-*` attribute naming the slide is readable by a human in devtools, by any review tool, by any diff, and by any agent. Never write it "so tool X works", and never strip it because that tool isn't in play.
-- **`deck-stage.js` stamps it — author it anyway.** The component rewrites `data-screen-label` on every slotted child at runtime, so a deck built through it is fine. A hand-authored deck, a bespoke build, or any static export that never runs the component gets **nothing**. `templates/deck/Deck.dc.html` sets it on all 48 slides; match that.
+- **`deck-stage.js` stamps it — author it anyway.** The component rewrites `data-screen-label` on every slotted child at runtime, so a deck built through it is fine. A hand-authored deck, a bespoke build, or any static export that never runs the component gets **nothing**. `templates/deck/Deck.dc.html` sets it on all 50 slides (48 layout codes; L01 Cover has three variants); match that.
 - **Same rule for any fixed-canvas series** — carousel tiles, brand-tour screens, multi-page one-pagers. If a surface is one of many identically sized siblings, it names itself.
 
 ## 15. Tappable elements: quiet at rest, motion on hover

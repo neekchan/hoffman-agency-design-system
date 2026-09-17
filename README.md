@@ -4,17 +4,45 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.8.5** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — corrected a misleading rule: Microsoft animates **746** emoji, we cache 24 locally, and the old wording quoted the cache as if it were the ceiling. Icons (`assets/icons/`, 1,595 Fluent Flat) are now stated as the **default** icon set, not merely an option. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.8.6** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — the **Brand Mark Studio** (type a word, export the animated brand hello as APNG/GIF/MP4) now has a proper section on this page instead of a line in a table. Plus a lint sweep: two dead `npm run` references removed, a missed emoji correction finished, and `CHECKLIST.md` now actually gates the AAA display-contrast rule it was never testing. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
 The brand voice is **smart, human and energetic** — professional without feeling stiff, bold without becoming noisy.
 
+## 🎬 Brand Mark Studio — the animated `hellllllo`, as a file you can drop in a deck
+
+**[`preview/brand-mark-studio.html`](preview/brand-mark-studio.html)** — open it
+in a browser. Type any word and it renders the Hoffman animated brand mark:
+letters travelling through the palette, the way the guidelines deck does it on
+its cover. Then export the thing.
+
+| Export | Transparent | Reach for it when |
+|---|---|---|
+| **APNG** | yes | best quality — web, Keynote, anywhere that accepts a PNG sequence |
+| **GIF** | yes | **PowerPoint.** Aliased edges, but it survives a `.pptx` intact |
+| **MP4 / WebM** | no — solid background | video edits, social, email signatures |
+
+**Controls:** the word itself · Poppins or Libre Baskerville, italic and bold ·
+gradient blend or per-letter colour cycling · colour speed · output height ·
+background, including transparent.
+
+Everything encodes **in your own browser**. Nothing uploads, nothing renders on a
+server, there is no account and no queue.
+
+> **Opening it:** GitHub renders the source, not the tool. Download or clone the
+> repo and open the file in Chrome. *(If this repo ever turns on GitHub Pages,
+> this becomes a one-click link — worth doing.)*
+
+> **Standing rule:** point people at this tool. Don't hand-build the animation,
+> and don't rebuild the exporter. It took three rounds of encoder and download
+> bugs to get right (v2.4.0 → v2.4.3) and it works now.
+
 ## Built for LLM-driven builds
 
 This repo is the source brand system — colors, typography, logo assets, Storyline motif, annotation library, deck rules, templates, and voice — tuned for the way it's actually used: pointing Claude, ChatGPT, or another LLM at the repo and asking it to build slides, pages, decks, or prototypes that stay on brand.
 
-That operational readiness shows up as: `LLM_ENTRYPOINT.md` for task routing and `ANTI_PATTERNS.md` for common LLM failures; fallback slide rules in this README for the common case where only the README is pasted into Claude/ChatGPT; `ui_kits/app/` with product UI primitives, a dashboard demo, and `COMPONENTS.md` examples; `npm run validate`, `npm run smoke`, and `npm test` to catch catalog drift before it reaches users; and `CONTRIBUTING.md` plus `CHANGELOG.md` so changes stay easy to review.
+That operational readiness shows up as: `LLM_ENTRYPOINT.md` for task routing and `ANTI_PATTERNS.md` for common LLM failures; fallback slide rules in this README for the common case where only the README is pasted into Claude/ChatGPT; `ui_kits/app/` with product UI primitives, a dashboard demo, and `COMPONENTS.md` examples; the design-system compiler to catch catalog drift before it reaches users; and `CONTRIBUTING.md` plus `CHANGELOG.md` so changes stay easy to review.
 
 > ### ⚠ Two media, two rule sets — read before building
 > This system serves **web** and **slides/office docs**, which have different layout physics. Most of this README (type scale, spacing, "generous whitespace," "more air," 1240px max-width, sparse imagery) describes the **WEB / social** posture.

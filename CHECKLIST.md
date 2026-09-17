@@ -61,6 +61,7 @@ Run against the **exported file**, not the source that made it (`POWERPOINT.md S
 - [ ] Lead with **one dominant secondary** as the layout's (or slide's) mood; a second brand color may join as accent or type
 - [ ] **Cross-pair combinations are allowed** (e.g. lavender + teal, cyan + purple) — *if* the pair clears WCAG (`preview/brand-color-pairings.html`)
 - [ ] Color-on-color type clears WCAG: **≥ 4.5 body, ≥ 3 large/bold** — never type-on-type below 3:1
+- [ ] **Display type is held to AAA (ratio ≥ 7), not AA** — when the pair is the *point* of a slide (a display headline, a statement word, a hero stat), passing AA is not enough: teal on aqua scores 5.96 and reads flat projected, purple on the same aqua scores 7.92 and carries it. Check `preview/brand-color-pairings.html`, which marks every pair on both bars (`AGENTS.md Section 7`)
 - [ ] Colored **surfaces** use a WCAG-passing brand color as type — paper and navy aren't the only backgrounds (lime/cyan surface → navy type; navy/purple/teal surface → white/light type)
 - [ ] Lime text on white? → switched to `--fg-accent` (#A7BC00)
 - [ ] Text/background pair clears WCAG AA (≥ 4.5, or ≥ 3 for ≥24px) — check `preview/brand-contrast-matrix.html`; lime & cyan are backgrounds, never text on light

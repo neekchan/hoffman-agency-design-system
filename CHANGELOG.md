@@ -4,6 +4,35 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — Brand Mark Studio gets a front door, and a housekeeping sweep (v2.8.5 → v2.8.6)
+
+**The Brand Mark Studio has a section on the README now.** It was mentioned in a
+routing table and a line of the file tree, which is not the same as being
+findable. It types any word into the animated brand hello and exports it as APNG,
+GIF (the PowerPoint-safe one) or MP4/WebM, all encoded in your own browser. The
+section says what each format is for and how to open it — GitHub renders the
+source, not the tool, so you download the repo and open the file.
+
+**Then a lint pass over the whole system.** Most of it came back clean: every
+internal link resolves, every relative asset path resolves, and the counts for
+icons, annotations, emoji, fonts, logos and deck slides all match the filesystem.
+What didn't:
+
+- **Two dead `npm run` references.** v2.3.2 deleted the Node scripts and its own
+  entry claims it removed "every dangling `npm run` reference in the docs." It
+  missed two — one in `README.md` and one in `AGENTS.md`. Both now point at the
+  compiler, which is what actually does the validating.
+- **`SKILL.md` still had yesterday's misleading emoji line.** v2.8.5 corrected
+  the "24 of 67" framing in three places and missed the fourth.
+- **The checklist never gated the AAA rule.** v2.7.2 raised display type to AAA
+  (ratio ≥ 7) and threaded it into `AGENTS.md` Section 7 — but `CHECKLIST.md`,
+  the file whose entire job is stopping things shipping, still only tested AA. A
+  rule nothing checks is a suggestion.
+- **One wrong number.** Section 14 said `Deck.dc.html` labels "all 48 slides." It
+  has 50 — 48 layout codes, with L01 Cover appearing three times as variants.
+
+Patch. Corrections and one new README section; no rules changed.
+
 ## 2026-09-17 — The animated emoji library is huge; we were describing our own cupboard (v2.8.4 → v2.8.5)
 
 "Only 24 of the 67 curated emoji actually animate." True, and badly misleading —
