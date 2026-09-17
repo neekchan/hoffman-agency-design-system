@@ -4,6 +4,20 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — The hero grew (v2.18.2 → v2.18.3)
+
+Nic, on the new banner: *is the README hero always so small?* On GitHub the README
+column caps the width, so a 2.5:1 banner can only ever be a strip. Height is the
+lever. The hero is now 1600×1000 in three bands — the pitch as before; **the tour,
+running** — four real screens (Home, Soundcheck, the library, sixteen offices)
+rendered from `Hoffman Brand Tour.html` by the build script itself; and **what's
+inside** — nine tiles: palette, the two faces, an emoji, a photograph, an
+illustration, four icons, a slide layout, three hand-drawn marks, an office. Every
+number on it is read from disk when `assets/readme/build-hero.py` runs, so it
+cannot go stale quietly. About 300 KB, all inline.
+
+Patch — the same picture, bigger and truer.
+
 ## 2026-09-17 — The agency line was invented, and the README hero was set in system fonts (v2.18.1 → v2.18.2)
 
 ### "The integrated comms agency of momentum" was never the positioning

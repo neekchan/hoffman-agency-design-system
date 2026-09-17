@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.18.2** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — **an invented agency tagline is gone from every live file, and the README hero is rebuilt.** The positioning is now the real one: an integrated comms agency that helps tech brands solve hard business problems — the harder the better. New hero above, built from the system's own assets with outlined type.
+**Version 2.18.3** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — **the hero grew.** Three bands now: the pitch, four screens of the tour actually running, and nine tiles of what the repo holds — every count read from disk.
 
 Integrated Comms agency that helps tech brands solve hard business problems. The harder the better. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
