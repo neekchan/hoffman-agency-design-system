@@ -147,9 +147,9 @@ Add `no suits` **only when business-casual genuinely suits the subject** — it 
 ### Examples
 
 - *Bright high-key photo, comms team mid-conversation around a laptop, natural window light, business-casual in saturated colours, clean neutral white balance, eye-level, unposed. 16:9.*
-- *Environmental portrait, tech executive, shoulders up, direct eye contact, soft natural light, warm grade, shallow depth. 4:5.*
+- *Environmental portrait, tech executive, shoulders up, direct eye contact, soft natural light, clean neutral white balance, shallow depth. 4:5.*
 - *Black-and-white editorial portrait, CTO seated by a window, soft directional light, direct gaze, honest skin texture, no retouching gloss. 4:5.* (B&W is allowed for case-study portraits only.)
-- *Cinematic wide shot, engineering team reviewing work on a glass wall, dusk light through office windows, warm grade, candid, documentary, dark tones that hold white type. 16:9.* (For full-bleed heroes — ask for dark tones so the navy overlay + white type read.)
+- *Wide shot, engineering team reviewing work on a glass wall, dusk light through office windows, neutral white balance, nobody aware of the camera, documentary, dark tones that hold white type. 16:9.* (For full-bleed heroes — ask for dark tones so the navy overlay + white type read.)
 
 ### Wardrobe: vary it deliberately, or every shot looks like the same shot
 
@@ -259,6 +259,12 @@ caricature; asking it how people in that city dress for work gets you the city.
 | **Jakarta** · Sudirman / SCBD | Wide boulevard, glass towers, pedestrian overpasses, palms | **Batik is real office wear**, not costume. Modern hijab common |
 | **Bangkok** · Wireless Rd, Lumpini | The Skytrain line overhead, orange motorcycle-taxi vests at the kerb | Brighter and well-pressed — smart blouses, soft silk-like textures |
 | **San Jose** · The Alameda | Low-rise Californian commercial, palms, wide dry sky, golden light | The most casual anywhere — fleece vest, jeans, company tee, backpack. **No ties at all** |
+| **Portland** · Lloyd District | Damp pavement, Douglas firs, the MAX light-rail, brick and a green bike lane | The Pacific Northwest uniform — waxed or shell jacket, flannel, beanie, jeans, boots, coffee in hand; olive, brown, denim |
+| **Boston** · Franklin Street | Granite and brick meeting glass towers, black iron lamp posts, autumn leaves on the kerb | East-coast smart — herringbone coat over a rollneck, quilted gilet and scarf, chinos, loafers; navy, cream, tan |
+| **London** · Kings Cross Road | Wet pavement, black cab and red bus, yellow-stock brick terraces, plane trees, black railings | Layered and weatherproof — wool overcoat or quilted jacket over a knit, dark denim or cords, leather boots, canvas tote; greys, olive, camel |
+| **Munich** · Rosental, Altstadt | Cobbles, market awnings, racks of bicycles, a church spire, ochre and cream facades | Smart but unshowy — tweed or wool blazer over an open collar, field jacket and scarf, dark trousers; earth tones, no ties |
+| **Paris** · rue Feydeau, 2e | Café terrace, rattan chairs, a marble bistro table, Haussmann limestone, iron balconies | Effortless tailoring — trench, black blazer over a cream shirt, a silk scarf, a Breton stripe; navy, black, beige |
+| **Shanghai** · former French Concession | Plane trees, shikumen stone-gate lanes, a scooter at the kerb, towers glimpsed beyond | Polished and quiet — belted trench, oversized cardigan over a striped shirt, pleated wide-leg trousers, structured bag; beige, cream, grey |
 
 Two things that give a fake away instantly: **a blazer on a tropical pavement at
 noon**, and **legible signage** — generated lettering is always gibberish, so ask

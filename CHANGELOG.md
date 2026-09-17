@@ -4,6 +4,89 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — The brand tour had never heard of the photographs (v2.17.0 → v2.18.0)
+
+### Three screens the system was missing
+
+The interactive tour was last brought current at v2.10.3. Seven releases later it
+contained **zero references** to `assets/photography/` or `assets/house-style/` —
+49 photographs and 36 illustrations had arrived and the tour's imagery lesson was
+still *"Never a bare grey box."* Imagery now has a section of its own:
+
+- **17 · The library.** Forty-nine photographs as a contact sheet you filter by
+  family — cities, the work, HA Moments, storyteller portraits, still life — and pick
+  from. Each pick shows the file path and the official category with its technical
+  spec (Digging Stories at f/4–f/5.6; Storyteller at 50–80mm, loop lighting, a solid
+  backdrop). The portraits are anchored `center 30%`, which is §4.5 applied rather
+  than described.
+- **18 · Sixteen offices.** Pick a market, see its street shot and the three notes
+  that make a generated image read as that place: street texture, how people
+  actually dress for work, and the one tell (Singapore: *no jackets, ever*). The rule
+  at the foot is the rule: **specify the wardrobe, not the race.**
+- **05 · Soundcheck.** The tour mentioned it once. It is the default way titles are
+  written for every deck and document, so it now has a playground: three examples,
+  each climbed rung by rung from label → claim → the claim carries the why → written
+  for the ear → trimmed, with the principle's *ask* beside every rung. Two of them
+  trim too far on the last rung and say so — losing the 22% is the lesson.
+
+The Home screen gains a seventh tile, worn as a photograph, and a count card.
+Twenty-three screens; every number that pointed at a screen moved with it.
+
+### Two screens were teaching superseded rules
+
+- **The prompt builder** captioned its output *"candid, natural light, warm grade,
+  business-casual"* — the grade v2.14.0 reversed, and the word v2.13.0 showed
+  produces a stock photo of candidness. The caption now says bright, high-key,
+  neutral, colour from wardrobe not from a grade, and *in situ, not "candid."* The
+  generated prompt itself carried the bug v2.16.0 found — *"business-casual wardrobe
+  in saturated colours,"* the phrase that put cobalt blue in twenty of thirty-two
+  photographs. It now asks for a mostly neutral wardrobe with at most one person in
+  a brand colour, names the four in-situ moves, and ends with the real negatives.
+- **The emoji cast** claimed every one of its twenty characters could animate — it
+  asked for `variant="animated"` unconditionally, and only nine of the twenty have a
+  vendored APNG (24 of 75 overall). The screen now badges the ones that move, says
+  *STILL · 3D ONLY* when the hero doesn't, and states the counts: 3D default, 2D
+  Colour fallback, 24 of 75 animated here against 746 upstream, 1,595 Flat icons for
+  the functional job.
+
+### Smaller things the render pass caught
+
+- The **ship-it checklist** had nine items, a counter hard-coded to `/ 8` and a toast
+  that said *"All eight."* Ten items now (a slide about a market shows that market),
+  and the counter reads the list.
+- The **TRY hint** sat on top of the screen's right-hand counter on the carousel and
+  checklist screens whenever both were on. Moved below the header row — there and on
+  the new library screen.
+- **`PROMPTS.md`** still carried two worked examples saying *"warm grade"* ten lines
+  under the v2.14.0 correction that says never to. Fixed. Its per-city table also
+  stopped at ten offices; the six added in v2.17.0 now have street and wardrobe rows
+  (Portland, Boston, London, Munich, Paris, Shanghai), written from the finished
+  photographs.
+
+### The standalone was three releases stale — and now it has a build script
+
+`Hoffman Brand Tour.html` had not been rebuilt from the template since v2.8.8: it was
+missing the v2.10.3 contrast-lab fix, the Soundcheck checklist line and the emoji
+sentence the source already had, and nobody could see it because nothing diffs the
+two. Rebuilt from the new source with the same method — fonts and logos inlined, all
+86 resources carried across — plus the 49 photographs as contact-sheet JPEGs (800px
+for the sixteen cities, 480px for the rest): **3.0 MB**, still repo-only, still one file.
+
+The method is now **`templates/brand-tour/export_standalone.py`** — run it from the
+repo root after any change to the template, `--verify` to render three screens
+headlessly. It uses the previous standalone as the donor for the runtime, fonts and
+resources, so there is no hand-built step left to drift.
+
+Three things to know about that file. It is **not** offline: it loads React and the
+emoji from a CDN, and the README's "no network at all" claim was wrong — reworded.
+Its boot path logs one `SyntaxError` to the console that the template-run does not;
+it predates this release and the tour renders regardless. And a photograph must
+never sit in a literal `style` attribute of the template — bind the style as an
+object so the resource map can supply it; the build refuses otherwise.
+
+Minor — new surface area in the tour, six new city rows, and two rules the
+playground was teaching backwards.
+
 ## 2026-09-17 — A 404 is a broken page, not evidence of absence (v2.16.3 → v2.17.0)
 
 ### Six offices were missing from the city set, including the European HQ

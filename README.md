@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.17.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **six offices were missing from the city set, including the European HQ.** hoffman.com's Europe page 404s at one URL and works at another; checking the sitemap also found Portland, Boston and Shanghai. Sixteen offices, sixteen shots. Plus the **Storyline mark done properly** — the real SVG passed to the image model as a *reference* rather than hand-composited (`AGENTS.md` §4.6 rewritten: never let a model **invent** a brand asset, always give it the real one), and **typographic easter eggs** set from the actual Poppins and Libre Baskerville. 49 photographs. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.18.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **the brand tour had never heard of the photographs.** Three new screens (the photo library, sixteen markets, a Soundcheck ladder), the emoji and prompt screens brought up to the current rules, and the standalone re-exported from source for the first time since v2.8.8.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -23,7 +23,7 @@ Live pages, no install, no clone. Ordered by how often you'll actually want them
 | | What it is | Why you'd open it |
 |---|---|---|
 | **[Brand guidelines deck](https://neekchan.github.io/hoffman-agency-design-system/slides/Hoffman%20Brand%20Guidelines.html)** | The 58-slide brand book | The one you send someone who asks "what's the brand?" Covers voice, logo, colour, type, imagery, layout, governance |
-| **[Interactive brand tour](https://neekchan.github.io/hoffman-agency-design-system/templates/brand-tour/BrandTour.dc.html)** | The guidelines, but running | Twenty screens you press, drag and break. Same rules as the deck, except you can play with them |
+| **[Interactive brand tour](https://neekchan.github.io/hoffman-agency-design-system/templates/brand-tour/BrandTour.dc.html)** | The guidelines, but running | Twenty-three screens you press, drag and break — now including the photo library and all sixteen markets. Same rules as the deck, except you can play with them |
 | **[Brand Mark Studio](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-mark-studio.html)** | The animated `hellllllo` exporter | Type a word, export APNG / GIF / MP4 for a deck, a signature or social |
 
 ### Checking a decision
@@ -52,9 +52,10 @@ Live pages, no install, no clone. Ordered by how often you'll actually want them
 | [Logo horizontal](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-logo-horizontal.html) · [Logo stacked](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-logo-stacked.html) · [Storyline](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-storyline.html) | Logo and motif |
 | [Voice](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-voice.html) · [Emoji typography](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-emoji-typography.html) | Writing |
 
-> **Offline?** [`Hoffman Brand Tour.html`](Hoffman%20Brand%20Tour.html) at the repo root is the
-> interactive tour as one self-contained file — fonts, logos and all 76 annotations
-> inlined. Download it and it runs with no network at all.
+> **One file?** [`Hoffman Brand Tour.html`](Hoffman%20Brand%20Tour.html) at the repo root is the
+> interactive tour as a single file — fonts, logos, all 76 annotations and the 49-photograph
+> library inlined (about 3 MB). Send it as it is; it loads React and the emoji from a CDN, so it
+> wants a connection.
 
 ## 🎬 Brand Mark Studio — the animated `hellllllo`, as a file you can drop in a deck
 
@@ -237,7 +238,7 @@ templates/              · reusable DC starting points consuming projects copy (
   powerpoint/           · layout-manifest.json — machine-readable contracts for all 48 layouts (slots, tiers, coords, surface/logo) for native-`.pptx` tools that can't consume Deck.dc.html. No binary `.potx`/`.pptx` ship here — build them from `POWERPOINT.md Section 2` + the manifests
   one-pager/            · OnePager.dc.html — print, Letter
   social-tile/          · SocialTile.dc.html — square social
-  brand-tour/           · BrandTour.dc.html — the "Interactive brand tour": a self-contained, clickable app-style walkthrough of the whole system (20 screens; explorer/presenter, nav, hints, motion tweaks). Self-contained (inlined tokens + slim font set) so it also exports to one standalone file — see `Hoffman Brand Tour.html` at the repo root
+  brand-tour/           · BrandTour.dc.html — the "Interactive brand tour": a self-contained, clickable app-style walkthrough of the whole system (23 screens; explorer/presenter, nav, hints, motion tweaks). Self-contained (inlined tokens + slim font set) so it also exports to one standalone file — see `Hoffman Brand Tour.html` at the repo root
 
 slides/                 · the CI/VI demonstration deck (not a template)
   Hoffman Brand Guidelines.html              · the live brand guidelines deck
