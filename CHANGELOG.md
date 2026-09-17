@@ -4,6 +4,37 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — The animated emoji library is huge; we were describing our own cupboard (v2.8.4 → v2.8.5)
+
+"Only 24 of the 67 curated emoji actually animate." True, and badly misleading —
+it reads as though almost nothing animates. What it actually described was *our
+local cache*, not the library.
+
+Microsoft animates **746 emoji** in `microsoft/fluentui-emoji-animated`. This
+repo carries 24 of them, vendored for offline work. Those are wildly different
+numbers doing wildly different jobs, and the rule was quoting the small one as if
+it were the ceiling. Anyone reading it would reasonably conclude the animated set
+was a lost cause and stop looking.
+
+- **The rule now leads with the library, not the cupboard.** If the emoji you
+  want isn't in `assets/emoji/animated/`, that is a gap in our cache, not proof
+  it doesn't move — go and fetch it from upstream. The manifest still does its
+  real job: telling you which *local* files genuinely animate, after 43 silent
+  stills were removed in v2.7.0.
+- **Softened the list of "does not move" emoji** to say those are stills *in the
+  local set*, and to check upstream before concluding any given emoji has no
+  animated version.
+- Corrected in `AGENTS.md`, `README.md`, and both brand-book builds.
+
+**Also: icons are now stated as the default, not just the option.**
+`assets/icons/` — 1,595 Fluent **Flat** SVGs from `microsoft/fluentui-emoji`,
+localised — is what you reach for whenever a design needs an icon or a functional
+symbol, unless the brief names a different set. The rule existed; it just read as
+a suggestion rather than the default it is.
+
+Patch. Corrections to how two existing rules are stated; nothing new, nothing
+invalidated.
+
 ## 2026-09-17 — Credits, and the brand book stops teaching a rule we reversed in July (v2.8.3 → v2.8.4)
 
 **The demo surfaces had drifted, and badly.** The brand book — the 58-slide thing

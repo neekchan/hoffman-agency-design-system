@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.8.4** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — the brand book and the interactive tour stop teaching the pre-v2.6.0 emoji rule (3D is the default form, not 2D colour), the type rules gain Soundcheck, and the system carries its author credit. ⚠ the standalone `Hoffman Brand Tour.html` is a stale pre-v2.2.0 export and needs re-exporting from Claude Design. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.8.5** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — corrected a misleading rule: Microsoft animates **746** emoji, we cache 24 locally, and the old wording quoted the cache as if it were the ceiling. Icons (`assets/icons/`, 1,595 Fluent Flat) are now stated as the **default** icon set, not merely an option. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -58,10 +58,10 @@ use the routing rules below.
   the emotional beat — **3D style first**, 2D Color as fallback. Motion is two
   decisions: first the budget (one emotional peak, ~one animated emoji per few
   slides), then the variant (inside a slot you already chose to animate, prefer
-  animated if one exists). **Only 24 of the 67 curated emoji actually move** —
-  check `assets/emoji/animated-manifest.json`; `light-bulb`, `sparkles`,
-  `warning` and `direct-hit` are stills. If the peak's obvious emoji doesn't
-  animate, change the emoji, not the doctrine. Offline files (`.pptx`, Keynote,
+  animated if one exists). **Microsoft animates 746 emoji; this repo caches 24**
+  for offline use — if yours isn't in `assets/emoji/animated/`, fetch it from
+  `microsoft/fluentui-emoji-animated` rather than assuming it doesn't move.
+  `assets/emoji/animated-manifest.json` lists which *local* files animate. Offline files (`.pptx`, Keynote,
   PDF): embed downloaded assets — static from `github.com/microsoft/fluentui-emoji`,
   animated from `github.com/microsoft/fluentui-emoji-animated` — never hotlink,
   never raw Unicode emoji as icons. Avoid emoji stacks or decorative emoji.
