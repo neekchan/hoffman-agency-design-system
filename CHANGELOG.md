@@ -4,6 +4,32 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — Every preview card was unscrollable on the published site (v2.10.1 → v2.10.2)
+
+The Fluent emoji gallery could not be scrolled. Its content is 4,550px tall in a
+1,066px window, and `html` and `body` both carried `overflow: hidden`.
+
+Not the gallery's bug — **`preview/_card.css`**, which all **28 preview cards**
+share. It sets `width: 700px` and `overflow: hidden` on `html, body`, and that is
+right for the Design System pane, where a card renders inside a fixed-size frame
+and is meant to be a cropped thumbnail.
+
+It stopped being right in **v2.8.7**, when GitHub Pages went live and every one of
+those cards also became a standalone page. In a real browser tab those two rules
+mean: you cannot scroll, and the page is pinned to 700px however wide your screen
+is. Self-inflicted, and it applied to all 28 — the gallery is just the tallest, so
+it is where it showed.
+
+- **`overflow: hidden` → `overflow-x: hidden`.** Vertical scrolling now works
+  everywhere. Horizontal clipping, which is what the rule was actually for, is
+  kept.
+- **The 700px width now only applies below 760px.** Opened in a tab, a card uses
+  the real viewport; inside the pane the frame is the card's own declared
+  viewport, so a card that declares a wider one (the gallery is 980, the
+  illustration library 1100) finally fills it instead of being pinned narrow.
+
+Patch — one shared stylesheet, 28 cards fixed.
+
 ## 2026-09-17 — The site has a front door again, and it opens links in new tabs (v2.10.0 → v2.10.1)
 
 **Two problems, one fix.**

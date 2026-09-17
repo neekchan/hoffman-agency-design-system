@@ -8,7 +8,16 @@ html, body {
   color: var(--fg-1);
   background: var(--bg-1);
   width: 700px;
-  overflow: hidden;
+  /* Horizontal only. Vertical scrolling must always work: these are ALSO standalone
+     pages on GitHub Pages, not just fixed-size cards in the Design System pane, and
+     `overflow:hidden` made every card taller than the screen unscrollable. */
+  overflow-x: hidden;
+}
+/* Opened in a real browser tab rather than the pane's card frame: use the actual
+   viewport instead of the 700px card width. In the pane the frame is the card's own
+   declared viewport, so a card that declares a wider one now fills it correctly. */
+@media (min-width: 760px) {
+  html, body { width: auto; }
 }
 .card {
   width: 700px;

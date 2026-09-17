@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.10.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — the published site has a **[front door](https://neekchan.github.io/hoffman-agency-design-system/)** again (the root had been a 404 since v2.8.7, caused by `.nojekyll`), and its links open in new tabs — which a GitHub README cannot do, because their sanitiser strips `target`. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.10.2** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — **all 28 preview cards were unscrollable** on the published site. `_card.css` pins `html, body` to 700px with `overflow: hidden` — correct for the Design System pane's fixed card frame, wrong once v2.8.7 made every card a standalone page. Vertical scrolling restored and the width now responds to the real viewport. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
