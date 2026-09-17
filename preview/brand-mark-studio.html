@@ -72,7 +72,7 @@
     <div class="field"><label>Background</label>
       <div class="swatches" id="bgsw">
         <button class="sw tr sel" data-bg="transparent" title="Transparent"></button>
-        <button class="sw" data-bg="#0E1C2B" style="background:#0E1C2B" title="Ink — navy 900 (#0E1C2B)"></button>
+        <button class="sw" data-bg="#0E1C2B" style="background:#0E1C2B" title="Ink (#0E1C2B) — the darkest neutral"></button>
         <button class="sw" data-bg="#182D43" style="background:#182D43" title="Navy — the brand primary (#182D43)"></button>
         <button class="sw" data-bg="#6103B9" style="background:#6103B9" title="Purple"></button>
         <button class="sw" data-bg="#CB65FF" style="background:#CB65FF" title="Violet (light purple)"></button>
@@ -83,7 +83,7 @@
         <button class="sw" data-bg="#000000" style="background:#000000" title="Black"></button>
       </div>
       <label for="custom" id="customwrap" title="Pick any colour"><span class="plus">+</span><span>Custom colour</span><span class="hex" id="customhex">#D2EB00</span><input type="color" id="custom" value="#D2EB00"></label>
-      <span class="note" style="text-align:left;color:#6f7987">Transparent works for APNG & GIF. MP4 falls back to navy. Letter colours too close to the background are dropped from the rotation automatically.</span>
+      <span class="note" style="text-align:left;color:#6f7987">Transparent works for APNG & GIF. MP4 falls back to navy. Letters cycle through the whole brand palette; the background's own colour is always dropped, and on a dark background anything under 3:1 is dropped too.</span>
     </div>
   </div>
   <div class="row">
@@ -96,21 +96,48 @@
   <div id="diag"></div>
 </div>
 <script>
-const BASE_STOPS=['#D2EB00','#CB65FF','#6103B9','#86FFF1','#E4E9EF','#FAFAF7'];
-const BASE_SOLID=['#D2EB00','#CB65FF','#6103B9','#86FFF1','#FAFAF7'];
+// The brand's OWN colours, in a ring that reads as a pleasant hue journey.
+// Navy is the PRIMARY and belongs here: until v2.11.1 it was missing entirely, so
+// the mark could never be drawn in the brand's hero colour. Teal was missing too,
+// and #E4E9EF (navy-100) was in the rotation despite being a tint, not a brand colour.
+// Ink (#0E1C2B = navy-900) is deliberately out: it is navy's shadow, and a
+// navy→ink gradient segment is a dead stretch with no visible colour change.
+const BRAND=['#D2EB00','#86FFF1','#145F7B','#182D43','#6103B9','#CB65FF','#FAFAF7'];
 const CJK=['M PLUS 2','Noto Sans JP','Noto Sans TC','Noto Sans SC','Noto Sans KR'];
 const rgb=h=>[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];
 // weighted RGB distance — close enough perceptually to catch a letter vanishing into its background
 function far(a,b){const d=[a[0]-b[0],a[1]-b[1],a[2]-b[2]];return Math.sqrt(2*d[0]*d[0]+4*d[1]*d[1]+3*d[2]*d[2]);}
 const MIN_SEP=90;
+// Real WCAG relative luminance, so "can you see it?" is measured, not guessed.
+const srgb=c=>{c/=255;return c<=0.03928?c/12.92:Math.pow((c+0.055)/1.055,2.4);};
+const lum=([r,g,b])=>0.2126*srgb(r)+0.7152*srgb(g)+0.0722*srgb(b);
+const ratio=(a,b)=>{const l1=lum(a),l2=lum(b);return (Math.max(l1,l2)+0.05)/(Math.min(l1,l2)+0.05);};
+
 let stops=[],SOLID=[];
 function buildPalettes(){
   const bgc=(bg&&bg!=='transparent')?rgb(bg):null;
-  const keep=h=>!bgc||far(rgb(h),bgc)>MIN_SEP;
-  let st=BASE_STOPS.filter(keep); if(st.length<3) st=BASE_STOPS.slice();
-  stops=[...st,st[0]].map(rgb);
-  let so=BASE_SOLID.filter(keep); if(!so.length) so=BASE_SOLID.slice();
-  SOLID=so;
+  let ring=BRAND;
+  if(bgc){
+    // A transparent export lands on a surface we cannot know, so it keeps the whole ring.
+    // "Dark" is deliberately 0.15, not 0.5. A contrast RATIO only sees luminance, so on
+    // violet (lum 0.29) it would drop lime and paper as "low contrast" when they are in
+    // fact wildly different hues and perfectly readable. Only genuinely dark fields —
+    // black, ink, navy, purple, teal — actually swallow a letter whole.
+    const darkField=lum(bgc)<0.15;
+    ring=BRAND.filter(h=>{
+      const c=rgb(h);
+      // 1. Never draw a letter in the background's own colour — it vanishes completely.
+      if(far(c,bgc)<=MIN_SEP) return false;
+      // 2. The floor is asymmetric ON PURPOSE. A light letter on a light field is
+      //    soft but still plainly a letter; a DARK letter on a dark field is simply
+      //    gone. So the contrast bar applies to dark fields only — which is why
+      //    white keeps every brand colour while black drops navy, teal and purple.
+      return !darkField || ratio(c,bgc)>=3;
+    });
+  }
+  if(ring.length<2) ring=BRAND.slice();
+  SOLID=ring.slice();
+  stops=[...ring,ring[0]].map(rgb);
 }
 function colorAt(f){f=((f%1)+1)%1;const n=stops.length-1;const s=f*n;let i=Math.floor(s);if(i>n-1)i=n-1;const t=s-i,a=stops[i],b=stops[i+1];return`rgb(${Math.round(a[0]+(b[0]-a[0])*t)},${Math.round(a[1]+(b[1]-a[1])*t)},${Math.round(a[2]+(b[2]-a[2])*t)})`;}
 const cv=document.getElementById('cv'),ctx=cv.getContext('2d'),statusEl=document.getElementById('status'),stage=document.getElementById('stage');

@@ -145,6 +145,35 @@ Add `no suits` **only when business-casual genuinely suits the subject** — it 
 - *Black-and-white editorial portrait, CTO seated by a window, soft directional light, direct gaze, honest skin texture, no retouching gloss. 4:5.* (B&W is allowed for case-study portraits only.)
 - *Cinematic wide shot, engineering team reviewing work on a glass wall, dusk light through office windows, warm grade, candid, documentary, dark tones that hold white type. 16:9.* (For full-bleed heroes — ask for dark tones so the navy overlay + white type read.)
 
+### Market shots — the per-city notes
+
+`AGENTS.md Section 3.5` sets the rule: if a slide is about a market, the image has
+to be recognisably that market. These are the notes that make it work. Add a
+**MARKET** line to the template — city and district, street texture, local
+wardrobe, climate — and the shot comes back looking like the place.
+
+**Specify the wardrobe, not the race.** Asking a model for an ethnicity gets a
+caricature; asking it how people in that city dress for work gets you the city.
+
+| Office | Street texture that reads as home | How people actually dress for work |
+|---|---|---|
+| **Taipei** · Da'an, Dunhua S. Rd | Banyan and camphor over the pavement, a rank of parked scooters, tiled mid-rises with rooftop water tanks | Relaxed and comfortable — oversized soft shirts, wide-leg trousers, muted earth tones, canvas tote, white sneakers, a sun umbrella |
+| **Seoul** · Yongsan, Hangang-daero | Wide swept pavement, glass towers, Namsan's wooded slope behind, ginkgoes | The most fashion-forward — oversized monochrome tailoring in cream/charcoal/beige, cropped trousers, immaculate white sneakers, structured tote |
+| **Tokyo** · Kyobashi, Chuo-ku | Narrow immaculate streets, vending machines, tidy utility poles, vertical signage | The most conservative — navy and grey, precise fit, leather briefcase, restrained and low-contrast |
+| **Hong Kong** · Central, Queen's Rd | Steep pavements, dense vertical signage, trams, bamboo scaffolding | Sharp and fast — fitted dark tailoring, crisp shirts, good leather, moving at pace |
+| **Beijing** · Jianguomenwai CBD | Wide boulevards, ginkgoes, tall glass, dry northern light | Status-aware — structured blazers even off-duty, darker sharper palette, polished shoes |
+| **Singapore** · North Bridge Rd | Shophouses with five-foot ways, rain trees, glass behind | Tropical and unfussy — short sleeves, **no jackets ever**, office pass on a lanyard. Genuinely multiracial: Chinese, Malay (incl. tudung) and Indian Singaporean |
+| **Kuala Lumpur** · Jalan Sultan Ismail | Monorail line, angsana and palms | Smart-casual tropical, modern tudung common. Malay, Chinese and Indian Malaysian |
+| **Jakarta** · Sudirman / SCBD | Wide boulevard, glass towers, pedestrian overpasses, palms | **Batik is real office wear**, not costume. Modern hijab common |
+| **Bangkok** · Wireless Rd, Lumpini | The Skytrain line overhead, orange motorcycle-taxi vests at the kerb | Brighter and well-pressed — smart blouses, soft silk-like textures |
+| **San Jose** · The Alameda | Low-rise Californian commercial, palms, wide dry sky, golden light | The most casual anywhere — fleece vest, jeans, company tee, backpack. **No ties at all** |
+
+Two things that give a fake away instantly: **a blazer on a tropical pavement at
+noon**, and **legible signage** — generated lettering is always gibberish, so ask
+for script *distant and out of focus*.
+
+The finished shots are in `assets/photography/cities/`, one per office.
+
 ---
 
 ## Files referenced

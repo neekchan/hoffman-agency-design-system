@@ -4,6 +4,103 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — The brand mark could not be drawn in the brand's own navy (v2.11.0 → v2.12.0)
+
+### The Brand Mark Studio never had navy in it
+
+Not a rendering bug, not a contrast filter being clever. The letter palette was a
+hand-typed list, and **navy simply was not on it**:
+
+```js
+const BASE_STOPS=['#D2EB00','#CB65FF','#6103B9','#86FFF1','#E4E9EF','#FAFAF7'];
+```
+
+Lime, violet, purple, aqua, a grey, paper. **Teal was missing too**, and
+`#E4E9EF` — which is navy-100, a *tint*, not a brand colour — was in there
+instead. So the one tool for making an animated Hoffman wordmark could render it
+in any colour except the primary.
+
+**The palette is now the brand's own ring**, ordered as a hue journey so the
+gradient mode actually travels: lime → aqua → teal → **navy** → purple → violet →
+paper. Ink is deliberately left out — it is `#0E1C2B`, navy-900, visually navy's
+shadow, and a navy→ink gradient segment is a dead stretch where nothing appears
+to change.
+
+**Two rules decide what survives on a given background:**
+
+1. **The background's own colour is always dropped.** Obvious, and it was already
+   there.
+2. **A contrast floor of 3:1 — but only on dark fields.** This asymmetry is
+   deliberate and it is the whole trick. A *light* letter on a *light* field is
+   soft but still plainly a letter. A *dark* letter on a *dark* field is simply
+   gone. So white keeps every brand colour, and black drops navy, teal and purple.
+   Which is exactly what was asked for.
+
+"Dark" is set at luminance **0.15, not 0.5**. A contrast ratio only measures
+luminance, so at 0.5 the violet background counted as dark and threw away lime
+and paper as "low contrast" — when in fact they are wildly different *hues* and
+perfectly readable. Measured results:
+
+| Background | Letters in the rotation |
+|---|---|
+| White / Paper | Lime, Aqua, Teal, **Navy**, Purple, Violet — everything |
+| Black | Lime, Aqua, Violet, Paper |
+| Navy | Lime, Aqua, Violet, Paper |
+| Violet | Lime, Aqua, Teal, **Navy**, Purple, Paper |
+
+**And on navy-700, since it keeps coming up:** `--tha-navy-700` is `#182D43`. That
+is the *same hex* as `--tha-navy`. It is an alias inside the tint scale, not a
+separate colour, and nothing in the studio is labelled that any more. The second
+dark swatch is **Ink** (`#0E1C2B`, navy-900), which is a real token — it is the
+body-text colour on light. It now says so on hover instead of naming a scale step.
+
+### Photography that looks like the market it is about
+
+We have offices in ten cities and most of them are in Asia. Every photograph in
+the system was an interior — a modern office that could be anywhere, which is the
+same as being nowhere. A Seoul client and a Taipei client were being shown the
+same non-place.
+
+**Ten outdoor street shots, one per office `hoffman.com` actually lists today**,
+in `assets/photography/cities/`. Not landmark postcards — the test is whether
+someone who lives there thinks *that's my street*, and that comes from ordinary
+texture. Taipei is scooters and rooftop water tanks under banyan trees. Hong Kong
+is trams and bamboo scaffolding. Bangkok is the Skytrain line and orange
+motorcycle-taxi vests. Singapore is five-foot ways and lanyards.
+
+**New rule, `AGENTS.md` Section 3.5 — when we show a market, show THAT market.**
+The useful half of it: **specify the wardrobe, not the race.** Ask an image model
+for an ethnicity and it hands back a caricature. Ask it how people in that city
+dress for work and it hands back the city — because Seoul's oversized monochrome
+tailoring, Taipei's relaxed earth-toned wide-leg, a Beijing CBD blazer and
+Singapore's short sleeves genuinely do not look alike. The per-city street and
+wardrobe notes are now a table in `PROMPTS.md`.
+
+Two other things that give a fake away instantly, both now written down: **a
+blazer on a tropical pavement at noon**, and **legible signage** — generated
+lettering is always gibberish, so it gets asked for distant and out of focus.
+
+Cast honestly where a market is plural. Singapore, Malaysia and Indonesia are
+genuinely multiracial and the pictures are too, tudung and hijab included,
+because that is simply what people wear to work there.
+
+**No European city, on purpose.** Hoffman's own Europe locations page is a 404
+right now, so there is no address or district to work from. Better a gap than an
+invented office.
+
+Three of the ten came back suit-heavy — Hong Kong, Tokyo, Beijing — and they are
+staying that way. Central, Kyobashi and the Beijing CBD really do dress like
+that, and the house lean away from suits is a lean, not a rule.
+
+### Housekeeping
+
+Three of the twelve interior photographs shipped in v2.11.0 were **over the
+Design Master's 256 KiB per-file limit** and would have been rejected on sync.
+Re-encoded; all 22 photographs now clear it, averaging 206 KB.
+
+Minor — the primary colour restored to the tool that draws the mark, and a
+photography set that knows where it is.
+
 ## 2026-09-17 — The deck that says "photography encouraged" was borrowing its photography (v2.10.3 → v2.11.0)
 
 The brand guidelines spend a whole section arguing that we are **not** a

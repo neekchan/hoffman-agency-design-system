@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.11.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — the brand guidelines deck argued for photography while **hotlinking four Unsplash stock photos** and showing **six empty placeholders**. It now carries **twelve of its own**, generated from the photography seed already written in `PROMPTS.md`, so the deck is offline-safe and the crops are ours. Plus a new page for the **illustration** half — what the look is, that it comes from storytelling.hoffman.com, and the **master prompt printed in full** so anyone can paste it into an image AI. 59 slides. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.12.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — the **Brand Mark Studio could not draw the mark in navy**, because the primary was never in its letter palette (nor was teal; a navy *tint* was there instead). Fixed, with a contrast floor that applies to dark backgrounds only — so white keeps every brand colour and black drops the ones that vanish. Plus **ten outdoor city photographs**, one per office hoffman.com lists, and a new rule (`AGENTS.md` 3.5): when a slide is about a market, show *that* market — and specify the wardrobe, not the race. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -209,6 +209,7 @@ assets/
     underline·circle·arrow·tick·cross·accent   · 13·15·14·11·11·12
   house-style/                      · 12 worked examples of the house illustration style + the master prompt (see IMAGERY.md)
   photography/                      · 12 house photographs, from the PROMPTS.md photography seed — used by the brand guidelines deck (no hotlinking)
+    cities/                         · 10 outdoor street shots, one per office hoffman.com lists — market recognisability (see AGENTS.md 3.5)
 
 fonts/                  · self-hosted brand fonts. Poppins (full 100–900 weight + italic TTFs, all @font-face-registered)
   Poppins-*.ttf                     · 18 roman+italic weight files

@@ -88,6 +88,39 @@ The most common Hoffman-deck failure after tiny type is a **mishandled title**: 
 ## 3. Imagery is the DEFAULT, not optional
 Almost every page in a Hoffman deck carries a graphic/image alongside the text. Do not strip images to make a layout "clean." When a real image isn't available, reserve a standardized placeholder (below). **How to decide whether to generate, ask for, or placeholder an image — and the Hoffman house illustration style — is `IMAGERY.md`; settle it during intake.** Type-only slides are the exception (big statement, pull quote, section divider can be type-led — but even sections often carry a small graphic).
 
+## 3.5 When we show a market, show THAT market
+We have offices in ten cities and most of them are in Asia. A photograph of
+generically "Asian" people in a generically modern office tells a Seoul client
+nothing, and it tells a Taipei client the same nothing. **If a slide is about a
+market, the image has to be recognisably that market.**
+
+- **Recognisable, not touristic.** No landmark postcards. The goal is that
+  someone who lives there thinks *that's my street* — which comes from ordinary
+  texture, not monuments. Taipei is scooters and rooftop water tanks under
+  banyan trees; Hong Kong is dense vertical signage, trams and bamboo
+  scaffolding; Beijing is wide CBD boulevards and ginkgo trees; Bangkok is the
+  Skytrain line and orange motorcycle-taxi vests; Singapore is five-foot ways
+  and rain trees.
+- **Local dress is the strongest single signal, and it is what to specify.**
+  Asking a model for an ethnicity gets you a caricature. Asking it for the way
+  people in that city actually dress for work gets you the city. Seoul office
+  style — oversized monochrome tailoring, cream and charcoal, immaculate white
+  sneakers — does not look like Taipei's relaxed earth-toned wide-leg comfort,
+  which does not look like a Beijing CBD blazer, which does not look like
+  Singapore's short sleeves and lanyard. Write the wardrobe, not the race.
+- **Cast honestly where a market is plural.** Singapore, Malaysia and Indonesia
+  are genuinely multiracial and the picture should be too — including a tudung
+  or hijab where that is simply what people wear to the office. That is accuracy,
+  not a diversity gesture.
+- **Climate is a giveaway.** Tropical markets wear no jackets, ever. Put a
+  blazer on a Singapore pavement at noon and everyone local knows it is stock.
+- **Signage: present, never legible.** Script in the background is what makes a
+  street read as Korean or Thai. Generated lettering is always gibberish, so ask
+  for it distant and out of focus.
+
+The per-city wardrobe and street notes we actually use are in `PROMPTS.md`, and
+the shot for each office lives in `assets/photography/cities/`.
+
 ## 4. Standardized image placeholder
 Keep the **dotted border** + **aspect-ratio label** (the user likes both). Three lines, in this exact spirit:
 - **`__label`** = `Type · Aspect · generate <W×H>px` — e.g. `Portrait · 4:5 · generate 1080×1350px`. The generation resolution is REQUIRED so whoever prompts an AI knows the exact dimensions to make. Resolutions by aspect:
