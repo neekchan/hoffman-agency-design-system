@@ -153,6 +153,25 @@ sliced off.
 - **It is not enough to look at the deck once.** This is invisible until a specific
   image lands in a specific slot, so check it whenever either one changes.
 
+## 4.6 Never let a generative model draw a fixed brand asset
+A model cannot reproduce the Storyline, the logo or the wordmark. It can only
+produce **an interpretation** — and an interpretation of the Storyline is a
+violation of it. This is settled, not a matter of taste: **Lou ruled that the
+storyarc must not "take the form of random ribbons in graphics."**
+
+- **Shoot the prop blank, then composite the real SVG.** A navy notebook with an
+  empty cover, photographed square-on, plus `assets/storyline-mark.svg` tinted to
+  the surface. The asset rules in `README.md` already say which variant belongs on
+  which field; follow them rather than inventing a placement.
+- **Put it in the negative prompt.** `no mark, no emblem, no squiggle, no logo, no
+  text, no letters` — models will add a plausible-looking mark unprompted.
+- **Restraint is the better answer anyway.** A mark stamped on every object reads
+  as forced. **Navy and lime carry the brand on their own** — a navy notebook, lime
+  sticky notes, a lime bookmark ribbon. Let the palette be the easter egg, and
+  spend the real mark once.
+- Easter eggs do not have to be the logo at all: brand **typography**, brand
+  **colour**, an annotation mark on a printed page. Vary them.
+
 ## 5. Text slots are typed prompts (role + style + word cap)
 Label each text region by what it is and how to write it, not a vague description. Examples:
 - Title: *layout target: one line, ≤8 words, the key word or phrase set in Baskerville italic.* Write the point using `SOUNDCHECK.md`; handle a title/fit collision under Section 10.

@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.14.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — the brand guidelines deck **cropped a spokesperson's forehead off**. `object-fit:cover` centres its crop by default, and on a landscape slot with a portrait source that takes the crop out of the top — where the face is. Four images given real `object-position` anchors, and the rule written up as `AGENTS.md` §4.5. The same slide also still said **"Warm color grade"** in its DO list, hardcoded where the v2.14.0 doc sweep couldn't see it. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.15.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — the imagery section became a **library you can shop from**: seven new pages, each a named layout from `LAYOUTS.md` filled with real photographs, so a page is the layout demo *and* the inspiration gallery. **Illustrations 12 → 36**, photographs now **40** across five families including a new still-life set. Also: every AI-drawn Storyline squiggle removed — **never let a generative model draw a fixed brand asset**, it can only produce an interpretation. Deck is 66 slides. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 

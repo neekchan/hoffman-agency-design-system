@@ -4,6 +4,81 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — The imagery pages became a library you can actually shop from (v2.14.1 → v2.15.0)
+
+The deck told people what good imagery looks like and then showed them four
+pictures. If the point is that anyone should be able to hand a reference to an
+image AI and get something on-brand back, four is not a library.
+
+### Seven new pages, and every one is a working layout
+
+Each is a **named layout from `LAYOUTS.md`**, filled with real photographs rather
+than grey boxes — so a page is simultaneously the layout demo *and* the inspiration
+gallery. Steal the structure, or steal the picture.
+
+| Slide | Layout | What it demonstrates |
+|---|---|---|
+| **45c** | gallery | All 36 illustrations at once — the whole concept vocabulary |
+| **50b** | `L42/43/44` bento collage | Unequal tiles; one image leads, the rest support |
+| **50c** | `L14` portrait wall | Six storyteller portraits, one brand backdrop each |
+| **50d** | `L11` three image cards | Equal weight — the layout for things that rank the same |
+| **50e** | `L48` photo + numbered list | A photo that argues rather than decorates |
+| **50f** | `L49` full-width photo band | One idea told four ways, left to right |
+| **50g** | gallery | The whole photo library, 24 frames on navy |
+
+The deck is **66 slides**.
+
+### The imagery is 40 photographs and 36 illustrations
+
+- **Illustrations 12 → 36.** Twenty-four new concepts an agency actually reaches
+  for: crisis contained, the launch, the interview, measurement, thought
+  leadership, the team behind the work, scale, trust, listening first, momentum,
+  one thread, the pivot, attention is scarce, transformation, the ecosystem, speed
+  against accuracy, reputation, the insight, human and machine, one message many
+  markets, the brief, collaboration, the long tail, cutting through. Every one made
+  from **the same master prompt with a single subject line changed** — which is the
+  whole method, and now visible at a glance on slide 45c.
+- **A still-life family** (`assets/photography/still-life/`) — desk flat-lay,
+  notebook stack, lanyard, tote, meeting table.
+- **Slide 45 now shows the four official categories** instead of four indoor
+  offices: Digging Stories · Storyteller · In Market · HA Moments. The spokesperson
+  portrait moved onto a **saturated brand backdrop**, which is what the VI deck's
+  own reference portraits do.
+
+### A branded prop is not a place to improvise the logo
+
+The still life went out once with an **AI-drawn lime squiggle** on every notebook,
+lanyard and tote. That is precisely what Lou ruled out: *"he does not want his
+logo's storyarc to take the form of random ribbons in graphics."*
+
+**Every invented squiggle is gone.** The rule it cost us is worth stating plainly:
+
+> **Never let a generative model draw a fixed brand asset.** It cannot reproduce
+> one — it can only produce an interpretation, and an interpretation of the
+> Storyline is a violation of it. Shoot the prop **blank** and composite the real
+> SVG, at the placement the asset rules already specify.
+
+And the second lesson, which is the better one: stamping a mark on every object
+**felt forced**. The reshoots let **navy and lime do the work** — navy notebooks,
+lime sticky notes, a lime bookmark ribbon, a blank badge. The palette is the
+easter egg. Two of the shots are deliberately framed square-on, so if we ever do
+want the real mark on a prop, those are the candidates for a proper composite.
+
+### Fixed on the way through
+
+- **Four galleries had dead space at the bottom**, against the deck's own
+  fill-the-frame rule. Cause: grids sized by `aspect-ratio` instead of being told
+  to consume the remaining height. All now use a flex column with
+  `flex:1; min-height:0` on the grid.
+- **The bento grid was broken** — `grid-area: span 2 / span 2` is not valid
+  shorthand, so the spans collapsed. Now explicit `grid-column` / `grid-row`.
+- **Slide 45b still said "Twelve worked examples."** It has said that since the
+  library tripled.
+- **Four illustrations were over the Design Master's 256 KiB per-file limit** and
+  would have been rejected on sync. Re-encoded; all 76 images now clear it.
+
+Minor — seven pages, thirty new images, and a rule about who is allowed to draw the logo.
+
 ## 2026-09-17 — The deck cropped a spokesperson's forehead off (v2.14.0 → v2.14.1)
 
 Slide 45's portrait tile showed a man with the top of his head sliced away. Not a
