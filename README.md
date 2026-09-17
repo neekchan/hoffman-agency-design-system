@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.9.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **titles stop wrapping into empty space** (`text-wrap: balance` on every heading, plus the too-tight `ch` caps raised — one was forcing a wrap 59px short while 730px sat free), and **the 3D emoji set is finally vendored** (`assets/emoji/3d/`, 67 files, 2.2 MB) so the documented default style works offline. New rule: vendor what an offline deliverable needs at the documented default. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.10.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — the emoji set gains **eight press and broadcast symbols** (it had none, at a communications agency) and a written selection **criterion** — the old count of 67 turned out to be nothing but the length of a hand-typed list. Plus a **[12-example illustration library](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-illustration-library.html)** with copy-the-prompt buttons, and "no suits and ties" corrected from a ban to a lean. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -477,7 +477,7 @@ Italicize the line's emphasis — the key word *or* the short phrase that carrie
 - One exception: a semi-transparent navy overlay (60–75%) on hero photography, to guarantee type legibility.
 
 ### Imagery direction
-- Candid, natural-light, **business-casual** (no suits-and-ties). Diverse, collaborative, human.
+- Candid, natural-light, **business-casual** — the lean, because we work in tech, not a ban. A suit is fine when the subject or sector calls for one. Diverse, collaborative, human.
 - Warm color grade — skin tones natural, slightly saturated. No cool-blue fintech stock palette.
 - **Human-first.** If it has to be abstract, it's the squiggle, not a 3D chrome mesh.
 - B&W is okay for portraits in case studies for gravitas; color everywhere else.

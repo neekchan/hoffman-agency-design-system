@@ -135,7 +135,8 @@ Every `.tha-placeholder` for a photo carries a `__prompt` — one or two sentenc
 warm color grade, eye-level, documentary style. [ASPECT RATIO + pixel size from `AGENTS.md Section 4`, e.g. 16:9 · 1920×1080px].
 ```
 
-Always exclude: `no suits, no stock-photo posing, no motion blur, no lens flares, no 3D renders, no cool-blue grade.`
+Always exclude: `no stock-photo posing, no motion blur, no lens flares, no 3D renders, no cool-blue grade.`
+Add `no suits` **only when business-casual genuinely suits the subject** — it is the house lean, not a rule, and a formal sector or a formal moment can carry a suit.
 
 ### Examples
 

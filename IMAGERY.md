@@ -31,6 +31,17 @@ Drop a labeled `.tha-placeholder` where each image belongs (`AGENTS.md Section 4
 ## The Hoffman house illustration style
 The documented default when the user hasn't supplied their own samples.
 
+> **📚 Twelve worked examples, each with the exact prompt that made it, live in
+> [`assets/house-style/`](./assets/house-style/README.md) — browsable at
+> [the illustration library](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-illustration-library.html).**
+> Copy the prefix below, append a subject line, paste into any image AI. Start
+> there rather than writing a style description from scratch.
+
+**Where it comes from.** Hoffman's own editorial illustration, as used across
+[storytelling.hoffman.com](https://storytelling.hoffman.com) and the *Great Myth
+of Storytelling in Business Communications* paper. Mid-century editorial
+tradition — conceptual, calm, a bit dry; never cute, never corporate clip-art.
+
 **Look.** Flat vector editorial illustration with a subtle paper-grain, gouache texture. One clear conceptual metaphor, generous negative space, soft small drop shadows. Whimsical, intelligent, calm, dry-witted — high-end conceptual magazine illustration.
 
 **Palette (maps to the Hoffman secondaries).** Coral-salmon red, petrol teal-blue, mustard / golden yellow, cream off-white, plum purple, muted slate-blue and grey. One or two dominant colours per image over a flat textured ground.
@@ -38,6 +49,8 @@ The documented default when the user hasn't supplied their own samples.
 **Characters.** Simple and stylised — rounded or elongated heads, small round dot eyes, a prominent angular nose in profile, thin minimal limbs, flat solid-colour clothing, warm terracotta skin. Naive and warm, never rendered or photoreal.
 
 **Never.** No text, letters, numbers, words, logos, watermarks, or signatures inside the image.
+
+**On suits.** Business-casual is the lean, because we work in tech — not a ban. A suit is fine where the subject or the client's world calls for one (finance, legal, a formal announcement). Illustration is looser still: these are caricatures, not photographs of real people, so dress serves the joke and the character.
 
 **Reusable style-prompt prefix** — paste this before the per-image subject:
 

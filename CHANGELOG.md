@@ -4,6 +4,66 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — A press vocabulary, an illustration library, and a rule that was stated too hard (v2.9.0 → v2.10.0)
+
+### The emoji set had no press in it
+
+Asked why the curated set was 67, the honest answer turned out to be: **because
+that is how many entries someone typed into the registry.** No criterion was
+recorded anywhere — not in a doc, not in the manifest, not in the commit. The
+number got quoted back for two months as though it meant something.
+
+Worse, checking what it covered: **no newspaper, no microphone, no camera, no
+television, no satellite.** A communications agency whose emoji set could draw a
+wrench but not a press interview.
+
+- **Eight added:** newspaper, rolled-up newspaper, studio microphone, television,
+  movie camera, camera, satellite antenna, speaking head. Both 3D and 2D colour,
+  same MIT source and pinned commit. 372 KB.
+- **The criterion is now written down** in Section 8, next to the vendoring
+  principle: the vocabulary an agency deck needs, in four groups — **the work**,
+  **the outcome**, **the people**, and **the medium we work in**. That last group
+  is the one that was missing. Add against the groups, not by taste. **The count
+  is a consequence of the criterion, never a target.**
+- **Five miscategorised entries fixed.** Brain and Eyes were filed under "Hand
+  gestures", Speech and Thought balloon under "Smilies", Seedling under
+  "Animals". The gallery groups by category, so those were visibly wrong.
+
+### The illustration style had a prompt but no evidence
+
+`IMAGERY.md` already documented the house style properly and carried a reusable
+prompt prefix. What it lacked was anything to look at — three legacy samples and
+no worked examples.
+
+- **`assets/house-style/examples/` — twelve illustrations, each with the exact
+  subject line that made it**, generated *with the documented prefix* so the
+  library doubles as proof the prompt works. Concepts an agency deck actually
+  reaches for: the myth, the audience, finding the story, the proof, the choice,
+  signal in the noise, complexity into clarity, partnership, the obstacle, reach,
+  time, the detail that matters.
+- **[A live library card](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-illustration-library.html)**
+  with the prefix at the top and a **copy-the-full-prompt button** on every
+  example — paste straight into any image AI.
+- **`prompts.json`** alongside, so the set is machine-readable too.
+- **The source is credited at last:** the look is Hoffman's own editorial
+  illustration from [storytelling.hoffman.com](https://storytelling.hoffman.com)
+  and *The Great Myth of Storytelling in Business Communications*.
+
+Two of the twelve — the fork and the noise field — came out more painterly than
+the flat-vector house look. Kept, because a reference library that only shows
+perfect hits teaches nothing about the edge of the style.
+
+### And a rule that was stated too hard
+
+"Business-casual (**no** suits-and-ties)" read as a ban across `README.md`,
+`PROMPTS.md` and the guidelines deck's DON'T list. It was never meant as one.
+Business-casual is the **lean, because we work in tech** — a suit is fine when
+the subject or the sector calls for one, and illustration is looser still since
+those are caricatures rather than photographs of real people. Corrected in all
+five places.
+
+Minor bump — new assets and clarified rules; nothing invalidated.
+
 ## 2026-09-17 — Titles stop wrapping into empty space, and the default emoji style finally exists locally (v2.8.9 → v2.9.0)
 
 **Two things, both cases of the system contradicting itself.**
