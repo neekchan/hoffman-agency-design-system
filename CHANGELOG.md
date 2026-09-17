@@ -4,6 +4,24 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — Four counts that had quietly gone stale (v2.16.1 → v2.16.2)
+
+Found by sweeping for them rather than by reading, which is the only way these ever
+turn up. **This is the fourth release in a row to carry one**, so the sweep is now
+part of shipping, not a favour.
+
+- **The deck's own card said "58 slides."** It is **66**. That subtitle is the
+  `@dsCard` comment at the top of both builds, and it is what generates
+  `_ds_manifest.json` — so the Design System pane was advertising the wrong number
+  in two places.
+- **`README.md` described `house-style/` as 12 worked examples.** It has held **36**
+  since the library tripled.
+- **`README.md` said 35 house photographs.** There are **40**.
+
+All corrected, in both deck builds, the README and the generated manifest.
+
+Patch — counts brought back in line with what is actually on disk.
+
 ## 2026-09-17 — The other sixteen, brought in line (v2.16.0 → v2.16.1)
 
 v2.16.0 reshot the portraits and the cities and left the interiors and HA Moments

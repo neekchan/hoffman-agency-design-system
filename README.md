@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.16.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — v2.16.0 reshot the portraits and cities and left the interiors on the old wardrobe, so half the library was varied and half was still cobalt. **All sixteen reshot; cobalt blue now appears nowhere in the system.** The set carries real layering, pattern and texture on a neutral base, with saturated colour as an accent rather than a uniform. Filenames unchanged, so the deck picks them all up. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.16.2** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — four stale counts. The deck's own card advertised **58 slides** when it has 66 (in both builds and the generated manifest), and this README described `house-style/` as 12 examples (it holds 36) and 35 photographs (there are 40). Fourth release running to carry one of these, so the sweep is now part of shipping. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -209,8 +209,8 @@ assets/
     animated-manifest.json          · which names actually move, plus asset provenance and licences
   annotations/                      · 76 hand-drawn marks across 6 categories
     underline·circle·arrow·tick·cross·accent   · 13·15·14·11·11·12
-  house-style/                      · 12 worked examples of the house illustration style + the master prompt (see IMAGERY.md)
-  photography/                      · 35 house photographs across the VI deck's four categories — see PROMPTS.md for the treatment and the per-city notes
+  house-style/                      · 36 worked examples of the house illustration style + the master prompt (see IMAGERY.md)
+  photography/                      · 40 house photographs across the VI deck's four categories — see PROMPTS.md for the treatment and the per-city notes
     cities/                         · 10 outdoor street shots, one per office hoffman.com lists — market recognisability (see AGENTS.md 3.5)
     moments/                        · 6 'HA Moments' — culture, celebration, the team being people (VI deck slide 26)
     storyteller/                    · 6 studio portraits on solid brand backdrops (VI deck slides 27–28)
