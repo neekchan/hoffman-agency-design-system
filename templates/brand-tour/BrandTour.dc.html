@@ -395,7 +395,7 @@
   <span data-ent="1" style="font:700 22px/1 var(--font-mono); letter-spacing:.14em; color:var(--tha-lime);">COLOR · 09 · THE CONTRAST GATE</span>
   <h2 data-ent="2" style="margin:36px 0 0; font:700 72px/1.02 var(--font-sans); letter-spacing:-.025em; color:var(--tha-paper);">Contrast is the <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-lime);">gate.</em> Compute it.</h2>
   <div style="flex:1; margin-top:44px; display:grid; grid-template-columns:1fr 620px; gap:56px; min-height:0;">
-    <div data-ent="3" style="{{ cSample }} display:flex; flex-direction:column; justify-content:center; padding:0 64px; gap:8px; border:1px solid rgba(255,255,255,.18); min-height:0;">
+    <div data-ent="3" style="{{ cSample }}">
       <span style="font:800 250px/1 var(--font-sans); letter-spacing:-.03em;">Aa</span>
       <span style="font:400 32px/1.4 var(--font-sans);">Turn opinion into momentum.</span>
       <span style="font:600 22px/1 var(--font-mono); letter-spacing:.06em; margin-top:22px; opacity:.75;">{{ cFgHex }} ON {{ cBgHex }}</span>
@@ -458,7 +458,7 @@
   <div style="flex:1; margin-top:36px; display:grid; grid-template-columns:600px 1fr; gap:56px; min-height:0;">
     <div data-ent="2" style="display:flex; flex-direction:column; min-height:0; overflow:hidden; border-top:1px solid rgba(255,255,255,.15);">
       <sc-for list="{{ tierRows }}" as="t" hint-placeholder-count="7">
-        <div onClick="{{ t.pick }}" style="{{ t.st }} border-bottom:1px solid rgba(255,255,255,.12);">
+        <div onClick="{{ t.pick }}" style="{{ t.st }}">
           <span style="font:700 21px/1.15 var(--font-mono); letter-spacing:.04em; color:var(--tha-paper);">{{ t.n }}</span>
           <span style="font:600 20px/1 var(--font-mono); color:var(--tha-lime); text-align:right;">{{ t.px }}</span>
           <span style="font:600 20px/1 var(--font-mono); color:var(--tha-navy-300); text-align:right;">{{ t.pt }}</span>
@@ -508,7 +508,7 @@
     <div data-ent="2" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px;">
       <fluent-emoji name="{{ hero }}" variant="{{ heroVariant }}" size="230"></fluent-emoji>
       <span style="font:700 24px/1 var(--font-mono); letter-spacing:.08em; color:var(--tha-paper); text-transform:uppercase;">{{ heroLabel }}</span>
-      <p style="margin:0; font:400 26px/1.5 var(--font-sans); color:var(--tha-navy-300); text-align:center; max-width:26ch;">One emoji per moment, riding the baseline — never a stack, never decoration.</p>
+      <p style="margin:0; font:400 26px/1.5 var(--font-sans); color:var(--tha-navy-300); text-align:center; max-width:26ch;">One emoji per moment, riding the baseline — never a stack, never decoration. 3D is the default form; for a functional symbol reach for the 1,595-icon set instead.</p>
     </div>
     <div data-ent="3" style="display:grid; grid-template-columns:repeat(10, 1fr); gap:10px; align-content:center; min-height:0;">
       <sc-for list="{{ emojiCells }}" as="e" hint-placeholder-count="20">
@@ -558,7 +558,7 @@
   <h2 data-ent="2" style="margin:32px 0 0; font:700 72px/1.02 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy);">Squeeze it. <em style="font-family:var(--font-serif); font-style:italic; font-weight:400; color:var(--tha-purple);">Feel</em> it fail.</h2>
   <div style="flex:1; margin-top:40px; display:grid; grid-template-columns:1fr 520px; gap:56px; min-height:0; position:relative;">
     <div data-ent="3" style="display:flex; align-items:center; justify-content:center; min-height:0; position:relative;">
-      <div style="{{ airPad }} background:var(--tha-sand); border:2px solid var(--tha-navy); max-width:100%; box-sizing:border-box;">
+      <div style="{{ airPad }}">
         <div style="border:1.5px dashed var(--tha-purple); padding:24px 28px;">
           <div style="font:700 20px/1 var(--font-mono); letter-spacing:.08em; color:var(--tha-purple);">CARD TITLE</div>
           <p style="margin:12px 0 0; font:400 24px/1.4 var(--font-sans); color:var(--tha-navy);">Content breathes when the frame does.</p>
@@ -595,7 +595,7 @@
     </div>
     <div data-ent="5" style="display:flex; align-items:flex-start; gap:24px; background:rgba(255,255,255,.09); border-left:4px solid var(--tha-lime); padding:26px 30px; margin-top:6px;">
       <p style="margin:0; font:400 22px/1.55 var(--font-mono); color:#FFFFFF; flex:1;">{{ builtPrompt }}</p>
-      <button onClick="{{ copyPrompt }}" style="{{ copyBtn }} flex:none;">{{ copyLabel }}</button>
+      <button onClick="{{ copyPrompt }}" style="{{ copyBtn }}">{{ copyLabel }}</button>
     </div>
     <p data-ent="6" style="margin:0; font:400 24px/1.4 var(--font-sans); color:var(--tha-navy-200);">Candid, natural light, warm grade, business-casual — the Hoffman imagery direction, baked into every prompt.</p>
   </div>
@@ -794,6 +794,7 @@ class Component extends DCLogic {
   ];
   ASP = [ { k: '16:9', r: '1920×1080' }, { k: '4:3', r: '1440×1080' }, { k: '4:5', r: '1080×1350' }, { k: '1:1', r: '1280×1280' }, { k: '3:1', r: '1800×600' } ];
   CHECKS = [
+    'Titles state the point, not the topic (Soundcheck)',
     'Italic marks the emphasis — a key word or phrase',
     'Type at slide scale — nothing under 20px',
     'Every pairing clears WCAG — 4.5 body, 3 large',
@@ -821,7 +822,7 @@ class Component extends DCLogic {
     presses: 0, air: 3, grid: false,
     subj: 0, asp: 0, copied: false,
     car: 0,
-    checks: [false, false, false, false, false, false, false, false], shipped: false,
+    checks: [false, false, false, false, false, false, false, false, false], shipped: false,
     toastText: '', toastK: 0,
     closeOpen: false,
   };
@@ -1145,7 +1146,9 @@ class Component extends DCLogic {
     const bg = this.PAL[s.cBg], fg = this.PAL[s.cFg];
     const r = this._ratio(bg.hex, fg.hex);
     out.ratioText = r.toFixed(2);
-    out.cSample = { background: bg.hex, color: fg.hex, transition: 'background .3s, color .3s' };
+    out.cSample = { background: bg.hex, color: fg.hex, transition: 'background .3s, color .3s',
+      display: 'flex', flexDirection: 'column', justifyContent: 'center',
+      padding: '0 64px', gap: '8px', border: '1px solid rgba(255,255,255,.18)', minHeight: 0 };
     out.cBgHex = bg.hex.toUpperCase(); out.cFgHex = fg.hex.toUpperCase();
     const badge = (pass, label) => ({
       label: label + (pass ? ' · PASS' : ' · FAIL'),
@@ -1186,7 +1189,7 @@ class Component extends DCLogic {
     out.tierRows = this.TIERS.map((x, i) => ({
       n: x.n.toUpperCase(), px: x.px + ' PX', pt: (x.px / 2) + ' PT',
       pick: () => this.setState({ tier: i }),
-      st: { display: 'grid', gridTemplateColumns: '1fr 110px 90px', gap: '18px', alignItems: 'center', padding: '15px 18px', cursor: 'pointer', borderLeft: s.tier === i ? '6px solid #D2EB00' : '6px solid transparent', background: s.tier === i ? 'rgba(255,255,255,.08)' : 'transparent', transition: 'all .2s' },
+      st: { display: 'grid', gridTemplateColumns: '1fr 110px 90px', gap: '18px', alignItems: 'center', padding: '15px 18px', cursor: 'pointer', borderLeft: s.tier === i ? '6px solid #D2EB00' : '6px solid transparent', background: s.tier === i ? 'rgba(255,255,255,.08)' : 'transparent', transition: 'all .2s', borderBottom: '1px solid rgba(255,255,255,.12)' },
     }));
 
     // 12 Annotations
@@ -1233,7 +1236,8 @@ class Component extends DCLogic {
     const air = this.AIR[s.air];
     out.air = s.air;
     out.airToken = air.t + ' · ' + air.v + 'px';
-    out.airPad = { padding: air.v + 'px', transition: 'padding .3s ' + ease };
+    out.airPad = { padding: air.v + 'px', transition: 'padding .3s ' + ease,
+      background: 'var(--tha-sand)', border: '2px solid var(--tha-navy)', maxWidth: '100%', boxSizing: 'border-box' };
     out.airMsg = air.v < 24 ? 'Cramped. The system says no.' : air.v < 48 ? 'Breathing. Getting there.' : 'That’s the stuff. More air, always.';
     out.airMsgSt = { font: '600 26px/1.3 var(--font-sans)', color: air.v < 24 ? '#C43D3D' : air.v < 48 ? '#E08A00' : '#147A4B', margin: 0, transition: 'color .3s' };
     out.gridBtn = { font: '700 21px/1 var(--font-mono)', letterSpacing: '.08em', padding: '16px 24px', border: '2px solid #182D43', cursor: 'pointer', background: s.grid ? '#182D43' : 'transparent', color: s.grid ? '#FAFAF7' : '#182D43', transition: 'all .2s' };
@@ -1251,7 +1255,7 @@ class Component extends DCLogic {
     }));
     out.builtPrompt = this._promptText();
     out.copyLabel = s.copied ? 'COPIED ✓' : 'COPY PROMPT';
-    out.copyBtn = { font: '700 22px/1 var(--font-mono)', letterSpacing: '.08em', padding: '20px 30px', border: 0, background: s.copied ? '#86FFF1' : '#D2EB00', color: '#182D43', cursor: 'pointer', transition: 'background .2s' };
+    out.copyBtn = { font: '700 22px/1 var(--font-mono)', letterSpacing: '.08em', padding: '20px 30px', border: 0, background: s.copied ? '#86FFF1' : '#D2EB00', color: '#182D43', cursor: 'pointer', transition: 'background .2s', flex: 'none' };
 
     // 17 Carousel
     out.carTrack = { display: 'flex', gap: '40px', transform: 'translateX(' + (-s.car * 920) + 'px)', transition: motion ? 'transform .5s ' + ease : 'none', height: '100%' };

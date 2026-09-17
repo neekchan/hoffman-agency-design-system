@@ -4,6 +4,52 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — The playground's contrast lab was arguing with its own maths (v2.10.2 → v2.10.3)
+
+The contrast lab read **white on navy, 13.43:1, PASS** while rendering **black
+text on no background.** A demo whose whole job is proving a rule, disproving
+itself.
+
+**The cause is one line in the template engine.** `compileAttr()` has two paths.
+If an attribute is *exactly* `{{ x }}` it returns the raw value — so a style
+**object** arrives as an object and is applied properly. If the attribute mixes a
+binding with static CSS, it falls through to `.join("")`, and an object
+stringifies to **`"[object Object]"`**:
+
+```html
+style="{{ cSample }} display:flex; …"   →   "[object Object] display:flex; …"
+```
+
+That is not valid CSS, so the browser discards the lot. It explains all three
+symptoms at once — no background, no colour, and a panel that never became a
+flexbox.
+
+- **Four elements were written that way**, and all four are now the binding
+  alone, with their static CSS merged into the bound object: the contrast
+  specimen, the type-scale rows, the whitespace pad and the copy button. The
+  other **74** style bindings were already whole-attribute and were never
+  affected — the blast radius was 4, not 78.
+- **Worth knowing for anything built on this engine:** a style **object** must be
+  the entire attribute. Mix it with static CSS and it silently stringifies. It
+  fails quietly, and it only fails outside Claude Design, where the template is
+  compiled ahead of time rather than hydrated live.
+
+**Also brought two screens up to date.** The tour predates several releases and
+had simply never been told:
+
+- **The ship-it checklist gained the title rule** — *"Titles state the point, not
+  the topic (Soundcheck)"*, first in the list, which is where it belongs.
+  `CHECKLIST.md` has gated this since v2.8.1; the playground never did.
+- **The emoji screen now says 3D is the default form**, and that a functional
+  symbol comes from the 1,595-icon set rather than an emoji.
+
+**Known and not fixed:** four `src="{{ … }}"` bindings fire a request for the
+literal placeholder before hydration — four 404s per load. The images recover, so
+this is wasted requests rather than broken output. Fixing it needs an engine
+change, not a template one.
+
+Patch — one real bug with a wide lesson, and two screens caught up.
+
 ## 2026-09-17 — Every preview card was unscrollable on the published site (v2.10.1 → v2.10.2)
 
 The Fluent emoji gallery could not be scrolled. Its content is 4,550px tall in a
