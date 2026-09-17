@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.16.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — the same wardrobe line went into nearly every image prompt, so **cobalt blue turned up in ~20 of 32 photographs**, almost every garment was a crew-neck knit or plain shirt, and the library had **no pattern and no texture range at all**. Sixteen reshot across the portraits and all ten cities; `PROMPTS.md` now names **five axes to vary** (colour, garment, pattern, texture, layering) plus the two rules that matter: most people should *not* be in a hero colour, and put the repeats in the negative prompt. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.16.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — v2.16.0 reshot the portraits and cities and left the interiors on the old wardrobe, so half the library was varied and half was still cobalt. **All sixteen reshot; cobalt blue now appears nowhere in the system.** The set carries real layering, pattern and texture on a neutral base, with saturated colour as an accent rather than a uniform. Filenames unchanged, so the deck picks them all up. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 

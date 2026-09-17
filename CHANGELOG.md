@@ -4,6 +4,43 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — The other sixteen, brought in line (v2.16.0 → v2.16.1)
+
+v2.16.0 reshot the portraits and the cities and left the interiors and HA Moments
+on the old wardrobe, which made the library inconsistent with itself — half of it
+varied, half of it still cobalt.
+
+**All sixteen reshot.** Every people-bearing photograph in the system now follows
+the five axes in `PROMPTS.md`, and **cobalt blue appears nowhere in the library.**
+
+What the set carries now that it did not before:
+
+- **Layering** — camel cardigans, unstructured blazers, knit vests over shirts, a
+  corduroy overshirt, denim jackets, a burgundy corduroy blazer, a grey herringbone
+  blazer, jackets slung over chair backs
+- **Pattern** — glen check, gingham, breton stripe, pinstripe, micro-check,
+  houndstooth, buffalo check, batik, songket
+- **Texture** — cable knit, waffle knit, marl, corduroy, linen, herringbone,
+  indigo denim, silk crepe, fleece
+- **A neutral base** — oatmeal, stone, sage, olive, camel, charcoal, ecru,
+  terracotta, plum, burgundy — with saturated colour used as an accent rather than
+  a uniform
+
+Two specific swaps worth naming, because they were the loudest repeats:
+
+- **The spokesperson portrait** moved off hot pink (which duplicated another
+  portrait's backdrop) onto **soft ochre**, in a stone linen blazer over a
+  navy-and-white micro-check shirt — layered and patterned rather than one flat
+  solid shirt.
+- **The product close-up's orange sleeve** became an **oatmeal waffle knit**. It is
+  a shot of two hands, and the sleeve was one of the most saturated things in the
+  entire library.
+
+Filenames are unchanged, so the deck picks all sixteen up with no edit — verified,
+every reference resolves.
+
+Patch — the half of the library that v2.16.0 did not reach.
+
 ## 2026-09-17 — Every third person was wearing the same cobalt blue jumper (v2.15.0 → v2.16.0)
 
 A photo library is supposed to look like a lot of different days. This one looked
