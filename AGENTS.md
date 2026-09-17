@@ -118,6 +118,12 @@ market, the image has to be recognisably that market.**
   street read as Korean or Thai. Generated lettering is always gibberish, so ask
   for it distant and out of focus.
 
+**And it has to look unposed, which does not happen by writing "candid."** That
+word produces the stock-library version: people walking abreast, evenly spaced,
+smiling, centred, nothing in the way. Give them a real task, say nobody is aware
+of the camera, shoot past something in the near foreground, and break the
+symmetry. `PROMPTS.md` has the four moves and the negatives that go with them.
+
 The per-city wardrobe and street notes we actually use are in `PROMPTS.md`, and
 the shot for each office lives in `assets/photography/cities/`.
 

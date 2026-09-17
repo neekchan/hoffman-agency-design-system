@@ -145,6 +145,40 @@ Add `no suits` **only when business-casual genuinely suits the subject** — it 
 - *Black-and-white editorial portrait, CTO seated by a window, soft directional light, direct gaze, honest skin texture, no retouching gloss. 4:5.* (B&W is allowed for case-study portraits only.)
 - *Cinematic wide shot, engineering team reviewing work on a glass wall, dusk light through office windows, warm grade, candid, documentary, dark tones that hold white type. 16:9.* (For full-bleed heroes — ask for dark tones so the navy overlay + white type read.)
 
+### In situ, not "candid" — the four moves that actually do it
+
+Writing *candid* and *no staging* in a prompt does not produce a candid photo. It
+produces the stock-library version of one: people walking abreast, evenly spaced,
+turned toward each other, smiling, dead-centre, nothing in the way. That is a
+pose of candidness. Four concrete moves break it, and they have to be spelled out:
+
+1. **Give them a task, not a verb.** Not "walking and talking", not "collaborating"
+   — a specific thing with a purpose and an awkward bit. Stowing a helmet under a
+   scooter seat. Taking a bag of kopi across a counter. Shaking rain off a
+   collapsed umbrella. Threading a bike lock while a backpack pulls you off
+   balance. The awkwardness is what sells it.
+2. **Say nobody is aware of the camera.** Explicitly: *"Nobody looks at the
+   camera. Taken by a bystander who did not stop the scene."* A subject who knows
+   they are being photographed stands differently, and the model draws that.
+3. **Put something in the way.** *"Shot past the out-of-focus [scooter / shoulder /
+   vending machine / handlebars] in the near foreground."* A clear, unobstructed
+   view is the signature of a photographer who was allowed to set up. An
+   obstruction says someone was just standing there.
+4. **Break the composition on purpose.** *"Off-centre imperfect framing, the frame
+   clipping objects at its edges."* Symmetry reads as art direction.
+
+Then name the failure modes as negatives, because they are the defaults:
+
+```
+no stock-photo posing, no smiling at the lens, no group walking abreast,
+no arranged huddle, no symmetrical clean framing
+```
+
+Also: **let people be ordinary.** Varied ages and builds, unglamorous posture,
+honest skin texture, a crooked lapel mic, ink on a finger. And let the place be
+cluttered — the stuff of a room (mismatched mugs, a cardigan on a chair back,
+crossings-out on a page) does more for believability than the room itself.
+
 ### Market shots — the per-city notes
 
 `AGENTS.md Section 3.5` sets the rule: if a slide is about a market, the image has

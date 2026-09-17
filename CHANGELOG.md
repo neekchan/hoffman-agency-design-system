@@ -4,6 +4,52 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — Writing "candid" in a prompt produces a stock photo of candidness (v2.12.0 → v2.13.0)
+
+All 22 photographs are replaced. The old ones said *candid documentary, no
+staging* and came back as the stock-library impression of candid: people walking
+abreast, evenly spaced, turned toward each other, smiling, dead-centre, nothing
+in the way. That is not a candid photo. **It is a pose of candidness**, and the
+words *candid* and *no staging* actively produce it, because that is what the
+caption on a million stock images says.
+
+**Four moves break it, and every one has to be spelled out** — they are now
+`PROMPTS.md`, and `AGENTS.md` Section 3.5 points at them:
+
+1. **Give them a task, not a verb.** Not "walking and talking", not
+   "collaborating" — a specific thing with a purpose and an awkward bit. Stowing
+   a helmet under a scooter seat. Taking a bag of kopi across a counter. Shaking
+   rain off a collapsed umbrella under an awning. Threading a bike lock while a
+   backpack pulls you off balance. **The awkwardness is what sells it.**
+2. **Say nobody is aware of the camera.** In those words. A subject who knows
+   they are being photographed stands differently, and the model draws that.
+3. **Put something in the way.** *Shot past the out-of-focus scooter / shoulder /
+   vending machine / handlebars in the near foreground.* A clean unobstructed
+   view is the signature of a photographer who was allowed to set up. An
+   obstruction says somebody was just standing there.
+4. **Break the composition on purpose.** Symmetry reads as art direction.
+
+And name the failure modes as explicit negatives, because they are the defaults:
+`no group walking abreast, no arranged huddle, no smiling at the lens, no
+symmetrical clean framing`.
+
+The difference is the whole point of the section. The Tokyo shot is no longer two
+people walking — it is an older man bending slightly at a doorway to hand over a
+document folder while the younger one is already half-turned to go, photographed
+from across the street past a vending machine. The Kuala Lumpur shot is three
+people who have ducked under an awning out of sudden rain, one shaking out a
+collapsed umbrella. Nobody in any of the 22 is looking at the camera.
+
+**Also: let the room be cluttered and let people be ordinary.** A cardigan over a
+chair back, mismatched mugs, crossings-out on a notebook page, a crooked lapel
+mic, a coffee going cold. The stuff of a room does more for believability than
+the room does.
+
+Filenames are unchanged, so the brand guidelines deck picks up all ten
+replacements without an edit — verified, all references resolve.
+
+Minor — a rule that turns "candid" from a wish into four instructions.
+
 ## 2026-09-17 — The brand mark could not be drawn in the brand's own navy (v2.11.0 → v2.12.0)
 
 ### The Brand Mark Studio never had navy in it

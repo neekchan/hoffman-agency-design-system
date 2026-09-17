@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.12.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — the **Brand Mark Studio could not draw the mark in navy**, because the primary was never in its letter palette (nor was teal; a navy *tint* was there instead). Fixed, with a contrast floor that applies to dark backgrounds only — so white keeps every brand colour and black drops the ones that vanish. Plus **ten outdoor city photographs**, one per office hoffman.com lists, and a new rule (`AGENTS.md` 3.5): when a slide is about a market, show *that* market — and specify the wardrobe, not the race. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.13.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — writing **"candid"** in an image prompt produces the *stock photo of candidness*: people walking abreast, smiling, centred, nothing in the way. All **22 photographs** are replaced, and `PROMPTS.md` now carries the four moves that actually work — give them a real task, say nobody is aware of the camera, shoot past something in the near foreground, break the symmetry. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
