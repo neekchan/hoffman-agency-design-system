@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Hoffman Agency — Design System</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  body { font-family:var(--font-sans); background:var(--tha-paper); color:var(--tha-navy); margin:0; padding:52px 28px 80px; }
+  .wrap { max-width:1100px; margin:0 auto; }
+  h1 { font:800 clamp(38px,6vw,68px)/1.02 var(--font-sans); letter-spacing:-.03em; margin:0 0 14px; text-wrap:balance; }
+  h1 em { font-family:var(--font-serif); font-style:italic; color:var(--tha-purple,#6103B9); }
+  .sub { font:400 18px/1.55 var(--font-sans); color:var(--tha-navy-500); max-width:60ch; margin:0 0 10px; }
+  .meta { font:600 12px/1 var(--font-mono); letter-spacing:.09em; text-transform:uppercase; color:var(--tha-navy-400); margin:0 0 44px; }
+  .meta a { color:var(--tha-navy-600); }
+  section { margin:0 0 42px; }
+  h2 { font:700 13px/1 var(--font-mono); letter-spacing:.14em; text-transform:uppercase; color:var(--tha-navy-500);
+       margin:0 0 14px; padding-bottom:11px; border-bottom:1px solid var(--tha-navy-200); }
+  p.lede { font:400 15px/1.5 var(--font-sans); color:var(--tha-navy-500); margin:-4px 0 16px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:11px; }
+  .grid.wide { grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); }
+  .card { display:block; background:#fff; border:1px solid var(--tha-navy-200); border-radius:9px;
+           padding:15px 16px; text-decoration:none; color:var(--tha-navy); transition:border-color .14s, transform .14s; }
+  .card:hover { border-color:var(--tha-lime); transform:translateY(-2px); }
+  .card b { display:block; font:700 15.5px/1.3 var(--font-sans); }
+  .card span { display:block; font:400 13px/1.45 var(--font-sans); color:var(--tha-navy-500); margin-top:5px; }
+  footer { margin-top:56px; padding-top:22px; border-top:1px solid var(--tha-navy-200);
+            font:400 13px/1.6 var(--font-sans); color:var(--tha-navy-400); }
+  footer a { color:var(--tha-navy-600); }
+</style></head><body><div class="wrap">
+<h1>The Hoffman Agency <em>design system</em>.</h1>
+<p class="sub">Brand tokens, 48 slide layouts, an icon set, an illustration style and the rules an AI needs to build on-brand. Everything below opens in a new tab.</p>
+<p class="meta">Every link here is live &middot; <a href="https://github.com/neekchan/hoffman-agency-design-system" target="_blank" rel="noopener">source on GitHub</a></p>
+  <section>
+    <h2>Start here</h2>
+    <p class=lede>The three things most people want.</p>
+    <div class="grid wide">
+      <a class="card big" href="slides/Hoffman Brand Guidelines.html" target="_blank" rel="noopener"><b>Brand guidelines deck</b><span>The 58-slide brand book — voice, logo, colour, type, imagery, layout, governance</span></a>
+      <a class="card big" href="templates/brand-tour/BrandTour.dc.html" target="_blank" rel="noopener"><b>Interactive brand tour</b><span>The same rules, running. Twenty screens you can press, drag and break</span></a>
+      <a class="card big" href="preview/brand-mark-studio.html" target="_blank" rel="noopener"><b>Brand Mark Studio</b><span>Type a word, export the animated hello as APNG, GIF or MP4</span></a>
+    </div>
+  </section>
+  <section>
+    <h2>Checking a decision</h2>
+    <p class=lede>Open these before you commit to something.</p>
+    <div class="grid wide">
+      <a class="card big" href="preview/brand-color-pairings.html" target="_blank" rel="noopener"><b>Colour pairings</b><span>Every brand pair scored, with the AAA tier for display type</span></a>
+      <a class="card big" href="preview/brand-contrast-matrix.html" target="_blank" rel="noopener"><b>Contrast matrix</b><span>Every text-on-background combination against WCAG</span></a>
+      <a class="card big" href="preview/brand-surfaces.html" target="_blank" rel="noopener"><b>Surfaces</b><span>The two light models — paper page + white cards, or white page + sand cards</span></a>
+      <a class="card big" href="preview/brand-illustration-library.html" target="_blank" rel="noopener"><b>Illustration library</b><span>Twelve house-style examples, each with a copy-the-prompt button</span></a>
+      <a class="card big" href="preview/fluent-emoji-gallery.html" target="_blank" rel="noopener"><b>Emoji gallery</b><span>Browse and click-to-copy the curated set</span></a>
+    </div>
+  </section>
+  <section>
+    <h2>Tokens</h2>
+    <p class=lede>The exact values.</p>
+    <div class="grid">
+      <a class="card" href="preview/colors-primary.html" target="_blank" rel="noopener"><b>Primary colour</b></a>
+      <a class="card" href="preview/colors-secondary.html" target="_blank" rel="noopener"><b>Secondary colour</b></a>
+      <a class="card" href="preview/colors-navy-scale.html" target="_blank" rel="noopener"><b>Navy scale</b></a>
+      <a class="card" href="preview/colors-lime-scale.html" target="_blank" rel="noopener"><b>Lime scale</b></a>
+      <a class="card" href="preview/type-display.html" target="_blank" rel="noopener"><b>Display type</b></a>
+      <a class="card" href="preview/type-scale.html" target="_blank" rel="noopener"><b>Type scale</b></a>
+      <a class="card" href="preview/spacing-scale.html" target="_blank" rel="noopener"><b>Spacing</b></a>
+      <a class="card" href="preview/spacing-radii.html" target="_blank" rel="noopener"><b>Radii</b></a>
+      <a class="card" href="preview/spacing-shadows.html" target="_blank" rel="noopener"><b>Shadows</b></a>
+    </div>
+  </section>
+  <section>
+    <h2>Components and brand assets</h2>
+    <div class="grid">
+      <a class="card" href="preview/components-buttons.html" target="_blank" rel="noopener"><b>Buttons</b></a>
+      <a class="card" href="preview/components-cards.html" target="_blank" rel="noopener"><b>Cards</b></a>
+      <a class="card" href="preview/components-forms.html" target="_blank" rel="noopener"><b>Forms</b></a>
+      <a class="card" href="preview/components-chips.html" target="_blank" rel="noopener"><b>Chips</b></a>
+      <a class="card" href="preview/components-tappable.html" target="_blank" rel="noopener"><b>Tappable cards</b></a>
+      <a class="card" href="preview/components-annotations.html" target="_blank" rel="noopener"><b>Annotations</b></a>
+      <a class="card" href="preview/components-placeholders.html" target="_blank" rel="noopener"><b>Placeholders</b></a>
+      <a class="card" href="preview/brand-logo-horizontal.html" target="_blank" rel="noopener"><b>Logo — horizontal</b></a>
+      <a class="card" href="preview/brand-logo-stacked.html" target="_blank" rel="noopener"><b>Logo — stacked</b></a>
+      <a class="card" href="preview/brand-storyline.html" target="_blank" rel="noopener"><b>Storyline motif</b></a>
+      <a class="card" href="preview/brand-voice.html" target="_blank" rel="noopener"><b>Voice</b></a>
+      <a class="card" href="preview/brand-emoji-typography.html" target="_blank" rel="noopener"><b>Emoji typography</b></a>
+    </div>
+  </section>
+<footer>
+  The Hoffman Agency design system — created by <b>Nicolas Chan</b>, Head of Digital &amp; Chief Strategist, AMEA.<br>
+  <a href="mailto:neekchan@gmail.com">neekchan@gmail.com</a> &middot;
+  <a href="mailto:nchan@hoffman.com">nchan@hoffman.com</a> &middot;
+  <a href="https://www.linkedin.com/in/nicolaschan/" target="_blank" rel="noopener">linkedin.com/in/nicolaschan</a>
+</footer>
+</div></body></html>

@@ -4,13 +4,17 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.10.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — the emoji set gains **eight press and broadcast symbols** (it had none, at a communications agency) and a written selection **criterion** — the old count of 67 turned out to be nothing but the length of a hand-typed list. Plus a **[12-example illustration library](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-illustration-library.html)** with copy-the-prompt buttons, and "no suits and ties" corrected from a ban to a lean. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.10.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — the published site has a **[front door](https://neekchan.github.io/hoffman-agency-design-system/)** again (the root had been a 404 since v2.8.7, caused by `.nojekyll`), and its links open in new tabs — which a GitHub README cannot do, because their sanitiser strips `target`. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
 The brand voice is **smart, human and energetic** — professional without feeling stiff, bold without becoming noisy.
 
 ## 🔗 Everything you can just open
+
+> **Prefer a page that opens these in new tabs?** Use the
+> **[live front door](https://neekchan.github.io/hoffman-agency-design-system/)** — GitHub strips
+> `target="_blank"` from READMEs, so the links below open in this tab.
 
 Live pages, no install, no clone. Ordered by how often you'll actually want them.
 

@@ -4,6 +4,43 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — The site has a front door again, and it opens links in new tabs (v2.10.0 → v2.10.1)
+
+**Two problems, one fix.**
+
+### The Pages homepage was a 404 — and v2.8.7 caused it
+
+Adding `.nojekyll` stopped Jekyll from silently dropping `_card.css`. It also
+stopped Jekyll rendering `README.md` into the site root, which is the only reason
+that root ever worked. So since v2.8.7 the homepage of the published site has
+been GitHub's **"Page not found"**. Every deep link kept working, which is
+exactly why nobody noticed.
+
+### And `target="_blank"` cannot work in a GitHub README
+
+Asked to make the README's links open in new tabs. It is not possible, and worth
+recording so nobody tries again. GitHub's HTML sanitiser strips it. Sent through
+their own markdown API:
+
+```html
+<!-- in  -->  <a href="https://example.com" target="_blank" rel="noopener">test</a>
+<!-- out -->  <a href="https://example.com" rel="nofollow">test</a>
+```
+
+`target` and `rel` are both removed and replaced with `rel="nofollow"`. No
+markdown or HTML syntax gets around it, on any README, for anyone.
+
+**So: `index.html`.** A real landing page at the site root, which fixes the 404
+and is a page we control — so every one of its **31 links opens in a new tab**,
+which is what was actually wanted. It carries the same index as the README
+(start here · checking a decision · tokens · components), is built from the
+system's own tokens and fonts rather than describing them, and every link was
+verified against a real file before shipping.
+
+**[neekchan.github.io/hoffman-agency-design-system](https://neekchan.github.io/hoffman-agency-design-system/)**
+
+Patch — a missing page restored and a platform limit documented.
+
 ## 2026-09-17 — A press vocabulary, an illustration library, and a rule that was stated too hard (v2.9.0 → v2.10.0)
 
 ### The emoji set had no press in it
