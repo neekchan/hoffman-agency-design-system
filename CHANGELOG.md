@@ -4,6 +4,58 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — Every third person was wearing the same cobalt blue jumper (v2.15.0 → v2.16.0)
+
+A photo library is supposed to look like a lot of different days. This one looked
+like one day, because **the same wardrobe line went into nearly every prompt**:
+
+```
+business casual in saturated colours — cobalt blue, warm orange, crisp white, soft pink
+```
+
+The model did exactly as told. Counting the 32 people-bearing photographs:
+
+- **Cobalt blue in roughly 20 of 32** — including three of the six studio portraits
+- **Almost every garment a crew-neck knit or a plain button shirt**
+- **Essentially no pattern** in the entire library beyond the tudung prints and one batik
+- **No texture range at all** — no denim, linen, corduroy, herringbone, tweed
+- **Almost no layering** — barely a blazer, cardigan, gilet or scarf anywhere
+- And everyone in a *hero* colour, when real offices are mostly neutral with one or
+  two accents — which is also what the brand's own reference photography shows
+
+### Sixteen reshot, five axes named
+
+The six studio portraits and all ten city shots — the two sets shown as full-page
+galleries, and the worst offenders. **Cobalt appears in none of them now.**
+
+The library now carries **check, stripe, houndstooth, glen check, gingham, batik,
+songket and buffalo check**; **linen, denim, corduroy, herringbone, cable knit,
+silk crepe and fleece**; and actual layering — camel coats, unstructured blazers,
+overshirts, knit vests, denim jackets, a trench over an arm.
+
+**Written into `PROMPTS.md` as a rule**, because the reshoot only fixes today:
+
+| Axis | Reach for |
+|---|---|
+| **Colour** | The whole palette *and* the muted range — sand, stone, cream, charcoal, olive, rust, burgundy, camel, sage, plum |
+| **Garment** | Blazer, cardigan, overshirt, gilet, denim jacket, rollneck, polo, tee, shirt-dress, tunic, waistcoat |
+| **Pattern** | Stripe, check, gingham, houndstooth, glen check, batik, songket, floral |
+| **Texture** | Linen, denim, corduroy, herringbone, cable knit, silk crepe, fleece, leather |
+| **Layering** | A jacket over a shirt, a vest over a knit, a coat carried over an arm |
+
+Two things in that rule matter more than the list:
+
+**Most people should not be in a hero colour.** Saturated brand colour is a
+*punctuation mark* in a photograph — one or two garments in a group shot, never all
+of them.
+
+**Put the repeats in the negative prompt.** Once a colour or a garment has turned up
+a few times, ban it by name: `no cobalt blue, no crew-neck knit sweater, no plain
+button shirt`. A model returns to the same safe choices unless it is told not to,
+and it will do that quietly, one prompt at a time, until the whole set matches.
+
+Minor — sixteen reshoots and the rule that stops it recurring.
+
 ## 2026-09-17 — The imagery pages became a library you can actually shop from (v2.14.1 → v2.15.0)
 
 The deck told people what good imagery looks like and then showed them four

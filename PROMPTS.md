@@ -151,6 +151,38 @@ Add `no suits` **only when business-casual genuinely suits the subject** — it 
 - *Black-and-white editorial portrait, CTO seated by a window, soft directional light, direct gaze, honest skin texture, no retouching gloss. 4:5.* (B&W is allowed for case-study portraits only.)
 - *Cinematic wide shot, engineering team reviewing work on a glass wall, dusk light through office windows, warm grade, candid, documentary, dark tones that hold white type. 16:9.* (For full-bleed heroes — ask for dark tones so the navy overlay + white type read.)
 
+### Wardrobe: vary it deliberately, or every shot looks like the same shot
+
+The fastest way to make a photo library look cheap is to write the same wardrobe
+line into every prompt. It happened here: **"business casual in saturated colours
+— cobalt blue, warm orange, crisp white, soft pink"** went into nearly every
+prompt, and the result was **cobalt blue in about 20 of 32 photographs**, almost
+every garment a crew-neck knit or a plain button shirt, and essentially no pattern
+in the entire set.
+
+**Vary along five axes, and name them explicitly in the prompt:**
+
+| Axis | Reach for |
+|---|---|
+| **Colour** | The whole brand palette *and* the muted range — sand, stone, cream, charcoal, olive, rust, burgundy, camel, sage, plum |
+| **Garment** | Blazer, cardigan, overshirt, gilet, denim jacket, rollneck, polo, tee, shirt-dress, tunic, waistcoat — not just knits and button shirts |
+| **Pattern** | Stripe, check, gingham, houndstooth, glen check, batik, songket, floral, buffalo check |
+| **Texture** | Linen, denim, corduroy, herringbone, cable knit, silk crepe, fleece, leather |
+| **Layering** | A jacket over a shirt, a vest over a knit, a coat carried over an arm, a scarf |
+
+**Most people should NOT be in a hero colour.** Real offices are largely neutral
+with one or two accents, and so is the brand's own reference photography. Saturated
+brand colour is a *punctuation mark* in a photograph — one or two garments in a
+group shot, not all of them.
+
+**Put the repeats in the negative prompt.** Once a colour or garment has appeared a
+few times, ban it by name: `no cobalt blue, no crew-neck knit sweater, no plain
+button shirt`. Models gravitate to the same safe choices unless told not to.
+
+**Cultural specificity counts as variety and is not optional** — batik as genuine
+Jakarta office wear, songket-inspired print in Kuala Lumpur, a patterned tudung.
+See the per-city notes below.
+
 ### The four official categories (VI deck, slides 25–28)
 
 The brand's own photography guide defines **four**, each with its own technical
