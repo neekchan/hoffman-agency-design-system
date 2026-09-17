@@ -30,3 +30,7 @@ editorial drama.
   borders, dense spacing, and native controls where possible.
 - The app kit is intentionally not a marketing page. Start with the working
   dashboard pattern in `index.html` when building operational tools.
+
+---
+
+<sub>The Hoffman Agency design system — created by **Nicolas Chan**, Head of Digital &amp; Chief Strategist, AMEA.<br>[neekchan@gmail.com](mailto:neekchan@gmail.com) · [nchan@hoffman.com](mailto:nchan@hoffman.com) · [linkedin.com/in/nicolaschan](https://www.linkedin.com/in/nicolaschan/)<br>This file originated in the fork by **Takeo Apitzsch** ([@takeoap](https://github.com/takeoap)).</sub>

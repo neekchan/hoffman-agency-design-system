@@ -526,3 +526,7 @@ The following areas are **acknowledged but not yet defined**. Placeholders are k
 ---
 
 When any of these get defined, move the item out of this list and into the appropriate canonical section (or a new top-level section if it's broad enough — e.g. `## Motion`, `## Accessibility`).
+
+---
+
+<sub>The Hoffman Agency design system — created by **Nicolas Chan**, Head of Digital &amp; Chief Strategist, AMEA.<br>[neekchan@gmail.com](mailto:neekchan@gmail.com) · [nchan@hoffman.com](mailto:nchan@hoffman.com) · [linkedin.com/in/nicolaschan](https://www.linkedin.com/in/nicolaschan/)</sub>

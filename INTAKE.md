@@ -41,3 +41,7 @@ Let the user correct it, then build. This twenty-second confirmation prevents al
 
 ## Non-negotiable, whatever the answers
 Intake sets the *brief*; the system sets the *build*. After intake you still: load `colors_and_type.css` + `_ds_bundle.js`, start from the medium's template, pick named layouts from `LAYOUTS.md`, and **never hand-author bespoke slide chrome.** If the adherence linter says the bundle isn't loaded, stop and fix it before continuing.
+
+---
+
+<sub>The Hoffman Agency design system — created by **Nicolas Chan**, Head of Digital &amp; Chief Strategist, AMEA.<br>[neekchan@gmail.com](mailto:neekchan@gmail.com) · [nchan@hoffman.com](mailto:nchan@hoffman.com) · [linkedin.com/in/nicolaschan](https://www.linkedin.com/in/nicolaschan/)</sub>

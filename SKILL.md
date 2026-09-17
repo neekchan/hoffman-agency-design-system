@@ -52,3 +52,7 @@ If the user invokes this skill without any other guidance, run the `INTAKE.md` q
 - `ui_kits/app/` — product/app UI kit (`index.html`, `AppUI.jsx`, `COMPONENTS.md`)
 
 > **🔒 `references/` is confidential** — the owner's private source material. **Never** export, bundle, download, publish, or copy it into any deliverable (downloads, zips, standalone/inline builds, PPTX/PDF, handoffs, public URLs). Read it for context only.
+
+---
+
+<sub>The Hoffman Agency design system — created by **Nicolas Chan**, Head of Digital &amp; Chief Strategist, AMEA.<br>[neekchan@gmail.com](mailto:neekchan@gmail.com) · [nchan@hoffman.com](mailto:nchan@hoffman.com) · [linkedin.com/in/nicolaschan](https://www.linkedin.com/in/nicolaschan/)</sub>

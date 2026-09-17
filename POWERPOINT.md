@@ -194,3 +194,7 @@ Run against the **finished file**, not the source used to make it. (These are al
 ## 11. Confidentiality
 
 `references/` is confidential source material. **Never include it** in any `.pptx`, `.potx`, zip, published URL, PDF or handoff. Read it for context only; exclude it from everything that leaves the project.
+
+---
+
+<sub>The Hoffman Agency design system — created by **Nicolas Chan**, Head of Digital &amp; Chief Strategist, AMEA.<br>[neekchan@gmail.com](mailto:neekchan@gmail.com) · [nchan@hoffman.com](mailto:nchan@hoffman.com) · [linkedin.com/in/nicolaschan](https://www.linkedin.com/in/nicolaschan/)</sub>

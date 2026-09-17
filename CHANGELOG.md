@@ -4,6 +4,39 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — Credits, and the brand book stops teaching a rule we reversed in July (v2.8.3 → v2.8.4)
+
+**The demo surfaces had drifted, and badly.** The brand book — the 58-slide thing
+you hand someone to explain this system — was still teaching *"static colour is
+the default form"* for emoji. We reversed that in v2.6.0. In July. So for two
+months the document explaining the system has been confidently contradicting it,
+to an audience with no way of knowing. The interactive tour had the same bug in
+its code, falling back to 2D colour where canon says 3D.
+
+- **Brand book, slide 39.** 3D is the default form, 2D colour the fallback, Flat
+  for functional icons and never for the storytelling beat. Plus the caveat that
+  only 24 of the 67 curated emoji genuinely animate — check the manifest before
+  you promise anyone motion.
+- **Brand book, slide 33.** Titles state the point (Soundcheck), added to the
+  type rules where it belongs.
+- **Interactive tour.** The emoji cast falls back to 3D now, not 2D colour.
+- **Both closing surfaces** carry a colophon.
+
+**Credits.** The system has an author and now says so: a small line at the foot
+of each document, the standard `author` field in `package.json`, and a header
+comment on the token file. Where a file came out of Takeo Apitzsch's fork, it
+says that too — his work, his name on it.
+
+**Known, and not fixed here.** The standalone `Hoffman Brand Tour.html` in this
+repo is a pre-v2.2.0 export. Its colours resolve to nothing, its fonts fall back
+to serif, and it logs a wall of bundle errors — the exact bug v2.2.0 fixed in the
+source template. The fix never reached the export, because the rebuilt file was
+too large for the sync API's 256 KB limit and nobody ever re-exported it by hand.
+The source template is correct and always was. **Re-export from Claude Design to
+fix the standalone** — a hand-patch cannot do it.
+
+Patch. Credits and corrections to demo surfaces; no rules changed, no new surface.
+
 ## 2026-09-17 — Got rid of the § symbol (v2.8.2 → v2.8.3)
 
 `§` is the section sign. It comes out of medieval manuscripts and it lives today
@@ -599,3 +632,7 @@ system down from Claude Design.
   pinned to specific commits, 10 logo colourways, the storyline marks, 76
   hand-drawn annotations, the deck, one-pager and social-tile templates, the
   58-slide brand guidelines deck, and the website UI kit.
+
+---
+
+<sub>The Hoffman Agency design system — created by **Nicolas Chan**, Head of Digital &amp; Chief Strategist, AMEA.<br>[neekchan@gmail.com](mailto:neekchan@gmail.com) · [nchan@hoffman.com](mailto:nchan@hoffman.com) · [linkedin.com/in/nicolaschan](https://www.linkedin.com/in/nicolaschan/)</sub>

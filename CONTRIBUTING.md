@@ -83,3 +83,7 @@ are the version's single source of truth, history, and shopfront respectively.
 `references/` is private source material. It may be absent from distributable
 clones. Never copy it into exports, zips, published URLs, PPTX/PDF handoffs, or
 standalone builds.
+
+---
+
+<sub>The Hoffman Agency design system — created by **Nicolas Chan**, Head of Digital &amp; Chief Strategist, AMEA.<br>[neekchan@gmail.com](mailto:neekchan@gmail.com) · [nchan@hoffman.com](mailto:nchan@hoffman.com) · [linkedin.com/in/nicolaschan](https://www.linkedin.com/in/nicolaschan/)<br>This file originated in the fork by **Takeo Apitzsch** ([@takeoap](https://github.com/takeoap)).</sub>

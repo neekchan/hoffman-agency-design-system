@@ -36,3 +36,7 @@ the five tone variants remain upstream if ever needed.
 An icon is something you look up because you need the one that means "database".
 An emoji is something you choose because a slide needs to feel like something.
 Breadth serves the first; restraint serves the second.
+
+---
+
+<sub>The Hoffman Agency design system — created by **Nicolas Chan**, Head of Digital &amp; Chief Strategist, AMEA.<br>[neekchan@gmail.com](mailto:neekchan@gmail.com) · [nchan@hoffman.com](mailto:nchan@hoffman.com) · [linkedin.com/in/nicolaschan](https://www.linkedin.com/in/nicolaschan/)</sub>

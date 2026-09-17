@@ -152,3 +152,7 @@ Always exclude: `no suits, no stock-photo posing, no motion blur, no lens flares
 - `DESIGN.md` — portable AI context file (google-labs-code/design.md format)
 - `CHECKLIST.md` — pre-ship visual consistency checklist
 - `assets/` — logo variants and Storyline squiggle SVGs
+
+---
+
+<sub>The Hoffman Agency design system — created by **Nicolas Chan**, Head of Digital &amp; Chief Strategist, AMEA.<br>[neekchan@gmail.com](mailto:neekchan@gmail.com) · [nchan@hoffman.com](mailto:nchan@hoffman.com) · [linkedin.com/in/nicolaschan](https://www.linkedin.com/in/nicolaschan/)</sub>

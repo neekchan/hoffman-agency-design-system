@@ -12,3 +12,7 @@ A near-fit recreation of what a Hoffman marketing site could look like, built fr
 - All type via Poppins + Baskerville italic `<em>`.
 - Icons: Lucide (CDN) — flag for client review.
 - Imagery: placeholder service `images.unsplash.com` — swap with real campaign photography.
+
+---
+
+<sub>The Hoffman Agency design system — created by **Nicolas Chan**, Head of Digital &amp; Chief Strategist, AMEA.<br>[neekchan@gmail.com](mailto:neekchan@gmail.com) · [nchan@hoffman.com](mailto:nchan@hoffman.com) · [linkedin.com/in/nicolaschan](https://www.linkedin.com/in/nicolaschan/)</sub>

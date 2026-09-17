@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.8.3** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — the § section sign is gone. It's a legal-citation mark, not a software one, and it made this system read like a tenancy agreement. All 146 references across 25 files now say "Section 10" and "Sections 1–12"; the numbers are unchanged and still point where they always did. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.8.4** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — the brand book and the interactive tour stop teaching the pre-v2.6.0 emoji rule (3D is the default form, not 2D colour), the type rules gain Soundcheck, and the system carries its author credit. ⚠ the standalone `Hoffman Brand Tour.html` is a stale pre-v2.2.0 export and needs re-exporting from Claude Design. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -494,3 +494,7 @@ Items are acknowledged but **not yet defined**. The deck, preview cards, and DES
 - [ ] **Code implementations** — Storybook-style component docs, React / Vue / plain HTML samples, npm-publishable token export.
 
 When any of these get defined, move the item out of this list and into the appropriate section of `DESIGN.md` / `README.md`.
+
+---
+
+<sub>The Hoffman Agency design system — created by **Nicolas Chan**, Head of Digital &amp; Chief Strategist, AMEA.<br>[neekchan@gmail.com](mailto:neekchan@gmail.com) · [nchan@hoffman.com](mailto:nchan@hoffman.com) · [linkedin.com/in/nicolaschan](https://www.linkedin.com/in/nicolaschan/)</sub>

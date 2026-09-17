@@ -50,3 +50,7 @@ A deck of roughly 35–55 slides depending on system depth, that I could hand to
 
 ---
 *Tip: if the target tool can't read files and only takes text (e.g. an image generator), don't send this — send a flattened text brand brief instead. This prompt is for a Claude design window that CAN read the design system's files.*
+
+---
+
+<sub>The Hoffman Agency design system — created by **Nicolas Chan**, Head of Digital &amp; Chief Strategist, AMEA.<br>[neekchan@gmail.com](mailto:neekchan@gmail.com) · [nchan@hoffman.com](mailto:nchan@hoffman.com) · [linkedin.com/in/nicolaschan](https://www.linkedin.com/in/nicolaschan/)</sub>

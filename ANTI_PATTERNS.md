@@ -37,3 +37,7 @@ Use this as a quick failure-mode check before shipping an LLM-generated design.
 | A tap affordance that shouts | A labelled pill on all 20 cards, a pulsing dot, or a coloured offset block — noise, and it breaks the no-coloured-shadow and no-loop rules. | Quiet glyph at rest, motion on hover, one mark per card (`AGENTS.md Section 15`). |
 | A ghost chip on a saturated surface | A transparent chip with a faded navy outline disappears on lime or aqua. | Use the solid fills — `.tha-chip--navy` / `--teal` / `--purple` on light grounds, `--white` on dark. |
 | Building against a stale checkout | A clone is a snapshot; three minor versions behind, it teaches last quarter's rules with no warning. | `git fetch && git status -sb` before authoring. Fast-forward if behind. |
+
+---
+
+<sub>The Hoffman Agency design system — created by **Nicolas Chan**, Head of Digital &amp; Chief Strategist, AMEA.<br>[neekchan@gmail.com](mailto:neekchan@gmail.com) · [nchan@hoffman.com](mailto:nchan@hoffman.com) · [linkedin.com/in/nicolaschan](https://www.linkedin.com/in/nicolaschan/)<br>This file originated in the fork by **Takeo Apitzsch** ([@takeoap](https://github.com/takeoap)).</sub>

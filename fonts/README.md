@@ -112,3 +112,7 @@ Both families are licensed under the **SIL Open Font License 1.1** — free for 
 
 - Poppins: © Indian Type Foundry, Jonny Pinhorn, Ninad Kale ([OFL](https://github.com/itfoundry/Poppins/blob/master/OFL.txt))
 - Libre Baskerville: © Pablo Impallari, Rodrigo Fuenzalida ([OFL](https://github.com/impallari/Libre-Baskerville/blob/master/OFL.txt))
+
+---
+
+<sub>The Hoffman Agency design system — created by **Nicolas Chan**, Head of Digital &amp; Chief Strategist, AMEA.<br>[neekchan@gmail.com](mailto:neekchan@gmail.com) · [nchan@hoffman.com](mailto:nchan@hoffman.com) · [linkedin.com/in/nicolaschan](https://www.linkedin.com/in/nicolaschan/)</sub>

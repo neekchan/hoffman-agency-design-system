@@ -50,3 +50,7 @@ The documented default when the user hasn't supplied their own samples.
 
 ## Consistency
 Whatever the source — the user's samples or the house style — keep **one** image style across a single artifact. A photo-real image beside a flat illustration beside a 3D render reads as three design languages. One look per piece.
+
+---
+
+<sub>The Hoffman Agency design system — created by **Nicolas Chan**, Head of Digital &amp; Chief Strategist, AMEA.<br>[neekchan@gmail.com](mailto:neekchan@gmail.com) · [nchan@hoffman.com](mailto:nchan@hoffman.com) · [linkedin.com/in/nicolaschan](https://www.linkedin.com/in/nicolaschan/)</sub>

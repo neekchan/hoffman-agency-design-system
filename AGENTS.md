@@ -223,3 +223,7 @@ The system specified colour, type, layout, imagery and emoji in depth and said a
 
 ---
 **Status:** the slide-design SOPs in this file are established across all **48 layouts** in `templates/deck/Deck.dc.html` (codes L01–L51, catalogued in `LAYOUTS.md`). As the user uploads further layouts, copy them against these SOPs and keep `LAYOUTS.md` + the deck count (README, SKILL.md) in sync.
+
+---
+
+<sub>The Hoffman Agency design system — created by **Nicolas Chan**, Head of Digital &amp; Chief Strategist, AMEA.<br>[neekchan@gmail.com](mailto:neekchan@gmail.com) · [nchan@hoffman.com](mailto:nchan@hoffman.com) · [linkedin.com/in/nicolaschan](https://www.linkedin.com/in/nicolaschan/)</sub>

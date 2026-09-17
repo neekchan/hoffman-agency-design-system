@@ -674,7 +674,7 @@
   <div style="position:relative; flex:1; display:flex; flex-direction:column; justify-content:center; gap:36px; max-width:1400px;">
     <h1 data-ent="2" style="margin:0; font:800 224px/0.92 var(--font-sans); letter-spacing:-.035em; color:var(--tha-paper);">Onward<span onClick="{{ act }}" data-close="1" style="{{ periodSt }}">.</span></h1>
     <div style="{{ closeSt }}">
-      <p style="margin:0 0 26px; font:400 40px/1.4 var(--font-sans); color:var(--tha-navy-200); max-width:26ch;">Twenty screens. Every rule pressed, dragged, or broken at least once. Now go make something.</p>
+      <p style="margin:0 0 26px; font:400 40px/1.4 var(--font-sans); color:var(--tha-navy-200); max-width:26ch;">Twenty screens. Every rule pressed, dragged, or broken at least once. Now go make something.<br><span style="opacity:.55; font-size:.8em;">Design system created by Nicolas Chan · neekchan@gmail.com · nchan@hoffman.com · linkedin.com/in/nicolaschan</span></p>
       <div style="display:flex; align-items:center; gap:28px; flex-wrap:wrap;">
         <a href="mailto:hello@hoffman.com" style="font:600 26px/1 var(--font-sans); padding:24px 38px; border:0; background:var(--tha-lime); color:var(--tha-navy); text-decoration:none; display:inline-flex;">Tell us your story</a>
         <button onClick="{{ go0 }}" style="font:600 26px/1 var(--font-sans); padding:24px 38px; background:transparent; color:var(--tha-paper); border:2px solid var(--tha-navy-400); cursor:pointer;">Run it again</button>
@@ -1220,7 +1220,7 @@ class Component extends DCLogic {
     // 13 Emoji
     out.hero = s.hero;
     out.heroLabel = s.hero.replace(/-/g, ' ');
-    out.heroVariant = motion ? 'animated' : 'color';
+    out.heroVariant = motion ? 'animated' : '3d';  // 3D is the default form (v2.6.0); 2D colour is the fallback
     out.emojiCells = this.EMOJI.map((n) => ({
       n, label: n.replace(/-/g, ' '),
       st: { display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '10px', background: s.hero === n ? 'rgba(210,235,0,.14)' : 'rgba(255,255,255,.05)', border: s.hero === n ? '2px solid #D2EB00' : '1px solid rgba(255,255,255,.12)', cursor: 'pointer', padding: '12px 4px', minHeight: 0, transition: 'all .2s' },

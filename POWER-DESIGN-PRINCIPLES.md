@@ -191,3 +191,7 @@ Copy this block and fill it in. Keep the rule *checkable* — a threshold, a rat
 ---
 
 *This file is the portable principles layer. Pair it with any brand's tokens; the rules hold regardless of palette. In the Hoffman system it is the reference layer — try to honor it; where it collides with a house SOP, the precedence block near the top decides.*
+
+---
+
+<sub>The Hoffman Agency design system — created by **Nicolas Chan**, Head of Digital &amp; Chief Strategist, AMEA.<br>[neekchan@gmail.com](mailto:neekchan@gmail.com) · [nchan@hoffman.com](mailto:nchan@hoffman.com) · [linkedin.com/in/nicolaschan](https://www.linkedin.com/in/nicolaschan/)</sub>

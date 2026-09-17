@@ -149,3 +149,7 @@ Safe zone on social tiles: keep critical content **≥ 80px from all four edges*
 ---
 
 When in doubt, **simplify**. The system works because it is restrained.
+
+---
+
+<sub>The Hoffman Agency design system — created by **Nicolas Chan**, Head of Digital &amp; Chief Strategist, AMEA.<br>[neekchan@gmail.com](mailto:neekchan@gmail.com) · [nchan@hoffman.com](mailto:nchan@hoffman.com) · [linkedin.com/in/nicolaschan](https://www.linkedin.com/in/nicolaschan/)</sub>

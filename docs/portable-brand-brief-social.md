@@ -83,3 +83,7 @@ NO gradients. NO drop shadows or glows. NO rounded cards. NO frosted glass. NO 3
 A) Statement tile: Full-bleed Deep Navy #182D43. Eyebrow top-left: small lime dot + "POINT OF VIEW" in white Poppins Bold, uppercase, wide tracking. Center-left hero: "Trust matters more than *attention*." — Poppins ExtraBold white ~200px, the word "attention" in Libre Baskerville italic in Lime #D2EB00, with a hand-drawn lime underline beneath it. Bottom-right: tile number "03" in mono, cyan. Big margins, square corners, flat color.
 B) Stat tile: Full-bleed Cyan #86FFF1. Giant navy number "2.3×" in Poppins ExtraBold ~400px, top-left. Below: "tier-1 pickup, same budget" in navy, with "same budget" circled in a loose hand-drawn Teal #145F7B ellipse. No logo.
 C) Cover tile: Full-bleed Purple #6103B9. The lime Storyline squiggle as a background layer flush to top/right/bottom edges. Headline "hellllllo, *Techfluence*." in white Poppins ExtraBold, "Techfluence" in Baskerville italic in Cyan #86FFF1. Small white Hoffman wordmark bottom-left.
+
+---
+
+<sub>The Hoffman Agency design system — created by **Nicolas Chan**, Head of Digital &amp; Chief Strategist, AMEA.<br>[neekchan@gmail.com](mailto:neekchan@gmail.com) · [nchan@hoffman.com](mailto:nchan@hoffman.com) · [linkedin.com/in/nicolaschan](https://www.linkedin.com/in/nicolaschan/)</sub>
