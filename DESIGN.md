@@ -2,8 +2,8 @@
 version: alpha
 name: The Hoffman Agency
 description: >
-  Integrated communications agency for tech, built on the idea that counsel
-  without conviction is just consulting. We help leaders and brands turn
+  Integrated Comms agency that helps tech brands solve hard business problems. The harder the better.
+  Built on the idea that counsel without conviction is just consulting. We help leaders and brands turn
   opinion into Techfluence — the influence that moves markets, not just
   products. Bold Poppins headlines with the emphasis — the key word or
   phrase — set in Libre Baskerville italic. Navy + lime as structural pair, with four secondary moods
@@ -324,7 +324,7 @@ components:
 
 ## Overview
 
-The Hoffman Agency is an integrated communications agency for tech — founded on a simple idea: counsel without conviction is just consulting. We help leaders and brands turn opinion into **Techfluence** — the kind of influence that moves markets, not just products.
+The Hoffman Agency is an integrated Comms agency that helps tech brands solve hard business problems. The harder the better. Founded on a simple idea: counsel without conviction is just consulting. We help leaders and brands turn opinion into **Techfluence** — the kind of influence that moves markets, not just products.
 
 The brand reads as **Smart · Human · Energetic · Distilled · Bold · Creative · Authentic**. Our typography is bold Poppins headlines with the emphasis italicized in Libre Baskerville — usually one word, sometimes a short phrase, always the part that carries the line. The contrast does the work. Our color is navy and lime doing the structural work, with four secondary moods (lavender, purple, cyan, teal) used one at a time. Our signature mark is the Storyline squiggle — a hand-drawn waveform that's a story arc, not a chart. We mark up our slides the way an editor marks up a draft: underlines, circles, ticks, crosses, accents, and highlights, all chosen by *contrast* to whatever they sit on.
 

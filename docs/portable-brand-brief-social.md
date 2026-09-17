@@ -2,7 +2,7 @@
 *(Paste this whole document into Lovart. It is self-contained — no external files needed. Optimized for social media: LinkedIn carousels, IG squares, IG stories. For these formats, default to bold COLOR surfaces and visual storytelling — the paper/white editorial look is deprioritized.)*
 
 ## 1 · Who we are
-The Hoffman Agency is an integrated communications agency for tech brands. The brand is smart, human, energetic, distilled, bold, creative, authentic. It looks like a sharp editor's desk: huge confident type, flat color blocks, hand-drawn marker annotations, square corners, lots of air. It never looks like generic tech marketing: no gradients, no glows, no 3D, no stock-photo gloss.
+The Hoffman Agency is an integrated comms agency that helps tech brands solve hard business problems. The harder the better. The brand is smart, human, energetic, distilled, bold, creative, authentic. It looks like a sharp editor's desk: huge confident type, flat color blocks, hand-drawn marker annotations, square corners, lots of air. It never looks like generic tech marketing: no gradients, no glows, no 3D, no stock-photo gloss.
 
 ## 2 · The ten non-negotiables
 1. One tile = one idea. A single hero statement, set huge. Everything else shrinks hard.

@@ -4,9 +4,9 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.18.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — **the tour's dock got icons, and the stretched hello got its colour back.** Each section swatch now carries a Fluent Flat icon; the photograph swatch is a solid colour again; screen 04's hello runs the brand colour ring per letter, like the cover.
+**Version 2.18.2** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — **an invented agency tagline is gone from every live file, and the README hero is rebuilt.** The positioning is now the real one: an integrated comms agency that helps tech brands solve hard business problems — the harder the better. New hero above, built from the system's own assets with outlined type.
 
-An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
+Integrated Comms agency that helps tech brands solve hard business problems. The harder the better. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
 The brand voice is **smart, human and energetic** — professional without feeling stiff, bold without becoming noisy.
 
