@@ -19,6 +19,10 @@
   deck-stage:not(:defined) { visibility:hidden; }
   /* Slide chrome + base type — the only non-inline rules (they repeat per slide). */
   .slide { position:relative; width:100%; height:100%; box-sizing:border-box; padding:72px 72px; display:flex; flex-direction:column; overflow:hidden; font-family:var(--font-sans); }
+  /* Headings balance their own line breaks — a wrap lands evenly instead of orphaning one
+     word. The max-width caps below are a reading MEASURE, not a line-break control: if a
+     title wraps while the right of the slide is empty, raise the cap (AGENTS.md Section 2.5). */
+  h1, h2, h3 { text-wrap: balance; }
   .eyebrow { font:700 22px/1 var(--font-sans); letter-spacing:.14em; text-transform:uppercase; color:var(--tha-navy-500); display:inline-flex; align-items:center; gap:14px; }
   .eyebrow.on-dark { color:var(--tha-navy-200); }
   .eyebrow .dot { width:14px; height:14px; background:var(--accent, var(--tha-lime)); border-radius:50%; flex:none; }
@@ -248,7 +252,7 @@
     <div class="lay-note"><b>L01 · Cover</b><span><i>Use:</i> open the deck</span><span><i>Point:</i> one idea, huge. No bullets.</span></div>
     <span class="eyebrow on-dark" style="position:relative;"><span class="dot"></span>Client &middot; engagement &middot; {{ flipDate }}</span>
     <div class="stretch" style="position:relative; display:flex; flex-direction:column; justify-content:center;">
-      <h1 style="font:800 176px/0.98 var(--font-sans); letter-spacing:-.03em; color:var(--tha-paper); margin:0; max-width:16ch;">Complexity out.<br><em class="em" data-balloon="1" style="color:var(--tha-lime); display:inline-block; transform-origin:50% 55%; will-change:transform;">Clarity</em> in.</h1>
+      <h1 style="font:800 176px/0.98 var(--font-sans); letter-spacing:-.03em; color:var(--tha-paper); margin:0; max-width:20ch;">Complexity out.<br><em class="em" data-balloon="1" style="color:var(--tha-lime); display:inline-block; transform-origin:50% 55%; will-change:transform;">Clarity</em> in.</h1>
       <p data-mode-only="doc" style="font:400 32px/1.45 var(--font-sans); color:var(--tha-navy-200); margin:36px 0 0; max-width:34em;">A short, confident subtitle that frames the single idea of this deck.</p>
       <div data-balloon-hint style="margin-top:30px; display:inline-flex; align-items:center; gap:14px; font:600 17px/1 var(--font-mono); letter-spacing:.14em; text-transform:uppercase; color:var(--tha-navy-300); transition:opacity .5s;">Hold <span style="display:inline-flex; align-items:center; justify-content:center; min-width:80px; height:36px; padding:0 14px; border:1.5px solid var(--tha-navy-500); border-radius:9px; color:var(--tha-navy-200); font-size:15px; box-shadow:0 2px 0 var(--tha-navy-500);">Space</span> to inflate</div>
     </div>
@@ -263,7 +267,7 @@
     <span style="align-self:flex-start; font:700 20px/1 var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--tha-navy-200); border:1.5px solid var(--tha-navy-500); border-radius:999px; padding:11px 20px;">Client &middot; Engagement &middot; 2026</span>
     <fluent-emoji name="sparkles" variant="animated" size="150" style="position:absolute; top:120px; right:120px;"></fluent-emoji>
     <div class="stretch" style="display:flex; flex-direction:column; justify-content:flex-end; padding-bottom:8px;">
-      <h1 style="font:800 168px/0.98 var(--font-sans); letter-spacing:-.03em; color:var(--tha-paper); margin:0; max-width:15ch;">Make the complex <em class="em" style="color:var(--tha-lime); display:inline-block;">unmissable.</em></h1>
+      <h1 style="font:800 168px/0.98 var(--font-sans); letter-spacing:-.03em; color:var(--tha-paper); margin:0; max-width:20ch;">Make the complex <em class="em" style="color:var(--tha-lime); display:inline-block;">unmissable.</em></h1>
       <p style="font:400 32px/1.45 var(--font-sans); color:var(--tha-navy-200); margin:34px 0 0; max-width:36ch;">A confident one-line subtitle that frames the single idea of this deck.</p>
     </div>
     <img src="../../assets/logo-horizontal-white-lime.svg" class="chrome-logo" alt="The Hoffman Agency" style="left:160px;"/>
@@ -276,7 +280,7 @@
     <fluent-emoji name="compass" variant="animated" size="200" style="position:absolute; top:84px; right:96px; z-index:2;"></fluent-emoji>
     <div class="stretch" style="position:relative; z-index:1; display:flex; flex-direction:column; justify-content:center;">
       <span class="amb-breathe" style="font:500 24px/1 var(--font-mono); color:var(--tha-navy); margin-bottom:32px; transform-origin:left center; display:inline-block; align-self:flex-start;">PART 01</span>
-      <h2 style="font:800 130px/0.98 var(--font-sans); letter-spacing:-.03em; color:var(--tha-navy); margin:0; max-width:14ch;">The <em class="em" style="color:var(--tha-purple);">situation.</em></h2>
+      <h2 style="font:800 130px/0.98 var(--font-sans); letter-spacing:-.03em; color:var(--tha-navy); margin:0; max-width:20ch;">The <em class="em" style="color:var(--tha-purple);">situation.</em></h2>
     </div>
     <div class="chrome-page" style="color:var(--tha-navy);">03</div>
   </section>
@@ -288,7 +292,7 @@
     <fluent-emoji name="rocket" variant="animated" size="168" style="position:absolute; top:96px; right:120px; z-index:2;"></fluent-emoji>
     <div class="stretch" style="position:relative; z-index:1; display:flex; flex-direction:column; justify-content:center;">
       <span class="amb-breathe" style="font:500 28px/1 var(--font-mono); color:var(--tha-lime); margin-bottom:30px; transform-origin:left center; display:inline-block; align-self:flex-start;">PART 01</span>
-      <h2 style="font:800 130px/0.98 var(--font-sans); letter-spacing:-.03em; color:var(--tha-paper); margin:0; max-width:14ch;">The <em class="em" style="color:var(--tha-lime);">opportunity.</em></h2>
+      <h2 style="font:800 130px/0.98 var(--font-sans); letter-spacing:-.03em; color:var(--tha-paper); margin:0; max-width:20ch;">The <em class="em" style="color:var(--tha-lime);">opportunity.</em></h2>
     </div>
     <div class="chrome-page" style="color:var(--tha-navy-200);">04</div>
   </section>
@@ -314,7 +318,7 @@
     <div class="lay-note"><b>L08 · Statement</b><span><i>Use:</i> land one POV</span><span><i>Point:</i> one claim + ≤14-word subtitle + image.</span></div>
     <div style="flex:1 1 56%; padding:96px 72px 96px 72px; display:flex; flex-direction:column; justify-content:center;">
       <span class="eyebrow"><span class="dot"></span>Point of view</span>
-      <h2 style="font:700 100px/1.04 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy); margin:30px 0 0; max-width:13ch;">Trust matters more than <em class="em" style="color:var(--tha-purple);">attention.</em></h2>
+      <h2 style="font:700 100px/1.04 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy); margin:30px 0 0; max-width:20ch;">Trust matters more than <em class="em" style="color:var(--tha-purple);">attention.</em></h2>
       <p data-mode-only="doc" style="font:400 32px/1.45 var(--font-sans); color:var(--tha-navy-500); margin:36px 0 0; max-width:22ch;">Anyone can be loud. We make you worth listening to.</p>
     </div>
     <div style="flex:1 1 44%; position:relative;">
@@ -332,7 +336,7 @@
     <div class="lay-note"><b>L09 · Big-idea split</b><span><i>Use:</i> a campaign idea + a feeling</span><span><i>Point:</i> a 'what if' headline; role box = 1 line.</span></div>
     <div style="flex:1 1 52%; padding:96px 64px 96px 72px; display:flex; flex-direction:column; justify-content:center;">
       <span class="eyebrow" style="color:var(--tha-purple);"><span class="dot" style="background:var(--tha-purple);"></span>Builders</span>
-      <h2 style="font:700 78px/1.04 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy); margin:26px 0 0; max-width:15ch;">What if the category’s hardest idea became the one people <em class="em" style="color:var(--tha-purple);">repeat</em>?</h2>
+      <h2 style="font:700 78px/1.04 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy); margin:26px 0 0; max-width:20ch;">What if the category’s hardest idea became the one people <em class="em" style="color:var(--tha-purple);">repeat</em>?</h2>
       <p style="font:400 24px/1.5 var(--font-sans); color:var(--tha-navy-500); margin:28px 0 0; max-width:34em;">The category talks in specs and acronyms, so the audience tunes out — and the better story sits unspoken, quietly losing value.</p>
       <div style="margin-top:32px; background:var(--tha-lime); padding:20px 24px; max-width:38em;">
         <span style="font:700 20px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-navy); text-transform:uppercase;">Our role</span>
@@ -357,7 +361,7 @@
     </div>
     <div style="flex:1 1 50%; padding:96px 72px; display:flex; flex-direction:column; justify-content:center;">
       <span class="eyebrow on-dark"><span class="dot"></span>The approach</span>
-      <h2 style="font:700 72px/1.04 var(--font-sans); letter-spacing:-.025em; color:var(--tha-paper); margin:22px 0 0; max-width:13ch;">From complex to <em class="em" style="color:var(--tha-lime);">compelling.</em></h2>
+      <h2 style="font:700 72px/1.04 var(--font-sans); letter-spacing:-.025em; color:var(--tha-paper); margin:22px 0 0; max-width:20ch;">From complex to <em class="em" style="color:var(--tha-lime);">compelling.</em></h2>
       <p style="font:400 32px/1.5 var(--font-sans); color:var(--tha-navy-200); margin:26px 0 0; max-width:34ch;">We make sense of complexity — turning the technical and the nuanced into stories that earn attention.</p>
     </div>
     <div class="chrome-page" style="color:var(--tha-navy-200);">08</div>
@@ -377,7 +381,7 @@
     <div style="position:absolute; left:72px; top:80px; right:72px; bottom:80px; display:flex; flex-direction:column; pointer-events:none;">
       <span class="eyebrow on-dark"><span class="dot"></span>The approach</span>
       <div class="stretch" style="display:flex; flex-direction:column; justify-content:center;">
-        <p style="font:700 110px/1.02 var(--font-sans); letter-spacing:-.03em; color:var(--tha-paper); margin:0; max-width:13ch;">Put the story <em class="em" style="color:var(--tha-lime);">in</em> the room.</p>
+        <p style="font:700 110px/1.02 var(--font-sans); letter-spacing:-.03em; color:var(--tha-paper); margin:0; max-width:20ch;">Put the story <em class="em" style="color:var(--tha-lime);">in</em> the room.</p>
       </div>
     </div>
     <div class="chrome-page" style="z-index:2; color:var(--tha-navy-200);">09</div>
@@ -483,7 +487,7 @@
         <div class="tex-card tex-a" style="height:240px;">
           <div class="tex-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.5-6.2"/><path d="M21 3v6h-6"/><path d="M12 8v4l3 2"/></svg></div>
         </div>
-        <div style="font:700 34px/1.16 var(--font-sans); color:var(--tha-navy); margin-top:26px; max-width:18ch;">Capability drives advocacy</div>
+        <div style="font:700 34px/1.16 var(--font-sans); color:var(--tha-navy); margin-top:26px; max-width:20ch;">Capability drives advocacy</div>
         <ul class="mkt-list">
           <li><span><b>In Market A,</b> practitioners who’ve tried rivals still credit it for reliability under load.</span></li>
           <li><span><b>In Market B,</b> the analyst community recommends it as the safe, proven choice.</span></li>
@@ -495,7 +499,7 @@
         <div class="tex-card tex-b" style="height:240px;">
           <div class="tex-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a7.5 7.5 0 0 1-10.7 6.8L4 19.5l1.2-4.1A7.5 7.5 0 1 1 20 11.5Z"/><path d="M9 10.5h.01M12.5 10.5h.01M16 10.5h.01"/></svg></div>
         </div>
-        <div style="font:700 34px/1.16 var(--font-sans); color:var(--tha-navy); margin-top:26px; max-width:18ch;">Price &amp; trust shape caution</div>
+        <div style="font:700 34px/1.16 var(--font-sans); color:var(--tha-navy); margin-top:26px; max-width:20ch;">Price &amp; trust shape caution</div>
         <ul class="mkt-list">
           <li><span><b>In Market A,</b> community threads show some buyers default to incumbents on price.</span></li>
           <li><span><b>In Market B,</b> audiences have flagged copycats trading on the brand’s name.</span></li>
@@ -507,7 +511,7 @@
         <div class="tex-card tex-c" style="height:240px;">
           <div class="tex-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
         </div>
-        <div style="font:700 34px/1.16 var(--font-sans); color:var(--tha-navy); margin-top:26px; max-width:18ch;">Utility-led coverage, limited pull</div>
+        <div style="font:700 34px/1.16 var(--font-sans); color:var(--tha-navy); margin-top:26px; max-width:20ch;">Utility-led coverage, limited pull</div>
         <ul class="mkt-list">
           <li><span><b>In Market A,</b> organic coverage is thin, with most mentions tied to partnership news.</span></li>
           <li><span><b>In Market B,</b> the brand’s own research was picked up by trade media, alongside sporadic product news.</span></li>
@@ -698,7 +702,7 @@
     <div class="lay-note"><b>L17 · Idea detail</b><span><i>Use:</i> unpack one idea</span><span><i>Point:</i> name + one mechanic. Lists ≤3.</span></div>
     <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
       <span class="eyebrow" style="color:var(--tha-purple);"><span class="dot" style="background:var(--tha-purple);"></span>Builders &middot; Hero idea</span>
-      <h2 style="font:700 60px/1.04 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy); margin:20px 0 0; max-width:16ch;">The Build <em class="em" style="color:var(--tha-purple);">Story.</em></h2>
+      <h2 style="font:700 60px/1.04 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy); margin:20px 0 0; max-width:20ch;">The Build <em class="em" style="color:var(--tha-purple);">Story.</em></h2>
       <p style="font:400 30px/1.55 var(--font-sans); color:var(--tha-navy-500); margin:24px 0 0; max-width:42ch;">Take the unsexy work behind the product and turn it into a story the market actually wants to read.</p>
       <div style="margin-top:28px;">
         <div style="font:700 20px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-navy); text-transform:uppercase;">Content &amp; engagements</div>
@@ -723,14 +727,14 @@
     <div class="stretch" style="margin-top:34px; display:grid; grid-template-columns:1fr 1fr; gap:36px; min-height:0;">
       <div style="background:rgba(255,255,255,.08); border-radius:20px; padding:40px 44px; display:flex; flex-direction:column;">
         <div style="display:flex; align-items:center; gap:14px;"><div style="font:700 22px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-aqua); text-transform:uppercase;">Story 01</div><fluent-emoji name="cross-mark" size="44" style="margin-left:auto;"></fluent-emoji></div>
-        <h3 style="font:700 44px/1.08 var(--font-sans); letter-spacing:-.01em; color:var(--tha-paper); margin:18px 0 0; max-width:16ch;">When the old way breaks down</h3>
+        <h3 style="font:700 44px/1.08 var(--font-sans); letter-spacing:-.01em; color:var(--tha-paper); margin:18px 0 0; max-width:20ch;">When the old way breaks down</h3>
         <p style="font:400 24px/1.5 var(--font-sans); color:#EBDDFB; margin:22px 0 0;">As the old approach stops keeping up, teams quietly lose time, budget and momentum to workarounds no one signed off on.</p>
         <p style="font:400 24px/1.5 var(--font-sans); color:#EBDDFB; margin:16px 0 0;">The angle: a timely, data-led take on what the smartest teams do differently when the old way breaks.</p>
         <div style="margin-top:auto; padding-top:26px; border-top:1px solid rgba(255,255,255,.2);"><div style="font:700 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-aqua); text-transform:uppercase;">Targets</div><div style="font:500 24px/1.4 var(--font-sans); color:var(--tha-paper); margin-top:10px;">(Market A) National daily &middot; (Market B) National daily</div></div>
       </div>
       <div style="background:rgba(255,255,255,.08); border-radius:20px; padding:40px 44px; display:flex; flex-direction:column;">
         <div style="display:flex; align-items:center; gap:14px;"><div style="font:700 22px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-aqua); text-transform:uppercase;">Story 02</div><fluent-emoji name="money-with-wings" size="44" style="margin-left:auto;"></fluent-emoji></div>
-        <h3 style="font:700 44px/1.08 var(--font-sans); letter-spacing:-.01em; color:var(--tha-paper); margin:18px 0 0; max-width:16ch;">What good looks like now</h3>
+        <h3 style="font:700 44px/1.08 var(--font-sans); letter-spacing:-.01em; color:var(--tha-paper); margin:18px 0 0; max-width:20ch;">What good looks like now</h3>
         <p style="font:400 24px/1.5 var(--font-sans); color:#EBDDFB; margin:22px 0 0;">Buyers now time decisions around the trend — watching the market and deciding when to commit. Timing has become part of the strategy.</p>
         <p style="font:400 24px/1.5 var(--font-sans); color:#EBDDFB; margin:16px 0 0;">The angle: how a savvier generation of buyers gets more from every budget by choosing when and how to invest.</p>
         <div style="margin-top:auto; padding-top:26px; border-top:1px solid rgba(255,255,255,.2);"><div style="font:700 20px/1 var(--font-mono); letter-spacing:.06em; color:var(--tha-aqua); text-transform:uppercase;">Targets</div><div style="font:500 24px/1.4 var(--font-sans); color:var(--tha-paper); margin-top:10px;">(Market B) Business daily &middot; (Market A) Business weekly</div></div>
@@ -745,7 +749,7 @@
     <!-- left rail -->
     <div style="flex:0 0 28%; display:flex; flex-direction:column; min-height:0;">
       <span style="font:700 30px/1 var(--font-sans); letter-spacing:.06em; color:var(--tha-navy);">OPERATORS</span>
-      <h2 style="font:800 62px/1.0 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy); margin:24px 0 0; max-width:9ch;">Ongoing story engagement</h2>
+      <h2 style="font:800 62px/1.0 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy); margin:24px 0 0; max-width:20ch;">Ongoing story engagement</h2>
       <div class="tha-placeholder tha-placeholder--4x3" data-slot="deck-l39-art" style="margin-top:auto; width:100%; background:rgba(24,45,67,.06); border-color:var(--tha-navy-400);">
         <div class="tha-placeholder__label">Story illustration &middot; 4:3 &middot; generate 1440&times;1080px</div>
         <div class="tha-placeholder__hint">A candid moment that anchors this audience's story — a real person at work. Warm, natural, business-casual.</div>
@@ -777,7 +781,7 @@
     <div class="lay-note"><b>L40 · Story idea + image</b><span><i>Use:</i> one hero idea + role + image</span><span><i>Point:</i> angle + 1-line role; image names it.</span></div>
     <div style="flex:1 1 52%; padding:72px 56px 72px 80px; display:flex; flex-direction:column; justify-content:center;">
       <span style="font:700 26px/1 var(--font-sans); letter-spacing:.06em; color:var(--tha-purple);">OPERATORS</span>
-      <h2 style="font:800 70px/1.02 var(--font-sans); letter-spacing:-.03em; color:var(--tha-navy); margin:22px 0 0; max-width:15ch;">For a new generation of teams, the old playbook is a <em class="em" style="color:var(--tha-purple);">bug</em>, not a feature.</h2>
+      <h2 style="font:800 70px/1.02 var(--font-sans); letter-spacing:-.03em; color:var(--tha-navy); margin:22px 0 0; max-width:20ch;">For a new generation of teams, the old playbook is a <em class="em" style="color:var(--tha-purple);">bug</em>, not a feature.</h2>
       <p style="font:400 24px/1.5 var(--font-sans); color:var(--tha-navy-600); margin:28px 0 0; max-width:42ch;">A new generation of teams is rising — faster, leaner, more ambitious — but the category still treats them like occasional users, not the engine of where it’s heading.</p>
       <div style="margin-top:34px; background:var(--tha-navy); border-radius:18px; padding:24px 30px; max-width:46ch;">
         <span style="font:700 20px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-lime); text-transform:uppercase;">Our role</span>
@@ -799,7 +803,7 @@
   <section class="slide" data-label="L21 Journey" data-screen-label="L21 Process / journey" style="background:var(--tha-lime); padding:80px 96px;">
     <div class="lay-note"><b>L21 · Process / journey</b><span><i>Use:</i> a methodology / journey</span><span><i>Point:</i> name each stage. The diagram is the point.</span></div>
     <span style="font:700 20px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-navy); text-transform:uppercase;">Our planning approach</span>
-    <h2 style="font:700 52px/1.06 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy); margin:16px 0 0; max-width:18ch;">Mapped to the <em class="em" style="color:var(--tha-purple);">customer</em> journey.</h2>
+    <h2 style="font:700 52px/1.06 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy); margin:16px 0 0; max-width:20ch;">Mapped to the <em class="em" style="color:var(--tha-purple);">customer</em> journey.</h2>
     <div class="stretch" style="display:flex; align-items:center;">
       <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:0; width:100%; border:1.5px solid var(--tha-navy);">
         <div style="padding:28px 20px; border-right:1.5px solid var(--tha-navy);"><div style="font:700 22px/1.1 var(--font-sans); color:var(--tha-navy);">Awareness</div><div style="font:400 italic 24px/1.3 var(--font-serif); color:var(--tha-purple); margin-top:10px;">&ldquo;I know&rdquo;</div></div>
@@ -1055,7 +1059,7 @@
     </div>
     <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
       <span class="eyebrow on-dark" style="color:var(--tha-lime);"><span class="dot"></span>Our footprint</span>
-      <h2 style="font:700 46px/1.08 var(--font-sans); letter-spacing:-.02em; color:var(--tha-paper); margin:18px 0 0; max-width:16ch;">You don't need the biggest network. Just the <em class="em" style="color:var(--tha-lime);">right</em> one.</h2>
+      <h2 style="font:700 46px/1.08 var(--font-sans); letter-spacing:-.02em; color:var(--tha-paper); margin:18px 0 0; max-width:20ch;">You don't need the biggest network. Just the <em class="em" style="color:var(--tha-lime);">right</em> one.</h2>
       <p style="font:400 30px/1.5 var(--font-sans); color:var(--tha-navy-200); margin:22px 0 0; max-width:38ch;">Every office is staffed by locals who live the market — connected by one regional team. Global consistency, local precision.</p>
       <div style="margin-top:24px; font:500 20px/1.9 var(--font-mono); color:var(--tha-navy-300);">SAN JOSE &middot; LONDON &middot; SINGAPORE &middot; KL &middot; BANGKOK &middot; TAIPEI &middot; TOKYO &middot; SEOUL &middot; BEIJING</div>
     </div>
@@ -1067,7 +1071,7 @@
     <div class="lay-note"><b>L19 · Stat strip</b><span><i>Use:</i> prove it with numbers</span><span><i>Point:</i> the result. Max 3 stats + image.</span></div>
     <div style="flex:0 0 46%; display:flex; flex-direction:column; min-height:0;">
       <span class="eyebrow"><span class="dot"></span>The proof</span>
-      <h2 style="font:700 76px/1.0 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy); margin:20px 0 0; max-width:12ch; text-wrap:balance;">Outcomes, not <em class="em" style="color:var(--tha-purple);">outputs.</em></h2>
+      <h2 style="font:700 76px/1.0 var(--font-sans); letter-spacing:-.025em; color:var(--tha-navy); margin:20px 0 0; max-width:20ch; text-wrap:balance;">Outcomes, not <em class="em" style="color:var(--tha-purple);">outputs.</em></h2>
       <div class="tha-placeholder" data-slot="deck-l19-img" style="flex:1; min-height:0; margin-top:32px; width:100%; aspect-ratio:auto;">
         <div class="tha-placeholder__label">The result, made human &middot; 4:3 &middot; generate 1440&times;1080px</div>
         <div class="tha-placeholder__hint">A candid moment of the win — the team reacting to coverage, a launch in the room. Warm, real, unstaged.</div>
@@ -1096,7 +1100,7 @@
     <div class="lay-note"><b>L33 · Cascade stat boxes</b><span><i>Use:</i> proof points, designed</span><span><i>Point:</i> 3 numbers as one cascading form. Rainbow/navy toggle.</span></div>
     <div style="flex:0 0 42%; display:flex; flex-direction:column; justify-content:center;">
       <span class="eyebrow"><span class="dot"></span>The proof</span>
-      <h2 style="font:700 64px/1.04 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy); margin:22px 0 0; max-width:13ch;">Numbers that <em class="em" style="color:var(--tha-purple);">earn</em> the room.</h2>
+      <h2 style="font:700 64px/1.04 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy); margin:22px 0 0; max-width:20ch;">Numbers that <em class="em" style="color:var(--tha-purple);">earn</em> the room.</h2>
       <p style="font:400 24px/1.5 var(--font-sans); color:var(--tha-navy-500); margin:26px 0 0; max-width:34ch;">Lead with the punchline, then let the speaker walk the detail. Three figures, one designed object.</p>
       <div style="display:flex; flex-direction:column; gap:12px; margin-top:28px;">
         <div style="display:flex; gap:12px; align-items:baseline; font:500 24px/1.3 var(--font-sans); color:var(--tha-navy);"><span style="color:var(--tha-purple);">&rarr;</span>One hero metric, two in support</div>
@@ -1299,10 +1303,10 @@
   <!-- @layout code="L46" name="Two-beat statement" use="A setup → turn on one coloured surface — two short phrases that play off each other, each with a Fluent emoji." point="The pivot between the two lines (often a 'not'). Emphasise the hinge word; let the emoji react." slots="Beat 1: ≤6 words, top-left. Beat 2: ≤6 words, lower-right. Hinge word in white; rest in lime/aqua. 2 emoji max." surfaces="A full secondary surface (purple/teal); type in lime + white + aqua." -->
   <section class="slide" data-label="L46 Two-beat" data-screen-label="L46 Two-beat statement" style="background:var(--tha-purple); padding:80px 96px;">
     <div class="lay-note"><b>L46 · Two-beat statement</b><span><i>Use:</i> setup → turn</span><span><i>Point:</i> the pivot between the lines. Emphasise the hinge.</span></div>
-    <div style="position:absolute; left:96px; top:150px; max-width:18ch; font:800 76px/1.05 var(--font-sans); letter-spacing:-.02em; color:var(--tha-violet);">Let's <span style="color:var(--tha-paper);">not</span> pop the champagne yet.</div>
+    <div style="position:absolute; left:96px; top:150px; max-width:20ch; font:800 76px/1.05 var(--font-sans); letter-spacing:-.02em; color:var(--tha-violet);">Let's <span style="color:var(--tha-paper);">not</span> pop the champagne yet.</div>
     <fluent-emoji name="party-popper" size="150" style="position:absolute; right:130px; top:120px;"></fluent-emoji>
     <fluent-emoji name="sparkles" size="120" style="position:absolute; left:150px; bottom:150px;"></fluent-emoji>
-    <div style="position:absolute; right:96px; bottom:160px; max-width:16ch; text-align:right; font:800 76px/1.05 var(--font-sans); letter-spacing:-.02em; color:var(--tha-aqua);">Cuz we're <span style="color:var(--tha-paper);">not quite</span> out of the woods.</div>
+    <div style="position:absolute; right:96px; bottom:160px; max-width:20ch; text-align:right; font:800 76px/1.05 var(--font-sans); letter-spacing:-.02em; color:var(--tha-aqua);">Cuz we're <span style="color:var(--tha-paper);">not quite</span> out of the woods.</div>
     <div class="chrome-page" style="color:var(--tha-paper);">42</div>
   </section>
 
@@ -1326,7 +1330,7 @@
         <div class="tha-placeholder__prompt">Candid documentary photo of a speaker presenting to an engaged audience in a modern venue, warm light, authentic and energetic. Vertical 3:4, 1080×1440px.</div>
       </div>
       <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(14,28,43,.35), rgba(14,28,43,.62)); display:flex; align-items:center; padding:64px 56px;">
-        <h2 style="font:800 76px/1.0 var(--font-sans); letter-spacing:-.025em; color:var(--tha-paper); margin:0; max-width:12ch;">Momentum across <em class="em" style="color:var(--tha-lime);">three</em> fronts</h2>
+        <h2 style="font:800 76px/1.0 var(--font-sans); letter-spacing:-.025em; color:var(--tha-paper); margin:0; max-width:20ch;">Momentum across <em class="em" style="color:var(--tha-lime);">three</em> fronts</h2>
       </div>
     </div>
     <div style="flex:1; padding:56px 72px; display:flex; flex-direction:column; justify-content:center; gap:30px;">
@@ -1391,7 +1395,7 @@
     <img src="../../assets/storyline-line-lime.svg" alt="" style="position:absolute; inset:0; width:100%; height:100%; display:block; pointer-events:none;"/>
     <div class="lay-note"><b>L30 · Closing</b><span><i>Use:</i> sign off</span><span><i>Point:</i> a verb + contact. No recap.</span></div>
     <div class="stretch" style="position:relative; display:flex; flex-direction:column; justify-content:center;">
-      <h2 style="font:800 120px/1 var(--font-sans); letter-spacing:-.03em; color:var(--tha-paper); margin:0; max-width:14ch;">Let's tell your<br><em class="em" style="color:var(--tha-lime); display:inline-block;">story.</em></h2>
+      <h2 style="font:800 120px/1 var(--font-sans); letter-spacing:-.03em; color:var(--tha-paper); margin:0; max-width:20ch;">Let's tell your<br><em class="em" style="color:var(--tha-lime); display:inline-block;">story.</em></h2>
       <p style="font:400 26px/1.45 var(--font-sans); color:var(--tha-navy-200); margin:36px 0 0;">hello@hoffman.agency &middot; thehoffmanagency.com</p>
     </div>
     <img src="../../assets/logo-horizontal-white-lime.svg" class="chrome-logo" alt="The Hoffman Agency"/>

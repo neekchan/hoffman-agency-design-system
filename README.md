@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.8.9** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — five **Brand Mark Studio** fixes: letters can no longer turn invisible against a matching background, CJK typefaces (M PLUS 2, Noto Sans JP/TC/SC/KR) added, Libre Baskerville defaults to italic, the custom-colour picker no longer masquerades as a swatch, and two mislabelled navy swatches corrected. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.9.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **titles stop wrapping into empty space** (`text-wrap: balance` on every heading, plus the too-tight `ch` caps raised — one was forcing a wrap 59px short while 730px sat free), and **the 3D emoji set is finally vendored** (`assets/emoji/3d/`, 67 files, 2.2 MB) so the documented default style works offline. New rule: vendor what an offline deliverable needs at the documented default. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 

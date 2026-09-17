@@ -25,6 +25,16 @@
       "localPath": "assets/icons/",
       "count": 1595,
       "note": "The Flat style is the Hoffman icon set: a complete, consistently drawn symbol vocabulary for icon and wayfinding duty. Flat is a flat-COLOUR style (about 7 fills per icon), not monochrome - the colours are part of the artwork and are left intact. Skin-tone variants (Dark/Light/Medium/Medium-Dark/Medium-Light) are not carried; the Default tone is. They remain available upstream if ever needed."
+    },
+    "static3d": {
+      "origin": "github.com/microsoft/fluentui-emoji",
+      "style": "3D",
+      "licence": "MIT",
+      "copyright": "\u00a9 Microsoft Corporation",
+      "pinnedCommit": "62ecdc0d7ca5c6df32148c169556bc8d3782fca4",
+      "vendored": 67,
+      "path": "assets/emoji/3d/",
+      "note": "Base skin tone only. Vendored because 3D is the documented default style and offline deliverables (native PowerPoint, embedded PDF, self-contained HTML) cannot reach a CDN."
     }
   },
   "counts": {

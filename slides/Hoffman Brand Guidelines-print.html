@@ -50,6 +50,9 @@
     vertical-align: middle; margin-right: 14px;
   }
 
+  /* Headings balance their own line breaks: a wrap lands evenly instead of orphaning
+     a single word. Caps below are a reading MEASURE, never a line-break control. */
+  .display, .h-section, .h-medium, .h-small, h1, h2, h3 { text-wrap: balance; }
   .display    { font: 800 220px/.92 var(--font-sans); letter-spacing:-.035em; color: var(--tha-navy); margin: 0; }
   .display.on-dark { color: var(--tha-paper); }
   .h-section  { font: 700 200px/.96 var(--font-sans); letter-spacing:-.03em; color: var(--tha-navy); margin: 0; }
@@ -342,7 +345,7 @@
 <!-- 09 — LOGO VARIANTS -->
 <section class="bg-paper" data-screen-label="09 Logo variants">
   <span class="eyebrow">Logo variants</span>
-  <h2 class="h-medium" style="margin-top:24px; max-width:18ch;">Three <em class="em-purple">forms.</em><br/>One identity.</h2>
+  <h2 class="h-medium" style="margin-top:24px; max-width:20ch;">Three <em class="em-purple">forms.</em><br/>One identity.</h2>
   <div class="stretch" style="margin-top:56px; display:grid; grid-template-columns: 1.6fr 1fr 0.8fr; gap:32px;">
     <div style="background:#fff; border:1px solid var(--border-2); padding:56px; display:flex; flex-direction:column; justify-content:space-between;">
       <div style="display:flex; align-items:center; justify-content:center; flex:1;">
@@ -468,7 +471,7 @@
 <!-- 12 — LOGO MISUSE -->
 <section class="bg-paper" data-screen-label="12 Misuse">
   <span class="eyebrow">Logo misuse</span>
-  <h2 class="h-medium" style="margin-top:24px; max-width:20ch;">Six ways to <em class="em-purple">break</em> the brand.</h2>
+  <h2 class="h-medium" style="margin-top:24px; max-width:23ch;">Six ways to <em class="em-purple">break</em> the brand.</h2>
   <div class="stretch" style="margin-top:40px; display:grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr 1fr; gap:28px;">
     <div style="position:relative; background:#fff; border:1px solid var(--border-2); padding:32px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;">
       <img src="../assets/logo-horizontal-navy-lime.svg" alt="" style="max-width:70%; transform:rotate(-8deg);"/>
@@ -608,7 +611,7 @@
 <section class="bg-paper" data-screen-label="15 Primary palette" style="padding:0;">
   <div style="padding: var(--slide-pad) var(--slide-pad) 0;">
     <span class="eyebrow">Primary palette</span>
-    <h2 class="h-medium" style="margin-top:24px; max-width:18ch;">The two that do the <em class="em-purple">work.</em></h2>
+    <h2 class="h-medium" style="margin-top:24px; max-width:19ch;">The two that do the <em class="em-purple">work.</em></h2>
   </div>
   <div class="stretch" style="display:grid; grid-template-columns: 1fr 1fr; margin-top:48px;">
     <div class="swatch bg-navy" style="color:var(--tha-paper);">
@@ -741,7 +744,7 @@
 <!-- 16c — DEMO: a working slide on a lavender surface -->
 <section class="bg-violet" data-screen-label="18 Demo lavender surface">
   <span class="eyebrow" style="color:var(--tha-purple);">Demonstration &middot; color as surface &middot; lavender</span>
-  <h2 class="h-medium" style="margin-top:24px; max-width:18ch; color:var(--tha-navy);">The brief is never the <em class="em-purple">story.</em></h2>
+  <h2 class="h-medium" style="margin-top:24px; max-width:21ch; color:var(--tha-navy);">The brief is never the <em class="em-purple">story.</em></h2>
   <div class="stretch" style="margin-top:64px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; align-items:start; border-top:1.5px solid var(--tha-navy);">
     <div style="padding:40px 44px 0 0; border-right:1px solid rgba(24,45,67,.35);">
       <span class="mono" style="color:var(--tha-purple); font-size:18px;">01 &middot; LISTEN</span>
@@ -765,7 +768,7 @@
 <section class="bg-aqua" data-screen-label="19 Demo cyan surface">
   <span class="eyebrow" style="color:var(--tha-teal);">Demonstration &middot; color as surface &middot; cyan</span>
   <div class="stretch" style="display:flex; flex-direction:column; justify-content:center;">
-    <h2 style="font:700 110px/1.02 var(--font-sans); letter-spacing:-.03em; color:var(--tha-navy); margin:0; max-width:14ch;">Less noise. Sharper <em class="em-teal">signal.</em></h2>
+    <h2 style="font:700 110px/1.02 var(--font-sans); letter-spacing:-.03em; color:var(--tha-navy); margin:0; max-width:20ch;">Less noise. Sharper <em class="em-teal">signal.</em></h2>
     <div style="margin-top:72px; display:flex; gap:0; border-top:1.5px solid var(--tha-navy); max-width:1400px;">
       <div style="padding:36px 56px 0 0; border-right:1px solid rgba(24,45,67,.35);">
         <div style="font:800 96px/1 var(--font-sans); letter-spacing:-.03em; color:var(--tha-navy);">-40%</div>
@@ -1141,7 +1144,7 @@
 <!-- 21b — MULTILINGUAL FONTS -->
 <section class="bg-paper" data-screen-label="29 Multilingual">
   <span class="eyebrow">Type &middot; multilingual</span>
-  <h2 class="h-medium" style="margin-top:24px; max-width:22ch;">Beyond English. <em class="em-purple">Globally</em> fluent.</h2>
+  <h2 class="h-medium" style="margin-top:24px; max-width:24ch;">Beyond English. <em class="em-purple">Globally</em> fluent.</h2>
   <p class="body-lg" style="margin-top:14px; font-size:22px; max-width:50em;">
     Same hierarchy, same rules — different scripts. Japanese copy uses <strong>M PLUS 2</strong>. Korean, Chinese, and other CJK uses <strong>Noto Sans</strong>. Use the CSS vars <code style="font:500 18px/1 var(--font-mono); background:var(--tha-navy-050); padding:2px 8px;">--font-jp</code> and <code style="font:500 18px/1 var(--font-mono); background:var(--tha-navy-050); padding:2px 8px;">--font-cjk</code> so the stack falls back gracefully.
   </p>
@@ -1217,7 +1220,7 @@
 <!-- 23 — TYPE SCALE -->
 <section class="bg-paper" data-screen-label="31 Type scale">
   <span class="eyebrow">Type scale</span>
-  <h2 class="h-medium" style="margin-top:24px; max-width:18ch;">One hero <em class="em-purple">idea</em> per screen.</h2>
+  <h2 class="h-medium" style="margin-top:24px; max-width:20ch;">One hero <em class="em-purple">idea</em> per screen.</h2>
   <div class="stretch" style="margin-top:48px; display:flex; flex-direction:column;">
     <div class="type-row"><span class="label">Display &middot; 96 &middot; 800</span><span style="font:800 96px/1 var(--font-sans); letter-spacing:-.03em; color:var(--tha-navy);">Hero idea</span></div>
     <div class="type-row"><span class="label">H1 &middot; 64 &middot; 700</span><span style="font:700 64px/1.02 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy);">Section opener</span></div>
@@ -1326,7 +1329,7 @@
 <!-- 27 — HAND-DRAWN ANNOTATIONS -->
 <section class="bg-paper" data-screen-label="36 Annotations">
   <span class="eyebrow">Hand-drawn annotations</span>
-  <h2 class="h-medium" style="margin-top:20px; max-width:24ch;">Editorial <em class="em-purple">punctuation.</em> 76 SVG marks.</h2>
+  <h2 class="h-medium" style="margin-top:20px; max-width:28ch;">Editorial <em class="em-purple">punctuation.</em> 76 SVG marks.</h2>
   <p class="body-lg" style="margin-top:14px; font-size:22px; max-width:48em;">
     All SVGs in <code style="font:500 18px/1 var(--font-mono); background:var(--tha-navy-050); padding:2px 8px;">assets/annotations/</code> use <em class="em-purple">currentColor</em> &mdash; pick the brand color that <em class="em-purple">contrasts best</em> with the surface they sit on. Lime, lavender, purple, cyan, teal, navy or paper, depending on context.
   </p>
@@ -1750,7 +1753,7 @@
 <!-- 27d — VOICE PATTERNS: phrases, refrains, opinionated copy -->
 <section class="bg-paper" data-screen-label="42 Voice patterns">
   <span class="eyebrow">Voice as a system</span>
-  <h2 class="h-medium" style="margin-top:20px; max-width:22ch;">How we <em class="em-purple">sound.</em> Phrases we lean on.</h2>
+  <h2 class="h-medium" style="margin-top:20px; max-width:27ch;">How we <em class="em-purple">sound.</em> Phrases we lean on.</h2>
   <p class="body-lg" style="margin-top:14px; font-size:22px; max-width:54em;">
     The brand voice has signature moves. Use them to keep copy distinctively Hoffman &mdash; short, opinionated, a little playful, never corporate.
   </p>
@@ -1816,7 +1819,7 @@
 <!-- 28 — BUTTONS & UI -->
 <section class="bg-paper" data-screen-label="43 Buttons">
   <span class="eyebrow">Buttons &amp; UI</span>
-  <h2 class="h-medium" style="margin-top:24px; max-width:18ch;">Square <em class="em-purple">corners.</em> Direct verbs.</h2>
+  <h2 class="h-medium" style="margin-top:24px; max-width:22ch;">Square <em class="em-purple">corners.</em> Direct verbs.</h2>
   <div class="stretch" style="margin-top:56px; display:flex; flex-direction:column; gap:48px;">
     <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
       <button style="font:600 22px/1 var(--font-sans); padding:22px 36px; border:0; background:var(--tha-navy); color:var(--tha-lime); border-radius:0; cursor:pointer; display:inline-flex; align-items:center; gap:14px;">See the work <span style="font-size:24px;">→</span></button>
@@ -1858,7 +1861,7 @@
 <!-- 29 — SPACING & GRID -->
 <section class="bg-paper" data-screen-label="44 Spacing">
   <span class="eyebrow">Spacing &amp; grid</span>
-  <h2 class="h-medium" style="margin-top:24px; max-width:18ch;">More <em class="em-purple">air.</em> Always more air.</h2>
+  <h2 class="h-medium" style="margin-top:24px; max-width:20ch;">More <em class="em-purple">air.</em> Always more air.</h2>
   <div class="stretch" style="margin-top:48px; display:grid; grid-template-columns: 1.2fr 1fr; gap:64px;">
     <div>
       <div class="mono" style="color:var(--tha-violet);">SPACING SCALE &middot; 4PX BASE</div>
@@ -1898,7 +1901,7 @@
 <!-- 30 — IMAGERY -->
 <section class="bg-paper" data-screen-label="45 Imagery">
   <span class="eyebrow">Imagery direction</span>
-  <h2 class="h-medium" style="margin-top:24px; max-width:20ch;">Candid, natural, <em class="em-purple">human-first.</em></h2>
+  <h2 class="h-medium" style="margin-top:24px; max-width:23ch;">Candid, natural, <em class="em-purple">human-first.</em></h2>
   <div class="stretch" style="margin-top:40px; display:grid; grid-template-columns: 2fr 1fr; gap:48px; align-items:stretch;">
     <!-- Real photography (curated Unsplash stand-ins matching the direction — swap with campaign assets) -->
     <div style="display:grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap:20px; min-height:0;">
@@ -2279,7 +2282,7 @@
 <!-- 35b — DECK MODES: Presenter XOR Document -->
 <section class="bg-paper" data-screen-label="56 Deck modes">
   <span class="eyebrow">Slides &middot; one mode per deck</span>
-  <h2 class="h-medium" style="margin-top:20px; max-width:22ch;">Present it, or send it. <em class="em-purple">Never both.</em></h2>
+  <h2 class="h-medium" style="margin-top:20px; max-width:24ch;">Present it, or send it. <em class="em-purple">Never both.</em></h2>
   <div class="stretch" style="margin-top:44px; display:grid; grid-template-columns:1fr 1fr; gap:44px; min-height:0;">
     <div style="display:flex; flex-direction:column; background:var(--tha-navy); color:var(--tha-paper); border-top:10px solid var(--tha-lime); padding:52px 56px;">
       <div class="mono" style="font-size:22px; letter-spacing:.08em; color:var(--tha-lime);">PRESENTED LIVE</div>
@@ -2311,7 +2314,7 @@
 <section class="bg-navy" data-screen-label="57 Governance">
   <img src="../assets/storyline-line-lime.svg" alt="" style="position:absolute; inset:0; width:100%; height:100%; display:block; pointer-events:none; opacity:.5;"/>
   <span class="eyebrow on-dark" style="position:relative; z-index:1;"><span class="dot"></span>How the system decides</span>
-  <h2 class="h-medium on-dark" style="margin-top:20px; max-width:22ch; position:relative; z-index:1;">Craft rules. <em class="em-lime">House exceptions.</em></h2>
+  <h2 class="h-medium on-dark" style="margin-top:20px; max-width:23ch; position:relative; z-index:1;">Craft rules. <em class="em-lime">House exceptions.</em></h2>
   <div class="stretch" style="margin-top:44px; display:grid; grid-template-columns:1.25fr 1fr; gap:40px; min-height:0; position:relative; z-index:1;">
     <div style="display:flex; flex-direction:column; background:rgba(255,255,255,.06); border-left:6px solid var(--tha-lime); padding:48px 52px;">
       <div class="mono" style="font-size:20px; letter-spacing:.08em; color:var(--tha-lime);">POWER DESIGN PRINCIPLES</div>

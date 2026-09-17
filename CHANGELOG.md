@@ -4,6 +4,64 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — Titles stop wrapping into empty space, and the default emoji style finally exists locally (v2.8.9 → v2.9.0)
+
+**Two things, both cases of the system contradicting itself.**
+
+### Titles wrapped while half the slide sat empty
+
+"Six ways to *break* the brand." broke after "the" and dropped "brand." onto its
+own line, with roughly 730px of slide doing nothing to its right. Not a copy
+problem — a `max-width:20ch` cap on the heading. Measured: the line needs 1102px
+and was capped at 1043px. **It wrapped 59px short.**
+
+That cap is one of 146 across the system, set in `ch` between 9 and 26, clearly
+eyeballed per slide. Measuring every one of them: **19 wrapped, and 11 of those
+missed by 15% or less** — one by 16px. Those are accidents, not design.
+
+- **`text-wrap: balance` on every heading**, in both brand-book builds and the
+  deck template. Where a title genuinely needs two lines, the break now lands
+  evenly instead of orphaning one word. This is the part that keeps working when
+  the copy changes.
+- **The marginal caps raised to what their own text needs.** Titles that were
+  deliberately multi-line — the voice list, the Storyline explainer — are left
+  wrapping, because that is a design choice rather than an accident.
+- **The deck template's caps had a floor put under them.** They ran as tight as
+  9ch, which cannot hold the ≤8-word title Section 5 asks for; 24 of them are now
+  at least 20ch. This is why new decks inherited the problem. Raising a
+  `max-width` is safe — it can never push a title past its own container.
+- **`AGENTS.md` Section 2.5** now says it outright: a `ch` cap is a reading
+  *measure*, never a line-break control. If a title wraps while the right of the
+  slide is empty, the cap is wrong, not the copy.
+
+### The default emoji style wasn't in the building
+
+Section 8 has said **"3D style first"** since v2.6.0. This repo vendored 2D
+colour and animated — and **no 3D at all**. So the documented default was
+CDN-only, and every offline deliverable silently fell back to 2D colour without
+anyone being told.
+
+- **`assets/emoji/3d/` — the curated 67, 2.2 MB**, from `microsoft/fluentui-emoji`
+  (MIT, © Microsoft), pinned to the same commit the injector already uses for
+  every other static style. Base skin tone only. The injector needed no changes;
+  it was already looking in that folder.
+- **Attribution in `assets/emoji/3d/README.md`** and provenance recorded in
+  `animated-manifest.json`, alongside the other asset families.
+
+### And the rule that should have prevented both
+
+> **Vendor what an offline deliverable needs at the documented default.
+> Everything else stays upstream with a documented fetch path.**
+
+Written into Section 8. An offline deliverable cannot reach a CDN, so what it
+needs must already be in `assets/`. Anything a browser renders can come from the
+CDN. That test is why 3D belongs here (2 MB) and the full animated library does
+not (746 emoji, 550 MB–1 GB, which would make this repo 25–45× bigger for
+everyone who clones it). **Animated GIFs do work in PowerPoint** — an offline
+deck can absolutely use motion; fetch the one you need and embed it.
+
+Minor bump — a new asset family and a new rule; nothing existing is invalidated.
+
 ## 2026-09-17 — Brand Mark Studio: five fixes, including letters that turned invisible (v2.8.8 → v2.8.9)
 
 - **Letters can no longer vanish into the background.** Pick a lime background
