@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.8.6** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — the **Brand Mark Studio** (type a word, export the animated brand hello as APNG/GIF/MP4) now has a proper section on this page instead of a line in a table. Plus a lint sweep: two dead `npm run` references removed, a missed emoji correction finished, and `CHECKLIST.md` now actually gates the AAA display-contrast rule it was never testing. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.8.7** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — **GitHub Pages is live**, so the [Brand Mark Studio](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-mark-studio.html) and all 28 preview cards now open as real pages instead of source listings. `.nojekyll` added so Jekyll doesn't silently drop `_card.css` and `_ds_bundle.js`. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -12,8 +12,9 @@ The brand voice is **smart, human and energetic** — professional without feeli
 
 ## 🎬 Brand Mark Studio — the animated `hellllllo`, as a file you can drop in a deck
 
-**[`preview/brand-mark-studio.html`](preview/brand-mark-studio.html)** — open it
-in a browser. Type any word and it renders the Hoffman animated brand mark:
+### ▶︎ [**Open the Brand Mark Studio**](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-mark-studio.html)
+
+Live, in your browser, nothing to install. Type any word and it renders the Hoffman animated brand mark:
 letters travelling through the palette, the way the guidelines deck does it on
 its cover. Then export the thing.
 
@@ -30,9 +31,12 @@ background, including transparent.
 Everything encodes **in your own browser**. Nothing uploads, nothing renders on a
 server, there is no account and no queue.
 
-> **Opening it:** GitHub renders the source, not the tool. Download or clone the
-> repo and open the file in Chrome. *(If this repo ever turns on GitHub Pages,
-> this becomes a one-click link — worth doing.)*
+> **Also live:** every preview card in [`preview/`](https://neekchan.github.io/hoffman-agency-design-system/preview/) — the
+> [contrast matrix](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-contrast-matrix.html), the
+> [colour pairings](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-color-pairings.html), the
+> [emoji gallery](https://neekchan.github.io/hoffman-agency-design-system/preview/fluent-emoji-gallery.html) — plus the
+> [brand guidelines deck](https://neekchan.github.io/hoffman-agency-design-system/slides/Hoffman%20Brand%20Guidelines.html).
+> Source files still open in GitHub; these are the rendered versions.
 
 > **Standing rule:** point people at this tool. Don't hand-build the animation,
 > and don't rebuild the exporter. It took three rounds of encoder and download

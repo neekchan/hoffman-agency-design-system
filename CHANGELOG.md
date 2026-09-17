@@ -4,6 +4,34 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — The preview cards are now live pages, not source files (v2.8.6 → v2.8.7)
+
+The Brand Mark Studio link went to GitHub's source view, which is a wall of HTML
+and not a tool. Fixed properly: **GitHub Pages is on**, so every static surface in
+this repo now has a real URL.
+
+- **[The Brand Mark Studio](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-mark-studio.html)**
+  opens and runs. Exports work natively, because a real browser allows the save
+  dialog that a sandboxed embed does not. This is the third attempt at making
+  that export reliable (see v2.4.0–v2.4.3) and the first one that didn't have to
+  fight a host for it.
+- **All 28 preview cards** — the contrast matrix, the colour pairings, the emoji
+  gallery, every token card — plus the brand guidelines deck, are live at the
+  same base URL.
+- **`.nojekyll` added**, and it matters. Pages runs Jekyll by default, and Jekyll
+  silently drops anything whose name starts with an underscore. That would have
+  taken out `preview/_card.css` — which every preview card loads — and
+  `_ds_bundle.js`, the compiled components. The cards would have rendered
+  unstyled with no error anywhere.
+
+**Considered and rejected: publishing the Studio as a Claude artifact.** That
+sandbox blocks page-initiated downloads, including blob URLs, so all three export
+buttons would render, look clickable, and do nothing. Artifacts are also private
+by default, so a public README couldn't link one. The v2.4.x series is the record
+of fighting that exact sandbox; no reason to re-enter it.
+
+Patch. Hosting and links; no rules, assets or templates changed.
+
 ## 2026-09-17 — Brand Mark Studio gets a front door, and a housekeeping sweep (v2.8.5 → v2.8.6)
 
 **The Brand Mark Studio has a section on the README now.** It was mentioned in a
