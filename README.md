@@ -4,11 +4,53 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.8.7** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — **GitHub Pages is live**, so the [Brand Mark Studio](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-mark-studio.html) and all 28 preview cards now open as real pages instead of source listings. `.nojekyll` added so Jekyll doesn't silently drop `_card.css` and `_ds_bundle.js`. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.8.8** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — a front-page **index of every live page**, ordered by how often you need it and saying what each one is for. Plus `Hoffman Brand Tour.html` rebuilt as a genuine self-contained file (fonts subset and inlined, all 76 annotations embedded) — it had been broken in public since July. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
 The brand voice is **smart, human and energetic** — professional without feeling stiff, bold without becoming noisy.
+
+## 🔗 Everything you can just open
+
+Live pages, no install, no clone. Ordered by how often you'll actually want them.
+
+### Start here
+
+| | What it is | Why you'd open it |
+|---|---|---|
+| **[Brand guidelines deck](https://neekchan.github.io/hoffman-agency-design-system/slides/Hoffman%20Brand%20Guidelines.html)** | The 58-slide brand book | The one you send someone who asks "what's the brand?" Covers voice, logo, colour, type, imagery, layout, governance |
+| **[Interactive brand tour](https://neekchan.github.io/hoffman-agency-design-system/templates/brand-tour/BrandTour.dc.html)** | The guidelines, but running | Twenty screens you press, drag and break. Same rules as the deck, except you can play with them |
+| **[Brand Mark Studio](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-mark-studio.html)** | The animated `hellllllo` exporter | Type a word, export APNG / GIF / MP4 for a deck, a signature or social |
+
+### Checking a decision
+
+| | What it shows |
+|---|---|
+| **[Colour pairings](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-color-pairings.html)** | Every brand pair, scored, with the AAA tier for display type. **Check here before pairing two colours** |
+| **[Contrast matrix](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-contrast-matrix.html)** | Every text/background combination against WCAG |
+| **[Brand surfaces](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-surfaces.html)** | The two light models — paper page + white cards, or white page + sand cards |
+| **[Fluent emoji gallery](https://neekchan.github.io/hoffman-agency-design-system/preview/fluent-emoji-gallery.html)** | Browse and click-to-copy the curated emoji set |
+
+### Tokens — the exact values
+
+| | |
+|---|---|
+| [Primary](https://neekchan.github.io/hoffman-agency-design-system/preview/colors-primary.html) · [Secondary](https://neekchan.github.io/hoffman-agency-design-system/preview/colors-secondary.html) · [Navy scale](https://neekchan.github.io/hoffman-agency-design-system/preview/colors-navy-scale.html) · [Lime scale](https://neekchan.github.io/hoffman-agency-design-system/preview/colors-lime-scale.html) · [Semantic](https://neekchan.github.io/hoffman-agency-design-system/preview/colors-semantic.html) | Colour |
+| [Display](https://neekchan.github.io/hoffman-agency-design-system/preview/type-display.html) · [Scale](https://neekchan.github.io/hoffman-agency-design-system/preview/type-scale.html) · [Utility](https://neekchan.github.io/hoffman-agency-design-system/preview/type-utility.html) | Type |
+| [Spacing](https://neekchan.github.io/hoffman-agency-design-system/preview/spacing-scale.html) · [Radii](https://neekchan.github.io/hoffman-agency-design-system/preview/spacing-radii.html) · [Shadows](https://neekchan.github.io/hoffman-agency-design-system/preview/spacing-shadows.html) | Space and depth |
+
+### Components and brand assets
+
+| | |
+|---|---|
+| [Buttons](https://neekchan.github.io/hoffman-agency-design-system/preview/components-buttons.html) · [Cards](https://neekchan.github.io/hoffman-agency-design-system/preview/components-cards.html) · [Forms](https://neekchan.github.io/hoffman-agency-design-system/preview/components-forms.html) · [Chips](https://neekchan.github.io/hoffman-agency-design-system/preview/components-chips.html) · [Tappable](https://neekchan.github.io/hoffman-agency-design-system/preview/components-tappable.html) | Components |
+| [Annotations](https://neekchan.github.io/hoffman-agency-design-system/preview/components-annotations.html) · [Placeholders](https://neekchan.github.io/hoffman-agency-design-system/preview/components-placeholders.html) | The 76 hand-drawn marks, and image placeholders |
+| [Logo horizontal](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-logo-horizontal.html) · [Logo stacked](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-logo-stacked.html) · [Storyline](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-storyline.html) | Logo and motif |
+| [Voice](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-voice.html) · [Emoji typography](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-emoji-typography.html) | Writing |
+
+> **Offline?** [`Hoffman Brand Tour.html`](Hoffman%20Brand%20Tour.html) at the repo root is the
+> interactive tour as one self-contained file — fonts, logos and all 76 annotations
+> inlined. Download it and it runs with no network at all.
 
 ## 🎬 Brand Mark Studio — the animated `hellllllo`, as a file you can drop in a deck
 

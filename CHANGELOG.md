@@ -4,6 +4,42 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — An index of everything you can open, and the brand tour actually works offline (v2.8.7 → v2.8.8)
+
+**The README now has a front-page index of every live page**, ordered by how
+often you'd want it rather than by folder. Start here (the guidelines deck, the
+interactive tour, the Brand Mark Studio) · checking a decision (colour pairings,
+contrast matrix, surfaces, emoji gallery) · tokens · components and brand assets.
+Each row says what the thing is *for*, not just what it's called. Thirty-one
+links, every one verified against a real file.
+
+**And `Hoffman Brand Tour.html` is finally a real standalone.** The old one had
+been broken in public since July — a pre-v2.2.0 export whose colours resolved to
+nothing, whose fonts fell back to serif, and which logged a wall of errors. The
+v2.2.0 fix never reached it because the rebuilt file was too big for the sync API
+and nobody re-exported it by hand.
+
+Rebuilt from the source template, which was healthy all along:
+
+- **7 fonts subset and inlined as base64 woff2.** Subsetting is what makes this
+  possible at all — Poppins Regular goes from 160 KB to 8 KB, a 95% cut, with no
+  visible loss.
+- **30 logos and marks inlined as data URIs**, plus a `window.__resources` map
+  carrying all **76 annotations and 10 logo colourways** that the tour looks up
+  at runtime.
+- **Both scripts inlined.** No bundler wrapper, so there is no JSON-unpacking step
+  left to fail — which is exactly how the old one died.
+- **Verified from an isolated directory** with no `assets/` and no `fonts/`
+  alongside it: renders correctly, real Poppins, real palette. Nothing relative
+  can resolve there, so it is genuinely self-contained.
+
+1.2 MB, which is the honest price of one file that needs no network. It is
+**larger than the 256 KB sync limit, so it lives in this repo only** — that
+constraint is what broke the file in the first place, and it is better named than
+worked around.
+
+Patch. A README index, and a broken artifact replaced with a working one.
+
 ## 2026-09-17 — The preview cards are now live pages, not source files (v2.8.6 → v2.8.7)
 
 The Brand Mark Studio link went to GitHub's source view, which is a wall of HTML
