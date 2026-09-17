@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.8.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — Soundcheck is now the **default titling method for decks *and* documents**, not slides alone: one-pagers and print leave-behinds route through it, the pre-ship check covers both, and `LAYOUTS.md` no longer contradicts it — its "editorial, not descriptive" block is now Soundcheck, and the ≤8-word headline cap is stated as the layout budget it is. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.8.2** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — the changelog is now written in plain English instead of engineering shorthand. Same facts, same versions, same detail; you can just read it now. No files or rules changed. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 

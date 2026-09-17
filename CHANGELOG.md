@@ -1,370 +1,529 @@
 # Changelog
 
-All notable changes to the Hoffman Agency design system. Newest first. The
-canonical source of the system is the Claude Design project (claude.ai/design,
-`d10f7f7f-3158-4438-9664-46d071bea8ff`); this repo is a public mirror.
+Everything that's changed in the Hoffman design system, newest first. The system
+really lives in the Claude Design project
+(`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
-## 2026-09-14 — Soundcheck is the default for documents too, and LAYOUTS.md stops contradicting it (v2.8.0 → v2.8.1)
+## 2026-09-17 — Rewrote this whole changelog in English (v2.8.1 → v2.8.2)
 
-v2.8.0 shipped Soundcheck and wired it into the two deck routes — and stopped there. Every other door into the system still taught the old rule. A one-pager never loaded it, the pre-ship check said "Slides only", §10 said "presentation", and `LAYOUTS.md` — which the deck route sends you to by name — still carried the block §10 had just replaced. So the method was published but not actually the default. This closes that.
+The old one was technically perfect and unreadable. Every fact in place, every
+version accounted for, and sentences like *"the missing layer was the argument
+underneath the design"* — which sounds profound right up until you ask what it
+actually means.
 
-- **§10 now opens by saying so.** "Soundcheck is the default way titles are written here" — read it whenever you create a **deck or a document**, and for every title review. The scope is named explicitly: decks, one-pagers, print leave-behinds and any other fixed-canvas page document this file governs under §0. The router's stale "editorial headlines" label for §10 is now "Soundcheck titles", and the one-pager entry says outright that a one-pager is a document.
-- **`LLM_ENTRYPOINT.md` routes documents through it.** The one-pager / print leave-behind row reads `README.md` + `SOUNDCHECK.md` and gains its own key rule — headings state the point, not the topic. The Slides block now says the method is the default for decks **and documents**, not slides alone.
-- **`CHECKLIST.md` is no longer "Slides only".** The Soundcheck review is scoped **Decks & documents**.
-- **`LAYOUTS.md` reconciled — the residue flagged in v2.8.0.** "Headline voice — editorial, not descriptive" is now "Headline voice — Soundcheck", and it teaches the same thing §10 does: state the point, don't describe the slide; a voice move serves a claim and never substitutes for one. The word-budget line was the sharper conflict — it listed the headline under **hard caps, not targets** while §10 had just made ≤8 words a layout budget. The headline is now called a layout budget with the collision procedure attached; the other budgets (eyebrow, body, bullet, stat) stay hard caps, which they always were.
+It also assumed you'd already read the code. "Out-of-flow elements." "The `acTL`
+chunk." "`§16`." All fine if you wrote the thing. Useless if you're a designer
+trying to work out whether last week's update breaks your deck.
 
-Patch — a scope clarification and a documentation conflict resolved. No new surface area: `SOUNDCHECK.md` is unchanged from v2.8.0, and nothing built to it needs revisiting.
+So all 23 of our own entries are rewritten. Same facts, same versions, same
+decisions, same level of detail — just in words a person would say out loud.
 
-## 2026-09-14 — Soundcheck: a method for the argument, not just the headline (v2.7.2 → v2.8.0)
+Takeo Apitzsch's fork entry is left exactly as it was. It's his writing about his
+own work, and putting it in someone else's voice would be a strange thing to do.
 
-§10 told you to rewrite a descriptive headline into the house voice and handed you the moves — a question, a two-beat, an italic emphasis. It never said what a title is *for*. So the moves could be applied to a line that still carried no point, and a deck could clear every rule in this system while its titles, read in sequence, said nothing. The missing layer was the argument underneath the design.
+Patch. Only the words changed.
 
-**New document**
+## 2026-09-14 — Turns out "default" means you have to wire it up everywhere (v2.8.0 → v2.8.1)
 
-- **`SOUNDCHECK.md` — seven principles for the argument and the titles that carry it.** The one rule: don't use the title to describe what is on the slide, use it to state the point the slide is making. Then the governing thought at two scales (each slide has one; so does the deck), and a working order — establish the audience and the structure first, draft the title spine, build the slides that demonstrate each claim, and only then sharpen the lines. The principles are ordered by priority, not by sequence: hold 1 and 2, use 3–5 as strong defaults, aim for 6, reach for 7. Evidence may come from the user's material, from research, or from the AI's own world knowledge — verify what is uncertain, changing or consequential, and never present an inference as a verified result. The file is deliberately **self-contained and brand-neutral** so it can travel; it governs the argument only, while the brief, the audience, the presenter's voice and this design system still govern their own parts.
+Shipped Soundcheck in the morning. By the afternoon it was the default for
+exactly two kinds of work and nothing else.
 
-**Threaded through**
+Here's what "published but not actually the default" looked like. A one-pager
+never loaded it. The pre-ship checklist said "Slides only." §10 said
+"presentation," so documents were arguably out. And `LAYOUTS.md` — the file the
+deck route sends you to *by name* — was still teaching the rule Soundcheck had
+just replaced, only more firmly.
 
-- **§10 rewritten — "Headlines are editorial, not descriptive" becomes "Soundcheck — make the title carry the point."** The voice moves survive, demoted from the rule to the toolkit: a question, contrast, wordplay, a two-beat or a giant word can serve the point, and they earn their place on covers, dividers and deliberate rhetorical setups. What is new is the limit on them — **a style move alone does not supply a missing claim on a content slide.** That was the gap the old rule left open.
-- **≤8 words and one line are now stated as layout targets, not the rule.** When the strongest supported title collides with the budget, flag the collision and offer a viable shorter title or a layout adjustment — preserve the point and its necessary scope rather than trimming the claim to fit the box. §5's title-slot spec now says the same.
-- **§6 counts takeaways, not clauses.** "One point per slide" stands as a strong default, but a cause and effect, a contrast, a comparison or a trade-off can need two clauses to make **one** point. The word "and" was never the test.
-- **`CHECKLIST.md`** — the Voice section's slide check becomes a Soundcheck review of audience, title spine and individual lines, producing useful improvements rather than a pass/fail verdict per title, and naming the exemption when a plain title is kept for its function. Its "no hedging" line now reads **no empty hedging**: a qualification that materially changes a claim stays.
-- **`LLM_ENTRYPOINT.md`** — `SOUNDCHECK.md` loads alongside `AGENTS.md` on both deck routes, HTML and native PowerPoint, with the working order restated in the Slides rules.
+So the method sat in the repo being ignored by three of the four doors into it.
+Now:
 
-Minor bump — a new document plus clarified rules. Nothing is invalidated: a deck built to the old §10 is still on-brand, because every voice move it used is still sanctioned.
+- **§10 says it outright.** Soundcheck is how titles get written here. Decks,
+  one-pagers, print leave-behinds, anything else that lives on a fixed page.
+- **One-pagers route through it**, with their own rule attached: headings state
+  the point, not the topic.
+- **The checklist covers decks *and* documents**, not slides only.
+- **`LAYOUTS.md` stops arguing with §10.** Its old "editorial, not descriptive"
+  block now teaches what §10 teaches. The worse conflict was the quieter one: it
+  filed the headline under "hard caps, not targets" while §10 had just made ≤8
+  words a budget you're allowed to negotiate with. The headline is a budget now.
+  Eyebrow, body, bullet and stat are still hard caps, which they always were.
 
-**Known residue, not touched here:** `LAYOUTS.md` Part 1 still carries the pre-Soundcheck "Headline voice — editorial, not descriptive" block and states ≤8 words as a rule rather than a budget. Reconcile it in a follow-up.
+Patch. Nothing new — just the wiring that should have gone in the first time.
 
-## 2026-09-02 — Preview surfaces for the new rules, and a contrast rule corrected (v2.7.1 → v2.7.2)
+## 2026-09-14 — The system finally has an opinion about what a title is *for* (v2.7.2 → v2.8.0)
 
-Three v2.7.0 items shipped their *rule* without the *instrument* the rule pointed at. Building the instruments proved one of the rules wrong.
+Until today this system could tell you your headline was too long, in the wrong
+font and missing its italic — then wave through a deck where every slide was
+called "Q3 Overview."
 
-- **`preview/brand-color-pairings.html` — a third tier: Display (≥ 7, AAA).** §7 said contrast-passing is the floor, while this card still presented teal-on-cyan as simply valid. It now marks every pair on three bars and shows the raw ratio, and — the point — **its own emphasis-colour picker requires the Display tier first**, so on cyan it now chooses purple (7.92) where it used to choose teal (5.96). The card enforces the rule instead of contradicting it.
-- **§7 corrected.** The rule advised picking "the widest luminance gap". That is measurably not the discriminator: teal-on-cyan and purple-on-cyan have gaps of 0.73 and 0.77 — near-identical — yet one read flat projected and one carried the slide. Their *ratios* are 5.96 and 7.92. The rule is now **hold display type to AAA (≥ 7)**, which separates the real cases cleanly and is a standard bar rather than an invented one.
-- **`preview/components-chips.html`** — ghost-vs-solid on a lime ground, the four fills each shown on a ground they are actually for, measured text contrast in each, and the caveat that the white fill separates from lime by only 1.3:1 in luminance so it holds by hue alone.
-- **`preview/components-tappable.html`** — the §15 pattern, hoverable: quiet glyph at rest, glyph moves and the accent rule extends on hover, card never lifts. Shows the banned predecessor beside it so the four rules it broke are recognisable.
+That's because §10 only ever described the moves. Ask a question. Do a two-beat.
+Italicise the good word. Nobody wrote down the bit where the title is supposed to
+*say something*. So you could follow every rule in here and still ship a deck
+with the strategic clarity of a horoscope.
 
-Patch — new preview surfaces and a corrected threshold in an existing rule; nothing new is required of existing work.
+**New: `SOUNDCHECK.md`** — seven principles for the argument underneath the deck,
+not just the words sitting on top of it. The one rule: don't use the title to
+describe what's on the slide, use it to state the point the slide is making.
 
-## 2026-09-02 — Motion rule: the test is what can reflow, not which property (v2.7.0 → v2.7.1)
+- **Work in two passes.** Sort out who's in the room and what the argument is,
+  draft the titles as a run, *then* pretty them up. Polishing sentences cannot
+  fix a wrong argument. You will find this out on a Sunday.
+- **Evidence can come from your own material, from research, or from what the AI
+  already knows.** Check anything uncertain, recent, or that someone might quote
+  back at you in a meeting.
+- **≤8 words is a layout budget, not a gag order.** If the true title doesn't fit
+  the box, say so and offer a shorter line or a different layout. Don't quietly
+  amputate the point to make it fit.
+- **"One point per slide" counts ideas, not clauses.** "And" was never the test.
 
-§16 shipped yesterday and failed its first contact with real code. Its "prefer transform/opacity" rule carved out one exception — a size transition inside a fixed-size container — and a design linter promptly flagged four **provably safe** animations it did not cover: a sweeping accent rule and a progress bar, both `position:absolute`/`fixed` and therefore **out of flow**, where animating width cannot move anything at all. That is a stronger case than the exception already documented, and omitting it left the tooling arguing with the canon over correct code — the exact friction §16 exists to end.
+Written brand-neutral on purpose — no Hoffman examples, no house references — so
+it travels to whoever needs it.
 
-- **Two exceptions now, and the principle behind them.** Out-of-flow elements (`position:absolute` / `fixed`) may animate size freely — a sweeping rule, an underline, a progress bar. Fixed-size containers may animate `max-height` inside. **The test is not which property you animate, it is whether anything outside the element can move.**
+Minor bump. Nothing you've already built is suddenly wrong: every voice move §10
+taught is still fine, it just can't do the whole job on its own any more.
 
-Patch — a clarification to an existing rule; nothing new and nothing invalidated.
+## 2026-09-02 — Built the cards the rules kept pointing at, and one rule didn't survive it (v2.7.1 → v2.7.2)
 
-## 2026-09-02 — Icon set, dark-field corner mark, motion + affordance vocabularies (v2.6.0 → v2.7.0)
+v2.7.0 added three rules that each said "check this against the card" — and then
+didn't ship the card. Building them was meant to be housekeeping. One of them
+turned around and proved its own rule wrong.
 
-Thirteen findings from building a real interactive deck against this system, applied. The theme: **where the canon was silent, a build invented something — and where the canon and the code disagreed, the code was right.** Two rules already lived in components and in no document.
+- **The colour-pairing card gets a top tier: Display (AAA, ratio 7+).** §7 said
+  passing contrast is the floor, while this card was still marking teal on cyan
+  as simply fine. It now shows the real numbers and — the good part — applies its
+  own rule to itself when picking an emphasis colour. On cyan it now picks purple
+  (7.92) where it used to pick teal (5.96).
+- **§7 was giving bad advice.** It told you to choose the pair with the widest
+  luminance gap. That number separates nothing: teal-on-cyan and purple-on-cyan
+  sit at 0.73 and 0.77, which is to say identical, and one of them reads like a
+  rumour when projected. Their contrast *ratios* are 5.96 and 7.92. So the rule
+  is now AAA for display type — an actual standard rather than a number we made up.
+- **Two new cards.** Chips (ghost vs solid, each shown on a background it's
+  genuinely for, with the caveat that the white fill separates from lime by hue
+  alone). And tappable cards — hover one and watch, with the banned version
+  sitting right next to it so you can see exactly what it did wrong.
 
-**New surface**
+Patch. New cards, one corrected threshold, nothing you've built needs redoing.
 
-- **`assets/icons/` — 1,595 Fluent Flat icons, the system's symbol vocabulary.** The system had *no* icon library: 76 hand-drawn annotations, logos, Storyline marks and emoji, but nothing for functional symbol duty, so anything needing an icon had to invent one. Localised from `microsoft/fluentui-emoji` (MIT) so offline deliverables work. Flat is a flat-**colour** style (~7 fills), not monochrome; its colours are the artwork and must not be recoloured. Base tone only — the five skin-tone variants stay upstream. Icons carry the *functional* beat, emoji the *emotional* one.
-- **`assets/storyline-mark.svg` — the corner mark that works anywhere.** `storyline-navy-white.svg` names the mark and its box, not the field: all three paths are `#182D43`, so it is a **navy** mark for **light** grounds. On navy, purple or teal it rendered navy-on-navy and vanished — silently, across five slides of a shipped deck. The new file is `currentColor`-driven like the annotation library, so one asset serves every surface. Documented as the Storyline's **third** use; `asset-manifest.json` gains `variantNotes` + `surfaceToVariant`; the old file is untouched for compatibility.
-- **`assets/emoji/animated-manifest.json`** — which of the curated emoji genuinely move, plus provenance and licences for every asset family.
+## 2026-09-02 — The motion rule was asking the wrong question (v2.7.0 → v2.7.1)
+
+Wrote the motion rules on Tuesday. Broke them on Wednesday.
+
+§16 said: animate position and fade, don't animate width and height, because
+resizing a thing shoves everything around it. Fair enough. Then the linter
+started flagging four animations that were completely fine — a sweeping
+underline, a progress bar — and we spent an afternoon arguing with our own
+rulebook about working code.
+
+The rule was checking the wrong thing. It asked *which property are you
+animating*. The real question is *can anything else move when you do*. If an
+element floats above the layout rather than sitting inside it, you can resize it
+all day and nothing shifts.
+
+Patch. A clarification, not a new rule — if your animation already worked, it
+still works, and now the linter agrees with you.
+
+## 2026-09-02 — Thirteen things we only found out by actually building something (v2.6.0 → v2.7.0)
+
+Built a real interactive deck against this system. It went fine, in the way a
+house inspection goes fine. Thirteen findings, and they land in two piles: places
+the rulebook said nothing so the build invented something, and places the
+rulebook and the working code flatly disagreed. The code was right every time.
+
+**New**
+
+- **1,595 icons (`assets/icons/`).** This system had no icon set. None. It had 76
+  hand-drawn marks, logos, storyline marks and emoji — and nothing at all for "I
+  need a small symbol that means database." So every build made one up. Taken
+  from Microsoft's Fluent set (MIT) and stored locally so offline files work.
+  They're flat *colour*, not monochrome — about seven fills each, and those
+  colours are the artwork. Don't repaint them.
+- **A corner mark that survives a dark background (`assets/storyline-mark.svg`).**
+  `storyline-navy-white.svg` is named after the mark and its box, not the thing
+  you put it on — every path in it is navy. Put it on a navy slide and it
+  vanishes. Which it did, silently, across five slides of a deck that shipped.
+  The new file takes its colour from whatever you set, so one file covers every
+  surface.
+- **A manifest of which emoji actually move** (`assets/emoji/animated-manifest.json`),
+  with licences and provenance for every asset family.
 
 **Corrected**
 
-- **The animated emoji library was 64% fake.** 43 of the 67 files in `assets/emoji/animated/` were ordinary stills that the injector loaded with no error — so a deck could ship a frozen "animated" hero. Verified by the APNG `acTL` chunk and cross-checked against Microsoft's own list; all 43 removed, 24 remain. They were never broken exports: Microsoft simply does not animate those emoji.
-- **The sourcing SOP pointed at a repo with no animated assets.** v2.6.0 said to fetch APNGs from `microsoft/fluentui-emoji`, which ships none. Microsoft's animated set is `microsoft/fluentui-emoji-animated` (MIT, 746 emoji, 256×256 APNG). The system's own injector already knew this and the docs contradicted it. Noted: that repo is Git LFS, so a CDN returns the pointer, not the image — embed from `media.githubusercontent.com` for offline, keep the optimised mirror CDN for web runtime.
-- **"Prefer animated" vs "reserve animation for one peak" — resolved.** Motion is now explicitly two decisions: the **budget** (which slots move at all — unchanged, one peak per few slides) and then the **variant** (inside a slot already chosen to animate, prefer animated if one exists). The preference picks the asset, never the number of moving slides.
+- **Two-thirds of the "animated" emoji were stills.** 43 of the 67 files in
+  `assets/emoji/animated/` were ordinary static images. The loader accepted them
+  without a word, so a deck could ship a frozen hero emoji and nobody would find
+  out until it was on a wall in front of a client. They weren't broken exports —
+  Microsoft simply doesn't animate those ones. All 43 removed; the 24 that
+  genuinely move stayed.
+- **The instructions pointed at a repo with no animated files in it.** v2.6.0
+  told you to fetch animated emoji from `microsoft/fluentui-emoji`, which ships
+  none. They live in `microsoft/fluentui-emoji-animated`. Our own loader already
+  knew this. The documentation was arguing with the code again.
+- **"Prefer animated" vs "one moving thing every few slides" — settled.** They
+  were never in conflict; they answer different questions. First decide *which*
+  slots move at all (still roughly one every few slides, at the emotional peak).
+  Then, inside a slot you've already chosen to animate, prefer the animated file
+  if one exists. A deck that animates everything it can has misread this.
 
 **New rules**
 
-- **§14 Slide identity in the markup.** Every slide carries `data-screen-label="NN Label"`. `deck-stage.js` already stamped it and no document said so, so a hand-authored deck got nothing — and since all slides occupy identical coordinates at 1920×1080, an entire review's comments came back unattributable. Plain HTML, not a vendor feature.
-- **§15 Tappable elements: quiet at rest, motion on hover.** The system covered static slides thoroughly and said nothing about interactive ones, so a deck invented an affordance that broke four existing rules at once (coloured offset block, card lift, press transform, looping pulse). The sanctioned vocabulary: one mark per card — a card that already owns a state glyph uses that one — quiet at rest, and on hover the glyph moves while the card's internal accent rule extends. The card itself never moves.
-- **§16 Motion vocabulary.** The system specified everything except motion, so every build invented its own and tooling argued with the canon five times over the same lines. Entrance stagger and durations; a single back-out overshoot sanctioned on small marks and banned on text and panels; the documented exception to prefer-transform (a size transition inside a fixed-size container reflows nothing); nothing loops except a one-time draw-on; `prefers-reduced-motion` honoured.
-- **Step 0 freshness gate.** Confirm your checkout matches `origin/main` before building. A clone three minor versions stale taught an entire deck the pre-v2.6.0 emoji rule, with no warning. Second occurrence — the first is in the activity log from July.
-- **A mark on an emphasised word takes a different brand colour from the word.** Emphasis is coloured and marks are `currentColor`; both default to lime and the mark erases itself.
-- **An emoji accompanying a headline rides that headline's baseline** — inline at ~cap height, never a flex sibling floating beside the title. Does not ban standalone motif emoji.
-- **WCAG is the floor, not the goal.** Teal on aqua clears AA and still reads flat at display size; purple on aqua is dramatically stronger. When a pair is the point of a slide, take the widest luminance gap available.
-- **Solid chip fills** (`.tha-chip--navy` / `--white` / `--teal` / `--purple`). The ghost chip disappears on a saturated ground. Measured: all four clear AA for their own text; the white fill separates from lime by only 1.3:1 in luminance, so it holds by hue alone — prefer navy, purple or teal on saturated light grounds.
-
-**Threaded through:** `AGENTS.md`, `README.md`, `LLM_ENTRYPOINT.md`, `SKILL.md`, `CHECKLIST.md` (5 new checks), `ANTI_PATTERNS.md` (7 new rows), `colors_and_type.css`, `assets/asset-manifest.json`.
-
-Minor bump — additive rules and assets; nothing existing is invalidated.
-
-## 2026-07-23 — Fluent Emoji doctrine: 3D-first styles + offline embedding SOP (v2.5.0 → v2.6.0)
-
-Owner preference codified: Fluent emoji are **brand assets, not decoration**, with an explicit style hierarchy and sourcing rule. Previously the docs said "static color is the default form" and had no offline-sourcing rule at all — `POWERPOINT.md` never mentioned emoji.
-
-- **Style priority (visual storytelling — hero moments, key beats, stat/feature markers):** **3D first** (`variant="3d"`), **mix in animated 3D** where it adds life (still one animated peak per few slides), **2D Color** as the fallback. **Icon/utility duty** (wayfinding, dense layouts, monochrome contexts): **Fluent Flat** — a comprehensive clean icon set as the flat symbol vocabulary. Threaded through `AGENTS.md §8`, `DESIGN.md` (iconography + deck sections), `README.md` and `LLM_ENTRYPOINT.md` quick rules.
-- **Sourcing SOP:** local/offline deliverables (native PowerPoint/Keynote, embedded PDFs) **always download from `github.com/microsoft/fluentui-emoji` and embed the file** — PNG for static 3D/Flat, GIF/APNG for animated — never hotlink; web deliverables may use the CDN (the injector is already local-first → CDN). Raw platform Unicode emoji as icons stays banned everywhere.
-- **`POWERPOINT.md`** — new §7 image-gate bullet (emoji are embedded files, never links) and a new hard check in the §9 finished-file validation (every Fluent emoji is an embedded PNG/GIF; checks 13–15 renumbered 14–16).
-- **`ANTI_PATTERNS.md`** — new row: hotlinked emoji in an offline deliverable / wrong Fluent style for the job.
-- **Divergence repaired (master → repo):** the base-parity check found the master's `DESIGN.md` carried three undocumented wording refinements the mirror lacked — the tagline order (*"Clarity in. Complexity out."*) in the overview + typography example, and the generalized italic-emphasis rule ("the key word *or* short phrase," not a fixed single word) in the Do's list. Adopted here rather than overwritten (master is canon); both sides' `DESIGN.md` now match again.
-
-Minor bump (additive rules). Mirrored to the Claude Design master.
-
-## 2026-07-23 — Route the Brand Mark Studio from the agent docs (v2.4.3 → v2.5.0)
-
-The Brand Mark Studio existed but no router doc mentioned it — an agent asked for "the animated hello as a GIF" had no path to it. Now discoverable from every entry point (`CLAUDE.md` → `AGENTS.md`; `SKILL.md` → `LLM_ENTRYPOINT.md` + `README.md`):
-
-- **`AGENTS.md`** — new "read by task" bullet: animated brand "hello" / animated wordmark or brand-mark GIF → `preview/brand-mark-studio.html`, with the standing rule *point the user at the tool; don't hand-build the animation*.
-- **`LLM_ENTRYPOINT.md`** — new "Pick The Medium" row for the same triggers (deck, PowerPoint, social, email signature), start-from the studio, key rule: it's self-serve, client-side.
-- **`README.md`** — new LLM-usage routing row (with the "don't hand-animate / don't rebuild the exporter" anti-pattern) + a `preview/` file-map line marking it **TOOL, not a card**, and the Version line updated.
-
-Minor bump per `CONTRIBUTING.md` (additive surface). Doc changes mirrored to the Claude Design master, whose `CHANGELOG.md` also catches up on the 2.4.x series it was missing.
-
-## 2026-07-23 — Brand Mark Studio: one scripted download per page load + on-page diagnostics (v2.4.2 → v2.4.3)
-
-Field report solved the mystery: Chromium permits **one script-initiated download per page load**; every later one is silently dropped (the "multiple automatic downloads" guard never prompts inside a sandboxed frame). That's why the first export always downloaded and every subsequent one didn't — across v3–v2.4.2 — regardless of buttons, links, or synthetic clicks.
-
-- `save()` now spends that budget deliberately: auto-download fires for the **first** export of a session only, then is skipped with an explanatory line, and the UI leads with the unlimited native paths — right-click the rendered preview → "Save image / video as…", the video player's ⋮ → Download, the green link's `showSaveFilePicker` (no download manager at all), or right-click → "Save link as…".
-- New **on-page diagnostics strip** (7-line rolling log under the panel): logs export sizes, auto-download attempted/skipped, recorder start/finish/chunks/errors, preview decode failures, and any uncaught error — so sandbox-specific failures are visible in the page instead of guessed at.
-- MP4 investigation aid: recorder events now surface in the strip (a 0-chunk recording or MediaRecorder error is reported in plain text).
-
-## 2026-07-23 — Brand Mark Studio: render the export into the page (v2.4.1 → v2.4.2)
-
-Field report: in the claude.ai artifact sandbox even the v2.4.1 download *button* was swallowed, and turning the link into a button had removed the one path that worked (right-click → "Save link as…"). Stop fighting the host: after an export finishes, the finished APNG/GIF now renders **into the page** as a live animated preview (MP4/WebM in a `<video controls>` player), with a note pointing at the always-available saves — right-click the preview → "Save image as…", the player's ⋮ → Download, or right-click the restored green `<a download>` link → "Save link as…". Left-clicking the link now tries a real save dialog first (`showSaveFilePicker`, Chrome) before falling back to the download attribute. No host can intercept right-click saving of visible content, and the preview doubles as proof the encoded file is valid.
-
-## 2026-07-23 — Brand Mark Studio: GIF encoder was corrupt from day one + real download button (v2.4.0 → v2.4.1)
-
-Two field-reported bugs in `preview/brand-mark-studio.html`, both fixed on the master, this mirror, and the shared claude.ai artifact in the same pass.
-
-- **The GIF export never worked — every GIF it ever produced was a broken stream.** The hand-rolled LZW encoder bumped the code width the moment the dictionary filled a power of two ("early change"); GIF decoders (giflib, PIL, Chrome, PowerPoint) expect the width to grow one code *later*. Any image complex enough to reach 511 dictionary codes — i.e. any real text at 2× — desynced the stream, and viewers rendered blank frames (PIL: "broken data stream"). Nobody noticed before because the sandbox download bug shipped the file to nobody. Rewritten `lzwEncode` with the correct giflib-timed late change and numeric dictionary keys (also much faster); verified pixel-exact against PIL on noise/gradient/boundary-engineered streams, a strict reference decoder, and a real-browser end-to-end export (48-frame transparent + solid runs decoded frame-by-frame).
-- **The post-export download control is now a `<button>`, not a link.** Hosts that intercept anchor clicks (e.g. the claude.ai artifact viewer, which can't resolve an iframe's `blob:` URL from the parent) swallowed left-clicks on the old visible `<a download>`, forcing right-click → "Save link as". The button re-runs the synthetic-anchor download under its own fresh user activation — the exact mechanism already proven by the fast APNG path — so a plain left click always saves.
-- Also hardened the MP4/WebM handler with a try/catch (a `captureStream`/`MediaRecorder` failure could previously leave every export button disabled).
-
-## 2026-07-23 — Brand Mark Studio joins the mirror + sandbox-safe downloads (v2.3.4 → v2.4.0)
-
-- **`preview/brand-mark-studio.html` (new in the mirror).** The animated brand-hello exporter had lived only on the Claude Design master; the mirror now carries it, current with the master's typeface update: Poppins or Libre Baskerville with italic/bold toggles, gradient vs solid (per-letter travelling) colour styles, and the expanded background swatch row (violet, aqua, teal, lime). Exports APNG (transparent, anti-aliased), GIF (transparent, PowerPoint-safe), and MP4/WebM — all encoded client-side. Deliberately not a `@dsCard` (it's a utility studio, not a spec card), matching the master.
-- **Fix: exports no longer vanish in sandboxed iframes (both sides).** `save()` relied on a programmatic `a.click()`, which browsers only honour within the user-activation window (~5 s) of the button press. The native-speed APNG encoder finishes in time; the pure-JS GIF encoder does not, so in a sandboxed embed (e.g. a shared claude.ai artifact) the finished GIF silently never downloaded. `save()` now also renders a real "⬇ Download <file>" button (fresh gesture → always allowed), keeps the blob URL alive until the next export, and still auto-clicks for the fast path. Fix applied to the master first, then mirrored here.
-
-Synced from the Claude Design master (`d10f7f7f-…`) after patching the master in the same pass. (Checked with the repo's validate/smoke tooling before its upstream removal in v2.3.2; the file adds no cards, so the 29-card catalog is unchanged.)
-
-## 2026-07-18 — Added a README hero banner (v2.3.3 → v2.3.4)
-
-Embedded `assets/readme/hero.svg` at the top of `README.md` — a self-contained, GitHub-safe hero (system fonts only, no scripts, no external references) built entirely from the system's own material rather than generic decoration:
-
-- The real Storyline mark (line variant, edge-locked right, faded to a background texture — per the once-per-deck/faded-elsewhere rule).
-- The actual secondary palette swatches (lavender, purple, cyan, teal, lime).
-- A live Poppins/Baskerville-italic type specimen.
-- The **white + lime logo reverse** (`logo-horizontal-white-lime.svg`), un-deprecated for navy grounds in the prior patch.
-
-Headline copy is pulled from this README's own value proposition rather than invented marketing copy.
-
-## 2026-07-18 — Un-deprecated the white + lime logo reverse (v2.3.2 → v2.3.3)
-
-`README.md`'s Logo usage "Never" list banned the white+lime reverse (icon in lime, wordmark in white) on any background, calling it deprecated — but `LAYOUTS.md` L31 (the spectrum-bar cover) already specs "white+lime logo" on a navy ground. The rule was stale, not the usage.
-
-- **Removed** the "Never... use the white+lime reverse (deprecated)" bullet.
-- **Added** a proper entry for the variant: `logo-horizontal-white-lime.svg` / stacked equivalent, **navy grounds only**, as the accented alternative to the pure-white lockup when a layout wants lime to read in the mark itself — cross-referenced to `LAYOUTS.md` L31. On any other dark/saturated background, pure white remains the rule.
-- No asset files changed — both `logo-horizontal-white-lime.svg` and `logo-stacked-white-lime.svg` already existed; only the documented rule around them changed.
-
-## 2026-07-17 — Removed Node repo scripts that broke the compiled bundle (v2.3.1 → v2.3.2)
-
-The compiler bundles project `.js` into `_ds_bundle.js`; `tools/lint-deck.js` began with a `#!/usr/bin/env node` shebang, which is invalid mid-file and broke the bundle's JSX transform (`SyntaxError: Unexpected token`). Validation belongs to the compiler, not a parallel Node toolchain, so the scripts are gone rather than patched.
-
-- **Deleted** `tools/lint-deck.js`, `tools/smoke-html-catalog.js`, and `tools/validate-design-system.js` (the whole `tools/` folder).
-- **`package.json`** — removed the `scripts` block (`validate`, `smoke`, `lint:deck`, `test`); the file now carries only name, version, and `private`.
-- **Removed dangling pointers** to those scripts / `npm run` commands: `LLM_ENTRYPOINT.md` "Before Shipping" line, the README file-tree entries + "## Validation" section, and the `CONTRIBUTING.md` "## Validate" section and step notes. Each now points to the compiler + manual `CHECKLIST.md` instead.
-- Historical CHANGELOG entries mentioning the old scripts are left as-is (accurate record of prior state).
-
-## 2026-07-17 — Deck delivery-format choice + "HTML deck ≠ web page" guardrail + image-prompt fixes (v2.3.0 → v2.3.1)
-
-Same-day follow-up to v2.3.0, tightening the two things that drive the tiny-font failure and the garbled-text-in-images failure.
-
-- **Deck delivery format is now an explicit intake choice.** `INTAKE.md` Q1 gains an HTML-vs-native-PowerPoint decision with the trade-off spelled out: HTML deck = interactive/animated, pixel-exact, best live or as a link, but not editable in PowerPoint; `.pptx` = anyone can edit and hand off, but limited interactivity and more work to hold brand fidelity. Rule of thumb: presenting live / sending a link → HTML; someone else edits it → PPTX. (PDF is an export of either.)
-- **"An HTML deck is still a deck, not a web page."** New guardrail in `AGENTS.md §0` (echoed in `SKILL.md`): delivery format is not a medium — HTML and `.pptx` are both slides and both use the slide rules. HTML is only the rendering tech; applying the web type scale / whitespace / `ui_kits/` rules to a 1920×1080 HTML deck is exactly how it ends up with 16px body text. Closes the most common tiny-font path.
-- **Stop asking image models to typeset.** `PROMPTS.md` gains a banner and per-block fixes: Midjourney / DALL·E / SD garble real words, so the social-tile and slide blocks now generate *imagery / background only* — headlines, series numbers, and labels are set in the deck (HTML or PPTX), not baked into the picture. The type specs in those blocks are labelled as the code-layer spec.
-- **Photo-seed housekeeping.** Flagged that the `__prompt` seeds are photography-only (illustration lives in `IMAGERY.md`), added pixel size alongside aspect in the seed template, and dropped the stale "slides 30–30f" reference.
-
-Synced to the Claude Design master (`d10f7f7f-…`) and the public GitHub mirror (`main`).
-
-## 2026-07-17 — Intake gate, imagery workflow, title rule + rendered-deck linter (v2.2.1 → v2.3.0)
-
-New surface area, all additive — closes the gaps behind the recurring "it doesn't look like the system" failures (tiny type, truncated/half-width titles, dead whitespace, missing imagery, agents skipping the imagery decision). The owner's *writing* voice was deliberately left out — that's personal preference, not a system rule.
-
-- **`INTAKE.md` (new) — a pre-build gate.** A short question set (medium · Presenter/Document mode · audience, tone & language · colour direction · imagery) with a one-line brief restated back, run before any surface or layout. Wired as step 0 from `AGENTS.md`, `LLM_ENTRYPOINT.md` (new §0), `CLAUDE.md`, and `SKILL.md`, so no entry path can skip it.
-- **`IMAGERY.md` (new) — the image decision workflow.** Capability check (can this agent generate images at all?) → ask the user (generate / supply / labelled placeholder) → if generating, learn a reusable style from 2–4 samples or fall back to the documented **Hoffman house illustration style** → else a labelled `.tha-placeholder`, never a bare box. Distinguishes illustration from photograph and cross-wires with `PROMPTS.md` (workflow here, prompt templates there). Ships 3 reference samples in `assets/house-style/`.
-- **`AGENTS.md §2.5` (new) — titles & headings.** Never truncate/clip a title; break lines at sense boundaries (manual `<br>`, not mid-phrase); fill the width or size up, and treat an empty right margin as a slot for a graphic, not dead space. Plus a "dead space is a bug" note in §2, "chunk, don't dump" in §5, and "colour the emphasis" in §10.
-- **`tools/lint-deck.js` (new) — rendered-output linter (`npm run lint:deck`).** Renders a deck in headless Chromium at 1920×1080 and flags type below the slide floor, titles that truncate or under-fill, right-side / lower-band dead space, content slides with no visual, real white-on-white (measured from the actual rendered pixel behind each text run, so layered colour surfaces read correctly), frame overflow, and tokens/bundle not loaded. Degrades gracefully where Playwright/Chromium is absent; not added to `npm test` (needs a browser + a target file).
-- **Routing reoriented + checklists updated.** `CHECKLIST.md` gains an intake block and title/visual/chunk/emphasis/image-workflow lines; `ANTI_PATTERNS.md` gains rows for hand-authored chrome, skipped intake, truncated half-width titles, text-only slides, wall-of-text dumps, and mixed image styles.
-
-Mirrored to the Claude Design master (`d10f7f7f-…`).
-
-## 2026-07-15 — Fix reversed-meaning tagline + finish the italic-emphasis reframe (v2.2.0 → v2.2.1)
-
-Post-sync cleanup. Two copy defects that survived the v2.2.0 sync, caught in a
-review pass:
-
-- **Corrected the reversed "complexity / clarity" tagline.** The line had crept in
-  backwards — *"Complexity in. Clarity out."* (i.e. keep the complexity, lose the
-  clarity) — in four places: `README.md`'s examples, the sample lines in
-  `docs/portable-brand-brief-social.md`, a cover slide in
-  `templates/deck/Deck.dc.html`, and the type specimen (`preview/type-display.html`).
-  Fixed all four to say the right thing: **complexity out, clarity in.** The line is
-  playful fodder, *not* a fixed hero — either word order is fine as long as the
-  meaning holds — so the deck's meaning-correct *"Clarity in. Complexity out."*
-  variants were deliberately left alone. (`DESIGN.md` and `preview/brand-voice.html`
-  were also nudged to the complexity-first order for local consistency; either order
-  is acceptable.)
-- **Actually finished the italic-emphasis reframe.** The v2.2.0 entry claimed the
-  reframe was fully propagated, but 8 `@layout` slot specs in
-  `templates/deck/Deck.dc.html` still read "one italic word" / "w/ italic word"
-  (drifting from `LAYOUTS.md`, which had already moved to "the italic emphasis"),
-  and `docs/portable-brand-brief-social.md` still said "the italic word in lime."
-  Reframed all of them to **"the italic emphasis"** so the deck template and its
-  companion doc agree.
-
-No new surface area — wording only. Both fixes mirrored to the Claude Design master.
-
-## 2026-07-15 — Brand Tour template + standalone fix, SemVer policy, italic-rule cleanup (v2.1.0 → v2.2.0)
-
-Follow-through on the v2.1.0 work: made the interactive demo a first-class,
-consumer-pickable template, hardened its standalone export, formalized versioning,
-and finished propagating the italic-emphasis reframe into the last stale surfaces.
-
-- **Renamed the demo to "Interactive brand tour."** `templates/app-deck/` →
-  `templates/brand-tour/`, `AppDeck.dc.html` → `BrandTour.dc.html`, root
-  `Hoffman App Deck.html` → `Hoffman Brand Tour.html`; `@template` label
-  "App deck (interactive explorer)" → "Interactive brand tour"; Tweaks section
-  "App deck" → "Brand tour". Added it to the README templates file-map.
-- **Fixed it not registering as a template.** The compiler was tripping on the
-  bundler-only `<head>` payload (the `ext-resource-dependency` metas). Moved those
-  metas into `<helmet>` and kept only `__bundler_thumbnail` in `<head>` — the tour
-  now registers (4 templates: brand-tour, deck, one-pager, social-tile).
-- **Fixed + hardened the standalone `Hoffman Brand Tour.html`.** It had loaded
-  `colors_and_type.css` only via `ds-base.js`'s runtime injection, which a static
-  offline bundle can't execute — so every `var(--tha-*)` collapsed to transparent
-  (colorless section cards) and the bundle logged repeating `[bundle] error`s.
-  Inlined a compact brand-token block + a slim self-hosted font set into the DC and
-  dropped the runtime loader from the tour → correct colors, real Poppins +
-  Baskerville italic, and zero console errors offline.
-- **Formalized SemVer.** Added `name` + `"version"` to `package.json` (canonical
-  number), a Version line at the top of `README.md`, and a Versioning policy to
-  `CONTRIBUTING.md` (MAJOR/MINOR/PATCH + the package.json → CHANGELOG → README bump ritual).
-- **Italic-emphasis cleanup.** Synced the active print variant
-  (`Hoffman Brand Guidelines-print.html`) to the live deck's reframed rule text,
-  fixed the "italic word" → "italic emphasis" phrasing in both decks, and softened the
-  last bare "one word" instruction in `PROMPTS.md`.
-- **Web hero copy.** `ui_kits/website/Hero.jsx`: "Complexity in. / *Clarity* out."
-  → "Complexity out. / *Clarity* in."
-
-> **Repo-mirror note:** the regenerated standalone `Hoffman Brand Tour.html` (the
-> `BrandTour.dc.html` source IS synced) exceeds the DesignSync 256 KB fetch cap, so it
-> could not be mirrored via API this sync — the repo keeps the prior standalone.
-> Re-export it from Claude Design to bring the fixed offline build into the repo.
-
-## 2026-07-14 — Storyline-line frequency rule (one full-strength use per deck)
-
-Added a missing guardrail after an external agent (ChatGPT/Codex) built a deck
-that used the navy + full-frame storyline-line treatment on ~6 of 26 slides. The
-system defined *how* to use the line but never *how often*, so it read as a
-general navy surface instead of a signature moment.
-
-New rule, threaded through `AGENTS.md §7`, `DESIGN.md`, `LAYOUTS.md` (Hoffman
-signatures), `CHECKLIST.md`, `ANTI_PATTERNS.md`, and
-`assets/asset-manifest.json`:
-
-- The bold, full-strength storyline line on navy is a **once-per-deck
-  signature** — use it on the **cover OR the closing, never both.** It may still
-  appear on other slides, but only **faded to a low-opacity background texture**
-  (≈8–15%, receding behind content), never the solid full-strength line. A plain
-  navy field with no line is always fine. The boxed corner monogram on light
-  surfaces is a separate device, unaffected.
-
-Mirrored into the Claude Design master so both Claude and repo-consuming agents
-(ChatGPT/Codex) pick it up.
-
-## 2026-07-13 — Master → repo full-parity sync (native PowerPoint route + italic-emphasis refinement)
-
-Pulled the latest Claude Design master down to the repo and reconciled every
-differing file. Two threads:
-
-- **Native PowerPoint route (new).** Added `POWERPOINT.md` (the `.pptx`/`.potx`
-  reliability layer — build-the-theme spec, font presence-≠-use rules, logo
-  geometry contracts, protected zones, connector rules, layout-as-contract, and
-  a finished-file validation checklist), `assets/asset-manifest.json` (machine-
-  readable logo/Storyline geometry, ratios, clearspace, protected zones, and the
-  surface→logo-variant map), and `templates/powerpoint/layout-manifest.json` (the
-  48 layout contracts for python-pptx-style tools that can't consume
-  `Deck.dc.html`). Threaded the route into the existing docs: a new **§13 Native
-  PowerPoint** in `AGENTS.md`, a **"Finished PowerPoint file"** section in
-  `CHECKLIST.md`, native-`.pptx` routing rows/subsections in `LLM_ENTRYPOINT.md`,
-  `README.md` (routing table + file map: POWERPOINT.md, asset-manifest.json,
-  templates/powerpoint/) and `SKILL.md`, and a full **PowerPoint & Office —
-  presence is not use** per-platform font workflow in `fonts/README.md`.
-- **Italic-emphasis refinement.** The signature type move is now "the **emphasis**
-  — a key word *or* short phrase, chosen by meaning, one per line" (was "one
-  italic word"). Synced across `AGENTS.md` (§0/§5/§10), `CHECKLIST.md`,
-  `DESIGN.md`, `LAYOUTS.md` (14 slot descriptions + signatures), `SKILL.md`,
-  `colors_and_type.css` (`.tha-em-serif` comment), `preview/brand-voice.html`
-  (section 2), `templates/deck/Deck.dc.html` (L08 `@layout`) and
-  `templates/app-deck/AppDeck.dc.html` (interactive-demo copy).
-
-Deliberately **not** changed: the repo's `CLAUDE.md` stays a "pointer, not canon"
-redirect to `AGENTS.md` (the master's `CLAUDE.md` is a full duplicate of the
-canon — mirroring it here would break the repo's intentional structure); the
-compiler-generated `_ds_bundle.js` / `_ds_manifest.json` are unchanged (no
-component source, card metadata, or DC template changed); `references/` and
-`uploads/` remain excluded from the public mirror.
-
-## 2026-07-12 — Impeccable audit fixes (v1.1 → v2.0)
-
-Ran a full `$impeccable audit` (12/20, tagged `v1.1`) and fixed all 23 findings
-on a candidate branch, verified live in-browser at each breakpoint and via
-keyboard interaction, then merged to `main` as `v2.0`.
-
-- **Contrast (P0)** — the documented "WCAG-safe" lime text color and the
-  warning badge/banner both actually failed contrast (2.1:1 and 2.6:1);
-  darkened both to clear 4.5:1 AA.
-- **Responsive (P0)** — `ui_kits/website/` had zero `@media` breakpoints and
-  was missing the viewport meta tag entirely, so nothing about it could ever
-  work on a real phone. Added breakpoints to Nav (real hamburger menu now),
-  Hero, CaseStudyGrid, and StatsStrip, plus the viewport tag.
-- **Keyboard/focus (P1)** — Modal/Drawer now trap focus and close on Escape;
-  fixed an unreachable link-styled button in the docs; darkened form input
-  borders that were nearly invisible at rest.
-- **Cleanup (P2/P3)** — `aria-current` on nav/sidebar, a visible focus ring on
-  Toggle, `role="menu"` semantics on MobileMenu, 44px touch targets, font
-  preconnect hints, `will-change` on an ambient deck animation, one
-  ghost-card border/shadow combo removed, `aria-hidden` on decorative SVGs,
-  a few hardcoded colors replaced with tokens.
-
-Full diff pushed to `neekchan/hoffman-agency-design-system` `main` and synced
-back into the Claude Design master project.
-
-## 2026-07-03 — Fork extension merged back + integrated into the master (neekchan)
-
-Reviewed Takeo Apitzsch's fork (`takeoap/hoffman-agency-design-system-extension`,
-"Extended version of The Hoffman Agency design system"), confirmed it was purely
-additive (4 commits ahead, 0 behind — no brand redesign, nothing removed), and
-merged it back into the canonical repo with his commit history preserved.
-
-### Merged from the fork → `github.com/neekchan/hoffman-agency-design-system`
-- **App/product UI kit — `ui_kits/app/`.** `AppUI.jsx` with ~30 React primitives:
-  forms (TextField, Select, Toggle, RadioGroup, Slider…), navigation (Tabs,
-  Breadcrumbs, Pagination, Sidebar, MobileMenu), feedback (Alert, Toast, Modal,
-  Tooltip, Popover), data display (DataTable, DataList, Avatar, Badge, Divider),
-  disclosure (Accordion, Drawer, Menu), progress (ProgressBar, Spinner, Skeleton),
-  plus `index.html` dashboard demo, `COMPONENTS.md`, `README.md`. Fills the
-  "component library beyond the basics" item DESIGN.md had reserved for future.
-- **LLM-consumption guidance** — `LLM_ENTRYPOINT.md` (task-routing table),
-  `ANTI_PATTERNS.md`, README LLM-usage + fork-comparison sections.
-- **Repo tooling** — `package.json` + `tools/validate-design-system.js` +
-  `tools/smoke-html-catalog.js` (`npm run validate` / `test` / `smoke`),
-  `CONTRIBUTING.md`.
-- **Catalog fixes** — `_ds_manifest.json` matched to real files; stale
-  `templates/keynote` entry removed; brand-guidelines deck corrected 52 → 58
-  slides; website UI-kit README fixed; font-hosting + `references/` privacy
-  clarified. (Detail in the fork entry below.)
-
-### Integrated into the Claude Design master (source of truth)
-Pushed the **design substance only** — `ui_kits/app/AppUI.jsx`,
-`ui_kits/app/index.html`, `ui_kits/app/COMPONENTS.md`, `ui_kits/app/README.md`,
-`LLM_ENTRYPOINT.md`, `ANTI_PATTERNS.md`. Deliberately **not** pushed:
-compiler-generated `_ds_manifest.json` / `_ds_bundle.js` (the Claude Design build
-regenerates these from source), repo dev-tooling, and edited existing docs (the
-master already had newer versions — avoided regressions). Opening the master
-project once lets its compiler register the app components + the App UI Kit
-preview card.
-
-_Note:_ repo and master are intentionally not in full parity — the master carries
-an `app-deck` template + `Hoffman App Deck.html` the repo lacks; the repo carries
-the validator/tooling the master lacks.
+- **§14 — every slide names itself in the markup.** All 48 layouts sit at
+  identical coordinates on a 1920×1080 canvas, so a review comment pinned to a
+  spot on screen has no idea which slide it belongs to. A 15-slide deck came back
+  from review with every comment floating free of its slide. Every slide now
+  carries `data-screen-label="07 Action titles"` — plain HTML, survives a diff, a
+  screenshot, a PDF and a comment thread.
+- **§15 — tappable cards stay quiet until you point at them.** The system covered
+  static slides in forensic detail and said nothing about interactive ones, so a
+  build invented an affordance that broke four existing rules at once. One mark
+  per card, faint at rest, and on hover the mark moves while the card itself
+  stays exactly where it is.
+- **§16 — a motion vocabulary.** Everything else here was specified; motion
+  wasn't. So every build made up its own, and the linter and the rulebook had the
+  same argument five separate times. Durations, stagger, where overshoot is
+  allowed (small marks yes, paragraphs never), nothing loops, and
+  `prefers-reduced-motion` is honoured.
+- **Check your copy is current before you build.** Someone built an entire deck
+  against a clone three versions old and got every single emoji wrong, with no
+  warning at any point. Second time this has happened; the first is in the log
+  from July.
+- **A mark on an emphasised word takes a different colour from the word.** Both
+  default to lime, so the underline erases itself.
+- **An emoji next to a headline sits on the headline's line**, not floating
+  beside it like a stray asset.
+- **Passing contrast is the floor, not the goal.** Teal on aqua clears AA and
+  still reads flat at display size.
+- **Solid chip fills**, because the ghost chip disappears on a saturated
+  background.
+
+Minor bump. All additive — nothing that already worked stops working.
+
+## 2026-07-23 — Emoji are brand assets, so here's how to actually use them (v2.5.0 → v2.6.0)
+
+The docs said "static colour is the default form" and then stopped. No rule for
+which style to use when, and nothing at all about what happens when your file has
+to work without internet. `POWERPOINT.md` didn't mention emoji once.
+
+- **Style order.** For storytelling moments — the hero beat, the big stat — 3D
+  first, animated 3D where it earns it, 2D colour as the fallback. For functional
+  symbols, Flat.
+- **Offline files: download the file and embed it.** Native PowerPoint, Keynote,
+  a PDF someone opens on a plane — anything that has to render without a
+  connection gets the actual file, never a link. Web deliverables can use the CDN.
+  Raw Unicode emoji as icons stays banned everywhere, forever.
+- **`POWERPOINT.md`** gains a check for this in its finished-file validation,
+  because "it looked fine on my machine" is how emoji go missing in a client
+  meeting.
+- **`ANTI_PATTERNS.md`** gains the obvious pair: hotlinked emoji in an offline
+  file, and the wrong Fluent style for the job.
+- **Also repaired some quiet drift.** The master had three wording fixes the repo
+  never received — the tagline order, and the italic rule that allows the emphasis
+  to be a phrase rather than one word. Adopted rather than overwritten; both sides
+  match again.
+
+Minor bump.
+
+## 2026-07-23 — The Brand Mark Studio existed. Nobody could find it. (v2.4.3 → v2.5.0)
+
+We built a tool that turns any word into an animated brand "hello," put it in
+`preview/`, and then mentioned it in exactly zero of the files an agent actually
+reads. Ask any AI for the animated wordmark and it would cheerfully hand-build
+you one from scratch, badly.
+
+It's now routed from every entry point — `AGENTS.md`, `LLM_ENTRYPOINT.md`,
+`README.md` — with one standing instruction attached: **point the user at the
+tool, don't hand-build the animation.**
+
+Minor bump. New surface, nothing changed.
+
+## 2026-07-23 — Chrome only lets you download one file per page load (v2.4.2 → v2.4.3)
+
+That's the whole mystery, solved. Every version since v3 had the same symptom:
+your first export downloads, every one after it silently doesn't. No error, no
+prompt, nothing. Chromium permits exactly one script-triggered download per page
+load and quietly bins the rest — and inside a sandboxed frame, the usual "allow
+multiple downloads?" prompt never appears to tell you that's what happened.
+
+So the Studio now spends that one download deliberately. The first export of a
+session downloads itself; after that it stops pretending and shows you the routes
+that have no limit — right-click the preview and save the image, use the video
+player's menu, or use the green link's real save dialog.
+
+Also added a **diagnostics strip** under the panel: a rolling seven-line log of
+what was exported, how big it was, whether the download fired or was skipped, and
+any error. Sandbox problems are now visible on the page instead of being guessed
+at over WhatsApp.
+
+## 2026-07-23 — Stop fighting the host (v2.4.1 → v2.4.2)
+
+Field report: inside the claude.ai artifact sandbox, even the shiny new download
+*button* from v2.4.1 was getting swallowed. And turning the link into a button
+had quietly removed the one method that always worked — right-click, save link as.
+
+New approach: when an export finishes, the finished file simply appears in the
+page. APNG and GIF render as a live preview; MP4 and WebM get a real video
+player. Then you save it the way you save any image on the internet, because no
+host on earth can intercept a right-click on visible content.
+
+The preview doubles as proof the file isn't corrupt — which, see the next entry,
+turned out to matter rather a lot.
+
+## 2026-07-23 — Every GIF this thing ever made was broken (v2.4.0 → v2.4.1)
+
+Not "some GIFs." Every single one, from the day the Brand Mark Studio shipped.
+
+The encoder squeezes an image down using a dictionary that grows as it works.
+When the dictionary fills up it needs more room per entry — and our code made
+that switch one step too early. Every decoder on the planet (Chrome, PowerPoint,
+Preview, all of them) expects it one step later. So the moment your artwork got
+busy enough to fill the dictionary — which is any real word at any real size —
+the file quietly turned to static. PowerPoint's review: a blank rectangle.
+
+Nobody spotted it because the download was *also* broken, so not one corrupt file
+ever reached a human being. Two bugs covering for each other for a month. I'm not
+even angry, I'm impressed.
+
+Fixed, and checked pixel-for-pixel against a reference decoder plus a real
+browser export decoded frame by frame. The download control is a proper button
+now too — some hosts swallow clicks on links, and a fresh click on a real button
+always gets through.
+
+## 2026-07-23 — Brand Mark Studio joins the repo, and its exports stop vanishing (v2.3.4 → v2.4.0)
+
+The animated brand-hello exporter had been living only on the Claude Design
+master. It's in the repo now and current with the master: Poppins or Libre
+Baskerville, italic and bold toggles, gradient or travelling per-letter colour,
+and the full background swatch row. Exports APNG (transparent), GIF (transparent,
+survives PowerPoint) and MP4/WebM, all encoded in your own browser.
+
+**Plus a fix on both sides: exports were disappearing inside sandboxed frames.**
+Browsers only honour a scripted download for about five seconds after you click
+something. The APNG encoder finishes inside that window. The GIF encoder doesn't
+— so in a shared artifact, the GIF was being encoded perfectly and then thrown
+away by the browser without a word. There's now a real "⬇ Download" button that
+appears once the export is done, which counts as a fresh click and is therefore
+always allowed.
+
+## 2026-07-18 — The README has a proper banner now (v2.3.3 → v2.3.4)
+
+Built from the system's own material rather than generic decoration: the real
+storyline mark (line variant, faded, obeying its own rule), the actual secondary
+swatches, a live Poppins and Baskerville-italic specimen, and the white+lime logo
+reverse that had stopped being deprecated about ten minutes earlier.
+
+Self-contained — system fonts, no scripts, nothing loaded from anywhere else — so
+GitHub will actually render it. The headline is this README's own words, not
+invented marketing copy.
+
+## 2026-07-18 — The rule was wrong, not the logo (v2.3.2 → v2.3.3)
+
+`README.md` had the white+lime logo reverse on the "never do this" list, marked
+deprecated. `LAYOUTS.md` L31 specs that exact logo on a navy ground for the
+spectrum-bar cover. Both files had been sitting there contradicting each other.
+
+The layout was right. The white+lime reverse is a real variant — navy grounds
+only, for when you want lime to read in the mark itself rather than just on the
+slide behind it. On any other dark or saturated background, pure white is still
+the rule.
+
+No asset files changed. Both logos already existed. We just stopped telling
+people not to use one of them.
+
+## 2026-07-17 — Deleted the Node scripts that were breaking the build (v2.3.1 → v2.3.2)
+
+`tools/lint-deck.js` began with a `#!/usr/bin/env node` line. Harmless in a
+standalone script, invalid in the middle of a bundled file — and the compiler
+bundles every `.js` in the project into one. So a single line at the top of a
+linter nobody was running broke the entire component bundle.
+
+Validation is the compiler's job, not a second toolchain running alongside it.
+So the scripts are gone rather than patched: the whole `tools/` folder, the
+`scripts` block in `package.json`, and every dangling `npm run` reference in the
+docs, which now point at the compiler and `CHECKLIST.md` instead.
+
+Old changelog entries mentioning those scripts are left alone. They were accurate
+at the time.
+
+## 2026-07-17 — An HTML deck is still a deck (v2.3.0 → v2.3.1)
+
+Same-day follow-up to v2.3.0, closing the two failures that kept coming back:
+tiny fonts, and image models writing gibberish into pictures.
+
+- **Pick your delivery format at intake.** `INTAKE.md` now asks HTML or
+  PowerPoint up front, with the trade-off stated plainly. HTML is interactive,
+  pixel-exact and great as a link, but nobody can edit it in PowerPoint. A `.pptx`
+  is editable by anyone and fights you on fidelity. Rule of thumb: presenting
+  live, send HTML; someone else has to edit it, send PPTX. PDF is an export of
+  either.
+- **And the guardrail that matters: HTML is a rendering technology, not a
+  medium.** A 1920×1080 deck that happens to be HTML is a *deck*. Apply web rules
+  to it — 16px body, generous whitespace, a 1240px max-width — and you get body
+  copy the size of a footnote projected onto a wall. This is the single most
+  common route to the tiny-font failure.
+- **Stop asking image models to typeset.** Midjourney, DALL·E and Stable Diffusion
+  cannot spell. The social and slide prompt blocks now generate imagery and
+  backgrounds only; headlines, numbers and labels get set in the deck, where
+  letters are letters.
+
+## 2026-07-17 — Ask before you build (v2.2.1 → v2.3.0)
+
+New surface area, all additive, all aimed at the same recurring complaint: "it
+doesn't look like the system." Tiny type, truncated titles, half-empty slides, no
+imagery, and agents guessing at a brief instead of asking about it.
+
+- **`INTAKE.md` (new) — a gate before anyone builds anything.** A short set of
+  questions: what medium, presenter or document mode, audience and language,
+  colour direction, and what's happening with images. Then restate the brief back
+  in one line. Wired in as step zero from every entry point so no route can skip
+  it. Guessing the brief and rebuilding is the most expensive mistake in here.
+- **`IMAGERY.md` (new) — settle images before you lay anything out.** Can this
+  agent generate images at all? Then ask: generate, supply, or a labelled
+  placeholder? If generating, learn a style from a few samples or fall back to the
+  house illustration style. Never a bare grey box. Ships three reference samples.
+- **`AGENTS.md §2.5` (new) — titles.** Never truncate one. Break lines where the
+  meaning breaks, not where the box ends. Fill the width or size up — and treat
+  the empty half of a slide as a slot for a graphic, not a margin. Plus: dead
+  space is a bug, chunk don't dump, and colour the italic emphasis.
+- **A linter that looks at the rendered deck**, not the source. Opens it in a
+  headless browser at full size and flags type below the floor, titles that
+  truncate or under-fill, dead space on the right and along the bottom, content
+  slides with no visual, real white-on-white (measured off the actual pixel behind
+  the text, so layered colour surfaces read correctly), and overflow.
+- **Checklists updated to match**, and `ANTI_PATTERNS.md` gains rows for
+  hand-rolled chrome, skipped intake, half-width titles, text-only slides,
+  wall-of-text dumps and mixed image styles.
+
+The owner's *writing* voice was deliberately left out of all this. That's taste,
+not a system rule.
+
+## 2026-07-15 — We'd been printing the tagline backwards (v2.2.0 → v2.2.1)
+
+*"Complexity in. Clarity out."* In four places. Which, read literally, promises to
+take your clarity away and hand you complexity — an honest description of some
+agencies, but not this one.
+
+Fixed in the README examples, the portable social brief, a cover slide in the deck
+template and the type specimen. The line is playful fodder rather than a fixed
+lockup, so either word order is fine as long as it means the right thing; the
+deck's correctly-ordered variants were left alone.
+
+Also: **the italic-emphasis reframe was not, in fact, finished.** The v2.2.0 entry
+said it was fully propagated. Eight slot specs in the deck template still said
+"one italic word," and the portable brief still said "the italic word in lime."
+All of them now say "the italic emphasis," which is what `LAYOUTS.md` had been
+saying on its own for a week.
+
+Wording only. No new surface.
+
+## 2026-07-15 — The interactive tour becomes a real template (v2.1.0 → v2.2.0)
+
+- **Renamed it to what it is.** "App deck" → "Interactive brand tour," folders and
+  files to match, and added to the README map. Nobody knew what an app deck was,
+  including us.
+- **Fixed it not registering as a template at all.** The compiler was choking on
+  some bundler-only metadata in the `<head>`. Moved it, and the tour now registers
+  properly — four templates, as intended.
+- **Fixed the standalone version, which was colourless.** It pulled the brand
+  tokens in through a script, and a static offline file can't run the script. So
+  every colour variable resolved to nothing, the whole tour rendered in greyscale,
+  and the console filled with errors. Tokens and a slim font set are now inlined
+  directly: real colours, real Poppins and Baskerville, no errors.
+- **Formalised versioning.** `package.json` holds the canonical number, the README
+  carries it at the top, and `CONTRIBUTING.md` explains what counts as major,
+  minor and patch. Three places, one ritual, stop guessing.
+- **Finished the italic cleanup** across the print deck, both decks' rule text,
+  and the last bare "one word" in `PROMPTS.md`.
+- **Web hero copy** turned the right way round (see above).
+
+> **One thing didn't make it across:** the rebuilt standalone
+> `Hoffman Brand Tour.html` is too big for the sync API's 256 KB limit, so the repo
+> still has the old one. Re-export it from Claude Design when you get a chance.
+
+## 2026-07-14 — The storyline line is a signature, not wallpaper
+
+An outside agent built a 26-slide deck and used the full-strength navy storyline
+treatment on six of them. Not really its fault: the system explained in detail
+*how* to use the line and never once said *how often*. Used six times, it stops
+being a signature and becomes the background.
+
+New rule, threaded everywhere it needs to be. The bold full-strength line on navy
+is **once per deck — the cover or the closing, never both.** It can appear
+elsewhere, but only faded right back to a background texture at 8–15%, sitting
+behind the content. A plain navy slide with no line is always fine. The boxed
+corner monogram on light surfaces is a different device and is unaffected.
+
+## 2026-07-13 — Native PowerPoint gets a proper route
+
+Pulled the master down and reconciled every file that differed. Two threads.
+
+- **PowerPoint is now a first-class output rather than an afterthought.** A
+  `.pptx` has no CSS, no grid and no web fonts, so everything HTML does for free
+  has to be placed by hand and then verified in the actual file. New:
+  `POWERPOINT.md` (theme setup, the fact that having a font installed is not the
+  same as using it, logo geometry, protected zones, connector rules, and a
+  validation pass on the finished file), `asset-manifest.json` (every logo's real
+  ratio, clearspace, and which variant belongs on which surface), and a layout
+  manifest carrying all 48 layout contracts for tools that can't read the HTML
+  deck. Threaded in as `AGENTS.md §13`, a checklist section, and routing rows
+  everywhere.
+- **The italic emphasis can be a phrase.** It was written as "one italic word,"
+  which is wrong about half the time — sometimes the point lives in two words.
+  Now: a key word *or* a short phrase, chosen by meaning, one per line. Synced
+  across nine files.
+
+**Deliberately not changed:** the repo's `CLAUDE.md` stays a pointer to
+`AGENTS.md` rather than becoming a second copy of the canon; the
+compiler-generated files are left to the compiler; `references/` and `uploads/`
+stay out of the public copy.
+
+## 2026-07-12 — Audited our own work and it scored 12/20 (v1.1 → v2.0)
+
+Ran a full audit against the system. Twenty-three findings. Fixed all of them on a
+branch, checked every one live in a browser at each breakpoint and with a
+keyboard, then merged.
+
+- **Contrast (critical).** The lime we had documented as the "WCAG-safe" text
+  colour was 2.1:1. The warning badge was 2.6:1. Both were failing the standard we
+  had written down ourselves, in the file where we wrote it down. Darkened until
+  they pass.
+- **Responsive (critical).** `ui_kits/website/` had no breakpoints and no viewport
+  tag. Not "poor mobile support" — no mobile support, structurally impossible, in
+  a website kit we were shipping to people who would obviously open it on the
+  device everyone actually fucking uses. Added breakpoints to the nav (with a real
+  hamburger), the hero, the case-study grid and the stats strip, plus the tag.
+- **Keyboard and focus.** Modals and drawers now trap focus and close on Escape.
+  Fixed a button styled as a link that you could not reach by keyboard at all.
+  Darkened form borders that were effectively invisible until clicked.
+- **The long tail.** `aria-current` on navigation, a visible focus ring on
+  toggles, proper menu semantics, 44px touch targets, font preconnects, one
+  ghost-card border-and-shadow combination removed, decorative SVGs hidden from
+  screen readers, and a handful of hardcoded colours swapped for tokens.
+
+## 2026-07-03 — Merged Takeo's fork back in
+
+Takeo Apitzsch forked this and extended it. Reviewed the whole thing — four
+commits ahead, nothing behind, no brand redesign, nothing removed, purely
+additive — and merged it back with his commit history intact, because it was good
+work and his name should stay on it.
+
+**What came across**
+
+- **A product/app UI kit (`ui_kits/app/`).** Around 30 React primitives — forms,
+  navigation, feedback, data display, disclosure, progress — plus a dashboard demo
+  and docs. This fills the "component library beyond the basics" line `DESIGN.md`
+  had been carrying as a to-do.
+- **Guidance for AI agents** — `LLM_ENTRYPOINT.md` and `ANTI_PATTERNS.md`.
+- **Repo tooling** — a validator, smoke checks, `CONTRIBUTING.md`.
+- **Catalog fixes** — the manifest now matches the files that actually exist, a
+  dead keynote entry removed, and the guidelines deck corrected from 52 slides to
+  58.
+
+**What went up to the master:** the design substance only. Not the generated files
+(the master's compiler rebuilds those) and not the edited docs, where the master
+already had newer versions and pushing ours would have gone backwards.
+
+Repo and master are deliberately not identical after this: the master has a
+template the repo doesn't, the repo has tooling the master doesn't.
 
 ## 2026-07-03 — Fork "extension" by Takeo Apitzsch (`takeoap`)
 
@@ -408,15 +567,17 @@ small catalog mistakes before they reach users again.
 - Clarified the README's LLM usage section so it works when the README is the only file pasted or attached to Claude/ChatGPT.
 - Added a README comparison section that explains how this fork differs from Neekchan's original version.
 
-## 2026-06-30 — Public repo created + full sync from Claude Design (neekchan)
 
-- Created the public repo `github.com/neekchan/hoffman-agency-design-system` and
-  synced the full Hoffman Agency design system down from the Claude Design master.
-- **Excluded internal source material** (`references/`, `uploads/` — all-hands and
-  strategy decks) from the public mirror.
-- Fonts: 18 Poppins weights self-hosted (from Google Fonts); Libre Baskerville
-  variable fonts (upright + italic) added.
-- Full curated Fluent emoji set vendored offline (color + animated), CDN pinned to
-  commit SHAs. Logos (10 colorways), storyline marks, 76 hand-drawn annotations,
-  deck/one-pager/social-tile templates, the 58-slide brand-guidelines deck, and
-  the website UI kit all included.
+## 2026-06-30 — Day one
+
+Created `github.com/neekchan/hoffman-agency-design-system` and synced the whole
+system down from Claude Design.
+
+- **Internal material stayed behind** — `references/` and `uploads/`, which hold
+  all-hands and strategy decks. Those aren't going on the public internet.
+- **Fonts:** 18 Poppins weights self-hosted, plus Libre Baskerville variable,
+  upright and italic.
+- **Everything else:** the curated Fluent emoji set vendored offline with the CDN
+  pinned to specific commits, 10 logo colourways, the storyline marks, 76
+  hand-drawn annotations, the deck, one-pager and social-tile templates, the
+  58-slide brand guidelines deck, and the website UI kit.
