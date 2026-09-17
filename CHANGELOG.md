@@ -4,6 +4,77 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — A 404 is a broken page, not evidence of absence (v2.16.3 → v2.17.0)
+
+### Six offices were missing from the city set, including the European HQ
+
+The photography brief was "one street shot per office `hoffman.com` lists." It
+shipped **ten**. There are **sixteen**.
+
+`hoffman.com/locations/europe-pr-agency/` returns a 404, and an earlier pass took
+that as settled: no European offices, nothing to source an address from, gap
+recorded honestly and moved on. **The page is simply at a different URL.** The live
+one is `/locations/pr-agency-europe/`, and it lists three offices — with **London
+as the European HQ**.
+
+Checking the sitemap properly turned up two more gaps in the same list:
+
+- **The US page lists three offices**, not one: San Jose, **Portland** and **Boston**
+- **The China page lists two**: Beijing and **Shanghai**
+
+Six new shots, each on its real district: **London** (Kings Cross Road, wet
+pavement, black cabs, yellow-stock brick), **Munich** (Rosental, Altstadt cobbles,
+market awnings, bicycles), **Paris** (rue Feydeau, a café terrace under Haussmann
+limestone), **Portland** (Lloyd District, damp, firs, the MAX line), **Boston**
+(Franklin Street, granite meeting glass, autumn leaves) and **Shanghai** (plane
+trees and shikumen brick in the former French Concession).
+
+**The lesson is the transferable part: a 404 is a broken page, not evidence of
+absence.** The earlier gap was recorded honestly and was still wrong. Check the
+sitemap before concluding something does not exist.
+
+### The brand mark, done properly — by reference, not by hand
+
+v2.15.0 removed AI-invented squiggles and wrote the rule. This release does the
+positive half: **`assets/storyline-mark.svg` rendered, uploaded, and passed to the
+image model as a reference**, with the instruction to reproduce it exactly.
+
+It lands the material, lighting, perspective and shadow far better than
+hand-compositing a PNG does — a first attempt at pasting it overhung the cover edge
+and muddied the lime to olive, and a perspective warp onto the notebook stack came
+out tilted off-plane and was thrown away.
+
+**`AGENTS.md` §4.6 is rewritten accordingly.** It used to say *never let a
+generative model draw a fixed brand asset*, which is now too absolute. The rule is
+**never let it INVENT one — always give it the real one**, with the three-step
+method and this limit stated plainly:
+
+> This gives you a **faithful reproduction, not the asset**. At the size a mark
+> occupies on a photographed prop it is indistinguishable. It is still not the logo
+> file — never crop one out and use it as artwork, never let one stand in for the
+> real SVG in a layout. Photographs of props only.
+
+### Typographic easter eggs
+
+Same method, different reference: a specimen rendered in the **real Poppins Bold
+and Libre Baskerville Italic** from `fonts/`, handed over as an image reference so
+the type in the photograph is the brand's type rather than a lookalike.
+
+- **`book-spines`** — titles running up navy and cream spines, one word in the
+  serif italic
+- **`highlighter-type`** — *"The story is always there."*, the italic on *always*,
+  a lime highlighter stroke dragged across it and overshooting at one end
+- **`wall-print`** — a framed print, sans headline with one purple italic word,
+  someone walking past
+
+Which answers the earlier note that the easter eggs felt forced: they do not have
+to be the logo. **Brand typography and brand colour are easter eggs too**, and they
+carry less weight.
+
+**49 photographs**, sixteen of them cities.
+
+Minor — six offices found, the mark done by reference, and type that is actually ours.
+
 ## 2026-09-17 — The portrait wall had no Caucasian face on it (v2.16.2 → v2.16.3)
 
 Six storyteller portraits: Korean, Japanese, Malay, Black, Indian, Chinese. A good

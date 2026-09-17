@@ -1,33 +1,39 @@
 # City photography — one shot per office
 
-Ten outdoor street photographs, one for each office **hoffman.com itself lists**
-(checked 2026-09-17). They exist because `AGENTS.md Section 3.5` says a slide
-about a market has to look like that market, and a generically modern Asian
-office looks like nowhere.
+Sixteen outdoor street photographs, one for each office **hoffman.com itself
+lists** (re-checked 2026-09-17). They exist because `AGENTS.md Section 3.5` says a
+slide about a market has to look like that market, and a generically modern office
+looks like nowhere.
 
 | File | Office | District |
 |---|---|---|
+| `san-jose-alameda.jpg` | **Worldwide HQ** | The Alameda, San Jose CA |
+| `portland-lloyd.jpg` | US | Lloyd District, Portland OR |
+| `boston-franklin-street.jpg` | US | Franklin Street, Boston MA |
+| `london-kings-cross.jpg` | **European HQ** | Kings Cross Road, London WC1X |
+| `munich-altstadt.jpg` | Germany / DACH | Rosental, Altstadt, Munich |
+| `paris-rue-feydeau.jpg` | France | rue Feydeau, 2nd arr., Paris |
+| `hong-kong-central.jpg` | **APAC HQ** | Central, Queen's Road |
+| `beijing-cbd.jpg` | China | Jianguomenwai CBD |
+| `shanghai-concession.jpg` | China | former French Concession |
 | `taipei-daan.jpg` | Taiwan | Da'an, Dunhua South Road |
 | `seoul-yongsan.jpg` | Korea | Yongsan-gu, Hangang-daero |
 | `tokyo-kyobashi.jpg` | Japan | Kyobashi, Chuo-ku |
-| `hong-kong-central.jpg` | **APAC HQ** | Central, Queen's Road |
-| `beijing-cbd.jpg` | China | Jianguomenwai CBD |
 | `singapore-north-bridge.jpg` | Singapore / SEA | North Bridge Road |
 | `kuala-lumpur-sultan-ismail.jpg` | Malaysia | Jalan Sultan Ismail |
 | `jakarta-sudirman.jpg` | Indonesia | Sudirman / SCBD |
 | `bangkok-wireless-road.jpg` | Thailand | Wireless Road, Lumpini |
-| `san-jose-alameda.jpg` | **Worldwide HQ** | The Alameda, San Jose |
 
-**No European city here on purpose.** Hoffman's own Europe locations page is a
-404 as of 2026-09-17, so there is nothing to source a district or an address
-from. Add one when the site says what it is — don't guess.
+> **This list was wrong until v2.17.0** and the correction is worth recording.
+> `hoffman.com/locations/europe-pr-agency/` is a **404**, so an earlier pass
+> concluded there were no European offices and shipped ten shots. There are three
+> — the live page is `/locations/pr-agency-europe/`, and **London is the European
+> HQ**. The same pass also missed **Portland and Boston** (the US page lists three
+> offices, not one) and **Shanghai**. **A 404 is a broken page, not evidence of
+> absence** — check the sitemap before concluding something does not exist.
 
 Built from the photography seed in `PROMPTS.md` plus a MARKET line; the per-city
 wardrobe and street notes are in that same file. 1344×752, ~200 KB each.
-
-Three of these — Hong Kong, Tokyo and Beijing — came back suit-heavy. That is
-left alone deliberately: Central, Kyobashi and the Beijing CBD really do dress
-that way, and the house lean away from suits is a lean, not a rule.
 
 ---
 

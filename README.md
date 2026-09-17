@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.16.3** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — the storyteller portrait wall had **no Caucasian face** on it. Right that APAC leads (nine of ten offices are in Asia), wrong for a firm with a US worldwide HQ. The Advisor swapped — it was also the third East Asian portrait in a row, so the change loosens that clustering while keeping the APAC majority and the gender balance. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.17.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **six offices were missing from the city set, including the European HQ.** hoffman.com's Europe page 404s at one URL and works at another; checking the sitemap also found Portland, Boston and Shanghai. Sixteen offices, sixteen shots. Plus the **Storyline mark done properly** — the real SVG passed to the image model as a *reference* rather than hand-composited (`AGENTS.md` §4.6 rewritten: never let a model **invent** a brand asset, always give it the real one), and **typographic easter eggs** set from the actual Poppins and Libre Baskerville. 49 photographs. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -210,10 +210,11 @@ assets/
   annotations/                      · 76 hand-drawn marks across 6 categories
     underline·circle·arrow·tick·cross·accent   · 13·15·14·11·11·12
   house-style/                      · 36 worked examples of the house illustration style + the master prompt (see IMAGERY.md)
-  photography/                      · 40 house photographs across the VI deck's four categories — see PROMPTS.md for the treatment and the per-city notes
-    cities/                         · 10 outdoor street shots, one per office hoffman.com lists — market recognisability (see AGENTS.md 3.5)
+  photography/                      · 49 house photographs across the VI deck's four categories — see PROMPTS.md for the treatment and the per-city notes
+    cities/                         · 16 outdoor street shots, one per office hoffman.com lists — market recognisability (see AGENTS.md 3.5)
     moments/                        · 6 'HA Moments' — culture, celebration, the team being people (VI deck slide 26)
     storyteller/                    · 6 studio portraits on solid brand backdrops (VI deck slides 27–28)
+    still-life/                     · 8 props — brand palette, the real Storyline mark and brand type, via image reference (see AGENTS.md 4.6)
 
 fonts/                  · self-hosted brand fonts. Poppins (full 100–900 weight + italic TTFs, all @font-face-registered)
   Poppins-*.ttf                     · 18 roman+italic weight files

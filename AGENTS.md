@@ -89,7 +89,7 @@ The most common Hoffman-deck failure after tiny type is a **mishandled title**: 
 Almost every page in a Hoffman deck carries a graphic/image alongside the text. Do not strip images to make a layout "clean." When a real image isn't available, reserve a standardized placeholder (below). **How to decide whether to generate, ask for, or placeholder an image — and the Hoffman house illustration style — is `IMAGERY.md`; settle it during intake.** Type-only slides are the exception (big statement, pull quote, section divider can be type-led — but even sections often carry a small graphic).
 
 ## 3.5 When we show a market, show THAT market
-We have offices in ten cities and most of them are in Asia. A photograph of
+We have offices in **sixteen cities** — ten of them in Asia, three in the US, three in Europe. A photograph of
 generically "Asian" people in a generically modern office tells a Seoul client
 nothing, and it tells a Taipei client the same nothing. **If a slide is about a
 market, the image has to be recognisably that market.**
@@ -153,16 +153,27 @@ sliced off.
 - **It is not enough to look at the deck once.** This is invisible until a specific
   image lands in a specific slot, so check it whenever either one changes.
 
-## 4.6 Never let a generative model draw a fixed brand asset
-A model cannot reproduce the Storyline, the logo or the wordmark. It can only
-produce **an interpretation** — and an interpretation of the Storyline is a
-violation of it. This is settled, not a matter of taste: **Lou ruled that the
-storyarc must not "take the form of random ribbons in graphics."**
+## 4.6 Never let a generative model INVENT a brand asset — always give it the real one
+Asked to draw the Storyline from a description, a model produces **an
+interpretation**, and an interpretation of the Storyline is a violation of it.
+Settled, not taste: **Lou ruled that the storyarc must not "take the form of
+random ribbons in graphics."**
 
-- **Shoot the prop blank, then composite the real SVG.** A navy notebook with an
-  empty cover, photographed square-on, plus `assets/storyline-mark.svg` tinted to
-  the surface. The asset rules in `README.md` already say which variant belongs on
-  which field; follow them rather than inventing a placement.
+**But you do not have to hand-composite.** Pass the real asset as a **reference
+image** and the model reproduces it rather than inventing it — and it lands the
+material, lighting, perspective and shadow far better than pasting a PNG does.
+That is the method:
+
+1. Render the real SVG (`assets/storyline-mark.svg`, tinted per the surface rules
+   in `README.md`) to a transparent PNG.
+2. Upload it and pass it as an `image_references` input.
+3. In the prompt say **"reproduce it EXACTLY as supplied; do not redraw, restyle,
+   simplify or re-proportion it"**, and state its size and placement.
+
+**Know what this gives you: a faithful reproduction, not the asset.** At the size a
+mark occupies on a photographed prop it is indistinguishable. It is still not the
+logo file, so **never** crop one of these out and use it as artwork, and never let
+one stand in for the real SVG in a layout. Photographs of props only.
 - **Put it in the negative prompt.** `no mark, no emblem, no squiggle, no logo, no
   text, no letters` — models will add a plausible-looking mark unprompted.
 - **Restraint is the better answer anyway.** A mark stamped on every object reads
