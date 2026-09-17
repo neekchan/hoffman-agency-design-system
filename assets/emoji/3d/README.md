@@ -1,6 +1,6 @@
 # 3D Fluent emoji — the default storytelling style
 
-**67 files. The curated set, in the style this system calls its default.**
+**75 files. The curated set, in the style this system calls its default.**
 
 Until these landed, `AGENTS.md` Section 8 said "3D style first" while this repo
 vendored only 2D colour and animated. So the documented default was CDN-only:

@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.10.3** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — the playground's **contrast lab contradicted its own readout** (white-on-navy 13.43:1 PASS, rendered black on nothing). Cause: a style **object** mixed with static CSS in one attribute stringifies to `[object Object]`. Four elements affected, all fixed; the other 74 bindings were fine. Plus the ship-it checklist gained the Soundcheck title rule. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.11.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — the brand guidelines deck argued for photography while **hotlinking four Unsplash stock photos** and showing **six empty placeholders**. It now carries **twelve of its own**, generated from the photography seed already written in `PROMPTS.md`, so the deck is offline-safe and the crops are ours. Plus a new page for the **illustration** half — what the look is, that it comes from storytelling.hoffman.com, and the **master prompt printed in full** so anyone can paste it into an image AI. 59 slides. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -201,12 +201,14 @@ assets/
   icons/                            · 1,595 Fluent Flat icons — THE icon set for functional symbols (see icons/README.md)
   emoji/                            · Fluent-emoji injector (visual storytelling — see AGENTS.md Section 8)
     fluent-emoji.js                 · <fluent-emoji> web component; local-first, CDN fallback
-    color/                          · localized static color SVGs (offline hero set)
+    3d/                             · 75 curated 3D PNGs — the documented default form, vendored for offline use
+    color/                          · 75 static colour SVGs, same curated set (offline 2D fallback)
     animated/                       · 24 genuinely-animated APNGs — 43 stills were removed; check the manifest
     animated-manifest.json          · which names actually move, plus asset provenance and licences
   annotations/                      · 76 hand-drawn marks across 6 categories
     underline·circle·arrow·tick·cross·accent   · 13·15·14·11·11·12
-  house-style/                      · 3 reference samples for the Hoffman house illustration style (see IMAGERY.md)
+  house-style/                      · 12 worked examples of the house illustration style + the master prompt (see IMAGERY.md)
+  photography/                      · 12 house photographs, from the PROMPTS.md photography seed — used by the brand guidelines deck (no hotlinking)
 
 fonts/                  · self-hosted brand fonts. Poppins (full 100–900 weight + italic TTFs, all @font-face-registered)
   Poppins-*.ttf                     · 18 roman+italic weight files

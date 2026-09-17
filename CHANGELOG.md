@@ -4,6 +4,77 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — The deck that says "photography encouraged" was borrowing its photography (v2.10.3 → v2.11.0)
+
+The brand guidelines spend a whole section arguing that we are **not** a
+no-photography brand — candid, natural, human first, real rooms and real people.
+Then the imagery pages showed **four hotlinked Unsplash photos** and **six empty
+grey placeholder boxes.**
+
+Three things wrong with that, in rising order of embarrassment:
+
+1. **It wasn't ours.** Stock photos of strangers, illustrating a rule about
+   showing real work.
+2. **It needed wifi.** Hotlinked images load from someone else's server. Present
+   from a hotel conference room, export to PDF on a plane, open the file in two
+   years after Unsplash reorganises its CDN — grey boxes.
+3. **The crops were bad.** `object-fit` was doing whatever it liked, so a couple
+   of them cut heads off. That was the actual thing that got noticed.
+
+**So the deck now carries its own photographs.** Twelve of them, in
+`assets/photography/`, generated from the **photography seed prompt already
+written in `PROMPTS.md`** — used verbatim, not improvised, which is the entire
+point of having the seed written down. Candid documentary, natural window light,
+warm grade, eye level, no stock-photo posing. Team conversation, spokesperson
+portrait, office environment, product in context, the glass wall at dusk,
+presenting to a room, a portrait by a window, a notebook close-up, a laugh in the
+kitchen, a video call, the office at dusk, an open-plan discussion.
+
+- **All four Unsplash hotlinks are gone**, replaced with local files. The deck is
+  now genuinely offline-safe: zero external image requests.
+- **Six placeholder slots are filled** — the full-bleed, the split, the portrait
+  and the three-up montage. Their placeholder chrome (the little icon, the
+  caption stub, the prompt hint) is stripped out with them, because a filled slot
+  that still shows its own instructions looks like a mistake.
+- **One placeholder is deliberately left in.** Slide 46 is the page that *teaches*
+  what a placeholder is and how to fill it. Filling it would have deleted the
+  lesson.
+- **2.7MB for twelve**, averaging 232KB — optimised, so the deck stays a file you
+  can email.
+
+### And a page for the illustration half, with the prompt on it
+
+Photography shows real people and places. **Illustration carries the concept** —
+the tension, the choice, the why-now — and the deck had no page explaining the
+one we actually use. So there's a new slide, **45b**, and it does three things:
+
+- Names the look: flat vector, paper-grain texture, small warm palette, figures
+  with dot eyes and an angular nose in profile, one clear metaphor, lots of air.
+- Credits where it comes from: **storytelling.hoffman.com**, our own editorial
+  illustration. Not a style we invented for a slide.
+- **Prints the master prompt in full, on the slide.** Not a link to it, not "see
+  the docs" — the actual paragraph, in mono, in a navy block, so anyone can read
+  it off the screen or copy it out of the file and paste it into whatever image
+  AI they have open. Add one subject line to the end and you get something that
+  matches. Twelve worked examples live in `assets/house-style/` for anyone who
+  wants to see it land before they try.
+
+The deck is **59 slides**, in both the presenting build and the print build.
+
+### Three counts that had gone stale
+
+Caught while updating the asset tree. v2.10.0 added the media-and-press emoji and
+never went back to update the tallies, so the docs said **67** where the folders
+hold **75** — `AGENTS.md`'s vendored line (twice) and `assets/emoji/3d/README.md`.
+`README.md` also still described `house-style/` as **3 reference samples** when it
+has held **12 worked examples** since v2.10.0. All corrected. The two *historical*
+mentions of 67 in `AGENTS.md` — "it was 67 for two months" and "43 of the original
+67 were silently stills" — are statements about the past and are still true, so
+they stay.
+
+Minor — a new asset family, a new page, and a brand book that now practises what
+it preaches.
+
 ## 2026-09-17 — The playground's contrast lab was arguing with its own maths (v2.10.2 → v2.10.3)
 
 The contrast lab read **white on navy, 13.43:1, PASS** while rendering **black
