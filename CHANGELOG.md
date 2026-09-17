@@ -4,6 +4,46 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — The deck cropped a spokesperson's forehead off (v2.14.0 → v2.14.1)
+
+Slide 45's portrait tile showed a man with the top of his head sliced away. Not a
+bad photograph — a bad **crop**, and the cause is a default nobody thinks about.
+
+**`object-fit: cover` centres its crop.** When a slot's aspect ratio differs from
+the image's, cover fills the slot and throws away the overflow — split evenly
+between the two opposing edges. Put a **4:5 portrait** into a **landscape** tile and
+the discarded strips come off the **top and bottom**. Which is where the face is.
+
+Audited every photograph in the deck against its slot. **Four were at risk** — every
+one that is not landscape:
+
+| Image | Source | Anchor | Why |
+|---|---|---|---|
+| `spokesperson-portrait` | 4:5 | `center 18%` | eyes sit at 20%; centring guillotined the forehead |
+| `portrait-by-window` | 4:5 | `center 25%` | standing figure, head at 8–18% |
+| `kitchen-laugh` | 1:1 | `center 25%` | three heads in the top quarter |
+| `notebook-close` | 1:1 | `center 55%` | opposite problem — the page and hand sit *low* |
+
+The six landscape-into-landscape images were fine and are left alone: their crop is
+horizontal and small.
+
+**Written up as `AGENTS.md` §4.5** so it stops being rediscovered: whenever source
+and slot aspects differ, set an `object-position` — and read where the subject
+actually is rather than guessing. Rendering the image with guides every 10% takes
+about a minute and gives you the number.
+
+### And the same slide was still telling people the wrong thing
+
+Its DO list read **"Warm color grade."** That is precisely the instruction v2.14.0
+removed from seven files — but this copy was **hardcoded into the slide**, so a
+sweep of the prompt seeds never touched it. The list now reads *"Colour from
+wardrobe, not from a grade"* and *"Bright, high-key, neutral white balance."*
+
+Worth naming the lesson: **fixing a rule in the docs does not fix the places that
+already quoted it.** Grep the decks and templates too, not just the guidance.
+
+Patch — one bad default, four crops, and a slide that contradicted the release before it.
+
 ## 2026-09-17 — Our own prompt template was telling everyone to grade the photos wrong (v2.13.0 → v2.14.0)
 
 ### The line that poisoned every batch

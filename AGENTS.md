@@ -135,6 +135,24 @@ Keep the **dotted border** + **aspect-ratio label** (the user likes both). Three
 - **`__prompt`** = a real, *longer* generation prompt (2–3 full sentences) — detailed enough for modern image models. Not a 6-word fragment.
 - Placeholders must be **true to size** — large, matching the sample proportions (often a full column or half the slide), never a tiny token.
 
+## 4.5 `object-fit: cover` needs an `object-position` — centre is not a safe default
+A photo dropped into a slot whose aspect ratio differs from its own gets cropped on
+two sides, and `cover` **defaults to centring that crop**. On a landscape slot with a
+portrait source, centring takes the crop out of the top and bottom — **which is
+exactly where the face is.** It shipped a spokesperson portrait with his forehead
+sliced off.
+
+- **Whenever the source aspect and the slot aspect differ, set `object-position`.**
+  Read where the subject actually sits and anchor to it. A quick way to measure:
+  render the image with horizontal guides every 10% and read off the percentage.
+- **Faces live high.** A head-and-shoulders portrait usually wants something near
+  `center 18–25%`, not `center`. A hands-and-desk close-up usually wants to sit
+  *lower*, around `center 55%`.
+- **Landscape source in a landscape slot is the only safe default**, and only
+  because the crop is then horizontal and small.
+- **It is not enough to look at the deck once.** This is invisible until a specific
+  image lands in a specific slot, so check it whenever either one changes.
+
 ## 5. Text slots are typed prompts (role + style + word cap)
 Label each text region by what it is and how to write it, not a vague description. Examples:
 - Title: *layout target: one line, ≤8 words, the key word or phrase set in Baskerville italic.* Write the point using `SOUNDCHECK.md`; handle a title/fit collision under Section 10.
