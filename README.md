@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.16.2** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — four stale counts. The deck's own card advertised **58 slides** when it has 66 (in both builds and the generated manifest), and this README described `house-style/` as 12 examples (it holds 36) and 35 photographs (there are 40). Fourth release running to carry one of these, so the sweep is now part of shipping. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.16.3** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — the storyteller portrait wall had **no Caucasian face** on it. Right that APAC leads (nine of ten offices are in Asia), wrong for a firm with a US worldwide HQ. The Advisor swapped — it was also the third East Asian portrait in a row, so the change loosens that clustering while keeping the APAC majority and the gender balance. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 

@@ -4,6 +4,24 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — The portrait wall had no Caucasian face on it (v2.16.2 → v2.16.3)
+
+Six storyteller portraits: Korean, Japanese, Malay, Black, Indian, Chinese. A good
+spread, and right that APAC leads — nine of the ten offices are in Asia. But the
+firm has a **US worldwide HQ**, and a wall of six with nobody white does not read as
+the global team; it reads as an oversight, which is worse than either extreme.
+
+**The Advisor swapped.** It was the third East Asian portrait in a row of six, so
+the change also loosens that clustering while keeping the APAC majority intact and
+the 3/3 gender balance unchanged. Same aqua backdrop, new wardrobe that repeats
+none of the other five: a heathered oatmeal shawl-collar cardigan over chambray.
+
+Worth stating as the principle, since the set will get edited again: **cast the
+room the agency actually is.** APAC-weighted because the offices are, but not
+exclusively so, and never so tidily balanced that it looks arranged.
+
+Patch — one portrait, so the wall reads as a global team.
+
 ## 2026-09-17 — Four counts that had quietly gone stale (v2.16.1 → v2.16.2)
 
 Found by sweeping for them rather than by reading, which is the only way these ever
