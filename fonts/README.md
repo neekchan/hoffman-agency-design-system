@@ -53,7 +53,7 @@ This is the only case the `@font-face` blocks in `colors_and_type.css` solve on 
 
 The fix is per-environment:
 
-**PowerPoint on macOS** — install the families first: Font Book → File → Add Fonts → select the Poppins `.ttf` files and both Libre Baskerville variable fonts. Restart PowerPoint. Set the theme fonts to Poppins (see `POWERPOINT.md §2`). macOS PowerPoint does **not** embed fonts on save — a Mac-authored `.pptx` opened on a machine without Poppins falls back to Calibri, so treat embedding as a Windows step or self-host into HTML for portability.
+**PowerPoint on macOS** — install the families first: Font Book → File → Add Fonts → select the Poppins `.ttf` files and both Libre Baskerville variable fonts. Restart PowerPoint. Set the theme fonts to Poppins (see `POWERPOINT.md Section 2`). macOS PowerPoint does **not** embed fonts on save — a Mac-authored `.pptx` opened on a machine without Poppins falls back to Calibri, so treat embedding as a Windows step or self-host into HTML for portability.
 
 **PowerPoint on Windows** — install via right-click → *Install for all users* (all Poppins weights + both Libre Baskerville variable fonts). Set the theme fonts to Poppins. Then **embed**: File → Options → Save → *Embed fonts in the file* → *Embed all characters* (safest for downstream editing). Verify the saved package actually contains the embedded font parts.
 
@@ -67,7 +67,7 @@ The fix is per-environment:
 
 **Before generating:** confirm Poppins + Libre Baskerville Italic are available to the authoring tool; render a short specimen if unsure; stop if neither preserved nor an approved fallback.
 
-**After export:** inspect the theme fonts; inspect explicit `typeface` declarations in text runs; detect Calibri / Aptos / Arial fallbacks; confirm embedding when portability requires it; open or render the **actual `.pptx`**, not the source HTML. Full checklist in `POWERPOINT.md §9`.
+**After export:** inspect the theme fonts; inspect explicit `typeface` declarations in text runs; detect Calibri / Aptos / Arial fallbacks; confirm embedding when portability requires it; open or render the **actual `.pptx`**, not the source HTML. Full checklist in `POWERPOINT.md Section 9`.
 
 ---
 

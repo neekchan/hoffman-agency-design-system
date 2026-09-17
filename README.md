@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.8.2** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — the changelog is now written in plain English instead of engineering shorthand. Same facts, same versions, same detail; you can just read it now. No files or rules changed. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.8.3** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — the § section sign is gone. It's a legal-citation mark, not a software one, and it made this system read like a tenancy agreement. All 146 references across 25 files now say "Section 10" and "Sections 1–12"; the numbers are unchanged and still point where they always did. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -19,7 +19,7 @@ That operational readiness shows up as: `LLM_ENTRYPOINT.md` for task routing and
 > ### ⚠ Two media, two rule sets — read before building
 > This system serves **web** and **slides/office docs**, which have different layout physics. Most of this README (type scale, spacing, "generous whitespace," "more air," 1240px max-width, sparse imagery) describes the **WEB / social** posture.
 >
-> **When you build a PowerPoint/Keynote deck or any fixed 1920×1080 slide, the slide rules in `AGENTS.md` + `LAYOUTS.md` OVERRIDE the web rules here** — specifically: use the **slide type scale as FLOORS, biased high** (20–24px labels · 30–36px body / default 32 · 40–52px subhead · 64–80px title · 120–132px statement & divider · 176px+ cover · ~240px closing word — never 16px, never the old 28px "safe" body), **"fill the frame"** (no dead whitespace — the opposite of "more air"), **imagery by default on every slide**, and the **full edge-to-edge canvas** (no 1240px / 68ch caps). What stays shared across both media: **color, fonts, the italic-emphasis move (key word *or* phrase, not a fixed single word), the Storyline motif, annotations, emoji rules, and voice.** See `AGENTS.md §0` for the precise precedence.
+> **When you build a PowerPoint/Keynote deck or any fixed 1920×1080 slide, the slide rules in `AGENTS.md` + `LAYOUTS.md` OVERRIDE the web rules here** — specifically: use the **slide type scale as FLOORS, biased high** (20–24px labels · 30–36px body / default 32 · 40–52px subhead · 64–80px title · 120–132px statement & divider · 176px+ cover · ~240px closing word — never 16px, never the old 28px "safe" body), **"fill the frame"** (no dead whitespace — the opposite of "more air"), **imagery by default on every slide**, and the **full edge-to-edge canvas** (no 1240px / 68ch caps). What stays shared across both media: **color, fonts, the italic-emphasis move (key word *or* phrase, not a fixed single word), the Storyline motif, annotations, emoji rules, and voice.** See `AGENTS.md Section 0` for the precise precedence.
 
 ---
 
@@ -85,7 +85,7 @@ The design system is organized so every file name corresponds to how it's used. 
 ```
 ─ Docs (root) ─────────────────────────────────────────────
 INTAKE.md               · ⏱ run FIRST — the pre-build intake questions that lock the brief (medium · mode · audience · colour · imagery)
-AGENTS.md               · slide/deck SOPs — the authority for slides & office docs (precedence: see §0)
+AGENTS.md               · slide/deck SOPs — the authority for slides & office docs (precedence: see Section 0)
 SOUNDCHECK.md           · the presentation argument — seven principles for slide titles and the story they tell in sequence (read with AGENTS.md for any deck)
 LLM_ENTRYPOINT.md       · shortest task router for Claude, ChatGPT and other design agents
 LAYOUTS.md              · deck layout library (48 layouts, L01–L51) + slide best-practice guide
@@ -121,7 +121,7 @@ assets/
   storyline-navy-white.svg          · Storyline — NAVY mark in a white box, for LIGHT bg (not a dark-field variant)
   storyline-mark.svg                · Storyline — box-less mono mark, currentColor-driven, any surface (Use 3)
   icons/                            · 1,595 Fluent Flat icons — THE icon set for functional symbols (see icons/README.md)
-  emoji/                            · Fluent-emoji injector (visual storytelling — see AGENTS.md §8)
+  emoji/                            · Fluent-emoji injector (visual storytelling — see AGENTS.md Section 8)
     fluent-emoji.js                 · <fluent-emoji> web component; local-first, CDN fallback
     color/                          · localized static color SVGs (offline hero set)
     animated/                       · 24 genuinely-animated APNGs — 43 stills were removed; check the manifest
@@ -147,7 +147,7 @@ preview/                · Design System tab — one @dsCard per token/brand gro
 
 templates/              · reusable DC starting points consuming projects copy (each <slug>/<Slug>.dc.html + ds-base.js)
   deck/                 · Deck.dc.html — the 48-layout presentation library (L01–L51); the ONE deck template — carries the Presenter/Document Mode toggle + the balloon cover (+ deck-stage.js, ds-base.js, support.js)
-  powerpoint/           · layout-manifest.json — machine-readable contracts for all 48 layouts (slots, tiers, coords, surface/logo) for native-`.pptx` tools that can't consume Deck.dc.html. No binary `.potx`/`.pptx` ship here — build them from `POWERPOINT.md §2` + the manifests
+  powerpoint/           · layout-manifest.json — machine-readable contracts for all 48 layouts (slots, tiers, coords, surface/logo) for native-`.pptx` tools that can't consume Deck.dc.html. No binary `.potx`/`.pptx` ship here — build them from `POWERPOINT.md Section 2` + the manifests
   one-pager/            · OnePager.dc.html — print, Letter
   social-tile/          · SocialTile.dc.html — square social
   brand-tour/           · BrandTour.dc.html — the "Interactive brand tour": a self-contained, clickable app-style walkthrough of the whole system (20 screens; explorer/presenter, nav, hints, motion tweaks). Self-contained (inlined tokens + slim font set) so it also exports to one standalone file — see `Hoffman Brand Tour.html` at the repo root
@@ -277,7 +277,7 @@ The brand has three distinct copy moves used to keep slides feeling distinctivel
 ### Spacing
 - 4px base scale (`--s-1` through `--s-32`).
 - Preferred rhythm on layouts: `24 / 48 / 96` — content gutters, block padding, section padding.
-- Generous whitespace is non-negotiable on **web**. When in doubt, more air. **(Slides are the opposite — see AGENTS.md §2 "fill the frame": scale type and imagery to occupy the full canvas, no empty regions.)**
+- Generous whitespace is non-negotiable on **web**. When in doubt, more air. **(Slides are the opposite — see AGENTS.md Section 2 "fill the frame": scale type and imagery to occupy the full canvas, no empty regions.)**
 
 ### Backgrounds
 - **Two light models:** (1) warm **paper page** with **white cards** (default), or (2) **white page** with **warm sand cards** (`.tha-theme-white`). Pick one per surface and stay in it. See `preview/brand-surfaces.html`.
@@ -364,14 +364,14 @@ Italicize the line's emphasis — the key word *or* the short phrase that carrie
 - **Slides have a fuller motion vocabulary** — staggered entrances, where a single
   back-out overshoot is sanctioned (small marks only, never text or panels), the
   duration bands, and the one documented exception to "prefer transform/opacity"
-  (a size transition inside a fixed-size container reflows nothing). See `AGENTS.md §16`.
+  (a size transition inside a fixed-size container reflows nothing). See `AGENTS.md Section 16`.
 
 ### Hover states
 - **Buttons (solid navy):** background shifts to navy-600 (lighter), lime "underline" bar animates in beneath.
 - **Buttons (lime):** background shifts to lime-400, navy text stays.
 - **Links:** color shifts from purple → lavender; underline thickens from 1.5px to 2px.
 - **Cards:** no lift, no shadow bump. Instead, the card's internal accent rule (lime or lavender) extends 8px to the right. Understated.
-- **Tappable cards (interactive decks):** the card still never lifts. Quiet at rest — one ~30px glyph at ~40% opacity, never a labelled pill on every card — and on hover the *glyph* rises and grows ~30% while the accent rule above extends along the edge. One mark per card: a card that already owns a state glyph uses that one. See `AGENTS.md §15`.
+- **Tappable cards (interactive decks):** the card still never lifts. Quiet at rest — one ~30px glyph at ~40% opacity, never a labelled pill on every card — and on hover the *glyph* rises and grows ~30% while the accent rule above extends along the edge. One mark per card: a card that already owns a state glyph uses that one. See `AGENTS.md Section 15`.
 
 ### Press states
 - Buttons darken one step and take a 1px inset shadow (`--shadow-press`).

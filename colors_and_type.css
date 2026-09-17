@@ -395,7 +395,7 @@ body.tha.tha-theme-white {
 /* ==========================================================================
    Website UI Kit — responsive (Nav, Hero, CaseStudyGrid, StatsStrip).
    The deck/one-pager/social-tile templates are intentionally fixed-canvas
-   and are NOT part of this section — see AGENTS.md §0.
+   and are NOT part of this section — see AGENTS.md Section 0.
    ========================================================================== */
 .tha-section { padding: 120px 48px; }
 .tha-statsstrip__section { padding: 80px 48px; }

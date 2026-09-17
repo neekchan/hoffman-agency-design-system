@@ -65,7 +65,7 @@ Chrome:
 * Slide number + label, bottom-right, JetBrains Mono 22px / 11pt, letter-spacing 0.12em, UPPERCASE.
 
 Optional: one hand-drawn annotation (underline / circle / arrow / bracket / cross-out / double underline) in lime or purple.
-Optional: one Microsoft Fluent emoji as the slide's single storytelling graphic, following `AGENTS.md §8`. In code, use `<fluent-emoji name="[NAME]" size="[96-160]"></fluent-emoji>`. In raster image prompts, request a Fluent-style emoji illustration only when the emoji is the intended hero graphic.
+Optional: one Microsoft Fluent emoji as the slide's single storytelling graphic, following `AGENTS.md Section 8`. In code, use `<fluent-emoji name="[NAME]" size="[96-160]"></fluent-emoji>`. In raster image prompts, request a Fluent-style emoji illustration only when the emoji is the intended hero graphic.
 
 Constraints: NO wavy lines outside the Storyline squiggle motif. NO gradients. NO frosted glass. Square corners (0–2px). NO text, letters, or numbers rendered by the model — set all type in the deck. NO raw unicode emoji, emoji stacks, or decorative emoji. Fluent emoji are allowed only as the deliberate single graphic/story beat.
 ```
@@ -132,7 +132,7 @@ Every `.tha-placeholder` for a photo carries a `__prompt` — one or two sentenc
 [SUBJECT — who is doing what, concretely],
 [LIGHT — natural window light / soft directional light / warm ambient],
 [WARDROBE/SET — business-casual, lived-in workspace, no staging],
-warm color grade, eye-level, documentary style. [ASPECT RATIO + pixel size from `AGENTS.md §4`, e.g. 16:9 · 1920×1080px].
+warm color grade, eye-level, documentary style. [ASPECT RATIO + pixel size from `AGENTS.md Section 4`, e.g. 16:9 · 1920×1080px].
 ```
 
 Always exclude: `no suits, no stock-photo posing, no motion blur, no lens flares, no 3D renders, no cool-blue grade.`

@@ -340,13 +340,13 @@ Three commitments override every other rule:
 
 Two decision rules sit **above** the tokens:
 
-**1 · The Power Design principles (`POWER-DESIGN-PRINCIPLES.md`) are a reference layer.** Twenty brand-agnostic craft rules (one-idea, chunks, 8pt grid, one grid, proximity, type-scale rhythm, contrast, one accent, no hue-only encoding, data-ink, F-pattern, mode purity). **Reference them and try to honor them — don't rigidly stick.** Precedence is *hybrid*: universal craft (contrast, grid, one-idea, proximity, data-ink, mode purity) **wins as written**; the density / whitespace / palette-breadth / margin calls follow the **Hoffman house SOPs** for the medium (on slides: "fill the frame" over ≥40% whitespace, the whole palette over 60-30-10, 72px over 96px margins, the higher slide type scale over ≥24px body — see `AGENTS.md §0, §1, §2, §7`). Full mapping lives in that file's precedence block.
+**1 · The Power Design principles (`POWER-DESIGN-PRINCIPLES.md`) are a reference layer.** Twenty brand-agnostic craft rules (one-idea, chunks, 8pt grid, one grid, proximity, type-scale rhythm, contrast, one accent, no hue-only encoding, data-ink, F-pattern, mode purity). **Reference them and try to honor them — don't rigidly stick.** Precedence is *hybrid*: universal craft (contrast, grid, one-idea, proximity, data-ink, mode purity) **wins as written**; the density / whitespace / palette-breadth / margin calls follow the **Hoffman house SOPs** for the medium (on slides: "fill the frame" over ≥40% whitespace, the whole palette over 60-30-10, 72px over 96px margins, the higher slide type scale over ≥24px body — see `AGENTS.md Section 0, Section 1, Section 2, Section 7`). Full mapping lives in that file's precedence block.
 
 **2 · Every deck is exactly ONE mode — Presenter XOR Document** (principles rule 20, a hard rule here):
 - **Presenter** — presented live. ≤1 idea, ≤15 words/slide, image-led; **the detail lives in speaker notes.**
 - **Document** — a stand-alone leave-behind / read-ahead. Denser, hierarchical, short bullets allowed, a fuller argument per slide; still no paragraphs.
 - Never mix the two in one deck. Both modes keep the full Hoffman visual system (fill-the-frame, slide type scale, whole palette, 72px, imagery) — **mode changes *depth*, not appearance.**
-- **The agent infers the mode from context, states its assumption, and asks only if genuinely ambiguous.** The 48-layout `templates/deck/` library carries the **Mode** tweak (Presenter/Document) as the reference mechanism, and the worked full-deck demonstration of the whole system is `slides/Hoffman Brand Guidelines.html`. See `AGENTS.md §12`. (One-pagers and social tiles are inherently Document-mode.)
+- **The agent infers the mode from context, states its assumption, and asks only if genuinely ambiguous.** The 48-layout `templates/deck/` library carries the **Mode** tweak (Presenter/Document) as the reference mechanism, and the worked full-deck demonstration of the whole system is `slides/Hoffman Brand Guidelines.html`. See `AGENTS.md Section 12`. (One-pagers and social tiles are inherently Document-mode.)
 
 ## Colors
 
@@ -354,7 +354,7 @@ The palette has **two primaries doing structural work** and **four secondaries u
 
 **Color proportions are MEDIUM-DEPENDENT:**
 - **Web / social** — keep it disciplined so pages read as one voice: intended page-level proportions are **Navy 30% · Lime 30% · Lavender · Purple · Cyan · Teal at ~10% each.** Lead with one dominant secondary mood; don't scatter all six across one page.
-- **Slides / office docs** — **the 30/30/10… ratio does NOT apply.** A deck moves through the *whole* palette deliberately: each section/divider, audience, or theme can own its own full-color surface (teal section, purple section, lime section, violet section…), so color carries structure and the deck never looks navy-paper-uniform. The only color rules that still bind on slides are **WCAG contrast** and **one dominant color per individual slide** (so each slide still has a clear mood — variety lives *across* slides, not within one). See `AGENTS.md §0`.
+- **Slides / office docs** — **the 30/30/10… ratio does NOT apply.** A deck moves through the *whole* palette deliberately: each section/divider, audience, or theme can own its own full-color surface (teal section, purple section, lime section, violet section…), so color carries structure and the deck never looks navy-paper-uniform. The only color rules that still bind on slides are **WCAG contrast** and **one dominant color per individual slide** (so each slide still has a clear mood — variety lives *across* slides, not within one). See `AGENTS.md Section 0`.
 
 - **Primary (`{colors.primary}` — Navy)** is the structural color: section backgrounds, body type, hairline rules. Pair with `{colors.on-primary}` for type.
 - **Primary accent (`{colors.accent}` — Lime)** is the hero accent. Used in short bursts: underlines, highlights, the storyline squiggle, a single CTA button, the eyebrow dot. **Lime fails WCAG as text on white** — for lime-toned text on light backgrounds, use `{colors.accent-strong}` (#687600).
@@ -368,7 +368,7 @@ The palette has **two primaries doing structural work** and **four secondaries u
 
 ## Typography
 
-> **Type SCALE below (the `fontSize` px values) is the WEB scale.** On slides / office docs use the slide type scale in `AGENTS.md §1` — enforced as FLOORS, biased high (1pt = 2px on 1080p): **20–24px** labels · **30–36px** body (default 32) · **40–52px** subhead · **64–80px** title · **120–132px** statement/divider · **176px+** cover (size-to-fit) · **~240px** closing word — never the 16px web body. The *families, weights, italic-word move, and letter-spacing* here apply to both media.
+> **Type SCALE below (the `fontSize` px values) is the WEB scale.** On slides / office docs use the slide type scale in `AGENTS.md Section 1` — enforced as FLOORS, biased high (1pt = 2px on 1080p): **20–24px** labels · **30–36px** body (default 32) · **40–52px** subhead · **64–80px** title · **120–132px** statement/divider · **176px+** cover (size-to-fit) · **~240px** closing word — never the 16px web body. The *families, weights, italic-word move, and letter-spacing* here apply to both media.
 
 The system uses **two families.**
 
@@ -407,7 +407,7 @@ The layout system is **asymmetric, generous, and square-cornered.**
 - **Hairline borders.** `1px` in `{colors.border}` for soft division, `1.5px` solid `{colors.border-strong}` for intentional rules. No dashed, no double, no rounded-rectangle card syndrome.
 - **No frosted glass.** No translucent nav bars. The one exception is a 60–75% navy overlay on hero photography for legibility.
 
-The **Storyline squiggle** has two uses, chosen by background: the boxed square **monogram** on light / non-navy backgrounds (self-contained corner lockup), and the **line** on navy / dark fields. The line is *part of the dark field* — the bottom layer above the navy fill, behind content, edge-locked to the top/right/bottom (full frame height, no bleed). Never float the monogram adrift on navy; never float the line as an object. It is *not* a divider. **Frequency — one full-strength use per deck.** The bold lime line on navy is a once-per-deck signature: use it at full strength on the **cover OR the closing — not both.** It may still sit behind other slides, but only as a **faded, low-opacity background texture** (≈8–15%, so it recedes well behind content), never the solid full-strength line. A plain navy field with no line is always fine. See §4.
+The **Storyline squiggle** has two uses, chosen by background: the boxed square **monogram** on light / non-navy backgrounds (self-contained corner lockup), and the **line** on navy / dark fields. The line is *part of the dark field* — the bottom layer above the navy fill, behind content, edge-locked to the top/right/bottom (full frame height, no bleed). Never float the monogram adrift on navy; never float the line as an object. It is *not* a divider. **Frequency — one full-strength use per deck.** The bold lime line on navy is a once-per-deck signature: use it at full strength on the **cover OR the closing — not both.** It may still sit behind other slides, but only as a **faded, low-opacity background texture** (≈8–15%, so it recedes well behind content), never the solid full-strength line. A plain navy field with no line is always fine. See Section 4.
 
 ## Elevation & Depth
 

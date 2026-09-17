@@ -46,9 +46,9 @@ route.
 - Use imagery by default.
 - Use one Microsoft Fluent emoji as a storytelling device when it is the slide's graphic beat — **3D style first** (animated 3D at the emotional peak), 2D Color as fallback; **Flat** for utility icons. Offline deliverables (`.pptx`, Keynote, PDF): **download from `github.com/microsoft/fluentui-emoji` and embed the file**, never hotlink; never raw Unicode emoji as icons.
 - Never use web max widths or 16px body type.
-- Give every slide `data-screen-label="NN Label"` in the markup (`01 Cover`, `07 Action titles`). All slides share the same coordinates on a 1920×1080 canvas, so nothing else can tell a review comment, a diff or a DOM read which slide it belongs to (`AGENTS.md §14`).
-- Tappable cards are quiet at rest and move on hover — one glyph per card, no labelled pills, the card itself never lifts (`AGENTS.md §15`).
-- Motion: staggered entrances, overshoot only on small marks, nothing loops, honour `prefers-reduced-motion` (`AGENTS.md §16`).
+- Give every slide `data-screen-label="NN Label"` in the markup (`01 Cover`, `07 Action titles`). All slides share the same coordinates on a 1920×1080 canvas, so nothing else can tell a review comment, a diff or a DOM read which slide it belongs to (`AGENTS.md Section 14`).
+- Tappable cards are quiet at rest and move on hover — one glyph per card, no labelled pills, the card itself never lifts (`AGENTS.md Section 15`).
+- Motion: staggered entrances, overshoot only on small marks, nothing loops, honour `prefers-reduced-motion` (`AGENTS.md Section 16`).
 - Need a functional symbol? Use `assets/icons/` (1,595 Fluent Flat icons), not an emoji.
 
 **Native PowerPoint (`.pptx` / `.potx`)** — read `POWERPOINT.md` before authoring.

@@ -1,6 +1,6 @@
 # PowerPoint route — building a native, editable Hoffman `.pptx`
 
-> **Read this whenever the requested output is `.pptx` / `.potx` / PowerPoint / Keynote-for-Office.** It sits on top of the slide rules (`AGENTS.md §§0–12`, `LAYOUTS.md`) and adds the PowerPoint-native reliability layer the HTML system doesn't cover by itself. The two machine-readable companions to this file are `assets/asset-manifest.json` (logo geometry + protected zones) and `templates/powerpoint/layout-manifest.json` (the 48 layout contracts).
+> **Read this whenever the requested output is `.pptx` / `.potx` / PowerPoint / Keynote-for-Office.** It sits on top of the slide rules (`AGENTS.md Sections 0–12`, `LAYOUTS.md`) and adds the PowerPoint-native reliability layer the HTML system doesn't cover by itself. The two machine-readable companions to this file are `assets/asset-manifest.json` (logo geometry + protected zones) and `templates/powerpoint/layout-manifest.json` (the 48 layout contracts).
 
 The visual system does not change in PowerPoint. Fonts, palette, the italic-emphasis move, the Storyline motif, "fill the frame," the slide type scale, imagery-by-default — all still apply exactly as in the HTML deck. What changes is that a `.pptx` is made of **fixed objects with no CSS, no grid, and no `@font-face`**, so every relationship the HTML system expresses in layout code has to be placed by hand and then **verified in the finished file**. A screenshot that "looks about right" is not proof: the diagnostic deck looked plausible while its logo geometry, theme fonts and layer order were all wrong.
 
@@ -14,9 +14,9 @@ There are two reliable ways to get a native, editable Hoffman `.pptx`. **Prefer 
 
 Build the deck as HTML from `templates/deck/Deck.dc.html` following all slide rules, then export to **editable** PPTX. This is the most reliable native path in this environment because the layout, type scale, palette, logo geometry and image proportions are already correct on the canvas, and the export emits native PowerPoint text boxes, shapes and images.
 
-- Author the deck; decide Presenter XOR Document mode first (`AGENTS.md §12`).
+- Author the deck; decide Presenter XOR Document mode first (`AGENTS.md Section 12`).
 - Export with the "Export as PPTX (editable)" flow. Supply Poppins + Libre Baskerville so the exporter reflows with the real metrics (font swaps / Google-font import), set the slide size to **1920×1080**, and hide deck chrome (nav arrows, progress) before capture.
-- Then run the **finished-file validation** in §9 on the exported `.pptx` — the export is not the finish line.
+- Then run the **finished-file validation** in Section 9 on the exported `.pptx` — the export is not the finish line.
 
 Screenshots-mode export (a PNG per slide) is pixel-perfect but **not editable** and embeds no fonts to preserve; use it only when the client explicitly wants flat images.
 
@@ -137,8 +137,8 @@ Protected zones should be visible as guides during layout and hidden in final ou
 
 - Preserve the original aspect ratio unless a deliberate crop is specified; **never stretch** an image to fill a frame. Use crop-to-fill or contain-with-space **explicitly**.
 - Don't upscale a low-resolution image beyond a sane threshold; inspect the exported deck for pixelation.
-- If no suitable approved image exists, use the **Hoffman placeholder** (`AGENTS.md §4`) — never insert a weak, stretched or irrelevant image to avoid a placeholder. Placeholders keep their label, aspect, generation size, art direction and prompt.
-- **Fluent emoji are embedded files, never links.** A `.pptx` must render with no network: download every Fluent emoji used from `github.com/microsoft/fluentui-emoji` and insert it as a real asset — **PNG** for static **3D** (the storytelling default) and **Flat** (utility icons), **GIF/APNG** for animated 3D (PowerPoint plays GIF natively; reserve motion for the one emotional peak). Never hotlink a CDN URL and **never type raw Unicode emoji as icons** — they re-render per OS and break brand consistency (`AGENTS.md §8`).
+- If no suitable approved image exists, use the **Hoffman placeholder** (`AGENTS.md Section 4`) — never insert a weak, stretched or irrelevant image to avoid a placeholder. Placeholders keep their label, aspect, generation size, art direction and prompt.
+- **Fluent emoji are embedded files, never links.** A `.pptx` must render with no network: download every Fluent emoji used from `github.com/microsoft/fluentui-emoji` and insert it as a real asset — **PNG** for static **3D** (the storytelling default) and **Flat** (utility icons), **GIF/APNG** for animated 3D (PowerPoint plays GIF natively; reserve motion for the one emotional peak). Never hotlink a CDN URL and **never type raw Unicode emoji as icons** — they re-render per OS and break brand consistency (`AGENTS.md Section 8`).
 - Test: compare each image's source pixel dimensions against its displayed dimensions in the exported deck.
 
 ---
@@ -157,7 +157,7 @@ Run against the **finished file**, not the source used to make it. (These are al
 
 1. File opens; slide count is as expected.
 2. Slide size is 16:9 (13.333in × 7.5in / 1920×1080).
-3. Theme colours match the Hoffman palette (§2).
+3. Theme colours match the Hoffman palette (Section 2).
 4. Theme fonts are Poppins (major + minor).
 5. No unintended fallback font (Calibri / Aptos / Arial) in any slide text run.
 6. Only approved logo files are used.

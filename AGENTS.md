@@ -9,17 +9,17 @@ You are looking at **The Hoffman Agency design system**: brand tokens, fonts, lo
 > 4. **Build inside the system, never around it.** Load `colors_and_type.css` + `_ds_bundle.js`, start from the medium's template in `templates/`, and pick **named layouts** from `LAYOUTS.md`. **Never hand-author bespoke slide chrome.** Hand-rolled CSS that ignores the bundle is the root cause of every "it doesn't look like the system" failure. If the adherence linter (`_adherence.oxlintrc.json`) reports the bundle isn't loaded, stop and fix that before continuing.
 
 **Read first — orientation & rules (always):**
-1. **This file (`AGENTS.md`)** — the slide/office-doc authority. **§0 is the most important thing in the system:** this brand serves *two media with different physics* (web vs. slides), and §0 tells you which rule set wins. Read §0 before anything else.
+1. **This file (`AGENTS.md`)** — the slide/office-doc authority. **Section 0 is the most important thing in the system:** this brand serves *two media with different physics* (web vs. slides), and Section 0 tells you which rule set wins. Read Section 0 before anything else.
 2. **`README.md`** — the human read of the brand (voice, content fundamentals, the full annotated file map). Start at its "File structure" block to see where everything lives.
 3. **`DESIGN.md`** — the machine-readable single source of truth: every color, type, spacing, radius, shadow token + voice/imagery rules. When a value must be exact, trust `DESIGN.md` over prose.
-4. **`POWER-DESIGN-PRINCIPLES.md`** — the portable craft layer (one-idea, chunks, grid, contrast, data-ink, **mode purity**…). It is a **reference layer: try to honor it, don't rigidly stick.** Where a rule collides with a house SOP, the precedence block at the top of that file (and §0 below) decides — universal craft wins; the whitespace / palette / margin calls follow the Hoffman house style.
+4. **`POWER-DESIGN-PRINCIPLES.md`** — the portable craft layer (one-idea, chunks, grid, contrast, data-ink, **mode purity**…). It is a **reference layer: try to honor it, don't rigidly stick.** Where a rule collides with a house SOP, the precedence block at the top of that file (and Section 0 below) decides — universal craft wins; the whitespace / palette / margin calls follow the Hoffman house style.
 
 **Then read by task — what you're being asked to make:**
-- **A deck / presentation / any fixed 1920×1080 slide** → `LAYOUTS.md` (the 48-layout library, L01–L51 — pick a named layout, don't free-style) + `AGENTS.md §§1–12` (slide type scale, "fill the frame," imagery, declutter, Soundcheck titles (§10), structure, color, Fluent emoji, **Presenter-vs-Document mode**). Build from `templates/deck/Deck.dc.html`. **Decide the deck's mode first (§12).**
-- **A native PowerPoint / `.pptx` / `.potx` file** → **`POWERPOINT.md` first** (+ `AGENTS.md §13`), then `LAYOUTS.md`. Prefer exporting the deck to editable PPTX; place logos via `assets/asset-manifest.json`, layouts via `templates/powerpoint/layout-manifest.json`; set the theme fonts to Poppins; validate the finished file.
+- **A deck / presentation / any fixed 1920×1080 slide** → `LAYOUTS.md` (the 48-layout library, L01–L51 — pick a named layout, don't free-style) + `AGENTS.md Sections 1–12` (slide type scale, "fill the frame," imagery, declutter, Soundcheck titles (Section 10), structure, color, Fluent emoji, **Presenter-vs-Document mode**). Build from `templates/deck/Deck.dc.html`. **Decide the deck's mode first (Section 12).**
+- **A native PowerPoint / `.pptx` / `.potx` file** → **`POWERPOINT.md` first** (+ `AGENTS.md Section 13`), then `LAYOUTS.md`. Prefer exporting the deck to editable PPTX; place logos via `assets/asset-manifest.json`, layouts via `templates/powerpoint/layout-manifest.json`; set the theme fonts to Poppins; validate the finished file.
 - **A web page / marketing site** → `README.md` web sections + `ui_kits/website/` (real components) + `DESIGN.md` web type scale. Web posture: generous whitespace, sparse imagery, 1240px measure.
 - **A product app / dashboard / workflow UI** → `README.md` app sections + `ui_kits/app/` (product primitives) + `DESIGN.md` component guidance. App posture: dense but calm, scannable, native controls, compact panels, no marketing hero composition.
-- **A social tile / one-pager** → the matching folder in `templates/` (`social-tile/`, `one-pager/`). A one-pager is a **document**: write its headings with `SOUNDCHECK.md` (§10).
+- **A social tile / one-pager** → the matching folder in `templates/` (`social-tile/`, `one-pager/`). A one-pager is a **document**: write its headings with `SOUNDCHECK.md` (Section 10).
 - **The animated brand "hello" / an animated wordmark or brand-mark GIF** (for a deck, PowerPoint, social, or an email signature) → **`preview/brand-mark-studio.html`** — the **Brand Mark Studio**, a self-serve in-browser exporter: type any word, pick Poppins or Libre Baskerville (italic/bold), gradient or per-letter colour cycling and a background, then export APNG (transparent, best), GIF (transparent, PowerPoint-safe) or MP4/WebM — all encoded client-side. **Point the user at the tool; don't hand-build the animation.**
 - **Any imagery decision (generate / supply / placeholder), or generating with an AI model** → **`IMAGERY.md`** first (the workflow: capability check → ask the user → learn-a-style or the Hoffman house illustration style → else a labelled placeholder), then **`PROMPTS.md`** for the copy-paste prompt templates that bake in the Hoffman grade/mood.
 - **Before shipping anything** → run `CHECKLIST.md` (pre-ship visual-consistency checklist).
@@ -49,9 +49,9 @@ This design system serves **two media with different physics**, and their rules 
 - **Slides / office documents** — PowerPoint/Keynote decks (1920×1080), and other fixed-canvas page documents. Governed by **this file (`AGENTS.md`)** + **`LAYOUTS.md`**.
 
 **When building a deck or any fixed-canvas slide/office artifact, the slide rules below OVERRIDE the web rules.** Specifically, for slides you IGNORE these web rules:
-- ❌ The web **type scale** (16px body etc.) → use the SLIDE type scale in §1.
-- ❌ "**Generous negative space** / whitespace is the brand flexing / most slides airy" → use "**fill the frame**" in §2. Restraint on a slide means *few ELEMENTS scaled large*, never small elements floating in empty space.
-- ❌ "**Sparse imagery**" → imagery is the **DEFAULT** on slides (§3).
+- ❌ The web **type scale** (16px body etc.) → use the SLIDE type scale in Section 1.
+- ❌ "**Generous negative space** / whitespace is the brand flexing / most slides airy" → use "**fill the frame**" in Section 2. Restraint on a slide means *few ELEMENTS scaled large*, never small elements floating in empty space.
+- ❌ "**Sparse imagery**" → imagery is the **DEFAULT** on slides (Section 3).
 - ❌ Web **max-width / reading-measure** caps (1240px, 68ch) → slides are edge-to-edge 1920×1080; use the full frame.
 
 DESIGN.md still governs **color, fonts, the italic-emphasis move, the Storyline motif, annotations, and voice** — those are brand-wide and apply to both media. It's only the *web layout/scale/density/imagery* posture that slides override.
@@ -79,9 +79,9 @@ AI slides look uniform but hollow. Big type + imagery fills the canvas. Content 
 
 ## 2.5 Titles & headings — fill the width, break clean, never truncate
 The most common Hoffman-deck failure after tiny type is a **mishandled title**: it truncates, it wraps mid-phrase, or it runs half the width and leaves a dead strip of white on the right. Fix the typesetting, not just the words.
-- **Never truncate or clip a title.** No ellipsis, no cut-off word, no title hidden behind an `overflow:hidden`. If it doesn't fit, the type is too big or the copy is too long — shrink within the §1 floor or tighten the line, don't crop it.
+- **Never truncate or clip a title.** No ellipsis, no cut-off word, no title hidden behind an `overflow:hidden`. If it doesn't fit, the type is too big or the copy is too long — shrink within the Section 1 floor or tighten the line, don't crop it.
 - **Break lines at sense boundaries.** If a title wraps, break it at the end of a clause or phrase so each line reads as a unit (`Tech.` / `We're it.`), never mid-phrase (`Tech. We're` / `it.`). Insert a manual `<br>` where the meaning breaks rather than letting the box wrap at a random word.
-- **Fill the width or size up.** A title that fills only the left ~45% of the frame and leaves the right half empty reads as unfinished. Either **grow the type until the line spans a comfortable measure** (bias to the top of the §1 range — that is what the floors are for), **let it run onto two full lines**, or **place a graphic / image / Fluent emoji in the space to its right** so the row is composed, not half-empty. A short title beside a big empty right margin is the single most common "AI whitespace" complaint — treat the empty side as a slot, not a margin.
+- **Fill the width or size up.** A title that fills only the left ~45% of the frame and leaves the right half empty reads as unfinished. Either **grow the type until the line spans a comfortable measure** (bias to the top of the Section 1 range — that is what the floors are for), **let it run onto two full lines**, or **place a graphic / image / Fluent emoji in the space to its right** so the row is composed, not half-empty. A short title beside a big empty right margin is the single most common "AI whitespace" complaint — treat the empty side as a slot, not a margin.
 - **One title measure per deck.** Keep titles landing on a consistent horizontal band (same left edge, similar width) so the deck feels set, not ragged.
 
 ## 3. Imagery is the DEFAULT, not optional
@@ -97,7 +97,7 @@ Keep the **dotted border** + **aspect-ratio label** (the user likes both). Three
 
 ## 5. Text slots are typed prompts (role + style + word cap)
 Label each text region by what it is and how to write it, not a vague description. Examples:
-- Title: *layout target: one line, ≤8 words, the key word or phrase set in Baskerville italic.* Write the point using `SOUNDCHECK.md`; handle a title/fit collision under §10.
+- Title: *layout target: one line, ≤8 words, the key word or phrase set in Baskerville italic.* Write the point using `SOUNDCHECK.md`; handle a title/fit collision under Section 10.
 - Punchy subtitle: *accentuates the slide, ≤14 words.*
 - Body: *leads with the punchline, ≤30 words.*
 - Bullet/prop: *a trigger not a sentence, ≤6 words, max 3.*
@@ -129,7 +129,7 @@ Hoffman decks use **Microsoft Fluent emoji** (static + animated) as a core visua
 - **Sourcing SOP:** **local/offline deliverables** (native PowerPoint/Keynote, embedded PDFs, self-contained HTML — anything that must render without a network) → **always download the asset and embed it as a file.** Never hotlink. Static styles (3D / Flat / Color / High Contrast) come from `github.com/microsoft/fluentui-emoji`; **animated APNGs come from `github.com/microsoft/fluentui-emoji-animated`** — Microsoft's own repo, MIT, 746 emoji, 256×256 APNG. Both are canonical origin. Note that the animated repo is **Git LFS**, so a CDN like jsDelivr returns the 132-byte pointer rather than the image and Microsoft's APNGs run ~1.4MB each; fetch those from `media.githubusercontent.com/media/...`. The APNGs carried in `assets/emoji/animated/` are the same artwork optimised via an MIT mirror, which is what the web-runtime CDN pin in `assets/emoji/fluent-emoji.js` points at — correct for the browser, but **embed from Microsoft for anything offline.**
 - **Still true (the guardrails, unchanged):** pair with copy or a clear subject, never emoji *stacks* as decoration (`🎯💡🔥💪`), never two competing heroes, respect the "one graphic earns the emotion" rule — a Fluent emoji **is** that one graphic on many slides. Keep contrast in mind on color surfaces (the emoji art is full-color; give it breathing room on busy grounds).
 - **Sizing scale on slides:** inline-in-text ≈ rides font size (1em); list-row bullet 32–44px; stat pairing 64–96px; section/hero motif 120–200px.
-- **An emoji accompanying a headline rides that headline's baseline.** Set it *inline at the end of the line*, at roughly cap height (≈0.85em of the headline, so ~60px against a 72px title) with a small optical nudge (`vertical-align:-12px`). **Never a flex sibling in its own slot** — a 96px glyph parked beside a title floats free of the sentence it belongs to and reads as a stray asset. This is the *accompanying* case, and it sits between "inline-in-text" and "section/hero motif" in the scale above. It does **not** ban a standalone emoji: a section divider's motif, a persona's object, and the L33–L38 layouts still place one deliberately on its own — the rule is that an emoji belonging to a *sentence* stays in that sentence. (§2.5's "place a graphic / image / Fluent emoji in the space to its right" is the standalone case: it fills a composition, it does not accompany a line.)
+- **An emoji accompanying a headline rides that headline's baseline.** Set it *inline at the end of the line*, at roughly cap height (≈0.85em of the headline, so ~60px against a 72px title) with a small optical nudge (`vertical-align:-12px`). **Never a flex sibling in its own slot** — a 96px glyph parked beside a title floats free of the sentence it belongs to and reads as a stray asset. This is the *accompanying* case, and it sits between "inline-in-text" and "section/hero motif" in the scale above. It does **not** ban a standalone emoji: a section divider's motif, a persona's object, and the L33–L38 layouts still place one deliberately on its own — the rule is that an emoji belonging to a *sentence* stays in that sentence. (Section 2.5's "place a graphic / image / Fluent emoji in the space to its right" is the standalone case: it fills a composition, it does not accompany a line.)
 
 ## 9. Delete micro-text — no clutter on the slide
 Every element must earn its place at a LARGE size. If a text element can't be read from the back of the room, it probably shouldn't be on the slide.
@@ -143,7 +143,7 @@ Every element must earn its place at a LARGE size. If a text element can't be re
 **Soundcheck is the default way titles are written here.** Read
 [SOUNDCHECK.md](SOUNDCHECK.md) in full whenever you create a deck or a
 document, and for every title review — decks, one-pagers, print leave-behinds
-and any other fixed-canvas page document this file governs (§0). This
+and any other fixed-canvas page document this file governs (Section 0). This
 self-contained seven-principle method governs the argument: audience and
 structure first, then wording. Apply the principles as far as possible, with
 the stated exemptions; review for useful improvements, not pass/fail scores.
@@ -161,7 +161,7 @@ It preserves the requested voice.
   dividers and deliberate rhetorical setups when that is the slide's job.
   A style move alone does not supply a missing claim on a content slide.
 - One voice move per headline — don't stack a question + italic + strikethrough on one line. The italic marks the line's **emphasis by meaning** — usually one word, sometimes a short phrase; never scatter italics across several words, and never force a single word when the point lives in a phrase.
-- **Colour the emphasis, don't just italicise it.** The Baskerville-italic word can also carry a brand colour (lime on navy, purple/teal on paper, navy on lime) so the emphasis reads at a glance — the serif *and* a WCAG-passing accent, not a monochrome line. One coloured emphasis per headline; contrast is still the gate (§7).
+- **Colour the emphasis, don't just italicise it.** The Baskerville-italic word can also carry a brand colour (lime on navy, purple/teal on paper, navy on lime) so the emphasis reads at a glance — the serif *and* a WCAG-passing accent, not a monochrome line. One coloured emphasis per headline; contrast is still the gate (Section 7).
 - **A mark on an emphasised word takes a *different* brand colour from the word.** The italic emphasis is coloured (above) and the 76 hand-drawn marks paint with `currentColor` — so the lazy default makes both lime, and the mark vanishes into the word it is supposed to mark. Give the word its accent and the mark the surface's *other* contrast colour: on navy, a lime word takes a **white** underline; on paper, a purple word takes a **navy** one. One coloured emphasis, one differently-coloured mark, both clearing contrast.
 
 ## 11. Structure — breadth up front, a real close (don't over-compress)
@@ -175,7 +175,7 @@ A deck is built for the eyes in the room **or** to be read alone — never both.
 - **Presenter mode** (Reynolds sparsity) — for a deck that will be *presented live*. ≤1 idea and ≤15 words per slide, image-led, the headline carries the point. **The detail lives in speaker notes**, not on the slide (`<script type="application/json" id="speaker-notes">` — the deck/keynote templates read it). The room watches the slide; the notes prompt the speaker.
 - **Document mode** (Tufte density) — the "leave-behind" / "send-ahead" / reading deck that must stand alone with no presenter. Denser and hierarchical: short bullets are allowed and each slide can carry a fuller argument (headline + subhead + a tight bullet set or a small table), because the reader has no narrator. Still **capped** — short bullets and phrases, never paragraphs (rule 10).
 - **XOR, never mixed.** Word-count and bullet-density stay consistent across the deck. Some slides ≤15-word image slides while others are bulleted walls = fail.
-- **What does NOT change between modes:** the Hoffman visual system. Both modes still **fill the frame** (§2), use the **slide type scale** (§1) and the **whole palette** (§7), keep the **72px margin**, and carry **imagery by default** (§3). Document mode is *denser content* — never smaller type or an airier, web-density page.
+- **What does NOT change between modes:** the Hoffman visual system. Both modes still **fill the frame** (Section 2), use the **slide type scale** (Section 1) and the **whole palette** (Section 7), keep the **72px margin**, and carry **imagery by default** (Section 3). Document mode is *denser content* — never smaller type or an airier, web-density page.
 - **Determining the mode:** **infer it from context and state your assumption; ask only if genuinely ambiguous.** Signals — "I'll present this / for the stage / town hall / live pitch" → Presenter; "leave-behind / send it over / read-ahead / board pre-read / they can't make the meeting" → Document. A first-meeting pitch delivered live is Presenter; a proposal emailed cold is Document. When you truly can't tell, quiz the user.
 - **Templates:** the 48-layout `templates/deck/` library is the **single deck template** and **carries the Mode tweak** (Presenter reflows to sparse + speaker notes; Document reveals the depth on-slide) — set it in Tweaks, then author every kept layout in that one chosen mode. The full worked demonstration of the whole system is `slides/Hoffman Brand Guidelines.html`.
 
@@ -184,11 +184,11 @@ When the requested output is `.pptx` / `.potx` / PowerPoint, **read `POWERPOINT.
 
 - **Prefer exporting the HTML deck** (`templates/deck/Deck.dc.html`) to editable PPTX. Hand-build (python-pptx etc.) only when a tool can't export, using `POWERPOINT.md` + `assets/asset-manifest.json` (logo geometry, protected zones, surface→variant) + `templates/powerpoint/layout-manifest.json` (the 48 layout contracts) as the implementation source — not from memory.
 - **Fonts: presence ≠ use.** Confirm Poppins + Libre Baskerville Italic are available to the creation environment (files in this repo aren't enough), and set the PowerPoint **theme** fonts to Poppins. Detect Calibri/Aptos/Arial fallbacks in the finished file; never silently substitute.
-- **Build the theme, don't just paint shapes** — set theme colours + fonts so new text boxes default on-brand (`POWERPOINT.md §2`).
+- **Build the theme, don't just paint shapes** — set theme colours + fonts so new text boxes default on-brand (`POWERPOINT.md Section 2`).
 - **Logos are geometry contracts.** Set one dimension, derive the other from the manifest ratio, lock aspect ratio; >1% off fails. Variant by surface (lime → **navy** logo, never the 2-colour). Keep content out of the wordmark/boxed-monogram protected zone; the full-frame line is a background layer.
 - **Layout codes are contracts** — preserve the structure or pick another layout. **Every arrow connects two named elements** edge-to-edge, never floating in open space; source→tool→output workflows use L35.
 - **Images:** never stretch; preserve source ratio; use the Hoffman placeholder rather than a weak image.
-- **Validate + render the finished `.pptx`** at full size (`POWERPOINT.md §§8–9`). Don't deliver with fallback fonts, distorted logos, wrong logo variant, protected-area collisions, stretched images or disconnected arrows.
+- **Validate + render the finished `.pptx`** at full size (`POWERPOINT.md Sections 8–9`). Don't deliver with fallback fonts, distorted logos, wrong logo variant, protected-area collisions, stretched images or disconnected arrows.
 
 ## 14. Every slide is identifiable in the markup
 

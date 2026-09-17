@@ -13,25 +13,25 @@ A short list to run through before shipping any branded surface — slide, socia
 
 ## Deck mode (slides)
 
-- [ ] Deck declares **one mode — Presenter XOR Document** (`AGENTS.md §12`); word-count / bullet-density stays consistent across all slides
+- [ ] Deck declares **one mode — Presenter XOR Document** (`AGENTS.md Section 12`); word-count / bullet-density stays consistent across all slides
 - [ ] **Presenter**: ≤1 idea, ≤15 words/slide, image-led; detail is in **speaker notes**, not on the slide
 - [ ] **Document**: denser + hierarchical, short bullets allowed, each slide stands alone — still no paragraphs
 - [ ] No sparse hero slide sitting beside a six-bullet wall (the "schizophrenic deck" tell)
-- [ ] **Titles fill the width and break clean** — no truncation/ellipsis, no mid-phrase wrap, no title running half-width with a dead strip of white on the right (`AGENTS.md §2.5`)
-- [ ] **Every content slide carries a visual** — image, placeholder, icon, Fluent emoji or annotation; no bare text slide with empty margins (`AGENTS.md §3`)
-- [ ] **Chunked, not dumped** — dense points broken into 2–4 short labelled beats, never a paragraph or a six-line bullet stack (`AGENTS.md §5`)
-- [ ] **Every slide is identifiable in the markup** — `data-screen-label="NN Label"` authored on every slide, not left to the runtime component; a comment or diff pinned to a coordinate is otherwise unattributable (`AGENTS.md §14`)
-- [ ] **Tappable cards read as tappable, quietly** — one mark per card (never two), quiet at rest, motion on hover, the card itself never lifts (`AGENTS.md §15`)
+- [ ] **Titles fill the width and break clean** — no truncation/ellipsis, no mid-phrase wrap, no title running half-width with a dead strip of white on the right (`AGENTS.md Section 2.5`)
+- [ ] **Every content slide carries a visual** — image, placeholder, icon, Fluent emoji or annotation; no bare text slide with empty margins (`AGENTS.md Section 3`)
+- [ ] **Chunked, not dumped** — dense points broken into 2–4 short labelled beats, never a paragraph or a six-line bullet stack (`AGENTS.md Section 5`)
+- [ ] **Every slide is identifiable in the markup** — `data-screen-label="NN Label"` authored on every slide, not left to the runtime component; a comment or diff pinned to a coordinate is otherwise unattributable (`AGENTS.md Section 14`)
+- [ ] **Tappable cards read as tappable, quietly** — one mark per card (never two), quiet at rest, motion on hover, the card itself never lifts (`AGENTS.md Section 15`)
 - [ ] **Corner mark is visible on its surface** — `storyline-navy-white.svg` is a NAVY mark for LIGHT grounds; on navy/purple/teal use `storyline-mark.svg` tinted to the contrast colour (`README` → The Storyline squiggle)
-- [ ] **Any "animated" emoji genuinely animates** — checked against `assets/emoji/animated-manifest.json`, not assumed from the folder name (`AGENTS.md §8`)
+- [ ] **Any "animated" emoji genuinely animates** — checked against `assets/emoji/animated-manifest.json`, not assumed from the folder name (`AGENTS.md Section 8`)
 - [ ] **Marks and the words they mark are different colours** — a lime underline under a lime word erases itself (`README` → Hand-drawn annotations)
 
 ## Finished PowerPoint file (`.pptx` / `.potx`)
 
-Run against the **exported file**, not the source that made it (`POWERPOINT.md §9`). Render every slide at full size — a passing screenshot is not proof.
+Run against the **exported file**, not the source that made it (`POWERPOINT.md Section 9`). Render every slide at full size — a passing screenshot is not proof.
 
 - [ ] File opens; slide count as expected; slide size **16:9** (13.333in × 7.5in / 1920×1080)
-- [ ] **Theme fonts are Poppins** (major + minor) — not Calibri/Aptos/Arial; theme colours match the Hoffman palette (`POWERPOINT.md §2`)
+- [ ] **Theme fonts are Poppins** (major + minor) — not Calibri/Aptos/Arial; theme colours match the Hoffman palette (`POWERPOINT.md Section 2`)
 - [ ] No unintended **fallback font** in any text run; fonts embedded when portability requires it
 - [ ] Only approved logo files used; every logo's **aspect ratio within 1%** of `assets/asset-manifest.json` (set one dimension, derive the other, lock ratio)
 - [ ] **Logo variant matches surface** — paper → 2-colour, **lime → 1-colour navy**, navy/secondary → 1-colour white
@@ -48,12 +48,12 @@ Run against the **exported file**, not the source that made it (`POWERPOINT.md �
 ## Type
 
 - [ ] Headline is **Poppins** (700 or 800) with its **emphasis** — a key word *or* short phrase — in `<em>` → Libre Baskerville italic (chosen by meaning, not a fixed count; one emphasis per line, never scattered)
-- [ ] **The italic emphasis also carries a brand colour** where it helps it read (lime on navy, purple/teal on paper, navy on lime) — a WCAG-passing accent, not a monochrome serif; one coloured emphasis per headline (`AGENTS.md §10`)
+- [ ] **The italic emphasis also carries a brand colour** where it helps it read (lime on navy, purple/teal on paper, navy on lime) — a WCAG-passing accent, not a monochrome serif; one coloured emphasis per headline (`AGENTS.md Section 10`)
 - [ ] No upright Libre Baskerville used as body or display
 - [ ] Sentence case on headings; UPPERCASE only on eyebrows (tracked at 0.14em)
 - [ ] One hero idea per surface — everything else shrinks hard
-- [ ] **Slides only:** uses the **slide type scale as FLOORS, biased high** (20–24px labels · 30–36px body / def 32 · 40–52px subhead · 64–80px title · 120–132px statement/divider · 176px+ cover · ~240px closing) — NOT the 28px "safe" or 16px web body; **≤ 3 distinct sizes** per slide (see `AGENTS.md §1`)
-- [ ] **Slides only:** no micro-text — nothing ≤10pt except a functional eyebrow / mono label; on-slide sources, footnotes, placeholder captions & repeated sub-labels are cut (sources → speaker notes); **3–5 large elements** per slide (see `AGENTS.md §9`)
+- [ ] **Slides only:** uses the **slide type scale as FLOORS, biased high** (20–24px labels · 30–36px body / def 32 · 40–52px subhead · 64–80px title · 120–132px statement/divider · 176px+ cover · ~240px closing) — NOT the 28px "safe" or 16px web body; **≤ 3 distinct sizes** per slide (see `AGENTS.md Section 1`)
+- [ ] **Slides only:** no micro-text — nothing ≤10pt except a functional eyebrow / mono label; on-slide sources, footnotes, placeholder captions & repeated sub-labels are cut (sources → speaker notes); **3–5 large elements** per slide (see `AGENTS.md Section 9`)
 
 ## Color
 
@@ -114,8 +114,8 @@ Run against the **exported file**, not the source that made it (`POWERPOINT.md �
 - [ ] Section padding ≥ 80px on desktop; 128px on hero blocks
 - [ ] Square corners (0–2px) by default; 6px only on form inputs; pill on tags only
 - [ ] No frosted glass, no parallax, no scroll-jacking
-- [ ] **Slides only:** content **fills the frame** edge-to-edge — no dead whitespace, no 1240px/68ch web caps; imagery present by default; "restraint" = few elements scaled large, never small elements floating (see `AGENTS.md §0, §2`)
-- [ ] **Slides only:** default safe margin **~0.5″ (72px)**, not 0.9″; image-led layouts (cover, divider, statement, split, persona, case panel) **full-bleed** the image to ≥1 edge while the type half keeps the margin (see `AGENTS.md §2`, `LAYOUTS.md Part 6`)
+- [ ] **Slides only:** content **fills the frame** edge-to-edge — no dead whitespace, no 1240px/68ch web caps; imagery present by default; "restraint" = few elements scaled large, never small elements floating (see `AGENTS.md Section 0, Section 2`)
+- [ ] **Slides only:** default safe margin **~0.5″ (72px)**, not 0.9″; image-led layouts (cover, divider, statement, split, persona, case panel) **full-bleed** the image to ≥1 edge while the type half keeps the margin (see `AGENTS.md Section 2`, `LAYOUTS.md Part 6`)
 
 ## Series numbering (for carousels & multi-part decks)
 
@@ -144,7 +144,7 @@ Safe zone on social tiles: keep critical content **≥ 80px from all four edges*
 - [ ] CTA is a direct verb + object — never "Learn more"
 - [ ] **Emojis** allowed *with* copy, max 3 per page — expect cross-platform variance.
 - [ ] **Voice patterns** used intentionally, not by accident — stretched letters (cover/section only), the ladder (once per deck), strikethrough humor (once per deck). Lowercase first words are okay as a casual signal.
-- [ ] **Decks & documents:** reviewed the audience, title spine and individual lines with **Soundcheck**, keeping good titles and useful exemptions; resolved any collision with the ≤8-word/one-line layout target while preserving the point. The review produces improvements, not pass/fail scores for each title (see `SOUNDCHECK.md` and `AGENTS.md §10`).
+- [ ] **Decks & documents:** reviewed the audience, title spine and individual lines with **Soundcheck**, keeping good titles and useful exemptions; resolved any collision with the ≤8-word/one-line layout target while preserving the point. The review produces improvements, not pass/fail scores for each title (see `SOUNDCHECK.md` and `AGENTS.md Section 10`).
 
 ---
 

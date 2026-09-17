@@ -4,6 +4,24 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — Got rid of the § symbol (v2.8.2 → v2.8.3)
+
+`§` is the section sign. It comes out of medieval manuscripts and it lives today
+in statutes, contracts and academic citation — German law is absolutely covered in
+it. It is not a software convention and never has been. Nobody writing code types
+`§16`; they write "section 16", or they just link to the thing.
+
+Which meant this design system — read by designers, account people, and whoever
+needs to build a deck by Thursday — was punctuated like a tenancy agreement.
+
+So all 146 of them, across 25 files, are now "Section 10" and "Sections 1–12".
+The numbers stay, because the numbers are the useful part: they're stable anchors
+that survive a section being retitled, and anyone (or anything) can jump straight
+to one. It was only ever the glyph doing nobody any favours.
+
+Patch. Notation only — every reference still points at exactly the section it
+pointed at before.
+
 ## 2026-09-17 — Rewrote this whole changelog in English (v2.8.1 → v2.8.2)
 
 The old one was technically perfect and unreadable. Every fact in place, every
@@ -12,8 +30,8 @@ underneath the design"* — which sounds profound right up until you ask what it
 actually means.
 
 It also assumed you'd already read the code. "Out-of-flow elements." "The `acTL`
-chunk." "`§16`." All fine if you wrote the thing. Useless if you're a designer
-trying to work out whether last week's update breaks your deck.
+chunk." All fine if you wrote the thing. Useless if you're a designer trying to
+work out whether last week's update breaks your deck.
 
 So all 23 of our own entries are rewritten. Same facts, same versions, same
 decisions, same level of detail — just in words a person would say out loud.
@@ -29,7 +47,7 @@ Shipped Soundcheck in the morning. By the afternoon it was the default for
 exactly two kinds of work and nothing else.
 
 Here's what "published but not actually the default" looked like. A one-pager
-never loaded it. The pre-ship checklist said "Slides only." §10 said
+never loaded it. The pre-ship checklist said "Slides only." Section 10 said
 "presentation," so documents were arguably out. And `LAYOUTS.md` — the file the
 deck route sends you to *by name* — was still teaching the rule Soundcheck had
 just replaced, only more firmly.
@@ -37,14 +55,14 @@ just replaced, only more firmly.
 So the method sat in the repo being ignored by three of the four doors into it.
 Now:
 
-- **§10 says it outright.** Soundcheck is how titles get written here. Decks,
+- **Section 10 says it outright.** Soundcheck is how titles get written here. Decks,
   one-pagers, print leave-behinds, anything else that lives on a fixed page.
 - **One-pagers route through it**, with their own rule attached: headings state
   the point, not the topic.
 - **The checklist covers decks *and* documents**, not slides only.
-- **`LAYOUTS.md` stops arguing with §10.** Its old "editorial, not descriptive"
-  block now teaches what §10 teaches. The worse conflict was the quieter one: it
-  filed the headline under "hard caps, not targets" while §10 had just made ≤8
+- **`LAYOUTS.md` stops arguing with Section 10.** Its old "editorial, not descriptive"
+  block now teaches what Section 10 teaches. The worse conflict was the quieter one: it
+  filed the headline under "hard caps, not targets" while Section 10 had just made ≤8
   words a budget you're allowed to negotiate with. The headline is a budget now.
   Eyebrow, body, bullet and stat are still hard caps, which they always were.
 
@@ -56,7 +74,7 @@ Until today this system could tell you your headline was too long, in the wrong
 font and missing its italic — then wave through a deck where every slide was
 called "Q3 Overview."
 
-That's because §10 only ever described the moves. Ask a question. Do a two-beat.
+That's because Section 10 only ever described the moves. Ask a question. Do a two-beat.
 Italicise the good word. Nobody wrote down the bit where the title is supposed to
 *say something*. So you could follow every rule in here and still ship a deck
 with the strategic clarity of a horoscope.
@@ -79,7 +97,7 @@ describe what's on the slide, use it to state the point the slide is making.
 Written brand-neutral on purpose — no Hoffman examples, no house references — so
 it travels to whoever needs it.
 
-Minor bump. Nothing you've already built is suddenly wrong: every voice move §10
+Minor bump. Nothing you've already built is suddenly wrong: every voice move Section 10
 taught is still fine, it just can't do the whole job on its own any more.
 
 ## 2026-09-02 — Built the cards the rules kept pointing at, and one rule didn't survive it (v2.7.1 → v2.7.2)
@@ -88,12 +106,12 @@ v2.7.0 added three rules that each said "check this against the card" — and th
 didn't ship the card. Building them was meant to be housekeeping. One of them
 turned around and proved its own rule wrong.
 
-- **The colour-pairing card gets a top tier: Display (AAA, ratio 7+).** §7 said
+- **The colour-pairing card gets a top tier: Display (AAA, ratio 7+).** Section 7 said
   passing contrast is the floor, while this card was still marking teal on cyan
   as simply fine. It now shows the real numbers and — the good part — applies its
   own rule to itself when picking an emphasis colour. On cyan it now picks purple
   (7.92) where it used to pick teal (5.96).
-- **§7 was giving bad advice.** It told you to choose the pair with the widest
+- **Section 7 was giving bad advice.** It told you to choose the pair with the widest
   luminance gap. That number separates nothing: teal-on-cyan and purple-on-cyan
   sit at 0.73 and 0.77, which is to say identical, and one of them reads like a
   rumour when projected. Their contrast *ratios* are 5.96 and 7.92. So the rule
@@ -109,7 +127,7 @@ Patch. New cards, one corrected threshold, nothing you've built needs redoing.
 
 Wrote the motion rules on Tuesday. Broke them on Wednesday.
 
-§16 said: animate position and fade, don't animate width and height, because
+Section 16 said: animate position and fade, don't animate width and height, because
 resizing a thing shoves everything around it. Fair enough. Then the linter
 started flagging four animations that were completely fine — a sweeping
 underline, a progress bar — and we spent an afternoon arguing with our own
@@ -167,18 +185,18 @@ rulebook and the working code flatly disagreed. The code was right every time.
 
 **New rules**
 
-- **§14 — every slide names itself in the markup.** All 48 layouts sit at
+- **Section 14 — every slide names itself in the markup.** All 48 layouts sit at
   identical coordinates on a 1920×1080 canvas, so a review comment pinned to a
   spot on screen has no idea which slide it belongs to. A 15-slide deck came back
   from review with every comment floating free of its slide. Every slide now
   carries `data-screen-label="07 Action titles"` — plain HTML, survives a diff, a
   screenshot, a PDF and a comment thread.
-- **§15 — tappable cards stay quiet until you point at them.** The system covered
+- **Section 15 — tappable cards stay quiet until you point at them.** The system covered
   static slides in forensic detail and said nothing about interactive ones, so a
   build invented an affordance that broke four existing rules at once. One mark
   per card, faint at rest, and on hover the mark moves while the card itself
   stays exactly where it is.
-- **§16 — a motion vocabulary.** Everything else here was specified; motion
+- **Section 16 — a motion vocabulary.** Everything else here was specified; motion
   wasn't. So every build made up its own, and the linter and the rulebook had the
   same argument five separate times. Durations, stagger, where overshoot is
   allowed (small marks yes, paragraphs never), nothing loops, and
@@ -380,7 +398,7 @@ imagery, and agents guessing at a brief instead of asking about it.
   agent generate images at all? Then ask: generate, supply, or a labelled
   placeholder? If generating, learn a style from a few samples or fall back to the
   house illustration style. Never a bare grey box. Ships three reference samples.
-- **`AGENTS.md §2.5` (new) — titles.** Never truncate one. Break lines where the
+- **`AGENTS.md Section 2.5` (new) — titles.** Never truncate one. Break lines where the
   meaning breaks, not where the box ends. Fill the width or size up — and treat
   the empty half of a slide as a slot for a graphic, not a margin. Plus: dead
   space is a bug, chunk don't dump, and colour the italic emphasis.
@@ -464,7 +482,7 @@ Pulled the master down and reconciled every file that differed. Two threads.
   validation pass on the finished file), `asset-manifest.json` (every logo's real
   ratio, clearspace, and which variant belongs on which surface), and a layout
   manifest carrying all 48 layout contracts for tools that can't read the HTML
-  deck. Threaded in as `AGENTS.md §13`, a checklist section, and routing rows
+  deck. Threaded in as `AGENTS.md Section 13`, a checklist section, and routing rows
   everywhere.
 - **The italic emphasis can be a phrase.** It was written as "one italic word,"
   which is wrong about half the time — sometimes the point lives in two words.

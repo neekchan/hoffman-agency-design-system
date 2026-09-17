@@ -29,7 +29,7 @@ the five tone variants remain upstream if ever needed.
 | Use | Reach for |
 |---|---|
 | A functional symbol: wayfinding, a list marker, a label, dense UI | **`assets/icons/`** — this folder |
-| The emotional beat of a slide: a hero moment, a key stat, a punchline | **`assets/emoji/color/`** or `3d`, per `AGENTS.md §8` |
+| The emotional beat of a slide: a hero moment, a key stat, a punchline | **`assets/emoji/color/`** or `3d`, per `AGENTS.md Section 8` |
 | Motion at the one emotional peak | **`assets/emoji/animated/`** — check `animated-manifest.json` first; only 24 of the curated set genuinely animate |
 | A hand-drawn mark: underline, circle, arrow, tick | **`assets/annotations/`** |
 
