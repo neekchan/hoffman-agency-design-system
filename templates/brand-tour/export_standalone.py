@@ -14,6 +14,8 @@ Rules learnt the hard way:
   * keep photographs OUT of literal style attributes in the template — bind a style object and let
     `photoUrl()` resolve to the resource map (design environment: relative path; standalone: data URI)
   * the standalone is not offline: it loads React and the emoji from a CDN (decision 2026-09-17)
+  * the donor's <style> block is kept (it carries standalone-only CSS and the base64 fonts) and any rule
+    the template has that the donor lacks is appended — so new CSS in the template DOES reach the standalone
   * always look at the rendered frames; the standalone boot path logs one benign SyntaxError.
 """
 import base64, io, json, os, re, subprocess, sys, tempfile, pathlib
@@ -44,13 +46,28 @@ def export():
     src, don = SRC.read_text(), OUT.read_text()
     _, body, _, script, _ = parts(src); head, _, mid, _, tail = parts(don)
     n_sections = len(re.findall(r'<section data-idx="\d+"', body))
+    # head: the template's own <style> block is the truth (new keyframes, rules); only the @font-face
+    # lines are swapped for the donor's base64-subset versions, matched by family/style/weight
+    def style_block(s):
+        # anchor on the block's own first comment: the inlined emoji runtime contains a literal "<style>" string
+        m = s.index('/* Compact brand-token fallback'); a = s.rfind('<style>', 0, m); b = s.index('</style>', a) + len('</style>'); return a, b
+    def ff_key(line):
+        m = re.search(r"font-family:\s*'([^']+)';\s*font-style:\s*(\w+);\s*font-weight:\s*([\d ]+);", line); return m.groups() if m else None
+    da, db = style_block(head); donor_lines = head[da:db].split('\n')
+    donor_set = {l.strip() for l in donor_lines}
+    sa, sb = style_block(src)
+    extra = [l for l in src[sa:sb].split('\n') if l.strip() not in donor_set and '@font-face' not in l and l.strip() not in ('<style>', '</style>')]
+    head = head[:da] + '\n'.join(donor_lines[:-1] + extra + donor_lines[-1:]) + head[db:]   # donor block (it carries standalone-only CSS) + the template's new rules
     # head: refresh the @template comment; register photos in the resource map
     desc = re.search(r'<!-- @template name="Interactive brand tour" description="[^"]*" -->', src).group(0)
     head = re.sub(r'<!-- @template name="Interactive brand tour" description="[^"]*" -->', lambda _: desc, head, count=1)
     head = re.sub(r'"photo_[^"]+":"data:image/jpeg;base64,[A-Za-z0-9+/=]*",', '', head)   # drop last export's photos
+    head = re.sub(r'"icon_[^"]+":"data:image/svg\+xml;base64,[A-Za-z0-9+/=]*",', '', head)  # ...and dock icons
     photos = re.findall(r"\{ f: '([^']+)', fam:", script)
+    icons = re.findall(r"icon: '([^']+)'", script)
     k = head.index('window.__resources={') + len('window.__resources={')
-    head = head[:k] + ''.join(json.dumps(photo_key(f)) + ':' + json.dumps(jpg_uri(f)) + ',' for f in photos) + head[k:]
+    head = (head[:k] + ''.join(json.dumps(photo_key(f)) + ':' + json.dumps(jpg_uri(f)) + ',' for f in photos)
+            + ''.join(json.dumps('icon_' + i) + ':' + json.dumps(svg_uri('icons/' + i + '.svg')) + ',' for i in icons) + head[k:])
     # body + script: inline the static SVGs the same way the first export did
     body = re.sub(r'src="\.\./\.\./assets/([^"]+\.svg)"', lambda m: 'src="' + svg_uri(m.group(1)) + '"', body)
     script = re.sub(r"'\.\./\.\./assets/([^']+\.svg)'", lambda m: "'" + svg_uri(m.group(1)) + "'", script)
@@ -58,7 +75,7 @@ def export():
     bad = re.findall(r'style="[^"]*url\(data:', out)
     assert not bad, 'a data URI landed inside a literal style attribute — bind that style as an object instead'
     OUT.write_text(out)
-    print(f'exported {OUT.name}: {n_sections} sections · {len(photos)} photographs · {len(out)/1e6:.2f} MB')
+    print(f'exported {OUT.name}: {n_sections} sections · {len(photos)} photographs · {len(icons)} dock icons · {len(out)/1e6:.2f} MB')
 
 def verify(screens=(1, 17, 18)):
     chrome = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'

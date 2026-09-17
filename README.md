@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.18.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **the brand tour had never heard of the photographs.** Three new screens (the photo library, sixteen markets, a Soundcheck ladder), the emoji and prompt screens brought up to the current rules, and the standalone re-exported from source for the first time since v2.8.8.
+**Version 2.18.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — **the tour's dock got icons, and the stretched hello got its colour back.** Each section swatch now carries a Fluent Flat icon; the photograph swatch is a solid colour again; screen 04's hello runs the brand colour ring per letter, like the cover.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 

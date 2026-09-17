@@ -4,6 +4,26 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — The dock got icons, and the hello got its colour back (v2.18.0 → v2.18.1)
+
+Three notes from Nic on the v2.18.0 tour, all on screen within the hour:
+
+- **The dock was a row of colour swatches you had to memorise.** Each swatch now
+  carries a Fluent Flat icon from `assets/icons/` — the system's own wayfinding set,
+  doing the job §8 says icons are for: house, compass, ™, palette, 🔠, gear, camera,
+  rocket. The hover label stays.
+- **The photograph swatch didn't make sense.** A 50px crop of a street scene reads
+  as noise in a row of flat colour, so Imagery is a solid `navy-500` (`#35526F`)
+  with the camera on it. The Home tile keeps its photograph — at tile size it earns
+  it.
+- **The stretched hello on 04 was static navy.** It now runs the Brand Mark Studio's
+  colour ring per letter — lime, aqua, teal, navy, purple, violet, with paper left
+  out because it would vanish on paper — with the same wave and stagger as the
+  cover. Static navy under reduced motion or with motion switched off.
+
+`export_standalone.py` registers the eight icons as `icon_*` resources alongside
+the photographs. Patch — no new surface, three things that read wrong.
+
 ## 2026-09-17 — The brand tour had never heard of the photographs (v2.17.0 → v2.18.0)
 
 ### Three screens the system was missing

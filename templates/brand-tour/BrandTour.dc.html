@@ -47,6 +47,9 @@
   @keyframes appEnt { from { opacity:0; transform:translateY(26px); } to { opacity:1; transform:none; } }
   @keyframes helloWave { 0% { color:var(--tha-lime); } 16.6% { color:var(--tha-violet); } 33.3% { color:var(--tha-purple); text-shadow:0 0 0 rgba(0,0,0,0); } 50% { color:var(--tha-aqua); } 66.6% { color:var(--tha-navy-100); text-shadow:0 0 14px rgba(255,255,255,.25); } 83.3% { color:var(--tha-paper); } 100% { color:var(--tha-lime); } }
   .hello-letter { display:inline-block; animation:helloWave 2.4s linear infinite; }
+  /* Same wave for a light ground: the Brand Mark Studio's colour ring (BRAND[] in preview/brand-mark-studio.html) minus paper, which would vanish. */
+  @keyframes helloWaveLight { 0% { color:#D2EB00; } 16.6% { color:#86FFF1; } 33.3% { color:#145F7B; } 50% { color:#182D43; } 66.6% { color:#6103B9; } 83.3% { color:#CB65FF; } 100% { color:#D2EB00; } }
+  .hello-letter-light { display:inline-block; animation:helloWaveLight 2.4s linear infinite; }
   @keyframes appPop { 0% { transform:translate(-50%,0) scale(.7); opacity:0; } 70% { transform:translate(-50%,0) scale(1.05); } 100% { transform:translate(-50%,0) scale(1); opacity:1; } }
   section[data-app-on] [data-ent] { animation:appEnt .6s cubic-bezier(.2,.8,.2,1) both; animation-delay:.15s; }
   section[data-app-on] [data-ent="2"] { animation-delay:.27s; }
@@ -54,7 +57,7 @@
   section[data-app-on] [data-ent="4"] { animation-delay:.51s; }
   section[data-app-on] [data-ent="5"] { animation-delay:.63s; }
   section[data-app-on] [data-ent="6"] { animation-delay:.75s; }
-  @media (prefers-reduced-motion: reduce) { [data-ent] { animation:none !important; } * { transition-duration:0s !important; } }
+  @media (prefers-reduced-motion: reduce) { [data-ent], .hello-letter, .hello-letter-light { animation:none !important; } * { transition-duration:0s !important; } }
   [data-motion-off] * { animation:none !important; transition:none !important; }
   .dock-i { position:relative; transition:transform .18s cubic-bezier(.2,.8,.2,1); }
   .dock-i:hover { transform:translateY(-10px) scale(1.14); }
@@ -267,7 +270,7 @@
   <div style="flex:1; margin-top:20px; min-height:0; position:relative;">
     <sc-if value="{{ pat0 }}" hint-placeholder-val="{{ true }}">
       <div style="height:100%; display:flex; flex-direction:column; justify-content:center; gap:48px;">
-        <div data-ent="1" style="font:800 176px/0.95 var(--font-sans); letter-spacing:-.035em; color:var(--tha-navy); overflow:hidden; white-space:nowrap;">{{ stretched }}</div>
+        <div data-ent="1" style="font:800 176px/0.95 var(--font-sans); letter-spacing:-.035em; color:var(--tha-navy); overflow:hidden; white-space:nowrap;"><sc-for list="{{ stretchedLetters }}" as="l" hint-placeholder-count="9"><span class="hello-letter-light" style="{{ l.st }}">{{ l.ch }}</span></sc-for><span> 2026</span></div>
         <div data-ent="2" style="display:flex; align-items:center; gap:28px;">
           <span style="font:700 21px/1 var(--font-mono); letter-spacing:.1em; color:var(--tha-purple);">DRAG THE HELLO</span>
           <input type="range" min="2" max="14" value="{{ stretch }}" onInput="{{ setNum }}" data-key="stretch" style="width:520px; height:44px;">
@@ -784,7 +787,7 @@
 <sc-if value="{{ navDock }}" hint-placeholder-val="{{ true }}">
   <div data-appdeck-chrome="1" style="position:absolute; left:50%; bottom:24px; transform:translateX(-50%); z-index:40; display:flex; align-items:center; gap:12px; background:#0E1C2B; border:1px solid var(--tha-navy-600); padding:12px 14px; box-shadow:0 18px 40px -14px rgba(0,0,0,.55);">
     <button onClick="{{ goPrev }}" style="width:50px; height:50px; border:1px solid var(--tha-navy-500); background:transparent; color:var(--tha-paper); font:600 24px/1 var(--font-mono); cursor:pointer;">←</button>
-    <sc-for list="{{ dockItems }}" as="d" hint-placeholder-count="7">
+    <sc-for list="{{ dockItems }}" as="d" hint-placeholder-count="8">
       <div class="dock-i" onClick="{{ d.go }}" style="{{ d.st }}"><span class="dock-t">{{ d.label }}</span></div>
     </sc-for>
     <button onClick="{{ goNext }}" style="width:50px; height:50px; border:1px solid var(--tha-navy-500); background:transparent; color:var(--tha-paper); font:600 24px/1 var(--font-mono); cursor:pointer;">→</button>
@@ -833,15 +836,16 @@ class Component extends DCLogic {
     { name: 'Teal',     hex: '#145F7B' },
     { name: 'Paper',    hex: '#FAFAF7' },
   ];
+  // icon = a Fluent Flat icon from assets/icons/ (the system's wayfinding set), drawn over the section's swatch in the dock
   SECTIONS = [
-    { label: 'HOME', color: '#FAFAF7', at: 1, end: 2 },
-    { label: 'FOUNDATIONS', color: '#CB65FF', at: 2, end: 6 },
-    { label: 'LOGO & MOTIF', color: '#6103B9', at: 6, end: 9 },
-    { label: 'COLOR', color: '#D2EB00', at: 9, end: 11 },
-    { label: 'TYPE', color: '#145F7B', at: 11, end: 13 },
-    { label: 'THE SYSTEM', color: '#86FFF1', at: 13, end: 17 },
-    { label: 'IMAGERY', color: '#C9C6B9', at: 17, end: 20, photo: 'cities/taipei-daan.jpg' },
-    { label: 'IN PRACTICE', color: '#182D43', at: 20, end: 23 },
+    { label: 'HOME', color: '#FAFAF7', icon: 'house', at: 1, end: 2 },
+    { label: 'FOUNDATIONS', color: '#CB65FF', icon: 'compass', at: 2, end: 6 },
+    { label: 'LOGO & MOTIF', color: '#6103B9', icon: 'trade-mark', at: 6, end: 9 },
+    { label: 'COLOR', color: '#D2EB00', icon: 'artist-palette', at: 9, end: 11 },
+    { label: 'TYPE', color: '#145F7B', icon: 'input-latin-uppercase', at: 11, end: 13 },
+    { label: 'THE SYSTEM', color: '#86FFF1', icon: 'gear', at: 13, end: 17 },
+    { label: 'IMAGERY', color: '#35526F', icon: 'camera', at: 17, end: 20 },
+    { label: 'IN PRACTICE', color: '#182D43', icon: 'rocket', at: 20, end: 23 },
   ];
   BANS = ['leverage', 'best-in-class', 'end-to-end', 'revolutionary', 'synergize', 'at the intersection of'];
   CRIMES = {
@@ -1221,6 +1225,7 @@ class Component extends DCLogic {
     // Asset lookup: inlined resource in the standalone, relative path in the design environment
     const resId = (id, fallback) => (window.__resources && window.__resources[id]) || fallback;
     const photoUrl = (f) => resId('photo_' + f.replace(/\//g, '_').replace(/\.jpg$/, ''), '../../assets/photography/' + f);
+    const iconUrl = (name) => resId('icon_' + name, '../../assets/icons/' + name + '.svg');
 
     // Home: the Imagery tile wears a photograph — bound, so the standalone can inline it via the resource map
     out.tileImgSt = { position: 'relative', overflow: 'hidden', background: '#182D43 url(' + photoUrl('cities/taipei-daan.jpg') + ') center/cover', color: '#FFFFFF', padding: '30px 32px', display: 'flex', flexDirection: 'column', cursor: 'pointer', transition: 'transform .2s, box-shadow .2s' };
@@ -1231,7 +1236,7 @@ class Component extends DCLogic {
       return {
         label: sec.label,
         go: () => this.go(sec.at),
-        st: { width: '50px', height: '50px', background: sec.color, backgroundImage: sec.photo ? 'url(' + photoUrl(sec.photo) + ')' : 'none', backgroundSize: 'cover', backgroundPosition: 'center', border: '1px solid rgba(255,255,255,.3)', cursor: 'pointer', boxShadow: active ? '0 0 0 3px #D2EB00' : 'none' },
+        st: { width: '50px', height: '50px', background: sec.color, backgroundImage: 'url(' + iconUrl(sec.icon) + ')', backgroundSize: '28px 28px', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', border: '1px solid rgba(255,255,255,.3)', cursor: 'pointer', boxShadow: active ? '0 0 0 3px #D2EB00' : 'none' },
       };
     });
     out.railDots = Array.from({ length: 23 }, (_, i) => {
@@ -1267,6 +1272,8 @@ class Component extends DCLogic {
 
     // 04 Patterns
     out.stretched = 'he' + 'l'.repeat(s.stretch) + 'o 2026';
+    // one span per letter so the cover's colour wave can travel along the word
+    out.stretchedLetters = ('he' + 'l'.repeat(s.stretch) + 'o').split('').map((ch, i) => ({ ch, st: { animationDelay: (i * 0.12).toFixed(2) + 's' } }));
     out.stretch = s.stretch;
     out.pat0 = s.patTab === 0; out.pat1 = s.patTab === 1; out.pat2 = s.patTab === 2;
     const tab = (on) => ({ font: '700 21px/1 var(--font-mono)', letterSpacing: '.08em', padding: '18px 26px', border: 0, cursor: 'pointer', background: on ? '#182D43' : 'transparent', color: on ? '#FAFAF7' : '#182D43', transition: 'background .2s, color .2s' });
