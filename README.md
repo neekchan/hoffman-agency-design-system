@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.13.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — writing **"candid"** in an image prompt produces the *stock photo of candidness*: people walking abreast, smiling, centred, nothing in the way. All **22 photographs** are replaced, and `PROMPTS.md` now carries the four moves that actually work — give them a real task, say nobody is aware of the camera, shoot past something in the near foreground, break the symmetry. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
+**Version 2.14.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — our own `PROMPTS.md` told everyone to use a **"warm colour grade"**, which is the opposite of the brand's actual reference photography (bright, high-key, neutral; colour from **wardrobe and backdrops**, not a grade). Wrong in **7 files**, all fixed. The VI deck's **four photography categories** are now recorded, and the library is **35 shots** across all four. The emoji picker stopped lying on three tabs — **Flat is real** (75 SVGs vendored), **Color is now 2D**, **3D is first**, **Animated shows only the 24 that move** — plus a new page for all **1,595**. Versioned with [SemVer](https://semver.org); the canonical number lives in `package.json`.
 
 An integrated communications agency for tech brands. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -202,14 +202,18 @@ assets/
   emoji/                            · Fluent-emoji injector (visual storytelling — see AGENTS.md Section 8)
     fluent-emoji.js                 · <fluent-emoji> web component; local-first, CDN fallback
     3d/                             · 75 curated 3D PNGs — the documented default form, vendored for offline use
+    flat/                           · 75 curated Flat SVGs — the single-tone style, for when 2D is too glossy
+    fluent-full-index.js            · index of all 1,595 upstream emoji (generated) — powers the browse-everything page
     color/                          · 75 static colour SVGs, same curated set (offline 2D fallback)
     animated/                       · 24 genuinely-animated APNGs — 43 stills were removed; check the manifest
     animated-manifest.json          · which names actually move, plus asset provenance and licences
   annotations/                      · 76 hand-drawn marks across 6 categories
     underline·circle·arrow·tick·cross·accent   · 13·15·14·11·11·12
   house-style/                      · 12 worked examples of the house illustration style + the master prompt (see IMAGERY.md)
-  photography/                      · 12 house photographs, from the PROMPTS.md photography seed — used by the brand guidelines deck (no hotlinking)
+  photography/                      · 35 house photographs across the VI deck's four categories — see PROMPTS.md for the treatment and the per-city notes
     cities/                         · 10 outdoor street shots, one per office hoffman.com lists — market recognisability (see AGENTS.md 3.5)
+    moments/                        · 6 'HA Moments' — culture, celebration, the team being people (VI deck slide 26)
+    storyteller/                    · 6 studio portraits on solid brand backdrops (VI deck slides 27–28)
 
 fonts/                  · self-hosted brand fonts. Poppins (full 100–900 weight + italic TTFs, all @font-face-registered)
   Poppins-*.ttf                     · 18 roman+italic weight files
@@ -224,7 +228,8 @@ preview/                · Design System tab — one @dsCard per token/brand gro
   components-*.html     · buttons, forms, cards, annotations, placeholders
   brand-*.html          · logo horizontal/stacked, storyline, surfaces, voice, color-pairings, contrast-matrix, emoji-typography
   brand-mark-studio.html· TOOL, not a card — in-browser animated "hello"/wordmark exporter (typeface, colour style, background) → APNG / GIF / MP4
-  fluent-emoji-gallery.html  · browse + click-to-copy the Fluent emoji set
+  fluent-emoji-gallery.html  · the CURATED 75 — 3D / 2D / Flat / Animated(24), click-to-copy. The front door.
+  fluent-emoji-library.html  · all 1,595 upstream emoji, searchable; the vendored 75 badged as offline-safe
 
 templates/              · reusable DC starting points consuming projects copy (each <slug>/<Slug>.dc.html + ds-base.js)
   deck/                 · Deck.dc.html — the 48-layout presentation library (L01–L51); the ONE deck template — carries the Presenter/Document Mode toggle + the balloon cover (+ deck-stage.js, ds-base.js, support.js)
@@ -376,7 +381,7 @@ When you do fall back, **never leave a bare grey box** — reserve a *labelled* 
   <svg class="tha-placeholder__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"> … </svg>
   <div class="tha-placeholder__label">Hero photo · 16:9</div>
   <div class="tha-placeholder__hint">Candid, natural light. Team in the Taipei office.</div>
-  <div class="tha-placeholder__prompt">Candid documentary photo, comms team at work in a Taipei office, natural window light, business-casual, warm color grade, eye-level, no staging. 16:9.</div>
+  <div class="tha-placeholder__prompt">Bright high-key photo, comms team at work in a Taipei office, natural window light, business-casual in saturated colours, clean neutral white balance, eye-level, unposed. 16:9.</div>
 </div>
 ```
 
@@ -485,7 +490,7 @@ Italicize the line's emphasis — the key word *or* the short phrase that carrie
 
 ### Imagery direction
 - Candid, natural-light, **business-casual** — the lean, because we work in tech, not a ban. A suit is fine when the subject or sector calls for one. Diverse, collaborative, human.
-- Warm color grade — skin tones natural, slightly saturated. No cool-blue fintech stock palette.
+- Bright, high-key, clean **neutral** white balance — open shadows, windows blown out to white. Colour comes from **saturated wardrobe and solid backdrops**, not from a grade. No dark or amber grade (corrected against the VI deck in v2.14.0).
 - **Human-first.** If it has to be abstract, it's the squiggle, not a 3D chrome mesh.
 - B&W is okay for portraits in case studies for gravitas; color everywhere else.
 - No motion blur, no lens flares, no "shot on iPhone at golden hour" clichés.

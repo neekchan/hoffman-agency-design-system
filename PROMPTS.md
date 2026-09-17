@@ -132,18 +132,44 @@ Every `.tha-placeholder` for a photo carries a `__prompt` — one or two sentenc
 [SUBJECT — who is doing what, concretely],
 [LIGHT — natural window light / soft directional light / warm ambient],
 [WARDROBE/SET — business-casual, lived-in workspace, no staging],
-warm color grade, eye-level, documentary style. [ASPECT RATIO + pixel size from `AGENTS.md Section 4`, e.g. 16:9 · 1920×1080px].
+bright high-key, clean NEUTRAL white balance, eye-level, documentary style. [ASPECT RATIO + pixel size from `AGENTS.md Section 4`, e.g. 16:9 · 1920×1080px].
 ```
 
-Always exclude: `no stock-photo posing, no motion blur, no lens flares, no 3D renders, no cool-blue grade.`
+Always exclude: `no stock-photo posing, no motion blur, no lens flares, no 3D renders, no dark moody grade, no heavy amber grade.`
+
+> ⚠️ **Corrected in v2.14.0.** This template used to say *"warm colour grade… no cool-blue
+> grade."* **That was wrong**, and it is why generated imagery kept coming back amber and
+> murky. The official Visual Identity deck's reference photography is **bright, high-key
+> and clean, on a neutral white balance** — windows blown out to white, open shadows.
+> **Colour comes from saturated wardrobe and solid backdrops, not from a grade.**
 Add `no suits` **only when business-casual genuinely suits the subject** — it is the house lean, not a rule, and a formal sector or a formal moment can carry a suit.
 
 ### Examples
 
-- *Candid documentary photo, comms team mid-conversation around a laptop, natural window light, business-casual, warm color grade, eye-level, no staging. 16:9.*
+- *Bright high-key photo, comms team mid-conversation around a laptop, natural window light, business-casual in saturated colours, clean neutral white balance, eye-level, unposed. 16:9.*
 - *Environmental portrait, tech executive, shoulders up, direct eye contact, soft natural light, warm grade, shallow depth. 4:5.*
 - *Black-and-white editorial portrait, CTO seated by a window, soft directional light, direct gaze, honest skin texture, no retouching gloss. 4:5.* (B&W is allowed for case-study portraits only.)
 - *Cinematic wide shot, engineering team reviewing work on a glass wall, dusk light through office windows, warm grade, candid, documentary, dark tones that hold white type. 16:9.* (For full-bleed heroes — ask for dark tones so the navy overlay + white type read.)
+
+### The four official categories (VI deck, slides 25–28)
+
+The brand's own photography guide defines **four**, each with its own technical
+spec. A moodboard that only shows one of them is not showing the brand.
+
+| Category | What it is | Technical |
+|---|---|---|
+| **Digging Stories** | The work. 2–5 people, diverse, discussion in the office. Professional but approachable. | Medium shot · eye level · **f/4–f/5.6** · natural lighting |
+| **HA Moments** | The culture. "We're sharing our lives, having fun together." Office activity, celebration, family. **Phone-shot is explicitly allowed.** | Natural lighting · candid |
+| **Storyteller · Business** | Portrait. Emotion, confidence. Different coloured clothes encouraged. | **50–80mm · f/5.6 · loop lighting** · eye level · **solid studio backdrop** |
+| **Storyteller · Creative** | Portrait. Fun, personality, accessories, posing differently. | Same, with creative posing |
+
+**"No suit and tie" is official policy**, stated on three of those four slides. It
+is the house lean, not an absolute — a formal sector or a formal moment can carry
+one — but the default is business casual.
+
+**The treatment, in one line:** bright, high-key, clean neutral white balance,
+open shadows, windows blown to white, **saturated wardrobe and solid backdrops
+carrying the colour.** Never a dark or amber grade.
 
 ### In situ, not "candid" — the four moves that actually do it
 

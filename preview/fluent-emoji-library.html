@@ -1,0 +1,174 @@
+<!-- @dsCard group="Brand" name="Fluent emoji — full library" subtitle="All 1,595 Microsoft Fluent emoji, searchable — the curated 75 are badged as vendored/offline-safe" viewport="980x1500" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fluent emoji — full library</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="_card.css">
+<style>
+  .wrap { padding:28px 28px 40px; }
+  h1 { font:700 30px/1.1 var(--font-sans); color:var(--tha-navy); margin:0 0 8px; letter-spacing:-.02em; }
+  .lede { font:400 15px/1.55 var(--font-sans); color:var(--fg-2); margin:0 0 20px; max-width:74ch; }
+  .lede code { font:400 13px/1 var(--font-mono); background:var(--tha-navy-050); padding:2px 5px; }
+
+  .toolbar { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:6px;
+             position:sticky; top:0; background:var(--bg-1); padding:10px 0; z-index:5; }
+  .seg { display:inline-flex; border:1px solid var(--tha-navy-200); overflow:hidden; }
+  .seg button { font:600 13px/1 var(--font-sans); padding:9px 14px; border:0; background:transparent;
+                color:var(--tha-navy); cursor:pointer; }
+  .seg button.on { background:var(--tha-navy); color:var(--tha-paper); }
+  .seg .def { font-size:10px; opacity:.65; margin-left:5px; text-transform:uppercase; letter-spacing:.06em; }
+  #q { font:400 14px/1 var(--font-sans); padding:10px 12px; border:1px solid var(--tha-navy-200);
+       min-width:230px; color:var(--tha-navy); background:var(--tha-white); }
+  #q:focus { outline:2px solid var(--tha-purple); outline-offset:-2px; }
+  .chk { font:500 13px/1 var(--font-sans); color:var(--fg-2); display:inline-flex; align-items:center; gap:6px; cursor:pointer; }
+  .count { font:400 13px/1 var(--font-mono); color:var(--fg-3); margin-left:auto; }
+
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(104px,1fr)); gap:10px; margin-top:8px; }
+  .tile { border:1px solid var(--tha-navy-100); padding:12px 6px 9px; text-align:center; cursor:pointer;
+          background:var(--tha-white); position:relative; transition:border-color .12s, transform .12s; }
+  .tile:hover { border-color:var(--tha-purple); transform:translateY(-1px); }
+  .tile img { width:48px; height:48px; display:block; margin:0 auto 7px; object-fit:contain; }
+  .tile .k { display:block; font:500 10px/1.25 var(--font-sans); color:var(--fg-2); word-break:break-word; }
+  .tile.copied { border-color:var(--tha-lime-600); }
+  .tile.copied .k::after { content:' ✓'; color:var(--tha-lime-600); }
+  .tile .vend { position:absolute; top:5px; right:5px; width:7px; height:7px; background:var(--tha-lime);
+                border:1px solid var(--tha-navy); }
+  .tile .tone { position:absolute; top:5px; left:5px; font:700 8px/1 var(--font-mono); color:var(--fg-3); }
+
+  .note { margin-top:26px; padding:16px 18px; background:var(--tha-navy-050);
+          border-left:3px solid var(--tha-navy); font:400 13px/1.6 var(--font-sans); color:var(--fg-2); }
+  .note b { color:var(--tha-navy); }
+  .note code { font:400 12px/1 var(--font-mono); background:var(--tha-white); padding:2px 5px; }
+  .key { display:inline-block; width:8px; height:8px; background:var(--tha-lime); border:1px solid var(--tha-navy);
+         vertical-align:middle; margin:0 3px; }
+  .empty { padding:40px 0; text-align:center; font:400 15px/1.5 var(--font-sans); color:var(--fg-3); }
+  footer { margin-top:28px; font:400 11px/1.6 var(--font-sans); color:var(--fg-3); }
+  footer a { color:var(--fg-3); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Fluent emoji — the whole library</h1>
+  <p class="lede">All <b>1,595</b> Microsoft Fluent emoji, straight from the CDN. This is the <b>browse-everything</b> page —
+  the <a href="fluent-emoji-gallery.html">curated picker</a> is the front door and is what <code>AGENTS.md §8</code> governs.
+  Tiles marked <span class="key"></span> are the <b>75 we vendor locally</b>, so only those work offline. <b>Click any tile to copy its tag.</b></p>
+
+  <div class="toolbar">
+    <div class="seg" id="seg">
+      <button data-v="3d" class="on">3D <span class="def">default</span></button>
+      <button data-v="color">2D</button>
+      <button data-v="flat">Flat</button>
+    </div>
+    <input id="q" type="search" placeholder="Search 1,595 emoji…" autocomplete="off">
+    <label class="chk"><input type="checkbox" id="onlyv"> Only the vendored 75</label>
+    <span class="count" id="count"></span>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" hidden>Nothing matches that.</div>
+
+  <div class="note">
+    <b>Why two pages.</b> The curated 75 exist because of a rule, not a taste call — the vocabulary an agency deck
+    actually needs, in four groups (the work · the outcome · the people · the medium we work in). That set is
+    <b>vendored offline</b> and governed. This page is for the times the right emoji genuinely isn't in it: find it here,
+    use it by name, and <b>it resolves from the CDN automatically</b> — the injector already falls back that way.
+    If you reach for one repeatedly, that's a signal to add it to the curated set against the four groups, not to browse harder.
+    <br><br>
+    <b>Offline deliverables.</b> Only the <span class="key"></span> 75 are in <code>assets/emoji/</code>. Anything else needs
+    network, so a <code>.pptx</code>, Keynote or air-gapped deck must either stick to the vendored set or embed the file itself.
+    <br><br>
+    <b>Skin tone.</b> <code>310</code> of these accept a tone (marked <b>T</b>); pass <code>tone="medium"</code>. The rest ignore it.
+    Art from <b>microsoft/fluentui-emoji</b> (MIT), pinned to commit <code>62ecdc0d</code> so it can't shift underneath us.
+  </div>
+
+  <footer>The Hoffman Agency design system — created by <b>Nicolas Chan</b>, Head of Digital &amp; Chief Strategist, AMEA.
+  <a href="mailto:neekchan@gmail.com">neekchan@gmail.com</a> · <a href="https://www.linkedin.com/in/nicolaschan/">linkedin.com/in/nicolaschan</a></footer>
+</div>
+
+<script src="../assets/emoji/fluent-emoji.js" data-base="../assets/emoji"></script>
+<script src="../assets/emoji/fluent-full-index.js"></script>
+<script>
+(function () {
+  var CDN = 'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@62ecdc0d7ca5c6df32148c169556bc8d3782fca4/assets';
+  var STYLE = { '3d': ['3D','3d','png'], 'color': ['Color','color','svg'], 'flat': ['Flat','flat','svg'] };
+  var grid = document.getElementById('grid'), countEl = document.getElementById('count'),
+      emptyEl = document.getElementById('empty'), qEl = document.getElementById('q'),
+      onlyV = document.getElementById('onlyv');
+  var variant = '3d', ALL = [], TONED = {}, VENDORED = {};
+
+  function snake(n){ return String(n).toLowerCase().replace(/[^a-z0-9-]+/g,'_').replace(/^_|_$/g,''); }
+  // key is what you pass to <fluent-emoji name="...">; the curated set already uses these slugs
+  function key(n){ return String(n).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
+  function url(n, v){
+    var s = STYLE[v], mid = TONED[n] ? ('/Default/' + s[0]) : ('/' + s[0]);
+    var file = snake(n) + '_' + s[1] + (TONED[n] ? '_default' : '') + '.' + s[2];
+    return CDN + '/' + encodeURIComponent(n) + mid + '/' + file;
+  }
+
+  // Only paint tiles that scroll into view — 1,595 eager images would stall the page.
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      var t = en.target, img = t.querySelector('img');
+      if (!img.src) img.src = url(t.dataset.n, variant);
+      io.unobserve(t);
+    });
+  }, { rootMargin: '400px' });
+
+  function render() {
+    var q = qEl.value.trim().toLowerCase();
+    var list = ALL.filter(function (n) {
+      if (onlyV.checked && !VENDORED[key(n)]) return false;
+      return !q || n.toLowerCase().indexOf(q) !== -1;
+    });
+    countEl.textContent = list.length + ' of ' + ALL.length;
+    emptyEl.hidden = list.length > 0;
+    grid.innerHTML = '';
+    var frag = document.createDocumentFragment();
+    list.forEach(function (n) {
+      var k = key(n);
+      var t = document.createElement('div');
+      t.className = 'tile'; t.dataset.n = n;
+      t.innerHTML = '<img alt="' + n + '" loading="lazy">' +
+                    (VENDORED[k] ? '<span class="vend" title="vendored locally — works offline"></span>' : '') +
+                    (TONED[n] ? '<span class="tone" title="accepts tone=">T</span>' : '') +
+                    '<span class="k">' + k + '</span>';
+      t.addEventListener('click', function () {
+        navigator.clipboard && navigator.clipboard.writeText(
+          '<fluent-emoji name="' + k + '" variant="' + variant + '"></fluent-emoji>');
+        var prev = grid.querySelector('.tile.copied'); if (prev) prev.classList.remove('copied');
+        t.classList.add('copied');
+      });
+      frag.appendChild(t);
+    });
+    grid.appendChild(frag);
+    [].forEach.call(grid.children, function (t) { io.observe(t); });
+  }
+
+  document.getElementById('seg').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    variant = b.dataset.v;
+    [].forEach.call(this.children, function (c) { c.classList.toggle('on', c === b); });
+    render();
+  });
+  var deb; qEl.addEventListener('input', function () { clearTimeout(deb); deb = setTimeout(render, 130); });
+  onlyV.addEventListener('change', render);
+
+  function boot() {
+    var d = window.FluentFullIndex;
+    if (!d) { countEl.textContent = 'index failed to load'; return; }
+    ALL = d.names;
+    d.toned.forEach(function (n) { TONED[n] = 1; });
+    var m = (window.FluentEmoji && window.FluentEmoji.map) || {};
+    Object.keys(m).forEach(function (k) { VENDORED[k] = 1; });
+    qEl.placeholder = 'Search ' + ALL.length.toLocaleString() + ' emoji…';
+    render();
+  }
+  // the injector defines window.FluentEmoji.map, which is how tiles get badged as vendored
+  if (window.FluentEmoji) boot(); else setTimeout(boot, 120);
+})();
+</script>
+</body>
+</html>

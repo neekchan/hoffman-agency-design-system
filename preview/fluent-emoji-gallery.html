@@ -14,6 +14,7 @@
   .seg { display:inline-flex; border:1.5px solid var(--tha-navy-200); border-radius:999px; overflow:hidden; }
   .seg button { appearance:none; border:0; background:transparent; font:600 15px/1 var(--font-sans); color:var(--fg-2); padding:11px 20px; cursor:pointer; }
   .seg button.on { background:var(--tha-navy); color:var(--tha-paper); }
+  .seg .def { font-size:10px; opacity:.65; margin-left:5px; text-transform:uppercase; letter-spacing:.06em; }
   .count { font:600 14px/1 var(--font-mono); color:var(--fg-3); margin-left:auto; }
   .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:14px; margin-top:18px; }
   .tile { display:flex; flex-direction:column; align-items:center; gap:10px; padding:20px 12px 14px; background:var(--tha-white);
@@ -31,14 +32,14 @@
 </head>
 <body>
   <h1>Fluent emoji</h1>
-  <p class="lede">Microsoft <b>Fluent</b> emoji — our house set for visual storytelling. Drop one in with <code>&lt;fluent-emoji name="rocket"&gt;&lt;/fluent-emoji&gt;</code>. Add <code>variant="animated"</code> for motion, or <code>size="120"</code> to use it as a graphic. Curated set below — <b>click any tile to copy its tag.</b></p>
+  <p class="lede">Microsoft <b>Fluent</b> emoji — our house set for visual storytelling. Drop one in with <code>&lt;fluent-emoji name="rocket"&gt;&lt;/fluent-emoji&gt;</code>. Add <code>variant="animated"</code> for motion, or <code>size="120"</code> to use it as a graphic. Curated set below — <b>click any tile to copy its tag.</b> Need something outside it? <a href="fluent-emoji-library.html"><b>Browse all 1,595 →</b></a></p>
 
   <div class="toolbar">
     <div class="seg" id="seg">
-      <button data-v="color" class="on">Color</button>
+      <button data-v="3d" class="on">3D <span class="def">default</span></button>
+      <button data-v="color">2D</button>
       <button data-v="flat">Flat</button>
-      <button data-v="3d">3D</button>
-      <button data-v="animated">Animated</button>
+      <button data-v="animated">Animated <span class="def">24</span></button>
     </div>
     <span class="count" id="count"></span>
   </div>
@@ -46,18 +47,26 @@
   <div class="grid" id="grid"></div>
 
   <div class="note">
-    <b>How it works.</b> The <code>&lt;fluent-emoji&gt;</code> element resolves a <b>local copy first</b> (the curated set is in <code>assets/emoji/</code>, so it works offline) and falls back to the jsDelivr CDN for anything not localised — the full Fluent library is reachable by name. A bad animated path degrades gracefully to the colour version. Static art is from <b>microsoft/fluentui-emoji</b>; animated from <b>Tarikul-Islam-Anik/Animated-Fluent-Emojis</b> (both MIT). Decks built from the deck/keynote templates load the injector automatically.
+    <b>How it works.</b> The <code>&lt;fluent-emoji&gt;</code> element resolves a <b>local copy first</b> (the curated set is in <code>assets/emoji/</code>, so it works offline) and falls back to the jsDelivr CDN for anything not localised — the full Fluent library is reachable by name. <b>3D is our default form</b>; <b>2D</b> is Microsoft's "Color" style (its API value is still <code>color</code>); <b>Flat</b> is the single-tone style, for when 2D is too glossy. Only <b>24 of the 75 genuinely animate</b> — the Animated tab shows just those, because an emoji with no APNG upstream degrades silently to a still. Static art is from <b>microsoft/fluentui-emoji</b>; animated from <b>Tarikul-Islam-Anik/Animated-Fluent-Emojis</b> (both MIT). Decks built from the deck/keynote templates load the injector automatically.
   </div>
 
   <script src="../assets/emoji/fluent-emoji.js" data-base="../assets/emoji"></script>
   <script>
     var grid = document.getElementById('grid');
     var countEl = document.getElementById('count');
-    var variant = 'color';
+    var variant = '3d';   // 3D is the documented default form (AGENTS.md Section 8)
+    // Only these 24 of the 75 genuinely animate. The rest have no APNG upstream and
+    // used to fall back silently to a still, so the Animated tab showed 51 fakes.
+    var ANIMATED = ['alarm-clock','brain','clapping-hands','compass','crystal-ball','eyes','fire',
+      'flexed-biceps','folded-hands','glowing-star','handshake','high-voltage','hourglass-done',
+      'hourglass','hundred-points','man-raising-hand','party-popper','person-raising-hand',
+      'raising-hands','robot','rocket','star','thumbs-up','woman-raising-hand'];
     function build() {
       var map = (window.FluentEmoji && window.FluentEmoji.map) || {};
       var keys = Object.keys(map);
-      countEl.textContent = keys.length + ' emoji';
+      if (variant === 'animated') keys = keys.filter(function (k) { return ANIMATED.indexOf(k) !== -1; });
+      countEl.textContent = keys.length + ' emoji' +
+        (variant === 'animated' ? ' that genuinely animate (of ' + Object.keys(map).length + ')' : '');
       grid.innerHTML = '';
       keys.forEach(function (k) {
         var t = document.createElement('div');
@@ -65,7 +74,7 @@
         t.innerHTML = '<fluent-emoji name="' + k + '" variant="' + variant + '" size="64"></fluent-emoji>' +
                       '<span class="k">' + k + '</span><span class="g">' + map[k].g + '</span>';
         t.addEventListener('click', function () {
-          var tag = '<fluent-emoji name="' + k + '"' + (variant !== 'color' ? ' variant="' + variant + '"' : '') + '></fluent-emoji>';
+          var tag = '<fluent-emoji name="' + k + '" variant="' + variant + '"></fluent-emoji>';
           navigator.clipboard && navigator.clipboard.writeText(tag);
           document.querySelectorAll('.tile.copied').forEach(function (x){ x.classList.remove('copied'); });
           t.classList.add('copied');

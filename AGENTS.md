@@ -157,6 +157,15 @@ The web rule that caps each secondary at ~10% exists to keep *webpages* uniform.
 - Paper/white/sand and navy are still the connective tissue — let color *punctuate* the narrative (cover, sections, key-idea and stat moments), not vibrate on every single slide.
 - **The storyline line on navy is a once-per-deck signature — cover OR closing, not both.** Use the bold, full-strength lime line on exactly one bookend (the cover *or* the closing). It may still appear on other slides, but only **faded to a low-opacity background texture** (≈8–15% opacity, so it recedes well behind content) — never the solid full-strength version, and never as a second full-strength slide. A plain navy field with no line is always fine. (The boxed corner monogram on light/non-navy surfaces is a separate device — one per slide.)
 
+
+> **This deliberately diverges from the Visual Identity deck, and that is a decision, not
+> an oversight.** Slide 21 of the VI deck states the ratio as navy 30% · lime 30% ·
+> violet 10% · purple 10% · aqua 10% · teal 10%. That ratio is right for **web**, where
+> uniformity across pages is the goal. It is the wrong instinct on a **deck**, where
+> colour has to carry section structure and rhythm — apply it to slides and you get the
+> navy-paper-navy-paper monotony this section exists to prevent. **Reviewed and kept as a
+> deliberate slides-only exception (2026-09-17).** Do not "fix" it back.
+
 ## 8. Fluent emoji — a DEFAULT storytelling device on slides, not a garnish
 Hoffman decks use **Microsoft Fluent emoji** (static + animated) as a core visual-storytelling device — this is house style, defined under Brand Voice. On a deck the brand-voice "sparingly" caution is about *decoration*; it is **not** a reason to omit them. **Actively look for the storytelling/emotional beat on each slide and place a Fluent emoji there.** If a slide makes a human point — an aspiration, a tension, a win, a number that should feel big — and carries no other graphic, it is probably *missing its emoji*.
 - **Mechanism:** the `<fluent-emoji>` element is auto-loaded by the deck template. Use it by name: `<fluent-emoji name="rocket"></fluent-emoji>` inline in a headline/line, or `size="96"`–`160` to use one as the slide's hero graphic. Browse/copy from the **Brand → Fluent emoji picker** card. (Full library resolves by name; curated set is localized.)

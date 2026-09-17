@@ -74,7 +74,7 @@ NO other decorative linework: no extra wavy lines, no squiggly arrows beyond the
 - Logo (when used): the wordmark "Hoffman Agency" — white version on navy/purple/teal/lavender, navy version on lime/cyan/paper. Bottom-left, small. Never stretched, never recolored beyond these.
 
 ## 8 · Photography (when a tile uses an image)
-Candid, documentary, natural light, business-casual people, warm color grade, eye-level. Never staged stock poses, suits, cool-blue grading, or 3D abstractions. If type sits on a photo, flood it with a 60–75% Deep Navy overlay first — type never sits on a raw image. Black-and-white is allowed for portrait gravitas only.
+Unposed, documentary, natural light, business-casual people in saturated colours, bright high-key with a clean neutral white balance, eye-level. Never staged stock poses, or a dark or amber grade. If type sits on a photo, flood it with a 60–75% Deep Navy overlay first — type never sits on a raw image. Black-and-white is allowed for portrait gravitas only.
 
 ## 9 · Hard bans (repeat in every generation)
 NO gradients. NO drop shadows or glows. NO rounded cards. NO frosted glass. NO 3D chrome or meshes. NO decorative icons. NO wavy lines except the one Storyline squiggle. NO lime or cyan text on white. NO white text on cyan or lime. NO more than 2 annotation marks. NO logo on mid-carousel tiles. NO all-caps paragraphs. NO stock-photo clichés.

@@ -4,6 +4,90 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+## 2026-09-17 — Our own prompt template was telling everyone to grade the photos wrong (v2.13.0 → v2.14.0)
+
+### The line that poisoned every batch
+
+`PROMPTS.md` told anyone generating imagery to use a **"warm colour grade"** and to
+avoid a "cool-blue grade." So that is what came back: amber, shadowy, murky.
+
+That instruction is **wrong**, and the brand's own Visual Identity deck proves it.
+The reference photography on slides 25–28 is **bright, high-key and clean, on a
+neutral white balance** — windows blown out to white, open shadows. **Colour comes
+from saturated wardrobe and solid backdrops, not from a grade.** Nobody had checked
+our prompt seeds against the actual brand canon.
+
+It had also **spread into six other files** — the one-pager template, the social-tile
+template, the brand tour (both the source and the standalone export), the
+placeholder card, and the portable social brief. Every deck built from those
+inherited the wrong instruction. **All seven corrected.**
+
+### There are four photography categories, and we only had one
+
+The VI deck defines four, each with its own technical spec. We documented none of
+them, so the whole library was one note repeated:
+
+| Category | What it is | Technical |
+|---|---|---|
+| **Digging Stories** | The work. 2–5 people, diverse, discussion in the office | Medium shot · eye level · f/4–f/5.6 · natural light |
+| **HA Moments** | The culture. Celebration, office activity. **Phone-shot explicitly allowed** | Natural light · candid |
+| **Storyteller · Business** | Portrait. Emotion, confidence | 50–80mm · f/5.6 · **loop lighting** · **solid studio backdrop** |
+| **Storyteller · Creative** | Portrait. Personality, accessories | Same, creative posing |
+
+Also confirmed from the source: **"no suit and tie" is official policy**, stated on
+three of those four slides. It is the house lean, not an absolute.
+
+**The library is now 35 photographs** across all four: 13 interiors, 10 city shots
+(one per office `hoffman.com` lists), 6 HA Moments, 6 Storyteller portraits on solid
+brand backdrops.
+
+**And the posing rule survived the correction.** Bright and warm does *not* mean
+posed. The people in these are absorbed in an actual task, frequently with their
+backs to the lens, cropped by the frame edge, overlapping at different distances.
+What got dropped was the *over*-correction — the slumped, unglamorous, gloomy
+version from v2.13.0, which had swung past documentary into miserable. The target
+is both at once: **unposed and genuinely warm.**
+
+### The emoji gallery was lying on three of its four tabs
+
+- **Flat showed Color.** There was no local `flat/` folder, so every Flat tile
+  404'd and fell back silently. Microsoft's Color style is gradient-heavy and
+  glossy, which is why it looked like 3D. **75 Flat SVGs now vendored** (344KB), so
+  the tab shows what it says.
+- **"Color" is a confusing label** when the real choice is 3D or 2D. **Renamed 2D.**
+  The API value stays `color` — that is Microsoft's own name for the style.
+- **3D was the fourth tab** despite being the documented default form. **It is now
+  first, and selected on load.**
+- **Animated showed 51 stills.** Only **24 of the 75** genuinely animate; the rest
+  have no APNG upstream and degraded quietly to a static image. The tab now lists
+  only the 24 and says so in the count.
+
+### And a second page for the other 1,520
+
+The curated 75 exist because of a rule — the vocabulary an agency deck needs, in
+four groups. Browsing 1,595 invites picking off-vocabulary. But sometimes the right
+emoji genuinely is not in the set, and "it isn't in our picker" was not a helpful
+answer.
+
+**`preview/fluent-emoji-library.html`** — all **1,595**, searchable, lazy-loaded,
+click-to-copy. The **75 vendored ones carry a lime badge**, because only those work
+offline; the **310 that accept a skin tone** are marked. The curated picker stays the
+front door and links across. The index is generated from the pinned commit and
+ships as **`.js`, not `.json`, on purpose**: a `fetch()` of a local JSON is blocked
+by CORS under `file://`, which would break the page in the Design System pane and
+for anyone who just opens the file.
+
+### The colour ratio, settled
+
+Slide 21 of the VI deck sets navy 30 · lime 30 · violet 10 · purple 10 · aqua 10 ·
+teal 10. `AGENTS.md` Section 7 says that ratio does **not** apply to decks. Both are
+staying: the ratio is right for web, and wrong for slides, where colour carries
+section structure. **Reviewed and kept as a deliberate slides-only exception**, now
+written into Section 7 so nobody "fixes" it back.
+
+Minor — a wrong instruction removed from seven files, three categories of
+photography that never existed, and an emoji picker that stopped lying.
+
 ## 2026-09-17 — Writing "candid" in a prompt produces a stock photo of candidness (v2.12.0 → v2.13.0)
 
 All 22 photographs are replaced. The old ones said *candid documentary, no
