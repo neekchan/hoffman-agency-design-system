@@ -24,6 +24,7 @@ A short list to run through before shipping any branded surface — slide, socia
 - [ ] **Tappable cards read as tappable, quietly** — one mark per card (never two), quiet at rest, motion on hover, the card itself never lifts (`AGENTS.md Section 15`)
 - [ ] **Corner mark is visible on its surface** — `storyline-navy-white.svg` is a NAVY mark for LIGHT grounds; on navy/purple/teal use `storyline-mark.svg` tinted to the contrast colour (`README` → The Storyline squiggle)
 - [ ] **Any "animated" emoji genuinely animates** — checked against `assets/emoji/animated-manifest.json`, not assumed from the folder name (`AGENTS.md Section 8`)
+- [ ] **Presenter deck: the animated brand mark was offered**, with its pre-set link. If accepted, it sits where the user directed (the closing if they didn't say) and is the hero of its slide, never beside body copy or as a bullet. It comes from a pre-set Brand Mark Studio link (never hand-built), is exported transparent with `on=` the slide's surface, and is a GIF in `.pptx` or an APNG in HTML. If the file isn't in yet, the placeholder carries the link. Document-mode decks carry none (`AGENTS.md Section 17`)
 - [ ] **Marks and the words they mark are different colours** — a lime underline under a lime word erases itself (`README` → Hand-drawn annotations)
 
 ## Finished PowerPoint file (`.pptx` / `.potx`)

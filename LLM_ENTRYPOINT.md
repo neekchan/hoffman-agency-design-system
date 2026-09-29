@@ -12,14 +12,14 @@ route.
 
 | User asks for | Read | Start from | Key rule |
 |---|---|---|---|
-| Presentation, pitch, deck, slide (HTML) | `AGENTS.md` + `SOUNDCHECK.md`, then `LAYOUTS.md` | `templates/deck/Deck.dc.html` | Slides override web spacing/type. Fill the 1920x1080 frame. |
+| Presentation, pitch, deck, slide (HTML) | `AGENTS.md` + `SOUNDCHECK.md`, then `LAYOUTS.md` | `templates/deck/Deck.dc.html` | Slides override web spacing/type. Fill the 1920x1080 frame. Presenter deck → offer the animated brand mark on the closing, with a pre-set studio link (`AGENTS.md` §17). |
 | **Native PowerPoint / `.pptx` / `.potx` / Keynote-for-Office** | **`POWERPOINT.md`** first, then `AGENTS.md` + `SOUNDCHECK.md` + `LAYOUTS.md` | Prefer exporting `templates/deck/Deck.dc.html` to editable PPTX; else the two manifests | **If output is `.pptx`, read `POWERPOINT.md`.** Set the theme fonts to Poppins, place logos via `assets/asset-manifest.json`, treat layout codes as contracts, validate the finished file. |
 | Marketing website, landing page, brand page | `README.md`, `DESIGN.md` | `ui_kits/website/index.html` | Web can breathe. Use website components and real imagery/placeholders. |
 | Product app, dashboard, admin, portal, workflow tool | `DESIGN.md`, `ui_kits/app/COMPONENTS.md` | `ui_kits/app/index.html` | Dense, calm, scannable UI. Use app primitives, not marketing heroes. |
 | Social tile or carousel | `README.md`, `PROMPTS.md` | `templates/social-tile/SocialTile.dc.html` | One idea per tile, big type, fixed safe zone. |
 | One-pager or print leave-behind | `README.md` + `SOUNDCHECK.md`, then `CHECKLIST.md` | `templates/one-pager/OnePager.dc.html` | Print has its own size constraints; keep hierarchy clear. Headings state the point, not the topic. |
 | Any image (generate / supply / placeholder) | `IMAGERY.md`, then `PROMPTS.md` | The workflow in `IMAGERY.md`, then the matching prompt block | Decide *whether/how* in `IMAGERY.md` (capability check → ask → house style → else placeholder); keep the Hoffman photo grade + placeholder resolution rules. |
-| Animated brand "hello", animated wordmark / brand-mark GIF or video (deck, PowerPoint, social, email signature) | Nothing else — it's self-serve | `preview/brand-mark-studio.html` (open it in a browser) | Point the user at the **Brand Mark Studio**: they type the word, tune typeface/colour/background, and export APNG / GIF (transparent, PPT-safe) / MP4 — all client-side. Don't rebuild the animation by hand. |
+| Animated brand "hello", animated wordmark / brand-mark GIF or video (deck, PowerPoint, social, email signature) — **and offered on every Presenter deck** | `AGENTS.md` §17 for decks (the link parameters); nothing else for one-offs | `preview/brand-mark-studio.html` (open it in a browser) | Point the user at the **Brand Mark Studio**: they type the word, tune typeface/colour/background, and export APNG / GIF (transparent, PPT-safe) / MP4 — all client-side. Don't rebuild the animation by hand. |
 
 ## 2. Universal Brand Rules
 
@@ -48,7 +48,7 @@ route.
 - Never use web max widths or 16px body type.
 - Give every slide `data-screen-label="NN Label"` in the markup (`01 Cover`, `07 Action titles`). All slides share the same coordinates on a 1920×1080 canvas, so nothing else can tell a review comment, a diff or a DOM read which slide it belongs to (`AGENTS.md Section 14`).
 - Tappable cards are quiet at rest and move on hover — one glyph per card, no labelled pills, the card itself never lifts (`AGENTS.md Section 15`).
-- Motion: staggered entrances, overshoot only on small marks, nothing loops, honour `prefers-reduced-motion` (`AGENTS.md Section 16`).
+- Motion: staggered entrances, overshoot only on small marks, honour `prefers-reduced-motion` (`AGENTS.md Section 16`).
 - Need a functional symbol? Use `assets/icons/` (1,595 Fluent Flat icons), not an emoji.
 
 **Native PowerPoint (`.pptx` / `.potx`)** — read `POWERPOINT.md` before authoring.

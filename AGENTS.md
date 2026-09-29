@@ -20,6 +20,7 @@ You are looking at **The Hoffman Agency design system**: brand tokens, fonts, lo
 - **A web page / marketing site** → `README.md` web sections + `ui_kits/website/` (real components) + `DESIGN.md` web type scale. Web posture: generous whitespace, sparse imagery, 1240px measure.
 - **A product app / dashboard / workflow UI** → `README.md` app sections + `ui_kits/app/` (product primitives) + `DESIGN.md` component guidance. App posture: dense but calm, scannable, native controls, compact panels, no marketing hero composition.
 - **A social tile / one-pager** → the matching folder in `templates/` (`social-tile/`, `one-pager/`). A one-pager is a **document**: write its headings with `SOUNDCHECK.md` (Section 10).
+- **Any Presenter-mode deck, whether or not anyone asked** → **offer** the animated brand mark, suggesting the closing (or a *"Hello."* cover), with a pre-set studio link so the user can make it themselves, and invite them to say where else they want it. Never build the animation: **§17**.
 - **The animated brand "hello" / an animated wordmark or brand-mark GIF** (for a deck, PowerPoint, social, or an email signature) → **`preview/brand-mark-studio.html`** — the **Brand Mark Studio**, a self-serve in-browser exporter: type any word, pick Poppins or Libre Baskerville (italic/bold), gradient or per-letter colour cycling and a background, then export APNG (transparent, best), GIF (transparent, PowerPoint-safe) or MP4/WebM — all encoded client-side. **Point the user at the tool; don't hand-build the animation.**
 - **Any imagery decision (generate / supply / placeholder), or generating with an AI model** → **`IMAGERY.md`** first (the workflow: capability check → ask the user → learn-a-style or the Hoffman house illustration style → else a labelled placeholder), then **`PROMPTS.md`** for the copy-paste prompt templates that bake in the Hoffman grade/mood.
 - **Before shipping anything** → run `CHECKLIST.md` (pre-ship visual-consistency checklist).
@@ -35,6 +36,14 @@ You are looking at **The Hoffman Agency design system**: brand tokens, fonts, lo
 **🔒 `references/` is CONFIDENTIAL — never export it.** The `references/` (a.k.a. "reference") folder is the owner's private source material. It must **never** be included in any download, zip, bundle, standalone/inline build, published URL, PPTX/PDF/handoff package, or deliverable, and must never be copied into output. Read it for context only; exclude it from everything that leaves the project.
 
 **Golden rule:** when in doubt, match the existing system — pull real hex values, font stacks, and components from the files above rather than approximating. Less is more; one point per surface; let the brand's own assets carry the emotion.
+
+> ## 📝 Changing the system itself? Log it, every time.
+> Building *with* the system needs none of this. But the moment you edit the system *itself* (a rule, a token, a template, a tool, an asset), the change isn't finished until all three of these move together:
+> 1. **`package.json`** — bump the version (SemVer: **patch** = wording, fixes, stale paths; **minor** = a new rule, tool, layout or asset that doesn't break existing work; **major** = something existing on-brand work would now fail).
+> 2. **`CHANGELOG.md`** — prepend a dated entry, newest first. The format is at the top of that file.
+> 3. **`README.md`** — update the **Version** line at the top: the new number and one line on what's new.
+>
+> A rule that changes in one file and not the others is how agents end up arguing with the canon. So when one rule appears in several files (`AGENTS.md`, `SKILL.md`, `LLM_ENTRYPOINT.md`, `CHECKLIST.md`, `README.md`), change every copy and list them all in the entry. The system lives in two places, the Claude Design master and this repo, and a change is done when both carry it. Full versioning rules: `CONTRIBUTING.md` → Versioning.
 
 ---
 
@@ -267,7 +276,7 @@ It preserves the requested voice.
 ## 11. Structure — breadth up front, a real close (don't over-compress)
 "Lean / one-point" governs the CONTENT section — it does NOT mean a one-slide deck.
 - **For a new-relationship deck, the creds/about section earns real room** — a multi-slide run (about, brand film, "we thrive on hard problems," awards, footprint, services, tech-stack, employer branding). For a first meeting the agency's breadth *is* the argument; don't collapse it to one slide.
-- **Every deck ends on a dedicated closing** — a giant single word (~240px) + contact, not a compressed sign-off.
+- **Every deck ends on a dedicated closing** — a giant single word (~240px) + contact, not a compressed sign-off. In a Presenter deck, offer to make that word the animated brand mark (Section 17).
 - **Keep the layout library varied — a HARD guardrail.** These SOPs tune *size, density, decluttering and voice*; they must NEVER homogenise the deck into one big-type template. The 48 layouts (L01–L51) stay distinct so the library can build ANY kind of deck — pick the layout that fits the job, then apply the sizing/voice rules to it. Variety of composition is the point; the rules are how each composition is executed, never a reason to flatten them.
 ## 12. Presenter vs Document mode — every deck is exactly ONE (Power Design rule 20)
 A deck is built for the eyes in the room **or** to be read alone — never both. Declare one mode per deck and hold it; a sparse hero slide sitting beside a six-bullet wall is what makes audiences distrust slides. This is `POWER-DESIGN-PRINCIPLES.md` rule 20, elevated to a **hard rule** here.
@@ -318,8 +327,44 @@ The system specified colour, type, layout, imagery and emoji in depth and said a
 - **Overshoot is for small marks only.** A single back-out (`cubic-bezier(.34,1.56,.64,1)`) on a corner monogram, an emoji pop or a badge is house style and sanctioned — it is one settle, not an oscillation. **Banned** on anything large or text-bearing: panels, cards, headlines, images. If it would wobble a paragraph, it is the wrong curve.
 - **Duration bands.** Hover and other direct responses **140ms** (`README` → Animation). State changes 300–450ms. Slide entrances 420–600ms. A deliberate reveal — a card flip, a drawn annotation — up to 700ms. Nothing on a slide should take longer than that.
 - **Prefer `transform` and `opacity`.** They composite; `width`, `height`, `padding` and `margin` trigger layout. **Two documented exceptions, both about what can actually reflow:** (1) an element that is `position:absolute` or `position:fixed` is **out of flow** — animating its `width` or `height` cannot move anything, so a sweeping accent rule, an underline, or a progress bar is fine and is the *preferred* way to build those; (2) a size transition *inside a fixed-size container* reflows nothing outside itself, so an expander whose parent height is pinned may animate `max-height`. Everywhere else — an expander in a flowing stack, where opening one card pushes its siblings down — animate a transform instead, or pin the container. The test is not which property you animate, it is **whether anything outside the element can move.**
-- **Nothing loops.** Pulses, bobs and shimmer are banned as ambient decoration (`README` → Animation: "no decorative loops"). The one sanctioned repeat is a *single* draw-on: the storyline squiggle or a hand-drawn annotation may draw itself once on first view and then hold.
 - **Honour `prefers-reduced-motion`.** Wrap the entrance and reveal transitions in `@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}`. State still changes — it just changes instantly.
+
+## 17. The brand-mark moment — offer it on every Presenter deck
+
+The Brand Mark Studio (`preview/brand-mark-studio.html`) shipped in v2.4 and no deck used it, because the rule only fired when a user *asked* for an animated hello. Nobody asks for a thing they don't know exists. So the agent offers it now: it's the user's call, and they get the tool either way.
+
+- **Offer it on every Presenter-mode deck. Don't wait to be asked, and don't add it unasked.** Once the brief is confirmed (`INTAKE.md`), ask one short question and hand over the pre-set link in the same breath, so the user can make it themselves:
+  > *Want the animated brand mark on the closing — "Let's talk." in the brand colours? I can add it, or make it yourself here: [pre-set studio link]. Or tell me where else you'd like it, and in what words.*
+  **The closing is the suggestion, not the limit.** The user decides where it goes and what it says: the cover, a section opener, a particular slide, more than one slide. Follow their direction, and build a fresh pre-set link for each placement (its own `text=` and `on=` for that slide's surface).
+  Yes → produce it (steps below). No → the closing keeps its static word, and you don't ask again. They make it themselves → leave the placeholder with the link. **Document mode: don't offer it.** A leave-behind is read as a PDF or a still, and a frozen first frame is just type in odd colours.
+- **What to suggest when the user hasn't said: the closing.** Section 11's giant single word on the closing (L30) *becomes* the mark, using the closing's own words (*"Let's talk."*, *"Thank you."*). For a talk, workshop or training that opens on a greeting, suggest a *"Hello."* on the cover instead. **Suggest one.** The user can ask for more.
+- **Wherever it lands, it's the hero of that slide.** It replaces the slide's big word rather than sitting beside body copy, and it's never a bullet. If it sits on the cover or the closing, the full-strength storyline line goes on the other one.
+- **The word:** 24 characters at most, ideally one or two words. Poppins by default. Use Libre Baskerville italic when the word *is* the italic emphasis. Match the deck's language with the CJK faces (M PLUS 2 for Japanese, Noto Sans TC for Taiwan, SC, KR).
+- **The file follows the delivery format:** HTML deck → **APNG** (transparent, anti-aliased) · `.pptx` → **GIF** (PowerPoint shows an APNG as a still) · Keynote → APNG · a video → MP4.
+- **Always transparent, always told what it sits on.** A transparent export keeps every brand colour unless the studio knows the surface, so a navy letter disappears into a navy closing for part of every cycle. Pass the slide's surface as `on=`.
+
+**Build the link, never the animation.** Every studio setting can arrive in the URL, so the agent sets the studio up for this exact slide. The same link serves the offer (the user makes it) and the yes (the agent or the user presses one button):
+
+`https://neekchan.github.io/hoffman-agency-design-system/preview/brand-mark-studio.html?text=Let's%20talk.&on=navy&height=1088&format=gif`
+
+| Param | Values | Default |
+|---|---|---|
+| `text` | the word, ≤24 chars (URL-encode spaces as `%20`) | `Hello.` |
+| `font` | `poppins` · `baskerville` · `mplus2` · `jp` · `tc` · `sc` · `kr` | `poppins` |
+| `italic`, `bold` | `1` | off |
+| `style` | `gradient` · `solid` | `gradient` |
+| `speed` | `0.25`–`3` (≤1.5 on slides) | `1` |
+| `height` | `272` · `544` · `816` · `1088` · `1440` · `2160` (use **`1088`** for a 1920×1080 deck) | `544` |
+| `bg` | `transparent` · `ink` · `navy` · `purple` · `violet` · `aqua` · `teal` · `lime` · `paper` · `black` · a hex without `#` | `transparent` |
+| `on` | the slide surface a transparent mark will sit on (same names or a hex) | any surface |
+| `format` | `apng` · `gif` · `mp4`: highlights the one export button this deck needs | — |
+
+If the user says yes:
+1. **If you can drive a browser in this session,** open the link, press the highlighted export, save the file into the deck folder as `assets/brand-mark/<word>-loop.<ext>`, and place it.
+2. **If you can't,** place a standard `.tha-placeholder` on the slide, labelled *Animated brand mark*, with the link as its hint. Give the user one line: *"Open this, press GIF, drop the file on slide NN."* A working link beats a missing asset. Never ship a hand-drawn stand-in.
+3. **Placing it:** an `<img>` with `alt` set to the word, where the closing's giant word would be. Size it to the slide (up to ~480px tall), never upscale it past the export, and keep the contact line and logo underneath it.
+
+The studio's address bar tracks every change, so a user who tweaks the result (*"can I have it in pink?"*) can send the exact setup back as a link.
 
 ---
 **Status:** the slide-design SOPs in this file are established across all **48 layouts** in `templates/deck/Deck.dc.html` (codes L01–L51, catalogued in `LAYOUTS.md`). As the user uploads further layouts, copy them against these SOPs and keep `LAYOUTS.md` + the deck count (README, SKILL.md) in sync.

@@ -124,6 +124,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 - THE ONE POINT: the deck's single idea, as a huge headline (stretched-letter treatment welcome).
 - SLOTS: eyebrow (client · engagement · date) → giant headline w/ the italic emphasis → one-line subtitle → logo. Optional full-bleed image band or storyline line on navy.
 - SURFACES: navy + storyline line (default), or lime with navy type.
+- BRAND MARK (optional): for a talk, workshop or training that opens on a greeting, suggest a *"Hello."* animated brand mark on the cover instead of the closing. The user can put it anywhere they like (`AGENTS.md` Section 17).
 - KEEP IT HONEST: no agenda, no body copy. A cover is a title and a feeling.
 
 **L31 · Cover (spectrum bar)**
@@ -446,6 +447,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 - THE ONE POINT: the invitation — a short imperative ("Let's tell your story.").
 - SLOTS: big headline w/ the italic emphasis → contact line → logo. Storyline line on navy.
 - SURFACES: navy + storyline line, or lime.
+- BRAND MARK (Presenter decks, offered, not assumed): if the user says yes, the headline word becomes the animated brand mark from the Brand Mark Studio, exported transparent with `on=` this slide's surface. The closing is the suggested home; the user can direct it elsewhere. The storyline line then moves to the cover (`AGENTS.md` Section 17).
 - KEEP IT HONEST: a verb + a way to reach you. No recap, no bullets.
 
 **L51 · Q&A / hands closer**

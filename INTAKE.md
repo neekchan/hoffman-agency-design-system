@@ -37,6 +37,8 @@ Before laying anything out, echo one line back:
 
 > "Building a **[medium]** in **[mode]** for **[audience]**, **[colour direction]**, with **[imagery choice]** — starting from `[template]`."
 
+**Presenter-mode deck? Once they confirm, offer the brand mark in one line, with the link:** *"Want the animated brand mark on the closing? I can add it, or make it yourself here: [pre-set studio link]. Or tell me where else you'd like it."* The closing is only the suggestion; the user can direct it anywhere. It's an offer, not a default (`AGENTS.md Section 17`). Ask it once, after the brief, not as a sixth intake question.
+
 Let the user correct it, then build. This twenty-second confirmation prevents almost every "that's not what I wanted."
 
 ## Non-negotiable, whatever the answers

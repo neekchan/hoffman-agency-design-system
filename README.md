@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.18.3** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — **the hero grew.** Three bands now: the pitch, four screens of the tour actually running, and nine tiles of what the repo holds — every count read from disk.
+**Version 2.19.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **decks now offer the brand mark.** An AI building a Presenter deck offers the animated brand mark for the closing, with a pre-set Brand Mark Studio link so you can make it yourself.
 
 Integrated Comms agency that helps tech brands solve hard business problems. The harder the better. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -78,6 +78,17 @@ background, including transparent.
 Everything encodes **in your own browser**. Nothing uploads, nothing renders on a
 server, there is no account and no queue.
 
+**Links carry the setup.** Every setting can ride in the URL, and the address bar
+follows every change, so a setup can be shared by copying it. Want it in pink? Set
+it up, copy the address, send it:
+
+[`…/brand-mark-studio.html?text=Let's%20talk.&on=navy&height=1088&format=gif`](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-mark-studio.html?text=Let's%20talk.&on=navy&height=1088&format=gif)
+
+`on=` tells a transparent mark which slide colour it will sit on, so no letter
+vanishes into it. `format=` highlights the one export button to press. The
+full parameter list is in `AGENTS.md` §17. That section is also why an AI
+building a Hoffman deck now offers you this mark, with a ready-made link.
+
 > **Also live:** every preview card in [`preview/`](https://neekchan.github.io/hoffman-agency-design-system/preview/) — the
 > [contrast matrix](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-contrast-matrix.html), the
 > [colour pairings](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-color-pairings.html), the
@@ -119,7 +130,7 @@ use the routing rules below.
 | Product app, dashboard, portal, workflow UI | `DESIGN.md`, `ui_kits/app/`, `ui_kits/app/COMPONENTS.md` | Do not start with a marketing hero |
 | Social tile or carousel | `templates/social-tile/`, `PROMPTS.md` | Do not use tiny type or decorative clutter |
 | Any image (generate / supply / placeholder) | `IMAGERY.md`, then `PROMPTS.md` | Do not skip the capability check or drop a bare grey box |
-| The animated brand "hello", an animated wordmark / brand-mark GIF or video | Point them at `preview/brand-mark-studio.html` — the self-serve **Brand Mark Studio** (APNG / GIF / MP4, encoded client-side) | Do not hand-animate the wordmark or rebuild the exporter |
+| The animated brand "hello", an animated wordmark / brand-mark GIF or video, **or offered on any Presenter deck** (`AGENTS.md` §17) | Hand over a pre-set link to `preview/brand-mark-studio.html` — the self-serve **Brand Mark Studio** (APNG / GIF / MP4, encoded client-side) | Do not hand-animate the wordmark or rebuild the exporter |
 
 **If building slides and only this README is visible:**
 
@@ -445,7 +456,7 @@ Italicize the line's emphasis — the key word *or* the short phrase that carrie
 **No other decorative line work.** Wavy lines, squiggly arrows, decorative flourishes outside the 5-category annotation library are banned. The Storyline squiggle is the only "wavy" element — and it has its own two strict uses (see above).
 
 ### Animation
-- **Rare and intentional.** No parallax, no scroll-jacking, no decorative loops.
+- **Rare and intentional.** No parallax, no scroll-jacking.
 - Entrances: 420ms ease-out (`--dur-slow / --ease-out`), subtle 12–16px y-translate + fade. That's it.
 - The squiggle may "draw itself" once, on first view — never loops.
 - Hover transitions: 140ms, tight.

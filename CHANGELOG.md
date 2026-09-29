@@ -4,6 +4,84 @@ Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
 (`d10f7f7f-3158-4438-9664-46d071bea8ff`) — this repo is the public copy of it.
 
+> **Adding an entry (people and agents alike).** Every change to the system gets one,
+> in the same commit as the change. Prepend it above the newest entry:
+>
+> ```
+> ## YYYY-MM-DD — <what changed, said as a plain sentence> (vOLD → vNEW)
+>
+> Who asked for it and why, in a line or two, quoted where you can.
+>
+> ### <one heading per change> — `<file(s)>`
+> - What changed, before → after where it's short. Name the rule or file,
+>   not "updated wording".
+>
+> <Patch | Minor | Major>: one line on why that's the right bump.
+> ```
+>
+> Then bump `package.json` and the **Version** line at the top of `README.md` to match.
+> If one rule landed in several files, list every file. Versioning rules:
+> `CONTRIBUTING.md` → Versioning.
+
+## 2026-09-29 — Decks now offer the brand mark (v2.18.3 → v2.19.0)
+
+Takeo, on Teams, after the Brand Mark Studio link went round: *the design system
+should include a link to your artifact and prompt the engine to generate files
+there.* Nic: *the design system already has it, but I didn't give it instructions
+to auto integrate.* Both right. Every rule about the studio fired only when a user
+asked for an animated hello, and nobody asks for a thing they don't know exists.
+So no deck used it.
+
+### The agent offers it now — `AGENTS.md` §17
+
+- **Every Presenter-mode deck gets the offer, never the mark unasked.** Nic: *the AI
+  should prompt the user and ask if they want it, but also offer up the URL so they
+  can do it themselves.* The offer suggests the closing, where §11's giant single word
+  becomes the mark, and invites the user to put it anywhere else. Nic: *this is the
+  default suggestion, but the user can be prompted to give instructions to add it
+  elsewhere.* Each placement gets its own pre-set link. A *"Hello."* cover is the
+  suggestion for a talk that opens on a greeting. On the cover or the closing, it
+  trades places with the full-strength storyline line. Document-mode decks skip it:
+  a PDF can't play it.
+- **One line, after the brief, with the link.** `INTAKE.md` has the agent ask it once
+  the brief is confirmed. It is not a sixth intake question, and a no is final.
+- **Build the link, never the animation.** The agent sets the studio up through the
+  URL. The same link is the do-it-yourself route and the yes route. On a yes, an
+  agent that can drive a browser exports the file itself; otherwise it leaves a
+  placeholder whose hint is the link.
+- **The format follows delivery:** APNG for HTML and Keynote, GIF for `.pptx`
+  (PowerPoint plays APNG as a still), MP4 for video.
+- **§16's blanket "nothing loops" rule is gone.** Nic: *this is wrong, let's remove
+  it.* It banned looping as a category, which also banned the brand's own animated
+  mark. The element-specific restraint stays: tappable-card glyphs are quiet at rest
+  (§15), and the storyline squiggle draws itself once (`README` → Animation). Keep the
+  brand mark at 1.5× speed or below on a slide.
+
+Hooked in wherever a deck-building agent looks: `AGENTS.md` Step 0 routing, §11 and §17; `LAYOUTS.md` L01 and L30; `INTAKE.md`; `CHECKLIST.md`; `LLM_ENTRYPOINT.md`;
+`SKILL.md`; `README.md`.
+
+### The studio opens pre-set — `preview/brand-mark-studio.html`
+
+- **Every setting can ride in the URL:** `text`, `font`, `italic`, `bold`, `style`,
+  `speed`, `height`, `bg`, `on`, `format`. The address bar follows every change, so a
+  setup ("can I have it in pink?") can be shared by copying it.
+- **New: *Will sit on*.** A transparent export used to keep every brand colour, so a
+  navy letter disappeared into a navy closing for part of every loop. Tell the studio
+  the slide's surface (`on=navy`) and it drops the colours that would vanish there,
+  keeps the file transparent, and previews it on that surface.
+- **`format=` highlights** the one export button the deck needs.
+
+### Changelog instructions where agents will see them — `AGENTS.md`, `CHANGELOG.md`
+
+Nic: *make sure to have change log instructions.* The versioning steps lived only in
+`CONTRIBUTING.md`, which an agent building a deck never opens. `AGENTS.md` now has a
+short *Changing the system itself? Log it* block (bump `package.json`, prepend here,
+update the README Version line, change every copy of a repeated rule, carry it to
+both the master and the repo). The top of this file now shows the entry format.
+
+Minor: a new offer in the deck workflow and a new studio capability. With no
+parameters, the studio behaves exactly as it did before.
+
 ## 2026-09-17 — The hero grew (v2.18.2 → v2.18.3)
 
 Nic, on the new banner: *is the README hero always so small?* On GitHub the README

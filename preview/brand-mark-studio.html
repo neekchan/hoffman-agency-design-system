@@ -83,7 +83,21 @@
         <button class="sw" data-bg="#000000" style="background:#000000" title="Black"></button>
       </div>
       <label for="custom" id="customwrap" title="Pick any colour"><span class="plus">+</span><span>Custom colour</span><span class="hex" id="customhex">#D2EB00</span><input type="color" id="custom" value="#D2EB00"></label>
-      <span class="note" style="text-align:left;color:#6f7987">Transparent works for APNG & GIF. MP4 falls back to navy. Letters cycle through the whole brand palette; the background's own colour is always dropped, and on a dark background anything under 3:1 is dropped too.</span>
+      <div id="onwrap" style="display:flex;flex-direction:column;gap:6px;margin-top:4px"><label for="on" style="font:700 11px/1 'Poppins',sans-serif;letter-spacing:.02em;text-transform:uppercase;color:#8f9aa9">Will sit on (transparent only)</label>
+        <select id="on">
+          <option value="" selected>Any surface — keep every colour</option>
+          <option value="#0E1C2B">Ink slide</option>
+          <option value="#182D43">Navy slide</option>
+          <option value="#6103B9">Purple slide</option>
+          <option value="#CB65FF">Violet slide</option>
+          <option value="#86FFF1">Aqua slide</option>
+          <option value="#145F7B">Teal slide</option>
+          <option value="#D2EB00">Lime slide</option>
+          <option value="#FAFAF7">Paper slide</option>
+          <option value="#FFFFFF">White slide</option>
+          <option value="#000000">Black slide</option>
+        </select></div>
+      <span class="note" style="text-align:left;color:#6f7987">Transparent works for APNG & GIF. MP4 falls back to navy. Letters cycle through the whole brand palette; the background's own colour is always dropped, and on a dark background anything under 3:1 is dropped too. A transparent file keeps every colour unless you say what it will sit on — so a navy letter never vanishes into a navy slide.</span>
     </div>
   </div>
   <div class="row">
@@ -115,7 +129,11 @@ const ratio=(a,b)=>{const l1=lum(a),l2=lum(b);return (Math.max(l1,l2)+0.05)/(Mat
 
 let stops=[],SOLID=[];
 function buildPalettes(){
-  const bgc=(bg&&bg!=='transparent')?rgb(bg):null;
+  // The field the letters must stay visible on: the solid background, or — for a
+  // transparent export — the slide it will sit on, when the user (or a link) says.
+  const onv=document.getElementById('on').value;
+  const field=(bg&&bg!=='transparent')?bg:(onv||null);
+  const bgc=field?rgb(field):null;
   let ring=BRAND;
   if(bgc){
     // A transparent export lands on a surface we cannot know, so it keeps the whole ring.
@@ -175,9 +193,14 @@ function refresh(){
   document.getElementById('spdval').textContent=(+document.getElementById('spd').value).toFixed(2)+'×';
   document.getElementById('perval').textContent=(PERIOD/1000).toFixed(1)+'s';
   buildPalettes();
-  layout();stage.classList.toggle('checker',bg==='transparent');stage.style.background=bg==='transparent'?'':bg;
+  layout();
+  const onv=document.getElementById('on').value,tr=bg==='transparent';
+  document.getElementById('onwrap').style.display=tr?'flex':'none';
+  // Preview a transparent mark on the slide it is meant for, so what you see is what lands.
+  stage.classList.toggle('checker',tr&&!onv);stage.style.background=tr?(onv||''):bg;
+  syncURL();
 }
-['text','spd','res','mode'].forEach(id=>document.getElementById(id).addEventListener('input',refresh));
+['text','spd','res','mode','on'].forEach(id=>document.getElementById(id).addEventListener('input',refresh));
 document.getElementById('font').addEventListener('input',e=>{
   const fam=e.target.value,it=document.getElementById('ital'),bd=document.getElementById('bold');
   if(fam==='Libre Baskerville'){it.classList.add('on');bd.classList.remove('on');}  // canon: Baskerville is italic-only in practice
@@ -195,7 +218,54 @@ document.getElementById('custom').addEventListener('input',e=>{document.querySel
   document.getElementById('customwrap').classList.add('sel');
   document.getElementById('customhex').textContent=e.target.value.toUpperCase();
   bg=e.target.value;refresh();});
-async function ready(){await Promise.all(["800 300px 'Poppins'","900 300px 'Poppins'","400 300px 'Libre Baskerville'","700 300px 'Libre Baskerville'","italic 400 300px 'Libre Baskerville'","500 300px 'M PLUS 2'","700 300px 'M PLUS 2'","500 300px 'Noto Sans JP'","500 300px 'Noto Sans TC'","500 300px 'Noto Sans SC'","500 300px 'Noto Sans KR'"].map(f=>document.fonts.load(f).catch(()=>{})));refresh();raf=requestAnimationFrame(anim);}
+// ---- deep links: every setting can arrive in the URL, and the URL follows every change ----
+// So an agent building a deck can hand over (or open) a studio already set to the exact
+// mark the slide needs, and anyone can share a setup by copying the address bar.
+// ?text=Thank%20you.&font=baskerville&italic=1&style=solid&bg=transparent&on=navy&height=1088&format=gif
+const FONTS={poppins:'Poppins',baskerville:'Libre Baskerville','libre-baskerville':'Libre Baskerville',mplus2:'M PLUS 2','m-plus-2':'M PLUS 2',jp:'Noto Sans JP',tc:'Noto Sans TC',sc:'Noto Sans SC',kr:'Noto Sans KR'};
+const FONT_KEY=Object.fromEntries(['poppins','baskerville','mplus2','jp','tc','sc','kr'].map(k=>[FONTS[k],k]));
+const SURF={transparent:'transparent',ink:'#0E1C2B',navy:'#182D43',purple:'#6103B9',violet:'#CB65FF',aqua:'#86FFF1',teal:'#145F7B',lime:'#D2EB00',paper:'#FAFAF7',white:'#FFFFFF',black:'#000000'};
+const SURF_KEY=Object.fromEntries(Object.entries(SURF).map(([k,v])=>[v,k]));
+function colourParam(v){if(!v)return null;v=v.trim().toLowerCase();if(SURF[v])return SURF[v];if(/^#?[0-9a-f]{6}$/.test(v))return '#'+v.replace('#','').toUpperCase();return null;}
+let linkFormat=null,urlLive=false;
+function applyParams(){
+  let q;try{q=new URLSearchParams(location.search);}catch(e){return;}
+  const $=id=>document.getElementById(id),on=v=>v==='1'||v==='true'||v==='yes';
+  if(q.has('text'))$('text').value=q.get('text').slice(0,24);
+  const fam=FONTS[(q.get('font')||'').toLowerCase()];
+  if(fam){$('font').value=fam;$('font').dispatchEvent(new Event('input'));}
+  if(q.has('italic')&&!$('ital').disabled)$('ital').classList.toggle('on',on(q.get('italic')));
+  if(q.has('bold'))$('bold').classList.toggle('on',on(q.get('bold')));
+  const st=(q.get('style')||'').toLowerCase();if(st==='gradient'||st==='solid')$('mode').value=st;
+  const sp=parseFloat(q.get('speed'));if(sp>=0.25&&sp<=3)$('spd').value=sp;
+  const hh=parseInt(q.get('height'),10);
+  if(hh){const opts=[...$('res').options].map(o=>+o.value);$('res').value=opts.reduce((a,b)=>Math.abs(b-hh)<Math.abs(a-hh)?b:a);}
+  const b=colourParam(q.get('bg'));
+  if(b){bg=b;document.querySelectorAll('.sw').forEach(s=>s.classList.toggle('sel',s.dataset.bg===b));
+    if(![...document.querySelectorAll('.sw')].some(s=>s.dataset.bg===b)){$('custom').value=b.toLowerCase();$('customhex').textContent=b;$('customwrap').classList.add('sel');}}
+  const o=colourParam(q.get('on'));
+  if(o&&o!=='transparent'){if(![...$('on').options].some(x=>x.value===o)){const x=document.createElement('option');x.value=o;x.textContent=o+' slide';$('on').append(x);}$('on').value=o;}
+  const f=(q.get('format')||'').toLowerCase().replace('webm','mp4');
+  if(['apng','gif','mp4'].includes(f)){linkFormat=f;
+    ['apng','gif','mp4'].forEach(id=>$(id).classList.toggle('primary',id===f));
+    statusEl.textContent='Set up from a link — press '+$(f).querySelector('b').textContent+' to export the file this deck needs.';}
+}
+function syncURL(){
+  if(!urlLive)return;
+  const $=id=>document.getElementById(id),q=new URLSearchParams();
+  q.set('text',$('text').value);
+  const fk=FONT_KEY[$('font').value];if(fk&&fk!=='poppins')q.set('font',fk);
+  if($('ital').classList.contains('on'))q.set('italic','1');
+  if($('bold').classList.contains('on'))q.set('bold','1');
+  if($('mode').value!=='gradient')q.set('style',$('mode').value);
+  if(+$('spd').value!==1)q.set('speed',$('spd').value);
+  if($('res').value!=='544')q.set('height',$('res').value);
+  if(bg!=='transparent')q.set('bg',SURF_KEY[bg.toUpperCase()]||SURF_KEY[bg]||bg.replace('#',''));
+  const o=$('on').value;if(bg==='transparent'&&o)q.set('on',SURF_KEY[o]||o.replace('#',''));
+  if(linkFormat)q.set('format',linkFormat);
+  try{history.replaceState(null,'','?'+q.toString().replace(/\+/g,'%20'));}catch(e){}  // sandboxed frames may refuse — the studio still works
+}
+async function ready(){applyParams();urlLive=true;await Promise.all(["800 300px 'Poppins'","900 300px 'Poppins'","400 300px 'Libre Baskerville'","700 300px 'Libre Baskerville'","italic 400 300px 'Libre Baskerville'","500 300px 'M PLUS 2'","700 300px 'M PLUS 2'","500 300px 'Noto Sans JP'","500 300px 'Noto Sans TC'","500 300px 'Noto Sans SC'","500 300px 'Noto Sans KR'"].map(f=>document.fonts.load(f).catch(()=>{})));refresh();raf=requestAnimationFrame(anim);}
 ready();
 
 // ---- shared frame stepping ----
