@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.19.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **decks now offer the brand mark.** An AI building a Presenter deck offers the animated brand mark for the closing, with a pre-set Brand Mark Studio link so you can make it yourself.
+**Version 2.20.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **titles break where the author says, never where the browser does.** Every multi-line heading carries its own `<br>`, no `ch` caps on display type, `tools/title_check.py` fails the build on a self-wrap, and a render without the system fonts is not evidence.
 
 Integrated Comms agency that helps tech brands solve hard business problems. The harder the better. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 

@@ -23,6 +23,58 @@ really lives in the Claude Design project
 > If one rule landed in several files, list every file. Versioning rules:
 > `CONTRIBUTING.md` → Versioning.
 
+## 2026-10-01 — Titles break where the author says, never where the browser does (v2.19.0 → v2.20.0)
+
+Nic, after the Click Happens deck for CloudMosa came back with mid-phrase title wraps in
+PowerPoint: *we are still having that issue where the title just has weird sort of line
+breaks. I thought we fixed that with the design system.* The rule was there (§2.5, since
+v2.x) and every file repeated it; nothing enforced it, and the template taught the opposite.
+Four links, all in our own files: `Deck.dc.html` capped 26 of its 36 titles at `max-width:20ch`
+(27 characters of Poppins ExtraBold, under Soundcheck's own ≤8-word target, so a compliant
+title always wrapped); `h1, h2, h3 { text-wrap: balance }` then dressed the unauthored wrap
+up as two tidy lines; the HTML → PPTX exporter froze the browser's wrap "to keep the exact
+shape"; and the contact sheet was rendered without the system fonts, so it could not show
+any of it. Nic: *I want to fix my design system so that it contains instructions to not let
+this happen.*
+
+### The break is authored, never inherited — `AGENTS.md` §2.5
+
+- New hard rule block. Every multi-line display heading carries its own `<br>` at the sense
+  boundary; rendered lines = authored breaks + 1 or the build fails. No `ch` caps on display
+  type (px, matched to the slot). A measure table so lines are sized before they are broken:
+  about 44 characters at 80px, 49 at 72px, 55 at 64px on the full width; 25, 28, 31 on a
+  1000px column. No `text-wrap: balance` on slide headings. An exporter refuses an
+  unauthored wrap, never freezes one. The title spine is approved as it will be set, with
+  breaks. A render without the system fonts is not a check.
+
+### The template stops teaching the anti-pattern — `templates/deck/Deck.dc.html`
+
+- `h1, h2, h3 { text-wrap: balance }` → `text-wrap: initial`, with the reason in the comment.
+- Every `max-width:NNch` on a heading → the same measure in px (`20ch` at 76px → `999px`,
+  40 headings), so nothing moved on screen but the number now means what it says. Raising
+  the caps to their slots is the next template pass, layout by layout.
+- Seventeen titles that wrapped on their own now carry authored breaks. Verified in Chrome
+  with the system fonts: 0 self-wrapping headings across the 48 layouts (was 19).
+
+### The test — `tools/title_check.py` (new)
+
+- Playwright script: every display heading, every slide; fails on any heading whose rendered
+  line count exceeds its `<br>` count + 1; reports each heading's widest line against its
+  measure. First file in `tools/`; the rest of the deck pipeline follows.
+
+### Checklist and PowerPoint validation — `CHECKLIST.md`, `POWERPOINT.md` §9
+
+- Deck-mode checklist: new line, "every multi-line heading breaks only at its own `<br>`".
+- §9 hard check 17: no display heading wraps on its own in the finished file; an exporter
+  that meets more lines than breaks stops and names the slide.
+- §9 precondition: a contact sheet or screenshot counts as evidence only with Poppins
+  (incl. ExtraBold) and Libre Baskerville Italic installed in the renderer; otherwise stamp it
+  "FONTS MISSING — NOT EVIDENCE".
+- The "validate-pptx deferred" note now points at the script that exists (Enterprise AI
+  Decision `setup-deck/v6/build/validate_pptx.py`, checks 1–13 and 16) pending its move to `tools/`.
+
+Minor: a new hard rule, a new check and a new tool, no breaking change to any layout.
+
 ## 2026-09-29 — Decks now offer the brand mark (v2.18.3 → v2.19.0)
 
 Takeo, on Teams, after the Brand Mark Studio link went round: *the design system

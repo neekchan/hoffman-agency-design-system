@@ -153,6 +153,8 @@ A contact sheet shows rhythm; it does not prove compliance. **Render every slide
 
 Run against the **finished file**, not the source used to make it. (These are also in `CHECKLIST.md` under "Finished PowerPoint file".)
 
+**Precondition — the render has to be real.** A contact sheet or screenshot counts as evidence only when the renderer has Poppins (including ExtraBold) and Libre Baskerville Italic installed; LibreOffice without them substitutes fonts that wrap differently, and the sheet then hides mid-phrase title breaks and dead lower thirds (that is how the Click Happens v1 deck shipped). Check `fc-list` for both families before rendering, and stamp any sheet rendered without them "FONTS MISSING — NOT EVIDENCE".
+
 **Hard checks — fail the deck:**
 
 1. File opens; slide count is as expected.
@@ -171,6 +173,7 @@ Run against the **finished file**, not the source used to make it. (These are al
 14. Every diagram arrow connects to a visible target (not open space, not an oversized textbox edge).
 15. No unresolved image placeholder or production note remains (unless intentionally requested).
 16. Speaker notes are present when Presenter mode requires them.
+17. No display heading wraps on its own: every heading's line count in the finished file equals its authored `<br>` count + 1, and no line exceeds its box width in the embedded font's metrics. An HTML → PPTX exporter that meets more rendered lines than authored breaks stops and names the slide; it never splits at the browser's wrap (`AGENTS.md Section 2.5`, "The break is authored").
 
 **Advisory — warn, review, don't auto-fail:**
 
@@ -181,7 +184,7 @@ Run against the **finished file**, not the source used to make it. (These are al
 - A headline with no Libre Baskerville Italic emphasis word.
 - A layout code whose structure doesn't match its manifest contract.
 
-> A `validate-pptx` script was scoped but deferred — these checks are run as a manual/agent checklist for now. When automated, it should inspect the OOXML package (theme fonts/colours, `<a:off>/<a:ext>` on logo pictures vs. the manifest ratios, picture source vs. displayed size, connector geometry) and report per-check pass/fail.
+> `tools/title_check.py` covers check 17 on the HTML before export. A full `validate-pptx` script exists in the Enterprise AI Decision deck pipeline (`setup-deck/v6/build/validate_pptx.py`, checks 1–13 and 16) and is to be moved into `tools/`; until then those checks are run from that copy. When automated, it should inspect the OOXML package (theme fonts/colours, `<a:off>/<a:ext>` on logo pictures vs. the manifest ratios, picture source vs. displayed size, connector geometry) and report per-check pass/fail.
 
 ---
 

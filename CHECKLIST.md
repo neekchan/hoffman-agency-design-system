@@ -18,6 +18,7 @@ A short list to run through before shipping any branded surface — slide, socia
 - [ ] **Document**: denser + hierarchical, short bullets allowed, each slide stands alone — still no paragraphs
 - [ ] No sparse hero slide sitting beside a six-bullet wall (the "schizophrenic deck" tell)
 - [ ] **Titles fill the width and break clean** — no truncation/ellipsis, no mid-phrase wrap, no title running half-width with a dead strip of white on the right (`AGENTS.md Section 2.5`)
+- [ ] **Every multi-line heading breaks only at its own `<br>`** — rendered lines = authored breaks + 1 on every slide (`tools/title_check.py` passes); no `ch` caps on display type; no `text-wrap: balance` on slide headings; each line fits its measure at the floor size (`AGENTS.md Section 2.5`, "The break is authored")
 - [ ] **Every content slide carries a visual** — image, placeholder, icon, Fluent emoji or annotation; no bare text slide with empty margins (`AGENTS.md Section 3`)
 - [ ] **Chunked, not dumped** — dense points broken into 2–4 short labelled beats, never a paragraph or a six-line bullet stack (`AGENTS.md Section 5`)
 - [ ] **Every slide is identifiable in the markup** — `data-screen-label="NN Label"` authored on every slide, not left to the runtime component; a comment or diff pinned to a coordinate is otherwise unattributable (`AGENTS.md Section 14`)
