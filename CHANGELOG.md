@@ -23,6 +23,55 @@ really lives in the Claude Design project
 > If one rule landed in several files, list every file. Versioning rules:
 > `CONTRIBUTING.md` → Versioning.
 
+## 2026-10-01 — Every title is capped at its real slot, and the brand book stops letting the browser break titles (v2.20.0 → v2.20.1)
+
+Nic, on the parked v2.20.0 follow-up: *ok lets please implement that.* v2.20.0 turned the
+template's `ch` caps into the same measures in px, so nothing moved but the numbers still
+stopped titles short: slides 22 to 29 capped a full-width title at 683 to 752px with 1728px
+free, so a seven-word title needed a `<br>` it shouldn't have.
+
+### Caps match the slot — `templates/deck/Deck.dc.html`
+
+- All 25 inline title caps set to the slot each title actually has, measured in Chrome
+  as the heading's column minus anything sitting to its right on the same rows. Twelve rise
+  (for example slides 22, 24 to 29 `683–752px → 1728px`; slide 12 `820 → 1728px`; slide 13
+  `946 → 1744px`; slide 19's two columns `578 → 766px`; slide 33 `604 → 760px`). Thirteen
+  were wider than their column already and drop to it, so the number states the real
+  measure (slide 01 `2313 → 1776px`, slide 06 `1314 → 995px`, slide 20 `815 → 502px`).
+- Slide 34's title still carried an inline `text-wrap:balance` that v2.20.0 missed; removed.
+- Verified with the system fonts: every heading's text sits at the same coordinates before
+  and after (all 48 slides), the 38 slides without animation are pixel-identical, and
+  `tools/title_check.py` reports 0 self-wraps.
+
+### One sentence that contradicted the rule — `AGENTS.md` §2.5
+
+- "Headings carry `text-wrap: balance` so a genuine two-line title breaks evenly" →
+  "A genuine two-line title gets its own `<br>` at the sense boundary, never
+  `text-wrap: balance`." The same section's new hard rule already banned balance on slides.
+
+### The guidelines deck stops letting the browser break titles — `slides/Hoffman Brand Guidelines.html` + its print twin
+
+- `text-wrap: balance` on every heading class → `text-wrap: initial`, comment rewritten.
+- All 49 `ch` title caps → px matched to the slot (for example `18ch` → `1776px` on slide 02,
+  `12ch` → `808px` on slide 50). The 28 `ch` caps on body text stay; the rule is display type.
+- Six titles that wrapped on their own now carry an authored `<br>` at the sentence boundary:
+  02 "Six parts. / Rules + demonstration.", 05 "Smart. Human. Energetic. Distilled. / Bold.
+  Creative. Authentic." (was three lines), 13 "The Storyline squiggle. / The background
+  decides the version.", 38 "Emojis as punctuation. / Max three per page.", 50 "Half the
+  slide / works for the eye." (was three lines), 56 "A photo that argues, / not decorates."
+- Verified with the system fonts in both files: `title_check.py` 6 → 0 self-wraps; the other
+  43 headings sit at the same coordinates as before.
+
+### Outside this repo: the HTML → PPTX exporter refuses an unauthored wrap
+
+- `extract.js` + `export_pptx.py` in `Enterprise AI Decision/setup-deck/v6/build/` and the
+  identical copy in `Clients/CloudMosa/click-happens-deck/build/`: display type (≥40px) whose
+  rendered lines exceed its `<br>` count + 1 is no longer split at the browser's wrap and
+  frozen. The exporter lists every such heading with its slide number and exits before saving.
+  First catch: the v6 Enterprise AI cover, "Choosing Hoffman's AI setup.", 3 lines, 0 breaks.
+
+Patch: caps, line breaks and one sentence corrected; only the six guidelines titles move.
+
 ## 2026-10-01 — Titles break where the author says, never where the browser does (v2.19.0 → v2.20.0)
 
 Nic, after the Click Happens deck for CloudMosa came back with mid-phrase title wraps in
