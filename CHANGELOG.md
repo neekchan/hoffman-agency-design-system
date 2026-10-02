@@ -23,6 +23,56 @@ really lives in the Claude Design project
 > If one rule landed in several files, list every file. Versioning rules:
 > `CONTRIBUTING.md` → Versioning.
 
+## 2026-10-03 — The checklist becomes a delivery gate, and invented content is a hard FAIL (v2.20.1 → v2.21.0)
+
+Nic, after reviewing the open-source `anti-slop` ruleset (miqdadbadjuber/anti-slop) and asking
+how its useful parts would wire into this system: *"i want to wire your suggestion into the
+hoffman design system."* The verdict was that ~70% of that ruleset was already here in brand
+terms; the two real gaps were a content-integrity rule (nothing stopped an agent inventing a
+"40% lift" for a client deck) and a pass/fail report with evidence instead of a self-ticked
+list. Taste rules that conflict with the brand (its em-dash ban, uppercase-eyebrow flag, dials,
+dark-mode toggle) were deliberately not adopted.
+
+### `CHECKLIST.md` is now a gate — `CHECKLIST.md`
+
+- New preamble: three tiers. **HARD** (any FAIL blocks ship), **LOCKS** (fix or give a
+  one-line reason), and "evidence or it didn't happen" (a bare PASS is a FAIL).
+- New section **Content integrity — HARD**: every number traceable; no invented testimonials,
+  quotes, people, clients, logos, awards or results; unknown content is a visible
+  `[REAL DATA · what · who supplies it]` slot in the surface; stock stand-ins carry a visible
+  swap flag; qualifiers survive the edit; the single-sourced-figures line moves here from
+  intake (it was always a hard check).
+- New section **Functional — web & app — HARD**: every nav link resolves; no dead controls;
+  keyboard-reachable with visible focus; reserved states (`DESIGN.md` Tier 1) get a labelled
+  TODO marker, never an invented spec; the page was clicked through before ship.
+- Existing sections tagged where they are HARD: finished `.pptx`, confidentiality, the
+  contrast lines in Color. Their items are unchanged.
+- New closing section **Delivery report**: the ≤15-line format pasted with every
+  deliverable (one line per HARD section with evidence, one for LOCKS exceptions, one for
+  what was actually verified, one verdict), plus the four rules of the report.
+
+### Content integrity enters the source of truth — `DESIGN.md`
+
+- New section **Content integrity** before Do's and Don'ts: real or labelled, no plausible
+  filler, stand-ins flagged, qualifiers survive, links and controls do what they say, reserved
+  means reserved.
+- One new Do (content gets the same real → labelled → never-invented ladder as imagery) and
+  one new Don't (never invent a statistic, testimonial, client, logo, result or source).
+
+### Routing — `AGENTS.md` §18 · `LLM_ENTRYPOINT.md` §4 · `SKILL.md` · `ANTI_PATTERNS.md`
+
+- `AGENTS.md` gains **§18 Ship through the gate**: what changed from "run the checklist
+  manually", in three points.
+- `LLM_ENTRYPOINT.md` Before Shipping: "run `CHECKLIST.md` manually" → run the gate, paste
+  the report, HARD blocks ship; plus the one-line content-integrity rule.
+- `SKILL.md` quick reference gains a **🚦 DELIVERY GATE** bullet.
+- `ANTI_PATTERNS.md` gains four rows: invented content; unflagged stand-in; ghost links and
+  dead controls; a PASS with nothing behind it.
+
+Minor: additive rules and a new report format; no token, component, layout or visual rule
+changes, and existing on-brand work stays on-brand. The only work it would now fail is work
+that invented its evidence, which was never on-brand.
+
 ## 2026-10-01 — Every title is capped at its real slot, and the brand book stops letting the browser break titles (v2.20.0 → v2.20.1)
 
 Nic, on the parked v2.20.0 follow-up: *ok lets please implement that.* v2.20.0 turned the

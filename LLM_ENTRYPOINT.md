@@ -75,7 +75,8 @@ route.
 ## 4. Before Shipping
 
 - Check `ANTI_PATTERNS.md` for common LLM design failures.
-- Run `CHECKLIST.md` manually for visual consistency.
+- Run the `CHECKLIST.md` **gate** against the finished artifact and paste its **delivery report** with the deliverable. HARD sections (content integrity · confidentiality · contrast · built in system · functional · finished `.pptx`) block ship on any FAIL; a PASS needs evidence (`AGENTS.md` §18).
+- Every number, quote, name, logo and result is real and sourced, or a visible `[REAL DATA · …]` slot. Never invent content to make a layout feel finished (`DESIGN.md` → Content integrity).
 - Never export `references/`; it is confidential source material.
 
 ---

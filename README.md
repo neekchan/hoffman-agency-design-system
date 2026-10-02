@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.20.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — **every title cap now matches its real slot, and the guidelines deck stops letting the browser break titles.** Six brand-book titles get authored breaks; the deck template moves by zero pixels.
+**Version 2.21.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **`CHECKLIST.md` becomes a delivery gate with a content-integrity HARD check.** Every number, quote, name, logo and result is real and sourced or a visible `[REAL DATA · …]` slot; HARD sections block ship; a PASS needs evidence. Nothing visual changes.
 
 Integrated Comms agency that helps tech brands solve hard business problems. The harder the better. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 

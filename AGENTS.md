@@ -376,6 +376,16 @@ If the user says yes:
 
 The studio's address bar tracks every change, so a user who tweaks the result (*"can I have it in pink?"*) can send the exact setup back as a link.
 
+## 18. Ship through the gate — `CHECKLIST.md` is a gate, not a tick list
+
+Before any artifact leaves the session, run `CHECKLIST.md` against the *finished* file and paste its **delivery report** with the deliverable. Three things changed from "run the checklist manually":
+
+1. **Content integrity is a HARD check.** Every number, quote, name, logo and result is real and sourced, or sits in a visible `[REAL DATA · …]` slot. No plausible filler. The brand sells earned credibility; an invented stat on slide 9 is an off-brand violation, not a draft artefact.
+2. **HARD sections block ship** — content integrity · confidentiality · contrast · built inside the system · functional (web/app) · finished `.pptx`. A FAIL on any of them is DO NOT SHIP. LOCKS get fixed or get a one-line reason.
+3. **PASS needs evidence.** "Rendered 24 slides at full size, 0 clipped titles" is evidence. "Checked" is not. The report is read by a human before the work leaves the building; your PASS is a claim, their eyeball is the check.
+
+The report format and the full rules are at the end of `CHECKLIST.md`. Keep the report under 15 lines; detail goes in the build note.
+
 ---
 **Status:** the slide-design SOPs in this file are established across all **48 layouts** in `templates/deck/Deck.dc.html` (codes L01–L51, catalogued in `LAYOUTS.md`). As the user uploads further layouts, copy them against these SOPs and keep `LAYOUTS.md` + the deck count (README, SKILL.md) in sync.
 

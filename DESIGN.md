@@ -470,6 +470,17 @@ Still banned: **raw unicode emoji** as icons/bullets (platform-inconsistent — 
 
 Live spec/preview cards for every token group and component live in `preview/*.html` (surfaced in the Design System tab).
 
+## Content integrity
+
+The agency sells *earned* credibility, so every artifact the system produces is held to the same standard as the work it describes. These rules are brand-wide — slides, web, app, social, print — and they gate ship (`CHECKLIST.md` → Content integrity, **HARD**).
+
+- **Real or labelled.** Every statistic, price, date, count, quote, testimonial, named person, client, logo, award and case-study result is either real and traceable (source in speaker notes, footnote slot or build note) or a visible placeholder in the surface: `[REAL DATA · what goes here · who supplies it]`. Nothing in between.
+- **No plausible filler.** A number that "looks about right", a quote attributed to "a client", a logo wall of invented companies — these are not drafts, they are fabrications that can ship by accident. Cut them or label them.
+- **Stand-ins are flagged on the surface.** Curated stock imagery (`IMAGERY.md`) carries a visible swap flag until the real asset lands.
+- **Qualifiers survive.** "Up to", "in pilot", "estimated", sample sizes and date ranges stay attached to the claim they qualify. Stripping a hedge is inventing a result.
+- **Links and controls do what they say** (web and app). No `href="#"`, no dead buttons, no reserved states invented on the spot — see `CHECKLIST.md` → Functional.
+- **Reserved means reserved.** Items in *Reserved for future definition* below are not inferred by an agent; they are left as labelled markers and raised with the owner.
+
 ## Do's and Don'ts
 
 **Do.**
@@ -481,6 +492,7 @@ Live spec/preview cards for every token group and component live in `preview/*.h
 - Replace decorative icons with hand-drawn marks from `assets/annotations/` (lines, circles, arrows, ticks, or crosses) in lime, lavender or purple.
 - Write CTAs as direct verb + object: *See the work*, *Tell us your story*.
 - Reserve imagery with a labelled placeholder — `__label` + `__hint` + `__prompt` — never a bare grey box. But a placeholder is the *fallback*: when a real, usable image is available, place the real image.
+- Treat content the same way: a real, sourced figure or quote first; a visible `[REAL DATA · …]` slot when it isn't available yet; never an invented one.
 - Use the Storyline squiggle in the form the background calls for: on **light / non-navy** backgrounds, the boxed square as a self-contained corner monogram; on **navy / dark fields**, the line as a background layer (bottom layer above the fill, behind content, edge-locked to the top/right/bottom, full frame height, no bleed).
 
 **Don't.**
@@ -492,6 +504,7 @@ Live spec/preview cards for every token group and component live in `preview/*.h
 - Use emoji *sparingly*, with copy. Max 3 per page/slide. Cross-platform variance is expected. Unicode pictograms (→, ✓, ★, ·, —) are allowed *in text* as typographic glyphs (they inherit text color and weight), but not as standalone icons.
 - Place the 2-color (navy + lime) logo on a secondary background. Use the 1-color white variant instead.
 - Add filler sections, ornamental stats, or decorative imagery. One thousand no's for every yes.
+- Invent a statistic, testimonial, client name, logo, result or source to make a layout feel complete. Unsourced is cut; unknown is labelled.
 - Leave an image out of a layout that needs one — or ship a placeholder when a real, usable image is available to place.
 
 ## Reserved for future definition

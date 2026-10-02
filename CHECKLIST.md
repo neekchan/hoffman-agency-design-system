@@ -1,6 +1,12 @@
-# Visual Consistency Checklist
+# Visual Consistency Checklist — and the delivery gate
 
 A short list to run through before shipping any branded surface — slide, social tile, document, web layout.
+
+**This is a gate, not a tick list.** Run it against the *finished* artifact, then paste a **delivery report** (format at the end of this file) with the deliverable. Three tiers:
+
+- **HARD** — any FAIL blocks ship. No exceptions, no "flagged for later". These are the sections marked **HARD** below: content integrity · confidentiality · contrast · built inside the system · functional (web/app) · finished file (`.pptx`).
+- **LOCKS** — everything else. Fix it, or write a one-line reason for the exception in the report. Silence is not an exception.
+- **Evidence or it didn't happen** — a PASS line states what was checked and how (a count, a path, the render that was looked at). A bare "PASS" is a FAIL. A screenshot is not a render; a tick is not a check.
 
 ---
 
@@ -9,7 +15,28 @@ A short list to run through before shipping any branded surface — slide, socia
 - [ ] **Intake run** (`INTAKE.md`): medium, Presenter/Document mode, audience/tone/language, colour direction and imagery choice confirmed; the one-line brief was restated back
 - [ ] **Imagery decided** (`IMAGERY.md`): generate / user-supplies / labelled placeholder chosen up front — not left to chance mid-build
 - [ ] **Built inside the system**: `colors_and_type.css` + `_ds_bundle.js` loaded, started from the medium's template, named layouts from `LAYOUTS.md` — no hand-authored bespoke chrome
-- [ ] Repeated figures (prices, counts, dates) are **single-sourced** — the same number reads identically on every slide it appears
+
+## Content integrity — **HARD**
+
+The brand promise is *earned* media. A deck or page that invents its evidence breaks the one thing the agency sells. These apply to every medium.
+
+- [ ] **Every number is real and traceable** — statistics, percentages, prices, dates, counts, market sizes. The source sits in speaker notes, a footnote slot, or the build note. A number with no source is cut, not kept because it looks right
+- [ ] **No invented testimonials, quotes, named people, client names, logos, awards, press mentions or case-study results.** Real and supplied, or absent
+- [ ] **Unknown content is a visible, labelled placeholder** — the slot reads `[REAL DATA · what goes here · who supplies it]` in the surface itself (not a code comment), the same way an image slot reads `Type · Aspect · generate W×Hpx`. Never plausible-looking filler that could ship by accident
+- [ ] **Stock stand-in imagery carries a visible swap flag on the surface** (caption, corner tag or the placeholder hint) until the real photo lands. An unflagged stand-in is disguised as final (`IMAGERY.md`)
+- [ ] **Qualifiers survive the edit** — "up to", "in pilot", "estimated", "n = 12" stay attached to the claim they qualify. Cutting the hedge is inventing a result (`SOUNDCHECK.md` → never present an inference as a verified result)
+- [ ] **Repeated figures are single-sourced** — the same number reads identically everywhere it appears (moved here from intake; it is a HARD check)
+- [ ] **Deck-level:** the governing thought of each slide is supported by what is actually on the slide or in its notes, not by a claim the evidence does not make
+
+## Functional — web & app surfaces — **HARD**
+
+For `ui_kits/website/`, `ui_kits/app/` and any interactive HTML deliverable. Static decks and tiles skip this section.
+
+- [ ] **Every navigation link resolves** to a real section, page or anchor. No `href="#"`, no links to pages that do not exist yet unless the link text itself says so
+- [ ] **No dead controls** — every button, toggle, input and menu does what its label says, or is visibly marked inert (`disabled` + a reason, or a `[REAL DATA]`-style placeholder label). A control that does nothing on click is a FAIL
+- [ ] **Keyboard-reachable with a visible focus state** on every interactive element; `prefers-reduced-motion` honoured (`AGENTS.md Section 16`)
+- [ ] **States are marked, not invented** — the interaction-states catalog and empty/error/loading patterns are *reserved* in `DESIGN.md`. Where a surface needs one, leave a labelled `<!-- TODO state: loading — spec reserved, DESIGN.md Tier 1 -->` marker rather than inventing a spec. Inventing a reserved item is a FAIL
+- [ ] **Run before ship** — the page was opened and clicked through, the console is clean, nothing is reachable only by guesswork. Say what was clicked in the report
 
 ## Deck mode (slides)
 
@@ -28,7 +55,7 @@ A short list to run through before shipping any branded surface — slide, socia
 - [ ] **Presenter deck: the animated brand mark was offered**, with its pre-set link. If accepted, it sits where the user directed (the closing if they didn't say) and is the hero of its slide, never beside body copy or as a bullet. It comes from a pre-set Brand Mark Studio link (never hand-built), is exported transparent with `on=` the slide's surface, and is a GIF in `.pptx` or an APNG in HTML. If the file isn't in yet, the placeholder carries the link. Document-mode decks carry none (`AGENTS.md Section 17`)
 - [ ] **Marks and the words they mark are different colours** — a lime underline under a lime word erases itself (`README` → Hand-drawn annotations)
 
-## Finished PowerPoint file (`.pptx` / `.potx`)
+## Finished PowerPoint file (`.pptx` / `.potx`) — **HARD**
 
 Run against the **exported file**, not the source that made it (`POWERPOINT.md Section 9`). Render every slide at full size — a passing screenshot is not proof.
 
@@ -43,7 +70,7 @@ Run against the **exported file**, not the source that made it (`POWERPOINT.md S
 - [ ] No unresolved image placeholder / production note; speaker notes present when Presenter mode requires them
 - [ ] Advisory: ≤3 type sizes/slide, ≤15 words/slide (Presenter), square corners default, headline carries its italic emphasis (word or phrase), layout code matches its manifest structure
 
-## Confidentiality & export
+## Confidentiality & export — **HARD**
 
 - [ ] **`references/` is NEVER included** in any download, zip, bundle, standalone/inline build, published URL, PPTX/PDF, or handoff — it is the owner's confidential source material (read-for-context only)
 
@@ -57,7 +84,7 @@ Run against the **exported file**, not the source that made it (`POWERPOINT.md S
 - [ ] **Slides only:** uses the **slide type scale as FLOORS, biased high** (20–24px labels · 30–36px body / def 32 · 40–52px subhead · 64–80px title · 120–132px statement/divider · 176px+ cover · ~240px closing) — NOT the 28px "safe" or 16px web body; **≤ 3 distinct sizes** per slide (see `AGENTS.md Section 1`)
 - [ ] **Slides only:** no micro-text — nothing ≤10pt except a functional eyebrow / mono label; on-slide sources, footnotes, placeholder captions & repeated sub-labels are cut (sources → speaker notes); **3–5 large elements** per slide (see `AGENTS.md Section 9`)
 
-## Color
+## Color — contrast lines are **HARD**
 
 - [ ] **Web / social only:** on-canvas palette respects 30/30/10/10/10/10 ratio (Navy / Lime / Lavender / Purple / Cyan / Teal). **Decks/docs are exempt** — a deck should move through the full palette (a different surface per section/theme); the only color gates on slides are WCAG contrast + one dominant color per slide.
 - [ ] Lead with **one dominant secondary** as the layout's (or slide's) mood; a second brand color may join as accent or type
@@ -152,6 +179,36 @@ Safe zone on social tiles: keep critical content **≥ 80px from all four edges*
 ---
 
 When in doubt, **simplify**. The system works because it is restrained.
+
+---
+
+## Delivery report — paste this with every deliverable
+
+The report is the gate's output. One line per HARD section, one line for the LOCKS, one line saying what was actually done to verify, one verdict. Keep it under 15 lines; the detail goes in the build note, not here.
+
+```
+DELIVERY GATE · <deliverable> · <medium> · <Presenter|Document|n/a> · system v<X.Y.Z>
+
+HARD  content integrity   PASS — 14 figures, 14 sourced in notes; 2 slots left as [REAL DATA] on slides 06, 11
+HARD  confidentiality     PASS — references/ not in export (checked zip listing)
+HARD  contrast            PASS — 9 type/surface pairs, all ≥ 4.5 or ≥ 3 at ≥ 24px (brand-contrast-matrix)
+HARD  built in system     PASS — colors_and_type.css + _ds_bundle.js loaded; layouts L03, L20, L35; adherence linter clean
+HARD  functional          n/a — static deck            (web/app: "all 9 nav links resolve; 0 dead controls; tab order checked")
+HARD  finished file       PASS — rendered all 24 slides at full size with Poppins + Baskerville Italic; 0 fallback fonts
+
+LOCKS 31 checked · 2 exceptions — slide 03 carries two marks (ladder + underline, the ladder is the point); slide 18 title is 9 words (client's product name is 3)
+
+VERIFIED BY  opened the exported .pptx in PowerPoint, rendered every slide, read every number against the source sheet
+
+RESULT  SHIP            (or: DO NOT SHIP — content integrity FAIL, 3 unsourced stats on slide 09)
+```
+
+Rules of the report:
+
+- A HARD FAIL means **DO NOT SHIP**, full stop. Fix it, re-run, re-report.
+- A PASS without evidence is a FAIL. "Checked" is not evidence; "rendered 24 slides, 0 clipped titles" is.
+- Exceptions on LOCKS get a reason, not an apology. If the reason doesn't survive being read aloud, it isn't an exception — fix the item.
+- The report is written by whoever (or whatever) built the artifact and read by a human before it leaves the building. A self-graded PASS is a claim; the human's eyeball is the check.
 
 ---
 
