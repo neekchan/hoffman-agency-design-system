@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.22.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **a docs audit, fixed, and one rule settled: functional icons come from `assets/icons/` (Lucide retired).** The lime-on-light hex, the logo-on-colour rule and the photo grade now match their source of truth in every file. Nothing visual changes.
+**Version 2.23.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **the gradient rule names its only two exceptions, collage photos get square corners, and the HTML pages catch up with the docs.** Three blends that weren't sanctioned are flat now; lime-600 is `#687600` on every card; the illustration library shows all 36 examples.
 
 Integrated Comms agency that helps tech brands solve hard business problems. The harder the better. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -357,7 +357,7 @@ The brand has three distinct copy moves used to keep slides feeling distinctivel
 - **Color as a surface:** the whole palette can carry a section as a **bold color block**, not just navy and paper. Set a brand color as the background and a WCAG-passing brand color as the headline (white or navy do the heavy lifting; cross-pollinated accents like cyan-on-purple are encouraged). The pairings card lists, for each surface, exactly which colors work as type and at what size. Lime and cyan are *light* surfaces — pair them with navy/dark type, never white.
 - **Neutrals & surfaces:** two valid light models. **Default** — a warm **paper page** (`--bg-1` `#FAFAF7`) with **white cards** (`--bg-2`). **Alternative** — a **pure-white page** with **warm sand cards** (`--tha-sand` `#F1EFE7`): add `class="tha-theme-white"` to a section and its cards remap automatically. Always step page → card one notch; never paper-on-paper or white-on-white (the ~1.5% delta is too faint to read as elevation). See `preview/brand-surfaces.html`.
 - **Contrast rule:** lime is an *accent*, not a text color on white (fails WCAG). For text/accent-on-light use `--fg-accent` (#687600, lime-600) or navy. Lime text is fine on navy. The full pair-by-pair scoring lives in `preview/brand-contrast-matrix.html` — reliable text pairs are navy/lime, navy/cyan, navy/paper, white/navy, white/purple; lime and cyan are background colors only.
-- No gradients. If a "gradient" is needed, use a 2-color split or a hand-drawn overlay instead.
+- No gradients. If a "gradient" is needed, use a 2-color split or a hand-drawn overlay instead. Two sanctioned exceptions, and only these two: the L12 textured icon cards (`.tex-a/-b/-c`) and the Brand Mark Studio's flowing colour blend (`DESIGN.md` → Colors → Rules).
 
 ### Type
 - **Sans:** **Poppins** — the brand workhorse. Used for headlines, body, UI. Geometric, friendly, wide weight range (300–800). Set display sizes in 700/800 with tight letter-spacing (-0.02em).

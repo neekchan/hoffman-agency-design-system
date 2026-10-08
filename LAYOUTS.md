@@ -235,7 +235,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 - BEST FOR: three parallel insights, each with its own painterly icon card and a market-split read (e.g. SG / MY).
 - THE ONE POINT: the pattern across the three verticals; each column is one insight, proven with two market bullets.
 - SLOTS: title (≤10 words, the italic emphasis) → ≤30-word subtitle → per column: textured icon card → heading (≤7 words) → 2 bullets with a bold market lead-in (≤22 words each).
-- SURFACES: paper; cards carry the colour (tex-a / -b / -c); icons navy on white.
+- SURFACES: paper; cards carry the colour (tex-a / -b / -c) — one of the system's two sanctioned gradients (`DESIGN.md` → Colors → Rules); icons navy on white.
 - KEEP IT HONEST: three columns, equal weight. Two market bullets per column — not three. The card colour rotates; the insight doesn't compete.
 
 **L13 · Three audiences ("we want them to…")**
@@ -318,7 +318,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 - BEST FOR: proof points or product detail where 3 numbers need to feel like a confident, designed object.
 - THE ONE POINT: three results, stacked as one cascading form. Stat top-left, icon bottom-left of each box.
 - SLOTS: eyebrow → title (≤8 words, the italic emphasis) → ≤24-word intro → ≤3 bullets (≤6 words) → each box: big number + ≤4-word label.
-- SURFACES: paper left; cascade RAINBOW by default (toggle to solid navy via Tweaks).
+- SURFACES: paper left; cascade RAINBOW by default — three solid brand colours (purple, teal, navy), no blends; toggle to solid navy via Tweaks.
 - KEEP IT HONEST: three boxes, three numbers. The cascade is the design — don't add a fourth.
 
 **L38 · Stat grid (light slide)**
@@ -390,7 +390,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 - BEST FOR: three parallel programmes/initiatives, each with a photo, an emoji-marked heading, and a short bullet list — the "what we're building" update.
 - THE ONE POINT: three efforts, equal weight; the photo makes each real, the bullets give the proof.
 - SLOTS: title + optional emoji → 3 columns: photo (4:3) + heading (Fluent emoji ok) + ≤4 bullets (≤8 words each).
-- SURFACES: paper; photos in rounded cells; navy headings.
+- SURFACES: paper; photos in square cells; navy headings.
 - KEEP IT HONEST: three columns, equal weight. Bullets are triggers — ≤8 words.
 
 **L24b · Pain ↔ Solutions**
@@ -441,7 +441,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 - BEST FOR: laying out 4, 5 or 7 photos/images as one composed object — moments, work, people, places. Pick the variant by image count.
 - THE ONE POINT: the set as a single textured collage, not N separate pictures. The largest cell carries the hero image.
 - SLOTS: eyebrow + title → image cells (4 / 5 / 7), mixed aspects — fill the biggest first.
-- SURFACES: paper or navy; images bled into rounded cells; tight gaps.
+- SURFACES: paper or navy; images bled into square cells; tight gaps.
 - KEEP IT HONEST: mixed cell sizes give the rhythm — one cell leads, the rest support. Don't make every cell equal.
 
 **L30 · Closing**
@@ -483,7 +483,7 @@ The layouts here are reverse-engineered from a real Hoffman new-business deck (t
 
 **Safe area vs. full-bleed (a decision, applied consistently).**
 - **Standard slides keep a ~0.5″ safe margin** — the slide's `padding` (**≈72px all round**; the base `.slide` in the deck template sets this). **All text and all non-bleed images stay inside it; nothing eats to the edge.** Page chrome (page number, logo) lives in that margin. (This replaces the old ≈88px side inset — pack the frame tighter.)
-- **Full-bleed is the DEFAULT for the image-led layouts** — covers (L01/L31), section dividers with the spectrum bar (L32), Statement (L08), Big-idea split (L09), Persona photo panel (L14), Full-bleed (L27), Split 50/50 (L28), Story-idea image (L40), Photo + numbered lists (L48). These use `padding:0` (or a flush edge device — the spectrum bar) and let an **image** touch one or more edges; the **type half still respects the safe area**. Bento collages (L42–L44) bleed images *into rounded cells* but keep the cell grid inside the safe margin — framed, not edge-bled. Don't inset a hero image by 0.8–0.9″ "to be safe" — bleed it. If a layout isn't on this list, its imagery is framed, not bled.
+- **Full-bleed is the DEFAULT for the image-led layouts** — covers (L01/L31), section dividers with the spectrum bar (L32), Statement (L08), Big-idea split (L09), Persona photo panel (L14), Full-bleed (L27), Split 50/50 (L28), Story-idea image (L40), Photo + numbered lists (L48). These use `padding:0` (or a flush edge device — the spectrum bar) and let an **image** touch one or more edges; the **type half still respects the safe area**. Bento collages (L42–L44) bleed images *into square cells* but keep the cell grid inside the safe margin — framed, not edge-bled. Don't inset a hero image by 0.8–0.9″ "to be safe" — bleed it. If a layout isn't on this list, its imagery is framed, not bled.
 
 **Font floor (the slide type scale, enforced as FLOORS — bias to the top).** Per `AGENTS.md Section 1` (1pt = 2px): eyebrow / label / caption **20–24**; body **30–36** (default 32, never 28); subhead **40–52**; content title / case headline **64–80**; statement & divider title **120–132**; cover / hero **176+ (size-to-fit)**; closing giant word **~240**. Captions, eyebrows, mono labels and chips sit at the **20px** floor and stay small as everything else grows. Don't reintroduce 14–28px "web" body on a slide — it reads as broken at 1920×1080. Placeholder labels run at **22px** on slides (the slots are large), hints at 17px.
 

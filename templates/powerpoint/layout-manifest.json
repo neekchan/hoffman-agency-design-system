@@ -376,7 +376,7 @@
       ], "keepHonest": "One quote, ≤20 words. Highlight one phrase." },
 
     { "code": "L42", "name": "Bento collage (4)", "family": "image", "modes": ["both"], "onePoint": "The set as one textured collage; the largest cell carries the hero.", "surfaces": ["paper", "navy"], "fullBleed": false, "logo": "variant by surface", "maxElements": 6,
-      "slots": [ { "name": "eyebrow", "tier": "eyebrow" }, { "name": "title", "tier": "title" }, { "name": "cells", "count": 4, "note": "mixed aspects into rounded cells, tight gaps, fill biggest first" } ], "keepHonest": "One cell leads, the rest support. Not all equal." },
+      "slots": [ { "name": "eyebrow", "tier": "eyebrow" }, { "name": "title", "tier": "title" }, { "name": "cells", "count": 4, "note": "mixed aspects into square cells, tight gaps, fill biggest first" } ], "keepHonest": "One cell leads, the rest support. Not all equal." },
 
     { "code": "L43", "name": "Bento collage (5)", "family": "image", "modes": ["both"], "onePoint": "Five images as one composed object.", "surfaces": ["paper", "navy"], "fullBleed": false, "logo": "variant by surface", "maxElements": 7,
       "slots": [ { "name": "eyebrow", "tier": "eyebrow" }, { "name": "title", "tier": "title" }, { "name": "cells", "count": 5, "note": "mixed aspects, one hero cell" } ], "keepHonest": "Mixed cell sizes give the rhythm." },

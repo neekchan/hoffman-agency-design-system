@@ -94,7 +94,7 @@ Run against the **exported file**, not the source that made it (`POWERPOINT.md S
 - [ ] Colored **surfaces** use a WCAG-passing brand color as type — paper and navy aren't the only backgrounds (lime/cyan surface → navy type; navy/purple/teal surface → white/light type)
 - [ ] Lime text on white? → switched to `--fg-accent` (#687600, lime-600)
 - [ ] Text/background pair clears WCAG AA (≥ 4.5, or ≥ 3 for ≥24px) — check `preview/brand-contrast-matrix.html`; lime & cyan are backgrounds, never text on light
-- [ ] No gradients, no three-color washes, no glows
+- [ ] No gradients, no three-color washes, no glows — the only sanctioned blends are the L12 textured icon cards and the Brand Mark Studio's animated mark
 
 ## Surfaces
 

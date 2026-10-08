@@ -23,6 +23,53 @@ really lives in the Claude Design project
 > If one rule landed in several files, list every file. Versioning rules:
 > `CONTRIBUTING.md` → Versioning.
 
+## 2026-10-08 — Gradients get exactly two exceptions, collage photos get square corners, and the HTML pages catch up with the docs (v2.22.0 → v2.23.0)
+
+Nic's calls on the audit's open questions (2026-10-08): keep the two deliberate gradients *"and write
+them into the rules as the only two allowed exceptions"*; collage photos go square *"so photo slides
+match the rest of the brand"*; "Techfluence" stays (it is Hoffman's own term). Doing that work turned
+up three more blends in the templates; Nic saw them flattened on before/after boards and said *"go"*.
+The rest carries the v2.22.0 audit into the HTML pages, which that release left alone.
+
+### Two sanctioned gradients, and only two — `DESIGN.md`, `README.md`, `CHECKLIST.md`, `LAYOUTS.md`
+- "No gradients" now names its exceptions: the L12 textured icon cards (`.tex-a` / `-b` / `-c`) and the
+  Brand Mark Studio's flowing colour blend. Everything else stays flat; the 60–75% navy overlay on
+  photography is a flat tint, not a gradient.
+
+### Three blends that weren't sanctioned, flattened — `templates/deck/Deck.dc.html`, `slides/Hoffman Brand Guidelines.html` (+ `-print`), `LAYOUTS.md`
+- L33 Cascade stat boxes: the Rainbow default was three soft two-tone ramps → three solid brand colours
+  (purple, teal, navy); the Navy variant's radial → flat navy. The cascade, type and toggle are unchanged.
+- L48 Photo + lists: the photo's 35→62% fade → a flat 62% navy overlay, the documented device.
+- The brand book's "Decks are code" bar chart: purple→lavender bars → solid purple.
+- Left for the next Brand Tour re-export: the Imagery tile's fade in `BrandTour.dc.html` (changing it
+  means regenerating the 3 MB standalone tour).
+
+### Collage photos have square corners — `templates/deck/Deck.dc.html`, `LAYOUTS.md`, `templates/powerpoint/layout-manifest.json`
+- L42 / L43 / L44 Bento collages: the 16 image cells drop their 18px radius and take the placeholder's
+  `--radius-0`, like every other photo in the system. "Rounded cells" → "square cells" in the layout
+  specs, including L49, whose photos were already square.
+
+### The HTML pages match the docs — `slides/Hoffman Brand Guidelines.html` (+ `-print`), `preview/colors-lime-scale.html`, `preview/brand-color-pairings.html`, `preview/components-placeholders.html`, `templates/deck/Deck.dc.html`, `templates/one-pager/OnePager.dc.html`, `index.html`, `preview/fluent-emoji-gallery.html`, `preview/brand-illustration-library.html`
+- Lime-600 is `#687600` (was `#A7BC00`, 2.1:1 on white) on the brand book's lime slide and its WCAG
+  calculator, the lime-scale card and the colour-pairings card, so they score lime-600 as the CSS defines it.
+- Photo hints and prompts: "warm grade" → neutral white balance (brand-book founder hint, deck hero
+  prompt, one-pager portrait, placeholders card). The placeholders card points to slides 46–50g (was 30b–30f).
+- `index.html`: the 66-slide brand book (was 58), 36 illustration examples (was twelve). The emoji
+  gallery calls Flat a flat-colour style (was "single-tone"). The illustration library shows all 36
+  examples from `assets/house-style/examples/prompts.json` (was 12).
+- Left as is: the Brand Tour's decorative `#A7BC00` borders (also a re-export job) and the v1 archive deck.
+
+### Not changed, on purpose
+- The spectrum bar's travelling shine (L31 / L32): a moving highlight that plays on screen only, never in
+  print, PDF or PPTX export.
+- Rounded corners outside the collages: the L15 team headshots and member cards, and a few text callouts.
+  The ruling covered collage photos; these wait for their own call.
+- On the Claude Design master only: `slides/Hoffman Brand Guidelines-print-xvz0io.html`, a leftover copy of
+  the 2026-07-06 print brand book that shows as a second, "58 slides" brand-book card. It stays until Nic
+  says to delete it; git history already holds the same content.
+
+Minor: visible template changes (collage corners, three flattened blends) and a rule that now names its exceptions.
+
 ## 2026-10-06 — A docs audit, fixed: every rule now reads the same in every file, and functional icons come from `assets/icons/` (v2.21.0 → v2.22.0)
 
 Nic asked for a lint, contradiction and dead-link audit of every markdown file on the Claude Design

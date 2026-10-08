@@ -170,8 +170,8 @@
 
   /* --- Cascade stat boxes (L33) — three overlapping diagonal panels,
      later boxes in front. Two RETAINED variations, toggled by a tweak:
-       default      → RAINBOW: each box a Hoffman-accent gradient
-       .cascade-navy → SOLID NAVY: lighter-centre radial, thin light border
+       default      → RAINBOW: each box a solid Hoffman colour (purple, teal, navy)
+       .cascade-navy → SOLID NAVY: flat navy, thin light border
      Text is always light; tight 16px corners; stat top-left, icon bottom-left. --- */
   .casc { position:relative; }
   .casc-box { position:absolute; width:60%; min-height:188px; padding:30px 32px; border-radius:16px;
@@ -185,13 +185,13 @@
   .casc-box.c1 { top:0;    left:0;   z-index:1; }
   .casc-box.c2 { top:24%;  left:20%; z-index:2; }
   .casc-box.c3 { top:48%;  left:40%; z-index:3; }
-  /* RAINBOW (default) — dark accent stop sits top-left under the text */
-  .casc .casc-box.c1 { background:linear-gradient(135deg, #6103B9 0%, #9A4AD9 100%); }
-  .casc .casc-box.c2 { background:linear-gradient(135deg, #145F7B 0%, #1F8AA6 100%); }
-  .casc .casc-box.c3 { background:linear-gradient(135deg, #5A1FA0 0%, #B05FE6 100%); }
+  /* RAINBOW (default) — solid fills, no blends (DESIGN.md → Colors → Rules) */
+  .casc .casc-box.c1 { background:var(--tha-purple); }
+  .casc .casc-box.c2 { background:var(--tha-teal); }
+  .casc .casc-box.c3 { background:var(--tha-navy); }
   /* SOLID NAVY (retained variation) — higher specificity so it wins the override */
   deck-stage.cascade-navy .casc .casc-box {
-    background:radial-gradient(135% 135% at 50% 38%, var(--tha-navy-500) 0%, var(--tha-navy-800) 70%);
+    background:var(--tha-navy);
     border-color:rgba(255,255,255,.14); }
   deck-stage.cascade-navy .casc .casc-box .casc-num { color:var(--tha-lime); }
 
@@ -377,7 +377,7 @@
       <div style="position:relative; z-index:1; display:flex; flex-direction:column; align-items:flex-end; gap:10px; padding:0 120px 130px 0; text-align:right;">
         <div class="tha-placeholder__label" style="font-size:22px; color:var(--tha-paper);">Full-bleed hero &middot; 16:9 &middot; generate 1920&times;1080px</div>
         <div class="tha-placeholder__hint" style="font-size:16px; max-width:38ch; color:var(--tha-navy-300);">One intentional image, edge to edge. The navy overlay guarantees the type.</div>
-        <div class="tha-placeholder__prompt" style="font-size:13px; max-width:48ch;">Cinematic wide shot, team reviewing work on a glass wall, dusk light, warm grade, candid, dark tones that hold white type. 16:9.</div>
+        <div class="tha-placeholder__prompt" style="font-size:13px; max-width:48ch;">Cinematic wide shot, team reviewing work on a glass wall, dusk light, neutral white balance, candid, dark tones that hold white type. 16:9.</div>
       </div>
     </div>
     <div style="position:absolute; inset:0; background:rgba(24,45,67,.66); pointer-events:none;"></div>
@@ -1098,7 +1098,7 @@
     <div class="chrome-page">34</div>
   </section>
 
-  <!-- @layout code="L33" name="Cascade stat boxes" use="Proof points or product detail where 3 numbers need to feel like a confident, designed object." point="Three results, stacked as one cascading form. Stat top-left, icon bottom-left." slots="Eyebrow: 2–4 words. Title: ≤8 words, the italic emphasis. Intro: ≤24 words. Bullets: ≤6 words, max 3. Each box: big number + ≤4-word label." surfaces="Paper left; cascade RAINBOW by default (toggle to solid navy via Tweaks)." -->
+  <!-- @layout code="L33" name="Cascade stat boxes" use="Proof points or product detail where 3 numbers need to feel like a confident, designed object." point="Three results, stacked as one cascading form. Stat top-left, icon bottom-left." slots="Eyebrow: 2–4 words. Title: ≤8 words, the italic emphasis. Intro: ≤24 words. Bullets: ≤6 words, max 3. Each box: big number + ≤4-word label." surfaces="Paper left; cascade RAINBOW by default — three solid brand colours, no blends (toggle to solid navy via Tweaks)." -->
   <section class="slide" data-label="L33 Cascade stats" data-screen-label="L33 Cascade stat boxes" style="background:var(--tha-paper); padding:80px 96px; flex-direction:row; gap:64px;">
     <div class="lay-note"><b>L33 · Cascade stat boxes</b><span><i>Use:</i> proof points, designed</span><span><i>Point:</i> 3 numbers as one cascading form. Rainbow/navy toggle.</span></div>
     <div style="flex:0 0 42%; display:flex; flex-direction:column; justify-content:center;">
@@ -1180,28 +1180,28 @@
     <div class="chrome-page">37</div>
   </section>
 
-  <!-- @layout code="L42" name="Bento collage (4)" use="A bento collage for laying out 4 photos/images as one composed object — moments, work, people, places. Mixed cell sizes give rhythm; one cell can lead." point="The set as a single textured collage, not 4 separate pictures. Let the largest cell carry the hero image." slots="Eyebrow + title. 4 image cells, mixed aspects — fill the biggest first." surfaces="Paper or navy; images bled into rounded cells; tight gaps." -->
+  <!-- @layout code="L42" name="Bento collage (4)" use="A bento collage for laying out 4 photos/images as one composed object — moments, work, people, places. Mixed cell sizes give rhythm; one cell can lead." point="The set as a single textured collage, not 4 separate pictures. Let the largest cell carry the hero image." slots="Eyebrow + title. 4 image cells, mixed aspects — fill the biggest first." surfaces="Paper or navy; images bled into square cells; tight gaps." -->
   <section class="slide" data-label="L42 Bento collage (4)" data-screen-label="L42 Bento collage (4)" style="background:var(--tha-paper); padding:56px 88px;">
     <div class="lay-note"><b>L42 · Bento collage (4)</b><span><i>Use:</i> 4-image collage</span><span><i>Point:</i> one composed object; biggest cell leads.</span></div>
     <span class="eyebrow"><span class="dot"></span>In pictures</span>
     <h2 style="font:700 52px/1.04 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy); margin:12px 0 0;">The work, in <em class="em" style="color:var(--tha-purple);">frames.</em></h2>
     <div class="stretch" style="margin-top:30px; display:grid; gap:16px; grid-template-columns:1.5fr 1fr 1fr; grid-template-rows:1fr 1fr; min-height:0;">
-      <div class="tha-placeholder" data-slot="deck-bento-1" style="grid-area:1 / 1 / 3 / 2; width:100%; height:100%; aspect-ratio:auto; min-height:0; border-radius:18px;">
+      <div class="tha-placeholder" data-slot="deck-bento-1" style="grid-area:1 / 1 / 3 / 2; width:100%; height:100%; aspect-ratio:auto; min-height:0;">
         <div class="tha-placeholder__label">Photo · 3:4 · generate 1080×1440px</div>
         <div class="tha-placeholder__hint">Hero moment — the standout image, a person or scene mid-action.</div>
         <div class="tha-placeholder__prompt">Candid environmental photo of a person mid-action in a bright modern workplace, warm natural light, documentary, authentic. Vertical 3:4.</div>
       </div>
-      <div class="tha-placeholder" data-slot="deck-bento-2" style="grid-area:1 / 2 / 2 / 4; width:100%; height:100%; aspect-ratio:auto; min-height:0; border-radius:18px;">
+      <div class="tha-placeholder" data-slot="deck-bento-2" style="grid-area:1 / 2 / 2 / 4; width:100%; height:100%; aspect-ratio:auto; min-height:0;">
         <div class="tha-placeholder__label">Photo · 2:1 · generate 1600×800px</div>
         <div class="tha-placeholder__hint">A wide establishing shot — a room, an event, a city.</div>
         <div class="tha-placeholder__prompt">Wide candid shot of a busy modern office or event, natural light, energetic and real, documentary style. Panoramic 2:1.</div>
       </div>
-      <div class="tha-placeholder" data-slot="deck-bento-3" style="grid-area:2 / 2 / 3 / 3; width:100%; height:100%; aspect-ratio:auto; min-height:0; border-radius:18px;">
+      <div class="tha-placeholder" data-slot="deck-bento-3" style="grid-area:2 / 2 / 3 / 3; width:100%; height:100%; aspect-ratio:auto; min-height:0;">
         <div class="tha-placeholder__label">Photo · 1:1 · generate 1280×1280px</div>
         <div class="tha-placeholder__hint">A detail — hands, a screen, an object that grounds the story.</div>
         <div class="tha-placeholder__prompt">Close-up detail of hands working on a laptop or device, warm light, shallow depth of field. Square 1:1.</div>
       </div>
-      <div class="tha-placeholder" data-slot="deck-bento-4" style="grid-area:2 / 3 / 3 / 4; width:100%; height:100%; aspect-ratio:auto; min-height:0; border-radius:18px;">
+      <div class="tha-placeholder" data-slot="deck-bento-4" style="grid-area:2 / 3 / 3 / 4; width:100%; height:100%; aspect-ratio:auto; min-height:0;">
         <div class="tha-placeholder__label">Photo · 1:1 · generate 1280×1280px</div>
         <div class="tha-placeholder__hint">A face — a candid portrait, genuine expression.</div>
         <div class="tha-placeholder__prompt">Candid half-body portrait of a professional with a genuine smile, soft natural light, business-casual. Square 1:1.</div>
@@ -1210,33 +1210,33 @@
     <div class="chrome-page">38</div>
   </section>
 
-  <!-- @layout code="L43" name="Bento collage (5)" use="A bento collage for laying out 5 photos/images as one composed object — moments, work, people, places. Mixed cell sizes give rhythm; one cell can lead." point="The set as a single textured collage, not 5 separate pictures. Let the largest cell carry the hero image." slots="Eyebrow + title. 5 image cells, mixed aspects — fill the biggest first." surfaces="Paper or navy; images bled into rounded cells; tight gaps." -->
+  <!-- @layout code="L43" name="Bento collage (5)" use="A bento collage for laying out 5 photos/images as one composed object — moments, work, people, places. Mixed cell sizes give rhythm; one cell can lead." point="The set as a single textured collage, not 5 separate pictures. Let the largest cell carry the hero image." slots="Eyebrow + title. 5 image cells, mixed aspects — fill the biggest first." surfaces="Paper or navy; images bled into square cells; tight gaps." -->
   <section class="slide" data-label="L43 Bento collage (5)" data-screen-label="L43 Bento collage (5)" style="background:var(--tha-paper); padding:56px 88px;">
     <div class="lay-note"><b>L43 · Bento collage (5)</b><span><i>Use:</i> 5-image collage</span><span><i>Point:</i> one composed object; biggest cell leads.</span></div>
     <span class="eyebrow"><span class="dot"></span>In pictures</span>
     <h2 style="font:700 52px/1.04 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy); margin:12px 0 0;">A year, in <em class="em" style="color:var(--tha-purple);">moments.</em></h2>
     <div class="stretch" style="margin-top:30px; display:grid; gap:16px; grid-template-columns:1.4fr 1fr 1fr; grid-template-rows:1fr 1fr; min-height:0;">
-      <div class="tha-placeholder" data-slot="deck-bento-5" style="grid-area:1 / 1 / 3 / 2; width:100%; height:100%; aspect-ratio:auto; min-height:0; border-radius:18px;">
+      <div class="tha-placeholder" data-slot="deck-bento-5" style="grid-area:1 / 1 / 3 / 2; width:100%; height:100%; aspect-ratio:auto; min-height:0;">
         <div class="tha-placeholder__label">Photo · 3:4 · generate 1080×1440px</div>
         <div class="tha-placeholder__hint">Hero moment — the image that sets the tone.</div>
         <div class="tha-placeholder__prompt">Candid environmental photo of a key moment, person mid-action, warm natural light, documentary, authentic. Vertical 3:4.</div>
       </div>
-      <div class="tha-placeholder" data-slot="deck-bento-6" style="grid-area:1 / 2 / 2 / 3; width:100%; height:100%; aspect-ratio:auto; min-height:0; border-radius:18px;">
+      <div class="tha-placeholder" data-slot="deck-bento-6" style="grid-area:1 / 2 / 2 / 3; width:100%; height:100%; aspect-ratio:auto; min-height:0;">
         <div class="tha-placeholder__label">Photo · 1:1 · generate 1280×1280px</div>
         <div class="tha-placeholder__hint">A candid — people together.</div>
         <div class="tha-placeholder__prompt">Candid photo of colleagues collaborating, genuine interaction, natural light. Square 1:1.</div>
       </div>
-      <div class="tha-placeholder" data-slot="deck-bento-7" style="grid-area:1 / 3 / 2 / 4; width:100%; height:100%; aspect-ratio:auto; min-height:0; border-radius:18px;">
+      <div class="tha-placeholder" data-slot="deck-bento-7" style="grid-area:1 / 3 / 2 / 4; width:100%; height:100%; aspect-ratio:auto; min-height:0;">
         <div class="tha-placeholder__label">Photo · 1:1 · generate 1280×1280px</div>
         <div class="tha-placeholder__hint">A place — an office, a market, a city.</div>
         <div class="tha-placeholder__prompt">Candid shot of a vibrant workplace or cityscape, warm light, real. Square 1:1.</div>
       </div>
-      <div class="tha-placeholder" data-slot="deck-bento-8" style="grid-area:2 / 2 / 3 / 3; width:100%; height:100%; aspect-ratio:auto; min-height:0; border-radius:18px;">
+      <div class="tha-placeholder" data-slot="deck-bento-8" style="grid-area:2 / 2 / 3 / 3; width:100%; height:100%; aspect-ratio:auto; min-height:0;">
         <div class="tha-placeholder__label">Photo · 1:1 · generate 1280×1280px</div>
         <div class="tha-placeholder__hint">A detail — the work itself.</div>
         <div class="tha-placeholder__prompt">Close-up of work in progress on a screen or notebook, shallow depth of field. Square 1:1.</div>
       </div>
-      <div class="tha-placeholder" data-slot="deck-bento-9" style="grid-area:2 / 3 / 3 / 4; width:100%; height:100%; aspect-ratio:auto; min-height:0; border-radius:18px;">
+      <div class="tha-placeholder" data-slot="deck-bento-9" style="grid-area:2 / 3 / 3 / 4; width:100%; height:100%; aspect-ratio:auto; min-height:0;">
         <div class="tha-placeholder__label">Photo · 1:1 · generate 1280×1280px</div>
         <div class="tha-placeholder__hint">A face — candid portrait.</div>
         <div class="tha-placeholder__prompt">Candid portrait of a professional, warm genuine expression, soft light. Square 1:1.</div>
@@ -1245,43 +1245,43 @@
     <div class="chrome-page">39</div>
   </section>
 
-  <!-- @layout code="L44" name="Bento collage (7)" use="A bento collage for laying out 7 photos/images as one composed object — moments, work, people, places. Mixed cell sizes give rhythm; one cell can lead." point="The set as a single textured collage, not 7 separate pictures. Let the largest cell carry the hero image." slots="Eyebrow + title. 7 image cells, mixed aspects — fill the biggest first." surfaces="Paper or navy; images bled into rounded cells; tight gaps." -->
+  <!-- @layout code="L44" name="Bento collage (7)" use="A bento collage for laying out 7 photos/images as one composed object — moments, work, people, places. Mixed cell sizes give rhythm; one cell can lead." point="The set as a single textured collage, not 7 separate pictures. Let the largest cell carry the hero image." slots="Eyebrow + title. 7 image cells, mixed aspects — fill the biggest first." surfaces="Paper or navy; images bled into square cells; tight gaps." -->
   <section class="slide" data-label="L44 Bento collage (7)" data-screen-label="L44 Bento collage (7)" style="background:var(--tha-paper); padding:56px 88px;">
     <div class="lay-note"><b>L44 · Bento collage (7)</b><span><i>Use:</i> 7-image collage</span><span><i>Point:</i> one composed object; biggest cell leads.</span></div>
     <span class="eyebrow"><span class="dot"></span>In pictures</span>
     <h2 style="font:700 52px/1.04 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy); margin:12px 0 0;">Everything, all at <em class="em" style="color:var(--tha-purple);">once.</em></h2>
     <div class="stretch" style="margin-top:30px; display:grid; gap:16px; grid-template-columns:repeat(6,1fr); grid-template-rows:1fr 1fr; min-height:0;">
-      <div class="tha-placeholder" data-slot="deck-bento-10" style="grid-area:1 / 1 / 3 / 3; width:100%; height:100%; aspect-ratio:auto; min-height:0; border-radius:18px;">
+      <div class="tha-placeholder" data-slot="deck-bento-10" style="grid-area:1 / 1 / 3 / 3; width:100%; height:100%; aspect-ratio:auto; min-height:0;">
         <div class="tha-placeholder__label">Photo · 1:1 · generate 1280×1280px</div>
         <div class="tha-placeholder__hint">Hero — the anchor image, largest cell.</div>
         <div class="tha-placeholder__prompt">Candid environmental photo of a standout moment, person mid-action, warm natural light, documentary. Square 1:1.</div>
       </div>
-      <div class="tha-placeholder" data-slot="deck-bento-11" style="grid-area:1 / 3 / 2 / 5; width:100%; height:100%; aspect-ratio:auto; min-height:0; border-radius:18px;">
+      <div class="tha-placeholder" data-slot="deck-bento-11" style="grid-area:1 / 3 / 2 / 5; width:100%; height:100%; aspect-ratio:auto; min-height:0;">
         <div class="tha-placeholder__label">Photo · 2:1 · generate 1600×800px</div>
         <div class="tha-placeholder__hint">Wide establishing shot.</div>
         <div class="tha-placeholder__prompt">Wide candid shot of an event or open office, energetic, natural light. Panoramic 2:1.</div>
       </div>
-      <div class="tha-placeholder" data-slot="deck-bento-12" style="grid-area:1 / 5 / 2 / 7; width:100%; height:100%; aspect-ratio:auto; min-height:0; border-radius:18px;">
+      <div class="tha-placeholder" data-slot="deck-bento-12" style="grid-area:1 / 5 / 2 / 7; width:100%; height:100%; aspect-ratio:auto; min-height:0;">
         <div class="tha-placeholder__label">Photo · 2:1 · generate 1600×800px</div>
         <div class="tha-placeholder__hint">A second wide beat — a different scene.</div>
         <div class="tha-placeholder__prompt">Wide candid shot of people collaborating in a bright space, warm light, real. Panoramic 2:1.</div>
       </div>
-      <div class="tha-placeholder" data-slot="deck-bento-13" style="grid-area:2 / 3 / 3 / 4; width:100%; height:100%; aspect-ratio:auto; min-height:0; border-radius:18px;">
+      <div class="tha-placeholder" data-slot="deck-bento-13" style="grid-area:2 / 3 / 3 / 4; width:100%; height:100%; aspect-ratio:auto; min-height:0;">
         <div class="tha-placeholder__label">Photo · 1:1 · generate 1280×1280px</div>
         <div class="tha-placeholder__hint">A detail.</div>
         <div class="tha-placeholder__prompt">Close-up detail of hands or a device, shallow depth of field, warm light. Square 1:1.</div>
       </div>
-      <div class="tha-placeholder" data-slot="deck-bento-14" style="grid-area:2 / 4 / 3 / 5; width:100%; height:100%; aspect-ratio:auto; min-height:0; border-radius:18px;">
+      <div class="tha-placeholder" data-slot="deck-bento-14" style="grid-area:2 / 4 / 3 / 5; width:100%; height:100%; aspect-ratio:auto; min-height:0;">
         <div class="tha-placeholder__label">Photo · 1:1 · generate 1280×1280px</div>
         <div class="tha-placeholder__hint">A face.</div>
         <div class="tha-placeholder__prompt">Candid portrait, genuine expression, soft natural light. Square 1:1.</div>
       </div>
-      <div class="tha-placeholder" data-slot="deck-bento-15" style="grid-area:2 / 5 / 3 / 6; width:100%; height:100%; aspect-ratio:auto; min-height:0; border-radius:18px;">
+      <div class="tha-placeholder" data-slot="deck-bento-15" style="grid-area:2 / 5 / 3 / 6; width:100%; height:100%; aspect-ratio:auto; min-height:0;">
         <div class="tha-placeholder__label">Photo · 1:1 · generate 1280×1280px</div>
         <div class="tha-placeholder__hint">A place.</div>
         <div class="tha-placeholder__prompt">Candid shot of a workplace or city detail, natural light. Square 1:1.</div>
       </div>
-      <div class="tha-placeholder" data-slot="deck-bento-16" style="grid-area:2 / 6 / 3 / 7; width:100%; height:100%; aspect-ratio:auto; min-height:0; border-radius:18px;">
+      <div class="tha-placeholder" data-slot="deck-bento-16" style="grid-area:2 / 6 / 3 / 7; width:100%; height:100%; aspect-ratio:auto; min-height:0;">
         <div class="tha-placeholder__label">Photo · 1:1 · generate 1280×1280px</div>
         <div class="tha-placeholder__hint">A moment — something human.</div>
         <div class="tha-placeholder__prompt">Candid photo of a genuine human moment, laughter or focus, warm light. Square 1:1.</div>
@@ -1332,7 +1332,7 @@
         <div class="tha-placeholder__hint">A candid scene tied to the theme — a team, an event, the work in the room.</div>
         <div class="tha-placeholder__prompt">Candid documentary photo of a speaker presenting to an engaged audience in a modern venue, warm light, authentic and energetic. Vertical 3:4, 1080×1440px.</div>
       </div>
-      <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(14,28,43,.35), rgba(14,28,43,.62)); display:flex; align-items:center; padding:64px 56px;">
+      <div style="position:absolute; inset:0; background:rgba(14,28,43,.62); display:flex; align-items:center; padding:64px 56px;">
         <h2 style="font:800 76px/1.0 var(--font-sans); letter-spacing:-.025em; color:var(--tha-paper); margin:0; max-width:733px;">Momentum across<br><em class="em" style="color:var(--tha-lime);">three</em> fronts</h2>
       </div>
     </div>
@@ -1345,7 +1345,7 @@
     <div class="chrome-page">44</div>
   </section>
 
-  <!-- @layout code="L49" name="Three photo + bullets" use="Three parallel programmes/initiatives, each with a photo, an emoji-marked heading, and a short bullet list. The 'what we're building' update." point="Three efforts, equal weight; the photo makes each real, the bullets give the proof." slots="Title + optional emoji. 3 columns: photo (4:3) + heading (Fluent emoji ok) + ≤4 bullets, ≤8 words each." surfaces="Paper; photos in rounded cells; navy headings." -->
+  <!-- @layout code="L49" name="Three photo + bullets" use="Three parallel programmes/initiatives, each with a photo, an emoji-marked heading, and a short bullet list. The 'what we're building' update." point="Three efforts, equal weight; the photo makes each real, the bullets give the proof." slots="Title + optional emoji. 3 columns: photo (4:3) + heading (Fluent emoji ok) + ≤4 bullets, ≤8 words each." surfaces="Paper; photos in square cells; navy headings." -->
   <section class="slide" data-label="L49 Three photo + bullets" data-screen-label="L49 Three photo + bullets" style="background:var(--tha-paper); padding:56px 88px;">
     <div class="lay-note"><b>L49 · Three photo + bullets</b><span><i>Use:</i> 3 programmes / initiatives</span><span><i>Point:</i> photo makes each real; bullets prove it.</span></div>
     <h2 style="font:700 52px/1.04 var(--font-sans); letter-spacing:-.02em; color:var(--tha-navy); margin:0 0 32px;">What we're <em class="em" style="color:var(--tha-purple);">building</em> <fluent-emoji name="seedling" size="48"></fluent-emoji></h2>
