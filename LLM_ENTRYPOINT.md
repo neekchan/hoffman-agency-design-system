@@ -27,7 +27,7 @@ route.
 - Use Libre Baskerville italic only, usually one word or phrase inside a Poppins headline.
 - Use navy `#182D43` and lime `#D2EB00` as the structural pair.
 - Lavender, purple, cyan, and teal are allowed as full surfaces when contrast passes.
-- Never use lime text on white; use `--fg-accent` / `#A7BC00` or navy.
+- Never use lime text on white; use `--fg-accent` / `#687600` or navy.
 - Use the Storyline mark correctly: boxed monogram on light/non-navy, line variant as a background layer on navy/dark.
 - Use real imagery first. Decide generate-vs-supply-vs-placeholder with `IMAGERY.md`; if unavailable, use labelled `.tha-placeholder` blocks with exact generate dimensions — never a bare grey box.
 - Keep copy smart, human, energetic, distilled, bold, creative, and authentic. No agency jargon.

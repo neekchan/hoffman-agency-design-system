@@ -42,7 +42,7 @@ Before laying anything out, echo one line back:
 Let the user correct it, then build. This twenty-second confirmation prevents almost every "that's not what I wanted."
 
 ## Non-negotiable, whatever the answers
-Intake sets the *brief*; the system sets the *build*. After intake you still: load `colors_and_type.css` + `_ds_bundle.js`, start from the medium's template, pick named layouts from `LAYOUTS.md`, and **never hand-author bespoke slide chrome.** If the adherence linter says the bundle isn't loaded, stop and fix it before continuing.
+Intake sets the *brief*; the system sets the *build*. After intake you still: load `colors_and_type.css` + `_ds_bundle.js`, start from the medium's template, pick named layouts from `LAYOUTS.md`, and **never hand-author bespoke slide chrome.** If the adherence linter (run by Claude Design) says the bundle isn't loaded, stop and fix it before continuing; elsewhere, check by hand that both files load.
 
 ---
 

@@ -35,7 +35,7 @@ What type may sit on each surface (pre-validated, follow exactly):
 - On Lavender: Navy (body), Purple #6103B9 (large/bold only), white (large/bold only — prefer navy).
 - On Cyan: Navy (body), Teal #145F7B (any size), Purple (any size). NEVER white on cyan.
 - On Lime: Navy only (body and display), Purple (large/bold). NEVER white on lime.
-- On Paper/White: Navy (body), Purple (any size), Teal (any size), dark lime #A7BC00 for lime-toned accents. NEVER bright lime #D2EB00 as text on white.
+- On Paper/White: Navy (body), Purple (any size), Teal (any size), dark lime #687600 for lime-toned text. NEVER bright lime #D2EB00 as text on white.
 
 Combination rules: one dominant surface color per tile, plus at most one accent color in the type (e.g. navy surface, white headline, the italic emphasis in lime). Cross-pollinating warm and cool (cyan on purple, lime on teal) is encouraged — the pairs above already pass contrast. Never let three or more colors compete on one tile.
 
@@ -71,7 +71,7 @@ NO other decorative linework: no extra wavy lines, no squiggly arrows beyond the
 - Square tile 2160×2160 (LinkedIn/IG): full-bleed color surface; asymmetric layout — type biased to the left or top ~60–70%, deliberate negative space in the rest. Carousel series number small in the top-left in mono or Poppins Bold.
 - Story 1080×1920: same rules, hero statement in the vertical center third, eyebrow top-left, CTA near bottom.
 - Carousel logic: rotate surfaces tile-to-tile (e.g. navy → lavender → teal → lime → purple), keep the type system identical so the set reads as one voice. Cover and closing tiles may carry the squiggle and the logo; middle tiles carry NO logo.
-- Logo (when used): the wordmark "Hoffman Agency" — white version on navy/purple/teal/lavender, navy version on lime/cyan/paper. Bottom-left, small. Never stretched, never recolored beyond these.
+- Logo (when used): the wordmark "Hoffman Agency" — white version on navy/purple/teal/lavender, navy version on lime/cyan, the two-colour (navy + lime) version on paper/white. Bottom-left, small. Never stretched, never recolored beyond these.
 
 ## 8 · Photography (when a tile uses an image)
 Unposed, documentary, natural light, business-casual people in saturated colours, bright high-key with a clean neutral white balance, eye-level. Never staged stock poses, or a dark or amber grade. If type sits on a photo, flood it with a 60–75% Deep Navy overlay first — type never sits on a raw image. Black-and-white is allowed for portrait gravitas only.

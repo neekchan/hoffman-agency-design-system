@@ -26,12 +26,12 @@ Drop a labeled `.tha-placeholder` where each image belongs (`AGENTS.md Section 4
 
 ## Two kinds of image — don't confuse them
 - **Illustration** (the house style below) — flat editorial illustration for a **concept or metaphor**: "why now," "the choice," a tension, an idea. This is what the AI generates by default.
-- **Photograph** — candid, natural-light, warm-grade, business-casual real people and places (`AGENTS.md Section 3` imagery direction) — for real teams, offices, events. Use a photo placeholder when a real photo is needed; never illustrate a real, named person. Build photo prompts from the photography seeds in `PROMPTS.md`.
+- **Photograph** — candid, natural-light, bright high-key (neutral white balance, never an amber grade), business-casual real people and places (`README.md` → Imagery direction) — for real teams, offices, events. Use a photo placeholder when a real photo is needed; never illustrate a real, named person. Build photo prompts from the photography seeds in `PROMPTS.md`.
 
 ## The Hoffman house illustration style
 The documented default when the user hasn't supplied their own samples.
 
-> **📚 Twelve worked examples, each with the exact prompt that made it, live in
+> **📚 36 worked examples, each with the exact prompt that made it, live in
 > [`assets/house-style/`](./assets/house-style/README.md) — browsable at
 > [the illustration library](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-illustration-library.html).**
 > Copy the prefix below, append a subject line, paste into any image AI. Start
@@ -56,7 +56,7 @@ tradition — conceptual, calm, a bit dry; never cute, never corporate clip-art.
 
 > Flat vector editorial illustration with a subtle paper-grain, gouache-textured finish. Warm muted editorial palette: coral-salmon red, petrol teal-blue, mustard golden-yellow, cream off-white, plum purple, and muted slate-blue and grey. Stylised human characters with simple rounded or elongated heads, small round dot eyes, a prominent angular nose in profile, thin minimal limbs, flat solid-colour clothing, warm terracotta skin tones. One clear conceptual metaphor, generous negative space, a flat single-colour textured background, soft small drop shadows. Whimsical, intelligent, calm, dry-witted business-editorial mood. Absolutely no text, letters, numbers, words, logos, watermark, or signature.
 
-**Reference samples** (`assets/house-style/`) — three that show the range:
+**Reference samples** — the 36 in `assets/house-style/examples/` are the current set (subject lines in `assets/house-style/README.md`). Three originals in `assets/house-style/` are kept for lineage:
 - `robot-handoff.jpg` — a robot handing finished documents to a worker (character + object).
 - `toolbox-choice.jpg` — a figure choosing a full toolbox over a single shiny gem (metaphor carried by a figure).
 - `iceberg.jpg` — a small iceberg tip over a hidden mass (pure object metaphor, no character).

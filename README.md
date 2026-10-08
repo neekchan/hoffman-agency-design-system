@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.21.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **`CHECKLIST.md` becomes a delivery gate with a content-integrity HARD check.** Every number, quote, name, logo and result is real and sourced or a visible `[REAL DATA · …]` slot; HARD sections block ship; a PASS needs evidence. Nothing visual changes.
+**Version 2.22.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **a docs audit, fixed, and one rule settled: functional icons come from `assets/icons/` (Lucide retired).** The lime-on-light hex, the logo-on-colour rule and the photo grade now match their source of truth in every file. Nothing visual changes.
 
 Integrated Comms agency that helps tech brands solve hard business problems. The harder the better. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -22,7 +22,7 @@ Live pages, no install, no clone. Ordered by how often you'll actually want them
 
 | | What it is | Why you'd open it |
 |---|---|---|
-| **[Brand guidelines deck](https://neekchan.github.io/hoffman-agency-design-system/slides/Hoffman%20Brand%20Guidelines.html)** | The 58-slide brand book | The one you send someone who asks "what's the brand?" Covers voice, logo, colour, type, imagery, layout, governance |
+| **[Brand guidelines deck](https://neekchan.github.io/hoffman-agency-design-system/slides/Hoffman%20Brand%20Guidelines.html)** | The 66-slide brand book | The one you send someone who asks "what's the brand?" Covers voice, logo, colour, type, imagery, layout, governance |
 | **[Interactive brand tour](https://neekchan.github.io/hoffman-agency-design-system/templates/brand-tour/BrandTour.dc.html)** | The guidelines, but running | Twenty-three screens you press, drag and break — now including the photo library and all sixteen markets. Same rules as the deck, except you can play with them |
 | **[Brand Mark Studio](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-mark-studio.html)** | The animated `hellllllo` exporter | Type a word, export APNG / GIF / MP4 for a deck, a signature or social |
 
@@ -89,7 +89,7 @@ vanishes into it. `format=` highlights the one export button to press. The
 full parameter list is in `AGENTS.md` §17. That section is also why an AI
 building a Hoffman deck now offers you this mark, with a ready-made link.
 
-> **Also live:** every preview card in [`preview/`](https://neekchan.github.io/hoffman-agency-design-system/preview/) — the
+> **Also live:** every preview card in `preview/` (start at the [live front door](https://neekchan.github.io/hoffman-agency-design-system/)) — the
 > [contrast matrix](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-contrast-matrix.html), the
 > [colour pairings](https://neekchan.github.io/hoffman-agency-design-system/preview/brand-color-pairings.html), the
 > [emoji gallery](https://neekchan.github.io/hoffman-agency-design-system/preview/fluent-emoji-gallery.html) — plus the
@@ -104,7 +104,7 @@ building a Hoffman deck now offers you this mark, with a ready-made link.
 
 This repo is the source brand system — colors, typography, logo assets, Storyline motif, annotation library, deck rules, templates, and voice — tuned for the way it's actually used: pointing Claude, ChatGPT, or another LLM at the repo and asking it to build slides, pages, decks, or prototypes that stay on brand.
 
-That operational readiness shows up as: `LLM_ENTRYPOINT.md` for task routing and `ANTI_PATTERNS.md` for common LLM failures; fallback slide rules in this README for the common case where only the README is pasted into Claude/ChatGPT; `ui_kits/app/` with product UI primitives, a dashboard demo, and `COMPONENTS.md` examples; the design-system compiler to catch catalog drift before it reaches users; and `CONTRIBUTING.md` plus `CHANGELOG.md` so changes stay easy to review.
+That operational readiness shows up as: `LLM_ENTRYPOINT.md` for task routing and `ANTI_PATTERNS.md` for common LLM failures; fallback slide rules in this README for the common case where only the README is pasted into Claude/ChatGPT; `ui_kits/app/` with product UI primitives, a dashboard demo, and `COMPONENTS.md` examples; the design-system compiler (on the Claude Design master) to catch catalog drift before it reaches users; and `CONTRIBUTING.md` plus `CHANGELOG.md` so changes stay easy to review.
 
 > ### ⚠ Two media, two rule sets — read before building
 > This system serves **web** and **slides/office docs**, which have different layout physics. Most of this README (type scale, spacing, "generous whitespace," "more air," 1240px max-width, sparse imagery) describes the **WEB / social** posture.
@@ -183,7 +183,7 @@ POWERPOINT.md           · native `.pptx` route — theme spec, font reliability
 DESIGN.md               · Google design.md spec — machine-readable single source of truth
 README.md               · this file (the human read of the brand: content, visual, iconography)
 SKILL.md                · agent-skill manifest
-CHECKLIST.md            · pre-ship visual consistency checklist
+CHECKLIST.md            · the delivery gate — HARD checks, LOCKS and the delivery report (run it on the finished artifact)
 ANTI_PATTERNS.md        · common LLM design failure modes + the correct Hoffman replacement
 IMAGERY.md              · imagery workflow (generate / supply / placeholder) + capability check + Hoffman house illustration style (pairs with PROMPTS.md)
 PROMPTS.md              · AI generation prompt templates
@@ -214,7 +214,7 @@ assets/
   emoji/                            · Fluent-emoji injector (visual storytelling — see AGENTS.md Section 8)
     fluent-emoji.js                 · <fluent-emoji> web component; local-first, CDN fallback
     3d/                             · 75 curated 3D PNGs — the documented default form, vendored for offline use
-    flat/                           · 75 curated Flat SVGs — the single-tone style, for when 2D is too glossy
+    flat/                           · 75 curated Flat SVGs — the flat-colour style, same as `assets/icons/`
     fluent-full-index.js            · index of all 1,595 upstream emoji (generated) — powers the browse-everything page
     color/                          · 75 static colour SVGs, same curated set (offline 2D fallback)
     animated/                       · 24 genuinely-animated APNGs — 43 stills were removed; check the manifest
@@ -261,7 +261,7 @@ ui_kits/
   website/              · marketing-site UI kit — index.html + JSX components
     Hero · Nav · Services · CaseStudyGrid · QuoteBlock · StatsStrip · CTABand · Footer
     Button · Em · Eyebrow · Circle · PaletteStrip · Scribble · README.md
-    (15 components exposed — StorylineDivider ships from QuoteBlock.jsx, so there are 14 files.)
+    (15 components exposed — StorylineDivider ships from QuoteBlock.jsx, so there are 14 files. StorylineDivider is deprecated: don't use it.)
   app/                  · product/app UI kit — dashboard demo + React primitive catalog
     AppUI.jsx · index.html · COMPONENTS.md · README.md
     Forms · navigation · feedback · data display · disclosure · progress primitives
@@ -277,7 +277,7 @@ uploads/                · scratch — transient user uploads (review screenshot
 
 ## Validation
 
-This system is compiled and validated by the design-system compiler, which regenerates `_ds_bundle.js`, `_ds_manifest.json`, and `_adherence.oxlintrc.json` and reports catalog, manifest, and metadata issues on every change. Before shipping repo changes, run `CHECKLIST.md` manually for visual consistency. The generated files should always come from the compiler; if it is unavailable and a generated export must be synced manually, keep the change mechanical.
+This system is compiled and validated by the design-system compiler, which runs on the Claude Design master: it regenerates `_ds_bundle.js`, `_ds_manifest.json`, and `_adherence.oxlintrc.json` and reports catalog, manifest, and metadata issues on every change. The repo has no validator of its own (the Node tooling was removed in v2.3.2), so a repo-side change is checked when it reaches the master. Before shipping anything visual, run the `CHECKLIST.md` gate. The generated files should always come from the compiler; if it is unavailable and a generated export must be synced manually, keep the change mechanical.
 
 ---
 
@@ -309,6 +309,7 @@ Seven attributes, applied together. Smart leads with substance, Human keeps it g
 - **Sentence case** for headings and UI. Title Case only on proper nouns and the logo.
 - UPPERCASE is reserved for **eyebrows** (category labels, tags) with wide tracking (0.14em).
 - Never shout. All-caps paragraphs are out.
+- **lowercase first words** are an accepted casual signal — *"hoffman has always been a challenger brand"*, *"hellllllo 2026"*. Use intentionally, not by accident.
 
 ### Punctuation
 - Em-dashes for rhythm, not periods for emphasis. ("Smart — not smug.")
@@ -341,10 +342,6 @@ The brand has three distinct copy moves used to keep slides feeling distinctivel
 2. **The ladder** — step a word up or down in scale across stacked lines to make commitment visible. *"In 2026 we're leaning in / more / more / more / into our influence in tech."* Repetition is the point.
 3. **Strikethrough humor** — cross out the safer word, replace with the bolder one. *"We're ~~doubling~~ tripling down on video."* Treats the slide like a live draft. Use sparingly — once a deck.
 
-### Casing
-- **Sentence case** for headings and UI. Title Case only on proper nouns and the logo.
-- **lowercase first words** are an accepted casual signal — *"hoffman has always been a challenger brand"*, *"hellllllo 2026"*. Use intentionally, not by accident.
-
 **Off-brand (avoid):**
 - ~~Unlocking next-generation communications for tomorrow's tech leaders.~~
 - ~~We deliver end-to-end storytelling solutions across the full marketing funnel.~~
@@ -359,7 +356,7 @@ The brand has three distinct copy moves used to keep slides feeling distinctivel
 - **Secondary:** Lavender `#CB65FF`, Purple `#6103B9`, Cyan `#86FFF1`, Teal `#145F7B`. Lead each layout with **one dominant secondary as its "mood"**, then bring a second color in as accent or type. **Cross-pollination is now allowed** — any two brand colors may be combined, *including across the warm/cool pairs* (e.g. lavender type on teal, cyan on purple) — **so long as the combination clears WCAG** (≥ 4.5 for body, ≥ 3 for large/bold). The old "never cross the pairs" ban was a taste rule; it's retired — **contrast is the gate, not pairing.** See `preview/brand-color-pairings.html` for every validated combination. Token names remain `--tha-violet` / `--tha-aqua` for stability; display names are Lavender and Cyan.
 - **Color as a surface:** the whole palette can carry a section as a **bold color block**, not just navy and paper. Set a brand color as the background and a WCAG-passing brand color as the headline (white or navy do the heavy lifting; cross-pollinated accents like cyan-on-purple are encouraged). The pairings card lists, for each surface, exactly which colors work as type and at what size. Lime and cyan are *light* surfaces — pair them with navy/dark type, never white.
 - **Neutrals & surfaces:** two valid light models. **Default** — a warm **paper page** (`--bg-1` `#FAFAF7`) with **white cards** (`--bg-2`). **Alternative** — a **pure-white page** with **warm sand cards** (`--tha-sand` `#F1EFE7`): add `class="tha-theme-white"` to a section and its cards remap automatically. Always step page → card one notch; never paper-on-paper or white-on-white (the ~1.5% delta is too faint to read as elevation). See `preview/brand-surfaces.html`.
-- **Contrast rule:** lime is an *accent*, not a text color on white (fails WCAG). For text/accent-on-light use `--fg-accent` (#A7BC00) or navy. Lime text is fine on navy. The full pair-by-pair scoring lives in `preview/brand-contrast-matrix.html` — reliable text pairs are navy/lime, navy/cyan, navy/paper, white/navy, white/purple; lime and cyan are background colors only.
+- **Contrast rule:** lime is an *accent*, not a text color on white (fails WCAG). For text/accent-on-light use `--fg-accent` (#687600, lime-600) or navy. Lime text is fine on navy. The full pair-by-pair scoring lives in `preview/brand-contrast-matrix.html` — reliable text pairs are navy/lime, navy/cyan, navy/paper, white/navy, white/purple; lime and cyan are background colors only.
 - No gradients. If a "gradient" is needed, use a 2-color split or a hand-drawn overlay instead.
 
 ### Type
@@ -370,7 +367,7 @@ The brand has three distinct copy moves used to keep slides feeling distinctivel
 - **Mono:** JetBrains Mono — captions, tiny metadata, case-study stats.
 - **Hierarchy rule:** one hero idea per screen, set huge (up to 120px Poppins). Everything else shrinks hard. Generous vertical space between blocks (80–128px section padding on desktop).
 - **Signature move:** `Bold Poppins headline with the <em>emphasis</em> in italic` → the `<em>` wraps the key word *or* short phrase (whatever carries the point) and renders in Baskerville italic. One emphasis per line, chosen by meaning not count — never italicize word after word. Contrast does the heavy lifting. Do NOT use Baskerville upright as a text serif.
-- **Playful flourishes:** Repeated-letter emphasis on headers ("hellllllo 2025", "goooodbye APAC") is *part* of the brand voice — used on cover/section slides, never in body copy. Strikethrough as humor ("doubling ~~doubling~~ tripling down") is also a recognised pattern — see the cross-out annotation.
+- **Playful flourishes:** Repeated-letter emphasis on headers ("hellllllo 2025", "goooodbye APAC") is *part* of the brand voice — used on cover/section slides, never in body copy. Strikethrough as humor ("~~doubling~~ tripling down") is also a recognised pattern — see the cross-out annotation.
 - **Emoji typographic storytelling:** an emoji can stand in for one charged word inside a Poppins line — `We turn opinion into 📈 influence`, `counsel without conviction is just 🤷`. Wrap the glyph in `.tha-emoji` so it rides the baseline (not above the line), and always add `role="img" aria-label="<the word it replaces>"` for screen readers. **In place of a word only** — never as bullets, icons, or decoration — and ≤ 3 per surface (the voice rule). The sentence must still read perfectly if you swapped the word back in. See `preview/brand-emoji-typography.html`.
 
 ### Spacing
@@ -392,23 +389,23 @@ When you do fall back, **never leave a bare grey box** — reserve a *labelled* 
 ```html
 <div class="tha-placeholder tha-placeholder--16x9" data-slot="hero-01">
   <svg class="tha-placeholder__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"> … </svg>
-  <div class="tha-placeholder__label">Hero photo · 16:9</div>
+  <div class="tha-placeholder__label">Hero photo · 16:9 · generate 1920×1080px</div>
   <div class="tha-placeholder__hint">Candid, natural light. Team in the Taipei office.</div>
   <div class="tha-placeholder__prompt">Bright high-key photo, comms team at work in a Taipei office, natural window light, business-casual in saturated colours, clean neutral white balance, eye-level, unposed. 16:9.</div>
 </div>
 ```
 
-- Ratio modifiers: `--16x9`, `--4x3`, `--1x1`, `--4x5`, `--3x1`, or `--icon` (a 56px square for one Lucide icon, not a photo).
+- Ratio modifiers: `--16x9`, `--4x3`, `--1x1`, `--4x5`, `--3x1`, or `--icon` (a 56px square for one icon from `assets/icons/`, not a photo).
 - `.on-dark` switches the dashed frame + label to the navy-tinted set for dark slides. `--accent` makes a solid lime hero frame.
-- **Three lines of anatomy.** The **`__label`** says what it is; the **`__hint`** is the art direction for the *human* sourcing the shot; the **`__prompt`** is a paste-ready seed for an *image generator* — one or two sentences that bake in the imagery direction (candid, natural light, warm grade, business-casual) plus the aspect ratio. Write all three on every photo placeholder; templates live in `PROMPTS.md`. The decide-and-source workflow — generate vs. supply vs. placeholder, the capability check, and the Hoffman house *illustration* style — is `IMAGERY.md`.
+- **Three lines of anatomy.** The **`__label`** says what it is, its aspect and the size to generate (`Type · Aspect · generate W×Hpx`); the **`__hint`** is the art direction for the *human* sourcing the shot; the **`__prompt`** is a paste-ready seed for an *image generator* — one or two sentences that bake in the imagery direction (candid, natural light, bright high-key with a neutral white balance, business-casual) plus the aspect ratio. Write all three on every photo placeholder; templates live in `PROMPTS.md`. The decide-and-source workflow — generate vs. supply vs. placeholder, the capability check, and the Hoffman house *illustration* style — is `IMAGERY.md`.
 - **Drop-to-fill.** Add `data-slot="<unique-id>"` and the brand-deck script makes the frame accept a dragged (or double-click-to-browse) image; it persists locally and a hover ✕ clears it. Prompts become click-to-copy. See the script tail of `slides/Hoffman Brand Guidelines.html`.
-- **Image-forward layout templates** are demonstrated in the deck (slides 30b–30f): placeholder anatomy, full-bleed image + navy overlay, split 50/50, portrait + pull quote, and the case-study montage. Start from those instead of inventing new image layouts. See `preview/components-placeholders.html`.
+- **Image-forward layout templates** are demonstrated in the deck (slides 46–50, with more image layouts in 50b–50g): placeholder anatomy, full-bleed image + navy overlay, split 50/50, portrait + pull quote, and the case-study montage. Start from those instead of inventing new image layouts. See `preview/components-placeholders.html`.
 
 ### The Storyline squiggle
 This is the brand's signature graphic device — a hand-drawn waveform that peaks up to the right. It's a *story arc*, not a chart. **Which version you use is decided by the background.** Two uses, two assets:
 
 1. **Corner monogram — on light / non-navy backgrounds.** `assets/storyline-navy-lime.svg`: the boxed square version (lime square with navy squiggle). It carries its own navy + lime, so it's a *self-contained lockup* — fix it to a corner on white, paper, or a light surface, like a logo. This is the version you reach for when the background **isn't** navy.
-2. **Line as a background layer — on navy / dark fields.** `assets/storyline-line-lime.svg`: the inverted line variant only (just the squiggle, no box). The line is **part of the dark field**, not a foreground object: it sits as the **bottom layer, directly above the navy fill and behind your content** (stack order: navy fill → storyline line → headline/content). Always lime; works on any brand color except lime itself (navy, lavender, purple, cyan, teal).
+2. **Line as a background layer — on navy / dark fields.** `assets/storyline-line-lime.svg`: the inverted line variant only (just the squiggle, no box). The line is **part of the dark field**, not a foreground object: it sits as the **bottom layer, directly above the navy fill and behind your content** (stack order: navy fill → storyline line → headline/content). Always lime, and only on navy or a dark secondary (purple, teal) — never on lime, cyan or another light surface (`assets/asset-manifest.json`: navy / dark full-frame only).
    **Edge-lock it to the frame.** The line is drawn inside a 1920×1080 artboard so its two sharp terminals sit *exactly on the artboard's top and bottom edges*. Scale it to the **full height** of the panel and anchor it **flush to the top, right and bottom edges with no bleed** — the angled ends are absorbed by the frame and the line reads as continuous, the way it did when it was enclosed in the square. (Left alignment is free; the waveform lives on the right.) Implementation: `position:absolute; top:0; right:0; bottom:0; height:100%; width:auto; z-index:0` with content above it.
 
 3. **Mono mark — a small persistent corner mark on any field, light or dark.** `assets/storyline-mark.svg`: the box-less mark, painted `fill="currentColor"` exactly like the annotation library, so **one file serves every surface** — set CSS `color` and it takes any brand colour. A deck that wants the same small mark in the corner of *every* slide needs this: use 1 and it disappears on navy; use 2 and the full-frame line is not a corner device. Tint it to the surface's contrast colour — `#FAFAF7` or `#D2EB00` on navy / navy-900 / purple / teal, `#182D43` on paper / white / sand / lime / aqua / violet.
@@ -453,7 +450,7 @@ A seventh annotation technique — not an SVG asset, but a CSS overlay applied *
 ### Italic emphasis vocabulary
 Italicize the line's emphasis — the key word *or* the short phrase that carries the meaning, not a fixed "one word" every time. When it's a single word, prefer words that carry weight: *Trust, Influence, Adaptability, AI, judgment, strategic, intelligence, leadership, geopolitics, culture, society, relationships, people, clarity, complexity, attention, visibility, proximity, uncertainty.* When the point lives in a phrase (*a bit about us*, *We're it*), italicize the whole phrase. Pick for sound and meaning, not grammar; one emphasis per line.
 
-**No other decorative line work.** Wavy lines, squiggly arrows, decorative flourishes outside the 5-category annotation library are banned. The Storyline squiggle is the only "wavy" element — and it has its own two strict uses (see above).
+**No other decorative line work.** Wavy lines, squiggly arrows, decorative flourishes outside the 6-category annotation library are banned. The Storyline squiggle is the only "wavy" element — and it has its own two strict uses (see above).
 
 ### Animation
 - **Rare and intentional.** No parallax, no scroll-jacking.
@@ -473,7 +470,7 @@ Italicize the line's emphasis — the key word *or* the short phrase that carrie
 - **Tappable cards (interactive decks):** the card still never lifts. Quiet at rest — one ~30px glyph at ~40% opacity, never a labelled pill on every card — and on hover the *glyph* rises and grows ~30% while the accent rule above extends along the edge. One mark per card: a card that already owns a state glyph uses that one. See `AGENTS.md Section 15`.
 
 ### Press states
-- Buttons darken one step and take a 1px inset shadow (`--shadow-press`).
+- Buttons darken one step and take a 2px inset shadow (`--shadow-press`).
 - No scale-down. No bounce.
 
 ### Borders
@@ -510,20 +507,20 @@ Italicize the line's emphasis — the key word *or* the short phrase that carrie
 
 ### Layout rules
 - Asymmetric grids over centered symmetrical ones. A 12-col grid with content biased to 7 or 8 cols, with intentional negative space in the remainder.
-- Overlap is encouraged: an annotation can sit outside a card; the Storyline line variant can run behind content on any non-lime brand color — edge-locked to the top, right and bottom of the frame (never floated).
+- Overlap is encouraged: an annotation can sit outside a card; the Storyline line variant can run behind content on navy or a dark secondary — edge-locked to the top, right and bottom of the frame (never floated).
 - Max content width: 1240px. Long-form reading measure: 68ch.
 
 ---
 
 ## ICONOGRAPHY
 
-Hoffman's brand does **not** ship with a proprietary icon set. The most distinctive "icon" is the **Storyline squiggle** — it functions as a boxed corner monogram on light backgrounds and as a background layer (the line) on navy/dark fields. See the background-decides-the-version rule above.
+Functional symbols come from **`assets/icons/`**: 1,595 Microsoft Fluent *Flat* SVGs (MIT), stored in the system so decks, PDFs and PowerPoint files work offline. The brand's most distinctive mark is still the **Storyline squiggle** — a boxed corner monogram on light backgrounds and a background layer (the line) on navy/dark fields. See the background-decides-the-version rule above.
 
 ### Approach
-- **Outline icons, 1.75px stroke, square caps/joins, on a 24px grid.** This matches the modern-editorial posture of the brand.
-- **Lucide** is the default icon library for this system (CDN-loaded). It's outline-first, evenly weighted, wide coverage, and open-licensed. Substituted in the absence of a Hoffman-specific set — **flag to client for review.**
-- Use icons **sparingly** as wayfinding (nav, list markers, button affixes). Never as decoration.
-- Icon color defaults to `currentColor` so they inherit from their context (navy on paper, paper on navy, lime for accent).
+- **Use `assets/icons/` for every functional symbol** — wayfinding, list and agenda markers, labels, feature or service icons, dense UI. Look the icon up by meaning (`light-bulb.svg`, `bar-chart.svg`); see `assets/icons/README.md`.
+- **Never recolour an icon.** Flat is a flat-*colour* style (about seven fills per icon) and the colours are part of the art. A mark that must take a brand colour comes from `assets/annotations/` or `assets/storyline-mark.svg` instead (both `currentColor`-driven).
+- Use icons **purposefully** as wayfinding. Never as decoration, and never mixed with emoji in one set.
+- **Lucide is retired** (v2.22.0). It was the stand-in before the system had its own set.
 
 ### Hand-drawn marks (separate from icons)
 The brand's *real* iconographic language is the library of **76 hand-drawn annotations across 6 categories** (lines &amp; underlines, circles, arrows, ticks, crosses, accents) plus a 7th technique, **Highlights** (CSS marker-pen overlay). SVGs live in `assets/annotations/` and use `fill="currentColor"` — pick the color at use site so each mark contrasts with the text and background where it sits. Stay within the brand palette (lime, lavender, purple, cyan, teal, navy, paper).
@@ -538,9 +535,9 @@ The brand's *real* iconographic language is the library of **76 hand-drawn annot
 - **Horizontal color** — default sign-off on light backgrounds.
 - **Stacked color** — social avatars, square formats, posters.
 - **1-color black** — for light/mono print where lime is unavailable.
-- **1-color pure white** — for **navy AND any secondary-color background** (lavender, purple, cyan, teal). When the background is dark or saturated, always use white.
+- **1-color pure white** — for **navy and the dark secondaries** (purple, teal, lavender). Cyan is a light surface: it takes the navy logo.
 - **White + lime reverse** (`logo-horizontal-white-lime.svg` / stacked equivalent) — icon in lime, wordmark in white, **navy grounds only**. The accented alternative to the pure-white lockup when the layout wants lime to read in the mark itself, not just the surface — see `LAYOUTS.md` L31 (spectrum-bar cover). On any other dark/saturated background, use pure white instead.
-- **1-color solid navy** — for lime backgrounds.
+- **1-color solid navy** — for lime and cyan backgrounds.
 - **Square mark (lime bg with white squiggle)** — favicon, app icon, social avatar.
 - **Never:**
   - Recolor beyond the supplied variants.
@@ -554,7 +551,7 @@ The brand's *real* iconographic language is the library of **76 hand-drawn annot
 
 - **Type is confirmed and self-hosted.** Brand fonts are **Poppins** (sans — self-hosted from `fonts/Poppins-*.ttf`, 18 weight×style files, `@font-face`-registered in `colors_and_type.css`) and **Libre Baskerville** (serif — self-hosted variable fonts from `fonts/LibreBaskerville-*.ttf`). Baskerville is used in **italic only** in practice; regular/bold are registered for completeness. JetBrains Mono, M PLUS 2 and Noto Sans are the only families loaded from Google Fonts (utility/multilingual faces). A Google-Fonts fallback for Poppins is documented in `fonts/README.md` if a project prefers CDN delivery.
 - **No codebase or website** was attached, so the `ui_kits/website/` interpretation is derived from the brand guidelines — not a 1:1 recreation of a live property.
-- **Iconography is Lucide** as a safe default. If Hoffman has a custom icon set, flag and I'll integrate.
+- **Iconography is `assets/icons/`** (1,595 Fluent Flat SVGs, MIT), settled in v2.22.0. Lucide is retired. If Hoffman adopts a custom icon set, it replaces this one.
 - **Photography placeholders** — I've used unsplash-style placeholders in UI kit mocks. Swap with real talent/campaign photography.
 - Color accessibility: **lime on white fails WCAG for text.** I've already gated `--fg-accent` to the darker lime-600 for this reason. Design flags lime-on-white warnings in future QA.
 
@@ -564,35 +561,7 @@ The brand's *real* iconographic language is the library of **76 hand-drawn annot
 
 This system is a **Brand & Communications Design System** — it's complete for everything that ships off a Hoffman desk today (decks, social, web hero, marketing collateral). The list below is what would need to be added to make it a **full product / UI design system**, e.g. if Hoffman ever ships hoffman.com, a client portal, the IMPACT training surface, or a Techfluence Index dashboard.
 
-Items are acknowledged but **not yet defined**. The deck, preview cards, and DESIGN.md all carry these as placeholders so the backlog stays in one place. Don't infer or invent these — when in doubt, ask.
-
-### Tier 1 · Product / UI extensions
-
-- [ ] **Component library beyond the basics** — form controls, navigation, feedback (toast / modal / tooltip / popover), data display (table / list / avatar / badge), disclosure (accordion / drawer / menu), progress (bar / spinner / skeleton).
-- [ ] **Interaction states catalog** — formal spec for `default · hover · focus · active · selected · disabled · loading · error · success`.
-- [ ] **Accessibility (WCAG) commitments** — focus indicators, keyboard nav, screen reader, `prefers-reduced-motion`, full contrast matrix, 44 × 44 px touch targets.
-- [ ] **Responsive breakpoints** — `sm / md / lg / xl / 2xl` named breakpoints.
-- [ ] **Dark mode / theme variants** — token mapping for light ↔ dark themes.
-- [ ] **Functional icon system** — distinct from the annotation library. Lucide as default is noted, not formally adopted.
-
-### Tier 2 · Communications outputs (highest leverage for Hoffman)
-
-- [ ] **Marketing motion system** — easing curves, duration tiers, choreography rules. For video bumpers, social animation, web hover states.
-- [ ] **Data visualization palette + rules** — for case-study stats and the future Techfluence Index.
-- [ ] **Forms anatomy** — label, helper, error, success states.
-- [ ] **Empty / error / loading state patterns**.
-- [ ] **Imagery / illustration library** — rules exist; a curated library of approved photos does not.
-- [ ] **Templates for non-deck collateral** — email, business card, letterhead, LinkedIn carousel, IG square, IG story, proposal cover, case-study cover, video bumpers + end cards, email signature.
-
-### Tier 3 · Governance & operations
-
-- [ ] **Naming + governance** — component naming convention, semver, contribution model, status badges (`draft · beta · stable · deprecated`).
-- [ ] **Internationalization beyond fonts** — RTL, date/number/currency formats, pluralization.
-- [ ] **Content design / microcopy** — error tone, confirmation patterns, button labels, tooltip writing, empty state copy.
-- [ ] **Performance / asset budgets**.
-- [ ] **Code implementations** — Storybook-style component docs, React / Vue / plain HTML samples, npm-publishable token export.
-
-When any of these get defined, move the item out of this list and into the appropriate section of `DESIGN.md` / `README.md`.
+The backlog itself lives in one place: **`DESIGN.md` → Reserved for future definition**. It is kept current there; this README only points at it. Don't infer or invent anything on that list — when in doubt, ask.
 
 ---
 

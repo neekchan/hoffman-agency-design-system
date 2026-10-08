@@ -28,10 +28,13 @@ can be derived from source files.
 
 ## Validate
 
-The design-system compiler regenerates the compiled files and reports catalog,
-manifest, `@dsCard`/`@template` metadata, UI-kit reference, and deck/layout-count
-issues on every change. Fix what it reports until it is clean, then run
-`CHECKLIST.md` manually for visual consistency before shipping.
+The design-system compiler runs on the Claude Design master. It regenerates the
+compiled files and reports catalog, manifest, `@dsCard`/`@template` metadata,
+UI-kit reference, and deck/layout-count issues on every change. The repo has no
+validator of its own (the Node tooling was removed in v2.3.2), so a repo-side
+change is validated when it is synced to the master. Fix what the compiler
+reports until it is clean, then run the `CHECKLIST.md` gate on anything visual
+you changed.
 
 ## Adding A Preview Card
 
@@ -43,8 +46,8 @@ issues on every change. Fix what it reports until it is clean, then run
    <!-- @dsCard group="Brand" name="Card name" subtitle="What it shows" viewport="700x400" -->
    ```
 
-3. Keep paths relative to the artifact, and run validation after regenerating or
-   mechanically syncing the manifest.
+3. Keep paths relative to the artifact. Regenerate the manifest on the master, or
+   sync it mechanically in the repo; the compiler validates it at the next sync.
 
 ## Adding A Template
 
@@ -53,7 +56,8 @@ issues on every change. Fix what it reports until it is clean, then run
 3. Include a leading `@template` comment in the DC file.
 4. Include `ds-base.js` or the equivalent loader if the template consumes this
    design system.
-5. Regenerate or mechanically sync the manifest, then run validation.
+5. Regenerate the manifest on the master, or sync it mechanically in the repo; the
+   compiler validates it at the next sync.
 
 ## Versioning
 

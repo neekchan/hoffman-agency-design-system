@@ -37,13 +37,13 @@ Variable fonts (weight axis 400–700). Two files — one upright, one italic �
 | `LibreBaskerville-VariableFont_wght.ttf` | upright, weight 400–700 (registered for completeness) |
 | `LibreBaskerville-Italic-VariableFont_wght.ttf` | italic, weight 400–700 — **the brand italic** |
 
-In practice, Libre Baskerville is used **italic only**, as one-word emphasis inside a Poppins headline (`<em>` in HTML maps to it via `colors_and_type.css`) or for full pull-quotes.
+In practice, Libre Baskerville is used **italic only**, as the emphasis (a key word or short phrase) inside a Poppins headline (`<em>` in HTML maps to it via `colors_and_type.css`) or for full pull-quotes.
 
 ---
 
 ## Web / HTML
 
-This is the only case the `@font-face` blocks in `colors_and_type.css` solve on their own. Link `colors_and_type.css`; the browser loads the `.ttf` files from this folder. Poppins is the workhorse for structure + body; `<em>` maps to Libre Baskerville Italic for the one-word emphasis move. Nothing else to do.
+This is the only case the `@font-face` blocks in `colors_and_type.css` solve on their own. Link `colors_and_type.css`; the browser loads the `.ttf` files from this folder. Poppins is the workhorse for structure + body; `<em>` maps to Libre Baskerville Italic for the emphasis move (a key word or short phrase). Nothing else to do.
 
 ---
 
@@ -76,7 +76,7 @@ The fix is per-environment:
 If you don't want to ship the binary font files — for example, in a public-facing web project where CDN caching across the web is preferred — both families are free and hosted on Google Fonts:
 
 - **Poppins:** <https://fonts.google.com/specimen/Poppins>
-  - Full set: `https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100..900;1,100..900&display=swap`
+  - Full set: `https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap`
 - **Libre Baskerville:** <https://fonts.google.com/specimen/Libre+Baskerville>
   - Italic only: `https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap`
 

@@ -4,7 +4,7 @@ description: Use this skill to generate well-branded interfaces and assets for T
 user-invocable: true
 ---
 
-Run `INTAKE.md` first (a few quick questions to lock the brief — medium, mode, audience/tone/language, colour, imagery), then read `LLM_ENTRYPOINT.md`, then `README.md`, and explore the other files needed for the task.
+Run `INTAKE.md` first (a few quick questions to lock the brief — medium, mode, audience/tone/language, colour, imagery). Then read `AGENTS.md` (Step 0 and Section 0 at least), use `LLM_ENTRYPOINT.md` to route the task, and read `README.md`. For any deck or document, also read `SOUNDCHECK.md`. Explore the other files the task needs.
 
 If creating visual artifacts (slides, mocks, throwaway prototypes, etc), copy assets out and create static HTML files for the user to view. If working on production code, you can copy assets and read the rules here to become an expert in designing with this brand.
 
@@ -43,13 +43,15 @@ If the user invokes this skill without any other guidance, run the `INTAKE.md` q
 - `ANTI_PATTERNS.md` — common LLM design failures and the correct Hoffman replacement
 - `AGENTS.md` — **slide/deck SOPs**; the authority when building decks or fixed-canvas office docs (Section 0 precedence, Section 8 Fluent emoji)
 - `LAYOUTS.md` — deck layout library (48 layouts, L01–L51) + slide best-practice guide
+- `SOUNDCHECK.md` — the argument and title method for decks and documents (read it in full for any deck)
+- `CHECKLIST.md` — the delivery gate: run it on the finished artifact and paste its delivery report
 - `POWERPOINT.md` — native `.pptx` route: theme spec, font reliability, logo geometry, protected zones, connectors, layout-as-contract, finished-file validation
 - `DESIGN.md` — portable AI context file (google-labs-code/design.md format)
 - `POWER-DESIGN-PRINCIPLES.md` — portable craft-rules layer (one-idea, grid, contrast, mode purity…); a *reference* layer — try to honor it, don't rigidly stick (precedence in-file)
 - `colors_and_type.css` — CSS custom properties + base element styles
 - `assets/` — logos, marks, Storyline squiggle, `emoji/` (Fluent injector), `annotations/`, and `asset-manifest.json` (logo geometry + protected zones + surface→variant map)
 - `preview/` — design-system cards (for reference)
-- `templates/` — reusable DC starting points (`deck`, `one-pager`, `social-tile`)
+- `templates/` — reusable DC starting points (`deck`, `one-pager`, `social-tile`, `brand-tour`; `powerpoint/` holds the 48 layout contracts)
 - `ui_kits/website/` — website UI kit (`index.html` + JSX components)
 - `ui_kits/app/` — product/app UI kit (`index.html`, `AppUI.jsx`, `COMPONENTS.md`)
 

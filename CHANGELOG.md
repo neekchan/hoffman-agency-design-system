@@ -23,6 +23,74 @@ really lives in the Claude Design project
 > If one rule landed in several files, list every file. Versioning rules:
 > `CONTRIBUTING.md` → Versioning.
 
+## 2026-10-06 — A docs audit, fixed: every rule now reads the same in every file, and functional icons come from `assets/icons/` (v2.21.0 → v2.22.0)
+
+Nic asked for a lint, contradiction and dead-link audit of every markdown file on the Claude Design
+master (2026-10-04: 31 files, 56 findings), then settled its one open question: *"go with B"* —
+`assets/icons/` is the functional icon set and Lucide is retired. Most findings had one cause: a rule
+repeated in five or more files, with earlier fixes landing in only some of them.
+
+### Lime text on light surfaces is `#687600` everywhere — `CHECKLIST.md`, `LLM_ENTRYPOINT.md`, `ANTI_PATTERNS.md`, `README.md`, `docs/portable-brand-brief-social.md`
+- Five files gave `--fg-accent` as `#A7BC00`, the old value the CSS replaced because it scores 2.1:1 on
+  white. All now say `#687600` (lime-600, 5.0:1), as `colors_and_type.css`, `DESIGN.md` and `POWERPOINT.md` do.
+
+### The logo variant follows the asset manifest — `DESIGN.md`, `AGENTS.md`, `README.md`, `CHECKLIST.md`, `PROMPTS.md`, `docs/portable-brand-brief-social.md`
+- Before: "the 2-color logo sits on navy, lime or paper; white on any secondary" — the 2-colour logo on
+  lime (forbidden) and a white logo on cyan (about 1.1:1). After: 2-colour on paper/white/sand, 1-colour
+  navy on lime and cyan, 1-colour white on navy, purple, teal and lavender, as
+  `assets/asset-manifest.json` → `surfaceToLogo` and `POWERPOINT.md` §4 already said. AGENTS §7 no longer
+  contradicts AGENTS §13.
+
+### "Warm grade" is gone from the photo direction — `DESIGN.md`, `AGENTS.md`, `README.md`, `IMAGERY.md`, `colors_and_type.css` (comment)
+- The v2.14.0 correction (bright, high-key, neutral white balance, never an amber grade) had reached
+  `PROMPTS.md` and README's Imagery direction only. Placeholder hints and prompts and the stock stand-in
+  rule now carry it too.
+
+### Functional icons come from `assets/icons/`; Lucide is retired — `DESIGN.md`, `README.md`, `AGENTS.md`, `ui_kits/website/README.md`, `preview/components-placeholders.html`
+- DESIGN Iconography and README ICONOGRAPHY + Caveats rewritten around the 1,595 Fluent Flat icons: never
+  recoloured; a mark that needs a brand colour comes from `assets/annotations/` or `storyline-mark.svg`.
+  "Flat (monochrome)" and "single-tone" corrected — Flat is a flat-colour style. Agenda and list markers
+  are icons, not emoji (AGENTS §8). The "Functional icon system" backlog item is closed.
+- Follow-up, not in this release: the deck template's icon slots still hold inline line icons.
+
+### One backlog — `DESIGN.md`, `README.md`
+- README kept its own reserved list, which still called the shipped app component library undefined.
+  It now points to `DESIGN.md` → Reserved for future definition, where the accessibility and motion items
+  say what is already defined (`CHECKLIST.md` → Functional, `AGENTS.md` §16).
+
+### The prompts follow the rules beside them — `PROMPTS.md`
+- Social tile: one emphasis per headline (was "continue alternating pattern"); the worked example sets
+  type in the deck layer, bans model-rendered text, and its underline takes a different colour from the
+  word. Slide prompt: type left, image filling the right (was "negative space on the right"). Copy prompt:
+  "one key word or short phrase", "no decorative emoji". The bracket mark is gone (not one of the six
+  annotation categories).
+
+### Routing and stale references — `SKILL.md`, `CLAUDE.md`, `AGENTS.md`, `POWERPOINT.md`, `CONTRIBUTING.md`, `README.md`, `INTAKE.md`, `ANTI_PATTERNS.md`
+- SKILL.md routes through `AGENTS.md` and `SOUNDCHECK.md`; CLAUDE.md sends app UI to `ui_kits/app/` and
+  `.pptx` to POWERPOINT.md; "Sections 1–12" / "0–12" → 0–18. CHECKLIST.md is called the delivery gate
+  everywhere. The compiler, the adherence linter and the "Export as PPTX" flow are marked as Claude
+  Design-only; the external `validate_pptx.py` path and the never-built "keynote template" are gone. The
+  WISE pitch is named as the layouts' confidential source and the guidelines deck as the public reference.
+- `CLAUDE.md` is a reserved path the DesignSync API won't write: the master's copy needs the same edit by hand.
+
+### Dead links, counts and typos — `README.md`, `DESIGN.md`, `LAYOUTS.md`, `fonts/README.md`, `colors_and_type.css` (comment), `IMAGERY.md`, `assets/house-style/README.md`, `CHECKLIST.md`, `POWER-DESIGN-PRINCIPLES.md`, `ui_kits/app/COMPONENTS.md`
+- README's `preview/` link (a 404) → the live front door. The Poppins Google Fonts URL (HTTP 400) →
+  explicit weights. "Slides 30b–30f" → 46–50g. DESIGN's "See Section 4" → AGENTS §7.
+- Brand book 58 → 66 slides; Deck.dc.html 48 → 50 slides; house-style examples 12 → 36, with the 24
+  missing subject lines added from `prompts.json`. Placeholder label examples carry `generate W×Hpx`.
+  The Breadcrumbs example uses real paths, not `href="#"`.
+- LAYOUTS: the word caps yield to a layout's own slot budget (a Presenter deck still holds to ≤15
+  words a slide); L30 takes the full-strength Storyline line only if the cover doesn't. POWER-DESIGN-
+  PRINCIPLES: Hoffman web/social uses its own 30/30/10×4 split, not 60-30-10; the 8pt set gains 72/80.
+- Fixed: "doubling ~~doubling~~", 5 → 6 annotation categories, a duplicate Casing heading, "five
+  fields" (four), a Do sitting in the Don'ts, a 1px → 2px press shadow, US Letter added to the size
+  table, and the lime Storyline line no longer "works on cyan".
+- `StorylineDivider` is marked deprecated in the docs (the Storyline is never a divider, and its dark
+  variant is invisible). Removing the code is a follow-up.
+
+Minor: one rule settled (functional icons) and several clarified; nothing that was on-brand becomes
+off-brand.
+
 ## 2026-10-03 — The checklist becomes a delivery gate, and invented content is a hard FAIL (v2.20.1 → v2.21.0)
 
 Nic, after reviewing the open-source `anti-slop` ruleset (miqdadbadjuber/anti-slop) and asking

@@ -15,7 +15,7 @@ Use this as a quick failure-mode check before shipping an LLM-generated design.
 | Wrong Storyline version | The motif reads as pasted-on decoration. | Use boxed monogram on light/non-navy; use line variant edge-locked behind content on navy/dark. |
 | Floating the Storyline line as a small object | The line variant is a field/background device, not an icon. | Edge-lock it to top/right/bottom at full frame height. |
 | Storyline line on many slides, or solid behind content | The signature becomes wallpaper — the deck flattens and content fights the line. | Full-strength navy line once per deck (cover OR closing, not both). Elsewhere the line is only a faded low-opacity texture (≈8–15%); a plain navy field has no line. |
-| Lime text on white | It fails contrast. | Use navy or `--fg-accent` / `#A7BC00` on light surfaces. |
+| Lime text on white | It fails contrast. | Use navy or `--fg-accent` / `#687600` on light surfaces. |
 | White text on lime or cyan | It fails contrast. | Use navy/dark text on lime and cyan surfaces. |
 | Bare grey image boxes | They give no art direction and look unfinished. | Use `.tha-placeholder` with label, hint, prompt, and exact generate size. |
 | Marketing hero layout for an app | Operational UI needs scanning, repetition, and controls, not a sales page. | Use `ui_kits/app/`, compact panels, tables, forms, and restrained navigation. |
@@ -24,7 +24,7 @@ Use this as a quick failure-mode check before shipping an LLM-generated design.
 | Upright Libre Baskerville | The brand uses the serif as an italic accent only. | Keep Poppins as the workhorse and set Baskerville italic for emphasis. |
 | Vague placeholders like "image here" | The next agent or designer cannot finish the asset. | Write subject, composition, mood, aspect, and exact generation size. |
 | Agency jargon in headlines | It sounds generic and off-brand. | Use short, active, opinionated lines with one clear point. |
-| Hand-authoring bespoke slide chrome / not loading the bundle | The output drifts off-system — the #1 "it doesn't look like the design system" failure. | Load `colors_and_type.css` + `_ds_bundle.js`, start from a `templates/` file, use named `LAYOUTS.md` layouts; heed the adherence linter. |
+| Hand-authoring bespoke slide chrome / not loading the bundle | The output drifts off-system — the #1 "it doesn't look like the design system" failure. | Load `colors_and_type.css` + `_ds_bundle.js`, start from a `templates/` file, use named `LAYOUTS.md` layouts; heed the adherence linter (in Claude Design) or check by hand that both files load. |
 | Skipping intake, then rebuilding | Guessing medium/mode/audience/imagery wastes a whole build when it's wrong. | Run `INTAKE.md` first; restate the one-line brief; then build. |
 | Truncated or half-width title with dead space on the right | Reads as unfinished; the empty strip is the classic "AI whitespace" tell. | Never clip a title; break at sense boundaries; grow the type or fill the right with a graphic/emoji (`AGENTS.md Section 2.5`). |
 | Text-only slide with empty margins | Hoffman slides carry a graphic by default; a bare text slide looks hollow. | Add an image/placeholder/icon/Fluent emoji/annotation, or scale the type to fill the frame (`Section 2`, `Section 3`). |

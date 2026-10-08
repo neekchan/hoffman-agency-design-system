@@ -63,7 +63,7 @@ Run against the **exported file**, not the source that made it (`POWERPOINT.md S
 - [ ] **Theme fonts are Poppins** (major + minor) — not Calibri/Aptos/Arial; theme colours match the Hoffman palette (`POWERPOINT.md Section 2`)
 - [ ] No unintended **fallback font** in any text run; fonts embedded when portability requires it
 - [ ] Only approved logo files used; every logo's **aspect ratio within 1%** of `assets/asset-manifest.json` (set one dimension, derive the other, lock ratio)
-- [ ] **Logo variant matches surface** — paper → 2-colour, **lime → 1-colour navy**, navy/secondary → 1-colour white
+- [ ] **Logo variant matches surface** — paper/white/sand → 2-colour, **lime and cyan → 1-colour navy**, navy/purple/teal/lavender → 1-colour white
 - [ ] No content overlaps a **protected** logo / boxed-Storyline zone (the full-frame line is a background layer, exempt)
 - [ ] No element spills off-canvas; no image **stretched** (displayed ratio ≈ source); no low-res image over-enlarged
 - [ ] Every diagram **arrow connects a visible source and target** — not open space, not an oversized textbox edge; workflows use L35
@@ -92,7 +92,7 @@ Run against the **exported file**, not the source that made it (`POWERPOINT.md S
 - [ ] Color-on-color type clears WCAG: **≥ 4.5 body, ≥ 3 large/bold** — never type-on-type below 3:1
 - [ ] **Display type is held to AAA (ratio ≥ 7), not AA** — when the pair is the *point* of a slide (a display headline, a statement word, a hero stat), passing AA is not enough: teal on aqua scores 5.96 and reads flat projected, purple on the same aqua scores 7.92 and carries it. Check `preview/brand-color-pairings.html`, which marks every pair on both bars (`AGENTS.md Section 7`)
 - [ ] Colored **surfaces** use a WCAG-passing brand color as type — paper and navy aren't the only backgrounds (lime/cyan surface → navy type; navy/purple/teal surface → white/light type)
-- [ ] Lime text on white? → switched to `--fg-accent` (#A7BC00)
+- [ ] Lime text on white? → switched to `--fg-accent` (#687600, lime-600)
 - [ ] Text/background pair clears WCAG AA (≥ 4.5, or ≥ 3 for ≥24px) — check `preview/brand-contrast-matrix.html`; lime & cyan are backgrounds, never text on light
 - [ ] No gradients, no three-color washes, no glows
 
@@ -116,7 +116,7 @@ Run against the **exported file**, not the source that made it (`POWERPOINT.md S
 
 ## Logo
 
-- [ ] Logo variant matches background: paper → 2-color; lime → 1-color navy; navy or secondary → 1-color pure white
+- [ ] Logo variant matches background: paper/white/sand → 2-color; lime and cyan → 1-color navy; navy, purple, teal or lavender → 1-color pure white (`assets/asset-manifest.json` → `surfaceToLogo`)
 - [ ] Logo on a fixed corner, clearspace ≥ cap-height of "H" on all four sides
 - [ ] Not rotated, stretched, recolored, or below min size (24px horizontal / 32px stacked)
 - [ ] On social carousels: logo on cover + closing tiles only is acceptable; on internal decks/docs, every page can carry the chrome logo
@@ -145,7 +145,7 @@ Run against the **exported file**, not the source that made it (`POWERPOINT.md S
 - [ ] Square corners (0–2px) by default; 6px only on form inputs; pill on tags only
 - [ ] No frosted glass, no parallax, no scroll-jacking
 - [ ] **Slides only:** content **fills the frame** edge-to-edge — no dead whitespace, no 1240px/68ch web caps; imagery present by default; "restraint" = few elements scaled large, never small elements floating (see `AGENTS.md Section 0, Section 2`)
-- [ ] **Slides only:** default safe margin **~0.5″ (72px)**, not 0.9″; image-led layouts (cover, divider, statement, split, persona, case panel) **full-bleed** the image to ≥1 edge while the type half keeps the margin (see `AGENTS.md Section 2`, `LAYOUTS.md Part 6`)
+- [ ] **Slides only:** default safe margin **~0.5″ (72px)**, not 0.9″; image-led layouts (cover, divider, statement, split, persona, photo + lists — the full list is `LAYOUTS.md` Part 6) **full-bleed** the image to ≥1 edge while the type half keeps the margin (see `AGENTS.md Section 2`, `LAYOUTS.md Part 6`)
 
 ## Series numbering (for carousels & multi-part decks)
 
@@ -163,6 +163,7 @@ Run against the **exported file**, not the source that made it (`POWERPOINT.md S
 | Vertical story (IG, TikTok) | 1080 × 1920 px |
 | Web hero | 1440 × 900 px design canvas |
 | Print A4 | 210 × 297 mm at 300 DPI |
+| Print US Letter (the one-pager template) | 8.5 × 11 in at 300 DPI |
 
 Safe zone on social tiles: keep critical content **≥ 80px from all four edges** (the same 80px rule used for series numbering).
 

@@ -60,8 +60,8 @@ helper text, error text, compact spacing, and tokenized borders.
 ```jsx
 <Breadcrumbs
   items={[
-    { label: "Client portal", href: "#" },
-    { label: "Accounts", href: "#" },
+    { label: "Client portal", href: "/portal" },
+    { label: "Accounts", href: "/portal/accounts" },
     { label: "NovaGraph" },
   ]}
 />

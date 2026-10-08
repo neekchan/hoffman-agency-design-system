@@ -15,7 +15,7 @@
    Full family: 9 weights (100–900) × 2 styles (normal + italic).
    See fonts/README.md for source and how to refresh these files.
    Google Fonts fallback (if you ever need it):
-     https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100..900;1,100..900
+     https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900
 */
 @font-face { font-family:'Poppins'; font-style:normal; font-weight:100; font-display:swap; src:url('fonts/Poppins-Thin.ttf') format('truetype'); }
 @font-face { font-family:'Poppins'; font-style:normal; font-weight:200; font-display:swap; src:url('fonts/Poppins-ExtraLight.ttf') format('truetype'); }
@@ -319,8 +319,8 @@ body.tha.tha-theme-white {
    __label says WHAT it is, __hint art-directs the HUMAN, __prompt is the
    copy-paste seed for an IMAGE GENERATOR. Click-to-copy is wired up by the
    host page (see slides/Hoffman Brand Guidelines.html). Keep it one or two
-   sentences; bake in the imagery direction (candid, natural light, warm
-   grade, business-casual).
+   sentences; bake in the imagery direction (candid, natural light, bright
+   high-key, neutral white balance, business-casual).
 
    RULE for __label — format it 'Type · Aspect · generate W×Hpx'. The
    recommended pixel RESOLUTION is REQUIRED on every image placeholder across

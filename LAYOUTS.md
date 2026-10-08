@@ -5,9 +5,9 @@
 This is the **brain** behind Hoffman decks. It does two jobs:
 
 1. **Teaches restraint** — how to put the *right minimum* on a slide so the slide prompts the speaker instead of replacing them.
-2. **Catalogs the layouts** — a named set of **48 reusable slide layouts** (codes **L01–L51**, grounded in real Hoffman decks), each with *when to use it*, *what the one point is*, *what goes in each slot*, and *which brand surfaces it wears*. The codes are intentionally non-contiguous (gaps + a few `b` suffixes like `L24b`) because layouts were ported in waves; the catalog below groups them by *job*, not by number.
+2. **Catalogs the layouts** — a named set of **48 reusable slide layouts** (codes **L01–L51**, grounded in real Hoffman decks), each with *when to use it*, *what the one point is*, *what goes in each slot*, and *which brand surfaces it wears*. The codes are intentionally non-contiguous (gaps, plus one `b` suffix: `L24b`) because layouts were ported in waves; the catalog below groups them by *job*, not by number.
 
-The visual, directly-editable gallery of every layout lives in **`templates/deck/Deck.dc.html`** (48 slides, codes L01–L51) — each slide there carries an inline `<!-- @layout … -->` comment repeating its core guidance, so the rules travel with the markup. Read this file to *choose*; open the deck to *build*.
+The visual, directly-editable gallery of every layout lives in **`templates/deck/Deck.dc.html`** (50 slides — 48 layout codes, L01–L51, with L01 in three variants) — each slide there carries an inline `<!-- @layout … -->` comment repeating its core guidance, so the rules travel with the markup. Read this file to *choose*; open the deck to *build*.
 
 ---
 
@@ -43,6 +43,8 @@ The visual, directly-editable gallery of every layout lives in **`templates/deck
 - **Dense** — matrix, scope table, roster. *Only* when the artefact itself is the point (a plan-on-a-page, a deliverables table). Dense is a deliberate choice, never an accident. Cap at one or two per deck.
 
 ### Word budgets (hard caps, not targets — the headline excepted)
+
+- These caps apply to any slot a layout doesn't budget itself. A layout's own slot budget in Part 3 governs that layout, and a Presenter deck still holds to ≤15 words a slide (`AGENTS.md Section 12`).
 
 - Headline: **≤ 8 words**, one line where possible — a **layout budget**, not a cap on the point. Write it with `SOUNDCHECK.md`; if the strongest supported title collides with the budget, flag it and offer a shorter title or a layout change (see "Headline voice" below).
 - Eyebrow: **2–4 words**, UPPERCASE.
@@ -445,8 +447,8 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 **L30 · Closing**
 - BEST FOR: the sign-off / hand to conversation.
 - THE ONE POINT: the invitation — a short imperative ("Let's tell your story.").
-- SLOTS: big headline w/ the italic emphasis → contact line → logo. Storyline line on navy.
-- SURFACES: navy + storyline line, or lime.
+- SLOTS: big headline w/ the italic emphasis → contact line → logo. The full-strength Storyline line only if the cover doesn't carry it (once per deck).
+- SURFACES: navy (with the line per the slot note), or lime.
 - BRAND MARK (Presenter decks, offered, not assumed): if the user says yes, the headline word becomes the animated brand mark from the Brand Mark Studio, exported transparent with `on=` this slide's surface. The closing is the suggested home; the user can direct it elsewhere. The storyline line then moves to the cover (`AGENTS.md` Section 17).
 - KEEP IT HONEST: a verb + a way to reach you. No recap, no bullets.
 

@@ -1,6 +1,6 @@
 # PowerPoint route — building a native, editable Hoffman `.pptx`
 
-> **Read this whenever the requested output is `.pptx` / `.potx` / PowerPoint / Keynote-for-Office.** It sits on top of the slide rules (`AGENTS.md Sections 0–12`, `LAYOUTS.md`) and adds the PowerPoint-native reliability layer the HTML system doesn't cover by itself. The two machine-readable companions to this file are `assets/asset-manifest.json` (logo geometry + protected zones) and `templates/powerpoint/layout-manifest.json` (the 48 layout contracts).
+> **Read this whenever the requested output is `.pptx` / `.potx` / PowerPoint / Keynote-for-Office.** It sits on top of the slide rules (`AGENTS.md` Sections 0–18, `LAYOUTS.md`) and adds the PowerPoint-native reliability layer the HTML system doesn't cover by itself. The two machine-readable companions to this file are `assets/asset-manifest.json` (logo geometry + protected zones) and `templates/powerpoint/layout-manifest.json` (the 48 layout contracts).
 
 The visual system does not change in PowerPoint. Fonts, palette, the italic-emphasis move, the Storyline motif, "fill the frame," the slide type scale, imagery-by-default — all still apply exactly as in the HTML deck. What changes is that a `.pptx` is made of **fixed objects with no CSS, no grid, and no `@font-face`**, so every relationship the HTML system expresses in layout code has to be placed by hand and then **verified in the finished file**. A screenshot that "looks about right" is not proof: the diagnostic deck looked plausible while its logo geometry, theme fonts and layer order were all wrong.
 
@@ -17,6 +17,7 @@ Build the deck as HTML from `templates/deck/Deck.dc.html` following all slide ru
 - Author the deck; decide Presenter XOR Document mode first (`AGENTS.md Section 12`).
 - Export with the "Export as PPTX (editable)" flow. Supply Poppins + Libre Baskerville so the exporter reflows with the real metrics (font swaps / Google-font import), set the slide size to **1920×1080**, and hide deck chrome (nav arrows, progress) before capture.
 - Then run the **finished-file validation** in Section 9 on the exported `.pptx` — the export is not the finish line.
+- *The "Export as PPTX (editable)" flow is a Claude Design feature. Outside Claude Design this system ships no exporter: use another HTML → PPTX tool if you have one, or Path B.*
 
 Screenshots-mode export (a PNG per slide) is pixel-perfect but **not editable** and embeds no fonts to preserve; use it only when the client explicitly wants flat images.
 
@@ -184,11 +185,11 @@ Run against the **finished file**, not the source used to make it. (These are al
 - A headline with no Libre Baskerville Italic emphasis word.
 - A layout code whose structure doesn't match its manifest contract.
 
-> `tools/title_check.py` covers check 17 on the HTML before export. A full `validate-pptx` script exists in the Enterprise AI Decision deck pipeline (`setup-deck/v6/build/validate_pptx.py`, checks 1–13 and 16) and is to be moved into `tools/`; until then those checks are run from that copy. When automated, it should inspect the OOXML package (theme fonts/colours, `<a:off>/<a:ext>` on logo pictures vs. the manifest ratios, picture source vs. displayed size, connector geometry) and report per-check pass/fail.
+> `tools/title_check.py` covers check 17 on the HTML before export. A validator for checks 1–13 and 16 exists in another deck project but is not part of this system yet, so until it lands in `tools/`, run those checks by hand against the finished file. When automated, it should inspect the OOXML package (theme fonts/colours, `<a:off>/<a:ext>` on logo pictures vs. the manifest ratios, picture source vs. displayed size, connector geometry) and report per-check pass/fail.
 
 ---
 
-## 10. Copy-ready rule block (mirrored in `AGENTS.md` / `CLAUDE.md`)
+## 10. Copy-ready rule block (summarised in `AGENTS.md` Section 13)
 
 > **Native PowerPoint rule.** When the requested output is `.pptx`, prefer exporting the HTML deck (`templates/deck/Deck.dc.html`) to editable PPTX; when hand-building, use this file + the two manifests as the implementation source. Do not rebuild the theme, brand chrome or common layouts from scratch. Confirm Poppins + Libre Baskerville Italic are available to the creation environment before authoring — font files in this repo is not sufficient — and set the PowerPoint **theme** fonts to Poppins. Use logos only through the asset manifest or master elements: preserve the approved ratio, lock it, choose the variant the background requires, and keep content outside the protected clearspace. Named layouts are contracts — preserve the structure or pick another layout. Every arrow must visibly connect a source and target. If no approved image is available, use the Hoffman placeholder — never stretch or pixelate. Validate and render the finished `.pptx`; do not deliver with fallback fonts, distorted logos, a wrong logo variant, protected-area collisions, stretched images or disconnected arrows.
 

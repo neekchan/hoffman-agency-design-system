@@ -20,9 +20,9 @@ Type — set these IN THE DECK layer, do NOT render them in the image (CRITICAL)
 * Main headline, centered: "[FULL HEADLINE TEXT]"
   * "[word/phrase]" in Libre Baskerville italic, [Lime Green / Purple / Navy depending on bg], [160–240px / 80–120pt for emphasis words]
   * "[connecting words]" in Poppins Bold, [White / Deep Navy depending on bg], [120–160px / 60–80pt]
-  * Continue alternating pattern for the full headline.
+  * One emphasis per headline (a key word or short phrase). Never alternate italics across the line.
 
-Hand-drawn annotation: [ONE OF: lime underline / purple double underline / lime circle / purple cross-out / lime arrow / purple bracket] beneath/around the word "[KEYWORD]".
+Hand-drawn annotation: [ONE OF: underline / double underline / circle / cross-out / arrow / tick, in a brand colour different from the word it marks] beneath/around the word "[KEYWORD]".
 
 Storyline squiggle: [OPTIONAL — if used as hero background, anchored top-right, full-bleed on top, right and bottom edges, navy extends left holding the content].
 
@@ -34,16 +34,15 @@ Constraints: NO other wavy lines, NO squiggly arrows beyond the approved annotat
 ```
 A LinkedIn carousel tile for The Hoffman Agency with deep navy (#182d43) background.
 
-Typography:
+Type — set these IN THE DECK layer, do NOT render them in the image:
 * Series number "1" in white, Poppins Bold, 96px / 48pt, top-left corner, 80px from top and 80px from left.
 * Main headline, centered: "Trust matters more than attention."
   * "Trust" in Libre Baskerville italic, vibrant lime green (#D2EB00), 240px / 120pt
-  * "matters more than" in Poppins Bold, white, 140px / 70pt
-  * "attention" in Libre Baskerville italic, lavender (#CB65FF), 180px / 90pt
+  * "matters more than attention." in Poppins Bold, white, 140px / 70pt
 
-Hand-drawn annotation: a lime green hand-drawn underline beneath "Trust" for emphasis.
+Hand-drawn annotation: a white hand-drawn underline beneath "Trust" (the mark takes a different colour from the lime word).
 
-Constraints: NO other wavy lines, NO squiggly arrows. NO gradients. NO drop shadows. Clean, premium tech aesthetic. High contrast. Square format 2160×2160 px.
+Constraints: NO other wavy lines, NO squiggly arrows. NO gradients. NO drop shadows. NO text, letters, or numbers rendered by the model — set all type in the deck. Clean, premium tech aesthetic. High contrast. Square format 2160×2160 px.
 ```
 
 ---
@@ -58,13 +57,13 @@ Type — set these IN THE DECK layer, do NOT render them in the image:
 * Hero headline, left-aligned, Poppins Bold or Black — 64–80px / 32–40pt for a content title, up to 120–176px / 60–88pt for a statement or cover — with one or two words in Libre Baskerville italic for emphasis.
 * Body subhead, Poppins Regular 30–36px / 15–18pt (default 32px / 16pt), max-width 28em.
 
-Layout: asymmetric, content biased to the left 60% of the canvas, negative space on the right.
+Layout: asymmetric — type anchored in the left ~60%, the image or graphic filling the right. No empty right-hand strip (`AGENTS.md Section 2.5`).
 
 Chrome:
-* Horizontal logo, bottom-left, ~32px tall, 72px from the left/bottom edges (inside the 0.5″ safe margin). Variant matches background (2-color on paper, white on navy or secondary, navy on lime).
+* Horizontal logo, bottom-left, ~32px tall, 72px from the left/bottom edges (inside the 0.5″ safe margin). Variant matches background (2-color on paper, navy on lime and cyan, white on navy and the dark secondaries).
 * Slide number + label, bottom-right, JetBrains Mono 22px / 11pt, letter-spacing 0.12em, UPPERCASE.
 
-Optional: one hand-drawn annotation (underline / circle / arrow / bracket / cross-out / double underline) in lime or purple.
+Optional: one hand-drawn annotation (underline / double underline / circle / arrow / tick / cross-out — the approved set in `assets/annotations/`), in a brand colour different from the word it marks.
 Optional: one Microsoft Fluent emoji as the slide's single storytelling graphic, following `AGENTS.md Section 8`. In code, use `<fluent-emoji name="[NAME]" size="[96-160]"></fluent-emoji>`. In raster image prompts, request a Fluent-style emoji illustration only when the emoji is the intended hero graphic.
 
 Constraints: NO wavy lines outside the Storyline squiggle motif. NO gradients. NO frosted glass. Square corners (0–2px). NO text, letters, or numbers rendered by the model — set all type in the deck. NO raw unicode emoji, emoji stacks, or decorative emoji. Fluent emoji are allowed only as the deliberate single graphic/story beat.
@@ -99,7 +98,6 @@ When asking an AI to add a hand-drawn mark, use these exact terms:
 | Circle | "loose hand-drawn ellipse around [word/phrase], lime green, 4px stroke, organic shape — not perfect" |
 | Cross-out | "hand-drawn diagonal strike-through across [word], purple, 4px stroke" |
 | Arrow | "hand-drawn curved arrow from [point A] to [point B], lime green, 4px stroke, organic curve" |
-| Bracket | "hand-drawn pull-out bracket connecting [items], purple, 3px stroke" |
 
 **Banned visual elements** — explicitly exclude these in your prompt:
 
@@ -112,7 +110,7 @@ When asking an AI to add a hand-drawn mark, use these exact terms:
 When asking an AI to write headline or body copy for Hoffman:
 
 ```
-Write in the voice of The Hoffman Agency: Smart, Human, Energetic, Distilled, Bold, Creative, Authentic. Short sentences. Active voice. Lead with the punchline. No agency jargon (no "leverage", "end-to-end", "best-in-class", "at the intersection of", "revolutionary", "disruptive", "storytelling solutions"). No emoji. CTA is a direct verb + object, never "Learn more". Pick one keyword to italicize for emphasis — choose for sound and meaning, not grammar.
+Write in the voice of The Hoffman Agency: Smart, Human, Energetic, Distilled, Bold, Creative, Authentic. Short sentences. Active voice. Lead with the punchline. No agency jargon (no "leverage", "end-to-end", "best-in-class", "at the intersection of", "revolutionary", "disruptive", "storytelling solutions"). No decorative emoji. CTA is a direct verb + object, never "Learn more". Italicize the line's emphasis — one key word or short phrase — chosen for sound and meaning, not grammar.
 
 Topic: [...]
 Format: [headline / pull quote / body paragraph / CTA]
@@ -142,6 +140,7 @@ Always exclude: `no stock-photo posing, no motion blur, no lens flares, no 3D re
 > murky. The official Visual Identity deck's reference photography is **bright, high-key
 > and clean, on a neutral white balance** — windows blown out to white, open shadows.
 > **Colour comes from saturated wardrobe and solid backdrops, not from a grade.**
+
 Add `no suits` **only when business-casual genuinely suits the subject** — it is the house lean, not a rule, and a formal sector or a formal moment can carry a suit.
 
 ### Examples
@@ -278,7 +277,7 @@ The finished shots are in `assets/photography/cities/`, one per office.
 
 - `README.md` — full design system
 - `DESIGN.md` — portable AI context file (google-labs-code/design.md format)
-- `CHECKLIST.md` — pre-ship visual consistency checklist
+- `CHECKLIST.md` — the delivery gate (HARD checks + delivery report)
 - `assets/` — logo variants and Storyline squiggle SVGs
 
 ---

@@ -16,11 +16,13 @@ Read in this order before building anything:
 4. **`POWER-DESIGN-PRINCIPLES.md`** — portable craft layer; a reference to honor, not rigidly follow.
 
 Then read by task:
-- **Deck / slides (1920×1080)** → `LAYOUTS.md` + `AGENTS.md Sections 1–12`; build from `templates/deck/Deck.dc.html`.
-- **Web page / app UI** → `README.md` web sections + `ui_kits/website/` + `DESIGN.md` web type scale.
+- **Deck / slides (1920×1080)** → `SOUNDCHECK.md` + `LAYOUTS.md` + `AGENTS.md` Sections 0–18; build from `templates/deck/Deck.dc.html`.
+- **Native PowerPoint (`.pptx`)** → `POWERPOINT.md` first, then the deck route above.
+- **Web page** → `README.md` web sections + `ui_kits/website/` + `DESIGN.md` web type scale.
+- **Product app / dashboard** → `ui_kits/app/` + `ui_kits/app/COMPONENTS.md` + `DESIGN.md`.
 - **Social tile / one-pager** → the matching folder in `templates/`.
 - **AI imagery** → `IMAGERY.md` (the decide-and-source workflow + house illustration style), then `PROMPTS.md` (copy-paste prompt templates).
-- **Before shipping** → `CHECKLIST.md`.
+- **Before shipping** → the `CHECKLIST.md` gate; paste its delivery report.
 
 ## Runtime files you load in code
 - **`colors_and_type.css`** — all color + type tokens + `@font-face`. Link on every page.
