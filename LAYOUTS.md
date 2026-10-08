@@ -258,21 +258,21 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 - BEST FOR: making one audience member real.
 - THE ONE POINT: who they are and the one job they need done.
 - SLOTS: segment tag → portrait → name, age, location → 2 short context bullets → 1–2 verbatim quote cards → a highlighted "we want her to…" footer.
-- SURFACES: paper with a colour accent per persona; portrait 4x5.
+- SURFACES: paper with a colour accent per persona; portrait 4x5 in a rounded frame.
 - KEEP IT HONEST: two quotes max, in their voice. Bullets are context, not biography.
 
 **L15 · Team roster**
 - BEST FOR: showing the whole team at once, grouped by role/market.
 - THE ONE POINT: the shape and seniority of the team.
 - SLOTS: title → grouped columns (Senior Counsel / Market A / Market B) → small portrait + name + role + ≤6-word remit each.
-- SURFACES: paper; group headers in navy.
+- SURFACES: paper; group headers in navy; headshots and member cards keep rounded corners (Nic's call, 2026-10-08).
 - KEEP IT HONEST: name + role + one remit line. No bios here — that's L16.
 
 **L16 · Single bio**
 - BEST FOR: one senior person who needs a paragraph.
 - THE ONE POINT: why this person earns the room's trust.
 - SLOTS: "Your team · role" eyebrow → portrait → name + title → 2–3 short paragraphs.
-- SURFACES: paper, sand card.
+- SURFACES: paper, sand card; circular portrait.
 - KEEP IT HONEST: appendix territory. Lead the bio with the most credible fact, not a date.
 
 ### Ideas & stories

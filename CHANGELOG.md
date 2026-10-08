@@ -23,6 +23,23 @@ really lives in the Claude Design project
 > If one rule landed in several files, list every file. Versioning rules:
 > `CONTRIBUTING.md` → Versioning.
 
+## 2026-10-08 — The stray brand-book copy is gone from the master, and the team roster keeps its rounded corners (v2.23.0 → v2.23.1)
+
+Nic's two calls on what v2.23.0 left open: *"delete the xvz0io copy"*, and on the L15 headshots,
+*"rounded corners is ok"*.
+
+### A stray copy deleted — Claude Design master only
+- `slides/Hoffman Brand Guidelines-print-xvz0io.html` is deleted from the master: a leftover copy of the
+  2026-07-06 print brand book that showed as a second, "58 slides" brand-book card. Nothing linked to it,
+  and git history holds the same content (`0ed8391`).
+
+### Portrait frames are written down — `LAYOUTS.md`
+- L15 Team roster: headshots and member cards keep their rounded corners, by Nic's call.
+- L14 Persona (a rounded 4x5 frame) and L16 Bio (a circular portrait) were already rounded; their specs
+  now say so, so the next audit reads them as deliberate.
+
+Patch: one master-only deletion and three spec lines; nothing visual changes.
+
 ## 2026-10-08 — Gradients get exactly two exceptions, collage photos get square corners, and the HTML pages catch up with the docs (v2.22.0 → v2.23.0)
 
 Nic's calls on the audit's open questions (2026-10-08): keep the two deliberate gradients *"and write

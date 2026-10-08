@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.23.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **the gradient rule names its only two exceptions, collage photos get square corners, and the HTML pages catch up with the docs.** Three blends that weren't sanctioned are flat now; lime-600 is `#687600` on every card; the illustration library shows all 36 examples.
+**Version 2.23.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — **the stray brand-book copy is gone from the Claude Design master, and the team roster keeps its rounded corners.** Nothing visual changes.
 
 Integrated Comms agency that helps tech brands solve hard business problems. The harder the better. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
