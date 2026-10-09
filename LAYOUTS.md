@@ -5,9 +5,9 @@
 This is the **brain** behind Hoffman decks. It does two jobs:
 
 1. **Teaches restraint** — how to put the *right minimum* on a slide so the slide prompts the speaker instead of replacing them.
-2. **Catalogs the layouts** — a named set of **48 reusable slide layouts** (codes **L01–L51**, grounded in real Hoffman decks), each with *when to use it*, *what the one point is*, *what goes in each slot*, and *which brand surfaces it wears*. The codes are intentionally non-contiguous (gaps, plus one `b` suffix: `L24b`) because layouts were ported in waves; the catalog below groups them by *job*, not by number.
+2. **Catalogs the layouts** — a named set of **54 reusable slide layouts** (codes **L01–L57**, grounded in real Hoffman decks), each with *when to use it*, *what the one point is*, *what goes in each slot*, and *which brand surfaces it wears*. The codes are intentionally non-contiguous (gaps, plus one `b` suffix: `L24b`) because layouts were ported in waves; the catalog below groups them by *job*, not by number.
 
-The visual, directly-editable gallery of every layout lives in **`templates/deck/Deck.dc.html`** (50 slides — 48 layout codes, L01–L51, with L01 in three variants) — each slide there carries an inline `<!-- @layout … -->` comment repeating its core guidance, so the rules travel with the markup. Read this file to *choose*; open the deck to *build*.
+The visual, directly-editable gallery of every layout lives in **`templates/deck/Deck.dc.html`** (56 slides — 54 layout codes, L01–L57, with L01 in three variants) — each slide there carries an inline `<!-- @layout … -->` comment repeating its core guidance, so the rules travel with the markup. Read this file to *choose*; open the deck to *build*.
 
 ---
 
@@ -65,6 +65,17 @@ The headline is the slide's one job — **state the point the slide is making, d
 
 Choose the deck's **mode** first — it sets how much goes on every slide. **Presenter** (presented live) = ≤1 idea, ≤15 words/slide, image-led, the detail in **speaker notes**; **Document** (leave-behind that stands alone) = denser, hierarchical, short bullets allowed, a fuller argument per slide. **XOR — never mix the two in one deck.** Both still fill the frame and use the Hoffman scale/palette; mode changes *depth*, not appearance. Infer the mode from context and state the assumption; ask only if genuinely ambiguous. Full rule: `AGENTS.md Section 12` (Power Design rule 20); the deck library (`templates/deck/`) carries the **Mode** tweak, and the full worked demonstration is the brand-guidelines deck (`slides/Hoffman Brand Guidelines.html`).
 
+### Research decks (Document mode) — the four overrides
+
+A deck that presents **research, analysis or quantitative findings** and ships in Document mode (a GEDI proposal or AI-visibility report, an audit, a study, any deck that argues from data) is read alone and checked by its reader. Four rules above bend for it, by ruling of Nicolas Chan on 2026-10-08. Full anatomy and the role list: `AGENTS.md Section 19`; the research layouts **L52–L57** are in Part 3.
+
+1. **Sources sit on the slide.** Every figure carries publisher, date and n at 16px (8pt) under it. A reader alone with the deck must be able to check the number. (Overrides `AGENTS.md Section 9` for these decks only.)
+2. **The word budgets above give way to the count test.** One title, one italic emphasis, one takeaway or decision band, one biggest thing; cards 3–5; reasons 3; comparison tables ≤4 columns. Body copy runs 24–28px, labels 20px: the density of a proposal that is read, not presented. The reference is a scope page carrying about 150 words across two cards, a mini chart and a fee tile.
+3. **Fluent emoji: no change.** `AGENTS.md Section 8` applies as written.
+4. **The options sequence is a named exception** to "consecutive slides never identical" (Part 4 surface rotation): foundation (L57) → one L52 page per option on the same grid → the L53 side-by-side → the L54 self-check and the recommendation. Repetition is what makes the options comparable; the dividers either side rotate the surface.
+
+Presenter-mode research decks (rare) fall back to the caps above.
+
 ### The Hoffman signatures (use, don't overuse)
 
 - **The italic emphasis** — the line's key word *or* short phrase, set in Baskerville italic inside a Poppins headline. Once per slide, on the emphasis that carries the weight — usually one word, sometimes a phrase; chosen by meaning, never scattered.
@@ -106,6 +117,9 @@ Quick router:
 | Lay out a content-rich update | **Photo + numbered lists** (L48) · **Three photo + bullets** (L49) |
 | Map pain to solution | **Pain ↔ Solutions** (L24b) |
 | Show the SOW / deliverables | **Scope table** (L24) |
+| Present options or scopes from research | **Step illustration** (L57) → **Scope page** (L52) → **Comparison columns** (L53) → **Self-check table** (L54) |
+| Chart one quantity that makes the argument | **Native chart page** (L55) |
+| Give a verdict per item with its condition | **Status cards** (L56) |
 | Show reach / footprint | **Map + narrative** (L25) |
 | State a partnership / value set | **Values statement** (L26) |
 | Let an image carry the slide | **Full-bleed** (L27) · **Split 50/50** (L28) |
@@ -230,6 +244,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 - SLOTS: title w/ the italic emphasis → 3 columns: image → bold lead (≤6 words) → ≤24-word body → up to 2 chips (e.g. SG / MY).
 - SURFACES: paper; chips in two contrasting secondaries.
 - KEEP IT HONEST: 3 columns max. Each column says ONE thing. Equal weight — no column is the hero.
+- RESEARCH VARIANT: a 40–54pt purple figure in place of the image, and a navy footer strip inside each card ('THE SAME QUESTION FOR …'). The case cards of a research deck.
 
 **L12 · Three-column textured icon cards** *(signature)*
 - BEST FOR: three parallel insights, each with its own painterly icon card and a market-split read (e.g. SG / MY).
@@ -237,6 +252,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 - SLOTS: title (≤10 words, the italic emphasis) → ≤30-word subtitle → per column: textured icon card → heading (≤7 words) → 2 bullets with a bold market lead-in (≤22 words each).
 - SURFACES: paper; cards carry the colour (tex-a / -b / -c) — one of the system's two sanctioned gradients (`DESIGN.md` → Colors → Rules); icons navy on white.
 - KEEP IT HONEST: three columns, equal weight. Two market bullets per column — not three. The card colour rotates; the insight doesn't compete.
+- RESEARCH VARIANT: 4–5 equal cards; a small-caps label may replace the icon card; a top rule in lime (strength) or purple (caveat) encodes valence. The card row of a research deck.
 
 **L13 · Three audiences ("we want them to…")**
 - BEST FOR: introducing 2–3 audience segments and the shift you want in each.
@@ -251,6 +267,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 - SLOTS: eyebrow + title → 3–4 columns: big number + ≤4-word title + one ≤14-word line.
 - SURFACES: paper (navy type) or a colour/navy block.
 - KEEP IT HONEST: rules, not boxes — keep it light. One line per point.
+- RESEARCH VARIANT: a navy verdict tile (lime label, option name, three figures) on the left 35%, the numbered points on the right 65%. The 'we recommend B' page.
 
 ### People
 
@@ -313,6 +330,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 - SLOTS: eyebrow → short headline → up to 3 stats (huge number + mono label), divided by hairlines.
 - SURFACES: paper or navy; mono labels in a secondary.
 - KEEP IT HONEST: max 3 stats. If everything's a number, nothing is. Prefer one hero stat + two context.
+- RESEARCH VARIANT: four navy stat tiles over a three-row L24 table (prompt type · what it tests · example) on one page: the method page, slide 2 of every research report.
 
 **L33 · Cascade stat boxes**
 - BEST FOR: proof points or product detail where 3 numbers need to feel like a confident, designed object.
@@ -320,6 +338,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 - SLOTS: eyebrow → title (≤8 words, the italic emphasis) → ≤24-word intro → ≤3 bullets (≤6 words) → each box: big number + ≤4-word label.
 - SURFACES: paper left; cascade RAINBOW by default — three solid brand colours (purple, teal, navy), no blends; toggle to solid navy via Tweaks.
 - KEEP IT HONEST: three boxes, three numbers. The cascade is the design — don't add a fourth.
+- RESEARCH VARIANT: a figure-less ladder of 4–6 steps left to right, coloured by state (navy = current strength, lime = the gap). Proof maturity, source pyramid.
 
 **L38 · Stat grid (light slide)**
 - BEST FOR: a board of figures when several numbers share equal weight — the deck's one light data moment.
@@ -327,6 +346,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 - SLOTS: eyebrow + optional title → 6–8 stat cards: outlined icon-circle + big mono number + ≤4-word label, icons colour-coded.
 - SURFACES: light ground; white cards; icons across the secondaries.
 - KEEP IT HONEST: equal weight across cells — no hero here (that's L19). Labels ≤4 words.
+- RESEARCH VARIANT: three figure cards plus a fourth, taller verdict card ('Our recommendation') that starts higher and runs taller; takeaway band allowed. The summary-cards page of a research deck.
 
 **L41 · Data dashboard**
 - BEST FOR: survey / results / KPIs where several figures share one story — donut + horizontal bars + stat callouts.
@@ -341,6 +361,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 - SLOTS: title → the storyline arc (rising squiggle) → 4–6 nodes beneath: icon + label + ≤15-word note.
 - SURFACES: paper with the lime/teal squiggle; or navy with the line.
 - KEEP IT HONEST: 4–6 nodes. Notes are captions, not paragraphs.
+- RESEARCH VARIANT: baseline / desired pairs grouped under stage headings and closed by a purple decision band naming the success marker, in place of the arc.
 
 **L21 · Process / journey diagram**
 - BEST FOR: a methodology or customer journey with stages around a centre.
@@ -355,6 +376,53 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 - SLOTS: title → table: deliverable rows (with sub-bullets) × market columns → counts or ticks.
 - SURFACES: paper, hairline grid, navy header row.
 - KEEP IT HONEST: a true reference table — the one place dense text is correct. Still trim sub-bullets to phrases.
+- RESEARCH VARIANT (appendix page): white page, lime spaced-caps eyebrow 'APPENDIX A · …', navy title ending in a full stop, italic-serif subtitle, then the plain table. No title bar, no band.
+
+### Research & evidence (Document mode; the research anatomy)
+
+These six wear the **research anatomy**: a navy title bar (121px) with the title at 60px white and a lime italic-serif section marker right (`05 • SCOPE`); a body zone; and a full-width lime **takeaway band** (121px) at the foot with `Takeaway:` in italic serif and one sentence. L53 carries a 16px footnote in place of the band; L54 carries the purple **decision band**. They share two elements: the **decision band** (solid purple bar, small-caps label, one white line: the decision needed or the success marker) and the **paired card** (one card, two labelled halves: WHY / STILL NEEDED, WHAT ENGINES SURFACE / POSITION, BASELINE / DESIRED).
+
+**L52 · Scope page** *(dense, Document only)*
+- BEST FOR: one page per option or scope, so three in a row read as a set.
+- THE ONE POINT: what this option tells the client that the cheaper one does not.
+- SLOTS: title bar → body headline (one italic word) → left 38%: card WHAT YOU WILL KNOW (lime rule, numbered) over card WHAT IT LEAVES OPEN (purple rule, dashes) → centre 34%: questions-per-stage mini bars (carried over in navy, added by this option in lime), total beneath, italic-serif card A QUESTION THIS SCOPE ASKS → right 28%: navy fee tile (lime label, fee at 80px, list, answers, split, repeat) → takeaway band. RECOMMENDED chip top right on the recommended option; its fee tile takes a lime top edge.
+- SURFACES: paper body; navy title bar; lime band.
+- KEEP IT HONEST: identical grid on every option page. Differences as what the reader learns, never as ratios of inputs ("29% more prompts for 20% more").
+
+**L53 · Comparison columns** *(dense, Document only)*
+- BEST FOR: the slide the client keeps open while deciding.
+- THE ONE POINT: the rows read across; the recommended column is washed.
+- SLOTS: title bar → navy foundation row spanning the columns (lime label: what every option includes) → 2–4 tall column cards, same rows in the same order; recommended column lime rule + lime wash + chip, others grey rule → 16px footnote. No takeaway band.
+- SURFACES: paper; navy foundation row; lime wash.
+- KEEP IT HONEST: ≤4 columns, ≤11 rows. The dense page is deliberate and earns no band.
+
+**L54 · Self-check table**
+- BEST FOR: letting the reader point themselves at the right option.
+- THE ONE POINT: if the first two answers are yes, it is B.
+- SLOTS: title bar → one intro line → table: question rows × option columns, ✓ or – with a short qualifier, recommended column header in lime with a wash → purple decision band: the sentence that says which answers point where.
+- SURFACES: paper; purple decision band.
+- KEEP IT HONEST: three or four questions. A question nobody would answer no to is padding.
+
+**L55 · Native chart page**
+- BEST FOR: one quantity that makes the argument: answers per stage, presence by engine, cited vs consulted, source mix.
+- THE ONE POINT: the chart; the three points say what to see in it.
+- SLOTS: title bar → left 55%: native chart (bar, split bar, or 100% stacked mix), data labels on, the client's or recommended series in lime, others navy and grey, 16px caption → right 45%: three numbered points (lime number tile, bold lead, one line) → takeaway band.
+- SURFACES: paper; navy/grey/lime series.
+- KEEP IT HONEST: native charts only, never pictures of charts. A mix chart only once the source data is classified.
+
+**L56 · Status cards**
+- BEST FOR: a verdict per item with its condition: validated use cases, markets, entities.
+- THE ONE POINT: how many are strong, how many conditional, and what each still needs.
+- SLOTS: title bar → 3–5 equal cards: the label is the verdict in small caps (STRONGLY VALIDATED, lime rule · CONDITIONALLY VALIDATED, purple rule) → the item → paired body WHY / STILL NEEDED → takeaway band.
+- SURFACES: paper; white cards; lime or purple rules.
+- KEEP IT HONEST: the rule colour is the verdict and nothing else. Never red.
+
+**L57 · Step illustration** *(Document only)*
+- BEST FOR: options that build on one shared foundation.
+- THE ONE POINT: every option includes the base; the steps are the extra.
+- SLOTS: title bar → left 60%: staircase of native rectangles on a navy base (grey step, lime recommended step with chip, navy-outlined step), step heights proportional to the added fee, price label above each, totals in purple → right 40%: card IN EVERY SCOPE (lime rule, list) → takeaway band.
+- SURFACES: paper; navy base.
+- KEEP IT HONEST: heights are to scale or the drawing lies.
 
 ### Capability & about
 
@@ -378,6 +446,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 - SLOTS: eyebrow + title → 3–5 pill rows: icon + ≤5-word title + one ≤16-word line. Highlight one row.
 - SURFACES: paper; rows white with a hairline; one row in the accent border.
 - KEEP IT HONEST: one line per row. Highlight exactly one row, not all of them.
+- RESEARCH VARIANT: bands grouped by role (direct peers · specialists · adjacent providers · partners) holding name chips, the subject and its nearest peer set larger, one callout figure at left. The role bands of a research deck.
 
 **L48 · Photo + numbered lists**
 - BEST FOR: a content-rich update — a full-height image with the title overlaid, beside 2–3 numbered sections of bullets. The workhorse "here's the plan" slide.

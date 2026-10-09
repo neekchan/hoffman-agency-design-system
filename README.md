@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.23.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch — **the stray brand-book copy is gone from the Claude Design master, and the team roster keeps its rounded corners.** Nothing visual changes.
+**Version 2.24.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **six research-deck layouts (L52–L57), two elements, nine research variants and the Document-mode overrides for decks that argue from data.**
 
 Integrated Comms agency that helps tech brands solve hard business problems. The harder the better. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -178,7 +178,7 @@ INTAKE.md               · ⏱ run FIRST — the pre-build intake questions that
 AGENTS.md               · slide/deck SOPs — the authority for slides & office docs (precedence: see Section 0)
 SOUNDCHECK.md           · the presentation argument — seven principles for slide titles and the story they tell in sequence (read with AGENTS.md for any deck)
 LLM_ENTRYPOINT.md       · shortest task router for Claude, ChatGPT and other design agents
-LAYOUTS.md              · deck layout library (48 layouts, L01–L51) + slide best-practice guide
+LAYOUTS.md              · deck layout library (54 layouts, L01–L57) + slide best-practice guide
 POWERPOINT.md           · native `.pptx` route — theme spec, font reliability, logo geometry, protected zones, connectors, layout-as-contract, finished-file validation (read when the output is PowerPoint)
 DESIGN.md               · Google design.md spec — machine-readable single source of truth
 README.md               · this file (the human read of the brand: content, visual, iconography)
@@ -245,8 +245,8 @@ preview/                · Design System tab — one @dsCard per token/brand gro
   fluent-emoji-library.html  · all 1,595 upstream emoji, searchable; the vendored 75 badged as offline-safe
 
 templates/              · reusable DC starting points consuming projects copy (each <slug>/<Slug>.dc.html + ds-base.js)
-  deck/                 · Deck.dc.html — the 48-layout presentation library (L01–L51); the ONE deck template — carries the Presenter/Document Mode toggle + the balloon cover (+ deck-stage.js, ds-base.js, support.js)
-  powerpoint/           · layout-manifest.json — machine-readable contracts for all 48 layouts (slots, tiers, coords, surface/logo) for native-`.pptx` tools that can't consume Deck.dc.html. No binary `.potx`/`.pptx` ship here — build them from `POWERPOINT.md Section 2` + the manifests
+  deck/                 · Deck.dc.html — the 54-layout presentation library (L01–L57); the ONE deck template — carries the Presenter/Document Mode toggle + the balloon cover (+ deck-stage.js, ds-base.js, support.js)
+  powerpoint/           · layout-manifest.json — machine-readable contracts for all 54 layouts (slots, tiers, coords, surface/logo) for native-`.pptx` tools that can't consume Deck.dc.html. No binary `.potx`/`.pptx` ship here — build them from `POWERPOINT.md Section 2` + the manifests
   one-pager/            · OnePager.dc.html — print, Letter
   social-tile/          · SocialTile.dc.html — square social
   brand-tour/           · BrandTour.dc.html — the "Interactive brand tour": a self-contained, clickable app-style walkthrough of the whole system (23 screens; explorer/presenter, nav, hints, motion tweaks). Self-contained (inlined tokens + slim font set) so it also exports to one standalone file — see `Hoffman Brand Tour.html` at the repo root

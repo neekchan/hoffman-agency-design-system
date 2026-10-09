@@ -1,6 +1,6 @@
 {
   "$schema": "internal://hoffman/layout-manifest.v1",
-  "description": "Machine-readable contracts for the 48 Hoffman deck layouts (L01–L51). A layout code is a CONTRACT, not a descriptive tag: if a slide is labelled L03/L20/L35/L37, it must preserve that layout's element relationships, hierarchy, slot roles and defining visual behaviour. If the content doesn't fit, pick a different layout — never invent a new composition under an existing code. The directly-editable visual source of truth is `templates/deck/Deck.dc.html`; this JSON is for tools that can't consume that DC (e.g. python-pptx generators). Read alongside `LAYOUTS.md` (prose) and `assets/asset-manifest.json` (logo geometry).",
+  "description": "Machine-readable contracts for the 54 Hoffman deck layouts (L01–L57). A layout code is a CONTRACT, not a descriptive tag: if a slide is labelled L03/L20/L35/L37, it must preserve that layout's element relationships, hierarchy, slot roles and defining visual behaviour. If the content doesn't fit, pick a different layout — never invent a new composition under an existing code. The directly-editable visual source of truth is `templates/deck/Deck.dc.html`; this JSON is for tools that can't consume that DC (e.g. python-pptx generators). Read alongside `LAYOUTS.md` (prose) and `assets/asset-manifest.json` (logo geometry).",
 
   "canvas": { "width": 1920, "height": 1080, "unit": "px", "note": "1pt = 2px" },
   "safeArea": { "margin": 72, "box": [72, 72, 1776, 936], "note": "All text + non-bleed imagery stays inside. Page chrome (page number, logo) lives inside this margin." },
@@ -395,9 +395,61 @@
       "slots": [
         { "name": "label", "role": "Q&A / Discussion / Over to you", "tier": "statement", "wordCap": 3 },
         { "name": "emojiRow", "role": "raised hands or faces along the base" }
-      ], "keepHonest": "One short label + a row of emoji. No agenda recap." }
+      ], "keepHonest": "One short label + a row of emoji. No agenda recap." },
+
+    { "code": "L52", "name": "Scope page", "family": "research", "modes": ["document"], "onePoint": "What this option tells the client that the cheaper one does not.", "surfaces": ["paper"], "fullBleed": false, "logo": "none", "maxElements": 9, "grid": "38 / 34 / 28",
+      "slots": [
+        {"name": "titleBar", "tier": "title", "wordCap": 10},
+        {"name": "headline", "tier": "subhead", "accentWord": 1},
+        {"name": "know", "tier": "card", "rule": "lime", "items": [3, 4]},
+        {"name": "leavesOpen", "tier": "card", "rule": "purple", "items": [2, 3]},
+        {"name": "miniChart", "tier": "chart", "kind": "bar-by-stage", "colors": {"carried": "navy", "added": "lime"}},
+        {"name": "exampleQuestion", "tier": "quote"},
+        {"name": "feeTile", "tier": "stat", "surface": "navy", "rows": [4, 6]},
+        {"name": "takeaway", "tier": "band"}
+      ], "keepHonest": "Same grid on every option page. Differences as what the reader learns, never ratios of inputs." },
+
+    { "code": "L53", "name": "Comparison columns", "family": "research", "modes": ["document"], "onePoint": "The rows read across; the recommended column is washed.", "surfaces": ["paper"], "fullBleed": false, "logo": "none", "maxElements": 6,
+      "slots": [
+        {"name": "titleBar", "tier": "title"},
+        {"name": "foundationRow", "tier": "band", "surface": "navy", "label": "lime"},
+        {"name": "columns", "count": [2, 4], "each": [{"name": "head", "tier": "eyebrow"}, {"name": "rows", "count": [6, 11], "tier": "body"}], "recommended": {"rule": "lime", "wash": "#F4F9CC", "chip": "RECOMMENDED"}},
+        {"name": "footnote", "tier": "caption"}
+      ], "keepHonest": "<=4 columns, <=11 rows, no takeaway band." },
+
+    { "code": "L54", "name": "Self-check table", "family": "research", "modes": ["both"], "onePoint": "If the first two answers are yes, it is B.", "surfaces": ["paper"], "fullBleed": false, "logo": "none", "maxElements": 4,
+      "slots": [
+        {"name": "titleBar", "tier": "title"},
+        {"name": "intro", "tier": "body", "wordCap": 30},
+        {"name": "table", "tier": "table", "rows": [3, 4], "columns": [3, 4], "marks": ["✓", "–"], "recommended": {"headerColor": "lime", "wash": "#F4F9CC"}},
+        {"name": "decisionBand", "tier": "band", "surface": "purple"}
+      ], "keepHonest": "Three or four questions only." },
+
+    { "code": "L55", "name": "Native chart page", "family": "research", "modes": ["both"], "onePoint": "The chart; three points say what to see in it.", "surfaces": ["paper"], "fullBleed": false, "logo": "none", "maxElements": 6, "grid": "55 / 45",
+      "slots": [
+        {"name": "titleBar", "tier": "title"},
+        {"name": "chart", "tier": "chart", "kinds": ["bar", "split-bar", "stacked-100"], "native": true, "highlight": "lime", "caption": "16px"},
+        {"name": "points", "count": 3, "each": [{"name": "number", "tier": "numeral", "surface": "lime"}, {"name": "lead", "tier": "body", "weight": "semibold"}, {"name": "line", "tier": "body", "wordCap": 20}]},
+        {"name": "takeaway", "tier": "band"}
+      ], "keepHonest": "Native charts only. Mix charts only after the data gate." },
+
+    { "code": "L56", "name": "Status cards", "family": "research", "modes": ["both"], "onePoint": "How many are strong, how many conditional, what each still needs.", "surfaces": ["paper"], "fullBleed": false, "logo": "none", "maxElements": 7,
+      "slots": [
+        {"name": "titleBar", "tier": "title"},
+        {"name": "cards", "count": [3, 5], "each": [{"name": "verdict", "tier": "eyebrow", "rule": {"strong": "lime", "conditional": "purple"}}, {"name": "head", "tier": "card-head"}, {"name": "why", "tier": "body", "label": "WHY"}, {"name": "stillNeeded", "tier": "body", "label": "STILL NEEDED"}]},
+        {"name": "takeaway", "tier": "band"}
+      ], "keepHonest": "Rule colour is the verdict. Never red." },
+
+    { "code": "L57", "name": "Step illustration", "family": "research", "modes": ["document"], "onePoint": "Every option includes the base; the steps are the extra.", "surfaces": ["paper"], "fullBleed": false, "logo": "none", "maxElements": 6, "grid": "60 / 40",
+      "slots": [
+        {"name": "titleBar", "tier": "title"},
+        {"name": "staircase", "tier": "diagram", "base": "navy", "steps": [2, 4], "stepColors": ["grey", "lime", "outline"], "scale": "proportional-to-fee", "labels": "price above, totals purple"},
+        {"name": "sharedCard", "tier": "card", "rule": "lime", "label": "IN EVERY SCOPE", "items": [4, 6]},
+        {"name": "takeaway", "tier": "band"}
+      ], "keepHonest": "Step heights to scale." }
   ],
 
   "coreForKnowledgeWorkers": ["L01", "L03", "L02", "L08", "L47", "L28", "L46", "L37", "L35", "L19", "L30"],
-  "note_on_coverage": "All 48 catalogued layouts are represented. `coreForKnowledgeWorkers` lists the 11 the brief flagged as most-used (cover, agenda, section divider, insight/statement, north-star/motif opener, image+text split, two-beat comparison, three numbered points, source→tool→output workflow, key takeaways/stat strip, closing). Coordinate boxes are provided for the geometrically-defined layouts; for the rest, slot roles + type tiers + word caps ARE the contract. Bounding boxes are guides in the 1920×1080 space, inside the 72px safe area unless the slot is explicitly full-bleed."
+  "researchMode": {"appliesTo": "decks presenting research, analysis or quantitative findings, in Document mode", "overrides": ["sources on the slide: publisher, date, n at 16px under every figure", "count test replaces word budgets: one title, one italic emphasis, one takeaway or decision band, one biggest thing; cards 3-5; reasons 3; tables <=4 cols, <=11 rows; body 24-28px, labels 20px", "Fluent emoji unchanged", "options sequence L57 -> L52 x n -> L53 -> L54 is a named exception to layout diversity"], "anatomy": {"titleBar": {"box": [0, 0, 1920, 121], "fill": "navy", "titleTier": "60px white", "sectionMarker": "lime italic serif, right"}, "bodyZone": {"box": [72, 167, 1776, 792]}, "takeawayBand": {"box": [0, 959, 1920, 121], "fill": "lime", "label": "Takeaway: italic serif", "text": "one sentence"}, "decisionBand": {"box": [0, 959, 1920, 121], "fill": "purple", "note": "replaces the takeaway band on a slide that asks for a decision"}, "cardRow5": {"x": "95 + n*355", "w": 328}, "cardRow4": {"x": "84 + n*444", "w": 420}, "cardRule": {"h": 7, "meaning": {"lime": "strength / recommended", "purple": "caveat / conditional", "grey": "neutral"}}}, "elements": [{"name": "Decision band", "role": "what do you need from me", "spec": "solid purple bar, small-caps label, one white line; one per slide, only where the slide asks for a decision or names a success marker"}, {"name": "Paired card", "role": "what kind, which one, why", "spec": "one card with two labelled halves (WHY / STILL NEEDED, WHAT ENGINES SURFACE / POSITION, BASELINE / DESIRED); label at +26px, head at +69px, second label at about +190px, text inset 23px"}], "source": "OZ Skills/slide-grammar/profiles/hoffman-research.md; ruled 2026-10-08"},
+  "note_on_coverage": "All 54 catalogued layouts are represented. `coreForKnowledgeWorkers` lists the 11 the brief flagged as most-used (cover, agenda, section divider, insight/statement, north-star/motif opener, image+text split, two-beat comparison, three numbered points, source→tool→output workflow, key takeaways/stat strip, closing). Coordinate boxes are provided for the geometrically-defined layouts; for the rest, slot roles + type tiers + word caps ARE the contract. Bounding boxes are guides in the 1920×1080 space, inside the 72px safe area unless the slot is explicitly full-bleed."
 }

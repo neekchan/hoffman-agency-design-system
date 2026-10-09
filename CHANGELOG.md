@@ -23,6 +23,28 @@ really lives in the Claude Design project
 > If one rule landed in several files, list every file. Versioning rules:
 > `CONTRIBUTING.md` → Versioning.
 
+## 2026-10-09 — Research-deck layouts L52–L57, two elements, nine research variants, Document-mode overrides (v2.23.1 → v2.24.0)
+
+Nicolas Chan, 2026-10-08, from an October 2026 GEDI proposal (internal): every element on a slide has a role, and the fixed anatomy of that deck governs any Hoffman deck presenting research, analysis or quant, not only GEDI. Approved from the component → layout map at https://claude.ai/artifact/GVy5KkouHnMoJHYpnx1q1i; the full request is in OZ (`Work/Hoffman/2026-10-08 - Design system change request - research layouts.md`); the grammar behind it is OZ `Skills/slide-grammar`.
+
+### Six research layouts — `templates/deck/Deck.dc.html`, `LAYOUTS.md` Part 3 "Research & evidence", `templates/powerpoint/layout-manifest.json`
+- **L52 Scope page** (38/34/28: know card, leaves-open card, questions-per-stage mini bars, navy fee tile), **L53 Comparison columns** (navy foundation row, recommended column washed, no band), **L54 Self-check table** (✓/– by option, purple decision band), **L55 Native chart page** (chart 55%, three numbered points 45%), **L56 Status cards** (verdict label is the rule colour; WHY / STILL NEEDED), **L57 Step illustration** (staircase on a shared base, heights to scale). Example slides use placeholder content and illustrative figures; no client is named or identifiable.
+- All six wear the **research anatomy**: navy title bar 121px with a lime italic-serif section marker, lime takeaway band 121px (footnote on L53, purple decision band on L54). Document-only: L52, L53, L57.
+
+### Two elements — `LAYOUTS.md` Part 3 intro to Research & evidence, `layout-manifest.json › researchMode.elements`
+- **Decision band** (solid purple bar, small-caps label, one white line) and **Paired card** (one card, two labelled halves).
+
+### Nine research variants on existing layouts — `LAYOUTS.md` (one "RESEARCH VARIANT" line each)
+- L38 verdict card · L12 4–5 cards with valence rule · L11 big figure + navy footer strip · L37 verdict tile · L19+L24 method page · L36 role bands · L33 ladder · L20 baseline/desired pairs · L24 appendix page.
+
+### Document-mode overrides for research decks — `AGENTS.md` new Section 19, pointers in Sections 9 and 12; `LAYOUTS.md` Part 1 "Research decks (Document mode)"; `layout-manifest.json › researchMode`
+- Sources on the slide (overrides Section 9 for these decks); the count test replaces the word budgets, body 24–28px; Fluent emoji unchanged; the options sequence is a named exception to surface rotation and layout diversity. Section order for proposals and reports; the role list.
+
+### Counts — `AGENTS.md`, `LAYOUTS.md`, `POWERPOINT.md`, `README.md`, `SKILL.md`, `layout-manifest.json`
+- 48 layouts (L01–L51) → 54 layouts (L01–L57); the gallery is 56 slides; Part 2 gains three rows (options from research, one quantity, verdict per item).
+
+Minor: additive. New layouts, elements and a scoped rule set; nothing existing is removed or redefined. Not in this repo: the GEDI PowerPoint template on SharePoint carries hexes one unit off these tokens (`172D42`, `D2EB02`, `6003B9`, `CA65FF`, `86FEFF`, `145E7A`); correct it there to the DS values.
+
 ## 2026-10-08 — The stray brand-book copy is gone from the master, and the team roster keeps its rounded corners (v2.23.0 → v2.23.1)
 
 Nic's two calls on what v2.23.0 left open: *"delete the xvz0io copy"*, and on the L15 headshots,

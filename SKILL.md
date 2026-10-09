@@ -42,7 +42,7 @@ If the user invokes this skill without any other guidance, run the `INTAKE.md` q
 - `LLM_ENTRYPOINT.md` — shortest routing guide for Claude/ChatGPT and other LLM agents
 - `ANTI_PATTERNS.md` — common LLM design failures and the correct Hoffman replacement
 - `AGENTS.md` — **slide/deck SOPs**; the authority when building decks or fixed-canvas office docs (Section 0 precedence, Section 8 Fluent emoji)
-- `LAYOUTS.md` — deck layout library (48 layouts, L01–L51) + slide best-practice guide
+- `LAYOUTS.md` — deck layout library (54 layouts, L01–L57) + slide best-practice guide
 - `SOUNDCHECK.md` — the argument and title method for decks and documents (read it in full for any deck)
 - `CHECKLIST.md` — the delivery gate: run it on the finished artifact and paste its delivery report
 - `POWERPOINT.md` — native `.pptx` route: theme spec, font reliability, logo geometry, protected zones, connectors, layout-as-contract, finished-file validation
@@ -51,7 +51,7 @@ If the user invokes this skill without any other guidance, run the `INTAKE.md` q
 - `colors_and_type.css` — CSS custom properties + base element styles
 - `assets/` — logos, marks, Storyline squiggle, `emoji/` (Fluent injector), `annotations/`, and `asset-manifest.json` (logo geometry + protected zones + surface→variant map)
 - `preview/` — design-system cards (for reference)
-- `templates/` — reusable DC starting points (`deck`, `one-pager`, `social-tile`, `brand-tour`; `powerpoint/` holds the 48 layout contracts)
+- `templates/` — reusable DC starting points (`deck`, `one-pager`, `social-tile`, `brand-tour`; `powerpoint/` holds the 54 layout contracts)
 - `ui_kits/website/` — website UI kit (`index.html` + JSX components)
 - `ui_kits/app/` — product/app UI kit (`index.html`, `AppUI.jsx`, `COMPONENTS.md`)
 
