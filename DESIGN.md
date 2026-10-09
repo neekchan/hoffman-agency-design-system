@@ -353,7 +353,8 @@ Two decision rules sit **above** the tokens:
 The palette has **two primaries doing structural work** and **four secondaries used as layout "moods."**
 
 **Color proportions are MEDIUM-DEPENDENT:**
-- **Web / social** — keep it disciplined so pages read as one voice: intended page-level proportions are **Navy 30% · Lime 30% · Lavender · Purple · Cyan · Teal at ~10% each.** Lead with one dominant secondary mood; don't scatter all six across one page.
+- **Web** — keep it disciplined so pages read as one voice: intended page-level proportions are **Navy 30% · Lime 30% · Lavender · Purple · Cyan · Teal at ~10% each.** Lead with one dominant secondary mood; don't scatter all six across one page.
+- **Social** — one full-bleed surface plus one accent per tile, with the surface rotating across a carousel (`AGENTS.md Section 20`).
 - **Slides / office docs** — **the 30/30/10… ratio does NOT apply.** A deck moves through the *whole* palette deliberately: each section/divider, audience, or theme can own its own full-color surface (teal section, purple section, lime section, violet section…), so color carries structure and the deck never looks navy-paper-uniform. The only color rules that still bind on slides are **WCAG contrast** and **one dominant color per individual slide** (so each slide still has a clear mood — variety lives *across* slides, not within one). See `AGENTS.md Section 0`.
 
 - **Primary (`{colors.primary}` — Navy)** is the structural color: section backgrounds, body type, hairline rules. Pair with `{colors.on-primary}` for type.
@@ -368,7 +369,7 @@ The palette has **two primaries doing structural work** and **four secondaries u
 
 ## Typography
 
-> **Type SCALE below (the `fontSize` px values) is the WEB scale.** On slides / office docs use the slide type scale in `AGENTS.md Section 1` — enforced as FLOORS, biased high (1pt = 2px on 1080p): **20–24px** labels · **30–36px** body (default 32) · **40–52px** subhead · **64–80px** title · **120–132px** statement/divider · **176px+** cover (size-to-fit) · **~240px** closing word — never the 16px web body. The *families, weights, italic-word move, and letter-spacing* here apply to both media.
+> **Type SCALE below (the `fontSize` px values) is the WEB scale.** On slides / office docs use the slide type scale in `AGENTS.md Section 1` — enforced as FLOORS, biased high (1pt = 2px on 1080p): **20–24px** labels · **30–36px** body (default 32) · **40–52px** subhead · **64–80px** title · **120–132px** statement/divider · **176px+** cover (size-to-fit) · **~240px** closing word — never the 16px web body. The *families, weights, italic-word move, and letter-spacing* here apply to every medium.
 
 The system uses **two families.**
 
@@ -397,7 +398,7 @@ Lowercase first words are an accepted casual signal (*"hoffman has always been a
 
 ## Layout
 
-> **MEDIUM: web / screen / social only.** This section's scale and density (1240px max-width, 68ch measure, "generous negative space," web type sizes) govern webpages, the UI kit, and social tiles. **For slides / office documents (1920×1080 decks), these are overridden** by `AGENTS.md` + `LAYOUTS.md` — slide type scale, "fill the frame," imagery by default, edge-to-edge canvas. Brand fundamentals (color, fonts, italic-word, Storyline, annotations, voice) below apply to both media.
+> **MEDIUM: web / screen only.** This section's scale and density (1240px max-width, 68ch measure, "generous negative space," web type sizes) govern webpages and the UI kit. **Social tiles and carousels** have their own per-tile budget in `AGENTS.md` Section 20. **For slides / office documents (1920×1080 decks), these are overridden** by `AGENTS.md` + `LAYOUTS.md` — slide type scale, "fill the frame," imagery by default, edge-to-edge canvas. Brand fundamentals (color, fonts, italic-word, Storyline, annotations, voice) below apply to every medium.
 
 The layout system is **asymmetric, generous, and square-cornered.**
 

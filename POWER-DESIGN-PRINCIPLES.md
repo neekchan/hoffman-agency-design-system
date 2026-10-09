@@ -29,7 +29,7 @@ Source lineage: the 20 rules of Power Design (Tufte · Reynolds · Duarte · NN/
   - **04 Whitespace (≥40% / ≥60%)** → overridden by **"fill the frame"** (`AGENTS.md Section 2`) on Hoffman *slides*: restraint = few *large* elements, not empty space. (On *web*, the whitespace rule stands — Hoffman web is generous-whitespace.)
   - **05 Safe-zone (≥96px)** → Hoffman slides use a **~72px (0.5″)** margin (`AGENTS.md Section 2`).
   - **08 Body ≥24px / ≥28pt** → superseded by the **higher** Hoffman slide type scale (body 30–36px / 15–18pt; `AGENTS.md Section 1`). Hoffman is stricter, so honor the Hoffman scale.
-  - **12 60-30-10 color** → does **not** apply to Hoffman *decks*, which move through the **whole palette** deliberately (`AGENTS.md Section 7`). On Hoffman *web / social*, the brand's own split replaces it: navy 30% · lime 30% · each secondary ~10% (`DESIGN.md` → Colors).
+  - **12 60-30-10 color** → does **not** apply to Hoffman *decks*, which move through the **whole palette** deliberately (`AGENTS.md Section 7`). On Hoffman *web*, the brand's own split replaces it: navy 30% · lime 30% · each secondary ~10% (`DESIGN.md` → Colors). On *social*, each tile takes one surface plus one accent (`AGENTS.md Section 20`).
 - **No conflict → both hold.** If a rule and an SOP don't collide, obey both. If they collide and it isn't listed above, the **medium precedence in `AGENTS.md Section 0`** decides (slide rules win on slides, web rules on web).
 
 **In short:** universal craft (contrast, grid, one-idea, mode purity) is non-negotiable; the density / whitespace / palette / margin calls follow the house style for the medium. Reference the rest, try to honor it, don't be a slave to it.
@@ -146,7 +146,7 @@ Source lineage: the 20 rules of Power Design (Tufte · Reynolds · Duarte · NN/
 - **Test:** Estimate area share per color role.
 - **Fails when:** the accent covers half the slide and screams.
 - **Why:** Itten (interior tradition); codified by Refactoring UI.
-- **Hoffman override:** does **not** apply to Hoffman *decks* — a deck moves through the whole palette, one dominant color per slide (`AGENTS.md Section 7`). On *web / social*, Hoffman's own split applies instead: navy 30% · lime 30% · each secondary ~10% (`DESIGN.md` → Colors).
+- **Hoffman override:** does **not** apply to Hoffman *decks* — a deck moves through the whole palette, one dominant color per slide (`AGENTS.md Section 7`). On *web*, Hoffman's own split applies instead: navy 30% · lime 30% · each secondary ~10% (`DESIGN.md` → Colors). On *social*, one surface plus one accent per tile (`AGENTS.md Section 20`).
 
 ### 13 · One accent
 - **Rule:** One accent color per slide for emphasis. Everything else neutral.

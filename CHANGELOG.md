@@ -23,6 +23,17 @@ really lives in the Claude Design project
 > If one rule landed in several files, list every file. Versioning rules:
 > `CONTRIBUTING.md` → Versioning.
 
+## 2026-10-10 — "Three media" now reads the same in every file (v2.25.0 → v2.25.1)
+
+Found while checking the Claude Design master before mirroring v2.25.0 to it: four places still described social as part of the web posture.
+
+### Medium wording — `DESIGN.md`, `POWER-DESIGN-PRINCIPLES.md`, `README.md`
+- `DESIGN.md` → Colors: the 30/30/10 split is **web**; a new **Social** bullet says one surface plus one accent per tile. Layout header: "web / screen / social only" → "web / screen only", with a pointer to `AGENTS.md` Section 20. "Both media" → "every medium" (two places).
+- `POWER-DESIGN-PRINCIPLES.md`, rules 12 and its override note: the 30/30/10 split is web; social takes one surface plus one accent per tile.
+- `README.md`: "shared across both media" → "all three media".
+
+Patch: wording brought in line with v2.25.0; no rule changes.
+
 ## 2026-10-10 — Social becomes its own medium, with a per-tile budget that stops the stuffed "AI slop" tile (v2.24.0 → v2.25.0)
 
 Nicolas Chan, after an awards carousel generated in ChatGPT from a long brief came back looking *"obviously AI"*: *"AI is stuffing too much into the graphics."* Measured off the image, every tile carried 13–20 elements, 31–45 words and six to eight type sizes, two claims nobody had made ("First Time" pills) and one dropped headline. Three causes, in order: the prompt linked this repo, which a chat image model never opens; it asked the model to set every word, the opposite of this system's first prompting rule; and it listed about sixteen devices per tile, limited only by adjectives ("restrained", "subtle", "minimal"). Nothing in the system set numbers for social, and its loudest doctrine (fill the frame, imagery and emoji by default) was written for slides. Nic: *"finish implementing this."*

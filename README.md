@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.25.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **social is now its own medium with a per-tile budget (one idea, ≤4 elements, ≤15 words, ≤1 mark, ≥40% quiet), a two-path prompt that keeps image models from typesetting, a per-tile brief ledger, and `tools/tile_count.js` to measure it.**
+**Version 2.25.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch on minor 2.25.0 — **social is now its own medium with a per-tile budget (one idea, ≤4 elements, ≤15 words, ≤1 mark, ≥40% quiet), a two-path prompt that keeps image models from typesetting, a per-tile brief ledger, and `tools/tile_count.js` to measure it.**
 
 Integrated Comms agency that helps tech brands solve hard business problems. The harder the better. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -109,7 +109,7 @@ That operational readiness shows up as: `LLM_ENTRYPOINT.md` for task routing and
 > ### ⚠ Three media, three rule sets — read before building
 > This system serves **web**, **slides/office docs** and **social**, which have different layout physics. Most of this README (type scale, spacing, "generous whitespace," "more air," 1240px max-width, sparse imagery) describes the **WEB** posture. **Social tiles and carousels** have their own per-tile budget in `AGENTS.md` Section 20: one idea, ≤4 elements, ≤15 words, ≤1 mark, ≥40% quiet.
 >
-> **When you build a PowerPoint/Keynote deck or any fixed 1920×1080 slide, the slide rules in `AGENTS.md` + `LAYOUTS.md` OVERRIDE the web rules here** — specifically: use the **slide type scale as FLOORS, biased high** (20–24px labels · 30–36px body / default 32 · 40–52px subhead · 64–80px title · 120–132px statement & divider · 176px+ cover · ~240px closing word — never 16px, never the old 28px "safe" body), **"fill the frame"** (no dead whitespace — the opposite of "more air"), **imagery by default on every slide**, and the **full edge-to-edge canvas** (no 1240px / 68ch caps). What stays shared across both media: **color, fonts, the italic-emphasis move (key word *or* phrase, not a fixed single word), the Storyline motif, annotations, emoji rules, and voice.** See `AGENTS.md Section 0` for the precise precedence.
+> **When you build a PowerPoint/Keynote deck or any fixed 1920×1080 slide, the slide rules in `AGENTS.md` + `LAYOUTS.md` OVERRIDE the web rules here** — specifically: use the **slide type scale as FLOORS, biased high** (20–24px labels · 30–36px body / default 32 · 40–52px subhead · 64–80px title · 120–132px statement & divider · 176px+ cover · ~240px closing word — never 16px, never the old 28px "safe" body), **"fill the frame"** (no dead whitespace — the opposite of "more air"), **imagery by default on every slide**, and the **full edge-to-edge canvas** (no 1240px / 68ch caps). What stays shared across all three media: **color, fonts, the italic-emphasis move (key word *or* phrase, not a fixed single word), the Storyline motif, annotations, emoji rules, and voice.** See `AGENTS.md Section 0` for the precise precedence.
 
 ---
 
