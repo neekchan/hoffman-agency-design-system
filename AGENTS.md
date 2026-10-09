@@ -9,7 +9,7 @@ You are looking at **The Hoffman Agency design system**: brand tokens, fonts, lo
 > 4. **Build inside the system, never around it.** Load `colors_and_type.css` + `_ds_bundle.js`, start from the medium's template in `templates/`, and pick **named layouts** from `LAYOUTS.md`. **Never hand-author bespoke slide chrome.** Hand-rolled CSS that ignores the bundle is the root cause of every "it doesn't look like the system" failure. If the adherence linter (`_adherence.oxlintrc.json`, run by Claude Design) reports the bundle isn't loaded, stop and fix that before continuing. Outside Claude Design, check by hand that both files load.
 
 **Read first — orientation & rules (always):**
-1. **This file (`AGENTS.md`)** — the slide/office-doc authority. **Section 0 is the most important thing in the system:** this brand serves *two media with different physics* (web vs. slides), and Section 0 tells you which rule set wins. Read Section 0 before anything else.
+1. **This file (`AGENTS.md`)** — the slide/office-doc authority. **Section 0 is the most important thing in the system:** this brand serves *three media with different physics* (web, slides and social), and Section 0 tells you which rule set wins. Read Section 0 before anything else.
 2. **`README.md`** — the human read of the brand (voice, content fundamentals, the full annotated file map). Start at its "File structure" block to see where everything lives.
 3. **`DESIGN.md`** — the machine-readable single source of truth: every color, type, spacing, radius, shadow token + voice/imagery rules. When a value must be exact, trust `DESIGN.md` over prose.
 4. **`POWER-DESIGN-PRINCIPLES.md`** — the portable craft layer (one-idea, chunks, grid, contrast, data-ink, **mode purity**…). It is a **reference layer: try to honor it, don't rigidly stick.** Where a rule collides with a house SOP, the precedence block at the top of that file (and Section 0 below) decides — universal craft wins; the whitespace / palette / margin calls follow the Hoffman house style.
@@ -19,7 +19,8 @@ You are looking at **The Hoffman Agency design system**: brand tokens, fonts, lo
 - **A native PowerPoint / `.pptx` / `.potx` file** → **`POWERPOINT.md` first** (+ `AGENTS.md Section 13`), then `LAYOUTS.md`. Prefer exporting the deck to editable PPTX; place logos via `assets/asset-manifest.json`, layouts via `templates/powerpoint/layout-manifest.json`; set the theme fonts to Poppins; validate the finished file.
 - **A web page / marketing site** → `README.md` web sections + `ui_kits/website/` (real components) + `DESIGN.md` web type scale. Web posture: generous whitespace, sparse imagery, 1240px measure.
 - **A product app / dashboard / workflow UI** → `README.md` app sections + `ui_kits/app/` (product primitives) + `DESIGN.md` component guidance. App posture: dense but calm, scannable, native controls, compact panels, no marketing hero composition.
-- **A social tile / one-pager** → the matching folder in `templates/` (`social-tile/`, `one-pager/`). A one-pager is a **document**: write its headings with `SOUNDCHECK.md` (Section 10).
+- **A social tile or carousel (LinkedIn, Instagram)** → **Section 20 first** (the per-tile budget: one idea, ≤4 elements, ≤15 words, ≤1 mark, ≥40% quiet), then `templates/social-tile/`, and `PROMPTS.md` → Social tile only if an image model is involved. Brief it as a per-tile ledger (`INTAKE.md`) and count it with `tools/tile_count.js`.
+- **A one-pager** → `templates/one-pager/`. A one-pager is a **document**: write its headings with `SOUNDCHECK.md` (Section 10).
 - **Any Presenter-mode deck, whether or not anyone asked** → **offer** the animated brand mark, suggesting the closing (or a *"Hello."* cover), with a pre-set studio link so the user can make it themselves, and invite them to say where else they want it. Never build the animation: **§17**.
 - **The animated brand "hello" / an animated wordmark or brand-mark GIF** (for a deck, PowerPoint, social, or an email signature) → **`preview/brand-mark-studio.html`** — the **Brand Mark Studio**, a self-serve in-browser exporter: type any word, pick Poppins or Libre Baskerville (italic/bold), gradient or per-letter colour cycling and a background, then export APNG (transparent, best), GIF (transparent, PowerPoint-safe) or MP4/WebM — all encoded client-side. **Point the user at the tool; don't hand-build the animation.**
 - **Any imagery decision (generate / supply / placeholder), or generating with an AI model** → **`IMAGERY.md`** first (the workflow: capability check → ask the user → learn-a-style or the Hoffman house illustration style → else a labelled placeholder), then **`PROMPTS.md`** for the copy-paste prompt templates that bake in the Hoffman grade/mood.
@@ -52,10 +53,11 @@ You are looking at **The Hoffman Agency design system**: brand tokens, fonts, lo
 These are the user's tuning rules for building Hoffman **slides** (distinct from web/components). Apply to every deck layout in `templates/deck/` and when copying any new layout the user uploads. The layouts were reverse-engineered from the WISE pitch (Hoffman house style; confidential, on the master only). The public reference is `slides/Hoffman Brand Guidelines.html`: match its *proportions*, not exact pixels.
 
 ## 0. MEDIUM PRECEDENCE — read this first
-This design system serves **two media with different physics**, and their rules are NOT interchangeable:
+This design system serves **three media with different physics**, and their rules are NOT interchangeable:
 
-- **Web / screen / social** — webpages, the UI kit, social tiles, the brand site. Governed by **`DESIGN.md`** + `colors_and_type.css` (web type scale, `16px` body, 68ch measure, 1240px max-width, "generous negative space," "sparse imagery").
+- **Web / screen** — webpages, the UI kit, the brand site. Governed by **`DESIGN.md`** + `colors_and_type.css` (web type scale, `16px` body, 68ch measure, 1240px max-width, "generous negative space," "sparse imagery").
 - **Slides / office documents** — PowerPoint/Keynote decks (1920×1080), and other fixed-canvas page documents. Governed by **this file (`AGENTS.md`)** + **`LAYOUTS.md`**.
+- **Social** — LinkedIn and Instagram tiles and carousels (square, story). Governed by **Section 20** for density and by `DESIGN.md` for colour, fonts, emphasis, the Storyline, annotations and voice. It takes neither the web posture nor the slide one.
 
 **When building a deck or any fixed-canvas slide/office artifact, the slide rules below OVERRIDE the web rules.** Specifically, for slides you IGNORE these web rules:
 - ❌ The web **type scale** (16px body etc.) → use the SLIDE type scale in Section 1.
@@ -63,7 +65,9 @@ This design system serves **two media with different physics**, and their rules 
 - ❌ "**Sparse imagery**" → imagery is the **DEFAULT** on slides (Section 3).
 - ❌ Web **max-width / reading-measure** caps (1240px, 68ch) → slides are edge-to-edge 1920×1080; use the full frame.
 
-DESIGN.md still governs **color, fonts, the italic-emphasis move, the Storyline motif, annotations, and voice** — those are brand-wide and apply to both media. It's only the *web layout/scale/density/imagery* posture that slides override.
+DESIGN.md still governs **color, fonts, the italic-emphasis move, the Storyline motif, annotations, and voice** — those are brand-wide and apply to all three media. It's only the *web layout/scale/density/imagery* posture that slides override.
+
+**Social inverts the slide rules.** Never carry *fill the frame*, *imagery by default*, *an emoji on every beat* or *the whole palette* onto a tile. A slide is watched for a minute with a presenter; a tile is glanced at for two seconds on a phone, between other people's tiles. On a tile, restraint means few elements **and** visible quiet. The budget is in Section 20.
 
 **Delivery format is not a medium.** A deck delivered as **HTML** (the deck-stage engine) and a deck delivered as **`.pptx`** are *both slides* — both use the slide rules in this file. **An HTML deck is not a web page:** HTML is only the rendering technology. Never apply the web type scale, web whitespace, or `ui_kits/` UI rules to an HTML deck — that is exactly how a 1920×1080 deck ends up with 16px body text. If you're rendering slides, you're governed by `AGENTS.md`, whatever the file extension. (Ask HTML-vs-`.pptx` at intake — `INTAKE.md` Q1 — for the delivery trade-off; the choice does not change the rule set.)
 
@@ -399,6 +403,35 @@ A deck that presents **research, analysis or quantitative findings** and is read
 **The research anatomy** (every content slide, so the reader stops reading the layout): navy title bar, 121px, title 60px white at left, section marker right in lime italic serif (`02 • WHY NOW` … `06 • NEXT STEPS`); body zone; lime takeaway band, 121px, `Takeaway:` in italic serif then one sentence. The band is dropped on the dense side-by-side (footnote instead) and replaced on a decision slide by the purple **decision band**. Section order for a proposal: Summary → Why now → How it works → What you get → Scope → Next steps; for a report: Method → Summary → one section per funnel stage → Entity → Sources → Actions. Dividers (L02) are phrased as the question the section answers.
 
 **Every element has a role.** Each element on a research slide answers one reader question: section marker, where am I; title, the point; label, what kind of thing; head, which one; body, why believe it; figure, how much; rule colour, good, bad or recommended; group, what do I read across; takeaway, so what; decision band, what do you need from me; source, says who. No two elements answer the same question; an element with no question is cut. Colour is semantic: navy = container, lime = recommended / strength / so-what, purple = emphasis / caveat / decision, cyan and lilac = stage coding only. The layouts: L52–L57, plus the research variants noted under L38, L12, L11, L37, L19, L36, L33, L20 and L24 in `LAYOUTS.md`.
+
+
+## 20. Social tiles and carousels — subtract, don't fill
+
+A tile is not a slide. A slide is watched in a room with someone talking over it; a tile is glanced at for two seconds on a phone, between other people's tiles, by someone who did not ask to see it. Everything that makes a Hoffman slide work — fill the frame, imagery by default, an emoji on every beat, the whole palette — makes a tile look like every other AI-made post in the feed. The recognisable "AI slop" tile is not ugly, it is **full**: a masthead, an issue line, two rules, three numbers, four icons, two handwritten asides, a torn clipping and a footer, on one square. Ruled by Nicolas Chan on 2026-10-10, after an AI-generated awards carousel came back with 13–20 elements, 31–45 words and six to eight type sizes on every tile, two claims nobody had made and one headline missing.
+
+**The budget, per tile.** Numbers, not adjectives. "Restrained", "subtle", "minimal" and "occasional" are not limits a generator obeys; a number is.
+
+| Per tile | Budget |
+|---|---|
+| Ideas | **1** — if the tile needs an "and", it is two tiles |
+| Content elements — eyebrow, headline, hero figure, support line, one list, one image | **≤ 4** |
+| Words — a figure counts as one; chrome, list markers and a quote's attribution don't count | **≤ 15**, the same cap as a Presenter slide |
+| Type sizes, chrome included | **≤ 3 + 1 hero**. Floor 22px on a 1080 tile (44px at 2160) |
+| Hand-drawn marks, highlights included | **≤ 1** |
+| Colour | **1 surface + 1 accent**, plus white or navy type. Rotate the surface across the carousel, not within a tile |
+| A list | **≤ 4 items, ≤ 4 words each** |
+| Quiet area — no type, mark, icon, logo or filled block; one photograph counts as quiet | **≥ 40%** of the tile |
+| Chrome | the series marker on every tile (top-left, mono, ≤ 3 words); the logo on the cover and the closing only — a standalone tile is its own cover. Nothing else repeats on every tile |
+
+**The carousel is where extra content goes.** A brief that puts three ideas on one tile gets more tiles, not smaller type. Each fact and each claim lives on one tile; a figure that does repeat reads identically (`CHECKLIST.md` → Content integrity). A concept that wants recurring furniture — a publication's masthead, an issue number, a section name — carries it in the series marker (`Field Notes · 1/4`), never as a band across the top of every tile. One device per tile: a newspaper idea earns one clipping on one tile, not a clipping, a grain, two rules and a handwritten note on all of them.
+
+**Two ways to make a tile.**
+- **A — build it (the default).** Start from `templates/social-tile/SocialTile.dc.html`. Set every word in the page, and place the real assets: the logo, the Storyline, `assets/annotations/`, `assets/icons/`. An image model makes only the imagery — a photograph, a portrait treatment, a texture — never the type and never a brand asset (Section 4.6).
+- **B — one-shot in an image generator** (ChatGPT, Gemini, Lovart, Midjourney), only when building is not possible. Use the budget block in `PROMPTS.md` → Social tile: the exact copy in quotes, one tile per generation. **A link to this repo is not a brief.** A chat image model does not open it; whatever the model needs is in the prompt or it does not exist. Then read every generated word against the ledger, letter by letter: a word the model added, dropped or changed is a content-integrity FAIL, not a typo. A generated logo is never the logo — composite the real file or leave the logo off.
+
+**Brief it as a ledger.** `INTAKE.md` writes a carousel brief as one row per tile — the idea, the hero, the emphasis word, the one mark, the surface, the exact copy and its word count — before anything is laid out. A brief that lists devices to use ("rules, dividers, issue numbering, paper collage, print grain, handwritten notes") is an inventory, and a generator places all of it on every tile. Name the one device a tile gets in its row, or leave it out.
+
+**Count it.** `tools/tile_count.js` measures every tile against this budget: paste it into the browser console on the tile page, or run it headless (usage at the top of the file). Paste its numbers as the social line of the delivery report (Section 18). Over budget is a LOCK: cut, or give a one-line reason that survives being read aloud.
 
 ---
 **Status:** the slide-design SOPs in this file are established across all **54 layouts** in `templates/deck/Deck.dc.html` (codes L01–L57, catalogued in `LAYOUTS.md`). As the user uploads further layouts, copy them against these SOPs and keep `LAYOUTS.md` + the deck count (README, SKILL.md) in sync.

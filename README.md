@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.24.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **six research-deck layouts (L52–L57), two elements, nine research variants and the Document-mode overrides for decks that argue from data.**
+**Version 2.25.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: minor — **social is now its own medium with a per-tile budget (one idea, ≤4 elements, ≤15 words, ≤1 mark, ≥40% quiet), a two-path prompt that keeps image models from typesetting, a per-tile brief ledger, and `tools/tile_count.js` to measure it.**
 
 Integrated Comms agency that helps tech brands solve hard business problems. The harder the better. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -106,8 +106,8 @@ This repo is the source brand system — colors, typography, logo assets, Storyl
 
 That operational readiness shows up as: `LLM_ENTRYPOINT.md` for task routing and `ANTI_PATTERNS.md` for common LLM failures; fallback slide rules in this README for the common case where only the README is pasted into Claude/ChatGPT; `ui_kits/app/` with product UI primitives, a dashboard demo, and `COMPONENTS.md` examples; the design-system compiler (on the Claude Design master) to catch catalog drift before it reaches users; and `CONTRIBUTING.md` plus `CHANGELOG.md` so changes stay easy to review.
 
-> ### ⚠ Two media, two rule sets — read before building
-> This system serves **web** and **slides/office docs**, which have different layout physics. Most of this README (type scale, spacing, "generous whitespace," "more air," 1240px max-width, sparse imagery) describes the **WEB / social** posture.
+> ### ⚠ Three media, three rule sets — read before building
+> This system serves **web**, **slides/office docs** and **social**, which have different layout physics. Most of this README (type scale, spacing, "generous whitespace," "more air," 1240px max-width, sparse imagery) describes the **WEB** posture. **Social tiles and carousels** have their own per-tile budget in `AGENTS.md` Section 20: one idea, ≤4 elements, ≤15 words, ≤1 mark, ≥40% quiet.
 >
 > **When you build a PowerPoint/Keynote deck or any fixed 1920×1080 slide, the slide rules in `AGENTS.md` + `LAYOUTS.md` OVERRIDE the web rules here** — specifically: use the **slide type scale as FLOORS, biased high** (20–24px labels · 30–36px body / default 32 · 40–52px subhead · 64–80px title · 120–132px statement & divider · 176px+ cover · ~240px closing word — never 16px, never the old 28px "safe" body), **"fill the frame"** (no dead whitespace — the opposite of "more air"), **imagery by default on every slide**, and the **full edge-to-edge canvas** (no 1240px / 68ch caps). What stays shared across both media: **color, fonts, the italic-emphasis move (key word *or* phrase, not a fixed single word), the Storyline motif, annotations, emoji rules, and voice.** See `AGENTS.md Section 0` for the precise precedence.
 
@@ -128,7 +128,7 @@ use the routing rules below.
 | Native PowerPoint / `.pptx` / `.potx` (the file itself) | `POWERPOINT.md` first, then `AGENTS.md` + `LAYOUTS.md`; place logos via `assets/asset-manifest.json`, layouts via `templates/powerpoint/layout-manifest.json` | Do not paint shapes on a generic Office theme, stretch logos, or invent layouts under a named code |
 | Marketing site or landing page | `DESIGN.md`, `colors_and_type.css`, `ui_kits/website/` | Do not use dashboard density |
 | Product app, dashboard, portal, workflow UI | `DESIGN.md`, `ui_kits/app/`, `ui_kits/app/COMPONENTS.md` | Do not start with a marketing hero |
-| Social tile or carousel | `templates/social-tile/`, `PROMPTS.md` | Do not use tiny type or decorative clutter |
+| Social tile or carousel | `AGENTS.md` Section 20, then `templates/social-tile/` (+ `PROMPTS.md` if an image model is involved) | Subtract, don't fill: one idea, ≤4 elements, ≤15 words per tile; count with `tools/tile_count.js` |
 | Any image (generate / supply / placeholder) | `IMAGERY.md`, then `PROMPTS.md` | Do not skip the capability check or drop a bare grey box |
 | The animated brand "hello", an animated wordmark / brand-mark GIF or video, **or offered on any Presenter deck** (`AGENTS.md` §17) | Hand over a pre-set link to `preview/brand-mark-studio.html` — the self-serve **Brand Mark Studio** (APNG / GIF / MP4, encoded client-side) | Do not hand-animate the wordmark or rebuild the exporter |
 
@@ -195,7 +195,7 @@ colors_and_type.css     · all color + type tokens as CSS variables (the compile
 _ds_bundle.js · _ds_manifest.json · _adherence.oxlintrc.json   · COMPILER-GENERATED — do not hand-edit unless mechanically syncing an export when the compiler is unavailable
 
 docs/                   · portable exports + demos — self-contained, NOT part of the compiled system
-  portable-brand-brief-social.md      · paste-into-Lovart brand brief for social tiles
+  portable-brand-brief-social.md      · paste-anywhere brand brief for social tiles (Lovart, ChatGPT, Gemini) — carries the per-tile budget
   portable-living-deck-recipe.md      · prompt to rebuild a living guidelines deck elsewhere
   demos/                              · standalone proof-of-concept animations (reference only)
     Procedural Animation Demo.html    · 5 code-driven slide-animation techniques
@@ -248,8 +248,12 @@ templates/              · reusable DC starting points consuming projects copy (
   deck/                 · Deck.dc.html — the 54-layout presentation library (L01–L57); the ONE deck template — carries the Presenter/Document Mode toggle + the balloon cover (+ deck-stage.js, ds-base.js, support.js)
   powerpoint/           · layout-manifest.json — machine-readable contracts for all 54 layouts (slots, tiers, coords, surface/logo) for native-`.pptx` tools that can't consume Deck.dc.html. No binary `.potx`/`.pptx` ship here — build them from `POWERPOINT.md Section 2` + the manifests
   one-pager/            · OnePager.dc.html — print, Letter
-  social-tile/          · SocialTile.dc.html — square social
+  social-tile/          · SocialTile.dc.html — ten square social tiles, every one inside the Section 20 budget
   brand-tour/           · BrandTour.dc.html — the "Interactive brand tour": a self-contained, clickable app-style walkthrough of the whole system (23 screens; explorer/presenter, nav, hints, motion tweaks). Self-contained (inlined tokens + slim font set) so it also exports to one standalone file — see `Hoffman Brand Tour.html` at the repo root
+
+tools/                  · checks you run, not files you load
+  title_check.py        · title line-break check (AGENTS.md Section 2.5) — needs Playwright
+  tile_count.js         · the social count test (AGENTS.md Section 20) — paste into devtools or run headless; no install
 
 slides/                 · the CI/VI demonstration deck (not a template)
   Hoffman Brand Guidelines.html              · the live brand guidelines deck

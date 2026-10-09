@@ -25,8 +25,24 @@ The brand promise is *earned* media. A deck or page that invents its evidence br
 - [ ] **Unknown content is a visible, labelled placeholder** — the slot reads `[REAL DATA · what goes here · who supplies it]` in the surface itself (not a code comment), the same way an image slot reads `Type · Aspect · generate W×Hpx`. Never plausible-looking filler that could ship by accident
 - [ ] **Stock stand-in imagery carries a visible swap flag on the surface** (caption, corner tag or the placeholder hint) until the real photo lands. An unflagged stand-in is disguised as final (`IMAGERY.md`)
 - [ ] **Qualifiers survive the edit** — "up to", "in pilot", "estimated", "n = 12" stay attached to the claim they qualify. Cutting the hedge is inventing a result (`SOUNDCHECK.md` → never present an inference as a verified result)
+- [ ] **Generated type matches the brief, word for word** — when an image model set any of the words (social path B, `AGENTS.md` Section 20), every word on the image was read against the brief or ledger. An added claim, a dropped headline or a changed figure is a FAIL here, not a typo
 - [ ] **Repeated figures are single-sourced** — the same number reads identically everywhere it appears (moved here from intake; it is a HARD check)
 - [ ] **Deck-level:** the governing thought of each slide is supported by what is actually on the slide or in its notes, not by a claim the evidence does not make
+
+## Social tiles & carousels
+
+For LinkedIn / Instagram tiles and carousels (`AGENTS.md` Section 20). These are LOCKS: fix, or give a one-line reason. Measure them with `tools/tile_count.js`; a guess is not evidence.
+
+- [ ] **One idea per tile**, and the brief was written as a per-tile ledger before layout (`INTAKE.md`)
+- [ ] **≤ 4 content elements per tile** (eyebrow, headline, hero figure, support line, one list, one image)
+- [ ] **≤ 15 words per tile** — a figure is one word; chrome, list markers and attributions excluded
+- [ ] **≤ 3 type sizes + 1 hero per tile**, chrome included; nothing under 22px on a 1080 tile
+- [ ] **≤ 1 hand-drawn mark per tile**, highlights included
+- [ ] **One surface + one accent per tile**, surfaces rotating across the carousel
+- [ ] **≥ 40% of each tile is quiet** — no type, mark, icon, logo or filled block
+- [ ] **Chrome is the series marker only**, plus the logo on the cover and closing. No masthead, issue line, rules or footer repeated across every tile
+- [ ] **Each claim lives on one tile**; no device appears on every tile just because the concept has it
+- [ ] **No generated brand asset** — logo, Storyline and marks are the real files (`AGENTS.md` Section 4.6)
 
 ## Functional — web & app surfaces — **HARD**
 
@@ -86,7 +102,8 @@ Run against the **exported file**, not the source that made it (`POWERPOINT.md S
 
 ## Color — contrast lines are **HARD**
 
-- [ ] **Web / social only:** on-canvas palette respects 30/30/10/10/10/10 ratio (Navy / Lime / Lavender / Purple / Cyan / Teal). **Decks/docs are exempt** — a deck should move through the full palette (a different surface per section/theme); the only color gates on slides are WCAG contrast + one dominant color per slide.
+- [ ] **Social:** one surface + one accent per tile, rotating across the carousel (`AGENTS.md` Section 20)
+- [ ] **Web only:** on-canvas palette respects 30/30/10/10/10/10 ratio (Navy / Lime / Lavender / Purple / Cyan / Teal). **Decks/docs are exempt** — a deck should move through the full palette (a different surface per section/theme); the only color gates on slides are WCAG contrast + one dominant color per slide.
 - [ ] Lead with **one dominant secondary** as the layout's (or slide's) mood; a second brand color may join as accent or type
 - [ ] **Cross-pair combinations are allowed** (e.g. lavender + teal, cyan + purple) — *if* the pair clears WCAG (`preview/brand-color-pairings.html`)
 - [ ] Color-on-color type clears WCAG: **≥ 4.5 body, ≥ 3 large/bold** — never type-on-type below 3:1
@@ -131,7 +148,7 @@ Run against the **exported file**, not the source that made it (`POWERPOINT.md S
 
 ## Annotations
 
-- [ ] At most **1–2 hand-drawn marks per surface**
+- [ ] At most **1–2 hand-drawn marks per surface** (a social tile: **1**)
 - [ ] Marks come from the approved set: **lines/underlines · circles · arrows · ticks · crosses · accents** (76 SVGs in `assets/annotations/`) or a **Highlight** (CSS marker-pen overlay, brand-color background behind a word with safe contrast)
 - [ ] Mark color is **contextual** — contrasts with both the text and the background where it sits (the cross-out only reads if it's the opposite color of the word)
 - [ ] Stroke 3–5px, lime, lavender, navy or any brand color chosen for contrast
@@ -197,6 +214,8 @@ HARD  built in system     PASS — colors_and_type.css + _ds_bundle.js loaded; l
 HARD  functional          n/a — static deck            (web/app: "all 9 nav links resolve; 0 dead controls; tab order checked")
 HARD  finished file       PASS — rendered all 24 slides at full size with Poppins + Baskerville Italic; 0 fallback fonts
 
+COUNT social          n/a — deck                    (social: "tile_count.js: 4 tiles; max 4 elements, 15 words, 3+1 sizes, 1 mark; min quiet 52%")
+
 LOCKS 31 checked · 2 exceptions — slide 03 carries two marks (ladder + underline, the ladder is the point); slide 18 title is 9 words (client's product name is 3)
 
 VERIFIED BY  opened the exported .pptx in PowerPoint, rendered every slide, read every number against the source sheet
@@ -207,6 +226,7 @@ RESULT  SHIP            (or: DO NOT SHIP — content integrity FAIL, 3 unsourced
 Rules of the report:
 
 - A HARD FAIL means **DO NOT SHIP**, full stop. Fix it, re-run, re-report.
+- Social tiles add a **COUNT** line: the `tools/tile_count.js` numbers for the worst tile on each budget. Over budget is a LOCK exception with a reason, not a silent pass.
 - A PASS without evidence is a FAIL. "Checked" is not evidence; "rendered 24 slides, 0 clipped titles" is.
 - Exceptions on LOCKS get a reason, not an apology. If the reason doesn't survive being read aloud, it isn't an exception — fix the item.
 - The report is written by whoever (or whatever) built the artifact and read by a human before it leaves the building. A self-graded PASS is a claim; the human's eyeball is the check.

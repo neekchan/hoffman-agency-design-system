@@ -16,7 +16,7 @@ route.
 | **Native PowerPoint / `.pptx` / `.potx` / Keynote-for-Office** | **`POWERPOINT.md`** first, then `AGENTS.md` + `SOUNDCHECK.md` + `LAYOUTS.md` | Prefer exporting `templates/deck/Deck.dc.html` to editable PPTX; else the two manifests | **If output is `.pptx`, read `POWERPOINT.md`.** Set the theme fonts to Poppins, place logos via `assets/asset-manifest.json`, treat layout codes as contracts, validate the finished file. |
 | Marketing website, landing page, brand page | `README.md`, `DESIGN.md` | `ui_kits/website/index.html` | Web can breathe. Use website components and real imagery/placeholders. |
 | Product app, dashboard, admin, portal, workflow tool | `DESIGN.md`, `ui_kits/app/COMPONENTS.md` | `ui_kits/app/index.html` | Dense, calm, scannable UI. Use app primitives, not marketing heroes. |
-| Social tile or carousel | `README.md`, `PROMPTS.md` | `templates/social-tile/SocialTile.dc.html` | One idea per tile, big type, fixed safe zone. |
+| Social tile or carousel | **`AGENTS.md` Section 20** first, then `PROMPTS.md` → Social tile if an image model is involved | `templates/social-tile/SocialTile.dc.html`, briefed as a per-tile ledger (`INTAKE.md`) | Subtract, don't fill: per tile one idea, ≤4 elements, ≤15 words, ≤1 mark, ≥40% quiet. Set the type yourself; a repo link is not a brief for a chat image model. Count with `tools/tile_count.js`. |
 | One-pager or print leave-behind | `README.md` + `SOUNDCHECK.md`, then `CHECKLIST.md` | `templates/one-pager/OnePager.dc.html` | Print has its own size constraints; keep hierarchy clear. Headings state the point, not the topic. |
 | Any image (generate / supply / placeholder) | `IMAGERY.md`, then `PROMPTS.md` | The workflow in `IMAGERY.md`, then the matching prompt block | Decide *whether/how* in `IMAGERY.md` (capability check → ask → house style → else placeholder); keep the Hoffman photo grade + placeholder resolution rules. |
 | Animated brand "hello", animated wordmark / brand-mark GIF or video (deck, PowerPoint, social, email signature) — **and offered on every Presenter deck** | `AGENTS.md` §17 for decks (the link parameters); nothing else for one-offs | `preview/brand-mark-studio.html` (open it in a browser) | Point the user at the **Brand Mark Studio**: they type the word, tune typeface/colour/background, and export APNG / GIF (transparent, PPT-safe) / MP4 — all client-side. Don't rebuild the animation by hand. |
@@ -58,6 +58,13 @@ route.
 - Place logos via the asset manifest: lock the ratio, derive one dimension from the other, pick the variant the surface requires (lime → navy logo), keep content out of protected zones.
 - Layout codes are contracts; every arrow must connect two named elements; validate and render the finished `.pptx`.
 
+**Social tiles and carousels** — read `AGENTS.md` Section 20.
+
+- Social is its own medium: none of the slide rules above (fill the frame, imagery and emoji by default, the whole palette) carry over to a tile.
+- Per tile: one idea, ≤4 elements, ≤15 words, ≤3 type sizes + 1 hero, ≤1 mark, one surface + one accent, ≥40% quiet. More content means more tiles.
+- Chrome is the series marker on every tile and the logo on the cover and closing. Nothing else repeats.
+- Build from the template and set every word yourself; an image model makes imagery only. If you must one-shot a tile, use `PROMPTS.md` path B and read every generated word back.
+
 **Marketing Web**
 
 - Use `ui_kits/website/` components.
@@ -77,6 +84,7 @@ route.
 - Check `ANTI_PATTERNS.md` for common LLM design failures.
 - Run the `CHECKLIST.md` **gate** against the finished artifact and paste its **delivery report** with the deliverable. HARD sections (content integrity · confidentiality · contrast · built in system · functional · finished `.pptx`) block ship on any FAIL; a PASS needs evidence (`AGENTS.md` §18).
 - Every number, quote, name, logo and result is real and sourced, or a visible `[REAL DATA · …]` slot. Never invent content to make a layout feel finished (`DESIGN.md` → Content integrity).
+- Social tiles: paste the `tools/tile_count.js` numbers as the report's COUNT line, and read every word an image model set against the ledger.
 - Never export `references/`; it is confidential source material.
 
 ---

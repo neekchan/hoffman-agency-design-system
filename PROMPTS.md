@@ -12,37 +12,72 @@ Copy-paste templates for generating brand-consistent imagery with AI tools (Midj
 
 ## Social tile (LinkedIn / IG carousel)
 
-```
-A [SOCIAL TILE / CAROUSEL TILE] for The Hoffman Agency with [BACKGROUND COLOR — Deep Navy #182d43, Lime Green #D2EB00, Purple #6103b9, or Teal #145f7b] background.
+> **Read `AGENTS.md` Section 20 first: the per-tile budget.** Two paths. **A — build the tile** from `templates/social-tile/` and use an image model for imagery only (the default; first block). **B — one-shot a whole tile in an image generator** (ChatGPT, Gemini, Lovart) only when building is not possible (second block); it carries the budget as numbers. **Never paste a link to this repo as the brief:** a chat image model does not open it, so whatever it needs must be in the prompt. Brief the carousel as a per-tile ledger first (`INTAKE.md`), then write one prompt per tile.
 
-Type — set these IN THE DECK layer, do NOT render them in the image (CRITICAL):
-* Series number "[#]" in [white on dark / navy on lime], Poppins Bold, 96px / 48pt, top-left corner, 80px from top edge and 80px from left edge.
-* Main headline, centered: "[FULL HEADLINE TEXT]"
-  * "[word/phrase]" in Libre Baskerville italic, [Lime Green / Purple / Navy depending on bg], [160–240px / 80–120pt for emphasis words]
-  * "[connecting words]" in Poppins Bold, [White / Deep Navy depending on bg], [120–160px / 60–80pt]
-  * One emphasis per headline (a key word or short phrase). Never alternate italics across the line.
-
-Hand-drawn annotation: [ONE OF: underline / double underline / circle / cross-out / arrow / tick, in a brand colour different from the word it marks] beneath/around the word "[KEYWORD]".
-
-Storyline squiggle: [OPTIONAL — if used as hero background, anchored top-right, full-bleed on top, right and bottom edges, navy extends left holding the content].
-
-Constraints: NO other wavy lines, NO squiggly arrows beyond the approved annotation set. NO gradients. NO drop shadows. NO stock photography. NO raw emoji or decorative emoji stacks. NO text, letters, or numbers rendered by the model — set all type in the deck. Clean, premium tech aesthetic. High contrast. Square format 2160×2160 px.
-```
-
-### Example (filled)
+### A — imagery only (the default)
 
 ```
-A LinkedIn carousel tile for The Hoffman Agency with deep navy (#182d43) background.
+An image for a square LinkedIn tile for The Hoffman Agency, 2160×2160 px.
+Subject: [ONE subject — a photograph, a portrait treatment or a texture], [photography seed from the section below, or the house illustration prefix from IMAGERY.md].
+Composition: the subject fills [the right half / the lower third]; [the left 60% / the top half] stays plain flat [Deep Navy #182D43 / Teal #145F7B / Purple #6103B9] so type can be set over it later.
+NO text, letters, numbers, logos, wordmarks, marks, squiggles, swooshes, frames, rules, badges or icons — the type and every brand asset are added afterwards.
+NO gradients, glows, drop shadows, 3D renders, confetti, trophies.
+```
 
-Type — set these IN THE DECK layer, do NOT render them in the image:
-* Series number "1" in white, Poppins Bold, 96px / 48pt, top-left corner, 80px from top and 80px from left.
-* Main headline, centered: "Trust matters more than attention."
-  * "Trust" in Libre Baskerville italic, vibrant lime green (#D2EB00), 240px / 120pt
-  * "matters more than attention." in Poppins Bold, white, 140px / 70pt
+Then set every word in the template: the series marker, one headline with one italic emphasis, at most 15 words on the tile.
 
-Hand-drawn annotation: a white hand-drawn underline beneath "Trust" (the mark takes a different colour from the lime word).
+### B — one tile, one generation (when building is not possible)
 
-Constraints: NO other wavy lines, NO squiggly arrows. NO gradients. NO drop shadows. NO text, letters, or numbers rendered by the model — set all type in the deck. Clean, premium tech aesthetic. High contrast. Square format 2160×2160 px.
+Fill the brackets and run it once per tile. The numbers are the brief: don't trade them for adjectives like "restrained" or "minimal" — a model ignores those.
+
+```
+ONE square LinkedIn tile, 2160×2160 px, for The Hoffman Agency. Tile [n] of [N].
+
+THE ONE IDEA: [one sentence: what a reader takes away in two seconds].
+
+SURFACE: flat [Deep Navy #182D43 / Teal #145F7B / Purple #6103B9 / Lime #D2EB00 / Aqua #86FFF1 / Violet #CB65FF], edge to edge. ONE accent colour: [Lime #D2EB00 / Aqua #86FFF1 / …]. Type is [white / Deep Navy #182D43]. No other colours.
+
+TEXT — render EXACTLY these words and no others. Do not add, drop, reword, shorten or translate anything. No other text anywhere: no labels, pills, badges, captions, slogans, signatures, handwriting, fake newspaper text.
+- Series marker, top-left, small, clean geometric sans (Poppins) Medium, [white at 85% — 70% fails contrast on teal]: "[Name · n/N]"
+- [Hero figure, very large, Poppins ExtraBold, in the accent colour: "[12]"]   (optional)
+- Headline, large, Poppins Bold, [white]: "[the headline]". The word "[word]" in an elegant italic serif (Libre Baskerville Italic), in the accent colour. Every other word is sans.
+- [Support line, small, Poppins Regular: "[at most 8 words]"]   (optional)
+That is [n] words. The maximum is 15.
+
+BUDGET — absolute, not suggestions:
+- At most 4 elements on the whole tile.
+- At most 3 type sizes, plus the hero.
+- At most ONE hand-drawn mark: a single [underline / loose circle] in [white — a different colour from the word it marks], [under / around] "[word]". No other doodles, arrows or scribbles.
+- At least 40% of the tile is empty flat colour.
+- [No image.] / [ONE image: (subject), occupying (where).]
+- Leave the bottom-[left] 320×120 px corner empty: the logo is added afterwards. Do NOT draw a logo or wordmark.
+
+NEVER: mastheads, header or footer bands, divider rules, issue numbers, icons, pills, torn paper, newspaper clippings, paper or grain textures, wavy or swoosh lines, gradients, glows, shadows, 3D, confetti, trophies, emoji.
+```
+
+**After it renders:** read every word on the image against the ledger, letter by letter. One added, missing or changed word means regenerate, or rebuild the tile by path A (`CHECKLIST.md` → Content integrity, HARD). Composite the real logo from `assets/`; never keep a generated one. Then count the tile against Section 20.
+
+### Example (filled, path B)
+
+```
+ONE square LinkedIn tile, 2160×2160 px, for The Hoffman Agency. Tile 1 of 5.
+
+THE ONE IDEA: trust earns more than attention does.
+
+SURFACE: flat Deep Navy #182D43, edge to edge. ONE accent colour: Lime #D2EB00. Type is white. No other colours.
+
+TEXT — render EXACTLY these words and no others. Do not add, drop, reword, shorten or translate anything. No other text anywhere.
+- Series marker, top-left, small, Poppins Medium, white at 85%: "Point of view · 1/5"
+- Headline, large, Poppins Bold, white: "Trust beats attention, every time." The word "attention" in Libre Baskerville Italic, in Lime #D2EB00. Every other word is sans.
+That is 5 words. The maximum is 15.
+
+BUDGET — absolute, not suggestions:
+- At most 4 elements on the whole tile. At most 3 type sizes, plus the hero.
+- ONE hand-drawn mark: a single white underline under "attention". No other doodles, arrows or scribbles.
+- At least 40% of the tile is empty flat colour. No image.
+- Leave the bottom-left 320×120 px corner empty: the logo is added afterwards. Do NOT draw a logo or wordmark.
+
+NEVER: mastheads, header or footer bands, divider rules, issue numbers, icons, pills, torn paper, newspaper clippings, paper or grain textures, wavy or swoosh lines, gradients, glows, shadows, 3D, confetti, trophies, emoji.
 ```
 
 ---

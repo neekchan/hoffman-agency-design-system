@@ -346,7 +346,7 @@ Two decision rules sit **above** the tokens:
 - **Presenter** — presented live. ≤1 idea, ≤15 words/slide, image-led; **the detail lives in speaker notes.**
 - **Document** — a stand-alone leave-behind / read-ahead. Denser, hierarchical, short bullets allowed, a fuller argument per slide; still no paragraphs.
 - Never mix the two in one deck. Both modes keep the full Hoffman visual system (fill-the-frame, slide type scale, whole palette, 72px, imagery) — **mode changes *depth*, not appearance.**
-- **The agent infers the mode from context, states its assumption, and asks only if genuinely ambiguous.** The 48-layout `templates/deck/` library carries the **Mode** tweak (Presenter/Document) as the reference mechanism, and the worked full-deck demonstration of the whole system is `slides/Hoffman Brand Guidelines.html`. See `AGENTS.md Section 12`. (One-pagers and social tiles are inherently Document-mode.)
+- **The agent infers the mode from context, states its assumption, and asks only if genuinely ambiguous.** The 48-layout `templates/deck/` library carries the **Mode** tweak (Presenter/Document) as the reference mechanism, and the worked full-deck demonstration of the whole system is `slides/Hoffman Brand Guidelines.html`. See `AGENTS.md Section 12`. (One-pagers are inherently Document-mode. Social tiles are their own medium: self-contained like a Document page, sparser than a Presenter slide — `AGENTS.md` Section 20.)
 
 ## Colors
 
@@ -505,6 +505,7 @@ The agency sells *earned* credibility, so every artifact the system produces is 
 - Reach for agency clichés: *unlocking, leveraging, end-to-end, at the intersection of, best-in-class, disruptive, revolutionary, storytelling solutions*.
 - Place the 2-color (navy + lime) logo on lime, navy or a secondary background. Use the 1-color navy logo on lime and cyan, and the 1-color white logo on navy, purple, teal and lavender.
 - Add filler sections, ornamental stats, or decorative imagery. One thousand no's for every yes.
+- Fill a social tile. A tile subtracts: one idea, ≤4 elements, ≤15 words, ≤1 mark and at least 40% quiet; extra content becomes another tile (`AGENTS.md` Section 20).
 - Invent a statistic, testimonial, client name, logo, result or source to make a layout feel complete. Unsourced is cut; unknown is labelled.
 - Leave an image out of a layout that needs one — or ship a placeholder when a real, usable image is available to place.
 

@@ -23,6 +23,44 @@ really lives in the Claude Design project
 > If one rule landed in several files, list every file. Versioning rules:
 > `CONTRIBUTING.md` → Versioning.
 
+## 2026-10-10 — Social becomes its own medium, with a per-tile budget that stops the stuffed "AI slop" tile (v2.24.0 → v2.25.0)
+
+Nicolas Chan, after an awards carousel generated in ChatGPT from a long brief came back looking *"obviously AI"*: *"AI is stuffing too much into the graphics."* Measured off the image, every tile carried 13–20 elements, 31–45 words and six to eight type sizes, two claims nobody had made ("First Time" pills) and one dropped headline. Three causes, in order: the prompt linked this repo, which a chat image model never opens; it asked the model to set every word, the opposite of this system's first prompting rule; and it listed about sixteen devices per tile, limited only by adjectives ("restrained", "subtle", "minimal"). Nothing in the system set numbers for social, and its loudest doctrine (fill the frame, imagery and emoji by default) was written for slides. Nic: *"finish implementing this."*
+
+### Social is a third medium — `AGENTS.md` Section 0 and new Section 20
+- Section 0 now names three media: web, slides and **social**. Social takes `DESIGN.md` for colour, fonts, emphasis, the Storyline, annotations and voice, and Section 20 for density. A new paragraph says social **inverts** the slide rules: none of fill the frame, imagery by default, an emoji on every beat or the whole palette carries onto a tile.
+- **Section 20, "Social tiles and carousels — subtract, don't fill".** Per tile: 1 idea · ≤4 content elements · ≤15 words (the Presenter-slide cap; a figure is one word; chrome, list markers and attributions excluded) · ≤3 type sizes + 1 hero, floor 22px at 1080 · ≤1 mark · 1 surface + 1 accent · lists ≤4 items of ≤4 words · ≥40% quiet · chrome is the series marker, plus the logo on cover and closing only.
+- Also in Section 20: extra content becomes another tile, and each claim lives on one tile. A concept's furniture (a masthead, an issue number) rides in the series marker, one device per tile. There are two production paths: **A, build** (the default; an image model makes imagery only) and **B, one-shot** (the budget prompt, exact copy quoted, every generated word read back). The brief is a ledger, and it gets counted.
+- The orientation's read-by-task list gives social its own route, and the medium count reads three throughout.
+
+### The count test — new `tools/tile_count.js`
+- A dependency-free browser script: paste it into devtools, or add it with `data-auto` and run headless Chrome `--dump-dom`. It reports, per tile, elements, words, type sizes, marks, accent colours and the quiet share, against the budget. `data-chrome`, `data-marker` and `data-source` tell it what not to count as copy.
+
+### The gate — `CHECKLIST.md`
+- Content integrity (HARD) gains **"Generated type matches the brief, word for word"**: a word an image model added, dropped or changed is a FAIL, not a typo.
+- New **Social tiles & carousels** section (LOCKS), ten checks mirroring the budget.
+- Annotations: 1 mark on a social tile. Colour: one surface + one accent per tile; the 30/30/10 split is now web only.
+- The delivery report gains a **COUNT** line for social, filled from `tile_count.js`.
+
+### Prompts and briefs — `PROMPTS.md`, `INTAKE.md`, `docs/portable-brand-brief-social.md`
+- `PROMPTS.md` → Social tile is rewritten as two paths. **A** is an imagery-only prompt. **B** is a one-tile, one-generation prompt that carries the budget as absolute numbers, the exact copy and a NEVER list (mastheads, rules, issue numbers, pills, clippings, textures, swooshes). A filled example follows, plus the read-back step. Never paste a repo link as the brief.
+- `INTAKE.md` Q1: a social carousel is briefed as a **per-tile ledger** (surface · idea · hero · emphasis · the one mark · exact copy · word count). Device lists don't go in it.
+- The portable social brief is now paste-anywhere (Lovart, ChatGPT, Gemini). It leads with the budget table, drops to 1 mark per tile, adds the inventory bans, and fixes recipe A's lime underline under a lime word, which made the mark vanish.
+- The series marker is set in **white at 85%**: at 70% it measured 4.24:1 on teal, a contrast fail.
+
+### The template obeys its own rule — `templates/social-tile/SocialTile.dc.html`
+- All ten tiles measured inside the budget (before: five over on words, one over on elements). Copy tightened on Announcement, Listicle and Question. List markers and attributions are tagged `data-marker` / `data-source`. The header comment states the medium and the budget.
+- **Brand cover:** the Storyline line was floated as a 420px object, which the Storyline rules ban. It is now the faded field version, edge-locked at full height behind the type.
+
+### Routing — `LLM_ENTRYPOINT.md`, `SKILL.md`, `README.md`, `DESIGN.md`, `ANTI_PATTERNS.md`
+- `LLM_ENTRYPOINT.md`: the social row reads Section 20 first; there is a new **Social tiles and carousels** rules block; Before Shipping adds the COUNT line.
+- `SKILL.md`: the medium split reads three media; a new **📱 SOCIAL BUDGET** bullet.
+- `README.md`: "Three media" note, the routing row, `tools/` in the file map, and the paste-anywhere brief.
+- `DESIGN.md`: social tiles are no longer called "inherently Document-mode"; one new Don't.
+- `ANTI_PATTERNS.md` gains six rows: the stuffed social tile; deck doctrine on a tile; letting an image model typeset; an inventory prompt limited by adjectives; a repo link as the brand brief; furniture repeated on every tile.
+
+Minor: a new medium rule, a tool and new checks. The budget is a LOCK (fix or give a reason), the generated-text check only formalises the existing content-integrity rule, and nothing that was on-brand becomes off-brand. A rebuild of the carousel that prompted this, inside the budget, is the worked example; it stays private (client-facing announcement).
+
 ## 2026-10-09 — Research-deck layouts L52–L57, two elements, nine research variants, Document-mode overrides (v2.23.1 → v2.24.0)
 
 Nicolas Chan, 2026-10-08, from an October 2026 GEDI proposal (internal) built by **Sean Ritchie** (Digital Planning Account Director, Hoffman London), whose deck and layout spec are the source of the research anatomy, the component set and the options sequence codified here: every element on a slide has a role, and the fixed anatomy of that deck governs any Hoffman deck presenting research, analysis or quant, not only GEDI. Approved from the component → layout map at https://claude.ai/artifact/GVy5KkouHnMoJHYpnx1q1i; the full request is in OZ (`Work/Hoffman/2026-10-08 - Design system change request - research layouts.md`); the grammar behind it is OZ `Skills/slide-grammar`.
