@@ -23,6 +23,25 @@ really lives in the Claude Design project
 > If one rule landed in several files, list every file. Versioning rules:
 > `CONTRIBUTING.md` → Versioning.
 
+## 2026-11-03 — The numbered step becomes the default content slide, with a purple pause and the pitch questions (v2.25.2 → v2.26.0)
+
+Nicolas Chan's last update before handing the system to Hoffman. Source: the Global RFP process deck (The Hoffman Agency, Creative Teams US, October 2026), which lays out an eleven-step method one step per slide. Nic's ruling, 3 November 2026: strip the process, keep the slide; the numbered step should surface on most decks, so it is the new default content slide. The process itself stays with the agency; the repo is public.
+
+### Two layouts — `LAYOUTS.md`, `templates/deck/Deck.dc.html`, `templates/powerpoint/layout-manifest.json`
+- **L58 · Numbered step**, the default content slide: navy rail with one lime numeral, heading written as the step, ≤5 bullets as proof, tick-mark sub-bullets where the reader could tick. Short form (heading plus one lime italic word) is the Presenter rendering. New category "Steps & principles" in Part 3; two rows at the top of the Part 2 router; L48 re-described as the photo-led alternative.
+- **L59 · Principles pause**: purple flood, white type, a heading that recurs word for word, 4–6 principles. At most three per deck, never two in a row.
+- Example slides 54 and 55 in the deck template, wearing both modes (L58 shows bullets in Document, heading only in Presenter). Closing renumbered to 56. Two manifest contracts; the description counts 56 layouts.
+
+### Rules — `AGENTS.md`, `CHECKLIST.md`
+- Section 21: L58 is the default content slide; what the heading, numeral, bullets and short form each do; L59 for the pause.
+- Section 22: nothing AI-generated leaves unreviewed. The agency's wording, quoted; the delivery report ends with `Reviewed by: ______ before sharing`. Mirrored as a Decks & documents line in the checklist.
+- Layout counts read 56 (L01–L59) in Sections 7, 12 and the status line; `README.md`, `SKILL.md`, `POWERPOINT.md` match.
+
+### Soundcheck — `SOUNDCHECK.md`
+- Principle 5 gains the six questions a pitch must survive (differentiate; what rivals will also say; the brief's priorities; its decision criteria; what the prospect did not know; creative and executable), read against the title spine, with the L59 pointer.
+
+Minor: two new layouts and two new rules; nothing existing fails.
+
 ## 2026-10-12 — The guidelines count sixteen markets and the Brand Tour catches up with the colour rules (v2.25.1 → v2.25.2)
 
 Nicolas Chan approved the outstanding market-count and Brand Tour fixes on 12 October 2026.

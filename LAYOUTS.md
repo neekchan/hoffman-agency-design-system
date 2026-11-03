@@ -5,9 +5,9 @@
 This is the **brain** behind Hoffman decks. It does two jobs:
 
 1. **Teaches restraint** — how to put the *right minimum* on a slide so the slide prompts the speaker instead of replacing them.
-2. **Catalogs the layouts** — a named set of **54 reusable slide layouts** (codes **L01–L57**, grounded in real Hoffman decks), each with *when to use it*, *what the one point is*, *what goes in each slot*, and *which brand surfaces it wears*. The codes are intentionally non-contiguous (gaps, plus one `b` suffix: `L24b`) because layouts were ported in waves; the catalog below groups them by *job*, not by number.
+2. **Catalogs the layouts** — a named set of **56 reusable slide layouts** (codes **L01–L59**, grounded in real Hoffman decks), each with *when to use it*, *what the one point is*, *what goes in each slot*, and *which brand surfaces it wears*. The codes are intentionally non-contiguous (gaps, plus one `b` suffix: `L24b`) because layouts were ported in waves; the catalog below groups them by *job*, not by number.
 
-The visual, directly-editable gallery of every layout lives in **`templates/deck/Deck.dc.html`** (56 slides — 54 layout codes, L01–L57, with L01 in three variants) — each slide there carries an inline `<!-- @layout … -->` comment repeating its core guidance, so the rules travel with the markup. Read this file to *choose*; open the deck to *build*.
+The visual, directly-editable gallery of every layout lives in **`templates/deck/Deck.dc.html`** (58 slides — 56 layout codes, L01–L59, with L01 in three variants) — each slide there carries an inline `<!-- @layout … -->` comment repeating its core guidance, so the rules travel with the markup. Read this file to *choose*; open the deck to *build*.
 
 ---
 
@@ -99,6 +99,8 @@ Quick router:
 | Break into a new part | **Section divider** (L02) · **Section, spectrum bar** (L32) |
 | Open a section with warmth / a rally cry | **Centered motif opener** (L47) · **Script + acronym opener** (L50) |
 | Lay out what's coming | **Agenda** (L03) |
+| Carry one step, stage or point with its proof — **the default content slide** | **Numbered step** (L58); short form for a heading that needs no proof |
+| Stop the sequence to state the principles it is judged by | **Principles pause** (L59) |
 | Land one bold claim | **Statement + support** (L08) · **Big-idea split** (L09) |
 | Land one hinge word, loudest moment | **Punchline / giant word** (L45) · **Two-beat statement** (L46) |
 | Frame the whole strategy on one page | **Plan-on-a-page matrix** (L10) |
@@ -378,6 +380,24 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 - KEEP IT HONEST: a true reference table — the one place dense text is correct. Still trim sub-bullets to phrases.
 - RESEARCH VARIANT (appendix page): white page, lime spaced-caps eyebrow 'APPENDIX A · …', navy title ending in a full stop, italic-serif subtitle, then the plain table. No title bar, no band.
 
+### Steps & principles (the default content slide)
+
+Added 3 November 2026 from the Global RFP process deck (The Hoffman Agency, October 2026), the first Hoffman deck to carry a whole method one step per slide. Ruled by Nicolas Chan: the numbered step is the **default content slide** for any deck in either mode, and the principles pause is how a deck stops to say what the next steps are judged by. `AGENTS.md Section 21` carries the rule.
+
+**L58 · Numbered step** *(default content slide)*
+- BEST FOR: one step, stage or point of a sequence, with the bullets that prove it. Any deck that walks through a method, a plan, a process, a set of findings, one thing per slide.
+- THE ONE POINT: the heading *is* the step. The lime numeral on the navy rail paces the sequence; the bullets are the proof, not the point.
+- SLOTS: navy rail, left 19%, one lime numeral `N.` at 168px → paper body: heading (≤14 words, 66px, one italic emphasis; an optional lighter parenthetical in ink-muted at weight 400) → ≤5 bullets (36px, ≤16 words each, the block centred in the body zone; sub-bullets at 30px, as dots or tick marks when the bullets are a checklist) → page number. **Short form:** heading only, one word in lime italic serif, the lower two-thirds empty on purpose. It is the Presenter rendering, and in Document mode it is any step whose heading needs no proof.
+- SURFACES: navy rail + paper. Never a photo on this layout; the rail is the graphic.
+- KEEP IT HONEST: one step per slide, numbered in sequence, headings written as the step not the topic ("Identify the Global Lead", not "Leadership"). Five bullets is the ceiling; a sixth is the next slide. Tick marks only where the reader could actually tick.
+
+**L59 · Principles pause**
+- BEST FOR: interrupting a sequence to state the principles the next steps are judged by: the spirit of a process, the questions a pitch must survive, the rule on AI.
+- THE ONE POINT: stop and remember this. The heading recurs word for word every time the pause recurs ("Before going further"); only the bullets change.
+- SLOTS: heading (≤4 words, 88px white) → intro line (36px, ≤24 words, one italic emphasis in lime) → 4–6 bullets (34px, ≤22 words each) → page number. Optional: one phrase in the first bullet on a lime wash.
+- SURFACES: purple flood only. White type. No image, no emoji: the colour is the interruption.
+- KEEP IT HONEST: principles, not instructions. A bullet that tells someone what to do belongs on an L58. Use it at most three times in a deck, and never two in a row.
+
 ### Research & evidence (Document mode; the research anatomy)
 
 These six wear the **research anatomy**: a navy title bar (121px) with the title at 60px white and a lime italic-serif section marker right (`05 • SCOPE`); a body zone; and a full-width lime **takeaway band** (121px) at the foot with `Takeaway:` in italic serif and one sentence. L53 carries a 16px footnote in place of the band; L54 carries the purple **decision band**. They share two elements: the **decision band** (solid purple bar, small-caps label, one white line: the decision needed or the success marker) and the **paired card** (one card, two labelled halves: WHY / STILL NEEDED, WHAT ENGINES SURFACE / POSITION, BASELINE / DESIRED).
@@ -449,7 +469,7 @@ These six wear the **research anatomy**: a navy title bar (121px) with the title
 - RESEARCH VARIANT: bands grouped by role (direct peers · specialists · adjacent providers · partners) holding name chips, the subject and its nearest peer set larger, one callout figure at left. The role bands of a research deck.
 
 **L48 · Photo + numbered lists**
-- BEST FOR: a content-rich update — a full-height image with the title overlaid, beside 2–3 numbered sections of bullets. The workhorse "here's the plan" slide.
+- BEST FOR: a content-rich update — a full-height image with the title overlaid, beside 2–3 numbered sections of bullets. The photo-led "here's the plan" slide; when there is no photo, the default content slide is **L58**.
 - THE ONE POINT: the themes (numbered) and their proof (bullets). The photo grounds it; the highlight box teases what's next.
 - SLOTS: title (overlaid on photo, ≤6 words) → 2–3 numbered sections: heading + ≤3 bullets (≤7 words each) → highlight box (one ≤14-word line).
 - SURFACES: paper; photo with a dark overlay + white title; lime highlight box.
@@ -536,7 +556,7 @@ Lead each section with one dominant colour and **change it between sections.** A
 
 `Cover navy → Sec 1 lime → Sec 2 purple → Sec 3 teal → Sec 4 lavender → Close navy`
 
-Within a section, keep content slides mostly on **paper** (white/sand cards) so the coloured dividers and the occasional colour-block statement do the punctuating. Lime and cyan are *light* surfaces — navy type only. Navy, purple, teal, lavender are *dark* surfaces — white or light-accent type. Every pair must clear WCAG (see `preview/brand-color-pairings.html`).
+Within a section, keep content slides mostly on **paper** (white/sand cards; L58's navy rail counts as paper) so the coloured dividers and the occasional colour-block statement do the punctuating. Lime and cyan are *light* surfaces — navy type only. Navy, purple, teal, lavender are *dark* surfaces — white or light-accent type. Every pair must clear WCAG (see `preview/brand-color-pairings.html`).
 
 **Deck shape (new-relationship decks).** Don't apply "lean / one-point" to the *whole* deck: the **creds/about** section earns a real multi-slide run (breadth is the argument for a first meeting), the **content** section stays lean, and the deck **ends on a dedicated giant-word close** (L45 / L30), never a compressed sign-off. See `AGENTS.md Section 11`.
 

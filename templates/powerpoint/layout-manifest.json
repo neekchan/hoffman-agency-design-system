@@ -1,6 +1,6 @@
 {
   "$schema": "internal://hoffman/layout-manifest.v1",
-  "description": "Machine-readable contracts for the 54 Hoffman deck layouts (L01–L57). A layout code is a CONTRACT, not a descriptive tag: if a slide is labelled L03/L20/L35/L37, it must preserve that layout's element relationships, hierarchy, slot roles and defining visual behaviour. If the content doesn't fit, pick a different layout — never invent a new composition under an existing code. The directly-editable visual source of truth is `templates/deck/Deck.dc.html`; this JSON is for tools that can't consume that DC (e.g. python-pptx generators). Read alongside `LAYOUTS.md` (prose) and `assets/asset-manifest.json` (logo geometry).",
+  "description": "Machine-readable contracts for the 56 Hoffman deck layouts (L01–L59). A layout code is a CONTRACT, not a descriptive tag: if a slide is labelled L03/L20/L35/L37, it must preserve that layout's element relationships, hierarchy, slot roles and defining visual behaviour. If the content doesn't fit, pick a different layout — never invent a new composition under an existing code. The directly-editable visual source of truth is `templates/deck/Deck.dc.html`; this JSON is for tools that can't consume that DC (e.g. python-pptx generators). Read alongside `LAYOUTS.md` (prose) and `assets/asset-manifest.json` (logo geometry).",
 
   "canvas": { "width": 1920, "height": 1080, "unit": "px", "note": "1pt = 2px" },
   "safeArea": { "margin": 72, "box": [72, 72, 1776, 936], "note": "All text + non-bleed imagery stays inside. Page chrome (page number, logo) lives inside this margin." },
@@ -446,7 +446,23 @@
         {"name": "staircase", "tier": "diagram", "base": "navy", "steps": [2, 4], "stepColors": ["grey", "lime", "outline"], "scale": "proportional-to-fee", "labels": "price above, totals purple"},
         {"name": "sharedCard", "tier": "card", "rule": "lime", "label": "IN EVERY SCOPE", "items": [4, 6]},
         {"name": "takeaway", "tier": "band"}
-      ], "keepHonest": "Step heights to scale." }
+      ], "keepHonest": "Step heights to scale." },
+
+    { "code": "L58", "name": "Numbered step", "family": "content", "modes": ["both"], "onePoint": "One numbered thing per slide: the heading is the step, the bullets are its proof.", "surfaces": ["paper"], "fullBleed": false, "logo": "none", "maxElements": 5, "grid": "19 / 81",
+      "default": "The default content slide. Reach for it before any other text-led layout (AGENTS.md Section 21).",
+      "slots": [
+        {"name": "rail", "tier": "band", "surface": "navy", "widthPx": 365, "numeral": {"tier": "display", "px": 168, "color": "lime", "format": "N."}},
+        {"name": "heading", "tier": "title", "px": 66, "wordCap": 14, "accentWord": 1, "parenthetical": "optional, weight 400, ink-muted"},
+        {"name": "bullets", "tier": "body", "px": 36, "count": [0, 5], "wordCap": 16, "subBullets": {"px": 30, "marks": ["•", "✓"]}, "modes": ["document"]}
+      ], "shortForm": "Heading only with one lime italic word: the Presenter rendering, and any slide whose heading needs no proof.",
+      "keepHonest": "One step per slide. Never a photo on this layout; never more than five top-level bullets." },
+
+    { "code": "L59", "name": "Principles pause", "family": "statement", "modes": ["both"], "onePoint": "Stop and remember this: the principles the next steps are judged by.", "surfaces": ["purple"], "fullBleed": true, "logo": "none", "maxElements": 4,
+      "slots": [
+        {"name": "heading", "tier": "title", "px": 88, "wordCap": 4, "note": "the same words each time the pause recurs"},
+        {"name": "intro", "tier": "body", "px": 36, "wordCap": 24, "accentWord": 1},
+        {"name": "principles", "tier": "body", "px": 34, "count": [4, 6], "wordCap": 22, "highlight": "optional lime wash on one phrase"}
+      ], "keepHonest": "Purple only, white type, no image, no emoji. The heading recurs; the bullets change." }
   ],
 
   "coreForKnowledgeWorkers": ["L01", "L03", "L02", "L08", "L47", "L28", "L46", "L37", "L35", "L19", "L30"],

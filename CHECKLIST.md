@@ -193,6 +193,7 @@ Safe zone on social tiles: keep critical content **≥ 80px from all four edges*
 - [ ] **Emojis** allowed *with* copy, max 3 per page — expect cross-platform variance.
 - [ ] **Voice patterns** used intentionally, not by accident — stretched letters (cover/section only), the ladder (once per deck), strikethrough humor (once per deck). Lowercase first words are okay as a casual signal.
 - [ ] **Decks & documents:** reviewed the audience, title spine and individual lines with **Soundcheck**, keeping good titles and useful exemptions; resolved any collision with the ≤8-word/one-line layout target while preserving the point. The review produces improvements, not pass/fail scores for each title (see `SOUNDCHECK.md` and `AGENTS.md Section 10`).
+- [ ] **Anything AI-generated is reviewed by a person before it is shared** — the delivery report ends with `Reviewed by: ______ before sharing`, and the user fills it. Agency policy, restated in `AGENTS.md Section 22`.
 
 ---
 
@@ -221,6 +222,8 @@ LOCKS 31 checked · 2 exceptions — slide 03 carries two marks (ladder + underl
 VERIFIED BY  opened the exported .pptx in PowerPoint, rendered every slide, read every number against the source sheet
 
 RESULT  SHIP            (or: DO NOT SHIP — content integrity FAIL, 3 unsourced stats on slide 09)
+
+REVIEWED BY  ______ before sharing   (a person, filled by hand — AGENTS.md Section 22)
 ```
 
 Rules of the report:
@@ -230,6 +233,7 @@ Rules of the report:
 - A PASS without evidence is a FAIL. "Checked" is not evidence; "rendered 24 slides, 0 clipped titles" is.
 - Exceptions on LOCKS get a reason, not an apology. If the reason doesn't survive being read aloud, it isn't an exception — fix the item.
 - The report is written by whoever (or whatever) built the artifact and read by a human before it leaves the building. A self-graded PASS is a claim; the human's eyeball is the check.
+- The last line is the human's. Nothing AI-generated is shared until a named person has read it and struck what is wrong or irrelevant; the report leaves with their name on that line, or it does not leave.
 
 ---
 

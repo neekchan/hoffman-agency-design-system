@@ -187,6 +187,24 @@ LinkedIn” can become “Prioritise LinkedIn to reach the people choosing
 suppliers.” The slide then shows who those people are, how the targeting
 reaches them, and why this channel is the priority in this plan.
 
+**The six questions a pitch must survive.** When the deck is a proposal or a
+pitch, read the title spine against the questions Hoffman's Global RFP process
+(October 2026) uses to judge a response before it goes out. They are the same
+test as this principle, asked from the prospect's chair:
+
+1. Did we differentiate the proposal?
+2. How much of our thinking will the competing agencies also present?
+3. Did we address the priorities the brief set out?
+4. Did we crush the areas the brief named as the basis for the decision?
+5. What are we telling the prospect that they did not already know?
+6. Are the ideas ones the prospect will find creative, and is it clear we can
+   execute them?
+
+A title spine that cannot answer 1, 5 and 6 has not yet made the case, however
+polished the lines. Name the gap and the slide that should close it; do not
+smooth the titles over it. On the slide itself, the questions are an **L59
+Principles pause** (`LAYOUTS.md`), not a checklist in the appendix.
+
 ## 6 · Say it in as few words as possible
 
 *Aim for it.* Short and punchy wins. Cut words that do not carry the point,

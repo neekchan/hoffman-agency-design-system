@@ -15,7 +15,7 @@ You are looking at **The Hoffman Agency design system**: brand tokens, fonts, lo
 4. **`POWER-DESIGN-PRINCIPLES.md`** — the portable craft layer (one-idea, chunks, grid, contrast, data-ink, **mode purity**…). It is a **reference layer: try to honor it, don't rigidly stick.** Where a rule collides with a house SOP, the precedence block at the top of that file (and Section 0 below) decides — universal craft wins; the whitespace / palette / margin calls follow the Hoffman house style.
 
 **Then read by task — what you're being asked to make:**
-- **A deck / presentation / any fixed 1920×1080 slide** → `LAYOUTS.md` (the 54-layout library, L01–L57 — pick a named layout, don't free-style) + `AGENTS.md` Sections 0–18 (slide type scale, "fill the frame," imagery, declutter, Soundcheck titles (Section 10), structure, color, Fluent emoji, **Presenter-vs-Document mode**, slide identity, motion, the brand-mark offer and the delivery gate) + `SOUNDCHECK.md` for the titles. Build from `templates/deck/Deck.dc.html`. **Decide the deck's mode first (Section 12).**
+- **A deck / presentation / any fixed 1920×1080 slide** → `LAYOUTS.md` (the 56-layout library, L01–L59 — pick a named layout, don't free-style; L58 is the default content slide) + `AGENTS.md` Sections 0–22 (slide type scale, "fill the frame," imagery, declutter, Soundcheck titles (Section 10), structure, color, Fluent emoji, **Presenter-vs-Document mode**, slide identity, motion, the brand-mark offer and the delivery gate) + `SOUNDCHECK.md` for the titles. Build from `templates/deck/Deck.dc.html`. **Decide the deck's mode first (Section 12).**
 - **A native PowerPoint / `.pptx` / `.potx` file** → **`POWERPOINT.md` first** (+ `AGENTS.md Section 13`), then `LAYOUTS.md`. Prefer exporting the deck to editable PPTX; place logos via `assets/asset-manifest.json`, layouts via `templates/powerpoint/layout-manifest.json`; set the theme fonts to Poppins; validate the finished file.
 - **A web page / marketing site** → `README.md` web sections + `ui_kits/website/` (real components) + `DESIGN.md` web type scale. Web posture: generous whitespace, sparse imagery, 1240px measure.
 - **A product app / dashboard / workflow UI** → `README.md` app sections + `ui_kits/app/` (product primitives) + `DESIGN.md` component guidance. App posture: dense but calm, scannable, native controls, compact panels, no marketing hero composition.
@@ -291,7 +291,7 @@ It preserves the requested voice.
 "Lean / one-point" governs the CONTENT section — it does NOT mean a one-slide deck.
 - **For a new-relationship deck, the creds/about section earns real room** — a multi-slide run (about, brand film, "we thrive on hard problems," awards, footprint, services, tech-stack, employer branding). For a first meeting the agency's breadth *is* the argument; don't collapse it to one slide.
 - **Every deck ends on a dedicated closing** — a giant single word (~240px) + contact, not a compressed sign-off. In a Presenter deck, offer to make that word the animated brand mark (Section 17).
-- **Keep the layout library varied — a HARD guardrail.** These SOPs tune *size, density, decluttering and voice*; they must NEVER homogenise the deck into one big-type template. The 54 layouts (L01–L57) stay distinct so the library can build ANY kind of deck — pick the layout that fits the job, then apply the sizing/voice rules to it. Variety of composition is the point; the rules are how each composition is executed, never a reason to flatten them.
+- **Keep the layout library varied — a HARD guardrail.** These SOPs tune *size, density, decluttering and voice*; they must NEVER homogenise the deck into one big-type template. The 56 layouts (L01–L59) stay distinct so the library can build ANY kind of deck — pick the layout that fits the job, then apply the sizing/voice rules to it. Variety of composition is the point; the rules are how each composition is executed, never a reason to flatten them.
 
 ## 12. Presenter vs Document mode — every deck is exactly ONE (Power Design rule 20)
 A deck is built for the eyes in the room **or** to be read alone — never both. Declare one mode per deck and hold it; a sparse hero slide sitting beside a six-bullet wall is what makes audiences distrust slides. This is `POWER-DESIGN-PRINCIPLES.md` rule 20, elevated to a **hard rule** here.
@@ -301,7 +301,7 @@ A deck is built for the eyes in the room **or** to be read alone — never both.
 - **XOR, never mixed.** Word-count and bullet-density stay consistent across the deck. A research deck in Document mode has its own density rules (Section 19). Some slides ≤15-word image slides while others are bulleted walls = fail.
 - **What does NOT change between modes:** the Hoffman visual system. Both modes still **fill the frame** (Section 2), use the **slide type scale** (Section 1) and the **whole palette** (Section 7), keep the **72px margin**, and carry **imagery by default** (Section 3). Document mode is *denser content* — never smaller type or an airier, web-density page.
 - **Determining the mode:** **infer it from context and state your assumption; ask only if genuinely ambiguous.** Signals — "I'll present this / for the stage / town hall / live pitch" → Presenter; "leave-behind / send it over / read-ahead / board pre-read / they can't make the meeting" → Document. A first-meeting pitch delivered live is Presenter; a proposal emailed cold is Document. When you truly can't tell, quiz the user.
-- **Templates:** the 54-layout `templates/deck/` library is the **single deck template** and **carries the Mode tweak** (Presenter reflows to sparse + speaker notes; Document reveals the depth on-slide) — set it in Tweaks, then author every kept layout in that one chosen mode. The full worked demonstration of the whole system is `slides/Hoffman Brand Guidelines.html`.
+- **Templates:** the 56-layout `templates/deck/` library is the **single deck template** and **carries the Mode tweak** (Presenter reflows to sparse + speaker notes; Document reveals the depth on-slide) — set it in Tweaks, then author every kept layout in that one chosen mode. The full worked demonstration of the whole system is `slides/Hoffman Brand Guidelines.html`.
 
 ## 13. Native PowerPoint — when the output is `.pptx`
 When the requested output is `.pptx` / `.potx` / PowerPoint, **read `POWERPOINT.md` first.** The visual system is unchanged; what changes is that a `.pptx` has no CSS/grid/`@font-face`, so relationships are placed by hand and **verified in the finished file**. The reliability layer:
@@ -433,8 +433,33 @@ A tile is not a slide. A slide is watched in a room with someone talking over it
 
 **Count it.** `tools/tile_count.js` measures every tile against this budget: paste it into the browser console on the tile page, or run it headless (usage at the top of the file). Paste its numbers as the social line of the delivery report (Section 18). Over budget is a LOCK: cut, or give a one-line reason that survives being read aloud.
 
+## 21. The default content slide is L58 — one numbered step, its proof beneath
+
+When a slide has to carry a step, a stage, a finding or a point of a sequence with the bullets that support it, start from **L58 · Numbered step** (`LAYOUTS.md` → Steps & principles) before any other text-led layout. Ruled by Nicolas Chan on 3 November 2026 from the Global RFP process deck (The Hoffman Agency, October 2026), which carries an eleven-step method one step per slide and reads cleanly in both modes.
+
+- **The heading is the step, written as the step.** "Identify the Global Lead", not "Leadership". One italic emphasis; an optional lighter parenthetical for the qualifier.
+- **The numeral paces the deck.** A lime `N.` on the navy rail, in sequence, one per slide. A deck that numbers its steps never needs a progress bar.
+- **Bullets are proof, capped at five.** 36px, ≤16 words, sub-bullets allowed, tick marks only where the reader could actually tick. Document mode shows them; Presenter mode shows the **short form**: heading only, one lime italic word, the rest of the slide empty on purpose.
+- **Never a photo on it.** The rail is the graphic. A step that needs an image is an L48 or an L40, not an L58 with a picture pasted in.
+- **Pause with L59.** When the sequence needs to stop and state what the next steps are judged by, use **L59 · Principles pause**: purple, white type, a heading that recurs word for word. Principles there, instructions on the L58s. At most three pauses in a deck, never two in a row.
+
+The research anatomy (Section 19) still governs research decks; L58 is the default for every other content slide.
+
+## 22. Nothing generated leaves unreviewed — the standing reminder
+
+Say this to every user of this system, every time an AI-built deck, document or tile is about to be shared, and keep it in the delivery report (Section 18). It is agency policy, set out in the Global RFP process (The Hoffman Agency, October 2026):
+
+> Our brainpower and creativity win the work, not AI. AI accentuates both and saves time, used as a tool alongside thorough, hands-on oversight from the team. No one distributes an AI-generated document without reviewing it and stripping out incorrect or irrelevant information. The people reading it, across time zones, need to be assured our brains have vetted the content.
+
+What it means in practice, for the agent and the user alike:
+
+- **The user reads it before anyone else does.** The delivery report ends with the line `Reviewed by: ______ before sharing` left for the user to fill. An unfilled line is a visible gap, not a formality.
+- **The agent names what it did not verify.** Every figure, quote, name and claim is sourced or sits in a `[REAL DATA · …]` slot (Section 18, content integrity); anything inferred is labelled inferred.
+- **Strong ideas, slide design, Q&A, research and storytelling are the team's.** The system makes them faster to build and consistent to look at; it does not supply the judgement.
+- **Soundcheck carries the pitch test.** The six questions a proposal must survive live in `SOUNDCHECK.md` → principle 5, so every title review asks them.
+
 ---
-**Status:** the slide-design SOPs in this file are established across all **54 layouts** in `templates/deck/Deck.dc.html` (codes L01–L57, catalogued in `LAYOUTS.md`). As the user uploads further layouts, copy them against these SOPs and keep `LAYOUTS.md` + the deck count (README, SKILL.md) in sync.
+**Status:** the slide-design SOPs in this file are established across all **56 layouts** in `templates/deck/Deck.dc.html` (codes L01–L59, catalogued in `LAYOUTS.md`). As the user uploads further layouts, copy them against these SOPs and keep `LAYOUTS.md` + the deck count (README, SKILL.md) in sync.
 
 ---
 
