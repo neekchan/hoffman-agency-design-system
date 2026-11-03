@@ -23,6 +23,23 @@ really lives in the Claude Design project
 > If one rule landed in several files, list every file. Versioning rules:
 > `CONTRIBUTING.md` → Versioning.
 
+## 2026-10-12 — The guidelines count sixteen markets and the Brand Tour catches up with the colour rules (v2.25.1 → v2.25.2)
+
+Nicolas Chan approved the outstanding market-count and Brand Tour fixes on 12 October 2026.
+
+### Market wording — `slides/Hoffman Brand Guidelines.html`, `slides/Hoffman Brand Guidelines-print.html`
+- Slide 50g says sixteen markets, replacing ten in both screen and print copies; its heading counts forty-nine photographs, matching the library.
+
+### Brand Tour — `templates/brand-tour/BrandTour.dc.html`, `Hoffman Brand Tour.html`
+- Stamp selection, checked-card borders and checked-text decoration use the canonical lime-600 `#687600`, replacing `#A7BC00`.
+- The Imagery home tile uses the documented flat 62% navy overlay (`#182D43`) in place of its vertical gradient.
+- The standalone tour is regenerated from the corrected source.
+
+### Soundcheck — `SOUNDCHECK.md`
+- Principle 4 (write for the ear) gains the whole-deck register: conversational prose by default, bullets only for scannable lists, one bold point per page against the graphic, no quips or "not X, not Y, but Z" balances. Nic's own edited pages set the register (Nic, 16 October 2026).
+
+Patch: fixes existing copy and token drift; no new layouts or illustration decision.
+
 ## 2026-10-10 — "Three media" now reads the same in every file (v2.25.0 → v2.25.1)
 
 Found while checking the Claude Design master before mirroring v2.25.0 to it: four places still described social as part of the web posture.

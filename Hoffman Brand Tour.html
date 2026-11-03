@@ -2055,7 +2055,7 @@
       <span style="margin-top:16px; font:600 19px/1 var(--font-mono); letter-spacing:.08em; opacity:.7;">4 SCREENS</span>
     </div>
     <div onClick="{{ act }}" data-go="17" style="{{ tileImgSt }}" style-hover="transform:translateY(-8px); box-shadow:0 18px 40px -18px rgba(24,45,67,.4);">
-      <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(14,28,43,.42) 0%, rgba(14,28,43,.92) 100%);"></div>
+      <div style="position:absolute; inset:0; background:rgba(24,45,67,.62);"></div>
       <div style="position:relative; display:flex; justify-content:space-between; align-items:baseline;"><span style="font:700 22px/1 var(--font-mono); color:var(--tha-lime);">06</span><span style="font:700 34px/1; color:var(--tha-lime);">→</span></div>
       <h3 style="position:relative; margin:auto 0 8px; font:700 42px/1.04 var(--font-sans); letter-spacing:-.02em;">Imagery</h3>
       <p style="position:relative; margin:0; font:500 21px/1.35 var(--font-sans);">The photo library · sixteen markets · a prompt builder</p>
@@ -3310,7 +3310,7 @@ class Component extends DCLogic {
       return {
         src: resId('ann_' + f, '../../assets/annotations/' + f + '.svg'),
         pick: () => this._stamp(f),
-        st: { flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '18px', background: '#FFFFFF', border: s.stamps.includes(f) ? '2.5px solid #A7BC00' : '1.5px solid #C8D2DD', cursor: 'pointer', minHeight: 0, transition: 'border .2s' },
+        st: { flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '18px', background: '#FFFFFF', border: s.stamps.includes(f) ? '2.5px solid #687600' : '1.5px solid #C8D2DD', cursor: 'pointer', minHeight: 0, transition: 'border .2s' },
       };
     });
     const stampPos = {
@@ -3430,10 +3430,10 @@ class Component extends DCLogic {
     // 21 Checklist
     out.checkRows = this.CHECKS.map((t2, i) => ({
       t: t2, i,
-      st: { display: 'flex', alignItems: 'center', gap: '22px', padding: '19px 22px', background: s.checks[i] ? 'rgba(210,235,0,.16)' : '#FFFFFF', border: '1.5px solid ' + (s.checks[i] ? '#A7BC00' : '#C8D2DD'), cursor: 'pointer', transition: 'all .2s' },
+      st: { display: 'flex', alignItems: 'center', gap: '22px', padding: '19px 22px', background: s.checks[i] ? 'rgba(210,235,0,.16)' : '#FFFFFF', border: '1.5px solid ' + (s.checks[i] ? '#687600' : '#C8D2DD'), cursor: 'pointer', transition: 'all .2s' },
       box: { width: '34px', height: '34px', flex: 'none', border: '2.5px solid #182D43', background: s.checks[i] ? '#D2EB00' : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', font: '800 22px/1 var(--font-sans)', color: '#182D43', transition: 'background .2s' },
       mark: s.checks[i] ? '✓' : '',
-      txt: { font: '500 26px/1.25 var(--font-sans)', color: '#182D43', textDecoration: s.checks[i] ? 'line-through' : 'none', textDecorationColor: '#A7BC00', textDecorationThickness: '3px', margin: 0 },
+      txt: { font: '500 26px/1.25 var(--font-sans)', color: '#182D43', textDecoration: s.checks[i] ? 'line-through' : 'none', textDecorationColor: '#687600', textDecorationThickness: '3px', margin: 0 },
     }));
     const done = s.checks.filter(Boolean).length;
     out.checkCount = done + ' / ' + this.CHECKS.length;

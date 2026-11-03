@@ -156,6 +156,14 @@ audience and purpose the plan supports.
 Writing for the ear is deliberate. Keep the sound of a person speaking even
 when the deck will also be read. Adapt to the requested voice and medium.
 
+The whole deck, bands and body included, reads as if the reader were reading
+it back to themselves: conversational prose by default. Bullets are the
+exception, for lists the reader will scan. When a page needs a point, say it
+once in big bold copy set against the graphic, so the page reads like a poster
+with a point to make. A quip is not a point; "not X, not Y, but Z" contrasts
+and balanced phrases read as machine-made. When Nic has edited pages himself,
+those are the register to match (Nic, 2026-10-16).
+
 ## 5 · Make the case fully
 
 *Strong default.* Be specific about the conclusion you want the audience to

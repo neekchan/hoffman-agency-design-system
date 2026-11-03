@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.25.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: patch on minor 2.25.0 — **social is now its own medium with a per-tile budget (one idea, ≤4 elements, ≤15 words, ≤1 mark, ≥40% quiet), a two-path prompt that keeps image models from typesetting, a per-tile brief ledger, and `tools/tile_count.js` to measure it.**
+**Version 2.25.2** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: sixteen-market wording in screen and print guidelines; Brand Tour lime-600 borders and flat navy imagery overlay; refreshed standalone tour.
 
 Integrated Comms agency that helps tech brands solve hard business problems. The harder the better. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
