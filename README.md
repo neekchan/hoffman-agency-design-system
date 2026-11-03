@@ -4,7 +4,7 @@
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.26.0** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: **L58 Numbered step is the default content slide and L59 Principles pause is the purple stop**, both from the Global RFP process deck; the six pitch questions join Soundcheck principle 5; the agency's AI-review rule is a standing reminder (AGENTS Sections 21–22, CHECKLIST).
+**Version 2.26.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: **L58 Numbered step is the default content slide and L59 Principles pause is the purple stop**, both from the Global RFP process deck; the six pitch questions join Soundcheck principle 5; the agency's AI-review rule is a standing reminder (AGENTS Sections 21–22, CHECKLIST).
 
 Integrated Comms agency that helps tech brands solve hard business problems. The harder the better. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -178,6 +178,7 @@ INTAKE.md               · ⏱ run FIRST — the pre-build intake questions that
 AGENTS.md               · slide/deck SOPs — the authority for slides & office docs (precedence: see Section 0)
 SOUNDCHECK.md           · the presentation argument — seven principles for slide titles and the story they tell in sequence (read with AGENTS.md for any deck)
 LLM_ENTRYPOINT.md       · shortest task router for Claude, ChatGPT and other design agents
+HANDOVER.md             · how to clone, take ownership and keep the system alive after the author's handover
 LAYOUTS.md              · deck layout library (56 layouts, L01–L59) + slide best-practice guide
 POWERPOINT.md           · native `.pptx` route — theme spec, font reliability, logo geometry, protected zones, connectors, layout-as-contract, finished-file validation (read when the output is PowerPoint)
 DESIGN.md               · Google design.md spec — machine-readable single source of truth

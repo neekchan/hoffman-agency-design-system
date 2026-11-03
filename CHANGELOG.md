@@ -23,6 +23,13 @@ really lives in the Claude Design project
 > If one rule landed in several files, list every file. Versioning rules:
 > `CONTRIBUTING.md` → Versioning.
 
+## 2026-11-03 — A handover note for whoever takes the repository on (v2.26.0 → v2.26.1)
+
+### `HANDOVER.md`, `README.md`
+- How to clone, the three ways to take ownership (transfer, admin collaborator, fork), the Claude Design project versus this repository as master, the upkeep rules. Listed in the README file map.
+
+Patch: documentation only.
+
 ## 2026-11-03 — The numbered step becomes the default content slide, with a purple pause and the pitch questions (v2.25.2 → v2.26.0)
 
 Nicolas Chan's last update before handing the system to Hoffman. Source: the Global RFP process deck (The Hoffman Agency, Creative Teams US, October 2026), which lays out an eleven-step method one step per slide. Nic's ruling, 3 November 2026: strip the process, keep the slide; the numbered step should surface on most decks, so it is the new default content slide. The process itself stays with the agency; the repo is public.
