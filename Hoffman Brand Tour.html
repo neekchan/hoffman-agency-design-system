@@ -1466,7 +1466,7 @@
           console.error(
             "[dc-runtime] sibling fetch for <" + name + "/>:",
             url,
-            "has no <x-dc> block \u2014 not a Design Component."
+            "has no <x-" + "dc> block \u2014 not a Design Component."
           );
           return;
         }
@@ -1697,8 +1697,9 @@
 </script>
 </head>
 <body>
-<!-- Fluent emoji runtime (assets/emoji/fluent-emoji.js), inlined by export_standalone.py. It sits here, outside <x-dc>,
-     because the dc-runtime rewrites identifiers inside a script placed in the template body (thisScript became sc-camel-this-script). -->
+<!-- Fluent emoji runtime (assets/emoji/fluent-emoji.js), inlined by export_standalone.py. It sits here, outside the x-dc element,
+     because the dc-runtime rewrites identifiers inside a script placed in the template body. Nothing before the real element may
+     contain the literal open tag of that element: the runtime finds its template with a regex over the page source. -->
 <script>
 /* ==========================================================================
    The Hoffman Agency — Fluent Emoji injector

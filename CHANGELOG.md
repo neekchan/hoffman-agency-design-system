@@ -24,6 +24,18 @@ really lives in the Claude Design project
 > If one rule landed in several files, list every file. Versioning rules:
 > `CONTRIBUTING.md` → Versioning.
 
+## 2026-11-05 — 3.0: the Brand Tour boots, and the author signs off (v2.26.2 → v3.0.0)
+
+<!-- Last entry Nicolas Chan writes in this log. -->
+
+The send-off release. Nicolas Chan built this system for The Hoffman Agency and hands it over with this version; from here the log is the agency's.
+
+### The standalone Brand Tour renders — `Hoffman Brand Tour.html`, `templates/brand-tour/export_standalone.py`
+- Every export since the first (v2.18.1) showed a slice of runtime source on the boot screen. Cause: the dc-runtime finds its template with a regex for the `<x-dc>` open tag over the page source, and in the standalone the inlined runtime's own error string (`has no <x-dc> block`) matched first, so the "template" became the rest of the runtime. The literal is now split in the inlined copy; the exporter's docstring records both rules (this one and the v2.26.2 script-placement rule) and the donor carries them forward. Rendered over `file://` and `http://`: the boot screen, the dock, no console errors.
+
+### Why 3.0
+- Nothing on-brand breaks. The major bump marks the handover: the repository is the master from here (the Claude Design project that compiled it stays with the author and standalone Claude Design closes on 14 December 2026), the generated files are frozen, and the system renders and checks on any machine with nothing installed. `HANDOVER.md` is the door in.
+
 ## 2026-11-05 — The system renders and checks with nothing installed (v2.26.1 → v2.26.2)
 
 Nic, 5 November 2026: the v2.26.0 render check could not run `title_check.py` because this Mac has no Playwright, and whoever clones the repo next will not have it either. Make the check portable, then audit the whole system for anything else that needs an install, a network or one person's machine, and fix it before the handover.
@@ -32,7 +44,7 @@ Nic, 5 November 2026: the v2.26.0 render check could not run `title_check.py` be
 - React 18.3.1, ReactDOM 18.3.1 and Babel standalone 7.29.0 are vendored in `vendor/` (hashes match the pinned SRI values, `vendor/README.md`). Every template loader and both UI-kit pages try the local copy first and the pinned unpkg build second, so a clone renders with no network; a page copied out on its own still works online. Recorded in each `support.js` header as the one mechanical repair on a frozen file.
 - The four hotlinked Unsplash photos in `CaseStudyGrid.jsx` and `_ds_bundle.js` are replaced with the system's own photography. The bundle's inlined emoji runtime is re-pinned to the same commits as `assets/emoji/fluent-emoji.js` (it pointed at `@main`/`@master`).
 - `BrandTour.dc.html` now loads `ds-base.js` as its comment always claimed; the one-pager drops a duplicate Google Fonts link; the UI-kit pages drop their Google Fonts preconnects.
-- In the standalone `Hoffman Brand Tour.html`, the inlined emoji runtime is moved out of `<x-dc>` into the head and refreshed to the current `assets/emoji/fluent-emoji.js`. Inside the template body the dc-runtime rewrote its identifiers (`thisScript` became `sc-camel-this-script`) and the page threw a SyntaxError on load, in every export since the first one. The exporter's docstring records the rule. **Known issue, not fixed:** the standalone still renders a slice of the dc-runtime source as visible text in the first screen (present since the first export at v2.18.1, in every browser, over `file://` and `http://`); the template `templates/brand-tour/BrandTour.dc.html` renders correctly and is the file to use until the export is rebuilt.
+- In the standalone `Hoffman Brand Tour.html`, the inlined emoji runtime is moved out of `<x-dc>` into the head and refreshed to the current `assets/emoji/fluent-emoji.js`. Inside the template body the dc-runtime rewrote its identifiers (`thisScript` became `sc-camel-this-script`) and the page threw a SyntaxError on load, in every export since the first one. The exporter's docstring records the rule. Known issue at this version, fixed in v3.0.0: the standalone still rendered a slice of the dc-runtime source as visible text on the first screen.
 
 ### Helper scripts run on any machine — `templates/brand-tour/export_standalone.py`, `assets/readme/build-hero.py`, `tools/title_check.py`, `tools/requirements.txt`
 - Chrome or Edge is found on PATH or in the usual Mac and Windows install spots instead of one hard-coded Mac path; `file://` URLs are built with `as_uri()`; every read and write is UTF-8; the run lines say `python3` (or `py` on Windows) instead of one machine's interpreter. `requirements.txt` lists Pillow and fontTools alongside Playwright and says which script needs which.

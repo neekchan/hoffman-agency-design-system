@@ -9,7 +9,10 @@ thumbnails (`python3 -m pip install -r tools/requirements.txt`), and a Chromium-
 machine for --verify (found on PATH or in the usual install locations; see find_chrome). The previous standalone is the DONOR: everything that does not live in the template
 (the inlined dc-runtime, the fluent-emoji runtime, the base64 fonts, the 86 logo/annotation resources)
 is carried over from it untouched. The inlined emoji runtime must stay in the donor's head, BEFORE <x-dc>:
-the dc-runtime rewrites identifiers inside any script placed in the template body (fixed 5 Nov 2026). From the template we take the body and the logic script, inline the
+the dc-runtime rewrites identifiers inside any script placed in the template body (fixed 5 Nov 2026).
+And nothing before the real <x-dc> element may contain that literal open tag: the runtime finds its template
+with a regex over the page source, and the inlined runtime's own error string used to match first, which is
+why every export until v3.0.0 showed runtime source on the boot screen. The donor carries both fixes forward. From the template we take the body and the logic script, inline the
 static SVGs as data URIs, and register the photography as `photo_*` resources at contact-sheet size.
 
 Rules learnt the hard way:

@@ -1,7 +1,7 @@
 # Handover — taking this repository on
 <!-- Last file Nicolas Chan added to the system. Read it before touching anything else. -->
 
-Written 3 November 2026 by Nicolas Chan, the system's author, on handing it to The Hoffman Agency. v2.26.0 is the last version he ships; everything after it is yours.
+Written 3 November 2026 by Nicolas Chan, the system's author, on handing it to The Hoffman Agency. v3.0.0 (5 November 2026) is the last version he ships; everything after it is yours.
 
 ## What this is
 
@@ -54,7 +54,7 @@ Audited on 5 November 2026 so nobody discovers these on a deadline.
 - **Python is optional** and used by three helper scripts only: `tools/title_check.py` (CI runner), `templates/brand-tour/export_standalone.py` (rebuilds the standalone tour) and `assets/readme/build-hero.py` (the README banner). `tools/requirements.txt` lists what each needs. They find Chrome or Edge on Mac and Windows by themselves.
 - **No Node.** `package.json` carries the version number and nothing else.
 - **Frozen artifacts.** `_ds_bundle.js`, `_ds_manifest.json`, `_adherence.oxlintrc.json` and `templates/*/support.js` were produced by a compiler that stayed with the author's Claude Design account. They work as they are; they cannot be regenerated here. Their sources are in the repo (`ui_kits/**/*.jsx`, `colors_and_type.css`) for whoever writes a builder later. Edit them only mechanically and log it.
-- **The standalone Brand Tour** (`Hoffman Brand Tour.html`) inlines everything except React, which it fetches from unpkg when mailed on its own; opened from the repo it uses `vendor/`. Rebuilding it needs its previous version as the donor, so do not delete the file. **Known issue:** every export so far shows a slice of runtime source as visible text on the first screen; the template `templates/brand-tour/BrandTour.dc.html` renders correctly, so use that until someone rebuilds the export (`CHANGELOG.md` v2.26.2).
+- **The standalone Brand Tour** (`Hoffman Brand Tour.html`) inlines everything except React, which it fetches from unpkg when mailed on its own; opened from the repo it uses `vendor/`. Rebuilding it needs its previous version as the donor, so do not delete the file; the two export rules it learned the hard way are in the exporter's docstring.
 - **Host-only code** (anything mentioning `omelette`, `?slide=`, `__dc_design_mode`) is the Claude Design bridge. It is inert everywhere else and can be ignored.
 
 ## Keep it alive
