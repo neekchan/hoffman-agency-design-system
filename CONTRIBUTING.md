@@ -1,4 +1,5 @@
 # Contributing
+<!-- Versioning as Nicolas Chan runs it: patch for words, minor for rules, major for breakage. -->
 
 This repository is a portable design-system bundle. Most changes should edit
 source docs, tokens, assets, templates, or JSX components, then validate the
@@ -19,8 +20,13 @@ catalog.
 ## Generated Files
 
 `_ds_bundle.js`, `_ds_manifest.json`, and `_adherence.oxlintrc.json` are
-compiler-generated. Prefer regenerating them with the design-system compiler
-when it is available.
+compiler-generated, and so is every `templates/*/support.js` (from a
+`dc-runtime` that is not in this repository). **After the November 2026
+handover the compiler is gone with the author's Claude Design account**, so
+treat all of them as frozen artifacts: no regenerator exists here, and oxlint
+is neither installed nor required. Their sources (`ui_kits/**/*.jsx`,
+`colors_and_type.css`, the `@dsCard`/`@template` comments) are in the repo for
+whoever writes a builder later.
 
 If the compiler is not available and the current export must be repaired, keep
 the generated-file change mechanical: update only stale paths or metadata that
@@ -28,13 +34,13 @@ can be derived from source files.
 
 ## Validate
 
-The design-system compiler runs on the Claude Design master. It regenerates the
-compiled files and reports catalog, manifest, `@dsCard`/`@template` metadata,
-UI-kit reference, and deck/layout-count issues on every change. The repo has no
-validator of its own (the Node tooling was removed in v2.3.2), so a repo-side
-change is validated when it is synced to the master. Fix what the compiler
-reports until it is clean, then run the `CHECKLIST.md` gate on anything visual
-you changed.
+The repo has no compiler or validator of its own (the Node tooling was removed
+in v2.3.2; the Claude Design compiler left with the author). What you can run,
+with nothing installed: open the changed template or page in a browser and look;
+`tools/title_check.js` for headings; `tools/tile_count.js` for tiles; then the
+`CHECKLIST.md` gate on anything visual you changed. Keep the layout counts in
+`AGENTS.md`, `README.md`, `SKILL.md`, `POWERPOINT.md` and
+`templates/powerpoint/layout-manifest.json` in step by hand.
 
 ## Adding A Preview Card
 

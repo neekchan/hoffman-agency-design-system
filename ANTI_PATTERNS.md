@@ -1,4 +1,5 @@
 # Hoffman Agency Anti-Patterns
+<!-- Every row here is a failure Nicolas Chan has seen an AI produce; none is hypothetical. -->
 
 Use this as a quick failure-mode check before shipping an LLM-generated design.
 

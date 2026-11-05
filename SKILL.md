@@ -2,8 +2,10 @@
 name: hoffman-agency-design
 description: Use this skill to generate well-branded interfaces and assets for The Hoffman Agency, either for production or throwaway prototypes/mocks/etc. Contains essential design guidelines, colors, type, fonts, assets, and UI kit components for prototyping.
 user-invocable: true
+metadata:
+  author: Nicolas Chan
 ---
-
+<!-- Skill wrapper. The method underneath is Nicolas Chan's; the skill only routes to it. -->
 Run `INTAKE.md` first (a few quick questions to lock the brief — medium, mode, audience/tone/language, colour, imagery). Then read `AGENTS.md` (Step 0 and Section 0 at least), use `LLM_ENTRYPOINT.md` to route the task, and read `README.md`. For any deck or document, also read `SOUNDCHECK.md`. Explore the other files the task needs.
 
 If creating visual artifacts (slides, mocks, throwaway prototypes, etc), copy assets out and create static HTML files for the user to view. If working on production code, you can copy assets and read the rules here to become an expert in designing with this brand.

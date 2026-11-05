@@ -1,52 +1,51 @@
 #!/usr/bin/env python3
-"""Title line-break check (AGENTS.md Section 2.5, "The break is authored"; POWERPOINT.md check 17).
-Every display heading must break only where the markup says (<br>). A heading whose rendered
-line count exceeds its <br> count + 1 has wrapped on its own, which is what produces mid-phrase
-breaks; the PowerPoint export would then freeze that wrap. Also reports each heading's widest line
-against its measure so a title filling under ~55% can be sized up.
-Usage: python3 tools/title_check.py deck.html [--selector "h1,h2,h3,.title"]   exit 1 on any self-wrap
-Needs Playwright with Chromium. Render with the system fonts installed or the result is meaningless."""
-import asyncio, sys
-from playwright.async_api import async_playwright
-SEL = 'h1,h2,h3,.title,.hero,.line3,.dv-title,.giant,.quote,.stat .n'
-JS = r"""
-(sel) => {
-  const out = [];
-  const slides = [...document.querySelectorAll('deck-stage > section, section.slide')];
-  slides.forEach((s, i) => {
-    const r = s.getBoundingClientRect(); const sc = r.width / 1920 || 1;
-    s.querySelectorAll(sel).forEach(el => {
-      const brs = el.querySelectorAll('br').length;
-      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n; const tops = []; let maxRight = 0, minLeft = 1e9;
-      while ((n = walker.nextNode())) {
-        if (!n.textContent.trim()) continue;
-        const rg = document.createRange(); rg.selectNodeContents(n);
-        for (const q of rg.getClientRects()) { if (q.width < 1) continue; const m = (q.top + q.bottom) / 2; if (!tops.some(t => Math.abs(t - m) < 6)) tops.push(m); maxRight = Math.max(maxRight, q.right); minLeft = Math.min(minLeft, q.left); }
-      }
-      const cs = getComputedStyle(el); const box = el.getBoundingClientRect();
-      const measure = Math.min(box.width, parseFloat(cs.maxWidth) || 1e9) / sc;
-      out.push({ slide: i + 1, tag: el.tagName.toLowerCase() + (el.className ? '.' + String(el.className).split(' ')[0] : ''), brs, lines: tops.length,
-                 widest: Math.round((maxRight - minLeft) / sc), measure: Math.round(measure), fs: parseFloat(cs.fontSize) / sc,
-                 text: el.textContent.replace(/\s+/g, ' ').trim().slice(0, 60) });
-    });
-  });
-  return out;
-}
+"""CI runner for the title line-break check (AGENTS.md Section 2.5 "The break is authored";
+POWERPOINT.md check 17). The check itself lives in tools/title_check.js, which also runs with no
+install at all: paste it into any browser's console, or load it with data-auto under headless
+Chrome (usage at the top of that file). This runner exists so a build can fail automatically.
+
+Usage: python3 tools/title_check.py deck.html        (`py` instead of `python3` on Windows) [--selector "h1,h2,h3,.title"]
+       exit 1 on any heading that wrapped on its own, or when a fallback font rendered the page.
+Needs: python3 -m pip install -r tools/requirements.txt && python3 -m playwright install chromium
+Render with the system fonts installed (Poppins incl. ExtraBold, Libre Baskerville Italic) or the
+result is meaningless; the runner reports fallback fonts and fails on them.
 """
+import asyncio, os, pathlib, sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+JS_FILE = os.path.join(HERE, 'title_check.js')
+
+def usage(msg=''):
+    print(__doc__.strip()); print()
+    if msg: print(msg)
+    sys.exit(2)
+
+try:
+    from playwright.async_api import async_playwright
+except ModuleNotFoundError:
+    usage('Playwright is not installed. Either install it:\n'
+          '    python3 -m pip install -r tools/requirements.txt && python3 -m playwright install chromium\n'
+          'or run the same check with no install: open the deck in a browser, paste tools/title_check.js\n'
+          'into the console and run titleCheck(); or use the headless-Chrome line at the top of that file.')
+
 async def main():
-    html = sys.argv[1]; sel = SEL
+    if len(sys.argv) < 2: usage('A deck path is required.')
+    html = sys.argv[1]; sel = None
     if '--selector' in sys.argv: sel = sys.argv[sys.argv.index('--selector') + 1]
+    js = open(JS_FILE, encoding='utf-8').read()
+    url = html if html.startswith(('http', 'file:')) else pathlib.Path(html).resolve().as_uri()
     async with async_playwright() as p:
         b = await p.chromium.launch(); pg = await b.new_page(viewport={'width': 1920, 'height': 1080})
-        await pg.goto('file://' + html if not html.startswith(('http', 'file:')) else html); await pg.wait_for_timeout(1200)
-        res = await pg.evaluate(JS, sel); await b.close()
-    bad = 0
-    for t in res:
-        if t['fs'] < 40: continue
-        flag = ''
-        if t['lines'] > t['brs'] + 1: flag = 'SELF-WRAP'; bad += 1
-        elif t['widest'] < 0.55 * t['measure'] and t['lines'] >= 2: flag = 'narrow'
-        print(f"{t['slide']:02d} {t['tag'][:16]:16} {t['fs']:>5.0f}px lines={t['lines']} brs={t['brs']} widest={t['widest']:>4}/{t['measure']:<4} {flag:9} {t['text']}")
-    print(f"headings that wrapped on their own: {bad}")
-    sys.exit(1 if bad else 0)
+        await pg.goto(url); await pg.wait_for_timeout(1500)
+        await pg.evaluate(js)
+        res = await pg.evaluate('(sel) => window.__titleCheckMeasure(sel || undefined)', sel)
+        await b.close()
+    for t in res['rows']:
+        print(f"{t['slide']:02d} {t['tag'][:16]:16} {t['px']:>4}px lines={t['lines']} brs={t['brs']} widest={t['widest']:>4}/{t['measure']:<4} {t['flag']:9} {t['text']}")
+    print(f"headings that wrapped on their own: {res['wrapped']}")
+    if res['fallbackFonts']:
+        print(f"FALLBACK FONTS IN USE: {', '.join(res['fallbackFonts'])} — install Poppins + Libre Baskerville Italic and re-run")
+    print('title check: ' + ('PASS' if res['ok'] else 'FAIL'))
+    sys.exit(0 if res['ok'] else 1)
+
 asyncio.run(main())

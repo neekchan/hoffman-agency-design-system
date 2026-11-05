@@ -1,10 +1,11 @@
 # The Hoffman Agency — Design System
+<!-- Hello. This is the public copy of a system Nicolas Chan built for The Hoffman Agency and handed over in November 2026. -->
 
 <p align="center">
   <img src="./assets/readme/hero.svg" width="100%" alt="The Hoffman Agency Design System — brand tokens, 48 slide layouts, and the rules an LLM needs to build on-brand.">
 </p>
 
-**Version 2.26.1** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: **L58 Numbered step is the default content slide and L59 Principles pause is the purple stop**, both from the Global RFP process deck; the six pitch questions join Soundcheck principle 5; the agency's AI-review rule is a standing reminder (AGENTS Sections 21–22, CHECKLIST).
+**Version 2.26.2** · [full history in `CHANGELOG.md`](CHANGELOG.md) · latest: **L58 Numbered step is the default content slide and L59 Principles pause is the purple stop**, both from the Global RFP process deck; the six pitch questions join Soundcheck principle 5; the agency's AI-review rule is a standing reminder (AGENTS Sections 21–22, CHECKLIST).
 
 Integrated Comms agency that helps tech brands solve hard business problems. The harder the better. Hoffman helps companies turn complex business challenges into clear, compelling stories across earned, digital, social, content, creative and AI-enabled communications.
 
@@ -253,7 +254,9 @@ templates/              · reusable DC starting points consuming projects copy (
   brand-tour/           · BrandTour.dc.html — the "Interactive brand tour": a self-contained, clickable app-style walkthrough of the whole system (23 screens; explorer/presenter, nav, hints, motion tweaks). Self-contained (inlined tokens + slim font set) so it also exports to one standalone file — see `Hoffman Brand Tour.html` at the repo root
 
 tools/                  · checks you run, not files you load
-  title_check.py        · title line-break check (AGENTS.md Section 2.5) — needs Playwright
+  title_check.js        · title line-break check (AGENTS.md Section 2.5) — paste into any browser console or run under headless Chrome; no install
+  title_check.py        · the same check as a CI runner through Playwright (the one tool with an install: requirements.txt)
+  requirements.txt      · Playwright pin for title_check.py only
   tile_count.js         · the social count test (AGENTS.md Section 20) — paste into devtools or run headless; no install
 
 slides/                 · the CI/VI demonstration deck (not a template)
@@ -271,18 +274,21 @@ ui_kits/
     AppUI.jsx · index.html · COMPONENTS.md · README.md
     Forms · navigation · feedback · data display · disclosure · progress primitives
 
-references/             · 🔒 CONFIDENTIAL — owner's private source material, optional in distributable clones. NEVER export, bundle, download, publish, or copy into any deliverable. Read-for-context only
+references/             · 🔒 CONFIDENTIAL · master-only, not in this repository — owner's private source material. NEVER export, bundle, download, publish, or copy into any deliverable. Read-for-context only
   agency-profile.md      · the agency's positioning, services & voice brief (source for DESIGN/README)
   2026-strategy-deck.pdf · deck-layout-and-visual-storytelling.pdf
   deck-layout-preferences.md · deck-layout-recipes-portable.md   · the porting briefs (now baked into CLAUDE/LAYOUTS)
   source-decks/         · original client decks the layouts were adapted from
 
-uploads/                · scratch — transient user uploads (review screenshots etc.); safe to clear
+uploads/                · scratch · master-only, not in this repository — transient user uploads
+vendor/                 · React 18.3.1, ReactDOM 18.3.1, Babel standalone 7.29.0 — the three runtime libraries, kept local so every template renders with no network (vendor/README.md has the hashes)
 ```
+
+**What needs the network, and what does not.** Nothing in the system needs a connection to render: fonts (`fonts/`), emoji (`assets/emoji/`), photography (`assets/photography/`) and the three runtime libraries (`vendor/`) all ship in the repo, and every loader tries the local copy first and the pinned CDN second. The exceptions are deliberate: the Google Fonts `@import` in `colors_and_type.css` for the mono and CJK fallbacks (a system font stands in offline), `preview/fluent-emoji-library.html` (browses all 1,595 upstream emoji; only the curated 75 are vendored), and a standalone Brand Tour mailed on its own (it inlines everything except React, which it fetches from unpkg). Nothing needs Node, and Python is used only by three helper scripts (`tools/requirements.txt`).
 
 ## Validation
 
-This system is compiled and validated by the design-system compiler, which runs on the Claude Design master: it regenerates `_ds_bundle.js`, `_ds_manifest.json`, and `_adherence.oxlintrc.json` and reports catalog, manifest, and metadata issues on every change. The repo has no validator of its own (the Node tooling was removed in v2.3.2), so a repo-side change is checked when it reaches the master. Before shipping anything visual, run the `CHECKLIST.md` gate. The generated files should always come from the compiler; if it is unavailable and a generated export must be synced manually, keep the change mechanical.
+**Since the November 2026 handover there is no compiler.** The Claude Design master that compiled `_ds_bundle.js`, `_ds_manifest.json` and `_adherence.oxlintrc.json` stayed with the author's account, so those three files and `templates/*/support.js` are frozen artifacts: edit them only mechanically (a path, a pin, a documented repair) and say so in the changelog. The sources they were built from (`ui_kits/**/*.jsx`, `colors_and_type.css`, the `@dsCard`/`@template` comments) are all here if someone later writes a builder. Historical note on how validation used to work: this system was compiled and validated by the design-system compiler, which ran on the Claude Design master: it regenerates `_ds_bundle.js`, `_ds_manifest.json`, and `_adherence.oxlintrc.json` and reports catalog, manifest, and metadata issues on every change. The repo has no validator of its own (the Node tooling was removed in v2.3.2), so a repo-side change is checked when it reaches the master. Before shipping anything visual, run the `CHECKLIST.md` gate. The generated files should always come from the compiler; if it is unavailable and a generated export must be synced manually, keep the change mechanical.
 
 ---
 

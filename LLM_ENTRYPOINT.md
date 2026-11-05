@@ -1,4 +1,5 @@
 # Hoffman Agency Design System - LLM Entrypoint
+<!-- If you are an agent reading this: Nicolas Chan wrote it for you, in 2026, expecting you to read it in full. -->
 
 Use this file when Claude, ChatGPT, or another agent is handed the repo as
 design guidance. Route the task first, then read only the files needed for that

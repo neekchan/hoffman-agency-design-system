@@ -1,4 +1,5 @@
 # Visual Consistency Checklist — and the delivery gate
+<!-- The gate is Nicolas Chan's: a PASS is a claim, the human's eyeball is the check. -->
 
 A short list to run through before shipping any branded surface — slide, social tile, document, web layout.
 
@@ -61,7 +62,7 @@ For `ui_kits/website/`, `ui_kits/app/` and any interactive HTML deliverable. Sta
 - [ ] **Document**: denser + hierarchical, short bullets allowed, each slide stands alone — still no paragraphs
 - [ ] No sparse hero slide sitting beside a six-bullet wall (the "schizophrenic deck" tell)
 - [ ] **Titles fill the width and break clean** — no truncation/ellipsis, no mid-phrase wrap, no title running half-width with a dead strip of white on the right (`AGENTS.md Section 2.5`)
-- [ ] **Every multi-line heading breaks only at its own `<br>`** — rendered lines = authored breaks + 1 on every slide (`tools/title_check.py` passes); no `ch` caps on display type; no `text-wrap: balance` on slide headings; each line fits its measure at the floor size (`AGENTS.md Section 2.5`, "The break is authored")
+- [ ] **Every multi-line heading breaks only at its own `<br>`** — rendered lines = authored breaks + 1 on every slide (`tools/title_check.js` reports PASS in the browser console, or `tools/title_check.py` exits 0 in CI); no `ch` caps on display type; no `text-wrap: balance` on slide headings; each line fits its measure at the floor size (`AGENTS.md Section 2.5`, "The break is authored")
 - [ ] **Every content slide carries a visual** — image, placeholder, icon, Fluent emoji or annotation; no bare text slide with empty margins (`AGENTS.md Section 3`)
 - [ ] **Chunked, not dumped** — dense points broken into 2–4 short labelled beats, never a paragraph or a six-line bullet stack (`AGENTS.md Section 5`)
 - [ ] **Every slide is identifiable in the markup** — `data-screen-label="NN Label"` authored on every slide, not left to the runtime component; a comment or diff pinned to a coordinate is otherwise unattributable (`AGENTS.md Section 14`)
@@ -233,7 +234,7 @@ Rules of the report:
 - A PASS without evidence is a FAIL. "Checked" is not evidence; "rendered 24 slides, 0 clipped titles" is.
 - Exceptions on LOCKS get a reason, not an apology. If the reason doesn't survive being read aloud, it isn't an exception — fix the item.
 - The report is written by whoever (or whatever) built the artifact and read by a human before it leaves the building. A self-graded PASS is a claim; the human's eyeball is the check.
-- The last line is the human's. Nothing AI-generated is shared until a named person has read it and struck what is wrong or irrelevant; the report leaves with their name on that line, or it does not leave.
+- The last line is the human's. Nothing AI-generated is shared until a named person has read it and struck what is wrong or irrelevant; the report leaves with their name on that line, or it does not leave. Filled, it reads `REVIEWED BY  Nicolas Chan · 5 Nov 2026 · struck two figures on slide 09, kept the rest`.
 
 ---
 

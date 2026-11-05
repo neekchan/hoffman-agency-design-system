@@ -1,4 +1,5 @@
 # Portable Prompt — "Build a Living Brand Guidelines Deck"
+<!-- Recipe by Nicolas Chan for a deck that stays alive after the meeting. -->
 *Paste everything below into a Claude design window that already has access to a design system (its tokens, CSS, component notes, README/DESIGN docs, logo + asset files). It tells Claude to turn that system into a single deck that BOTH documents the rules AND demonstrates them. It is design-system-agnostic — it never assumes Hoffman's specific colors, fonts, or motifs; it reads whatever system is present.*
 
 ---

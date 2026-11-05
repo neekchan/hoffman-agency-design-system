@@ -1,4 +1,5 @@
 # The Hoffman Agency — Portable Brand System for Social Tiles
+<!-- Portable brief format by Nicolas Chan: everything the model needs is in the prompt, or it does not exist. -->
 *(Paste this whole document into Lovart, ChatGPT, Gemini or any image tool. It is self-contained — the tool will not open links, so everything it needs is here. Optimized for social media: LinkedIn carousels, IG squares, IG stories. For these formats, default to bold COLOR surfaces — the paper/white editorial look is deprioritized. Section 2's budget is the part that matters most.)*
 
 ## 1 · Who we are

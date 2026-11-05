@@ -1070,7 +1070,7 @@
     function ensureBabel() {
       if (window.Babel) return Promise.resolve();
       if (babelLoading) return babelLoading;
-      babelLoading = new Promise((res, rej) => {
+      const viaCdn = () => new Promise((res, rej) => {
         const s = document.createElement("script");
         s.src = BABEL_URL;
         s.integrity = BABEL_SRI;
@@ -1079,6 +1079,16 @@
         s.onerror = rej;
         document.head.appendChild(s);
       });
+      // Mechanical repair (Hoffman DS v2.26.2): the vendored copy first, the pinned CDN second.
+      babelLoading = (typeof LOCAL_VENDOR === "string" && LOCAL_VENDOR)
+        ? new Promise((res, rej) => {
+            const s = document.createElement("script");
+            s.src = LOCAL_VENDOR + "babel.min.js";
+            s.onload = () => res();
+            s.onerror = () => { s.remove(); rej(new Error("no vendored babel")); };
+            document.head.appendChild(s);
+          }).catch(viaCdn)
+        : viaCdn();
       return babelLoading;
     }
     const pending = /* @__PURE__ */ new Map();
@@ -1587,26 +1597,39 @@
     s.textContent = "x-dc{display:none!important}";
     document.head.appendChild(s);
   }
+  // Mechanical repair, not from dc-runtime (Hoffman DS v2.26.2): prefer the vendored copies in
+  // <repo>/vendor/ so a template renders with no network; fall back to the pinned CDN build when
+  // they are not beside the page (a standalone export mailed on its own).
+  var LOCAL_VENDOR = (function () {
+    try {
+      var cs = document.currentScript;
+      return (cs && cs.src ? new URL("../../vendor/", cs.src) : new URL("vendor/", location.href)).href;
+    } catch (e) { return null; }
+  })();
   function loadScript(src, integrity) {
     return new Promise((resolve2, reject) => {
       //! nosemgrep: create-script-element
       const s = document.createElement("script");
       s.src = src;
-      s.integrity = integrity;
-      s.crossOrigin = "anonymous";
+      if (integrity) { s.integrity = integrity; s.crossOrigin = "anonymous"; }
       s.async = false;
       s.onload = () => resolve2();
-      s.onerror = () => reject(new Error(`failed to load ${src}`));
+      s.onerror = () => { s.remove(); reject(new Error(`failed to load ${src}`)); };
       document.head.appendChild(s);
     });
   }
   function loadReactUmd() {
     const w = window;
     if (w.React && w.ReactDOM) return Promise.resolve();
-    return Promise.all([
+    const cdn = () => Promise.all([
       loadScript(REACT_URL, REACT_SRI),
       loadScript(REACT_DOM_URL, REACT_DOM_SRI)
     ]).then(() => void 0);
+    if (!LOCAL_VENDOR) return cdn();
+    return loadScript(LOCAL_VENDOR + "react.production.min.js")
+      .then(() => loadScript(LOCAL_VENDOR + "react-dom.production.min.js"))
+      .then(() => void 0)
+      .catch(() => { delete w.React; delete w.ReactDOM; return cdn(); });
   }
   function init() {
     const runtime = createRuntime(document);
@@ -1674,10 +1697,8 @@
 </script>
 </head>
 <body>
-<x-dc>
-<!-- @template name="Interactive brand tour" description="Hoffman OS — the slides-as-software experiment. Twenty-three 16:9 screens designed as app UI, not slides: a state-machine shell with dock/rail navigation, and every brand rule demonstrated as a working interaction (voice toggle, logo configurator, misuse playground, contrast lab, type you can drive, a Soundcheck ladder, the photo library, sixteen markets, prompt builder, ship-it checklist). Self-driven explorer by nature — send the link; no PDF fallback intended. Tweaks: Explorer/Presenter, nav chrome, hints, motion." -->
-<!-- CANVAS: fixed 1920×1080 logical px (scales to any display incl. 4K). Screens live on a horizontal filmstrip; the camera glides between them. Each <section data-idx="N"> sits at left = N × 1920px. All slide-scale SOPs apply (AGENTS.md Sections 1–12): 72px margins, ≥20px labels, 30px+ body, editorial headlines. -->
-<helmet>
+<!-- Fluent emoji runtime (assets/emoji/fluent-emoji.js), inlined by export_standalone.py. It sits here, outside <x-dc>,
+     because the dc-runtime rewrites identifiers inside a script placed in the template body (thisScript became sc-camel-this-script). -->
 <script>
 /* ==========================================================================
    The Hoffman Agency — Fluent Emoji injector
@@ -1741,8 +1762,8 @@
     'woman-raising-hand': { n: 'Woman raising hand', c: 'People', ca: 'People with activities', g: '🙋‍♀️', t: 1 },
     'folded-hands':      { n: 'Folded hands', c: 'Hand gestures', g: '🙏' },
     'flexed-biceps':     { n: 'Flexed biceps', c: 'Hand gestures', g: '💪' },
-    'brain':             { n: 'Brain', c: 'Hand gestures', g: '🧠' },
-    'eyes':              { n: 'Eyes', c: 'Hand gestures', g: '👀' },
+    'brain':             { n: 'Brain', c: 'Smilies', g: '🧠' },
+    'eyes':              { n: 'Eyes', c: 'Smilies', g: '👀' },
     'robot':             { n: 'Robot', c: 'Smilies', g: '🤖' },
     'money-bag':         { n: 'Money bag', c: 'Objects', g: '💰' },
     'money-with-wings':  { n: 'Money with wings', c: 'Objects', g: '💸' },
@@ -1766,8 +1787,8 @@
     'megaphone':         { n: 'Megaphone', c: 'Objects', g: '📣' },
     'loudspeaker':       { n: 'Loudspeaker', c: 'Objects', g: '📢' },
     'bell':              { n: 'Bell', c: 'Objects', g: '🔔' },
-    'speech-balloon':    { n: 'Speech balloon', c: 'Smilies', g: '💬' },
-    'thought-balloon':   { n: 'Thought balloon', c: 'Smilies', g: '💭' },
+    'speech-balloon':    { n: 'Speech balloon', c: 'Symbols', g: '💬' },
+    'thought-balloon':   { n: 'Thought balloon', c: 'Symbols', g: '💭' },
     'memo':              { n: 'Memo', c: 'Objects', g: '📝' },
     'books':             { n: 'Books', c: 'Objects', g: '📚' },
     'pushpin':           { n: 'Pushpin', c: 'Objects', g: '📌' },
@@ -1778,13 +1799,21 @@
     'clapper-board':     { n: 'Clapper board', c: 'Objects', g: '🎬' },
     'mobile-phone':      { n: 'Mobile phone', c: 'Objects', g: '📱' },
     'laptop':            { n: 'Laptop', c: 'Objects', g: '💻' },
-    'seedling':          { n: 'Seedling', c: 'Animals', g: '🌱' },
+    'seedling':          { n: 'Seedling', c: 'Animals and nature', g: '🌱' },
     'alarm-clock':       { n: 'Alarm clock', c: 'Travel and places', g: '⏰' },
     'hourglass-done':    { n: 'Hourglass done', c: 'Travel and places', g: '⌛' },
     'hourglass':         { n: 'Hourglass not done', c: 'Travel and places', g: '⏳' },
     'check-mark':        { n: 'Check mark button', c: 'Symbols', g: '✅' },
     'cross-mark':        { n: 'Cross mark', c: 'Symbols', g: '❌' },
-    'warning':           { n: 'Warning', c: 'Symbols', g: '⚠️' }
+    'warning':           { n: 'Warning', c: 'Symbols', g: '⚠️' },
+    'newspaper': { n: 'Newspaper', c: 'Objects', g: '📰' },
+    'rolled-up-newspaper': { n: 'Rolled-up newspaper', c: 'Objects', g: '🗞️' },
+    'studio-microphone': { n: 'Studio microphone', c: 'Objects', g: '🎙️' },
+    'television': { n: 'Television', c: 'Objects', g: '📺' },
+    'movie-camera': { n: 'Movie camera', c: 'Objects', g: '🎥' },
+    'camera': { n: 'Camera', c: 'Objects', g: '📷' },
+    'satellite-antenna': { n: 'Satellite antenna', c: 'Objects', g: '📡' },
+    'speaking-head': { n: 'Speaking head', c: 'People', g: '🗣️' }
   };
 
   function snake(name) {
@@ -1909,8 +1938,11 @@
     names: function () { return Object.keys(MAP); }
   };
 })();
-
 </script>
+<x-dc>
+<!-- @template name="Interactive brand tour" description="Hoffman OS — the slides-as-software experiment. Twenty-three 16:9 screens designed as app UI, not slides: a state-machine shell with dock/rail navigation, and every brand rule demonstrated as a working interaction (voice toggle, logo configurator, misuse playground, contrast lab, type you can drive, a Soundcheck ladder, the photo library, sixteen markets, prompt builder, ship-it checklist). Self-driven explorer by nature — send the link; no PDF fallback intended. Tweaks: Explorer/Presenter, nav chrome, hints, motion." -->
+<!-- CANVAS: fixed 1920×1080 logical px (scales to any display incl. 4K). Screens live on a horizontal filmstrip; the camera glides between them. Each <section data-idx="N"> sits at left = N × 1920px. All slide-scale SOPs apply (AGENTS.md Sections 1–12): 72px margins, ≥20px labels, 30px+ body, editorial headlines. -->
+<helmet>
 <style>
   /* Compact brand-token fallback so the standalone bundle renders correct colors offline
      even when ds-base.js's runtime colors_and_type.css load is unavailable. Full tokens

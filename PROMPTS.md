@@ -1,4 +1,5 @@
 # Hoffman Agency — AI Generation Prompts
+<!-- Prompts tuned by Nicolas Chan against the Hoffman grade, mood and palette; the brand asset is never generated. -->
 
 Copy-paste templates for generating brand-consistent imagery with AI tools (Midjourney, DALL·E, Stable Diffusion, etc.). Use these as your starting prompt and fill in the bracketed values.
 

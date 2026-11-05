@@ -1,4 +1,5 @@
 # CLAUDE.md
+<!-- Routing stub. The voice in AGENTS.md is Nicolas Chan's; keep it. -->
 
 **`AGENTS.md` is the canonical instruction file for this project.** This file exists only to route Claude (Claude Code, claude.ai, and any Claude-based tool that looks for `CLAUDE.md`) to it.
 

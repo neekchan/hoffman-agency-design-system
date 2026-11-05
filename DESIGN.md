@@ -1,6 +1,7 @@
 ---
 version: alpha
 name: The Hoffman Agency
+author: Nicolas Chan
 description: >
   Integrated Comms agency that helps tech brands solve hard business problems. The harder the better.
   Built on the idea that counsel without conviction is just consulting. We help leaders and brands turn
@@ -321,7 +322,7 @@ components:
     rounded: "{rounded.xs}"
     padding: "24px"
 ---
-
+<!-- Tokens as Nicolas Chan read them off the brand book, then argued with until they held on a slide. -->
 ## Overview
 
 The Hoffman Agency is an integrated Comms agency that helps tech brands solve hard business problems. The harder the better. Founded on a simple idea: counsel without conviction is just consulting. We help leaders and brands turn opinion into **Techfluence** — the kind of influence that moves markets, not just products.

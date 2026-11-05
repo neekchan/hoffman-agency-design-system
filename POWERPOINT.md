@@ -1,4 +1,5 @@
 # PowerPoint route — building a native, editable Hoffman `.pptx`
+<!-- The native route exists because whoever receives a Hoffman deck edits it in PowerPoint; Nicolas Chan wrote it so the brand survives that. -->
 
 > **Read this whenever the requested output is `.pptx` / `.potx` / PowerPoint / Keynote-for-Office.** It sits on top of the slide rules (`AGENTS.md` Sections 0–18, `LAYOUTS.md`) and adds the PowerPoint-native reliability layer the HTML system doesn't cover by itself. The two machine-readable companions to this file are `assets/asset-manifest.json` (logo geometry + protected zones) and `templates/powerpoint/layout-manifest.json` (the 56 layout contracts).
 
@@ -185,7 +186,7 @@ Run against the **finished file**, not the source used to make it. (These are al
 - A headline with no Libre Baskerville Italic emphasis word.
 - A layout code whose structure doesn't match its manifest contract.
 
-> `tools/title_check.py` covers check 17 on the HTML before export. A validator for checks 1–13 and 16 exists in another deck project but is not part of this system yet, so until it lands in `tools/`, run those checks by hand against the finished file. When automated, it should inspect the OOXML package (theme fonts/colours, `<a:off>/<a:ext>` on logo pictures vs. the manifest ratios, picture source vs. displayed size, connector geometry) and report per-check pass/fail.
+> `tools/title_check.js` covers check 17 on the HTML before export, in any browser with no install (`tools/title_check.py` is the CI runner). A validator for checks 1–13 and 16 exists in another deck project but is not part of this system yet, so until it lands in `tools/`, run those checks by hand against the finished file. When automated, it should inspect the OOXML package (theme fonts/colours, `<a:off>/<a:ext>` on logo pictures vs. the manifest ratios, picture source vs. displayed size, connector geometry) and report per-check pass/fail.
 
 ---
 

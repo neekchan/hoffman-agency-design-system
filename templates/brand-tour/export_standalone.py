@@ -4,10 +4,12 @@
     python3 templates/brand-tour/export_standalone.py            # rebuild
     python3 templates/brand-tour/export_standalone.py --verify   # rebuild, then render three screens headlessly
 
-Run from the repo root. Needs Pillow (`pip install pillow`) for the photo thumbnails, and Google Chrome
-for --verify. The previous standalone is the DONOR: everything that does not live in the template
+Run from the repo root with any Python 3 (`python3`, or `py` on Windows). Needs Pillow for the photo
+thumbnails (`python3 -m pip install -r tools/requirements.txt`), and a Chromium-family browser on the
+machine for --verify (found on PATH or in the usual install locations; see find_chrome). The previous standalone is the DONOR: everything that does not live in the template
 (the inlined dc-runtime, the fluent-emoji runtime, the base64 fonts, the 86 logo/annotation resources)
-is carried over from it untouched. From the template we take the body and the logic script, inline the
+is carried over from it untouched. The inlined emoji runtime must stay in the donor's head, BEFORE <x-dc>:
+the dc-runtime rewrites identifiers inside any script placed in the template body (fixed 5 Nov 2026). From the template we take the body and the logic script, inline the
 static SVGs as data URIs, and register the photography as `photo_*` resources at contact-sheet size.
 
 Rules learnt the hard way:
@@ -19,6 +21,24 @@ Rules learnt the hard way:
   * always look at the rendered frames; the standalone boot path logs one benign SyntaxError.
 """
 import base64, io, json, os, re, subprocess, sys, tempfile, pathlib
+import os
+
+def find_chrome():
+    """A Chromium-family browser on this machine, or None. PATH first, then the usual install spots."""
+    import shutil
+    for name in ('google-chrome', 'google-chrome-stable', 'chromium', 'chromium-browser', 'chrome', 'msedge', 'microsoft-edge'):
+        p = shutil.which(name)
+        if p: return p
+    for p in ('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+              '/Applications/Chromium.app/Contents/MacOS/Chromium',
+              '/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge',
+              os.path.expandvars(r'%ProgramFiles%\Google\Chrome\Application\chrome.exe'),
+              os.path.expandvars(r'%ProgramFiles(x86)%\Google\Chrome\Application\chrome.exe'),
+              os.path.expandvars(r'%LOCALAPPDATA%\Google\Chrome\Application\chrome.exe'),
+              os.path.expandvars(r'%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe')):
+        if p and os.path.exists(p): return p
+    return None
+
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 SRC = ROOT / 'templates/brand-tour/BrandTour.dc.html'
 OUT = ROOT / 'Hoffman Brand Tour.html'
@@ -43,7 +63,7 @@ def parts(s):
     return s[:a], s[a:b], s[b:x], s[x:y], s[y:]
 
 def export():
-    src, don = SRC.read_text(), OUT.read_text()
+    src, don = SRC.read_text(encoding='utf-8'), OUT.read_text(encoding='utf-8')
     _, body, _, script, _ = parts(src); head, _, mid, _, tail = parts(don)
     n_sections = len(re.findall(r'<section data-idx="\d+"', body))
     # head: the template's own <style> block is the truth (new keyframes, rules); only the @font-face
@@ -74,16 +94,17 @@ def export():
     out = head + body + mid + script + tail
     bad = re.findall(r'style="[^"]*url\(data:', out)
     assert not bad, 'a data URI landed inside a literal style attribute — bind that style as an object instead'
-    OUT.write_text(out)
+    OUT.write_text(out, encoding='utf-8')
     print(f'exported {OUT.name}: {n_sections} sections · {len(photos)} photographs · {len(icons)} dock icons · {len(out)/1e6:.2f} MB')
 
 def verify(screens=(1, 17, 18)):
-    chrome = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
-    s = OUT.read_text(); tmp = pathlib.Path(tempfile.mkdtemp(prefix='brand-tour-'))
+    chrome = find_chrome()
+    if not chrome: print('verify skipped: no Chrome, Chromium or Edge found on this machine'); return
+    s = OUT.read_text(encoding='utf-8'); tmp = pathlib.Path(tempfile.mkdtemp(prefix='brand-tour-'))
     for n in screens:
-        f = tmp / f's{n}.html'; f.write_text(s.replace("screen: 0, clock: ''", f"screen: {n}, clock: ''", 1))
+        f = tmp / f's{n}.html'; f.write_text(s.replace("screen: 0, clock: ''", f"screen: {n}, clock: ''", 1), encoding='utf-8')
         r = subprocess.run([chrome, '--headless', '--disable-gpu', '--window-size=1600,900', '--virtual-time-budget=20000',
-                            '--enable-logging=stderr', '--v=0', f'--screenshot={tmp}/s{n}.png', f'file://{f}'], capture_output=True, text=True)
+                            '--enable-logging=stderr', '--v=0', f'--screenshot={tmp}/s{n}.png', f.as_uri()], capture_output=True, text=True)
         errs = [l for l in r.stderr.splitlines() if 'CONSOLE' in l and not any(k in l for k in ('never resolved', 'Unexpected token', 'Access to fetch'))]  # the three benign file:// lines
         print(f'  screen {n:>2}: {"ok" if (tmp / f"s{n}.png").exists() else "NO FRAME"}' + (f' · {len(errs)} console line(s)' if errs else ''))
     print(f'  frames in {tmp} — look at them before shipping')

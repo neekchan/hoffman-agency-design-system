@@ -1,0 +1,8 @@
+# Python is only needed for the three helper scripts below; the design system itself is HTML, CSS,
+# fonts and assets and needs nothing installed. Browser checks (tools/title_check.js, tools/tile_count.js)
+# run in any browser with no install.
+#   python3 -m pip install -r tools/requirements.txt        (`py -m pip` on Windows)
+#   python3 -m playwright install chromium                 (title_check.py only)
+playwright>=1.45      # tools/title_check.py — the CI runner for the title check
+pillow>=10            # templates/brand-tour/export_standalone.py, assets/readme/build-hero.py
+fonttools>=4.50       # assets/readme/build-hero.py

@@ -35,8 +35,8 @@ try { (() => {
    API:  window.FluentEmoji = { map, resolve, url(name,variant), names() }
    ========================================================================== */
 (function () {
-  var CDN_STATIC = 'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets';
-  var CDN_ANIM = 'https://cdn.jsdelivr.net/gh/Tarikul-Islam-Anik/Animated-Fluent-Emojis@master/Emojis';
+  var CDN_STATIC = 'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@62ecdc0d7ca5c6df32148c169556bc8d3782fca4/assets';
+  var CDN_ANIM = 'https://cdn.jsdelivr.net/gh/Tarikul-Islam-Anik/Animated-Fluent-Emojis@55e1dceff489121c3f7c7a7ec4f4d401d2cbd53e/Emojis';
   var thisScript = document.currentScript;
   var LOCAL = thisScript && thisScript.dataset ? thisScript.dataset.base || null : null;
 
@@ -3199,28 +3199,28 @@ function CaseStudyGrid() {
     headline: 'From stealth to front page in six weeks.',
     stat: '38 tier-1 placements',
     accent: 'var(--tha-violet)',
-    img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80'
+    img: '../../assets/photography/team-conversation.jpg'
   }, {
     client: 'Global cloud provider',
     tag: 'Thought leadership',
     headline: 'A CTO who people actually quote.',
     stat: '4.2M audience reach',
     accent: 'var(--tha-aqua)',
-    img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80'
+    img: '../../assets/photography/presenting-to-the-room.jpg'
   }, {
     client: 'Fintech infrastructure',
     tag: 'Category creation',
     headline: 'Named the category. Owned the category.',
     stat: 'Featured in 12 Tier-1s',
     accent: 'var(--tha-teal)',
-    img: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80'
+    img: '../../assets/photography/open-plan-discussion.jpg'
   }, {
     client: 'Developer platform',
     tag: 'Community + content',
     headline: 'Turned a docs site into a movement.',
     stat: '92k new signups',
     accent: 'var(--tha-purple)',
-    img: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80'
+    img: '../../assets/photography/product-in-context.jpg'
   }];
   return /*#__PURE__*/React.createElement("section", {
     style: {

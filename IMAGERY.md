@@ -1,4 +1,5 @@
 # IMAGERY — generating, sourcing, and placeholding images
+<!-- The order of the workflow is deliberate: Nicolas Chan would rather see a labelled placeholder than a guessed image. -->
 
 How any agent handles images in a Hoffman artifact. The recurring failure is either skipping images entirely (a text-only slide) or dropping a bare grey box. Both are wrong: on slides, imagery is the **default** (`AGENTS.md Section 3`), and a placeholder is a finished, actionable slot, never an empty rectangle. This file is the decision procedure — run it as part of `INTAKE.md`.
 

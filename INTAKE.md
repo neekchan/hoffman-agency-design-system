@@ -1,4 +1,5 @@
 # INTAKE — ask before you build
+<!-- Step 0, because the first question Nicolas Chan asks is always what and where. -->
 
 Run this short intake **before** applying any surface, layout, or rule. It exists because the number-one cause of off-brand output is an agent guessing the brief instead of confirming it, then rebuilding. Infer what you can safely infer from context; ask only what you genuinely can't. Keep it to a handful of questions, restate a one-line brief, then build.
 

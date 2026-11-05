@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Build assets/readme/hero.svg — the banner at the top of the README — from the system's own assets.
 
-    /Library/Frameworks/Python.framework/Versions/3.14/bin/python3 assets/readme/build-hero.py
+    python3 assets/readme/build-hero.py          (any Python 3; `py` on Windows)
 
-Needs fontTools + Pillow; Google Chrome for the row of tour frames (skipped with a warning if absent).
+Needs fontTools + Pillow (`python3 -m pip install -r tools/requirements.txt`); a Chromium-family browser
+for the row of tour frames (found on PATH or in the usual install spots, skipped with a warning if absent).
 All type is OUTLINED from the real Poppins / Libre Baskerville files, so GitHub — which renders README
 SVGs as <img> with no fonts and no external resources — shows exactly this. Photographs, emoji and the
 tour frames ride along as data URIs; the logo, squiggle, annotations and Flat icons are inlined.
@@ -19,6 +20,23 @@ from fontTools.ttLib import TTFont
 from fontTools.pens.svgPathPen import SVGPathPen
 from PIL import Image
 ROOT = pathlib.Path(__file__).resolve().parents[2]
+
+def find_chrome():
+    """A Chromium-family browser on this machine, or None. PATH first, then the usual install spots."""
+    import shutil
+    for name in ('google-chrome', 'google-chrome-stable', 'chromium', 'chromium-browser', 'chrome', 'msedge', 'microsoft-edge'):
+        p = shutil.which(name)
+        if p: return p
+    for p in ('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+              '/Applications/Chromium.app/Contents/MacOS/Chromium',
+              '/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge',
+              os.path.expandvars(r'%ProgramFiles%\Google\Chrome\Application\chrome.exe'),
+              os.path.expandvars(r'%ProgramFiles(x86)%\Google\Chrome\Application\chrome.exe'),
+              os.path.expandvars(r'%LOCALAPPDATA%\Google\Chrome\Application\chrome.exe'),
+              os.path.expandvars(r'%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe')):
+        if p and os.path.exists(p): return p
+    return None
+
 W, H = 1600, 1000
 NAVY, NAVY9, NAVY8, N200, N300, N500, LIME, AQUA, VIOLET, PURPLE, TEAL, PAPER = '#182D43', '#0E1C2B', '#12253A', '#C8D2DD', '#95A8BD', '#35526F', '#D2EB00', '#86FFF1', '#CB65FF', '#6103B9', '#145F7B', '#FAFAF7'
 MONO = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
@@ -48,7 +66,7 @@ def frame_b64(path, w=528, q=60):
     im = Image.open(path).convert('RGB'); im = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS); b = io.BytesIO()
     im.save(b, 'JPEG', quality=q, optimize=True, progressive=True); return 'data:image/jpeg;base64,' + base64.b64encode(b.getvalue()).decode()
 def embed_svg(path, x, y, w, h, key, fill=None, aspect='xMidYMid meet'):
-    s = pathlib.Path(path).read_text(); s = re.sub(r'<\?xml[^>]*\?>', '', s).strip()
+    s = pathlib.Path(path).read_text(encoding='utf-8'); s = re.sub(r'<\?xml[^>]*\?>', '', s).strip()
     s = re.sub(r'\bid="([^"]+)"', lambda m: f'id="{key}_{m.group(1)}"', s)
     s = re.sub(r'url\(#([^)]+)\)', lambda m: f'url(#{key}_{m.group(1)})', s); s = re.sub(r'href="#([^"]+)"', lambda m: f'href="#{key}_{m.group(1)}"', s)
     if fill:  # recolour the whole mark: drop its own styling (annotations use currentColor), paint from the root
@@ -59,12 +77,12 @@ def embed_svg(path, x, y, w, h, key, fill=None, aspect='xMidYMid meet'):
     return tag.replace('<svg', f'<svg x="{x}" y="{y}" width="{w}" height="{h}" preserveAspectRatio="{aspect}"', 1) + s[m.end():]
 def count(folder, ext): return sum(1 for f in os.listdir(ROOT / folder) if f.endswith(ext))
 def render_frames(screens):
-    chrome = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'; std = ROOT / 'Hoffman Brand Tour.html'
-    if not (os.path.exists(chrome) and std.exists()): print('warning: Chrome or the standalone missing — tour band skipped'); return {}
-    s = std.read_text(); tmp = pathlib.Path(tempfile.mkdtemp(prefix='hero-frames-')); out = {}
+    chrome = find_chrome(); std = ROOT / 'Hoffman Brand Tour.html'
+    if not (chrome and std.exists()): print('warning: Chrome or the standalone missing — tour band skipped'); return {}
+    s = std.read_text(encoding='utf-8'); tmp = pathlib.Path(tempfile.mkdtemp(prefix='hero-frames-')); out = {}
     for n in screens:
-        f = tmp / f'f{n}.html'; f.write_text(s.replace("screen: 0, clock: ''", f"screen: {n}, clock: ''", 1))
-        subprocess.run([chrome, '--headless', '--disable-gpu', '--window-size=1920,1080', '--virtual-time-budget=14000', f'--screenshot={tmp}/f{n}.png', f'file://{f}'], capture_output=True)
+        f = tmp / f'f{n}.html'; f.write_text(s.replace("screen: 0, clock: ''", f"screen: {n}, clock: ''", 1), encoding='utf-8')
+        subprocess.run([chrome, '--headless', '--disable-gpu', '--window-size=1920,1080', '--virtual-time-budget=14000', f'--screenshot={tmp}/f{n}.png', f.as_uri()], capture_output=True)
         if (tmp / f'f{n}.png').exists(): out[n] = tmp / f'f{n}.png'
     return out
 def mono(x, y, text, size, fill, anchor='start', spacing=1.4, weight=700):
@@ -72,8 +90,8 @@ def mono(x, y, text, size, fill, anchor='start', spacing=1.4, weight=700):
 
 photos = count('assets/photography', '.jpg') + sum(count(f'assets/photography/{d}', '.jpg') for d in ('cities', 'moments', 'still-life', 'storyteller'))
 cities, illos, emoji, icons, marks = count('assets/photography/cities', '.jpg'), count('assets/house-style/examples', '.jpg'), count('assets/emoji/3d', '.png'), count('assets/icons', '.svg'), count('assets/annotations', '.svg')
-layouts = re.search(r'(\d+) slide layouts', (ROOT / 'README.md').read_text()).group(1)
-screens = len(re.findall(r'<section data-idx="\d+"', (ROOT / 'templates/brand-tour/BrandTour.dc.html').read_text()))
+layouts = re.search(r'(\d+) slide layouts', (ROOT / 'README.md').read_text(encoding='utf-8')).group(1)
+screens = len(re.findall(r'<section data-idx="\d+"', (ROOT / 'templates/brand-tour/BrandTour.dc.html').read_text(encoding='utf-8')))
 TOUR = [(1, 'HOME'), (5, 'SOUNDCHECK'), (17, 'THE LIBRARY'), (18, 'SIXTEEN OFFICES')]
 frames = render_frames([n for n, _ in TOUR])
 
@@ -119,5 +137,5 @@ x = tx(8); o.append(f'<image x="{x}" y="{TY}" width="{T}" height="{T}" href="{sq
 for i, cap in enumerate(['7 COLOURS', 'TWO FACES', f'{emoji} EMOJI', f'{photos} PHOTOS', f'{illos} DRAWINGS', f'{icons:,} ICONS', f'{layouts} LAYOUTS', f'{marks} MARKS', f'{cities} OFFICES']):
     o.append(mono(tx(i) + T / 2, TY + T + 26, cap, 13, N300, anchor='middle'))
 o.append('</svg>')
-out = '\n'.join(o); (ROOT / 'assets/readme/hero.svg').write_text(out)
+out = '\n'.join(o); (ROOT / 'assets/readme/hero.svg').write_text(out, encoding='utf-8')
 print(f'hero.svg: {len(out) / 1024:.0f} KB · frames {len(frames)}/4 · {photos} photos · {illos} illustrations · {emoji} emoji · {icons} icons · {marks} marks · {cities} offices · {layouts} layouts · {screens} screens')

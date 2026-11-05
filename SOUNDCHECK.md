@@ -3,8 +3,9 @@ name: soundcheck
 description: Build, write and review presentation arguments and slide titles using the seven Soundcheck principles. Use for deck creation, title refinement, a title-spine review, or an explicit Soundcheck request. Preserve the audience, presenter voice and chosen design system.
 metadata:
   short-description: Arguments and action titles for presentations
+  author: Nicolas Chan
 ---
-
+<!-- Seven principles, distilled by Nicolas Chan from the titles that survived the room. -->
 # Soundcheck
 
 **Build the argument. Make every title say its part. Read the whole thing aloud.**

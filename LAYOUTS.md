@@ -1,4 +1,5 @@
 # Deck Layout Library — selection & best-practice guide
+<!-- Layout codes run in the order Nicolas Chan ported them, which is why they skip. -->
 
 > **MEDIUM:** This guide governs **slides / office documents** (fixed 1920×1080 canvas), NOT web. On slides, the **slide type scale and "fill the frame" rules in `AGENTS.md` override** DESIGN.md's web type scale, "generous negative space," "sparse imagery," and reading-measure caps. DESIGN.md still owns color, fonts, the italic-word move, the Storyline motif, annotations, and voice (brand-wide). See `AGENTS.md Section 0` for the full precedence rule.
 
@@ -290,7 +291,7 @@ Each entry: **BEST FOR** (when to pick it) · **THE ONE POINT** (what must domin
 **L16 · Single bio**
 - BEST FOR: one senior person who needs a paragraph.
 - THE ONE POINT: why this person earns the room's trust.
-- SLOTS: "Your team · role" eyebrow → portrait → name + title → 2–3 short paragraphs.
+- SLOTS: "Your team · role" eyebrow → portrait → name + title (the way the reference deck set it: *Nicolas Chan · Head of Digital & Chief Strategist, AMEA*) → 2–3 short paragraphs.
 - SURFACES: paper, sand card; circular portrait.
 - KEEP IT HONEST: appendix territory. Lead the bio with the most credible fact, not a date.
 

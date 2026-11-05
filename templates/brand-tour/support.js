@@ -1,4 +1,6 @@
 // GENERATED from dc-runtime/src/*.ts — do not edit. Rebuild with `cd dc-runtime && bun run build`.
+// dc-runtime is not in this repository: this file is a frozen artifact. One documented mechanical repair
+// is applied on top (search LOCAL_VENDOR): React, ReactDOM and Babel load from <repo>/vendor/ first.
 "use strict";
 (() => {
   var __defProp = Object.defineProperty;
@@ -1057,7 +1059,7 @@
     function ensureBabel() {
       if (window.Babel) return Promise.resolve();
       if (babelLoading) return babelLoading;
-      babelLoading = new Promise((res, rej) => {
+      const viaCdn = () => new Promise((res, rej) => {
         const s = document.createElement("script");
         s.src = BABEL_URL;
         s.integrity = BABEL_SRI;
@@ -1066,6 +1068,16 @@
         s.onerror = rej;
         document.head.appendChild(s);
       });
+      // Mechanical repair (Hoffman DS v2.26.2): the vendored copy first, the pinned CDN second.
+      babelLoading = (typeof LOCAL_VENDOR === "string" && LOCAL_VENDOR)
+        ? new Promise((res, rej) => {
+            const s = document.createElement("script");
+            s.src = LOCAL_VENDOR + "babel.min.js";
+            s.onload = () => res();
+            s.onerror = () => { s.remove(); rej(new Error("no vendored babel")); };
+            document.head.appendChild(s);
+          }).catch(viaCdn)
+        : viaCdn();
       return babelLoading;
     }
     const pending = /* @__PURE__ */ new Map();
@@ -1574,26 +1586,39 @@
     s.textContent = "x-dc{display:none!important}";
     document.head.appendChild(s);
   }
+  // Mechanical repair, not from dc-runtime (Hoffman DS v2.26.2): prefer the vendored copies in
+  // <repo>/vendor/ so a template renders with no network; fall back to the pinned CDN build when
+  // they are not beside the page (a standalone export mailed on its own).
+  var LOCAL_VENDOR = (function () {
+    try {
+      var cs = document.currentScript;
+      return (cs && cs.src ? new URL("../../vendor/", cs.src) : new URL("vendor/", location.href)).href;
+    } catch (e) { return null; }
+  })();
   function loadScript(src, integrity) {
     return new Promise((resolve2, reject) => {
       //! nosemgrep: create-script-element
       const s = document.createElement("script");
       s.src = src;
-      s.integrity = integrity;
-      s.crossOrigin = "anonymous";
+      if (integrity) { s.integrity = integrity; s.crossOrigin = "anonymous"; }
       s.async = false;
       s.onload = () => resolve2();
-      s.onerror = () => reject(new Error(`failed to load ${src}`));
+      s.onerror = () => { s.remove(); reject(new Error(`failed to load ${src}`)); };
       document.head.appendChild(s);
     });
   }
   function loadReactUmd() {
     const w = window;
     if (w.React && w.ReactDOM) return Promise.resolve();
-    return Promise.all([
+    const cdn = () => Promise.all([
       loadScript(REACT_URL, REACT_SRI),
       loadScript(REACT_DOM_URL, REACT_DOM_SRI)
     ]).then(() => void 0);
+    if (!LOCAL_VENDOR) return cdn();
+    return loadScript(LOCAL_VENDOR + "react.production.min.js")
+      .then(() => loadScript(LOCAL_VENDOR + "react-dom.production.min.js"))
+      .then(() => void 0)
+      .catch(() => { delete w.React; delete w.ReactDOM; return cdn(); });
   }
   function init() {
     const runtime = createRuntime(document);

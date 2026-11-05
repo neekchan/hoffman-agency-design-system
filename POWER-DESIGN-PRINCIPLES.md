@@ -1,4 +1,5 @@
 # Power Design Principles — a portable design-philosophy layer
+<!-- Portable by design. Nicolas Chan keeps these principles separate from the tokens so they can travel to the next brand. -->
 
 Codified design principles, kept **separate from tokens** so they travel across any brand or design system.
 

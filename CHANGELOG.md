@@ -1,4 +1,5 @@
 # Changelog
+<!-- Kept by hand by Nicolas Chan. Every entry says who asked and why, because a rule without its reason gets deleted. -->
 
 Everything that's changed in the Hoffman design system, newest first. The system
 really lives in the Claude Design project
@@ -22,6 +23,35 @@ really lives in the Claude Design project
 > Then bump `package.json` and the **Version** line at the top of `README.md` to match.
 > If one rule landed in several files, list every file. Versioning rules:
 > `CONTRIBUTING.md` → Versioning.
+
+## 2026-11-05 — The system renders and checks with nothing installed (v2.26.1 → v2.26.2)
+
+Nic, 5 November 2026: the v2.26.0 render check could not run `title_check.py` because this Mac has no Playwright, and whoever clones the repo next will not have it either. Make the check portable, then audit the whole system for anything else that needs an install, a network or one person's machine, and fix it before the handover.
+
+### Renders offline — `vendor/` (new), `templates/*/support.js`, `Hoffman Brand Tour.html`, `ui_kits/*/index.html`
+- React 18.3.1, ReactDOM 18.3.1 and Babel standalone 7.29.0 are vendored in `vendor/` (hashes match the pinned SRI values, `vendor/README.md`). Every template loader and both UI-kit pages try the local copy first and the pinned unpkg build second, so a clone renders with no network; a page copied out on its own still works online. Recorded in each `support.js` header as the one mechanical repair on a frozen file.
+- The four hotlinked Unsplash photos in `CaseStudyGrid.jsx` and `_ds_bundle.js` are replaced with the system's own photography. The bundle's inlined emoji runtime is re-pinned to the same commits as `assets/emoji/fluent-emoji.js` (it pointed at `@main`/`@master`).
+- `BrandTour.dc.html` now loads `ds-base.js` as its comment always claimed; the one-pager drops a duplicate Google Fonts link; the UI-kit pages drop their Google Fonts preconnects.
+- In the standalone `Hoffman Brand Tour.html`, the inlined emoji runtime is moved out of `<x-dc>` into the head and refreshed to the current `assets/emoji/fluent-emoji.js`. Inside the template body the dc-runtime rewrote its identifiers (`thisScript` became `sc-camel-this-script`) and the page threw a SyntaxError on load, in every export since the first one. The exporter's docstring records the rule. **Known issue, not fixed:** the standalone still renders a slice of the dc-runtime source as visible text in the first screen (present since the first export at v2.18.1, in every browser, over `file://` and `http://`); the template `templates/brand-tour/BrandTour.dc.html` renders correctly and is the file to use until the export is rebuilt.
+
+### Helper scripts run on any machine — `templates/brand-tour/export_standalone.py`, `assets/readme/build-hero.py`, `tools/title_check.py`, `tools/requirements.txt`
+- Chrome or Edge is found on PATH or in the usual Mac and Windows install spots instead of one hard-coded Mac path; `file://` URLs are built with `as_uri()`; every read and write is UTF-8; the run lines say `python3` (or `py` on Windows) instead of one machine's interpreter. `requirements.txt` lists Pillow and fontTools alongside Playwright and says which script needs which.
+- `.impeccable/` joins `.gitignore` (it held one machine's cache paths).
+
+### Said plainly in the docs — `README.md`, `CONTRIBUTING.md`, `AGENTS.md`, `HANDOVER.md`
+- There is no compiler after the handover: `_ds_bundle.js`, `_ds_manifest.json`, `_adherence.oxlintrc.json` and `support.js` are frozen artifacts with their sources in the repo. `references/`, `source-decks/` and `uploads/` are marked master-only in the README file map. `HANDOVER.md` gains "What runs where".
+
+### Fingerprints — every `.md`
+- One author note per markdown file as an HTML comment under the title (invisible on GitHub, found by search), `author: Nicolas Chan` in the three frontmatters, and his name and role in two worked examples (the filled delivery-report line, the L16 bio slot).
+
+### `tools/title_check.js` (new), `tools/title_check.py`, `tools/requirements.txt` (new)
+- The check now lives in a browser script on the `tile_count.js` pattern: paste into any browser's console and run `titleCheck()`, or load with `data-auto` under headless Chrome and read `<pre id="title-check-out">`. No Python, no install. It measures every slide, shown or hidden, and reports fallback fonts so a wrong-font render cannot pass.
+- `title_check.py` becomes the CI runner: it loads the same `.js` (one source), fails on self-wraps and on fallback fonts, and when Playwright is missing prints the install line and the no-install alternative instead of a traceback. The pin is in `tools/requirements.txt`.
+
+### Pointers — `AGENTS.md` Section 2.5, `CHECKLIST.md`, `README.md`, `POWERPOINT.md`, `HANDOVER.md`
+- Every reference names the browser script first and the Python runner as the CI option.
+
+Patch: tooling and documentation; no rule changes.
 
 ## 2026-11-03 — A handover note for whoever takes the repository on (v2.26.0 → v2.26.1)
 

@@ -11,7 +11,8 @@
  *      it writes JSON into <pre id="tile-count-out"> once fonts settle, so
  *        "Google Chrome" --headless=new --allow-file-access-from-files --virtual-time-budget=8000 \
  *          --dump-dom file:///path/to/page.html
- *      prints the result inside the dumped DOM.
+ *      prints the result inside the dumped DOM. On Windows the same line with chrome.exe's full path,
+ *      ^ as the line continuation and `| findstr tile-count-out` to pick the result out.
  *
  * What it counts as a tile: section[data-screen-label] (the social-tile template) or [data-tile].
  * What it treats as chrome (excluded from words and elements, still counted as ink and sizes):
